@@ -1,0 +1,96 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: structure/randomized-binary-search-tree-set.cpp</h1>
+<ul>
+<li>category: structure</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; class T &gt;
+struct OrderedMultiSet : RandomizedBinarySearchTree&lt; T &gt;
+{
+  using RBST = RandomizedBinarySearchTree&lt; T &gt;;
+  using Node = typename RBST::Node;
+
+  OrderedMultiSet(int sz) : RBST(sz, [&amp;](T x, T y) { return x; }, T()) {}
+
+  T kth_element(Node *t, int k)
+  {
+    if(k &lt; RBST::count(t-&gt;l)) return kth_element(t-&gt;l, k);
+    if(k == RBST::count(t-&gt;l)) return t-&gt;key;
+    return kth_element(t-&gt;r, k - RBST::count(t-&gt;l) - 1);
+  }
+
+  virtual void insert_key(Node *&amp;t, const T &amp;x)
+  {
+    RBST::insert(t, lower_bound(t, x), x);
+  }
+
+  void erase_key(Node *&amp;t, const T &amp;x)
+  {
+    if(!count(t, x)) return;
+    RBST::erase(t, lower_bound(t, x));
+  }
+
+  int count(Node *t, const T &amp;x)
+  {
+    return upper_bound(t, x) - lower_bound(t, x);
+  }
+
+  int lower_bound(Node *t, const T &amp;x)
+  {
+    if(!t) return 0;
+    if(x &lt;= t-&gt;key) return lower_bound(t-&gt;l, x);
+    return lower_bound(t-&gt;r, x) + RBST::count(t-&gt;l) + 1;
+  }
+
+  int upper_bound(Node *t, const T &amp;x)
+  {
+    if(!t) return 0;
+    if(x &lt; t-&gt;key) return upper_bound(t-&gt;l, x);
+    return upper_bound(t-&gt;r, x) + RBST::count(t-&gt;l) + 1;
+  }
+};
+template&lt; class T &gt;
+struct OrderedSet : OrderedMultiSet&lt; T &gt;
+{
+  using SET = OrderedMultiSet&lt; T &gt;;
+  using RBST = typename SET::RBST;
+  using Node = typename RBST::Node;
+
+  OrderedSet(int sz) : OrderedMultiSet&lt; T &gt;(sz) {}
+
+  void insert_key(Node *&amp;t, const T &amp;x) override
+  {
+    if(SET::count(t, x)) return;
+    RBST::insert(t, SET::lower_bound(t, x), x);
+  }
+};
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

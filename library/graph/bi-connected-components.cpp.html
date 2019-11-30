@@ -1,0 +1,78 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: graph/bi-connected-components.cpp</h1>
+<ul>
+<li>category: graph</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; typename G &gt;
+struct BiConnectedComponents : LowLink&lt; G &gt; {
+  using LL = LowLink&lt; G &gt;;
+
+  vector&lt; int &gt; used;
+  vector&lt; vector&lt; pair&lt; int, int &gt; &gt; &gt; bc;
+  vector&lt; pair&lt; int, int &gt; &gt; tmp;
+
+  BiConnectedComponents(const G &amp;g) : LL(g) {}
+
+  void dfs(int idx, int par) {
+    used[idx] = true;
+    for(auto &amp;to : this-&gt;g[idx]) {
+      if(to == par) continue;
+      if(!used[to] || this-&gt;ord[to] &lt; this-&gt;ord[idx]) {
+        tmp.emplace_back(minmax(idx, to));
+      }
+      if(!used[to]) {
+        dfs(to, idx);
+        if(this-&gt;low[to] &gt;= this-&gt;ord[idx]) {
+          bc.emplace_back();
+          for(;;) {
+            auto e = tmp.back();
+            bc.back().emplace_back(e);
+            tmp.pop_back();
+            if(e.first == min(idx, to) &amp;&amp; e.second == max(idx, to)) {
+              break;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  void build() override {
+    LL::build();
+    used.assign(this-&gt;g.size(), 0);
+    for(int i = 0; i &lt; used.size(); i++) {
+      if(!used[i]) dfs(i, -1);
+    }
+  }
+};
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

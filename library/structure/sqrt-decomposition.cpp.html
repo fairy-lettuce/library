@@ -1,0 +1,190 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: structure/sqrt-decomposition.cpp</h1>
+<ul>
+<li>category: structure</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; typename T, typename E = int &gt;
+struct SqrtDecomposition {
+
+  vector&lt; E &gt; block_add, elem_add;
+  vector&lt; int &gt; block_pos;
+  vector&lt; T &gt; data, lsum;
+  vector&lt; vector&lt; T &gt; &gt; sum;
+  int N, B, K;
+  E L;
+
+  SqrtDecomposition(int N, E L = 0) : N(N), L(L) { // find the sum of L or more in the interval
+    B = (int) sqrt(N);
+    K = (N + B - 1) / B;
+
+    block_add.assign(K, 0);
+    block_pos.resize(N);
+    for(int k = 0; k &lt; K; k++) {
+      for(int i = k * B; i &lt; min((k + 1) * B, N); i++) block_pos[i] = k;
+    }
+    elem_add.assign(N, 0);
+    data.assign(N, 0);
+    sum.assign(K, vector&lt; T &gt;(B, 0));
+    lsum.assign(K, 0);
+  }
+
+
+  void build(const vector&lt; E &gt; &amp;add, const vector&lt; T &gt; &amp;dat) {
+    assert(add.size() == elem_add.size());
+    assert(dat.size() == data.size());
+    elem_add = add;
+    data = dat;
+    for(int k = 0; k &lt; K; k++) {
+      E tap = elem_add[k * B];
+      for(int i = k * B; i &lt; min((k + 1) * B, N); i++) tap = min(tap, elem_add[i]);
+      block_add[k] = tap;
+      for(int i = k * B; i &lt; min((k + 1) * B, N); i++) {
+        elem_add[i] -= block_add[k];
+        set(i, dat[i]);
+      }
+    }
+  }
+
+  inline void del(int k) {
+    sum[block_pos[k]][elem_add[k]] -= data[k];
+    if(block_add[block_pos[k]] + elem_add[k] &gt;= L) lsum[block_pos[k]] -= data[k];
+  }
+
+  inline void set(int k) {
+    while(sum[block_pos[k]].size() &lt;= elem_add[k]) sum[block_pos[k]].push_back(0);
+    sum[block_pos[k]][elem_add[k]] += data[k];
+    if(block_add[block_pos[k]] + elem_add[k] &gt;= L) lsum[block_pos[k]] += data[k];
+  }
+
+  void set(int k, T x) {
+    data[k] = x;
+    set(k);
+  }
+
+  void add(int a, int b) {
+    for(int k = 0; k &lt; K; k++) {
+      int l = k * B;
+      int r = min(l + B, N);
+
+      if(r &lt;= a || b &lt;= l) {
+
+      } else if(a &lt;= l &amp;&amp; r &lt;= b) {
+        block_add[k]++;
+        if(0 &lt;= L - block_add[k] &amp;&amp; L - block_add[k] &lt; sum[k].size()) {
+          lsum[k] += sum[k][L - block_add[k]];
+        }
+      } else {
+        for(int i = max(a, l); i &lt; min(b, r); i++) {
+          del(i);
+          elem_add[i]++;
+          set(i);
+        }
+      }
+    }
+  }
+
+
+  void sub(int a, int b) {
+    for(int k = 0; k &lt; K; k++) {
+      int l = k * B;
+      int r = min(l + B, N);
+
+      if(r &lt;= a || b &lt;= l) {
+
+      } else if(a &lt;= l &amp;&amp; r &lt;= b) {
+        if(0 &lt;= L - block_add[k] &amp;&amp; L - block_add[k] &lt; sum[k].size()) {
+          lsum[k] -= sum[k][L - block_add[k]];
+        }
+        block_add[k]--;
+      } else {
+        if(0 &lt;= L - block_add[k] &amp;&amp; L - block_add[k] &lt; sum[k].size()) {
+          lsum[k] -= sum[k][L - block_add[k]];
+        }
+        block_add[k]--;
+        for(int i = l; i &lt; max(a, l); i++) {
+          del(i);
+          elem_add[i]++;
+          set(i);
+        }
+        for(int i = min(b, r); i &lt; r; i++) {
+          del(i);
+          elem_add[i]++;
+          set(i);
+        }
+      }
+    }
+  }
+
+
+  T query(int a, int b, E x) {
+    T ret = 0;
+    for(int k = 0; k &lt; K; k++) {
+      int l = k * B;
+      int r = min(l + B, N);
+
+      if(r &lt;= a || b &lt;= l) {
+
+      } else if(a &lt;= l &amp;&amp; r &lt;= b) {
+        if(0 &lt;= x - block_add[k] &amp;&amp; x - block_add[k] &lt; sum[k].size()) {
+          ret += sum[k][x - block_add[k]];
+        }
+      } else {
+        for(int i = max(a, l); i &lt; min(b, r); i++) {
+          if(block_add[k] + elem_add[i] == x) ret += data[i];
+        }
+      }
+    }
+    return ret;
+  }
+
+
+  T query_low(int a, int b) {
+    T ret = 0;
+    for(int k = 0; k &lt; K; k++) {
+      int l = k * B;
+      int r = min(l + B, N);
+
+      if(r &lt;= a || b &lt;= l) {
+
+      } else if(a &lt;= l &amp;&amp; r &lt;= b) {
+        ret += lsum[k];
+      } else {
+        for(int i = max(a, l); i &lt; min(b, r); i++) {
+          if(block_add[k] + elem_add[i] &gt;= L) ret += data[i];
+        }
+      }
+    }
+    return ret;
+  }
+};
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

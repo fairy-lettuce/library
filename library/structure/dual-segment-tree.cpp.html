@@ -1,0 +1,80 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: structure/dual-segment-tree.cpp</h1>
+<ul>
+<li>category: structure</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; typename OperatorMonoid &gt;
+struct DualSegmentTree {
+  using H = function&lt; OperatorMonoid(OperatorMonoid, OperatorMonoid) &gt;;
+
+  int sz, height;
+  vector&lt; OperatorMonoid &gt; lazy;
+  const H h;
+  const OperatorMonoid OM0;
+
+
+  DualSegmentTree(int n, const H h, const OperatorMonoid OM0)
+      : h(h), OM0(OM0) {
+    sz = 1;
+    height = 0;
+    while(sz &lt; n) sz &lt;&lt;= 1, height++;
+    lazy.assign(2 * sz, OM0);
+  }
+
+  inline void propagate(int k) {
+    if(lazy[k] != OM0) {
+      lazy[2 * k + 0] = h(lazy[2 * k + 0], lazy[k]);
+      lazy[2 * k + 1] = h(lazy[2 * k + 1], lazy[k]);
+      lazy[k] = OM0;
+    }
+  }
+
+  inline void thrust(int k) {
+    for(int i = height; i &gt; 0; i--) propagate(k &gt;&gt; i);
+  }
+
+  void update(int a, int b, const OperatorMonoid &amp;x) {
+    thrust(a += sz);
+    thrust(b += sz - 1);
+    for(int l = a, r = b + 1; l &lt; r; l &gt;&gt;= 1, r &gt;&gt;= 1) {
+      if(l &amp; 1) lazy[l] = h(lazy[l], x), ++l;
+      if(r &amp; 1) --r, lazy[r] = h(lazy[r], x);
+    }
+  }
+
+  OperatorMonoid operator[](int k) {
+    thrust(k += sz);
+    return lazy[k];
+  }
+};
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

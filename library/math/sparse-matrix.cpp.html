@@ -1,0 +1,97 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: math/sparse-matrix.cpp</h1>
+<ul>
+<li>category: math</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; typename T &gt;
+using FPSGraph = vector&lt; vector&lt; pair&lt; int, T &gt; &gt; &gt;;
+
+template&lt; typename T &gt;
+FormalPowerSeries&lt; T &gt; random_poly(int n) {
+  mt19937 mt(1333333);
+  FormalPowerSeries&lt; T &gt; res(n);
+  uniform_int_distribution&lt; int &gt; rand(0, T::get_mod() - 1);
+  for(int i = 0; i &lt; n; i++) res[i] = rand(mt);
+  return res;
+}
+
+template&lt; typename T &gt;
+FormalPowerSeries&lt; T &gt; next_poly(const FormalPowerSeries&lt; T &gt; &amp;dp, const FPSGraph&lt; T &gt; &amp;g) {
+  const int N = (int) dp.size();
+  FormalPowerSeries&lt; T &gt; nxt(N);
+  for(int i = 0; i &lt; N; i++) {
+    for(auto &amp;p : g[i]) nxt[p.first] += p.second * dp[i];
+  }
+  return nxt;
+}
+
+template&lt; typename T &gt;
+FormalPowerSeries&lt; T &gt; minimum_poly(const FPSGraph&lt; T &gt; &amp;g) {
+  const int N = (int) g.size();
+  auto dp = random_poly&lt; T &gt;(N), u = random_poly&lt; T &gt;(N);
+  FormalPowerSeries&lt; T &gt; f(2 * N);
+  for(int i = 0; i &lt; 2 * N; i++) {
+    for(auto &amp;p : u.dot(dp)) f[i] += p;
+    dp = next_poly(dp, g);
+  }
+  return berlekamp_massey(f);
+}
+
+/* O(N(N+S) + N log N log Q) (O(S): time complexity of nex) */
+template&lt; typename T &gt;
+FormalPowerSeries&lt; T &gt; sparse_pow(int64_t Q, FormalPowerSeries&lt; modint &gt; dp, const FPSGraph&lt; T &gt; &amp;g) {
+  const int N = (int) dp.size();
+  auto A = FormalPowerSeries&lt; T &gt;({0, 1}).pow_mod(Q, minimum_poly(g));
+  FormalPowerSeries&lt; T &gt; res(N);
+  for(int i = 0; i &lt; A.size(); i++) {
+    res += dp * A[i];
+    dp = next_poly(dp, g);
+  }
+  return res;
+}
+
+/* O(N(N+S)) (S: none-zero elements)*/
+template&lt; typename T &gt;
+T sparse_determinant(FPSGraph&lt; T &gt; g) {
+  using FPS = FormalPowerSeries&lt; T &gt;;
+  int N = (int) g.size();
+  auto C = random_poly&lt; T &gt;(N);
+  for(int i = 0; i &lt; N; i++) for(auto &amp;p : g[i]) p.second *= C[i];
+  auto u = minimum_poly(g);
+  T acdet = u[0];
+  if(N % 2 == 0) acdet *= -1;
+  T cdet = 1;
+  for(int i = 0; i &lt; N; i++) cdet *= C[i];
+  return acdet / cdet;
+}
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

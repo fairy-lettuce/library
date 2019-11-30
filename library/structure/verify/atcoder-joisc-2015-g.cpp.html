@@ -1,0 +1,105 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../../assets/css/copy-button.css" /></p>
+<h1>:warning: structure/verify/atcoder-joisc-2015-g.cpp</h1>
+<ul>
+<li>category: structure/verify</li>
+</ul>
+<p><a href="../../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">struct UnionFind {
+  vector&lt; int &gt; data;
+
+  UnionFind(int sz) {
+    data.assign(sz, -1);
+  }
+
+  bool unite(int x, int y) {
+    x = find(x), y = find(y);
+    if(x == y) return (false);
+    if(data[x] &gt; data[y]) swap(x, y);
+    data[x] += data[y];
+    data[y] = x;
+    return (true);
+  }
+
+  int find(int k) {
+    if(data[k] &lt; 0) return (k);
+    return (data[k] = find(data[k]));
+  }
+
+  int size(int k) {
+    return (-data[find(k)]);
+  }
+};
+
+int main() {
+  int N, Q;
+  cin &gt;&gt; N &gt;&gt; Q;
+  auto f = [](int a, int b) { return a + b; };
+  auto g = [](int a, int b, int l) { return 0; };
+  auto h = [](int a, int b) { return (a | b); };
+  auto s = [](int a) { return a; };
+  using LCT=LinkCutTree&lt; int &gt;;
+  LCT lct(f, g, h, s, 0, 0);
+  vector&lt; LCT::Node * &gt; nodev, nodee;
+  for(int i = 0; i &lt; N; i++) {
+    nodev.emplace_back(lct.make_node(i, 0));
+    nodee.emplace_back(lct.make_node(i, 1));
+  }
+  UnionFind uf(N);
+  int cnt = 0;
+  for(int i = 0; i &lt; Q; i++) {
+    int T, A, B;
+    cin &gt;&gt; T &gt;&gt; A &gt;&gt; B;
+    --A, --B;
+    if(T == 1) {
+      if(uf.find(A) != uf.find(B)) {
+        lct.evert(nodev[B]);
+        lct.link(nodee[cnt], nodev[A]);
+        lct.link(nodev[B], nodee[cnt]);
+        uf.unite(A, B);
+        ++cnt;
+      } else {
+        lct.evert(nodev[A]);
+        lct.expose(nodev[B]);
+        lct.set_propagate(nodev[B], 1);
+      }
+    } else {
+      if(uf.find(A) != uf.find(B)) {
+        cout &lt;&lt; -1 &lt;&lt; &quot;\n&quot;;
+      } else {
+        lct.evert(nodev[A]);
+        lct.expose(nodev[B]);
+        cout &lt;&lt; nodev[B]-&gt;sum &lt;&lt; &quot;\n&quot;;
+      }
+    }
+  }
+}
+
+</code></pre>
+
+<p><a href="../../../index.html">Back to top page</a></p>

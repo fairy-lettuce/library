@@ -1,0 +1,66 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../../assets/css/copy-button.css" /></p>
+<h1>:warning: structure/verify/aoj-dsl-1-b.test.cpp</h1>
+<p><a href="../../../index.html">Back to top page</a></p>
+<ul>
+<li>see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B</a></li>
+</ul>
+<h2>Dependencies</h2>
+<ul>
+<li>:warning: <a href="../../../library/structure/weighted-union-find.cpp.html">structure/weighted-union-find.cpp</a></li>
+<li>:warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a></li>
+</ul>
+<h2>Code</h2>
+<pre><code class="cpp">#define PROBLEM &quot;http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B&quot;
+
+#include &quot;../../template/template.cpp&quot;
+
+#include &quot;../weighted-union-find.cpp&quot;
+
+int main() {
+  int N, M;
+  cin &gt;&gt; N &gt;&gt; M;
+  WeightedUnionFind&lt; int &gt; tree(N);
+  while(M--) {
+    int A, B, C, D;
+    cin &gt;&gt; A &gt;&gt; B &gt;&gt; C;
+    if(A == 0) {
+      cin &gt;&gt; D;
+      tree.unite(B, C, D);
+    } else {
+      if(tree.find(B) == tree.find(C)) {
+        cout &lt;&lt; tree.diff(B, C) &lt;&lt; endl;
+      } else {
+        cout &lt;&lt; &quot;?&quot; &lt;&lt; endl;
+      }
+    }
+  }
+}
+
+</code></pre>
+
+<p><a href="../../../index.html">Back to top page</a></p>

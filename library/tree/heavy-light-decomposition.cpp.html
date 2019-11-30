@@ -1,0 +1,115 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: tree/heavy-light-decomposition.cpp</h1>
+<ul>
+<li>category: tree</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Verified</h2>
+<ul>
+<li>:warning: <a href="../../verify/tree/verify/aoj-grl-5-c-2.test.cpp.html">tree/verify/aoj-grl-5-c-2.test.cpp</a></li>
+</ul>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; typename G &gt;
+struct HeavyLightDecomposition {
+  G &amp;g;
+  vector&lt; int &gt; sz, in, out, head, rev, par;
+
+  HeavyLightDecomposition(G &amp;g) :
+      g(g), sz(g.size()), in(g.size()), out(g.size()), head(g.size()), rev(g.size()), par(g.size()) {}
+
+  void dfs_sz(int idx, int p) {
+    par[idx] = p;
+    sz[idx] = 1;
+    if(g[idx].size() &amp;&amp; g[idx][0] == p) swap(g[idx][0], g[idx].back());
+    for(auto &amp;to : g[idx]) {
+      if(to == p) continue;
+      dfs_sz(to, idx);
+      sz[idx] += sz[to];
+      if(sz[g[idx][0]] &lt; sz[to]) swap(g[idx][0], to);
+    }
+  }
+
+  void dfs_hld(int idx, int par, int &amp;times) {
+    in[idx] = times++;
+    rev[in[idx]] = idx;
+    for(auto &amp;to : g[idx]) {
+      if(to == par) continue;
+      head[to] = (g[idx][0] == to ? head[idx] : to);
+      dfs_hld(to, idx, times);
+    }
+    out[idx] = times;
+  }
+
+  void build() {
+    dfs_sz(0, -1);
+    int t = 0;
+    dfs_hld(0, -1, t);
+  }
+
+  int la(int v, int k) {
+    while(1) {
+      int u = head[v];
+      if(in[v] - k &gt;= in[u]) return rev[in[v] - k];
+      k -= in[v] - in[u] + 1;
+      v = par[u];
+    }
+  }
+
+  int lca(int u, int v) {
+    for(;; v = par[head[v]]) {
+      if(in[u] &gt; in[v]) swap(u, v);
+      if(head[u] == head[v]) return u;
+    }
+  }
+
+  template&lt; typename T, typename Q, typename F &gt;
+  T query(int u, int v, const T &amp;ti, const Q &amp;q, const F &amp;f, bool edge = false) {
+    T l = ti, r = ti;
+    for(;; v = par[head[v]]) {
+      if(in[u] &gt; in[v]) swap(u, v), swap(l, r);
+      if(head[u] == head[v]) break;
+      l = f(q(in[head[v]], in[v] + 1), l);
+    }
+    return f(f(q(in[u] + edge, in[v] + 1), l), r);
+//  return {f(q(in[u] + edge, in[v] + 1), l), r};
+  }
+
+  template&lt; typename Q &gt;
+  void add(int u, int v, const Q &amp;q, bool edge = false) {
+    for(;; v = par[head[v]]) {
+      if(in[u] &gt; in[v]) swap(u, v);
+      if(head[u] == head[v]) break;
+      q(in[head[v]], in[v] + 1);
+    }
+    q(in[u] + edge, in[v] + 1);
+  }
+};
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

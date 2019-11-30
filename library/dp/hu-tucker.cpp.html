@@ -1,0 +1,107 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: dp/hu-tucker.cpp</h1>
+<ul>
+<li>category: dp</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">te&lt; typename Heap, typename T &gt;
+T hu_tucker(vector&lt; T &gt; vs, T INF) {
+  int N = (int) vs.size();
+  Heap heap;
+  vector&lt; typename Heap::Node * &gt; hs(N - 1, heap.makeheap());
+  vector&lt; int &gt; ls(N), rs(N);
+  vector&lt; T &gt; cs(N - 1);
+  using pi = pair&lt; T, int &gt;;
+  priority_queue&lt; pi, vector&lt; pi &gt;, greater&lt; pi &gt; &gt; que;
+  for(int i = 0; i + 1 &lt; N; i++) {
+    ls[i] = i - 1;
+    rs[i] = i + 1;
+    cs[i] = vs[i] + vs[i + 1];
+    que.emplace(cs[i], i);
+  }
+  T ret = 0;
+  for(int k = 0; k + 1 &lt; N; k++) {
+    T c;
+    int i;
+    do {
+      tie(c, i) = que.top();
+      que.pop();
+    } while(rs[i] &lt; 0 || cs[i] != c);
+
+    bool ml = false, mr = false;
+    if(!heap.empty(hs[i]) &amp;&amp; vs[i] + heap.top(hs[i]) == c) {
+      heap.pop(hs[i]);
+      ml = true;
+    } else if(vs[i] + vs[rs[i]] == c) {
+      ml = mr = true;
+    } else {
+      auto top = heap.pop(hs[i]);
+      if(!heap.empty(hs[i]) &amp;&amp; heap.top(hs[i]) + top == c) {
+        heap.pop(hs[i]);
+      } else {
+        mr = true;
+      }
+    }
+    ret += c;
+    heap.push(hs[i], c);
+    if(ml) vs[i] = INF;
+    if(mr) vs[rs[i]] = INF;
+
+    if(ml &amp;&amp; i &gt; 0) {
+      int j = ls[i];
+      hs[j] = heap.merge(hs[j], hs[i]);
+      rs[j] = rs[i];
+      rs[i] = -1;
+      ls[rs[j]] = j;
+      i = j;
+    }
+
+    if(mr &amp;&amp; rs[i] + 1 &lt; N) {
+      int j = rs[i];
+      hs[i] = heap.merge(hs[i], hs[j]);
+      rs[i] = rs[j];
+      rs[j] = -1;
+      ls[rs[i]] = i;
+    }
+    cs[i] = vs[i] + vs[rs[i]];
+
+    if(!heap.empty(hs[i])) {
+      T top = heap.pop(hs[i]);
+      cs[i] = min(cs[i], min(vs[i], vs[rs[i]]) + top);
+      if(!heap.empty(hs[i])) cs[i] = min(cs[i], top + heap.top(hs[i]));
+      heap.push(hs[i], top);
+    }
+    que.emplace(cs[i], i);
+  }
+  return ret;
+}
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

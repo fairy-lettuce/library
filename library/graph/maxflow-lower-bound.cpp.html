@@ -1,0 +1,107 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: graph/maxflow-lower-bound.cpp</h1>
+<ul>
+<li>category: graph</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; typename flow_t, template&lt; typename &gt; class F &gt;
+struct MaxFlowLowerBound {
+  F&lt; flow_t &gt; flow;
+  vector&lt; flow_t &gt; in, up;
+  typename F&lt; flow_t &gt;::edge *latte, *malta;
+  int X, Y, V;
+  flow_t sum;
+
+  MaxFlowLowerBound(int V) : V(V), flow(V + 2), X(V), Y(V + 1), sum(0), in(V) {}
+
+  void add_edge(int from, int to, flow_t low, flow_t high) {
+    assert(from != to);
+    flow.add_edge(from, to, high - low, up.size());
+    in[from] -= low;
+    in[to] += low;
+    up.emplace_back(high);
+  }
+
+  void build() {
+    for(int i = 0; i &lt; V; i++) {
+      if(in[i] &gt; 0) {
+        flow.add_edge(X, i, in[i]);
+        sum += in[i];
+      } else if(in[i] &lt; 0) {
+        flow.add_edge(i, Y, -in[i]);
+      }
+    }
+  }
+
+  bool can_flow(int s, int t) {
+    assert(s != t);
+    flow.add_edge(t, s, flow.INF);
+    latte = &amp;flow.graph[t].back();
+    malta = &amp;flow.graph[s].back();
+    return can_flow();
+  }
+
+  bool can_flow() {
+    build();
+    auto ret = flow.max_flow(X, Y);
+    return ret &gt;= sum;
+  }
+
+  flow_t max_flow(int s, int t) {
+    if(can_flow(s, t)) {
+      return flow.max_flow(s, t);
+    } else {
+      return -1;
+    }
+  }
+
+  flow_t min_flow(int s, int t) {
+    if(can_flow(s, t)) {
+      auto ret = flow.INF - latte-&gt;cap;
+      latte-&gt;cap = malta-&gt;cap = 0;
+      return ret - flow.max_flow(t, s);
+    } else {
+      return -1;
+    }
+  }
+
+  void output(int M) {
+    vector&lt; flow_t &gt; ans(M);
+    for(int i = 0; i &lt; flow.graph.size(); i++) {
+      for(auto &amp;e : flow.graph[i]) {
+        if(!e.isrev &amp;&amp; ~e.idx) ans[e.idx] = up[e.idx] - e.cap;
+      }
+    }
+    for(auto &amp;p : ans) cout &lt;&lt; p &lt;&lt; endl;
+  }
+};
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

@@ -1,0 +1,109 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: graph/hopcroft-karp.cpp</h1>
+<ul>
+<li>category: graph</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Verified</h2>
+<ul>
+<li>:warning: <a href="../../verify/graph/verify/aoj-grl-7-a-2.test.cpp.html">graph/verify/aoj-grl-7-a-2.test.cpp</a></li>
+</ul>
+<h2>Code</h2>
+<pre><code class="cpp">struct HopcroftKarp {
+  vector&lt; vector&lt; int &gt; &gt; graph;
+  vector&lt; int &gt; dist, match;
+  vector&lt; bool &gt; used, vv;
+
+  HopcroftKarp(int n, int m) : graph(n), match(m, -1), used(n) {}
+
+  void add_edge(int u, int v) {
+    graph[u].push_back(v);
+  }
+
+  void bfs() {
+    dist.assign(graph.size(), -1);
+    queue&lt; int &gt; que;
+    for(int i = 0; i &lt; graph.size(); i++) {
+      if(!used[i]) {
+        que.emplace(i);
+        dist[i] = 0;
+      }
+    }
+
+    while(!que.empty()) {
+      int a = que.front();
+      que.pop();
+      for(auto &amp;b : graph[a]) {
+        int c = match[b];
+        if(c &gt;= 0 &amp;&amp; dist[c] == -1) {
+          dist[c] = dist[a] + 1;
+          que.emplace(c);
+        }
+      }
+    }
+  }
+
+  bool dfs(int a) {
+    vv[a] = true;
+    for(auto &amp;b : graph[a]) {
+      int c = match[b];
+      if(c &lt; 0 || (!vv[c] &amp;&amp; dist[c] == dist[a] + 1 &amp;&amp; dfs(c))) {
+        match[b] = a;
+        used[a] = true;
+        return (true);
+      }
+    }
+    return (false);
+  }
+
+  int bipartite_matching() {
+    int ret = 0;
+    while(true) {
+      bfs();
+      vv.assign(graph.size(), false);
+      int flow = 0;
+      for(int i = 0; i &lt; graph.size(); i++) {
+        if(!used[i] &amp;&amp; dfs(i)) ++flow;
+      }
+      if(flow == 0) return (ret);
+      ret += flow;
+    }
+  }
+
+  void output() {
+    for(int i = 0; i &lt; match.size(); i++) {
+      if(~match[i]) {
+        cout &lt;&lt; match[i] &lt;&lt; &quot;-&quot; &lt;&lt; i &lt;&lt; endl;
+      }
+    }
+  }
+};
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

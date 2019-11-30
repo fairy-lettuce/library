@@ -1,0 +1,208 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: structure/fibonacchi-heap.cpp</h1>
+<ul>
+<li>category: structure</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Verified</h2>
+<ul>
+<li>:warning: <a href="../../verify/graph/verify/aoj-grl-1-a-2.test.cpp.html">graph/verify/aoj-grl-1-a-2.test.cpp</a></li>
+<li>:warning: <a href="../../verify/graph/verify/aoj-grl-2-a-4.test.cpp.html">graph/verify/aoj-grl-2-a-4.test.cpp</a></li>
+</ul>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; typename key_t, typename val_t &gt;
+struct FibonacchiHeap {
+  struct Node {
+    key_t key;
+    val_t val;
+    Node *left, *right, *child, *par;
+    int sz;
+    bool mark;
+
+    Node(const key_t &amp;key, const val_t &amp;val)
+        : key(key), val(val), left(this), right(this), par(nullptr), child(nullptr), sz(0), mark(false) {}
+  };
+
+  Node *root;
+  size_t sz;
+  vector&lt; Node * &gt; rank;
+
+  FibonacchiHeap() : root(nullptr), sz(0) {}
+
+  size_t size() const {
+    return sz;
+  }
+
+  bool empty() const {
+    return sz == 0;
+  }
+
+  void update_min(Node *t) {
+    if(!root || t-&gt;key &lt; root-&gt;key) {
+      root = t;
+    }
+  }
+
+  void concat(Node *&amp;r, Node *t) {
+    if(!r) {
+      r = t;
+    } else {
+      t-&gt;left-&gt;right = r-&gt;right;
+      r-&gt;right-&gt;left = t-&gt;left;
+      t-&gt;left = r;
+      r-&gt;right = t;
+    }
+  }
+
+  void delete_node(Node *t) {
+    t-&gt;left-&gt;right = t-&gt;right;
+    t-&gt;right-&gt;left = t-&gt;left;
+    t-&gt;left = t;
+    t-&gt;right = t;
+  }
+
+  Node *push(const key_t &amp;key, const val_t &amp;val) {
+    ++sz;
+    auto node = new Node(key, val);
+    concat(root, node);
+    update_min(node);
+    return node;
+  }
+
+
+  Node *consolidate(Node *s, Node *t) {
+    if(root == s || s-&gt;key &lt; t-&gt;key) {
+      delete_node(t);
+      ++s-&gt;sz;
+      t-&gt;par = s;
+      concat(s-&gt;child, t);
+      return s;
+    } else {
+      delete_node(s);
+      ++t-&gt;sz;
+      s-&gt;par = t;
+      concat(t-&gt;child, s);
+      return t;
+    }
+  }
+
+
+  pair&lt; key_t, val_t &gt; pop() {
+    --sz;
+
+    Node *rem = root;
+
+
+    auto ret = make_pair(rem-&gt;key, rem-&gt;val);
+
+    {
+      root = root-&gt;left == root ? nullptr : root-&gt;left;
+      delete_node(rem);
+    }
+
+
+    if(rem-&gt;child) {
+      concat(root, rem-&gt;child);
+    }
+
+
+    if(root) {
+
+      {
+        Node *base = root, *cur = base;
+        do {
+          cur-&gt;par = nullptr;
+          update_min(cur);
+          cur = cur-&gt;right;
+        } while(cur != base);
+      }
+
+
+      {
+        Node *base = root;
+        int last = -1;
+        do {
+          Node *nxt = base-&gt;right;
+          while(base-&gt;sz &lt; rank.size() &amp;&amp; rank[base-&gt;sz]) {
+            Node *u = rank[base-&gt;sz];
+            rank[base-&gt;sz] = nullptr;
+            base = consolidate(u, base);
+          }
+          if(base-&gt;sz &gt;= rank.size()) rank.resize(base-&gt;sz + 1);
+          last = max(last, base-&gt;sz);
+          rank[base-&gt;sz] = base;
+          base = nxt;
+        } while(base != root);
+
+        for(int i = last; i &gt;= 0; i--) rank[i] = nullptr;
+      }
+    }
+
+    return ret;
+  }
+
+  inline void mark_dfs(Node *t) {
+    if(!t-&gt;par) {
+      t-&gt;mark = false;
+    } else if(t-&gt;mark) {
+      mark_dfs(t-&gt;par);
+      t-&gt;par-&gt;child = t-&gt;left == t ? nullptr : t-&gt;left;
+      delete_node(t);
+      t-&gt;sz--;
+      t-&gt;mark = false;
+      t-&gt;par = nullptr;
+      concat(root, t);
+    } else {
+      t-&gt;mark = true;
+      t-&gt;sz--;
+    }
+  }
+
+
+  void decrease_key(Node *t, const key_t &amp;d) {
+    t-&gt;key -= d;
+
+    if(!t-&gt;par) {
+      update_min(t);
+      return;
+    }
+
+    if(t-&gt;par-&gt;key &lt;= t-&gt;key) {
+      return;
+    }
+
+    t-&gt;sz++;
+    t-&gt;mark = true;
+    mark_dfs(t);
+    update_min(t);
+  }
+};
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

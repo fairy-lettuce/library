@@ -1,0 +1,128 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: graph/maximum-clique.cpp</h1>
+<ul>
+<li>category: graph</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; typename T &gt;
+T maximum_clique(Matrix&lt; bool &gt; g, function&lt; T(vector&lt; int &gt;) &gt; f) {
+
+  int N = (int) g.size(), M = 0;
+  vector&lt; int &gt; deg(N), v(N);
+  for(int i = 0; i &lt; N; i++) {
+    for(int j = 0; j &lt; i; j++) {
+      assert(g[i][j] == g[j][i]);
+      if(g[i][j]) {
+        ++deg[i];
+        ++M;
+      }
+    }
+  }
+  T t = 0;
+  int lim = (int) sqrt(2 * M);
+
+  for(int i = 0; i &lt; N; i++) {
+    vector&lt; int &gt; notice;
+    for(int j = 0; j &lt; N; j++) {
+      if(!v[j] &amp;&amp; deg[j] &lt; lim) {
+        for(int k = 0; k &lt; N; k++) {
+          if(j == k) continue;
+          if(g[j][k]) notice.emplace_back(k);
+        }
+        notice.emplace_back(j);
+        break;
+      }
+    }
+    if(notice.empty()) break;
+    int neighbor = (int) notice.size() - 1;
+    vector&lt; int &gt; bit(neighbor);
+    for(int j = 0; j &lt; neighbor; j++) {
+      for(int k = 0; k &lt; j; k++) {
+        if(!g[notice[j]][notice[k]]) {
+          bit[j] |= 1 &lt;&lt; k;
+          bit[k] |= 1 &lt;&lt; j;
+        }
+      }
+    }
+    for(int j = 0; j &lt; (1 &lt;&lt; neighbor); j++) {
+      bool ok = true;
+      for(int k = 0; k &lt; neighbor; k++) {
+        if((j &gt;&gt; k) &amp; 1) ok &amp;= (j &amp; bit[k]) == 0;
+      }
+      if(ok) {
+        vector&lt; int &gt; stock{notice.back()};
+        for(int k = 0; k &lt; neighbor; k++) {
+          if((j &gt;&gt; k) &amp; 1) stock.emplace_back(notice[k]);
+        }
+        t = max(t, f(stock));
+      }
+    }
+    v[notice.back()] = true;
+    for(int j = 0; j &lt; N; j++) {
+      if(g[j][notice.back()]) {
+        --deg[j];
+        g[notice.back()][j] = g[j][notice.back()] = false;
+      }
+    }
+  }
+
+  vector&lt; int &gt; notice;
+  for(int j = 0; j &lt; N; j++) {
+    if(!v[j]) notice.emplace_back(j);
+  }
+  int neighbor = (int) notice.size();
+  vector&lt; int &gt; bit(neighbor);
+  for(int j = 0; j &lt; neighbor; j++) {
+    for(int k = 0; k &lt; j; k++) {
+      if(!g[notice[j]][notice[k]]) {
+        bit[j] |= 1 &lt;&lt; k;
+        bit[k] |= 1 &lt;&lt; j;
+      }
+    }
+  }
+  for(int j = 0; j &lt; (1 &lt;&lt; neighbor); j++) {
+    bool ok = true;
+    for(int k = 0; k &lt; neighbor; k++) {
+      if((j &gt;&gt; k) &amp; 1) ok &amp;= (j &amp; bit[k]) == 0;
+    }
+    if(ok) {
+      vector&lt; int &gt; stock;
+      for(int k = 0; k &lt; neighbor; k++) {
+        if((j &gt;&gt; k) &amp; 1) stock.emplace_back(notice[k]);
+      }
+      t = max(t, f(stock));
+    }
+  }
+  return t;
+}
+
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

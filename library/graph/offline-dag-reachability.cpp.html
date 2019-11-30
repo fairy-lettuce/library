@@ -1,0 +1,57 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: graph/offline-dag-reachability.cpp</h1>
+<ul>
+<li>category: graph</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; typename G &gt;
+vector&lt; int &gt; offline_dag_reachability(const G &amp;g, vector&lt; pair&lt; int, int &gt; &gt; &amp;qs) {
+  const int N = (int) g.size();
+  const int Q = (int) qs.size();
+  auto ord = topological_sort(g);
+  vector&lt; int &gt; ans(Q);
+  for(int l = 0; l &lt; Q; l += 64) {
+    int r = min(Q, l + 64);
+    vector&lt; int64_t &gt; dp(N);
+    for(int k = l; k &lt; r; k++) {
+      dp[qs[k].first] |= int64_t(1) &lt;&lt; (k - l);
+    }
+    for(auto &amp;idx : ord) {
+      for(auto &amp;to : g[idx]) dp[to] |= dp[idx];
+    }
+    for(int k = l; k &lt; r; k++) {
+      ans[k] = (dp[qs[k].second] &gt;&gt; (k - l)) &amp; 1;
+    }
+  }
+  return ans;
+}
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

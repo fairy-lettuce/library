@@ -1,0 +1,217 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: structure/link-cut-tree-subtree.cpp</h1>
+<ul>
+<li>category: structure</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; typename SUM, typename KEY &gt;
+struct LinkCutTreeSubtree {
+
+  struct Node {
+    Node *l, *r, *p;
+
+    KEY key;
+    SUM sum;
+
+    bool rev;
+    int sz;
+
+    bool is_root() const {
+      return !p || (p-&gt;l != this &amp;&amp; p-&gt;r != this);
+    }
+
+    Node(const KEY &amp;key, const SUM &amp;sum) :
+        key(key), sum(sum), rev(false), sz(1),
+        l(nullptr), r(nullptr), p(nullptr) {}
+  };
+
+  const SUM ident;
+
+  LinkCutTreeSubtree(const SUM &amp;ident) : ident(ident) {}
+
+  Node *make_node(const KEY &amp;key) {
+    auto ret = new Node(key, ident);
+    update(ret);
+    return ret;
+  }
+
+  Node *set_key(Node *t, const KEY &amp;key) {
+    expose(t);
+    t-&gt;key = key;
+    update(t);
+    return t;
+  }
+
+  void toggle(Node *t) {
+    swap(t-&gt;l, t-&gt;r);
+    t-&gt;sum.toggle();
+    t-&gt;rev ^= true;
+  }
+
+  void push(Node *t) {
+    if(t-&gt;rev) {
+      if(t-&gt;l) toggle(t-&gt;l);
+      if(t-&gt;r) toggle(t-&gt;r);
+      t-&gt;rev = false;
+    }
+  }
+
+
+  void update(Node *t) {
+    t-&gt;sz = 1;
+    if(t-&gt;l) t-&gt;sz += t-&gt;l-&gt;sz;
+    if(t-&gt;r) t-&gt;sz += t-&gt;r-&gt;sz;
+    t-&gt;sum.merge(t-&gt;key, t-&gt;l ? t-&gt;l-&gt;sum : ident, t-&gt;r ? t-&gt;r-&gt;sum : ident);
+  }
+
+  void rotr(Node *t) {
+    auto *x = t-&gt;p, *y = x-&gt;p;
+    if((x-&gt;l = t-&gt;r)) t-&gt;r-&gt;p = x;
+    t-&gt;r = x, x-&gt;p = t;
+    update(x), update(t);
+    if((t-&gt;p = y)) {
+      if(y-&gt;l == x) y-&gt;l = t;
+      if(y-&gt;r == x) y-&gt;r = t;
+      update(y);
+    }
+  }
+
+  void rotl(Node *t) {
+    auto *x = t-&gt;p, *y = x-&gt;p;
+    if((x-&gt;r = t-&gt;l)) t-&gt;l-&gt;p = x;
+    t-&gt;l = x, x-&gt;p = t;
+    update(x), update(t);
+    if((t-&gt;p = y)) {
+      if(y-&gt;l == x) y-&gt;l = t;
+      if(y-&gt;r == x) y-&gt;r = t;
+      update(y);
+    }
+  }
+
+
+  void splay(Node *t) {
+    push(t);
+    while(!t-&gt;is_root()) {
+      auto *q = t-&gt;p;
+      if(q-&gt;is_root()) {
+        push(q), push(t);
+        if(q-&gt;l == t) rotr(t);
+        else rotl(t);
+      } else {
+        auto *r = q-&gt;p;
+        push(r), push(q), push(t);
+        if(r-&gt;l == q) {
+          if(q-&gt;l == t) rotr(q), rotr(t);
+          else rotl(t), rotr(t);
+        } else {
+          if(q-&gt;r == t) rotl(q), rotl(t);
+          else rotr(t), rotl(t);
+        }
+      }
+    }
+  }
+
+
+  Node *expose(Node *t) {
+    Node *rp = nullptr;
+    for(auto *cur = t; cur; cur = cur-&gt;p) {
+      splay(cur);
+      if(cur-&gt;r) cur-&gt;sum.add(cur-&gt;r-&gt;sum);
+      cur-&gt;r = rp;
+      if(cur-&gt;r) cur-&gt;sum.erase(cur-&gt;r-&gt;sum);
+      update(cur);
+      rp = cur;
+    }
+    splay(t);
+    return rp;
+  }
+
+  void link(Node *child, Node *parent) {
+    expose(child);
+    expose(parent);
+    child-&gt;p = parent;
+    parent-&gt;r = child;
+    update(parent);
+  }
+
+  void cut(Node *child) {
+    expose(child);
+    auto *parent = child-&gt;l;
+    child-&gt;l = nullptr;
+    parent-&gt;p = nullptr;
+    update(child);
+  }
+
+  void evert(Node *t) {
+    expose(t);
+    toggle(t);
+    push(t);
+  }
+
+  Node *lca(Node *u, Node *v) {
+    if(get_root(u) != get_root(v)) return nullptr;
+    expose(u);
+    return expose(v);
+  }
+
+
+  Node *get_kth(Node *x, int k) {
+    expose(x);
+    while(x) {
+      push(x);
+      if(x-&gt;r &amp;&amp; x-&gt;r-&gt;sz &gt; k) {
+        x = x-&gt;r;
+      } else {
+        if(x-&gt;r) k -= x-&gt;r-&gt;sz;
+        if(k == 0) return x;
+        k -= 1;
+        x = x-&gt;l;
+      }
+    }
+    return nullptr;
+  }
+
+  Node *get_root(Node *x) {
+    expose(x);
+    while(x-&gt;l) {
+      push(x);
+      x = x-&gt;l;
+    }
+    return x;
+  }
+
+  SUM &amp;query(Node *t) {
+    expose(t);
+    return t-&gt;sum;
+  }
+};
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

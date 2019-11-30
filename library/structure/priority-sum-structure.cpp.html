@@ -1,0 +1,118 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: structure/priority-sum-structure.cpp</h1>
+<ul>
+<li>category: structure</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; typename T, typename Compare = less&lt; T &gt;, typename RCompare = greater&lt; T &gt; &gt;
+struct PrioritySumStructure {
+
+  size_t k;
+  T sum;
+
+  priority_queue&lt; T, vector&lt; T &gt;, Compare &gt; in, d_in;
+  priority_queue&lt; T, vector&lt; T &gt;, RCompare &gt; out, d_out;
+
+  PrioritySumStructure(int k) : k(k), sum(0) {}
+
+  void modify() {
+    while(in.size() - d_in.size() &lt; k &amp;&amp; !out.empty()) {
+      auto p = out.top();
+      out.pop();
+      if(!d_out.empty() &amp;&amp; p == d_out.top()) {
+        d_out.pop();
+      } else {
+        sum += p;
+        in.emplace(p);
+      }
+    }
+    while(in.size() - d_in.size() &gt; k) {
+      auto p = in.top();
+      in.pop();
+      if(!d_in.empty() &amp;&amp; p == d_in.top()) {
+        d_in.pop();
+      } else {
+        sum -= p;
+        out.emplace(p);
+      }
+    }
+    while(!d_in.empty() &amp;&amp; in.top() == d_in.top()) {
+      in.pop();
+      d_in.pop();
+    }
+  }
+
+  T query() const {
+    return sum;
+  }
+
+  void insert(T x) {
+    in.emplace(x);
+    sum += x;
+    modify();
+  }
+
+  void erase(T x) {
+    assert(size());
+    if(!in.empty() &amp;&amp; in.top() == x) {
+      sum -= x;
+      in.pop();
+    } else if(!in.empty() &amp;&amp; RCompare()(in.top(), x)) {
+      sum -= x;
+      d_in.emplace(x);
+    } else {
+      d_out.emplace(x);
+    }
+    modify();
+  }
+
+  void set_k(size_t kk) {
+    k = kk;
+    modify();
+  }
+
+  size_t get_k() const {
+    return k;
+  }
+
+  size_t size() const {
+    return in.size() + out.size() - d_in.size() - d_out.size();
+  }
+};
+
+template&lt; typename T &gt;
+using MaximumSum = PrioritySumStructure&lt; T, greater&lt; T &gt;, less&lt; T &gt; &gt;;
+
+template&lt; typename T &gt;
+using MinimumSum = PrioritySumStructure&lt; T, less&lt; T &gt;, greater&lt; T &gt; &gt;;
+
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

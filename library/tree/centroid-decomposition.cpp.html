@@ -1,0 +1,86 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: tree/centroid-decomposition.cpp</h1>
+<ul>
+<li>category: tree</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; typename G &gt;
+struct CentroidDecomposition {
+  const G &amp;g;
+  vector&lt; int &gt; sub;
+  vector&lt; vector&lt; int &gt; &gt; belong;
+  vector&lt; bool &gt; v;
+
+  CentroidDecomposition(const G &amp;g) : g(g), sub(g.size()), v(g.size()), belong(g.size()) {}
+
+  inline int build_dfs(int idx, int par) {
+    sub[idx] = 1;
+    for(auto &amp;to : g[idx]) {
+      if(to == par || v[to]) continue;
+      sub[idx] += build_dfs(to, idx);
+    }
+    return sub[idx];
+  }
+
+  inline int search_centroid(int idx, int par, const int mid) {
+    for(auto &amp;to : g[idx]) {
+      if(to == par || v[to]) continue;
+      if(sub[to] &gt; mid) return search_centroid(to, idx, mid);
+    }
+    return idx;
+  }
+
+  inline void belong_dfs(int idx, int par, int centroid) {
+    belong[idx].emplace_back(centroid);
+    for(auto &amp;to : g[idx]) {
+      if(to == par || v[to]) continue;
+      belong_dfs(to, idx, centroid);
+    }
+  }
+
+  inline int build(UnWeightedGraph &amp;t, int idx) {
+    int centroid = search_centroid(idx, -1, build_dfs(idx, -1) / 2);
+    v[centroid] = true;
+    belong_dfs(centroid, -1, centroid);
+    for(auto &amp;to : g[centroid]) {
+      if(!v[to]) t[centroid].emplace_back(build(t, to));
+    }
+    v[centroid] = false;
+    return centroid;
+  }
+
+  inline int build(UnWeightedGraph &amp;t) {
+    t.resize(g.size());
+    return build(t, 0);
+  }
+};
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

@@ -1,0 +1,123 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: graph/dominator-tree.cpp</h1>
+<ul>
+<li>category: graph</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; typename G &gt;
+struct DominatorTree {
+
+  struct UnionFind {
+    const vector&lt; int &gt; &amp;semi;
+    vector&lt; int &gt; par, m;
+
+    UnionFind(const vector&lt; int &gt; &amp;semi) : semi(semi), par(semi.size()), m(semi.size()) {
+      iota(begin(par), end(par), 0);
+      iota(begin(m), end(m), 0);
+    }
+
+    int find(int v) {
+      if(par[v] == v) return v;
+      int r = find(par[v]);
+      if(semi[m[v]] &gt; semi[m[par[v]]]) m[v] = m[par[v]];
+      return par[v] = r;
+    }
+
+    int eval(int v) {
+      find(v);
+      return m[v];
+    }
+
+    void link(int p, int c) {
+      par[c] = p;
+    }
+  };
+
+  const G &amp;g;
+  vector&lt; vector&lt; int &gt; &gt; rg;
+  vector&lt; int &gt; ord, par;
+  vector&lt; int &gt; idom, semi;
+  UnionFind uf;
+
+  DominatorTree(G &amp;g) : g(g), rg(g.size()), par(g.size()), idom(g.size(), -1), semi(g.size(), -1), uf(semi) {
+    ord.reserve(g.size());
+  }
+
+
+  void dfs(int idx) {
+    semi[idx] = (int) ord.size();
+    ord.emplace_back(idx);
+    for(auto &amp;to : g[idx]) {
+      if(~semi[to]) continue;
+      dfs(to);
+      par[to] = idx;
+    }
+  }
+
+  void build(int root) {
+    const int N = (int) g.size();
+    dfs(root);
+    for(int i = 0; i &lt; N; i++) {
+      for(auto &amp;to : g[i]) {
+        if(~semi[i]) rg[to].emplace_back(i);
+      }
+    }
+
+    vector&lt; vector&lt; int &gt; &gt; bucket(N);
+    vector&lt; int &gt; U(N);
+    for(int i = (int) ord.size() - 1; i &gt;= 0; i--) {
+      int x = ord[i];
+      for(int v : rg[x]) {
+        v = uf.eval(v);
+        if(semi[x] &gt; semi[v]) semi[x] = semi[v];
+      }
+      bucket[ord[semi[x]]].emplace_back(x);
+      for(int v : bucket[par[x]]) U[v] = uf.eval(v);
+      bucket[par[x]].clear();
+      uf.link(par[x], x);
+    }
+    for(int i = 1; i &lt; ord.size(); i++) {
+      int x = ord[i], u = U[x];
+      idom[x] = semi[x] == semi[u] ? semi[x] : idom[u];
+    }
+    for(int i = 1; i &lt; ord.size(); i++) {
+      int x = ord[i];
+      idom[x] = ord[idom[x]];
+    }
+    idom[root] = root;
+  }
+
+  int operator[](const int &amp;k) {
+    return idom[k];
+  }
+};
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

@@ -1,0 +1,57 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: dp/largest-rectangle.cpp</h1>
+<ul>
+<li>category: dp</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Verified</h2>
+<ul>
+<li>:warning: <a href="../../verify/dp/verify/aoj-dpl-3-c.test.cpp.html">dp/verify/aoj-dpl-3-c.test.cpp</a></li>
+</ul>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; typename T &gt;
+int64_t largest_rectangle(vector&lt; T &gt; height)
+{
+  stack&lt; int &gt; st;
+  height.push_back(0);
+  vector&lt; int &gt; left(height.size());
+  int64_t ret = 0;
+  for(int i = 0; i &lt; height.size(); i++) {
+    while(!st.empty() &amp;&amp; height[st.top()] &gt;= height[i]) {
+      ret = max(ret, (int64_t) (i - left[st.top()] - 1) * height[st.top()]);
+      st.pop();
+    }
+    left[i] = st.empty() ? -1 : st.top();
+    st.emplace(i);
+  }
+  return (ret);
+}
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

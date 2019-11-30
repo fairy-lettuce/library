@@ -1,0 +1,98 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: tree/rerooting.cpp</h1>
+<ul>
+<li>category: tree</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; typename Data, typename T &gt;
+struct ReRooting {
+
+  struct Node {
+    int to, rev;
+    Data data;
+  };
+
+  using F1 = function&lt; T(T, T) &gt;;
+  using F2 = function&lt; T(T, Data) &gt;;
+
+  vector&lt; vector&lt; Node &gt; &gt; g;
+  vector&lt; vector&lt; T &gt; &gt; ldp, rdp;
+  vector&lt; int &gt; lptr, rptr;
+  const F1 f1;
+  const F2 f2;
+  const T ident;
+
+  ReRooting(int n, const F1 &amp;f1, const F2 &amp;f2, const T &amp;ident) :
+      g(n), ldp(n), rdp(n), lptr(n), rptr(n), f1(f1), f2(f2), ident(ident) {}
+
+  void add_edge(int u, int v, const Data &amp;d) {
+    g[u].emplace_back((Node) {v, (int) g[v].size(), d});
+    g[v].emplace_back((Node) {u, (int) g[u].size() - 1, d});
+  }
+
+  void add_edge_bi(int u, int v, const Data &amp;d, const Data &amp;e) {
+    g[u].emplace_back((Node) {v, (int) g[v].size(), d});
+    g[v].emplace_back((Node) {u, (int) g[u].size() - 1, e});
+  }
+
+
+  T dfs(int idx, int par) {
+
+    while(lptr[idx] != par &amp;&amp; lptr[idx] &lt; g[idx].size()) {
+      auto &amp;e = g[idx][lptr[idx]];
+      ldp[idx][lptr[idx] + 1] = f1(ldp[idx][lptr[idx]], f2(dfs(e.to, e.rev), e.data));
+      ++lptr[idx];
+    }
+    while(rptr[idx] != par &amp;&amp; rptr[idx] &gt;= 0) {
+      auto &amp;e = g[idx][rptr[idx]];
+      rdp[idx][rptr[idx]] = f1(rdp[idx][rptr[idx] + 1], f2(dfs(e.to, e.rev), e.data));
+      --rptr[idx];
+    }
+    if(par &lt; 0) return rdp[idx][0];
+    return f1(ldp[idx][par], rdp[idx][par + 1]);
+  }
+
+  vector&lt; T &gt; solve() {
+    for(int i = 0; i &lt; g.size(); i++) {
+      ldp[i].assign(g[i].size() + 1, ident);
+      rdp[i].assign(g[i].size() + 1, ident);
+      lptr[i] = 0;
+      rptr[i] = (int) g[i].size() - 1;
+    }
+    vector&lt; T &gt; ret;
+    for(int i = 0; i &lt; g.size(); i++) {
+      ret.push_back(dfs(i, -1));
+    }
+    return ret;
+  }
+};
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

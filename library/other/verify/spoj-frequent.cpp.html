@@ -1,0 +1,73 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../../assets/css/copy-button.css" /></p>
+<h1>:warning: other/verify/spoj-frequent.cpp</h1>
+<ul>
+<li>category: other/verify</li>
+</ul>
+<p><a href="../../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">int main() {
+  int N, Q;
+  while(cin &gt;&gt; N, N) {
+    cin &gt;&gt; Q;
+    vector&lt; int &gt; A(N);
+    for(int i = 0; i &lt; N; i++) {
+      cin &gt;&gt; A[i];
+      A[i] += 100000;
+    }
+    vector&lt; int &gt; f(200001), g(200001);
+    Mo mo(N, Q);
+    for(int i = 0; i &lt; Q; i++) {
+      int l, r;
+      cin &gt;&gt; l &gt;&gt; r;
+      mo.add(--l, r);
+    }
+    int ret = 0;
+    auto add = [&amp;](int idx) {
+      g[f[A[idx]]]--;
+      f[A[idx]]++;
+      g[f[A[idx]]]++;
+      if(f[A[idx]] &gt; ret) ++ret;
+    };
+    auto del = [&amp;](int idx) {
+      g[f[A[idx]]]--;
+      f[A[idx]]--;
+      g[f[A[idx]]]++;
+      if(ret - 1 == f[A[idx]] &amp;&amp; g[ret] == 0) --ret;
+    };
+    vector&lt; int &gt; ans(Q);
+    auto rem = [&amp;](int idx) { ans[idx] = ret; };
+    mo.run(add, del, rem);
+    for(int i = 0; i &lt; Q; i++) {
+      cout &lt;&lt; ans[i] &lt;&lt; &quot;\n&quot;;
+    }
+  }
+}
+
+</code></pre>
+
+<p><a href="../../../index.html">Back to top page</a></p>

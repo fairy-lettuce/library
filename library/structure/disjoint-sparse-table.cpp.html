@@ -1,0 +1,67 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: structure/disjoint-sparse-table.cpp</h1>
+<ul>
+<li>category: structure</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; typename Semigroup &gt;
+struct DisjointSparseTable {
+  using F = function&lt; Semigroup(Semigroup, Semigroup) &gt;;
+  const F f;
+  vector&lt; vector&lt; Semigroup &gt; &gt; st;
+
+  DisjointSparseTable(const vector&lt; Semigroup &gt; &amp;v, const F &amp;f) : f(f) {
+    int b = 0;
+    while((1 &lt;&lt; b) &lt;= v.size()) ++b;
+    st.resize(b, vector&lt; Semigroup &gt;(v.size(), Semigroup()));
+    for(int i = 0; i &lt; v.size(); i++) st[0][i] = v[i];
+    for(int i = 1; i &lt; b; i++) {
+      int shift = 1 &lt;&lt; i;
+      for(int j = 0; j &lt; v.size(); j += shift &lt;&lt; 1) {
+        int t = min(j + shift, (int) v.size());
+        st[i][t - 1] = v[t - 1];
+        for(int k = t - 2; k &gt;= j; k--) st[i][k] = f(v[k], st[i][k + 1]);
+        if(v.size() &lt;= t) break;
+        st[i][t] = v[t];
+        int r = min(t + shift, (int) v.size());
+        for(int k = t + 1; k &lt; r; k++) st[i][k] = f(st[i][k - 1], v[k]);
+      }
+    }
+  }
+
+  Semigroup query(int l, int r) {
+    if(l &gt;= --r) return st[0][l];
+    int p = 31 - __builtin_clz(l ^ r);
+    return f(st[p][l], st[p][r]);
+  }
+};
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

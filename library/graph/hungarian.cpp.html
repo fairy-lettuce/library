@@ -1,0 +1,73 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: graph/hungarian.cpp</h1>
+<ul>
+<li>category: graph</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; typename T &gt;
+T hungarian(Matrix&lt; T &gt; &amp;A) {
+  const T infty = numeric_limits&lt; T &gt;::max();
+  const int N = (int) A.size();
+  const int M = (int) A[0].size();
+  vector&lt; int &gt; P(M), way(M);
+  vector&lt; T &gt; U(N, 0), V(M, 0), minV;
+  vector&lt; bool &gt; used;
+
+  for(int i = 1; i &lt; N; i++) {
+    P[0] = i;
+    minV.assign(M, infty);
+    used.assign(M, false);
+    int j0 = 0;
+    while(P[j0] != 0) {
+      int i0 = P[j0], j1 = 0;
+      used[j0] = true;
+      T delta = infty;
+      for(int j = 1; j &lt; M; j++) {
+        if(used[j]) continue;
+        T curr = A[i0][j] - U[i0] - V[j];
+        if(curr &lt; minV[j]) minV[j] = curr, way[j] = j0;
+        if(minV[j] &lt; delta) delta = minV[j], j1 = j;
+      }
+      for(int j = 0; j &lt; M; j++) {
+        if(used[j]) U[P[j]] += delta, V[j] -= delta;
+        else minV[j] -= delta;
+      }
+      j0 = j1;
+    }
+    do {
+      P[j0] = P[way[j0]];
+      j0 = way[j0];
+    } while(j0 != 0);
+  }
+  return -V[0];
+}
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>

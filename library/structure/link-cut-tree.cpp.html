@@ -1,0 +1,246 @@
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
+
+<p><link rel="stylesheet" href="../../assets/css/copy-button.css" /></p>
+<h1>:warning: structure/link-cut-tree.cpp</h1>
+<ul>
+<li>category: structure</li>
+</ul>
+<p><a href="../../index.html">Back to top page</a></p>
+<h2>Code</h2>
+<pre><code class="cpp">template&lt; typename Monoid = int, typename OperatorMonoid = Monoid &gt;
+struct LinkCutTree {
+  using F = function&lt; Monoid(Monoid, Monoid) &gt;;
+  using G = function&lt; Monoid(Monoid, OperatorMonoid, int) &gt;;
+  using H = function&lt; OperatorMonoid(OperatorMonoid, OperatorMonoid) &gt;;
+  using S = function&lt; Monoid(Monoid) &gt;;
+
+  struct Node {
+    Node *l, *r, *p;
+    int idx;
+    Monoid key, sum;
+    OperatorMonoid lazy;
+
+    bool rev;
+    int sz;
+
+    bool is_root() {
+      return !p || (p-&gt;l != this &amp;&amp; p-&gt;r != this);
+    }
+
+    Node(int idx, const Monoid &amp;key, const OperatorMonoid &amp;om) :
+        idx(idx), key(key), sum(key), lazy(om), sz(1),
+        l(nullptr), r(nullptr), p(nullptr), rev(false) {}
+  };
+
+  const Monoid M1;
+  const OperatorMonoid OM0;
+  const F f;
+  const G g;
+  const H h;
+  const S s;
+
+  LinkCutTree() : LinkCutTree([](Monoid a, Monoid b) { return a + b; }, [](Monoid a) { return a; }, Monoid()) {}
+
+  LinkCutTree(const F &amp;f, const S &amp;s, const Monoid &amp;M1) :
+      LinkCutTree(f, G(), H(), s, M1, OperatorMonoid()) {}
+
+  LinkCutTree(const F &amp;f, const G &amp;g, const H &amp;h, const S &amp;s,
+              const Monoid &amp;M1, const OperatorMonoid &amp;OM0) :
+      f(f), g(g), h(h), s(s), M1(M1), OM0(OM0) {}
+
+  Node *make_node(int idx, const Monoid &amp;v = Monoid()) {
+    return new Node(idx, v, OM0);
+  }
+
+  void propagate(Node *t, const OperatorMonoid &amp;x) {
+    t-&gt;lazy = h(t-&gt;lazy, x);
+    t-&gt;key = g(t-&gt;key, x, 1);
+    t-&gt;sum = g(t-&gt;sum, x, t-&gt;sz);
+  }
+
+  void toggle(Node *t) {
+    assert(t);
+    swap(t-&gt;l, t-&gt;r);
+    t-&gt;sum = s(t-&gt;sum);
+    t-&gt;rev ^= true;
+  }
+
+  void push(Node *t) {
+    if(t-&gt;lazy != OM0) {
+      if(t-&gt;l) propagate(t-&gt;l, t-&gt;lazy);
+      if(t-&gt;r) propagate(t-&gt;r, t-&gt;lazy);
+      t-&gt;lazy = OM0;
+    }
+    if(t-&gt;rev) {
+      if(t-&gt;l) toggle(t-&gt;l);
+      if(t-&gt;r) toggle(t-&gt;r);
+      t-&gt;rev = false;
+    }
+  }
+
+  void update(Node *t) {
+    t-&gt;sz = 1;
+    t-&gt;sum = t-&gt;key;
+    if(t-&gt;l) t-&gt;sz += t-&gt;l-&gt;sz, t-&gt;sum = f(t-&gt;l-&gt;sum, t-&gt;sum);
+    if(t-&gt;r) t-&gt;sz += t-&gt;r-&gt;sz, t-&gt;sum = f(t-&gt;sum, t-&gt;r-&gt;sum);
+  }
+
+  void rotr(Node *t) {
+    auto *x = t-&gt;p, *y = x-&gt;p;
+    if((x-&gt;l = t-&gt;r)) t-&gt;r-&gt;p = x;
+    t-&gt;r = x, x-&gt;p = t;
+    update(x), update(t);
+    if((t-&gt;p = y)) {
+      if(y-&gt;l == x) y-&gt;l = t;
+      if(y-&gt;r == x) y-&gt;r = t;
+      update(y);
+    }
+  }
+
+  void rotl(Node *t) {
+    auto *x = t-&gt;p, *y = x-&gt;p;
+    if((x-&gt;r = t-&gt;l)) t-&gt;l-&gt;p = x;
+    t-&gt;l = x, x-&gt;p = t;
+    update(x), update(t);
+    if((t-&gt;p = y)) {
+      if(y-&gt;l == x) y-&gt;l = t;
+      if(y-&gt;r == x) y-&gt;r = t;
+      update(y);
+    }
+  }
+
+  void splay(Node *t) {
+    push(t);
+    while(!t-&gt;is_root()) {
+      auto *q = t-&gt;p;
+      if(q-&gt;is_root()) {
+        push(q), push(t);
+        if(q-&gt;l == t) rotr(t);
+        else rotl(t);
+      } else {
+        auto *r = q-&gt;p;
+        push(r), push(q), push(t);
+        if(r-&gt;l == q) {
+          if(q-&gt;l == t) rotr(q), rotr(t);
+          else rotl(t), rotr(t);
+        } else {
+          if(q-&gt;r == t) rotl(q), rotl(t);
+          else rotr(t), rotl(t);
+        }
+      }
+    }
+  }
+
+  Node *expose(Node *t) {
+    Node *rp = nullptr;
+    for(Node *cur = t; cur; cur = cur-&gt;p) {
+      splay(cur);
+      cur-&gt;r = rp;
+      update(cur);
+      rp = cur;
+    }
+    splay(t);
+    return rp;
+  }
+
+  void link(Node *child, Node *parent) {
+    expose(child);
+    expose(parent);
+    child-&gt;p = parent;
+    parent-&gt;r = child;
+    update(parent);
+  }
+
+  void cut(Node *child) {
+    expose(child);
+    auto *parent = child-&gt;l;
+    child-&gt;l = nullptr;
+    parent-&gt;p = nullptr;
+    update(child);
+  }
+
+  void evert(Node *t) {
+    expose(t);
+    toggle(t);
+    push(t);
+  }
+
+  Node *lca(Node *u, Node *v) {
+    if(get_root(u) != get_root(v)) return nullptr;
+    expose(u);
+    return expose(v);
+  }
+
+  vector&lt; int &gt; get_path(Node *x) {
+    vector&lt; int &gt; vs;
+    function&lt; void(Node *) &gt; dfs = [&amp;](Node *cur) {
+      if(!cur) return;
+      push(cur);
+      dfs(cur-&gt;r);
+      vs.push_back(cur-&gt;idx);
+      dfs(cur-&gt;l);
+    };
+    expose(x);
+    dfs(x);
+    return vs;
+  }
+
+  void set_propagate(Node *t, const OperatorMonoid &amp;x) {
+    expose(t);
+    propagate(t, x);
+    push(t);
+  }
+
+  Node *get_kth(Node *x, int k) {
+    expose(x);
+    while(x) {
+      push(x);
+      if(x-&gt;r &amp;&amp; x-&gt;r-&gt;sz &gt; k) {
+        x = x-&gt;r;
+      } else {
+        if(x-&gt;r) k -= x-&gt;r-&gt;sz;
+        if(k == 0) return x;
+        k -= 1;
+        x = x-&gt;l;
+      }
+    }
+    return nullptr;
+  }
+
+  Node *get_root(Node *x) {
+    expose(x);
+    while(x-&gt;l) {
+      push(x);
+      x = x-&gt;l;
+    }
+    return x;
+  }
+};
+
+
+</code></pre>
+
+<p><a href="../../index.html">Back to top page</a></p>
