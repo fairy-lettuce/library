@@ -21,23 +21,40 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: dp/verify/atcoder-atc002-c.cpp
-* category: dp/verify
+# :warning: test/verify/aoj-dpl-1-i.test.cpp
 
 
 [Back to top page](../../../index.html)
 
+* see: [http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_I](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_I)
+
+
+## Dependencies
+* :warning: [dp/knapsack-limitations-2.cpp](../../../library/dp/knapsack-limitations-2.cpp.html)
+* :warning: [dp/knapsack-limitations.cpp](../../../library/dp/knapsack-limitations.cpp.html)
+* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code
 ```cpp
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_I"
+
+#include "../../template/template.cpp"
+
+#include "../../dp/knapsack-limitations.cpp"
+
+#include "../../dp/knapsack-limitations-2.cpp"
+
 int main() {
   int N;
-  cin >> N;
-  vector< int64_t > A(N);
-  for(int i = 0; i < N; i++) cin >> A[i];
-  constexpr int64_t INF = 1LL << 60;
-  cout << hu_tucker< SkewHeap< int64_t > >(A, INF) << endl;
+  int64 W;
+  cin >> N >> W;
+  vector< int > v(N);
+  vector< int64 > w(N), m(N);
+  for(int i = 0; i < N; i++) {
+    cin >> v[i] >> w[i] >> m[i];
+  }
+  cout << knapsack_limitations(w, m, v, W) << endl;
 }
 
 ```

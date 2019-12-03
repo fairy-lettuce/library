@@ -21,40 +21,37 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: dp/verify/codeforces-438-f.cpp
-* category: dp/verify
+# :warning: test/verify/aoj-dpl-1-g.test.cpp
 
 
 [Back to top page](../../../index.html)
 
+* see: [http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_G](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_G)
+
+
+## Dependencies
+* :warning: [dp/knapsack-limitations.cpp](../../../library/dp/knapsack-limitations.cpp.html)
+* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code
 ```cpp
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_G"
+
+#include "../../template/template.cpp"
+
+#include "../../dp/knapsack-limitations.cpp"
+
 int main() {
-  int N, K;
-  cin >> N >> K;
-  vector< int > A(N);
+  int N, W;
+  cin >> N >> W;
+  vector< int > v(N), w(N), m(N);
   for(int i = 0; i < N; i++) {
-    cin >> A[i];
-    --A[i];
+    cin >> v[i] >> w[i] >> m[i];
   }
-  constexpr int64_t INF = 1LL << 58;
-
-  int64 L = 0, R = 0, sum = 0;
-  vector< int > appear(100000);
-  auto add = [&](int idx) { sum += appear[A[idx]]++; };
-  auto del = [&](int idx) { sum -= --appear[A[idx]]; };
-  function< int64_t(int l, int r) > f = [&](int l, int r) {
-    while(L > l) add(--L);
-    while(R < r) add(R++);
-    while(L < l) del(L++);
-    while(R > r) del(--R);
-    return sum;
-  };
-  cout << divide_and_conquer_optimization(K, N, INF, f).back().back() << endl;
+  auto ret = knapsack_limitations(w, m, v, W, -1);
+  cout << *max_element(begin(ret), end(ret)) << endl;
 }
-
 
 ```
 

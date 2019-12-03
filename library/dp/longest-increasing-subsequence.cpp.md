@@ -30,7 +30,7 @@
 
 
 ## Verified
-* :warning: [dp/verify/aoj-dpl-1-d.test.cpp](../../verify/dp/verify/aoj-dpl-1-d.test.cpp.html)
+* :warning: [test/verify/aoj-dpl-1-d.test.cpp](../../verify/test/verify/aoj-dpl-1-d.test.cpp.html)
 
 
 ## Code

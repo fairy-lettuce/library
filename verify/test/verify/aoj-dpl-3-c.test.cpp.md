@@ -21,25 +21,34 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: dp/verify/atcoder-colopl2018-final-c.cpp
-* category: dp/verify
+# :warning: test/verify/aoj-dpl-3-c.test.cpp
 
 
 [Back to top page](../../../index.html)
 
+* see: [http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_3_C](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_3_C)
+
+
+## Dependencies
+* :warning: [dp/largest-rectangle.cpp](../../../library/dp/largest-rectangle.cpp.html)
+* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code
 ```cpp
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_3_C"
+
+#include "../../template/template.cpp"
+
+#include "../../dp/largest-rectangle.cpp"
+
 int main() {
   int N;
   cin >> N;
-  vector< int64_t > A(N);
-  for(auto &p : A) cin >> p;
-  function< int64_t(int, int) > f = [&](int i, int j) { return A[j] + 1LL * (j - i) * (j - i); };
-  for(auto &p : monotone_minima(N, N, f)) cout << p.second << endl;
+  vector< int > h(N);
+  cin >> h;
+  cout << largest_rectangle(h) << endl;
 }
-
 
 ```
 

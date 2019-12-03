@@ -21,41 +21,25 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: dp/verify/aoj-dpl-1-i.test.cpp
+# :warning: test/verify/atcoder-colopl2018-final-c.cpp
+* category: test/verify
 
 
 [Back to top page](../../../index.html)
 
-* see: [http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_I](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_I)
-
-
-## Dependencies
-* :warning: [dp/knapsack-limitations-2.cpp](../../../library/dp/knapsack-limitations-2.cpp.html)
-* :warning: [dp/knapsack-limitations.cpp](../../../library/dp/knapsack-limitations.cpp.html)
-* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_I"
-
-#include "../../template/template.cpp"
-
-#include "../knapsack-limitations.cpp"
-
-#include "../knapsack-limitations-2.cpp"
-
 int main() {
   int N;
-  int64 W;
-  cin >> N >> W;
-  vector< int > v(N);
-  vector< int64 > w(N), m(N);
-  for(int i = 0; i < N; i++) {
-    cin >> v[i] >> w[i] >> m[i];
-  }
-  cout << knapsack_limitations(w, m, v, W) << endl;
+  cin >> N;
+  vector< int64_t > A(N);
+  for(auto &p : A) cin >> p;
+  function< int64_t(int, int) > f = [&](int i, int j) { return A[j] + 1LL * (j - i) * (j - i); };
+  for(auto &p : monotone_minima(N, N, f)) cout << p.second << endl;
 }
+
 
 ```
 

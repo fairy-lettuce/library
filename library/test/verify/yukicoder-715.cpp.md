@@ -21,36 +21,30 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: dp/verify/aoj-dpl-1-g.test.cpp
+# :warning: test/verify/yukicoder-715.cpp
+* category: test/verify
 
 
 [Back to top page](../../../index.html)
 
-* see: [http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_G](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_G)
-
-
-## Dependencies
-* :warning: [dp/knapsack-limitations.cpp](../../../library/dp/knapsack-limitations.cpp.html)
-* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_G"
-
-#include "../../template/template.cpp"
-
-#include "../knapsack-limitations.cpp"
-
 int main() {
-  int N, W;
-  cin >> N >> W;
-  vector< int > v(N), w(N), m(N);
-  for(int i = 0; i < N; i++) {
-    cin >> v[i] >> w[i] >> m[i];
-  }
-  auto ret = knapsack_limitations(w, m, v, W, -1);
-  cout << *max_element(begin(ret), end(ret)) << endl;
+  int n;
+  cin >> n;
+  vector< int > a(n), x(n), y(n);
+  for(int i = 0; i < n; i++) cin >> a[i];
+  for(int i = 0; i < n; i++) cin >> x[i];
+  for(int i = 0; i < n; i++) cin >> y[i];
+  function< int64_t(int, int) > dist = [&](int i, int j) {
+    assert(0 <= i && i < j && j <= n);
+    int s = abs(a[j - 1] - x[i]);
+    int t = abs(y[i]);
+    return 1LL * s * s * s + 1LL * t * t * t;
+  };
+  cout << online_offline_dp(n, dist).back() << endl;
 }
 
 ```

@@ -21,30 +21,33 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: dp/verify/yukicoder-715.cpp
-* category: dp/verify
+# :warning: test/verify/aoj-dpl-1-d.test.cpp
 
 
 [Back to top page](../../../index.html)
 
+* see: [http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D)
+
+
+## Dependencies
+* :warning: [dp/longest-increasing-subsequence.cpp](../../../library/dp/longest-increasing-subsequence.cpp.html)
+* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code
 ```cpp
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D"
+
+#include "../../template/template.cpp"
+
+#include "../../dp/longest-increasing-subsequence.cpp"
+
 int main() {
-  int n;
-  cin >> n;
-  vector< int > a(n), x(n), y(n);
-  for(int i = 0; i < n; i++) cin >> a[i];
-  for(int i = 0; i < n; i++) cin >> x[i];
-  for(int i = 0; i < n; i++) cin >> y[i];
-  function< int64_t(int, int) > dist = [&](int i, int j) {
-    assert(0 <= i && i < j && j <= n);
-    int s = abs(a[j - 1] - x[i]);
-    int t = abs(y[i]);
-    return 1LL * s * s * s + 1LL * t * t * t;
-  };
-  cout << online_offline_dp(n, dist).back() << endl;
+  int N;
+  cin >> N;
+  vector< int > A(N);
+  cin >> A;
+  cout << longest_increasing_subsequence(A, true) << endl;
 }
 
 ```

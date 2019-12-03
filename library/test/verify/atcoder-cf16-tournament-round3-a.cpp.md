@@ -21,8 +21,8 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: dp/verify/atcoder-cf16-tournament-round3-a.cpp
-* category: dp/verify
+# :warning: test/verify/atcoder-cf16-tournament-round3-a.cpp
+* category: test/verify
 
 
 [Back to top page](../../../index.html)

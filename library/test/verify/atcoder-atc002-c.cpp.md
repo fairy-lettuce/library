@@ -21,33 +21,23 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: dp/verify/aoj-dpl-1-d.test.cpp
+# :warning: test/verify/atcoder-atc002-c.cpp
+* category: test/verify
 
 
 [Back to top page](../../../index.html)
 
-* see: [http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D)
-
-
-## Dependencies
-* :warning: [dp/longest-increasing-subsequence.cpp](../../../library/dp/longest-increasing-subsequence.cpp.html)
-* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D"
-
-#include "../../template/template.cpp"
-
-#include "../longest-increasing-subsequence.cpp"
-
 int main() {
   int N;
   cin >> N;
-  vector< int > A(N);
-  cin >> A;
-  cout << longest_increasing_subsequence(A, true) << endl;
+  vector< int64_t > A(N);
+  for(int i = 0; i < N; i++) cin >> A[i];
+  constexpr int64_t INF = 1LL << 60;
+  cout << hu_tucker< SkewHeap< int64_t > >(A, INF) << endl;
 }
 
 ```

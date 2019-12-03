@@ -43,14 +43,6 @@
 * :warning: [dp/slide-min.cpp](library/dp/slide-min.cpp.html)
 
 
-### dp/verify
-* :warning: [dp/verify/atcoder-atc002-c.cpp](library/dp/verify/atcoder-atc002-c.cpp.html)
-* :warning: [dp/verify/atcoder-cf16-tournament-round3-a.cpp](library/dp/verify/atcoder-cf16-tournament-round3-a.cpp.html)
-* :warning: [dp/verify/atcoder-colopl2018-final-c.cpp](library/dp/verify/atcoder-colopl2018-final-c.cpp.html)
-* :warning: [dp/verify/codeforces-438-f.cpp](library/dp/verify/codeforces-438-f.cpp.html)
-* :warning: [dp/verify/yukicoder-715.cpp](library/dp/verify/yukicoder-715.cpp.html)
-
-
 ### geometry
 * :warning: [geometry/template.cpp](library/geometry/template.cpp.html)
 
@@ -277,7 +269,10 @@
 * :warning: [test/verify/atcoder-atc-001-c-2.cpp](library/test/verify/atcoder-atc-001-c-2.cpp.html)
 * :warning: [test/verify/atcoder-atc-001-c-3.cpp](library/test/verify/atcoder-atc-001-c-3.cpp.html)
 * :warning: [test/verify/atcoder-atc-001-c.cpp](library/test/verify/atcoder-atc-001-c.cpp.html)
+* :warning: [test/verify/atcoder-atc002-c.cpp](library/test/verify/atcoder-atc002-c.cpp.html)
+* :warning: [test/verify/atcoder-cf16-tournament-round3-a.cpp](library/test/verify/atcoder-cf16-tournament-round3-a.cpp.html)
 * :warning: [test/verify/atcoder-code-thanks-festival-2017-g.cpp](library/test/verify/atcoder-code-thanks-festival-2017-g.cpp.html)
+* :warning: [test/verify/atcoder-colopl2018-final-c.cpp](library/test/verify/atcoder-colopl2018-final-c.cpp.html)
 * :warning: [test/verify/atcoder-joisc-2015-g.cpp](library/test/verify/atcoder-joisc-2015-g.cpp.html)
 * :warning: [test/verify/atcoder-shpc-2018-final-e-2.cpp](library/test/verify/atcoder-shpc-2018-final-e-2.cpp.html)
 * :warning: [test/verify/atcoder-shpc-2018-final-e.cpp](library/test/verify/atcoder-shpc-2018-final-e.cpp.html)
@@ -285,6 +280,7 @@
 * :warning: [test/verify/atcoder-tkppc-2015-j.cpp](library/test/verify/atcoder-tkppc-2015-j.cpp.html)
 * :warning: [test/verify/atcoder-wupc-2019-d.cpp](library/test/verify/atcoder-wupc-2019-d.cpp.html)
 * :warning: [test/verify/codeforces-250-e.cpp](library/test/verify/codeforces-250-e.cpp.html)
+* :warning: [test/verify/codeforces-438-f.cpp](library/test/verify/codeforces-438-f.cpp.html)
 * :warning: [test/verify/codeforces-564-e.cpp](library/test/verify/codeforces-564-e.cpp.html)
 * :warning: [test/verify/codeforces-dynamic-connectivity-contest-a.cpp](library/test/verify/codeforces-dynamic-connectivity-contest-a.cpp.html)
 * :warning: [test/verify/codeforces-neerc-ssc-2014-a.cpp](library/test/verify/codeforces-neerc-ssc-2014-a.cpp.html)
@@ -296,17 +292,18 @@
 * :warning: [test/verify/yahoo-procon2018-final-c.cpp](library/test/verify/yahoo-procon2018-final-c.cpp.html)
 * :warning: [test/verify/yukicoder-3046.cpp](library/test/verify/yukicoder-3046.cpp.html)
 * :warning: [test/verify/yukicoder-502.cpp](library/test/verify/yukicoder-502.cpp.html)
+* :warning: [test/verify/yukicoder-715.cpp](library/test/verify/yukicoder-715.cpp.html)
 
 
 ## Verify Files
-* :warning: [dp/verify/aoj-dpl-1-d.test.cpp](verify/dp/verify/aoj-dpl-1-d.test.cpp.html)
-* :warning: [dp/verify/aoj-dpl-1-g.test.cpp](verify/dp/verify/aoj-dpl-1-g.test.cpp.html)
-* :warning: [dp/verify/aoj-dpl-1-i.test.cpp](verify/dp/verify/aoj-dpl-1-i.test.cpp.html)
-* :warning: [dp/verify/aoj-dpl-3-c.test.cpp](verify/dp/verify/aoj-dpl-3-c.test.cpp.html)
 * :warning: [test/verify/aoj-alds-1-1-c-2.test.cpp](verify/test/verify/aoj-alds-1-1-c-2.test.cpp.html)
 * :warning: [test/verify/aoj-alds-1-1-c.test.cpp](verify/test/verify/aoj-alds-1-1-c.test.cpp.html)
 * :warning: [test/verify/aoj-alds-1-14-b.test.cpp](verify/test/verify/aoj-alds-1-14-b.test.cpp.html)
 * :warning: [test/verify/aoj-alds-1-14-d.test.cpp](verify/test/verify/aoj-alds-1-14-d.test.cpp.html)
+* :warning: [test/verify/aoj-dpl-1-d.test.cpp](verify/test/verify/aoj-dpl-1-d.test.cpp.html)
+* :warning: [test/verify/aoj-dpl-1-g.test.cpp](verify/test/verify/aoj-dpl-1-g.test.cpp.html)
+* :warning: [test/verify/aoj-dpl-1-i.test.cpp](verify/test/verify/aoj-dpl-1-i.test.cpp.html)
+* :warning: [test/verify/aoj-dpl-3-c.test.cpp](verify/test/verify/aoj-dpl-3-c.test.cpp.html)
 * :warning: [test/verify/aoj-dpl-5-g.test.cpp](verify/test/verify/aoj-dpl-5-g.test.cpp.html)
 * :warning: [test/verify/aoj-dpl-5-i.test.cpp](verify/test/verify/aoj-dpl-5-i.test.cpp.html)
 * :warning: [test/verify/aoj-dpl-5-j.test.cpp](verify/test/verify/aoj-dpl-5-j.test.cpp.html)

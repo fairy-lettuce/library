@@ -30,8 +30,8 @@
 
 
 ## Verified
-* :warning: [dp/verify/aoj-dpl-1-g.test.cpp](../../verify/dp/verify/aoj-dpl-1-g.test.cpp.html)
-* :warning: [dp/verify/aoj-dpl-1-i.test.cpp](../../verify/dp/verify/aoj-dpl-1-i.test.cpp.html)
+* :warning: [test/verify/aoj-dpl-1-g.test.cpp](../../verify/test/verify/aoj-dpl-1-g.test.cpp.html)
+* :warning: [test/verify/aoj-dpl-1-i.test.cpp](../../verify/test/verify/aoj-dpl-1-i.test.cpp.html)
 
 
 ## Code
