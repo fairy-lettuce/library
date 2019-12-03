@@ -30,7 +30,7 @@
 
 
 ## Verified
-* :warning: [string/verify/aoj-alds-1-14-b.test.cpp](../../verify/string/verify/aoj-alds-1-14-b.test.cpp.html)
+* :warning: [test/verify/aoj-alds-1-14-b.test.cpp](../../verify/test/verify/aoj-alds-1-14-b.test.cpp.html)
 
 
 ## Code
