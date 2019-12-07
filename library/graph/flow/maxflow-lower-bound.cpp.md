@@ -29,6 +29,10 @@
 
 
 
+## Verified
+* :heavy_check_mark: [test/verify/aoj-1615.test.cpp](../../../verify/test/verify/aoj-1615.test.cpp.html)
+
+
 ## Code
 ```cpp
 template< typename flow_t, template< typename > class F >

@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/verify/aoj-dpl-5-i.test.cpp
+# :heavy_check_mark: test/verify/aoj-dpl-5-i.test.cpp
 
 
 [Back to top page](../../../index.html)
@@ -30,10 +30,10 @@
 
 
 ## Dependencies
-* :warning: [math/combinatorics/combination.cpp](../../../library/math/combinatorics/combination.cpp.html)
-* :warning: [math/combinatorics/mod-int.cpp](../../../library/math/combinatorics/mod-int.cpp.html)
-* :warning: [math/combinatorics/stirling-number-second.cpp](../../../library/math/combinatorics/stirling-number-second.cpp.html)
-* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
+* :heavy_check_mark: [math/combinatorics/combination.cpp](../../../library/math/combinatorics/combination.cpp.html)
+* :heavy_check_mark: [math/combinatorics/mod-int.cpp](../../../library/math/combinatorics/mod-int.cpp.html)
+* :heavy_check_mark: [math/combinatorics/stirling-number-second.cpp](../../../library/math/combinatorics/stirling-number-second.cpp.html)
+* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code

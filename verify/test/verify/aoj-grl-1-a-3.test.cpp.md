@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/verify/aoj-grl-1-a-3.test.cpp
+# :heavy_check_mark: test/verify/aoj-grl-1-a-3.test.cpp
 
 
 [Back to top page](../../../index.html)
@@ -30,10 +30,10 @@
 
 
 ## Dependencies
-* :warning: [graph/shortest-path/dijkstra-radix-heap.cpp](../../../library/graph/shortest-path/dijkstra-radix-heap.cpp.html)
-* :warning: [graph/template.cpp](../../../library/graph/template.cpp.html)
-* :warning: [structure/heap/radix-heap.cpp](../../../library/structure/heap/radix-heap.cpp.html)
-* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
+* :heavy_check_mark: [graph/shortest-path/dijkstra-radix-heap.cpp](../../../library/graph/shortest-path/dijkstra-radix-heap.cpp.html)
+* :heavy_check_mark: [graph/template.cpp](../../../library/graph/template.cpp.html)
+* :heavy_check_mark: [structure/heap/radix-heap.cpp](../../../library/structure/heap/radix-heap.cpp.html)
+* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code

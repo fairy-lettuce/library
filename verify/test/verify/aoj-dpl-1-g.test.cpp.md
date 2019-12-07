@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/verify/aoj-dpl-1-g.test.cpp
+# :heavy_check_mark: test/verify/aoj-dpl-1-g.test.cpp
 
 
 [Back to top page](../../../index.html)
@@ -30,8 +30,8 @@
 
 
 ## Dependencies
-* :warning: [dp/knapsack-limitations.cpp](../../../library/dp/knapsack-limitations.cpp.html)
-* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
+* :heavy_check_mark: [dp/knapsack-limitations.cpp](../../../library/dp/knapsack-limitations.cpp.html)
+* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code

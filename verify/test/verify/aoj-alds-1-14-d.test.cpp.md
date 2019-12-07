@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/verify/aoj-alds-1-14-d.test.cpp
+# :heavy_check_mark: test/verify/aoj-alds-1-14-d.test.cpp
 
 
 [Back to top page](../../../index.html)
@@ -30,8 +30,8 @@
 
 
 ## Dependencies
-* :warning: [string/suffix-array.cpp](../../../library/string/suffix-array.cpp.html)
-* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
+* :heavy_check_mark: [string/suffix-array.cpp](../../../library/string/suffix-array.cpp.html)
+* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code

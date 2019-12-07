@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/verify/aoj-dpl-1-d.test.cpp
+# :heavy_check_mark: test/verify/aoj-dpl-1-d.test.cpp
 
 
 [Back to top page](../../../index.html)
@@ -30,8 +30,8 @@
 
 
 ## Dependencies
-* :warning: [dp/longest-increasing-subsequence.cpp](../../../library/dp/longest-increasing-subsequence.cpp.html)
-* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
+* :heavy_check_mark: [dp/longest-increasing-subsequence.cpp](../../../library/dp/longest-increasing-subsequence.cpp.html)
+* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code

@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/verify/aoj-dsl-1-a.test.cpp
+# :heavy_check_mark: test/verify/aoj-dsl-1-a.test.cpp
 
 
 [Back to top page](../../../index.html)
@@ -30,8 +30,8 @@
 
 
 ## Dependencies
-* :warning: [structure/union-find/union-find.cpp](../../../library/structure/union-find/union-find.cpp.html)
-* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
+* :heavy_check_mark: [structure/union-find/union-find.cpp](../../../library/structure/union-find/union-find.cpp.html)
+* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code

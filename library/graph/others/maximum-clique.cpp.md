@@ -29,6 +29,10 @@
 
 
 
+## Verified
+* :heavy_check_mark: [test/verify/aoj-2306.test.cpp](../../../verify/test/verify/aoj-2306.test.cpp.html)
+
+
 ## Code
 ```cpp
 template< typename T >

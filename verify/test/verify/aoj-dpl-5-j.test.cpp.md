@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/verify/aoj-dpl-5-j.test.cpp
+# :heavy_check_mark: test/verify/aoj-dpl-5-j.test.cpp
 
 
 [Back to top page](../../../index.html)
@@ -30,9 +30,9 @@
 
 
 ## Dependencies
-* :warning: [math/combinatorics/mod-int.cpp](../../../library/math/combinatorics/mod-int.cpp.html)
-* :warning: [math/combinatorics/partition-table.cpp](../../../library/math/combinatorics/partition-table.cpp.html)
-* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
+* :heavy_check_mark: [math/combinatorics/mod-int.cpp](../../../library/math/combinatorics/mod-int.cpp.html)
+* :heavy_check_mark: [math/combinatorics/partition-table.cpp](../../../library/math/combinatorics/partition-table.cpp.html)
+* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code

@@ -30,10 +30,10 @@
 
 
 ## Verified
-* :warning: [test/verify/aoj-dsl-1-a.test.cpp](../../../verify/test/verify/aoj-dsl-1-a.test.cpp.html)
-* :warning: [test/verify/aoj-grl-2-a-2.test.cpp](../../../verify/test/verify/aoj-grl-2-a-2.test.cpp.html)
-* :warning: [test/verify/aoj-grl-2-a-3.test.cpp](../../../verify/test/verify/aoj-grl-2-a-3.test.cpp.html)
-* :warning: [test/verify/aoj-grl-2-b.test.cpp](../../../verify/test/verify/aoj-grl-2-b.test.cpp.html)
+* :heavy_check_mark: [test/verify/aoj-dsl-1-a.test.cpp](../../../verify/test/verify/aoj-dsl-1-a.test.cpp.html)
+* :heavy_check_mark: [test/verify/aoj-grl-2-a-2.test.cpp](../../../verify/test/verify/aoj-grl-2-a-2.test.cpp.html)
+* :heavy_check_mark: [test/verify/aoj-grl-2-a-3.test.cpp](../../../verify/test/verify/aoj-grl-2-a-3.test.cpp.html)
+* :heavy_check_mark: [test/verify/aoj-grl-2-b.test.cpp](../../../verify/test/verify/aoj-grl-2-b.test.cpp.html)
 
 
 ## Code

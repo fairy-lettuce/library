@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/verify/aoj-dsl-2-a.test.cpp
+# :heavy_check_mark: test/verify/aoj-dsl-2-a.test.cpp
 
 
 [Back to top page](../../../index.html)
@@ -30,8 +30,8 @@
 
 
 ## Dependencies
-* :warning: [structure/segment-tree/segment-tree.cpp](../../../library/structure/segment-tree/segment-tree.cpp.html)
-* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
+* :heavy_check_mark: [structure/segment-tree/segment-tree.cpp](../../../library/structure/segment-tree/segment-tree.cpp.html)
+* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code

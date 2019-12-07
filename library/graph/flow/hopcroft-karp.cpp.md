@@ -30,7 +30,7 @@
 
 
 ## Verified
-* :warning: [test/verify/aoj-grl-7-a-2.test.cpp](../../../verify/test/verify/aoj-grl-7-a-2.test.cpp.html)
+* :heavy_check_mark: [test/verify/aoj-grl-7-a-2.test.cpp](../../../verify/test/verify/aoj-grl-7-a-2.test.cpp.html)
 
 
 ## Code

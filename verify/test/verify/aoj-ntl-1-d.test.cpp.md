@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/verify/aoj-ntl-1-d.test.cpp
+# :heavy_check_mark: test/verify/aoj-ntl-1-d.test.cpp
 
 
 [Back to top page](../../../index.html)
@@ -30,8 +30,8 @@
 
 
 ## Dependencies
-* :warning: [math/number-theory/euler-phi.cpp](../../../library/math/number-theory/euler-phi.cpp.html)
-* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
+* :heavy_check_mark: [math/number-theory/euler-phi.cpp](../../../library/math/number-theory/euler-phi.cpp.html)
+* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code

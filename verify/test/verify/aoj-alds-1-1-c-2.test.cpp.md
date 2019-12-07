@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/verify/aoj-alds-1-1-c-2.test.cpp
+# :heavy_check_mark: test/verify/aoj-alds-1-1-c-2.test.cpp
 
 
 [Back to top page](../../../index.html)
@@ -30,8 +30,8 @@
 
 
 ## Dependencies
-* :warning: [math/number-theory/prime-table.cpp](../../../library/math/number-theory/prime-table.cpp.html)
-* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
+* :heavy_check_mark: [math/number-theory/prime-table.cpp](../../../library/math/number-theory/prime-table.cpp.html)
+* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code

@@ -30,7 +30,7 @@
 
 
 ## Verified
-* :warning: [test/verify/aoj-dpl-5-g.test.cpp](../../../verify/test/verify/aoj-dpl-5-g.test.cpp.html)
+* :heavy_check_mark: [test/verify/aoj-dpl-5-g.test.cpp](../../../verify/test/verify/aoj-dpl-5-g.test.cpp.html)
 
 
 ## Code

@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/verify/aoj-grl-5-c.test.cpp
+# :heavy_check_mark: test/verify/aoj-grl-5-c.test.cpp
 
 
 [Back to top page](../../../index.html)
@@ -30,9 +30,9 @@
 
 
 ## Dependencies
-* :warning: [graph/template.cpp](../../../library/graph/template.cpp.html)
-* :warning: [graph/tree/doubling-lowest-common-ancestor.cpp](../../../library/graph/tree/doubling-lowest-common-ancestor.cpp.html)
-* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
+* :heavy_check_mark: [graph/template.cpp](../../../library/graph/template.cpp.html)
+* :heavy_check_mark: [graph/tree/doubling-lowest-common-ancestor.cpp](../../../library/graph/tree/doubling-lowest-common-ancestor.cpp.html)
+* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code

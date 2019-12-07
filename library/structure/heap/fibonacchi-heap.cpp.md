@@ -30,8 +30,8 @@
 
 
 ## Verified
-* :warning: [test/verify/aoj-grl-1-a-2.test.cpp](../../../verify/test/verify/aoj-grl-1-a-2.test.cpp.html)
-* :warning: [test/verify/aoj-grl-2-a-4.test.cpp](../../../verify/test/verify/aoj-grl-2-a-4.test.cpp.html)
+* :heavy_check_mark: [test/verify/aoj-grl-1-a-2.test.cpp](../../../verify/test/verify/aoj-grl-1-a-2.test.cpp.html)
+* :heavy_check_mark: [test/verify/aoj-grl-2-a-4.test.cpp](../../../verify/test/verify/aoj-grl-2-a-4.test.cpp.html)
 
 
 ## Code

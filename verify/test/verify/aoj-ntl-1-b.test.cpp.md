@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/verify/aoj-ntl-1-b.test.cpp
+# :heavy_check_mark: test/verify/aoj-ntl-1-b.test.cpp
 
 
 [Back to top page](../../../index.html)
@@ -30,8 +30,8 @@
 
 
 ## Dependencies
-* :warning: [math/combinatorics/mod-pow.cpp](../../../library/math/combinatorics/mod-pow.cpp.html)
-* :warning: [template/template.cpp](../../../library/template/template.cpp.html)
+* :heavy_check_mark: [math/combinatorics/mod-pow.cpp](../../../library/math/combinatorics/mod-pow.cpp.html)
+* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
 
 
 ## Code
