@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -30,6 +34,7 @@
 
 
 ## Code
+{% raw %}
 ```cpp
 template< class D, class L, D (*f)(D, D), D (*g)(D, L), L (*h)(L, L), L (*p)(L, int) >
 struct PersistentRedBlackTree : RedBlackTree< D, L, f, g, h, p > {
@@ -49,6 +54,7 @@ struct PersistentRedBlackTree : RedBlackTree< D, L, f, g, h, p > {
 };
 
 ```
+{% endraw %}
 
 [Back to top page](../../../index.html)
 

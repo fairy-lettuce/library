@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -30,6 +34,7 @@
 
 
 ## Code
+{% raw %}
 ```cpp
 template< int char_size, int margin >
 struct AhoCorasick : Trie< char_size + 1, margin > {
@@ -101,6 +106,7 @@ struct AhoCorasick : Trie< char_size + 1, margin > {
 };
 
 ```
+{% endraw %}
 
 [Back to top page](../../index.html)
 

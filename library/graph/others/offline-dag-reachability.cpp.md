@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -34,6 +38,7 @@
 
 
 ## Code
+{% raw %}
 ```cpp
 template< typename G >
 vector< int > offline_dag_reachability(const G &g, vector< pair< int, int > > &qs) {
@@ -58,6 +63,7 @@ vector< int > offline_dag_reachability(const G &g, vector< pair< int, int > > &q
 }
 
 ```
+{% endraw %}
 
 [Back to top page](../../../index.html)
 

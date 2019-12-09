@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -30,6 +34,7 @@
 
 
 ## Code
+{% raw %}
 ```cpp
 template< typename T >
 vector< edge< T > > eulerian_path(Edges< T > es, int s, bool directed) {
@@ -68,6 +73,7 @@ vector< edge< T > > eulerian_path(Edges< T > es, int s, bool directed) {
 }
 
 ```
+{% endraw %}
 
 [Back to top page](../../../index.html)
 

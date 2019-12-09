@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -34,6 +38,7 @@
 
 
 ## Code
+{% raw %}
 ```cpp
 map< int64_t, int > prime_factor(int64_t n) {
   map< int64_t, int > ret;
@@ -48,6 +53,7 @@ map< int64_t, int > prime_factor(int64_t n) {
 }
 
 ```
+{% endraw %}
 
 [Back to top page](../../../index.html)
 

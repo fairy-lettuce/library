@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -30,6 +34,7 @@
 
 
 ## Code
+{% raw %}
 ```cpp
 template< typename T >
 struct PolyBuf {
@@ -74,6 +79,7 @@ FormalPowerSeries< T > multipoint_evaluation(const FormalPowerSeries< T > &as, c
 
 
 ```
+{% endraw %}
 
 [Back to top page](../../../index.html)
 

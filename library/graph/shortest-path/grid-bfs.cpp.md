@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -30,6 +34,7 @@
 
 
 ## Code
+{% raw %}
 ```cpp
 vector< vector< int > > grid_bfs(vector< string > &s, char start, const string &wall = "#") {
   const int vx[] = {0, 1, 0, -1}, vy[] = {1, 0, -1, 0};
@@ -59,6 +64,7 @@ vector< vector< int > > grid_bfs(vector< string > &s, char start, const string &
 }
 
 ```
+{% endraw %}
 
 [Back to top page](../../../index.html)
 

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -30,6 +34,7 @@
 
 
 ## Code
+{% raw %}
 ```cpp
 int64_t mod_log(int64_t a, int64_t b, int64_t p) {
   int64_t g = 1;
@@ -65,6 +70,7 @@ int64_t mod_log(int64_t a, int64_t b, int64_t p) {
 }
 
 ```
+{% endraw %}
 
 [Back to top page](../../../index.html)
 

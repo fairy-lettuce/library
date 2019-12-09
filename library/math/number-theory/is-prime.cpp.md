@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -34,6 +38,7 @@
 
 
 ## Code
+{% raw %}
 ```cpp
 bool is_prime(int64_t x) {
   for(int64_t i = 2; i * i <= x; i++) {
@@ -43,6 +48,7 @@ bool is_prime(int64_t x) {
 }
 
 ```
+{% endraw %}
 
 [Back to top page](../../../index.html)
 

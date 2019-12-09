@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!-- mathjax config similar to math.stackexchange -->
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -30,6 +34,7 @@
 
 
 ## Code
+{% raw %}
 ```cpp
 template< typename T, typename Compare = less< T > >
 vector< pair< int, T > > monotone_minima(int H, int W, const function< T(int, int) > &f, const Compare &comp = Compare()) {
@@ -56,6 +61,7 @@ vector< pair< int, T > > monotone_minima(int H, int W, const function< T(int, in
 
 
 ```
+{% endraw %}
 
 [Back to top page](../../index.html)
 
