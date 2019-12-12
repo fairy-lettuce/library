@@ -37,9 +37,9 @@ layout: default
 
 ## Depends On
 * :heavy_check_mark: <a href="../../../library/graph/mst/boruvka.cpp.html">graph/mst/boruvka.cpp</a>
-* :warning: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
-* :warning: <a href="../../../library/structure/union-find/union-find.cpp.html">structure/union-find/union-find.cpp</a>
-* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/structure/union-find/union-find.cpp.html">structure/union-find/union-find.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

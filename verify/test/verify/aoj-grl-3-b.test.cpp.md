@@ -37,8 +37,8 @@ layout: default
 
 ## Depends On
 * :heavy_check_mark: <a href="../../../library/graph/others/lowlink.cpp.html">graph/others/lowlink.cpp</a>
-* :warning: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
-* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

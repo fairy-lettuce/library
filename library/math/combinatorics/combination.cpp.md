@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: math/combinatorics/combination.cpp
+# :heavy_check_mark: math/combinatorics/combination.cpp
 <a href="../../../index.html">Back to top page</a>
 
 * category: math/combinatorics
@@ -37,7 +37,7 @@ layout: default
 
 ## Verified With
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-dpl-5-g.test.cpp.html">test/verify/aoj-dpl-5-g.test.cpp</a>
-* :warning: <a href="../../../verify/test/verify/aoj-dpl-5-i.test.cpp.html">test/verify/aoj-dpl-5-i.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-dpl-5-i.test.cpp.html">test/verify/aoj-dpl-5-i.test.cpp</a>
 
 
 ## Code

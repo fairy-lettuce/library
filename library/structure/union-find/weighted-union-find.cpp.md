@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: structure/union-find/weighted-union-find.cpp
+# :heavy_check_mark: structure/union-find/weighted-union-find.cpp
 <a href="../../../index.html">Back to top page</a>
 
 * category: structure/union-find
@@ -36,7 +36,7 @@ layout: default
 
 
 ## Verified With
-* :warning: <a href="../../../verify/test/verify/aoj-dsl-1-b.test.cpp.html">test/verify/aoj-dsl-1-b.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-dsl-1-b.test.cpp.html">test/verify/aoj-dsl-1-b.test.cpp</a>
 
 
 ## Code

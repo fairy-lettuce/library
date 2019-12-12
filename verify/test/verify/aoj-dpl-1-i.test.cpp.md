@@ -37,8 +37,8 @@ layout: default
 
 ## Depends On
 * :heavy_check_mark: <a href="../../../library/dp/knapsack-limitations-2.cpp.html">dp/knapsack-limitations-2.cpp</a>
-* :warning: <a href="../../../library/dp/knapsack-limitations.cpp.html">dp/knapsack-limitations.cpp</a>
-* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/dp/knapsack-limitations.cpp.html">dp/knapsack-limitations.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

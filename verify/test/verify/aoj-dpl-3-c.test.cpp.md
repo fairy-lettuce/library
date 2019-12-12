@@ -37,7 +37,7 @@ layout: default
 
 ## Depends On
 * :heavy_check_mark: <a href="../../../library/dp/largest-rectangle.cpp.html">dp/largest-rectangle.cpp</a>
-* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

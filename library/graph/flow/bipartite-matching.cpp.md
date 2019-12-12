@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: graph/flow/bipartite-matching.cpp
+# :heavy_check_mark: graph/flow/bipartite-matching.cpp
 <a href="../../../index.html">Back to top page</a>
 
 * category: graph/flow
@@ -36,7 +36,7 @@ layout: default
 
 
 ## Verified With
-* :warning: <a href="../../../verify/test/verify/aoj-grl-7-a.test.cpp.html">test/verify/aoj-grl-7-a.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-7-a.test.cpp.html">test/verify/aoj-grl-7-a.test.cpp</a>
 
 
 ## Code

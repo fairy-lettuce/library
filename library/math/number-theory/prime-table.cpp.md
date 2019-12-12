@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: math/number-theory/prime-table.cpp
+# :heavy_check_mark: math/number-theory/prime-table.cpp
 <a href="../../../index.html">Back to top page</a>
 
 * category: math/number-theory
@@ -36,7 +36,7 @@ layout: default
 
 
 ## Verified With
-* :warning: <a href="../../../verify/test/verify/aoj-alds-1-1-c-2.test.cpp.html">test/verify/aoj-alds-1-1-c-2.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-alds-1-1-c-2.test.cpp.html">test/verify/aoj-alds-1-1-c-2.test.cpp</a>
 
 
 ## Code

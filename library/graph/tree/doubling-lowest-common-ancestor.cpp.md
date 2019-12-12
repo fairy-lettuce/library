@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: graph/tree/doubling-lowest-common-ancestor.cpp
+# :heavy_check_mark: graph/tree/doubling-lowest-common-ancestor.cpp
 <a href="../../../index.html">Back to top page</a>
 
 * category: graph/tree
@@ -36,7 +36,7 @@ layout: default
 
 
 ## Verified With
-* :warning: <a href="../../../verify/test/verify/aoj-grl-5-c.test.cpp.html">test/verify/aoj-grl-5-c.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-5-c.test.cpp.html">test/verify/aoj-grl-5-c.test.cpp</a>
 
 
 ## Code

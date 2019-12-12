@@ -37,9 +37,9 @@ layout: default
 
 ## Depends On
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/bell-number.cpp.html">math/combinatorics/bell-number.cpp</a>
-* :warning: <a href="../../../library/math/combinatorics/combination.cpp.html">math/combinatorics/combination.cpp</a>
-* :warning: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
-* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/math/combinatorics/combination.cpp.html">math/combinatorics/combination.cpp</a>
+* :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

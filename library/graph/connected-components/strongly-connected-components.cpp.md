@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: graph/connected-components/strongly-connected-components.cpp
+# :heavy_check_mark: graph/connected-components/strongly-connected-components.cpp
 <a href="../../../index.html">Back to top page</a>
 
 * category: graph/connected-components
@@ -36,7 +36,7 @@ layout: default
 
 
 ## Verified With
-* :warning: <a href="../../../verify/test/verify/aoj-grl-3-c.test.cpp.html">test/verify/aoj-grl-3-c.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-3-c.test.cpp.html">test/verify/aoj-grl-3-c.test.cpp</a>
 
 
 ## Code

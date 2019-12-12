@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: math/number-theory/prime-factor.cpp
+# :heavy_check_mark: math/number-theory/prime-factor.cpp
 <a href="../../../index.html">Back to top page</a>
 
 * category: math/number-theory
@@ -36,7 +36,7 @@ layout: default
 
 
 ## Verified With
-* :warning: <a href="../../../verify/test/verify/aoj-ntl-1-a.test.cpp.html">test/verify/aoj-ntl-1-a.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-ntl-1-a.test.cpp.html">test/verify/aoj-ntl-1-a.test.cpp</a>
 
 
 ## Code
