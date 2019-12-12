@@ -25,14 +25,18 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: math/fps/sparse-matrix.cpp
+# :heavy_check_mark: math/fps/sparse-matrix.cpp
 <a href="../../../index.html">Back to top page</a>
 
 * category: math/fps
 * <a href="{{ site.github.repository_url }}/blob/master/math/fps/sparse-matrix.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:36:31 +0900
+    - Last commit date: 2019-12-12 22:16:00 +0900
 
 
+
+
+## Verified With
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-sparse-matrix-det.test.cpp.html">test/verify/yosupo-sparse-matrix-det.test.cpp</a>
 
 
 ## Code
@@ -74,7 +78,7 @@ FormalPowerSeries< T > minimum_poly(const FPSGraph< T > &g) {
 
 /* O(N(N+S) + N log N log Q) (O(S): time complexity of nex) */
 template< typename T >
-FormalPowerSeries< T > sparse_pow(int64_t Q, FormalPowerSeries< modint > dp, const FPSGraph< T > &g) {
+FormalPowerSeries< T > sparse_pow(int64_t Q, FormalPowerSeries< T > dp, const FPSGraph< T > &g) {
   const int N = (int) dp.size();
   auto A = FormalPowerSeries< T >({0, 1}).pow_mod(Q, minimum_poly(g));
   FormalPowerSeries< T > res(N);

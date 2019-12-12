@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: math/matrix/matrix.cpp
+# :heavy_check_mark: math/matrix/matrix.cpp
 <a href="../../../index.html">Back to top page</a>
 
 * category: math/matrix
@@ -33,6 +33,10 @@ layout: default
     - Last commit date: 2019-11-30 23:36:31 +0900
 
 
+
+
+## Verified With
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-matrix-det.test.cpp.html">test/verify/yosupo-matrix-det.test.cpp</a>
 
 
 ## Code

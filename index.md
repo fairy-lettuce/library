@@ -60,10 +60,10 @@ layout: default
 
 ### graph/flow
 * :heavy_check_mark: <a href="library/graph/flow/bipartite-matching.cpp.html">graph/flow/bipartite-matching.cpp</a>
-* :warning: <a href="library/graph/flow/dinic-capacity-scaling.cpp.html">graph/flow/dinic-capacity-scaling.cpp</a>
+* :heavy_check_mark: <a href="library/graph/flow/dinic-capacity-scaling.cpp.html">graph/flow/dinic-capacity-scaling.cpp</a>
 * :heavy_check_mark: <a href="library/graph/flow/dinic.cpp.html">graph/flow/dinic.cpp</a>
 * :heavy_check_mark: <a href="library/graph/flow/ford-fulkerson.cpp.html">graph/flow/ford-fulkerson.cpp</a>
-* :warning: <a href="library/graph/flow/gabow-edmonds.cpp.html">graph/flow/gabow-edmonds.cpp</a>
+* :heavy_check_mark: <a href="library/graph/flow/gabow-edmonds.cpp.html">graph/flow/gabow-edmonds.cpp</a>
 * :heavy_check_mark: <a href="library/graph/flow/hopcroft-karp.cpp.html">graph/flow/hopcroft-karp.cpp</a>
 * :heavy_check_mark: <a href="library/graph/flow/hungarian.cpp.html">graph/flow/hungarian.cpp</a>
 * :heavy_check_mark: <a href="library/graph/flow/maxflow-lower-bound.cpp.html">graph/flow/maxflow-lower-bound.cpp</a>
@@ -85,7 +85,7 @@ layout: default
 * :warning: <a href="library/graph/others/eulerian-trail.cpp.html">graph/others/eulerian-trail.cpp</a>
 * :heavy_check_mark: <a href="library/graph/others/lowlink.cpp.html">graph/others/lowlink.cpp</a>
 * :heavy_check_mark: <a href="library/graph/others/maximum-clique.cpp.html">graph/others/maximum-clique.cpp</a>
-* :warning: <a href="library/graph/others/maximum-independent-set.cpp.html">graph/others/maximum-independent-set.cpp</a>
+* :heavy_check_mark: <a href="library/graph/others/maximum-independent-set.cpp.html">graph/others/maximum-independent-set.cpp</a>
 * :heavy_check_mark: <a href="library/graph/others/offline-dag-reachability.cpp.html">graph/others/offline-dag-reachability.cpp</a>
 * :heavy_check_mark: <a href="library/graph/others/topological-sort.cpp.html">graph/others/topological-sort.cpp</a>
 
@@ -135,17 +135,17 @@ layout: default
 
 
 ### math/fps
-* :warning: <a href="library/math/fps/berlekamp-massey.cpp.html">math/fps/berlekamp-massey.cpp</a>
+* :heavy_check_mark: <a href="library/math/fps/berlekamp-massey.cpp.html">math/fps/berlekamp-massey.cpp</a>
 * :warning: <a href="library/math/fps/factorial.cpp.html">math/fps/factorial.cpp</a>
 * :heavy_check_mark: <a href="library/math/fps/formal-power-series-seq.cpp.html">math/fps/formal-power-series-seq.cpp</a>
 * :heavy_check_mark: <a href="library/math/fps/formal-power-series.cpp.html">math/fps/formal-power-series.cpp</a>
-* :warning: <a href="library/math/fps/multipoint-evaluation.cpp.html">math/fps/multipoint-evaluation.cpp</a>
-* :warning: <a href="library/math/fps/polynomial-interpolation.cpp.html">math/fps/polynomial-interpolation.cpp</a>
-* :warning: <a href="library/math/fps/sparse-matrix.cpp.html">math/fps/sparse-matrix.cpp</a>
+* :heavy_check_mark: <a href="library/math/fps/multipoint-evaluation.cpp.html">math/fps/multipoint-evaluation.cpp</a>
+* :heavy_check_mark: <a href="library/math/fps/polynomial-interpolation.cpp.html">math/fps/polynomial-interpolation.cpp</a>
+* :heavy_check_mark: <a href="library/math/fps/sparse-matrix.cpp.html">math/fps/sparse-matrix.cpp</a>
 
 
 ### math/matrix
-* :warning: <a href="library/math/matrix/matrix.cpp.html">math/matrix/matrix.cpp</a>
+* :heavy_check_mark: <a href="library/math/matrix/matrix.cpp.html">math/matrix/matrix.cpp</a>
 
 
 ### math/number-theory
@@ -154,7 +154,7 @@ layout: default
 * :warning: <a href="library/math/number-theory/euler-phi-table.cpp.html">math/number-theory/euler-phi-table.cpp</a>
 * :heavy_check_mark: <a href="library/math/number-theory/euler-phi.cpp.html">math/number-theory/euler-phi.cpp</a>
 * :heavy_check_mark: <a href="library/math/number-theory/extgcd.cpp.html">math/number-theory/extgcd.cpp</a>
-* :warning: <a href="library/math/number-theory/fast-prime-factorization.cpp.html">math/number-theory/fast-prime-factorization.cpp</a>
+* :heavy_check_mark: <a href="library/math/number-theory/fast-prime-factorization.cpp.html">math/number-theory/fast-prime-factorization.cpp</a>
 * :heavy_check_mark: <a href="library/math/number-theory/is-prime.cpp.html">math/number-theory/is-prime.cpp</a>
 * :heavy_check_mark: <a href="library/math/number-theory/prime-factor.cpp.html">math/number-theory/prime-factor.cpp</a>
 * :heavy_check_mark: <a href="library/math/number-theory/prime-table.cpp.html">math/number-theory/prime-table.cpp</a>
@@ -327,6 +327,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-5-c.test.cpp.html">test/verify/aoj-grl-5-c.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-6-a-2.test.cpp.html">test/verify/aoj-grl-6-a-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-6-a-3.test.cpp.html">test/verify/aoj-grl-6-a-3.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-grl-6-a-4.test.cpp.html">test/verify/aoj-grl-6-a-4.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-6-a.test.cpp.html">test/verify/aoj-grl-6-a.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-6-b.test.cpp.html">test/verify/aoj-grl-6-b.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-7-a-2.test.cpp.html">test/verify/aoj-grl-7-a-2.test.cpp</a>
@@ -338,9 +339,16 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-bellnoulli-number.test.cpp.html">test/verify/yosupo-bellnoulli-number.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-discrete-logarithm-mod.test.cpp.html">test/verify/yosupo-discrete-logarithm-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-exp-of-formal-power-series.test.cpp.html">test/verify/yosupo-exp-of-formal-power-series.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-factorize.test.cpp.html">test/verify/yosupo-factorize.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-general-matching.test.cpp.html">test/verify/yosupo-general-matching.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-inv-of-formal-power-series.test.cpp.html">test/verify/yosupo-inv-of-formal-power-series.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-log-of-formal-power-series.test.cpp.html">test/verify/yosupo-log-of-formal-power-series.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-matrix-det.test.cpp.html">test/verify/yosupo-matrix-det.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-maximum-independent-set.test.cpp.html">test/verify/yosupo-maximum-independent-set.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-multipoint-evaluation.test.cpp.html">test/verify/yosupo-multipoint-evaluation.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-partition-function.test.cpp.html">test/verify/yosupo-partition-function.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-polynomial-interpolation.test.cpp.html">test/verify/yosupo-polynomial-interpolation.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-sparse-matrix-det.test.cpp.html">test/verify/yosupo-sparse-matrix-det.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sqrt-mod.test.cpp.html">test/verify/yosupo-sqrt-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp.html">test/verify/yosupo-sqrt-of-formal-power-series.test.cpp</a>
 

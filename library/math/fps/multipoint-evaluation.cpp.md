@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: math/fps/multipoint-evaluation.cpp
+# :heavy_check_mark: math/fps/multipoint-evaluation.cpp
 <a href="../../../index.html">Back to top page</a>
 
 * category: math/fps
@@ -33,6 +33,11 @@ layout: default
     - Last commit date: 2019-11-30 23:36:31 +0900
 
 
+
+
+## Verified With
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-multipoint-evaluation.test.cpp.html">test/verify/yosupo-multipoint-evaluation.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-polynomial-interpolation.test.cpp.html">test/verify/yosupo-polynomial-interpolation.test.cpp</a>
 
 
 ## Code

@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: math/number-theory/fast-prime-factorization.cpp
+# :heavy_check_mark: math/number-theory/fast-prime-factorization.cpp
 <a href="../../../index.html">Back to top page</a>
 
 * category: math/number-theory
@@ -33,6 +33,10 @@ layout: default
     - Last commit date: 2019-11-30 23:36:31 +0900
 
 
+
+
+## Verified With
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-factorize.test.cpp.html">test/verify/yosupo-factorize.test.cpp</a>
 
 
 ## Code

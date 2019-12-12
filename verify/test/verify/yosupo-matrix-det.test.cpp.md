@@ -25,47 +25,42 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: math/fps/berlekamp-massey.cpp
+# :heavy_check_mark: test/verify/yosupo-matrix-det.test.cpp
 <a href="../../../index.html">Back to top page</a>
 
-* category: math/fps
-* <a href="{{ site.github.repository_url }}/blob/master/math/fps/berlekamp-massey.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:36:31 +0900
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-matrix-det.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-12-12 22:16:00 +0900
 
 
+* see: <a href="https://judge.yosupo.jp/problem/matrix_det">https://judge.yosupo.jp/problem/matrix_det</a>
 
 
-## Verified With
-* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-sparse-matrix-det.test.cpp.html">test/verify/yosupo-sparse-matrix-det.test.cpp</a>
+## Depends On
+* :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
+* :heavy_check_mark: <a href="../../../library/math/matrix/matrix.cpp.html">math/matrix/matrix.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
 {% raw %}
 ```cpp
-template< class T >
-FormalPowerSeries< T > berlekamp_massey(const FormalPowerSeries< T > &s) {
-  const int N = (int) s.size();
-  FormalPowerSeries< T > b = {T(-1)}, c = {T(-1)};
-  T y = T(1);
-  for(int ed = 1; ed <= N; ed++) {
-    int l = int(c.size()), m = int(b.size());
-    T x = 0;
-    for(int i = 0; i < l; i++) x += c[i] * s[ed - l + i];
-    b.emplace_back(0);
-    m++;
-    if(x == T(0)) continue;
-    T freq = x / y;
-    if(l < m) {
-      auto tmp = c;
-      c.insert(begin(c), m - l, T(0));
-      for(int i = 0; i < m; i++) c[m - 1 - i] -= freq * b[m - 1 - i];
-      b = tmp;
-      y = x;
-    } else {
-      for(int i = 0; i < m; i++) c[l - 1 - i] -= freq * b[m - 1 - i];
-    }
-  }
-  return c;
+#define PROBLEM "https://judge.yosupo.jp/problem/matrix_det"
+
+#include "../../template/template.cpp"
+
+#include "../../math/combinatorics/mod-int.cpp"
+
+#include "../../math/matrix/matrix.cpp"
+
+const int MOD = 998244353;
+using mint = ModInt< MOD >;
+
+int main() {
+  int N;
+  cin >> N;
+  Matrix< mint > mat(N);
+  for(int i = 0; i < N; i++) cin >> mat[i];
+  cout << mat.determinant() << endl;
 }
 
 ```

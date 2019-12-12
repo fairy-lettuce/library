@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: graph/flow/dinic-capacity-scaling.cpp
+# :heavy_check_mark: graph/flow/dinic-capacity-scaling.cpp
 <a href="../../../index.html">Back to top page</a>
 
 * category: graph/flow
@@ -33,6 +33,10 @@ layout: default
     - Last commit date: 2019-11-30 23:02:43 +0900
 
 
+
+
+## Verified With
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-6-a-4.test.cpp.html">test/verify/aoj-grl-6-a-4.test.cpp</a>
 
 
 ## Code
