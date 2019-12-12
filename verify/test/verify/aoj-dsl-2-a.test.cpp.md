@@ -25,17 +25,19 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/aoj-dsl-2-a.test.cpp
+# :warning: test/verify/aoj-dsl-2-a.test.cpp
+<a href="../../../index.html">Back to top page</a>
+
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dsl-2-a.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 22:41:48 +0900
 
 
-[Back to top page](../../../index.html)
-
-* see: [http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A)
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A</a>
 
 
-## Dependencies
-* :heavy_check_mark: [structure/segment-tree/segment-tree.cpp](../../../library/structure/segment-tree/segment-tree.cpp.html)
-* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
+## Depends On
+* :warning: <a href="../../../library/structure/segment-tree/segment-tree.cpp.html">structure/segment-tree/segment-tree.cpp</a>
+* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -62,5 +64,5 @@ int main() {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

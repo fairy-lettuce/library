@@ -25,12 +25,19 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: math/fps/formal-power-series-seq.cpp
+# :heavy_check_mark: math/fps/formal-power-series-seq.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: math/fps
+* <a href="{{ site.github.repository_url }}/blob/master/math/fps/formal-power-series-seq.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:36:31 +0900
 
 
-[Back to top page](../../../index.html)
 
+
+## Verified With
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-bellnoulli-number.test.cpp.html">test/verify/yosupo-bellnoulli-number.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-partition-function.test.cpp.html">test/verify/yosupo-partition-function.test.cpp</a>
 
 
 ## Code
@@ -159,5 +166,5 @@ FormalPowerSeries< T > eulerian(int N) {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

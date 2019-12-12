@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: math/fft/arbitrary-mod-convolution-long.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: math/fft
+* <a href="{{ site.github.repository_url }}/blob/master/math/fft/arbitrary-mod-convolution-long.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-12-03 22:21:44 +0900
 
-
-[Back to top page](../../../index.html)
 
 
 
@@ -101,5 +103,5 @@ struct ArbitraryModConvolutionLong {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

@@ -26,17 +26,19 @@ layout: default
 
 
 # :heavy_check_mark: test/verify/aoj-grl-1-b-2.test.cpp
+<a href="../../../index.html">Back to top page</a>
+
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-1-b-2.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:02:43 +0900
 
 
-[Back to top page](../../../index.html)
-
-* see: [http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B)
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B</a>
 
 
-## Dependencies
-* :heavy_check_mark: [graph/shortest-path/shortest-path-faster-algorithm.cpp](../../../library/graph/shortest-path/shortest-path-faster-algorithm.cpp.html)
-* :heavy_check_mark: [graph/template.cpp](../../../library/graph/template.cpp.html)
-* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
+## Depends On
+* :heavy_check_mark: <a href="../../../library/graph/shortest-path/shortest-path-faster-algorithm.cpp.html">graph/shortest-path/shortest-path-faster-algorithm.cpp</a>
+* :warning: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
+* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -69,5 +71,5 @@ int main() {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

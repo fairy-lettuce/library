@@ -26,16 +26,18 @@ layout: default
 
 
 # :warning: math/combinatorics/combination.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: math/combinatorics
+* <a href="{{ site.github.repository_url }}/blob/master/math/combinatorics/combination.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:36:31 +0900
 
 
-[Back to top page](../../../index.html)
 
 
-
-## Verified
-* :heavy_check_mark: [test/verify/aoj-dpl-5-g.test.cpp](../../../verify/test/verify/aoj-dpl-5-g.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-dpl-5-i.test.cpp](../../../verify/test/verify/aoj-dpl-5-i.test.cpp.html)
+## Verified With
+* :warning: <a href="../../../verify/test/verify/aoj-dpl-5-g.test.cpp.html">test/verify/aoj-dpl-5-g.test.cpp</a>
+* :warning: <a href="../../../verify/test/verify/aoj-dpl-5-i.test.cpp.html">test/verify/aoj-dpl-5-i.test.cpp</a>
 
 
 ## Code
@@ -78,5 +80,5 @@ struct Combination {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

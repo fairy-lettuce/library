@@ -26,11 +26,22 @@ layout: default
 
 
 # :warning: math/fft/number-theoretic-transform-friendly-mod-int.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: math/fft
+* <a href="{{ site.github.repository_url }}/blob/master/math/fft/number-theoretic-transform-friendly-mod-int.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-12-03 22:21:44 +0900
 
 
-[Back to top page](../../../index.html)
 
+
+## Verified With
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-bellnoulli-number.test.cpp.html">test/verify/yosupo-bellnoulli-number.test.cpp</a>
+* :warning: <a href="../../../verify/test/verify/yosupo-exp-of-formal-power-series.test.cpp.html">test/verify/yosupo-exp-of-formal-power-series.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-inv-of-formal-power-series.test.cpp.html">test/verify/yosupo-inv-of-formal-power-series.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-log-of-formal-power-series.test.cpp.html">test/verify/yosupo-log-of-formal-power-series.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-partition-function.test.cpp.html">test/verify/yosupo-partition-function.test.cpp</a>
+* :warning: <a href="../../../verify/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp.html">test/verify/yosupo-sqrt-of-formal-power-series.test.cpp</a>
 
 
 ## Code
@@ -130,5 +141,5 @@ struct NumberTheoreticTransformFriendlyModInt {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

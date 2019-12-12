@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: math/number-theory/quotient-range.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: math/number-theory
+* <a href="{{ site.github.repository_url }}/blob/master/math/number-theory/quotient-range.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:36:31 +0900
 
-
-[Back to top page](../../../index.html)
 
 
 
@@ -54,5 +56,5 @@ vector< pair< pair< T, T >, T > > quotient_range(T N) {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

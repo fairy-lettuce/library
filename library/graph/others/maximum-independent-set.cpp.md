@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: graph/others/maximum-independent-set.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: graph/others
+* <a href="{{ site.github.repository_url }}/blob/master/graph/others/maximum-independent-set.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:02:43 +0900
 
-
-[Back to top page](../../../index.html)
 
 
 
@@ -81,5 +83,5 @@ vector< int > maximum_independent_set(const Matrix< T > &g, int trial = 1000000)
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

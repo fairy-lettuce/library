@@ -26,15 +26,17 @@ layout: default
 
 
 # :warning: structure/others/binary-indexed-tree.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: structure/others
+* <a href="{{ site.github.repository_url }}/blob/master/structure/others/binary-indexed-tree.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 22:41:48 +0900
 
 
-[Back to top page](../../../index.html)
 
 
-
-## Verified
-* :heavy_check_mark: [test/verify/aoj-dsl-2-b.test.cpp](../../../verify/test/verify/aoj-dsl-2-b.test.cpp.html)
+## Verified With
+* :warning: <a href="../../../verify/test/verify/aoj-dsl-2-b.test.cpp.html">test/verify/aoj-dsl-2-b.test.cpp</a>
 
 
 ## Code
@@ -62,5 +64,5 @@ struct BinaryIndexedTree {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

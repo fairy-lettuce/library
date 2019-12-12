@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: test/verify/spoj-treeiso.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: test/verify
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/spoj-treeiso.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:02:43 +0900
 
-
-[Back to top page](../../../index.html)
 
 
 
@@ -65,5 +67,5 @@ int main() {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

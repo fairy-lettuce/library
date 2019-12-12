@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: test/verify/codeforces-neerc-ssc-2014-a.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: test/verify
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/codeforces-neerc-ssc-2014-a.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:36:31 +0900
 
-
-[Back to top page](../../../index.html)
 
 
 
@@ -130,5 +132,5 @@ int main() {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

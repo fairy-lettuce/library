@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: geometry/template.cpp
+<a href="../../index.html">Back to top page</a>
+
 * category: geometry
+* <a href="{{ site.github.repository_url }}/blob/master/geometry/template.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-14 16:01:02 +0900
 
-
-[Back to top page](../../index.html)
 
 
 
@@ -535,5 +537,5 @@ Real closest_pair(Points ps) {
 ```
 {% endraw %}
 
-[Back to top page](../../index.html)
+<a href="../../index.html">Back to top page</a>
 

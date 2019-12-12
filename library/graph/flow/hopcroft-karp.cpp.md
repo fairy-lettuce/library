@@ -25,16 +25,18 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: graph/flow/hopcroft-karp.cpp
+# :heavy_check_mark: graph/flow/hopcroft-karp.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: graph/flow
+* <a href="{{ site.github.repository_url }}/blob/master/graph/flow/hopcroft-karp.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:02:43 +0900
 
 
-[Back to top page](../../../index.html)
 
 
-
-## Verified
-* :heavy_check_mark: [test/verify/aoj-grl-7-a-2.test.cpp](../../../verify/test/verify/aoj-grl-7-a-2.test.cpp.html)
+## Verified With
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-7-a-2.test.cpp.html">test/verify/aoj-grl-7-a-2.test.cpp</a>
 
 
 ## Code
@@ -113,5 +115,5 @@ struct HopcroftKarp {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

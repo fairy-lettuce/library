@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: dp/online-offline-dp.cpp
+<a href="../../index.html">Back to top page</a>
+
 * category: dp
+* <a href="{{ site.github.repository_url }}/blob/master/dp/online-offline-dp.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-07-20 01:29:30 +0900
 
-
-[Back to top page](../../index.html)
 
 
 
@@ -76,5 +78,5 @@ vector< T > online_offline_dp(int W, const function< T(int, int) > &f, const Com
 ```
 {% endraw %}
 
-[Back to top page](../../index.html)
+<a href="../../index.html">Back to top page</a>
 

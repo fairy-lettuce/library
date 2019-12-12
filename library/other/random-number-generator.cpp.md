@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: other/random-number-generator.cpp
+<a href="../../index.html">Back to top page</a>
+
 * category: other
+* <a href="{{ site.github.repository_url }}/blob/master/other/random-number-generator.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-07-20 01:29:30 +0900
 
-
-[Back to top page](../../index.html)
 
 
 
@@ -54,5 +56,5 @@ struct RandomNumberGenerator {
 ```
 {% endraw %}
 
-[Back to top page](../../index.html)
+<a href="../../index.html">Back to top page</a>
 

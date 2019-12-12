@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: graph/tree/convert-rooted-tree.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: graph/tree
+* <a href="{{ site.github.repository_url }}/blob/master/graph/tree/convert-rooted-tree.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:02:43 +0900
 
-
-[Back to top page](../../../index.html)
 
 
 
@@ -61,5 +63,5 @@ G convert_rooted_tree(const G &g, int r = 0) {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

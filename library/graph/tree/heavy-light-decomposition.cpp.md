@@ -26,15 +26,18 @@ layout: default
 
 
 # :warning: graph/tree/heavy-light-decomposition.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: graph/tree
+* <a href="{{ site.github.repository_url }}/blob/master/graph/tree/heavy-light-decomposition.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-12-11 21:18:41 +0900
 
 
-[Back to top page](../../../index.html)
 
 
-
-## Verified
-* :heavy_check_mark: [test/verify/aoj-grl-5-c-2.test.cpp](../../../verify/test/verify/aoj-grl-5-c-2.test.cpp.html)
+## Verified With
+* :warning: <a href="../../../verify/test/verify/aoj-2450.test.cpp.html">test/verify/aoj-2450.test.cpp</a>
+* :warning: <a href="../../../verify/test/verify/aoj-grl-5-c-2.test.cpp.html">test/verify/aoj-grl-5-c-2.test.cpp</a>
 
 
 ## Code
@@ -77,6 +80,7 @@ struct HeavyLightDecomposition {
     dfs_hld(0, -1, t);
   }
 
+  /* k: 0-indexed */
   int la(int v, int k) {
     while(1) {
       int u = head[v];
@@ -93,16 +97,20 @@ struct HeavyLightDecomposition {
     }
   }
 
-  template< typename T, typename Q, typename F >
-  T query(int u, int v, const T &ti, const Q &q, const F &f, bool edge = false) {
+  template< typename T, typename Q, typename F, typename S >
+  T query(int u, int v, const T &ti, const Q &q, const F &f, const S &s, bool edge = false) {
     T l = ti, r = ti;
     for(;; v = par[head[v]]) {
       if(in[u] > in[v]) swap(u, v), swap(l, r);
       if(head[u] == head[v]) break;
       l = f(q(in[head[v]], in[v] + 1), l);
     }
-    return f(f(q(in[u] + edge, in[v] + 1), l), r);
-//  return {f(q(in[u] + edge, in[v] + 1), l), r};
+    return s(f(q(in[u] + edge, in[v] + 1), l), r);
+  }
+
+  template< typename T, typename Q, typename F >
+  T query(int u, int v, const T &ti, const Q &q, const F &f, bool edge = false) {
+    return query(u, v, ti, q, f, f, edge);
   }
 
   template< typename Q >
@@ -119,5 +127,5 @@ struct HeavyLightDecomposition {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

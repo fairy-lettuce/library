@@ -26,15 +26,17 @@ layout: default
 
 
 # :warning: math/number-theory/prime-table.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: math/number-theory
+* <a href="{{ site.github.repository_url }}/blob/master/math/number-theory/prime-table.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:36:31 +0900
 
 
-[Back to top page](../../../index.html)
 
 
-
-## Verified
-* :heavy_check_mark: [test/verify/aoj-alds-1-1-c-2.test.cpp](../../../verify/test/verify/aoj-alds-1-1-c-2.test.cpp.html)
+## Verified With
+* :warning: <a href="../../../verify/test/verify/aoj-alds-1-1-c-2.test.cpp.html">test/verify/aoj-alds-1-1-c-2.test.cpp</a>
 
 
 ## Code
@@ -56,5 +58,5 @@ vector< bool > prime_table(int n) {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

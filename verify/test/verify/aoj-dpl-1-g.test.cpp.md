@@ -25,17 +25,19 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/aoj-dpl-1-g.test.cpp
+# :warning: test/verify/aoj-dpl-1-g.test.cpp
+<a href="../../../index.html">Back to top page</a>
+
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-1-g.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-12-03 22:44:33 +0900
 
 
-[Back to top page](../../../index.html)
-
-* see: [http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_G](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_G)
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_G">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_G</a>
 
 
-## Dependencies
-* :heavy_check_mark: [dp/knapsack-limitations.cpp](../../../library/dp/knapsack-limitations.cpp.html)
-* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
+## Depends On
+* :warning: <a href="../../../library/dp/knapsack-limitations.cpp.html">dp/knapsack-limitations.cpp</a>
+* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -61,5 +63,5 @@ int main() {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

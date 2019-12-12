@@ -26,15 +26,17 @@ layout: default
 
 
 # :warning: math/number-theory/prime-factor.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: math/number-theory
+* <a href="{{ site.github.repository_url }}/blob/master/math/number-theory/prime-factor.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:36:31 +0900
 
 
-[Back to top page](../../../index.html)
 
 
-
-## Verified
-* :heavy_check_mark: [test/verify/aoj-ntl-1-a.test.cpp](../../../verify/test/verify/aoj-ntl-1-a.test.cpp.html)
+## Verified With
+* :warning: <a href="../../../verify/test/verify/aoj-ntl-1-a.test.cpp.html">test/verify/aoj-ntl-1-a.test.cpp</a>
 
 
 ## Code
@@ -55,5 +57,5 @@ map< int64_t, int > prime_factor(int64_t n) {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

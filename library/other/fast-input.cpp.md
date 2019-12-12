@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: other/fast-input.cpp
+<a href="../../index.html">Back to top page</a>
+
 * category: other
+* <a href="{{ site.github.repository_url }}/blob/master/other/fast-input.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-07-20 01:29:30 +0900
 
-
-[Back to top page](../../index.html)
 
 
 
@@ -63,5 +65,5 @@ struct FastInput {
 ```
 {% endraw %}
 
-[Back to top page](../../index.html)
+<a href="../../index.html">Back to top page</a>
 

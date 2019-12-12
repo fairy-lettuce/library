@@ -25,19 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/aoj-grl-2-a-4.test.cpp
+# :warning: test/verify/aoj-grl-2-a-4.test.cpp
+<a href="../../../index.html">Back to top page</a>
+
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-2-a-4.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:02:43 +0900
 
 
-[Back to top page](../../../index.html)
-
-* see: [http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A)
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A</a>
 
 
-## Dependencies
-* :heavy_check_mark: [graph/mst/prim-fibonacchi-heap.cpp](../../../library/graph/mst/prim-fibonacchi-heap.cpp.html)
-* :heavy_check_mark: [graph/template.cpp](../../../library/graph/template.cpp.html)
-* :heavy_check_mark: [structure/heap/fibonacchi-heap.cpp](../../../library/structure/heap/fibonacchi-heap.cpp.html)
-* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
+## Depends On
+* :warning: <a href="../../../library/graph/mst/prim-fibonacchi-heap.cpp.html">graph/mst/prim-fibonacchi-heap.cpp</a>
+* :warning: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
+* :warning: <a href="../../../library/structure/heap/fibonacchi-heap.cpp.html">structure/heap/fibonacchi-heap.cpp</a>
+* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -68,5 +70,5 @@ int main() {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

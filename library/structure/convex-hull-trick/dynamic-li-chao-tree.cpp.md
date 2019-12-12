@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: structure/convex-hull-trick/dynamic-li-chao-tree.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: structure/convex-hull-trick
+* <a href="{{ site.github.repository_url }}/blob/master/structure/convex-hull-trick/dynamic-li-chao-tree.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 22:41:48 +0900
 
-
-[Back to top page](../../../index.html)
 
 
 
@@ -104,5 +106,5 @@ struct DynamicLiChaoTree {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

@@ -25,16 +25,18 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: graph/others/topological-sort.cpp
+# :heavy_check_mark: graph/others/topological-sort.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: graph/others
+* <a href="{{ site.github.repository_url }}/blob/master/graph/others/topological-sort.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:02:43 +0900
 
 
-[Back to top page](../../../index.html)
 
 
-
-## Verified
-* :heavy_check_mark: [test/verify/aoj-0275.test.cpp](../../../verify/test/verify/aoj-0275.test.cpp.html)
+## Verified With
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-0275.test.cpp.html">test/verify/aoj-0275.test.cpp</a>
 
 
 ## Code
@@ -66,5 +68,5 @@ vector< int > topological_sort(const G &g) {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: structure/trie/trie.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: structure/trie
+* <a href="{{ site.github.repository_url }}/blob/master/structure/trie/trie.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 22:41:48 +0900
 
-
-[Back to top page](../../../index.html)
 
 
 
@@ -116,5 +118,5 @@ struct Trie {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

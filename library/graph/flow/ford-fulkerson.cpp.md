@@ -26,15 +26,17 @@ layout: default
 
 
 # :warning: graph/flow/ford-fulkerson.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: graph/flow
+* <a href="{{ site.github.repository_url }}/blob/master/graph/flow/ford-fulkerson.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:02:43 +0900
 
 
-[Back to top page](../../../index.html)
 
 
-
-## Verified
-* :heavy_check_mark: [test/verify/aoj-grl-6-a-2.test.cpp](../../../verify/test/verify/aoj-grl-6-a-2.test.cpp.html)
+## Verified With
+* :warning: <a href="../../../verify/test/verify/aoj-grl-6-a-2.test.cpp.html">test/verify/aoj-grl-6-a-2.test.cpp</a>
 
 
 ## Code
@@ -103,5 +105,5 @@ struct FordFulkerson {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

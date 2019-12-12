@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: math/matrix/matrix.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: math/matrix
+* <a href="{{ site.github.repository_url }}/blob/master/math/matrix/matrix.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:36:31 +0900
 
-
-[Back to top page](../../../index.html)
 
 
 
@@ -170,5 +172,5 @@ struct Matrix {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: graph/connected-components/two-edge-connected-components.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: graph/connected-components
+* <a href="{{ site.github.repository_url }}/blob/master/graph/connected-components/two-edge-connected-components.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:02:43 +0900
 
-
-[Back to top page](../../../index.html)
 
 
 
@@ -74,5 +76,5 @@ struct TwoEdgeConnectedComponents : LowLink< G > {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

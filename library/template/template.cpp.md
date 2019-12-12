@@ -26,62 +26,73 @@ layout: default
 
 
 # :warning: template/template.cpp
+<a href="../../index.html">Back to top page</a>
+
 * category: template
+* <a href="{{ site.github.repository_url }}/blob/master/template/template.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-08-13 21:45:04 +0900
 
 
-[Back to top page](../../index.html)
 
 
-
-## Verified
-* :heavy_check_mark: [test/verify/aoj-0275.test.cpp](../../verify/test/verify/aoj-0275.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-0294.test.cpp](../../verify/test/verify/aoj-0294.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-0304.test.cpp](../../verify/test/verify/aoj-0304.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-1163.test.cpp](../../verify/test/verify/aoj-1163.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-1615.test.cpp](../../verify/test/verify/aoj-1615.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-2306.test.cpp](../../verify/test/verify/aoj-2306.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-alds-1-1-c-2.test.cpp](../../verify/test/verify/aoj-alds-1-1-c-2.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-alds-1-1-c.test.cpp](../../verify/test/verify/aoj-alds-1-1-c.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-alds-1-14-b.test.cpp](../../verify/test/verify/aoj-alds-1-14-b.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-alds-1-14-d.test.cpp](../../verify/test/verify/aoj-alds-1-14-d.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-dpl-1-d.test.cpp](../../verify/test/verify/aoj-dpl-1-d.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-dpl-1-g.test.cpp](../../verify/test/verify/aoj-dpl-1-g.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-dpl-1-i.test.cpp](../../verify/test/verify/aoj-dpl-1-i.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-dpl-3-c.test.cpp](../../verify/test/verify/aoj-dpl-3-c.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-dpl-5-g.test.cpp](../../verify/test/verify/aoj-dpl-5-g.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-dpl-5-i.test.cpp](../../verify/test/verify/aoj-dpl-5-i.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-dpl-5-j.test.cpp](../../verify/test/verify/aoj-dpl-5-j.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-dsl-1-a.test.cpp](../../verify/test/verify/aoj-dsl-1-a.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-dsl-1-b.test.cpp](../../verify/test/verify/aoj-dsl-1-b.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-dsl-2-a.test.cpp](../../verify/test/verify/aoj-dsl-2-a.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-dsl-2-b.test.cpp](../../verify/test/verify/aoj-dsl-2-b.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-1-a-2.test.cpp](../../verify/test/verify/aoj-grl-1-a-2.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-1-a-3.test.cpp](../../verify/test/verify/aoj-grl-1-a-3.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-1-a.test.cpp](../../verify/test/verify/aoj-grl-1-a.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-1-b-2.test.cpp](../../verify/test/verify/aoj-grl-1-b-2.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-1-b.test.cpp](../../verify/test/verify/aoj-grl-1-b.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-1-c.test.cpp](../../verify/test/verify/aoj-grl-1-c.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-2-a-2.test.cpp](../../verify/test/verify/aoj-grl-2-a-2.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-2-a-3.test.cpp](../../verify/test/verify/aoj-grl-2-a-3.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-2-a-4.test.cpp](../../verify/test/verify/aoj-grl-2-a-4.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-2-a.test.cpp](../../verify/test/verify/aoj-grl-2-a.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-2-b.test.cpp](../../verify/test/verify/aoj-grl-2-b.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-3-a.test.cpp](../../verify/test/verify/aoj-grl-3-a.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-3-b.test.cpp](../../verify/test/verify/aoj-grl-3-b.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-3-c.test.cpp](../../verify/test/verify/aoj-grl-3-c.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-5-a.test.cpp](../../verify/test/verify/aoj-grl-5-a.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-5-c-2.test.cpp](../../verify/test/verify/aoj-grl-5-c-2.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-5-c.test.cpp](../../verify/test/verify/aoj-grl-5-c.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-6-a-2.test.cpp](../../verify/test/verify/aoj-grl-6-a-2.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-6-a-3.test.cpp](../../verify/test/verify/aoj-grl-6-a-3.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-6-a.test.cpp](../../verify/test/verify/aoj-grl-6-a.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-6-b.test.cpp](../../verify/test/verify/aoj-grl-6-b.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-7-a-2.test.cpp](../../verify/test/verify/aoj-grl-7-a-2.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-7-a.test.cpp](../../verify/test/verify/aoj-grl-7-a.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-ntl-1-a.test.cpp](../../verify/test/verify/aoj-ntl-1-a.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-ntl-1-b.test.cpp](../../verify/test/verify/aoj-ntl-1-b.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-ntl-1-d.test.cpp](../../verify/test/verify/aoj-ntl-1-d.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-ntl-1-e.test.cpp](../../verify/test/verify/aoj-ntl-1-e.test.cpp.html)
+## Verified With
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-0275.test.cpp.html">test/verify/aoj-0275.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-0294.test.cpp.html">test/verify/aoj-0294.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-0304.test.cpp.html">test/verify/aoj-0304.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-1163.test.cpp.html">test/verify/aoj-1163.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-1615.test.cpp.html">test/verify/aoj-1615.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-2306.test.cpp.html">test/verify/aoj-2306.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-2450.test.cpp.html">test/verify/aoj-2450.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-alds-1-1-c-2.test.cpp.html">test/verify/aoj-alds-1-1-c-2.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-alds-1-1-c.test.cpp.html">test/verify/aoj-alds-1-1-c.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-alds-1-14-b.test.cpp.html">test/verify/aoj-alds-1-14-b.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-alds-1-14-d.test.cpp.html">test/verify/aoj-alds-1-14-d.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-dpl-1-d.test.cpp.html">test/verify/aoj-dpl-1-d.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-dpl-1-g.test.cpp.html">test/verify/aoj-dpl-1-g.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-dpl-1-i.test.cpp.html">test/verify/aoj-dpl-1-i.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-dpl-3-c.test.cpp.html">test/verify/aoj-dpl-3-c.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-dpl-5-g.test.cpp.html">test/verify/aoj-dpl-5-g.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-dpl-5-i.test.cpp.html">test/verify/aoj-dpl-5-i.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-dpl-5-j.test.cpp.html">test/verify/aoj-dpl-5-j.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-dsl-1-a.test.cpp.html">test/verify/aoj-dsl-1-a.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-dsl-1-b.test.cpp.html">test/verify/aoj-dsl-1-b.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-dsl-2-a.test.cpp.html">test/verify/aoj-dsl-2-a.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-dsl-2-b.test.cpp.html">test/verify/aoj-dsl-2-b.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-1-a-2.test.cpp.html">test/verify/aoj-grl-1-a-2.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-grl-1-a-3.test.cpp.html">test/verify/aoj-grl-1-a-3.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-1-a.test.cpp.html">test/verify/aoj-grl-1-a.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-1-b-2.test.cpp.html">test/verify/aoj-grl-1-b-2.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-1-b.test.cpp.html">test/verify/aoj-grl-1-b.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-grl-1-c.test.cpp.html">test/verify/aoj-grl-1-c.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-grl-2-a-2.test.cpp.html">test/verify/aoj-grl-2-a-2.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-grl-2-a-3.test.cpp.html">test/verify/aoj-grl-2-a-3.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-grl-2-a-4.test.cpp.html">test/verify/aoj-grl-2-a-4.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-grl-2-a.test.cpp.html">test/verify/aoj-grl-2-a.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-grl-2-b.test.cpp.html">test/verify/aoj-grl-2-b.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-grl-3-a.test.cpp.html">test/verify/aoj-grl-3-a.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-grl-3-b.test.cpp.html">test/verify/aoj-grl-3-b.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-grl-3-c.test.cpp.html">test/verify/aoj-grl-3-c.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-grl-5-a.test.cpp.html">test/verify/aoj-grl-5-a.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-grl-5-c-2.test.cpp.html">test/verify/aoj-grl-5-c-2.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-grl-5-c.test.cpp.html">test/verify/aoj-grl-5-c.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-grl-6-a-2.test.cpp.html">test/verify/aoj-grl-6-a-2.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-grl-6-a-3.test.cpp.html">test/verify/aoj-grl-6-a-3.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-6-a.test.cpp.html">test/verify/aoj-grl-6-a.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-grl-6-b.test.cpp.html">test/verify/aoj-grl-6-b.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-7-a-2.test.cpp.html">test/verify/aoj-grl-7-a-2.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-grl-7-a.test.cpp.html">test/verify/aoj-grl-7-a.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-ntl-1-a.test.cpp.html">test/verify/aoj-ntl-1-a.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-ntl-1-b.test.cpp.html">test/verify/aoj-ntl-1-b.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-ntl-1-d.test.cpp.html">test/verify/aoj-ntl-1-d.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/aoj-ntl-1-e.test.cpp.html">test/verify/aoj-ntl-1-e.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-bellnoulli-number.test.cpp.html">test/verify/yosupo-bellnoulli-number.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-discrete-logarithm-mod.test.cpp.html">test/verify/yosupo-discrete-logarithm-mod.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/yosupo-exp-of-formal-power-series.test.cpp.html">test/verify/yosupo-exp-of-formal-power-series.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-inv-of-formal-power-series.test.cpp.html">test/verify/yosupo-inv-of-formal-power-series.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-log-of-formal-power-series.test.cpp.html">test/verify/yosupo-log-of-formal-power-series.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-partition-function.test.cpp.html">test/verify/yosupo-partition-function.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/yosupo-sqrt-mod.test.cpp.html">test/verify/yosupo-sqrt-mod.test.cpp</a>
+* :warning: <a href="../../verify/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp.html">test/verify/yosupo-sqrt-of-formal-power-series.test.cpp</a>
 
 
 ## Code
@@ -177,5 +188,5 @@ inline decltype(auto) MFP(F &&f) {
 ```
 {% endraw %}
 
-[Back to top page](../../index.html)
+<a href="../../index.html">Back to top page</a>
 

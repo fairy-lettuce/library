@@ -26,16 +26,18 @@ layout: default
 
 
 # :heavy_check_mark: test/verify/aoj-dpl-1-d.test.cpp
+<a href="../../../index.html">Back to top page</a>
+
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-1-d.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-12-03 22:44:33 +0900
 
 
-[Back to top page](../../../index.html)
-
-* see: [http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D)
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D</a>
 
 
-## Dependencies
-* :heavy_check_mark: [dp/longest-increasing-subsequence.cpp](../../../library/dp/longest-increasing-subsequence.cpp.html)
-* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
+## Depends On
+* :heavy_check_mark: <a href="../../../library/dp/longest-increasing-subsequence.cpp.html">dp/longest-increasing-subsequence.cpp</a>
+* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -58,5 +60,5 @@ int main() {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

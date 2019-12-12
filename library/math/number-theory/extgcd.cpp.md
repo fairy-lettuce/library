@@ -26,15 +26,17 @@ layout: default
 
 
 # :warning: math/number-theory/extgcd.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: math/number-theory
+* <a href="{{ site.github.repository_url }}/blob/master/math/number-theory/extgcd.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:36:31 +0900
 
 
-[Back to top page](../../../index.html)
 
 
-
-## Verified
-* :heavy_check_mark: [test/verify/aoj-ntl-1-e.test.cpp](../../../verify/test/verify/aoj-ntl-1-e.test.cpp.html)
+## Verified With
+* :warning: <a href="../../../verify/test/verify/aoj-ntl-1-e.test.cpp.html">test/verify/aoj-ntl-1-e.test.cpp</a>
 
 
 ## Code
@@ -56,5 +58,5 @@ T extgcd(T a, T b, T &x, T &y) {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

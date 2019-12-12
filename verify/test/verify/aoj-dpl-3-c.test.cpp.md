@@ -26,16 +26,18 @@ layout: default
 
 
 # :heavy_check_mark: test/verify/aoj-dpl-3-c.test.cpp
+<a href="../../../index.html">Back to top page</a>
+
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-3-c.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-12-03 22:44:33 +0900
 
 
-[Back to top page](../../../index.html)
-
-* see: [http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_3_C](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_3_C)
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_3_C">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_3_C</a>
 
 
-## Dependencies
-* :heavy_check_mark: [dp/largest-rectangle.cpp](../../../library/dp/largest-rectangle.cpp.html)
-* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
+## Depends On
+* :heavy_check_mark: <a href="../../../library/dp/largest-rectangle.cpp.html">dp/largest-rectangle.cpp</a>
+* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -58,5 +60,5 @@ int main() {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

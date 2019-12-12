@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: graph/shortest-path/grid-bfs.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: graph/shortest-path
+* <a href="{{ site.github.repository_url }}/blob/master/graph/shortest-path/grid-bfs.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:02:43 +0900
 
-
-[Back to top page](../../../index.html)
 
 
 
@@ -66,5 +68,5 @@ vector< vector< int > > grid_bfs(vector< string > &s, char start, const string &
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

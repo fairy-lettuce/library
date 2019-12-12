@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: structure/segment-tree/segment-tree-beats.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: structure/segment-tree
+* <a href="{{ site.github.repository_url }}/blob/master/structure/segment-tree/segment-tree-beats.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 22:41:48 +0900
 
-
-[Back to top page](../../../index.html)
 
 
 
@@ -154,5 +156,5 @@ struct SegmentTreeBeats {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

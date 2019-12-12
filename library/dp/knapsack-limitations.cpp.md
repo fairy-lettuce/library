@@ -26,16 +26,18 @@ layout: default
 
 
 # :warning: dp/knapsack-limitations.cpp
+<a href="../../index.html">Back to top page</a>
+
 * category: dp
+* <a href="{{ site.github.repository_url }}/blob/master/dp/knapsack-limitations.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-08-30 00:42:45 +0900
 
 
-[Back to top page](../../index.html)
 
 
-
-## Verified
-* :heavy_check_mark: [test/verify/aoj-dpl-1-g.test.cpp](../../verify/test/verify/aoj-dpl-1-g.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-dpl-1-i.test.cpp](../../verify/test/verify/aoj-dpl-1-i.test.cpp.html)
+## Verified With
+* :warning: <a href="../../verify/test/verify/aoj-dpl-1-g.test.cpp.html">test/verify/aoj-dpl-1-g.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-dpl-1-i.test.cpp.html">test/verify/aoj-dpl-1-i.test.cpp</a>
 
 
 ## Code
@@ -71,5 +73,5 @@ vector< T > knapsack_limitations(const vector< int > &w, const vector< int > &m,
 ```
 {% endraw %}
 
-[Back to top page](../../index.html)
+<a href="../../index.html">Back to top page</a>
 

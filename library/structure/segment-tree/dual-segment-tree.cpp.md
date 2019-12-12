@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: structure/segment-tree/dual-segment-tree.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: structure/segment-tree
+* <a href="{{ site.github.repository_url }}/blob/master/structure/segment-tree/dual-segment-tree.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 22:41:48 +0900
 
-
-[Back to top page](../../../index.html)
 
 
 
@@ -84,5 +86,5 @@ struct DualSegmentTree {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

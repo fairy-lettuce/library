@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: graph/flow/gabow-edmonds.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: graph/flow
+* <a href="{{ site.github.repository_url }}/blob/master/graph/flow/gabow-edmonds.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:02:43 +0900
 
-
-[Back to top page](../../../index.html)
 
 
 
@@ -152,5 +154,5 @@ struct GabowEdmonds {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

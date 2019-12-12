@@ -26,18 +26,20 @@ layout: default
 
 
 # :warning: structure/union-find/union-find.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: structure/union-find
+* <a href="{{ site.github.repository_url }}/blob/master/structure/union-find/union-find.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 22:41:48 +0900
 
 
-[Back to top page](../../../index.html)
 
 
-
-## Verified
-* :heavy_check_mark: [test/verify/aoj-dsl-1-a.test.cpp](../../../verify/test/verify/aoj-dsl-1-a.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-2-a-2.test.cpp](../../../verify/test/verify/aoj-grl-2-a-2.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-2-a-3.test.cpp](../../../verify/test/verify/aoj-grl-2-a-3.test.cpp.html)
-* :heavy_check_mark: [test/verify/aoj-grl-2-b.test.cpp](../../../verify/test/verify/aoj-grl-2-b.test.cpp.html)
+## Verified With
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-dsl-1-a.test.cpp.html">test/verify/aoj-dsl-1-a.test.cpp</a>
+* :warning: <a href="../../../verify/test/verify/aoj-grl-2-a-2.test.cpp.html">test/verify/aoj-grl-2-a-2.test.cpp</a>
+* :warning: <a href="../../../verify/test/verify/aoj-grl-2-a-3.test.cpp.html">test/verify/aoj-grl-2-a-3.test.cpp</a>
+* :warning: <a href="../../../verify/test/verify/aoj-grl-2-b.test.cpp.html">test/verify/aoj-grl-2-b.test.cpp</a>
 
 
 ## Code
@@ -72,5 +74,5 @@ struct UnionFind {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

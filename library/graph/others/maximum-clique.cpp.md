@@ -26,15 +26,17 @@ layout: default
 
 
 # :warning: graph/others/maximum-clique.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: graph/others
+* <a href="{{ site.github.repository_url }}/blob/master/graph/others/maximum-clique.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:02:43 +0900
 
 
-[Back to top page](../../../index.html)
 
 
-
-## Verified
-* :heavy_check_mark: [test/verify/aoj-2306.test.cpp](../../../verify/test/verify/aoj-2306.test.cpp.html)
+## Verified With
+* :warning: <a href="../../../verify/test/verify/aoj-2306.test.cpp.html">test/verify/aoj-2306.test.cpp</a>
 
 
 ## Code
@@ -136,5 +138,5 @@ T maximum_clique(Matrix< bool > g, function< T(vector< int >) > f) {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

@@ -25,20 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/aoj-grl-2-b.test.cpp
+# :warning: test/verify/aoj-grl-2-b.test.cpp
+<a href="../../../index.html">Back to top page</a>
+
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-2-b.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:02:43 +0900
 
 
-[Back to top page](../../../index.html)
-
-* see: [http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_B](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_B)
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_B</a>
 
 
-## Dependencies
-* :heavy_check_mark: [graph/mst/chu-liu-edmond.cpp](../../../library/graph/mst/chu-liu-edmond.cpp.html)
-* :heavy_check_mark: [graph/template.cpp](../../../library/graph/template.cpp.html)
-* :heavy_check_mark: [structure/heap/skew-heap.cpp](../../../library/structure/heap/skew-heap.cpp.html)
-* :heavy_check_mark: [structure/union-find/union-find.cpp](../../../library/structure/union-find/union-find.cpp.html)
-* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
+## Depends On
+* :warning: <a href="../../../library/graph/mst/chu-liu-edmond.cpp.html">graph/mst/chu-liu-edmond.cpp</a>
+* :warning: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
+* :warning: <a href="../../../library/structure/heap/skew-heap.cpp.html">structure/heap/skew-heap.cpp</a>
+* :warning: <a href="../../../library/structure/union-find/union-find.cpp.html">structure/union-find/union-find.cpp</a>
+* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -69,5 +71,5 @@ int main() {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

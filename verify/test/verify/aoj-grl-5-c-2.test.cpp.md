@@ -25,18 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/aoj-grl-5-c-2.test.cpp
+# :warning: test/verify/aoj-grl-5-c-2.test.cpp
+<a href="../../../index.html">Back to top page</a>
+
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-5-c-2.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-12-11 21:18:41 +0900
 
 
-[Back to top page](../../../index.html)
-
-* see: [http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C)
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C</a>
 
 
-## Dependencies
-* :heavy_check_mark: [graph/template.cpp](../../../library/graph/template.cpp.html)
-* :heavy_check_mark: [graph/tree/heavy-light-decomposition.cpp](../../../library/graph/tree/heavy-light-decomposition.cpp.html)
-* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
+## Depends On
+* :warning: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
+* :warning: <a href="../../../library/graph/tree/heavy-light-decomposition.cpp.html">graph/tree/heavy-light-decomposition.cpp</a>
+* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -75,5 +77,5 @@ int main() {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: test/verify/atcoder-atc002-c.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: test/verify
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/atcoder-atc002-c.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-12-03 22:44:33 +0900
 
-
-[Back to top page](../../../index.html)
 
 
 
@@ -48,5 +50,5 @@ int main() {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

@@ -26,16 +26,18 @@ layout: default
 
 
 # :heavy_check_mark: test/verify/aoj-alds-1-14-d.test.cpp
+<a href="../../../index.html">Back to top page</a>
+
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-alds-1-14-d.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 23:36:31 +0900
 
 
-[Back to top page](../../../index.html)
-
-* see: [http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_D](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_D)
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_D</a>
 
 
-## Dependencies
-* :heavy_check_mark: [string/suffix-array.cpp](../../../library/string/suffix-array.cpp.html)
-* :heavy_check_mark: [template/template.cpp](../../../library/template/template.cpp.html)
+## Depends On
+* :heavy_check_mark: <a href="../../../library/string/suffix-array.cpp.html">string/suffix-array.cpp</a>
+* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -65,5 +67,5 @@ int main() {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

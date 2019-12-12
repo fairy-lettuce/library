@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: structure/others/link-cut-tree-subtree.cpp
+<a href="../../../index.html">Back to top page</a>
+
 * category: structure/others
+* <a href="{{ site.github.repository_url }}/blob/master/structure/others/link-cut-tree-subtree.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-11-30 22:41:48 +0900
 
-
-[Back to top page](../../../index.html)
 
 
 
@@ -221,5 +223,5 @@ struct LinkCutTreeSubtree {
 ```
 {% endraw %}
 
-[Back to top page](../../../index.html)
+<a href="../../../index.html">Back to top page</a>
 

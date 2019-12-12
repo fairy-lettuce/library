@@ -26,10 +26,12 @@ layout: default
 
 
 # :warning: dp/hu-tucker.cpp
+<a href="../../index.html">Back to top page</a>
+
 * category: dp
+* <a href="{{ site.github.repository_url }}/blob/master/dp/hu-tucker.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-07-20 01:29:30 +0900
 
-
-[Back to top page](../../index.html)
 
 
 
@@ -111,5 +113,5 @@ T hu_tucker(vector< T > vs, T INF) {
 ```
 {% endraw %}
 
-[Back to top page](../../index.html)
+<a href="../../index.html">Back to top page</a>
 
