@@ -38,8 +38,8 @@ layout: default
 ## Verified With
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-dsl-1-a.test.cpp.html">test/verify/aoj-dsl-1-a.test.cpp</a>
 * :warning: <a href="../../../verify/test/verify/aoj-grl-2-a-2.test.cpp.html">test/verify/aoj-grl-2-a-2.test.cpp</a>
-* :warning: <a href="../../../verify/test/verify/aoj-grl-2-a-3.test.cpp.html">test/verify/aoj-grl-2-a-3.test.cpp</a>
-* :warning: <a href="../../../verify/test/verify/aoj-grl-2-b.test.cpp.html">test/verify/aoj-grl-2-b.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-2-a-3.test.cpp.html">test/verify/aoj-grl-2-a-3.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-2-b.test.cpp.html">test/verify/aoj-grl-2-b.test.cpp</a>
 
 
 ## Code

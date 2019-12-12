@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: graph/others/lowlink.cpp
+# :heavy_check_mark: graph/others/lowlink.cpp
 <a href="../../../index.html">Back to top page</a>
 
 * category: graph/others
@@ -36,8 +36,8 @@ layout: default
 
 
 ## Verified With
-* :warning: <a href="../../../verify/test/verify/aoj-grl-3-a.test.cpp.html">test/verify/aoj-grl-3-a.test.cpp</a>
-* :warning: <a href="../../../verify/test/verify/aoj-grl-3-b.test.cpp.html">test/verify/aoj-grl-3-b.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-3-a.test.cpp.html">test/verify/aoj-grl-3-a.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-3-b.test.cpp.html">test/verify/aoj-grl-3-b.test.cpp</a>
 
 
 ## Code

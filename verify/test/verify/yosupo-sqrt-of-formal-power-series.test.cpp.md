@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+# :heavy_check_mark: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp">View this file on GitHub</a>
@@ -37,10 +37,10 @@ layout: default
 
 ## Depends On
 * :warning: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
-* :warning: <a href="../../../library/math/combinatorics/mod-pow.cpp.html">math/combinatorics/mod-pow.cpp</a>
-* :warning: <a href="../../../library/math/combinatorics/mod-sqrt.cpp.html">math/combinatorics/mod-sqrt.cpp</a>
-* :warning: <a href="../../../library/math/fft/number-theoretic-transform-friendly-mod-int.cpp.html">math/fft/number-theoretic-transform-friendly-mod-int.cpp</a>
-* :warning: <a href="../../../library/math/fps/formal-power-series.cpp.html">math/fps/formal-power-series.cpp</a>
+* :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-pow.cpp.html">math/combinatorics/mod-pow.cpp</a>
+* :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-sqrt.cpp.html">math/combinatorics/mod-sqrt.cpp</a>
+* :heavy_check_mark: <a href="../../../library/math/fft/number-theoretic-transform-friendly-mod-int.cpp.html">math/fft/number-theoretic-transform-friendly-mod-int.cpp</a>
+* :heavy_check_mark: <a href="../../../library/math/fps/formal-power-series.cpp.html">math/fps/formal-power-series.cpp</a>
 * :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 

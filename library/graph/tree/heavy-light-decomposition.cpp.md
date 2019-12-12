@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: graph/tree/heavy-light-decomposition.cpp
+# :heavy_check_mark: graph/tree/heavy-light-decomposition.cpp
 <a href="../../../index.html">Back to top page</a>
 
 * category: graph/tree
@@ -36,8 +36,8 @@ layout: default
 
 
 ## Verified With
-* :warning: <a href="../../../verify/test/verify/aoj-2450.test.cpp.html">test/verify/aoj-2450.test.cpp</a>
-* :warning: <a href="../../../verify/test/verify/aoj-grl-5-c-2.test.cpp.html">test/verify/aoj-grl-5-c-2.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2450.test.cpp.html">test/verify/aoj-2450.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-5-c-2.test.cpp.html">test/verify/aoj-grl-5-c-2.test.cpp</a>
 
 
 ## Code

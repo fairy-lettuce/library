@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: graph/flow/primal-dual.cpp
+# :heavy_check_mark: graph/flow/primal-dual.cpp
 <a href="../../../index.html">Back to top page</a>
 
 * category: graph/flow
@@ -36,7 +36,7 @@ layout: default
 
 
 ## Verified With
-* :warning: <a href="../../../verify/test/verify/aoj-grl-6-b.test.cpp.html">test/verify/aoj-grl-6-b.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-6-b.test.cpp.html">test/verify/aoj-grl-6-b.test.cpp</a>
 
 
 ## Code

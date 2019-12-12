@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: structure/segment-tree/lazy-segment-tree.cpp
+# :heavy_check_mark: structure/segment-tree/lazy-segment-tree.cpp
 <a href="../../../index.html">Back to top page</a>
 
 * category: structure/segment-tree
@@ -36,7 +36,7 @@ layout: default
 
 
 ## Verified With
-* :warning: <a href="../../../verify/test/verify/aoj-2450.test.cpp.html">test/verify/aoj-2450.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2450.test.cpp.html">test/verify/aoj-2450.test.cpp</a>
 
 
 ## Code

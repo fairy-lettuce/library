@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/verify/aoj-grl-5-c-2.test.cpp
+# :heavy_check_mark: test/verify/aoj-grl-5-c-2.test.cpp
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-5-c-2.test.cpp">View this file on GitHub</a>
@@ -37,7 +37,7 @@ layout: default
 
 ## Depends On
 * :warning: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
-* :warning: <a href="../../../library/graph/tree/heavy-light-decomposition.cpp.html">graph/tree/heavy-light-decomposition.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/tree/heavy-light-decomposition.cpp.html">graph/tree/heavy-light-decomposition.cpp</a>
 * :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
