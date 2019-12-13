@@ -28,7 +28,7 @@ layout: default
 # :heavy_check_mark: graph/mst/kruskal.cpp
 <a href="../../../index.html">Back to top page</a>
 
-* category: graph/mst
+* category: <a href="../../../index.html#51f95ed2fd9ed3be34f576d38fbd25a2">graph/mst</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/mst/kruskal.cpp">View this file on GitHub</a>
     - Last commit date: 2019-11-30 23:02:43 +0900
 

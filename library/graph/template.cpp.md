@@ -28,7 +28,7 @@ layout: default
 # :heavy_check_mark: graph/template.cpp
 <a href="../../index.html">Back to top page</a>
 
-* category: graph
+* category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/template.cpp">View this file on GitHub</a>
     - Last commit date: 2019-07-20 01:29:30 +0900
 

@@ -28,7 +28,7 @@ layout: default
 # :warning: structure/others/priority-sum-structure.cpp
 <a href="../../../index.html">Back to top page</a>
 
-* category: structure/others
+* category: <a href="../../../index.html#40d73e22b7d986e3399449c25c8b23a1">structure/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/others/priority-sum-structure.cpp">View this file on GitHub</a>
     - Last commit date: 2019-11-30 22:41:48 +0900
 

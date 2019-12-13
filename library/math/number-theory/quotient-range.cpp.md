@@ -28,7 +28,7 @@ layout: default
 # :warning: math/number-theory/quotient-range.cpp
 <a href="../../../index.html">Back to top page</a>
 
-* category: math/number-theory
+* category: <a href="../../../index.html#d4a327615e3a055131f0682831111ce2">math/number-theory</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/number-theory/quotient-range.cpp">View this file on GitHub</a>
     - Last commit date: 2019-11-30 23:36:31 +0900
 

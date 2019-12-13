@@ -28,7 +28,7 @@ layout: default
 # :warning: structure/convex-hull-trick/dynamic-li-chao-tree.cpp
 <a href="../../../index.html">Back to top page</a>
 
-* category: structure/convex-hull-trick
+* category: <a href="../../../index.html#3ad23896bbde10d07ed9c44a914e070b">structure/convex-hull-trick</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/convex-hull-trick/dynamic-li-chao-tree.cpp">View this file on GitHub</a>
     - Last commit date: 2019-11-30 22:41:48 +0900
 

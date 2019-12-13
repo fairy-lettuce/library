@@ -28,7 +28,7 @@ layout: default
 # :heavy_check_mark: graph/shortest-path/dijkstra.cpp
 <a href="../../../index.html">Back to top page</a>
 
-* category: graph/shortest-path
+* category: <a href="../../../index.html#73feb47c464a017d041247d88424b879">graph/shortest-path</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/shortest-path/dijkstra.cpp">View this file on GitHub</a>
     - Last commit date: 2019-11-30 23:02:43 +0900
 

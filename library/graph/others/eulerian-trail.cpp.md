@@ -28,7 +28,7 @@ layout: default
 # :warning: graph/others/eulerian-trail.cpp
 <a href="../../../index.html">Back to top page</a>
 
-* category: graph/others
+* category: <a href="../../../index.html#e557c7f962c39680942b9dada22cabec">graph/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/others/eulerian-trail.cpp">View this file on GitHub</a>
     - Last commit date: 2019-11-30 23:02:43 +0900
 

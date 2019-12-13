@@ -28,7 +28,7 @@ layout: default
 # :warning: test/verify/atcoder-colopl2018-final-c.cpp
 <a href="../../../index.html">Back to top page</a>
 
-* category: test/verify
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/atcoder-colopl2018-final-c.cpp">View this file on GitHub</a>
     - Last commit date: 2019-12-03 22:44:33 +0900
 

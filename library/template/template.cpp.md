@@ -28,7 +28,7 @@ layout: default
 # :heavy_check_mark: template/template.cpp
 <a href="../../index.html">Back to top page</a>
 
-* category: template
+* category: <a href="../../index.html#66f6181bcb4cff4cd38fbc804a036db6">template</a>
 * <a href="{{ site.github.repository_url }}/blob/master/template/template.cpp">View this file on GitHub</a>
     - Last commit date: 2019-08-13 21:45:04 +0900
 

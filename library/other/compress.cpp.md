@@ -28,7 +28,7 @@ layout: default
 # :warning: other/compress.cpp
 <a href="../../index.html">Back to top page</a>
 
-* category: other
+* category: <a href="../../index.html#795f3202b17cb6bc3d4b771d8c6c9eaf">other</a>
 * <a href="{{ site.github.repository_url }}/blob/master/other/compress.cpp">View this file on GitHub</a>
     - Last commit date: 2019-08-02 17:12:26 +0900
 

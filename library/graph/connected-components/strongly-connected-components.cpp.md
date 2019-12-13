@@ -28,7 +28,7 @@ layout: default
 # :heavy_check_mark: graph/connected-components/strongly-connected-components.cpp
 <a href="../../../index.html">Back to top page</a>
 
-* category: graph/connected-components
+* category: <a href="../../../index.html#3a7c46e10de1b2cce1293b2074b86f0a">graph/connected-components</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/connected-components/strongly-connected-components.cpp">View this file on GitHub</a>
     - Last commit date: 2019-11-30 23:02:43 +0900
 

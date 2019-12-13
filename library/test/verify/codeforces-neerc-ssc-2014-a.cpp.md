@@ -28,7 +28,7 @@ layout: default
 # :warning: test/verify/codeforces-neerc-ssc-2014-a.cpp
 <a href="../../../index.html">Back to top page</a>
 
-* category: test/verify
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/codeforces-neerc-ssc-2014-a.cpp">View this file on GitHub</a>
     - Last commit date: 2019-11-30 23:36:31 +0900
 

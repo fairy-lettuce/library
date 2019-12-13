@@ -28,7 +28,7 @@ layout: default
 # :heavy_check_mark: dp/knapsack-limitations.cpp
 <a href="../../index.html">Back to top page</a>
 
-* category: dp
+* category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
 * <a href="{{ site.github.repository_url }}/blob/master/dp/knapsack-limitations.cpp">View this file on GitHub</a>
     - Last commit date: 2019-08-30 00:42:45 +0900
 

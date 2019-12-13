@@ -28,7 +28,7 @@ layout: default
 # :warning: structure/segment-tree/segment-tree-fractional-cascading.cpp
 <a href="../../../index.html">Back to top page</a>
 
-* category: structure/segment-tree
+* category: <a href="../../../index.html#bd066fce418dc5d58690e9bbe0a7a21f">structure/segment-tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/segment-tree/segment-tree-fractional-cascading.cpp">View this file on GitHub</a>
     - Last commit date: 2019-11-30 22:41:48 +0900
 

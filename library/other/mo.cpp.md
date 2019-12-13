@@ -28,7 +28,7 @@ layout: default
 # :warning: other/mo.cpp
 <a href="../../index.html">Back to top page</a>
 
-* category: other
+* category: <a href="../../index.html#795f3202b17cb6bc3d4b771d8c6c9eaf">other</a>
 * <a href="{{ site.github.repository_url }}/blob/master/other/mo.cpp">View this file on GitHub</a>
     - Last commit date: 2019-07-20 01:29:30 +0900
 

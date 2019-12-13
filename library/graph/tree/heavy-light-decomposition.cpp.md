@@ -28,7 +28,7 @@ layout: default
 # :heavy_check_mark: graph/tree/heavy-light-decomposition.cpp
 <a href="../../../index.html">Back to top page</a>
 
-* category: graph/tree
+* category: <a href="../../../index.html#28790b6202284cbbffc9d712b59f4b80">graph/tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/tree/heavy-light-decomposition.cpp">View this file on GitHub</a>
     - Last commit date: 2019-12-11 21:18:41 +0900
 
