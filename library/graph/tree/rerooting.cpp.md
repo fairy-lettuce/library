@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#28790b6202284cbbffc9d712b59f4b80">graph/tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/tree/rerooting.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-16 22:20:10 +0900
+    - Last commit date: 2019-12-16 22:22:41 +0900
 
 
 
@@ -48,7 +48,7 @@ layout: default
 ```cpp
 template< typename sum_t, typename key_t >
 struct ReRooting {
-  struct Node {
+  struct Edge {
     int to;
     key_t data;
     sum_t dp, ndp;
@@ -57,7 +57,7 @@ struct ReRooting {
   using F = function< sum_t(sum_t, sum_t) >;
   using G = function< sum_t(sum_t, key_t) >;
 
-  vector< vector< Node > > g;
+  vector< vector< Edge > > g;
   vector< sum_t > subdp, dp;
   const sum_t ident;
   const F f;
@@ -67,13 +67,13 @@ struct ReRooting {
       : g(V), f(f), gg(g), ident(ident), subdp(V, ident), dp(V, ident) {}
 
   void add_edge(int u, int v, const key_t &d) {
-    g[u].emplace_back((Node) {v, d, ident, ident});
-    g[v].emplace_back((Node) {u, d, ident, ident});
+    g[u].emplace_back((Edge) {v, d, ident, ident});
+    g[v].emplace_back((Edge) {u, d, ident, ident});
   }
 
   void add_edge_bi(int u, int v, const key_t &d, const key_t &e) {
-    g[u].emplace_back((Node) {v, d, ident, ident});
-    g[v].emplace_back((Node) {u, e, ident, ident});
+    g[u].emplace_back((Edge) {v, d, ident, ident});
+    g[v].emplace_back((Edge) {u, e, ident, ident});
   }
 
   void dfs_sub(int idx, int par) {
@@ -118,7 +118,7 @@ struct ReRooting {
 #line 1 "graph/tree/rerooting.cpp"
 template< typename sum_t, typename key_t >
 struct ReRooting {
-  struct Node {
+  struct Edge {
     int to;
     key_t data;
     sum_t dp, ndp;
@@ -127,7 +127,7 @@ struct ReRooting {
   using F = function< sum_t(sum_t, sum_t) >;
   using G = function< sum_t(sum_t, key_t) >;
 
-  vector< vector< Node > > g;
+  vector< vector< Edge > > g;
   vector< sum_t > subdp, dp;
   const sum_t ident;
   const F f;
@@ -137,13 +137,13 @@ struct ReRooting {
       : g(V), f(f), gg(g), ident(ident), subdp(V, ident), dp(V, ident) {}
 
   void add_edge(int u, int v, const key_t &d) {
-    g[u].emplace_back((Node) {v, d, ident, ident});
-    g[v].emplace_back((Node) {u, d, ident, ident});
+    g[u].emplace_back((Edge) {v, d, ident, ident});
+    g[v].emplace_back((Edge) {u, d, ident, ident});
   }
 
   void add_edge_bi(int u, int v, const key_t &d, const key_t &e) {
-    g[u].emplace_back((Node) {v, d, ident, ident});
-    g[v].emplace_back((Node) {u, e, ident, ident});
+    g[u].emplace_back((Edge) {v, d, ident, ident});
+    g[v].emplace_back((Edge) {u, e, ident, ident});
   }
 
   void dfs_sub(int idx, int par) {
