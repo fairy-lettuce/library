@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: dp/longest-increasing-subsequence.cpp
+
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
@@ -35,13 +36,36 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-dpl-1-d.test.cpp.html">test/verify/aoj-dpl-1-d.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+size_t longest_increasing_subsequence(const vector< T > &a, bool strict) {
+  vector< T > lis;
+  for(auto &p : a) {
+    typename vector< T >::iterator it;
+    if(strict) it = lower_bound(begin(lis), end(lis), p);
+    else it = upper_bound(begin(lis), end(lis), p);
+    if(end(lis) == it) lis.emplace_back(p);
+    else *it = p;
+  }
+  return lis.size();
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "dp/longest-increasing-subsequence.cpp"
 template< typename T >
 size_t longest_increasing_subsequence(const vector< T > &a, bool strict) {
   vector< T > lis;

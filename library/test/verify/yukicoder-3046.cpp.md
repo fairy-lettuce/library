@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: test/verify/yukicoder-3046.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
@@ -36,8 +37,30 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+int main() {
+  int K, N;
+  cin >> K >> N;
+  PolynominalMod< modint > X(K + 1);
+  X[0] = 1;
+  for(int i = 0; i < N; i++) {
+    int x;
+    cin >> x;
+    if(x <= K) X[x] = -1;
+  }
+  cout << X.inverse()[K] << endl;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "test/verify/yukicoder-3046.cpp"
 int main() {
   int K, N;
   cin >> K >> N;

@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: math/combinatorics/stirling-number-second.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d319ed68764efb4f50b1628220df55d7">math/combinatorics</a>
@@ -35,11 +36,14 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-dpl-5-i.test.cpp.html">test/verify/aoj-dpl-5-i.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
 template< typename T >
@@ -54,6 +58,25 @@ T stirling_number_second(int n, int k) {
   return ret * table.rfact(k);
 }
 
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "math/combinatorics/stirling-number-second.cpp"
+template< typename T >
+T stirling_number_second(int n, int k) {
+  Combination< T > table(k);
+  T ret = 0;
+  for(int i = 0; i <= k; i++) {
+    auto add = T(i).pow(n) * table.C(k, i);
+    if((k - i) & 1) ret -= add;
+    else ret += add;
+  }
+  return ret * table.rfact(k);
+}
 
 ```
 {% endraw %}

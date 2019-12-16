@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: math/number-theory/convert-base.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d4a327615e3a055131f0682831111ce2">math/number-theory</a>
@@ -36,8 +37,33 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+vector< T > convert_base(T x, T b) {
+  vector< T > ret;
+  T t = 1, k = abs(b);
+  while(x) {
+    ret.emplace_back((x * t) % k);
+    if(ret.back() < 0) ret.back() += k;
+    x -= ret.back() * t;
+    x /= k;
+    t *= b / k;
+  }
+  if(ret.empty()) ret.emplace_back(0);
+  reverse(begin(ret), end(ret));
+  return ret;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "math/number-theory/convert-base.cpp"
 template< typename T >
 vector< T > convert_base(T x, T b) {
   vector< T > ret;

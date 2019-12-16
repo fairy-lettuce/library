@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: test/verify/atcoder-abc-002-d.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
@@ -36,8 +37,32 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+int main() {
+  int N, M;
+  cin >> N >> M;
+  Matrix< bool > g(N, vector< bool >(N));
+  for(int i = 0; i < M; i++) {
+    int x, y;
+    cin >> x >> y;
+    --x, --y;
+    g[x][y] = true;
+    g[y][x] = true;
+  }
+  function< int(vector< int >) > f = [](vector< int > t) { return t.size(); };
+  cout << maximum_clique(g, f) << endl;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "test/verify/atcoder-abc-002-d.cpp"
 int main() {
   int N, M;
   cin >> N >> M;

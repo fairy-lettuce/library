@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: math/number-theory/quotient-range.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d4a327615e3a055131f0682831111ce2">math/number-theory</a>
@@ -36,8 +37,32 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+vector< pair< pair< T, T >, T > > quotient_range(T N) {
+  T M;
+  vector< pair< pair< T, T >, T > > ret;
+  for(M = 1; M * M <= N; M++) {
+    ret.emplace_back(make_pair(M, M), N / M);
+  }
+  for(T i = M; i >= 1; i--) {
+    T L = N / (i + 1) + 1;
+    T R = N / i;
+    if(L <= R && ret.back().first.second < L) ret.emplace_back(make_pair(L, R), N / L);
+  }
+  return ret;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "math/number-theory/quotient-range.cpp"
 template< typename T >
 vector< pair< pair< T, T >, T > > quotient_range(T N) {
   T M;

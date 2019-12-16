@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: other/timer.cpp
+
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#795f3202b17cb6bc3d4b771d8c6c9eaf">other</a>
@@ -36,8 +37,32 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+struct Timer {
+  chrono::high_resolution_clock::time_point st;
+
+  Timer() { reset(); }
+
+  void reset() {
+    st = chrono::high_resolution_clock::now();
+  }
+
+  chrono::milliseconds::rep elapsed() {
+    auto ed = chrono::high_resolution_clock::now();
+    return chrono::duration_cast< chrono::milliseconds >(ed - st).count();
+  }
+};
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "other/timer.cpp"
 struct Timer {
   chrono::high_resolution_clock::time_point st;
 

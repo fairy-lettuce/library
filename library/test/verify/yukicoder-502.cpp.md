@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: test/verify/yukicoder-502.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
@@ -36,8 +37,23 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+int main() {
+  int64 X;
+  cin >> X;
+  cout << factorial< modint >(X) << endl;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "test/verify/yukicoder-502.cpp"
 int main() {
   int64 X;
   cin >> X;

@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: graph/shortest-path/warshall-floyd.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#73feb47c464a017d041247d88424b879">graph/shortest-path</a>
@@ -35,13 +36,35 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-1-c.test.cpp.html">test/verify/aoj-grl-1-c.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+void warshall_floyd(Matrix< T > &g, T INF) {
+  for(int k = 0; k < g.size(); k++) {
+    for(int i = 0; i < g.size(); i++) {
+      for(int j = 0; j < g.size(); j++) {
+        if(g[i][k] == INF || g[k][j] == INF) continue;
+        g[i][j] = min(g[i][j], g[i][k] + g[k][j]);
+      }
+    }
+  }
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "graph/shortest-path/warshall-floyd.cpp"
 template< typename T >
 void warshall_floyd(Matrix< T > &g, T INF) {
   for(int k = 0; k < g.size(); k++) {

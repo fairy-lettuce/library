@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: test/verify/yosupo-discrete-logarithm-mod.test.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-discrete-logarithm-mod.test.cpp">View this file on GitHub</a>
@@ -35,12 +36,15 @@ layout: default
 * see: <a href="https://judge.yosupo.jp/problem/discrete_logarithm_mod">https://judge.yosupo.jp/problem/discrete_logarithm_mod</a>
 
 
-## Depends On
+## Depends on
+
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-log.cpp.html">math/combinatorics/mod-log.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
 #define PROBLEM "https://judge.yosupo.jp/problem/discrete_logarithm_mod" 

@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: math/number-theory/extgcd.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d4a327615e3a055131f0682831111ce2">math/number-theory</a>
@@ -35,13 +36,36 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-ntl-1-e.test.cpp.html">test/verify/aoj-ntl-1-e.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+T extgcd(T a, T b, T &x, T &y) {
+  T d = a;
+  if(b != 0) {
+    d = extgcd(b, a % b, y, x);
+    y -= (a / b) * x;
+  } else {
+    x = 1;
+    y = 0;
+  }
+  return d;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "math/number-theory/extgcd.cpp"
 template< typename T >
 T extgcd(T a, T b, T &x, T &y) {
   T d = a;

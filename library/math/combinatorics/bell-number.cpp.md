@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: math/combinatorics/bell-number.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d319ed68764efb4f50b1628220df55d7">math/combinatorics</a>
@@ -35,13 +36,41 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-dpl-5-g.test.cpp.html">test/verify/aoj-dpl-5-g.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+T bell_number(int n, int k) {
+  if(n == 0) return 1;
+  k = min(k, n);
+  Combination< T > uku(k);
+  T ret = 0;
+  vector< T > pref(k + 1);
+  pref[0] = 1;
+  for(int i = 1; i <= k; i++) {
+    if(i & 1) pref[i] = pref[i - 1] - uku.rfact(i);
+    else pref[i] = pref[i - 1] + uku.rfact(i);
+  }
+  for(int i = 1; i <= k; i++) {
+    ret += T(i).pow(n) * uku.rfact(i) * pref[k - i];
+  }
+  return ret;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "math/combinatorics/bell-number.cpp"
 template< typename T >
 T bell_number(int n, int k) {
   if(n == 0) return 1;

@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: graph/template.cpp
+
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#f8b0b924ebd7046dbfa85a856e4682c8">graph</a>
@@ -35,7 +36,8 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-0275.test.cpp.html">test/verify/aoj-0275.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-0294.test.cpp.html">test/verify/aoj-0294.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-0304.test.cpp.html">test/verify/aoj-0304.test.cpp</a>
@@ -70,8 +72,42 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+struct edge {
+  int src, to;
+  T cost;
+
+  edge(int to, T cost) : src(-1), to(to), cost(cost) {}
+
+  edge(int src, int to, T cost) : src(src), to(to), cost(cost) {}
+
+  edge &operator=(const int &x) {
+    to = x;
+    return *this;
+  }
+
+  operator int() const { return to; }
+};
+
+template< typename T >
+using Edges = vector< edge< T > >;
+template< typename T >
+using WeightedGraph = vector< Edges< T > >;
+using UnWeightedGraph = vector< vector< int > >;
+template< typename T >
+using Matrix = vector< vector< T > >;
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "graph/template.cpp"
 template< typename T >
 struct edge {
   int src, to;

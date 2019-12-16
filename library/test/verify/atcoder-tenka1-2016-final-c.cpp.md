@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: test/verify/atcoder-tenka1-2016-final-c.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
@@ -36,8 +37,42 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+int main() {
+  Trie< 26, 'a' > trie;
+  string S, P[5000];
+  int M, W[5000];
+
+  cin >> S;
+  cin >> M;
+  for(int i = 0; i < M; i++) {
+    cin >> P[i];
+    trie.add(P[i]);
+  }
+  for(int i = 0; i < M; i++) {
+    cin >> W[i];
+  }
+  vector< int > dp(S.size() + 1);
+  for(int i = 0; i < S.size(); i++) {
+    auto update = [&](int idx) {
+      dp[i + P[idx].size()] = max(dp[i + P[idx].size()], dp[i] + W[idx]);
+    };
+    trie.query(S, update, i, 0);
+    dp[i + 1] = max(dp[i + 1], dp[i]);
+  }
+  cout << dp.back() << endl;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "test/verify/atcoder-tenka1-2016-final-c.cpp"
 int main() {
   Trie< 26, 'a' > trie;
   string S, P[5000];

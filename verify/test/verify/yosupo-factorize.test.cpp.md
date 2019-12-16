@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: test/verify/yosupo-factorize.test.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-factorize.test.cpp">View this file on GitHub</a>
@@ -35,12 +36,15 @@ layout: default
 * see: <a href="https://judge.yosupo.jp/problem/factorize">https://judge.yosupo.jp/problem/factorize</a>
 
 
-## Depends On
+## Depends on
+
 * :heavy_check_mark: <a href="../../../library/math/number-theory/fast-prime-factorization.cpp.html">math/number-theory/fast-prime-factorization.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
 #define PROBLEM "https://judge.yosupo.jp/problem/factorize"

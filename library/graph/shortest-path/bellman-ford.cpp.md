@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: graph/shortest-path/bellman-ford.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#73feb47c464a017d041247d88424b879">graph/shortest-path</a>
@@ -35,12 +36,15 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-0304.test.cpp.html">test/verify/aoj-0304.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-1-b.test.cpp.html">test/verify/aoj-grl-1-b.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
 template< typename T >
@@ -61,6 +65,31 @@ vector< T > bellman_ford(Edges< T > &edges, int V, int s) {
   return dist;
 }
 
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "graph/shortest-path/bellman-ford.cpp"
+template< typename T >
+vector< T > bellman_ford(Edges< T > &edges, int V, int s) {
+  const auto INF = numeric_limits< T >::max();
+  vector< T > dist(V, INF);
+  dist[s] = 0;
+  for(int i = 0; i < V - 1; i++) {
+    for(auto &e : edges) {
+      if(dist[e.src] == INF) continue;
+      dist[e.to] = min(dist[e.to], dist[e.src] + e.cost);
+    }
+  }
+  for(auto &e : edges) {
+    if(dist[e.src] == INF) continue;
+    if(dist[e.src] + e.cost < dist[e.to]) return vector< T >();
+  }
+  return dist;
+}
 
 ```
 {% endraw %}

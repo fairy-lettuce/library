@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: math/fps/polynomial-interpolation.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#1201bfd5f7a5d1c5bfa65e9be4237f63">math/fps</a>
@@ -35,13 +36,38 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-polynomial-interpolation.test.cpp.html">test/verify/yosupo-polynomial-interpolation.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< class T >
+FormalPowerSeries< T > polynomial_interpolation(const FormalPowerSeries< T > &xs, const vector< T > &ys) {
+  assert(xs.size() == ys.size());
+  using FPS = FormalPowerSeries< T >;
+  PolyBuf< T > buf(xs);
+  FPS w = buf.query(0, xs.size()).diff();
+  auto vs = multipoint_evaluation(w, xs, buf);
+  function< FPS(int, int) > rec = [&](int l, int r) -> FPS {
+    if(r - l == 1) return {ys[l] / vs[l]};
+    int m = (l + r) >> 1;
+    return rec(l, m) * buf.query(m, r) + rec(m, r) * buf.query(l, m);
+  };
+  return rec(0, xs.size());
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "math/fps/polynomial-interpolation.cpp"
 template< class T >
 FormalPowerSeries< T > polynomial_interpolation(const FormalPowerSeries< T > &xs, const vector< T > &ys) {
   assert(xs.size() == ys.size());

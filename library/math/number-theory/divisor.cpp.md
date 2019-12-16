@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: math/number-theory/divisor.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d4a327615e3a055131f0682831111ce2">math/number-theory</a>
@@ -36,8 +37,29 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+vector< int64_t > divisor(int64_t n) {
+  vector< int64_t > ret;
+  for(int64_t i = 1; i * i <= n; i++) {
+    if(n % i == 0) {
+      ret.push_back(i);
+      if(i * i != n) ret.push_back(n / i);
+    }
+  }
+  sort(begin(ret), end(ret));
+  return (ret);
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "math/number-theory/divisor.cpp"
 vector< int64_t > divisor(int64_t n) {
   vector< int64_t > ret;
   for(int64_t i = 1; i * i <= n; i++) {

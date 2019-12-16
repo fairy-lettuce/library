@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: graph/tree/convert-rooted-tree.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#28790b6202284cbbffc9d712b59f4b80">graph/tree</a>
@@ -36,8 +37,39 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename G >
+G convert_rooted_tree(const G &g, int r = 0) {
+  int N = (int) g.size();
+  G rg(N);
+  vector< int > v(N);
+  v[r] = 1;
+  queue< int > que;
+  que.emplace(r);
+  while(!que.empty()) {
+    auto p = que.front();
+    que.pop();
+    for(auto &to : g[p]) {
+      if(v[to] == 0) {
+        v[to] = 1;
+        que.emplace(to);
+        rg[p].emplace_back(to);
+      }
+    }
+  }
+  return rg;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "graph/tree/convert-rooted-tree.cpp"
 template< typename G >
 G convert_rooted_tree(const G &g, int r = 0) {
   int N = (int) g.size();

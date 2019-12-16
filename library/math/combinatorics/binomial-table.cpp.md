@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: math/combinatorics/binomial-table.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d319ed68764efb4f50b1628220df55d7">math/combinatorics</a>
@@ -36,8 +37,29 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+vector< vector< T > > binomial_table(int N) {
+  vector< vector< T > > mat(N + 1, vector< T >(N + 1));
+  for(int i = 0; i <= N; i++) {
+    for(int j = 0; j <= i; j++) {
+      if(j == 0 || j == i) mat[i][j] = 1;
+      else mat[i][j] = mat[i - 1][j - 1] + mat[i - 1][j];
+    }
+  }
+  return mat;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "math/combinatorics/binomial-table.cpp"
 template< typename T >
 vector< vector< T > > binomial_table(int N) {
   vector< vector< T > > mat(N + 1, vector< T >(N + 1));

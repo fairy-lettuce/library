@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: math/combinatorics/mod-sqrt.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d319ed68764efb4f50b1628220df55d7">math/combinatorics</a>
@@ -35,14 +36,52 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-sqrt-mod.test.cpp.html">test/verify/yosupo-sqrt-mod.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp.html">test/verify/yosupo-sqrt-of-formal-power-series.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+T mod_sqrt(const T &a, const T &p) {
+  if(a == 0) return 0;
+  if(p == 2) return a;
+  if(mod_pow(a, (p - 1) >> 1, p) != 1) return -1;
+  T b = 1;
+  while(mod_pow(b, (p - 1) >> 1, p) == 1) ++b;
+  T e = 0, m = p - 1;
+  while(m % 2 == 0) m >>= 1, ++e;
+  T x = mod_pow(a, (m - 1) >> 1, p);
+  T y = a * (x * x % p) % p;
+  (x *= a) %= p;
+  T z = mod_pow(b, m, p);
+  while(y != 1) {
+    T j = 0, t = y;
+    while(t != 1) {
+      j += 1;
+      (t *= t) %= p;
+    }
+    z = mod_pow(z, T(1) << (e - j - 1), p);
+    (x *= z) %= p;
+    (z *= z) %= p;
+    (y *= z) %= p;
+    e = j;
+  }
+  return x;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "math/combinatorics/mod-sqrt.cpp"
 template< typename T >
 T mod_sqrt(const T &a, const T &p) {
   if(a == 0) return 0;

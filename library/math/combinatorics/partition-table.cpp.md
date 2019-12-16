@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: math/combinatorics/partition-table.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d319ed68764efb4f50b1628220df55d7">math/combinatorics</a>
@@ -35,13 +36,36 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-dpl-5-j.test.cpp.html">test/verify/aoj-dpl-5-j.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+vector< vector< T > > get_partition(int n, int k) {
+  vector< vector< T > > dp(n + 1, vector< T >(k + 1));
+  dp[0][0] = 1;
+  for(int i = 0; i <= n; i++) {
+    for(int j = 1; j <= k; j++) {
+      if(i - j >= 0) dp[i][j] = dp[i][j - 1] + dp[i - j][j];
+      else dp[i][j] = dp[i][j - 1];
+    }
+  }
+  return dp;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "math/combinatorics/partition-table.cpp"
 template< typename T >
 vector< vector< T > > get_partition(int n, int k) {
   vector< vector< T > > dp(n + 1, vector< T >(k + 1));

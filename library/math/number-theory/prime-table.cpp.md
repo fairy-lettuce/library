@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: math/number-theory/prime-table.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d4a327615e3a055131f0682831111ce2">math/number-theory</a>
@@ -35,13 +36,36 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-alds-1-1-c-2.test.cpp.html">test/verify/aoj-alds-1-1-c-2.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+vector< bool > prime_table(int n) {
+  vector< bool > prime(n + 1, true);
+  if(n >= 0) prime[0] = false;
+  if(n >= 1) prime[1] = false;
+  for(int i = 2; i * i <= n; i++) {
+    if(!prime[i]) continue;
+    for(int j = i + i; j <= n; j += i) {
+      prime[j] = false;
+    }
+  }
+  return prime;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "math/number-theory/prime-table.cpp"
 vector< bool > prime_table(int n) {
   vector< bool > prime(n + 1, true);
   if(n >= 0) prime[0] = false;

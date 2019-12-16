@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: graph/others/topological-sort.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#e557c7f962c39680942b9dada22cabec">graph/others</a>
@@ -35,13 +36,46 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-0275.test.cpp.html">test/verify/aoj-0275.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename G >
+vector< int > topological_sort(const G &g) {
+  const int N = (int) g.size();
+  vector< int > deg(N);
+  for(int i = 0; i < N; i++) {
+    for(auto &to : g[i]) ++deg[to];
+  }
+  stack< int > st;
+  for(int i = 0; i < N; i++) {
+    if(deg[i] == 0) st.emplace(i);
+  }
+  vector< int > ord;
+  while(!st.empty()) {
+    auto p = st.top();
+    st.pop();
+    ord.emplace_back(p);
+    for(auto &to : g[p]) {
+      if(--deg[to] == 0) st.emplace(to);
+    }
+  }
+  return ord;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "graph/others/topological-sort.cpp"
 template< typename G >
 vector< int > topological_sort(const G &g) {
   const int N = (int) g.size();

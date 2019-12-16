@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: test/verify/codeforces-438-f.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
@@ -36,6 +37,8 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
 int main() {
@@ -62,6 +65,37 @@ int main() {
   cout << divide_and_conquer_optimization(K, N, INF, f).back().back() << endl;
 }
 
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "test/verify/codeforces-438-f.cpp"
+int main() {
+  int N, K;
+  cin >> N >> K;
+  vector< int > A(N);
+  for(int i = 0; i < N; i++) {
+    cin >> A[i];
+    --A[i];
+  }
+  constexpr int64_t INF = 1LL << 58;
+
+  int64 L = 0, R = 0, sum = 0;
+  vector< int > appear(100000);
+  auto add = [&](int idx) { sum += appear[A[idx]]++; };
+  auto del = [&](int idx) { sum -= --appear[A[idx]]; };
+  function< int64_t(int l, int r) > f = [&](int l, int r) {
+    while(L > l) add(--L);
+    while(R < r) add(R++);
+    while(L < l) del(L++);
+    while(R > r) del(--R);
+    return sum;
+  };
+  cout << divide_and_conquer_optimization(K, N, INF, f).back().back() << endl;
+}
 
 ```
 {% endraw %}

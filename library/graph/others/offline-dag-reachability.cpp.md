@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: graph/others/offline-dag-reachability.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#e557c7f962c39680942b9dada22cabec">graph/others</a>
@@ -35,13 +36,45 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-0275.test.cpp.html">test/verify/aoj-0275.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename G >
+vector< int > offline_dag_reachability(const G &g, vector< pair< int, int > > &qs) {
+  const int N = (int) g.size();
+  const int Q = (int) qs.size();
+  auto ord = topological_sort(g);
+  vector< int > ans(Q);
+  for(int l = 0; l < Q; l += 64) {
+    int r = min(Q, l + 64);
+    vector< int64_t > dp(N);
+    for(int k = l; k < r; k++) {
+      dp[qs[k].first] |= int64_t(1) << (k - l);
+    }
+    for(auto &idx : ord) {
+      for(auto &to : g[idx]) dp[to] |= dp[idx];
+    }
+    for(int k = l; k < r; k++) {
+      ans[k] = (dp[qs[k].second] >> (k - l)) & 1;
+    }
+  }
+  return ans;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "graph/others/offline-dag-reachability.cpp"
 template< typename G >
 vector< int > offline_dag_reachability(const G &g, vector< pair< int, int > > &qs) {
   const int N = (int) g.size();

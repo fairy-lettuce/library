@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: graph/shortest-path/dijkstra-radix-heap.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#73feb47c464a017d041247d88424b879">graph/shortest-path</a>
@@ -35,13 +36,47 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-1-a-3.test.cpp.html">test/verify/aoj-grl-1-a-3.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+vector< T > dijkstra_radix_heap(WeightedGraph< T > &g, int s) {
+  const auto INF = numeric_limits< T >::max();
+  vector< T > dist(g.size(), INF);
+
+  using Pi = pair< T, int >;
+  RadixHeap< T, int > heap;
+  dist[s] = 0;
+  heap.push(dist[s], s);
+  while(!heap.empty()) {
+    T cost;
+    int idx;
+    tie(cost, idx) = heap.pop();
+    if(dist[idx] < cost) continue;
+    for(auto &e : g[idx]) {
+      auto next_cost = cost + e.cost;
+      if(dist[e.to] <= next_cost) continue;
+      dist[e.to] = next_cost;
+      heap.push(dist[e.to], e.to);
+    }
+  }
+  return dist;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "graph/shortest-path/dijkstra-radix-heap.cpp"
 template< typename T >
 vector< T > dijkstra_radix_heap(WeightedGraph< T > &g, int s) {
   const auto INF = numeric_limits< T >::max();

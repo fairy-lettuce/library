@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: graph/mst/prim.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#51f95ed2fd9ed3be34f576d38fbd25a2">graph/mst</a>
@@ -35,13 +36,44 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-2-a.test.cpp.html">test/verify/aoj-grl-2-a.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+T prim(WeightedGraph< T > &g) {
+  using Pi = pair< T, int >;
+ 
+  T total = 0;
+  vector< bool > used(g.size(), false);
+  priority_queue< Pi, vector< Pi >, greater< Pi > > que;
+  que.emplace(0, 0);
+  while(!que.empty()) {
+    auto p = que.top();
+    que.pop();
+    if(used[p.second]) continue;
+    used[p.second] = true;
+    total += p.first;
+    for(auto &e : g[p.second]) {
+      que.emplace(e.cost, e.to);
+    }
+  }
+  return total;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "graph/mst/prim.cpp"
 template< typename T >
 T prim(WeightedGraph< T > &g) {
   using Pi = pair< T, int >;

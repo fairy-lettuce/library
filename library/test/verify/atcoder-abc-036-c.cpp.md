@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: test/verify/atcoder-abc-036-c.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
@@ -36,8 +37,27 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+int main() {
+  int N;
+  cin >> N;
+  vector< int64 > A(N);
+  cin >> A;
+  Compress< int64 > comp(A);
+  comp.build();
+  for(auto &p : comp.get(A)) cout << p << "\n";
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "test/verify/atcoder-abc-036-c.cpp"
 int main() {
   int N;
   cin >> N;

@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: string/z-algorithm.cpp
+
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b45cffe084dd3d20d928bee85e7b0f21">string</a>
@@ -36,8 +37,33 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+vector< int > z_algorithm(const string &s) {
+  vector< int > prefix(s.size());
+  for(int i = 1, j = 0; i < s.size(); i++) {
+    if(i + prefix[i - j] < j + prefix[j]) {
+      prefix[i] = prefix[i - j];
+    } else {
+      int k = max(0, j + prefix[j] - i);
+      while(i + k < s.size() && s[k] == s[i + k]) ++k;
+      prefix[i] = k;
+      j = i;
+    }
+  }
+  prefix[0] = (int) s.size();
+  return prefix;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "string/z-algorithm.cpp"
 vector< int > z_algorithm(const string &s) {
   vector< int > prefix(s.size());
   for(int i = 1, j = 0; i < s.size(); i++) {

@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: math/combinatorics/mod-int.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d319ed68764efb4f50b1628220df55d7">math/combinatorics</a>
@@ -35,7 +36,8 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-dpl-5-g.test.cpp.html">test/verify/aoj-dpl-5-g.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-dpl-5-i.test.cpp.html">test/verify/aoj-dpl-5-i.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-dpl-5-j.test.cpp.html">test/verify/aoj-dpl-5-j.test.cpp</a>
@@ -52,8 +54,95 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< int mod >
+struct ModInt {
+  int x;
+
+  ModInt() : x(0) {}
+
+  ModInt(int64_t y) : x(y >= 0 ? y % mod : (mod - (-y) % mod) % mod) {}
+
+  ModInt &operator+=(const ModInt &p) {
+    if((x += p.x) >= mod) x -= mod;
+    return *this;
+  }
+
+  ModInt &operator-=(const ModInt &p) {
+    if((x += mod - p.x) >= mod) x -= mod;
+    return *this;
+  }
+
+  ModInt &operator*=(const ModInt &p) {
+    x = (int) (1LL * x * p.x % mod);
+    return *this;
+  }
+
+  ModInt &operator/=(const ModInt &p) {
+    *this *= p.inverse();
+    return *this;
+  }
+
+  ModInt operator-() const { return ModInt(-x); }
+
+  ModInt operator+(const ModInt &p) const { return ModInt(*this) += p; }
+
+  ModInt operator-(const ModInt &p) const { return ModInt(*this) -= p; }
+
+  ModInt operator*(const ModInt &p) const { return ModInt(*this) *= p; }
+
+  ModInt operator/(const ModInt &p) const { return ModInt(*this) /= p; }
+
+  bool operator==(const ModInt &p) const { return x == p.x; }
+
+  bool operator!=(const ModInt &p) const { return x != p.x; }
+
+  ModInt inverse() const {
+    int a = x, b = mod, u = 1, v = 0, t;
+    while(b > 0) {
+      t = a / b;
+      swap(a -= t * b, b);
+      swap(u -= t * v, v);
+    }
+    return ModInt(u);
+  }
+
+  ModInt pow(int64_t n) const {
+    ModInt ret(1), mul(x);
+    while(n > 0) {
+      if(n & 1) ret *= mul;
+      mul *= mul;
+      n >>= 1;
+    }
+    return ret;
+  }
+
+  friend ostream &operator<<(ostream &os, const ModInt &p) {
+    return os << p.x;
+  }
+
+  friend istream &operator>>(istream &is, ModInt &a) {
+    int64_t t;
+    is >> t;
+    a = ModInt< mod >(t);
+    return (is);
+  }
+
+  static int get_mod() { return mod; }
+};
+
+using modint = ModInt< mod >;
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "math/combinatorics/mod-int.cpp"
 template< int mod >
 struct ModInt {
   int x;

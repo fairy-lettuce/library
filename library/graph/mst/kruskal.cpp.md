@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: graph/mst/kruskal.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#51f95ed2fd9ed3be34f576d38fbd25a2">graph/mst</a>
@@ -35,13 +36,36 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-2-a-2.test.cpp.html">test/verify/aoj-grl-2-a-2.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+T kruskal(Edges< T > &edges, int V) {
+  sort(begin(edges), end(edges), [](const edge< T > &a, const edge< T > &b) {
+    return (a.cost < b.cost);
+  });
+  UnionFind tree(V);
+  T ret = 0;
+  for(auto &e : edges) {
+    if(tree.unite(e.src, e.to)) ret += e.cost;
+  }
+  return (ret);
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "graph/mst/kruskal.cpp"
 template< typename T >
 T kruskal(Edges< T > &edges, int V) {
   sort(begin(edges), end(edges), [](const edge< T > &a, const edge< T > &b) {

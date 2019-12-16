@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: dp/slide-min.cpp
+
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
@@ -36,8 +37,35 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+vector< T > slide_min(const vector< T > &v, int k)
+{
+  deque< int > deq;
+  vector< T > ret;
+  for(int i = 0; i < v.size(); i++) {
+    while(!deq.empty() && v[deq.back()] >= v[i]) {
+      deq.pop_back();
+    }
+    deq.push_back(i);
+    if(i - k + 1 >= 0) {
+      ret.emplace_back(v[deq.front()]);
+      if(deq.front() == i - k + 1) deq.pop_front();
+    }
+  }
+  return ret;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "dp/slide-min.cpp"
 template< typename T >
 vector< T > slide_min(const vector< T > &v, int k)
 {

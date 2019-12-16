@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: math/combinatorics/lagrange-polynomial.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d319ed68764efb4f50b1628220df55d7">math/combinatorics</a>
@@ -36,8 +37,34 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+T lagrange_polynomial(const vector< T > &y, int64_t t) {
+  int N = y.size() - 1;
+  Combination< T > comb(N);
+  if(t <= N) return y[t];
+  T ret(0);
+  vector< T > dp(N + 1, 1), pd(N + 1, 1);
+  for(int i = 0; i < N; i++) dp[i + 1] = dp[i] * (t - i);
+  for(int i = N; i > 0; i--) pd[i - 1] = pd[i] * (t - i);
+  for(int i = 0; i <= N; i++) {
+    T tmp = y[i] * dp[i] * pd[i] * comb.rfact(i) * comb.rfact(N - i);
+    if((N - i) & 1) ret -= tmp;
+    else ret += tmp;
+  }
+  return ret;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "math/combinatorics/lagrange-polynomial.cpp"
 template< typename T >
 T lagrange_polynomial(const vector< T > &y, int64_t t) {
   int N = y.size() - 1;

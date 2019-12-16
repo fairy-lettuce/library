@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: string/manacher.cpp
+
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#b45cffe084dd3d20d928bee85e7b0f21">string</a>
@@ -36,8 +37,36 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+vector< int > manacher(const string &s) {
+  vector< int > radius(s.size());
+  int i = 0, j = 0;
+  while(i < s.size()) {
+    while(i - j >= 0 && i + j < s.size() && s[i - j] == s[i + j]) {
+      ++j;
+    }
+    radius[i] = j;
+    int k = 1;
+    while(i - k >= 0 && i + k < s.size() && k + radius[i - k] < j) {
+      radius[i + k] = radius[i - k];
+      ++k;
+    }
+    i += k;
+    j -= k;
+  }
+  return radius;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "string/manacher.cpp"
 vector< int > manacher(const string &s) {
   vector< int > radius(s.size());
   int i = 0, j = 0;

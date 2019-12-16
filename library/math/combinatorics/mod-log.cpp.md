@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: math/combinatorics/mod-log.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d319ed68764efb4f50b1628220df55d7">math/combinatorics</a>
@@ -35,13 +36,56 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-discrete-logarithm-mod.test.cpp.html">test/verify/yosupo-discrete-logarithm-mod.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+int64_t mod_log(int64_t a, int64_t b, int64_t p) {
+  int64_t g = 1;
+
+  for(int64_t i = p; i; i /= 2) (g *= a) %= p;
+  g = __gcd(g, p);
+
+  int64_t t = 1, c = 0;
+  for(; t % g; c++) {
+    if(t == b) return c;
+    (t *= a) %= p;
+  }
+  if(b % g) return -1;
+
+  t /= g;
+  b /= g;
+
+  int64_t n = p / g, h = 0, gs = 1;
+
+  for(; h * h < n; h++) (gs *= a) %= n;
+
+  unordered_map< int64_t, int64_t > bs;
+  for(int64_t s = 0, e = b; s < h; bs[e] = ++s) {
+    (e *= a) %= n;
+  }
+
+  for(int64_t s = 0, e = t; s < n;) {
+    (e *= gs) %= n;
+    s += h;
+    if(bs.count(e)) return c + s - bs[e];
+  }
+  return -1;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "math/combinatorics/mod-log.cpp"
 int64_t mod_log(int64_t a, int64_t b, int64_t p) {
   int64_t g = 1;
 

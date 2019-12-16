@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: dp/cumulative-sum.cpp
+
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
@@ -36,8 +37,39 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< class T >
+struct CumulativeSum {
+  vector< T > data;
+
+  CumulativeSum(int sz) : data(sz, 0) {};
+
+  void add(int k, T x) {
+    data[k] += x;
+  }
+
+  void build() {
+    for(int i = 1; i < data.size(); i++) {
+      data[i] += data[i - 1];
+    }
+  }
+
+  T query(int k) {
+    if(k < 0) return (0);
+    return (data[min(k, (int) data.size() - 1)]);
+  }
+};
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "dp/cumulative-sum.cpp"
 template< class T >
 struct CumulativeSum {
   vector< T > data;

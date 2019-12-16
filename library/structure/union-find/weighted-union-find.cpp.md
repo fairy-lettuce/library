@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: structure/union-find/weighted-union-find.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#16695eacefd17254ea5bccf40066c856">structure/union-find</a>
@@ -35,13 +36,64 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-dsl-1-b.test.cpp.html">test/verify/aoj-dsl-1-b.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+struct WeightedUnionFind {
+  vector< int > data;
+  vector< T > ws;
+
+  WeightedUnionFind() {}
+
+  WeightedUnionFind(int sz) : data(sz, -1), ws(sz) {}
+
+  int find(int k) {
+    if(data[k] < 0) return k;
+    auto par = find(data[k]);
+    ws[k] += ws[data[k]];
+    return data[k] = par;
+  }
+
+  T weight(int t) {
+    find(t);
+    return ws[t];
+  }
+
+  bool unite(int x, int y, T w) {
+    w += weight(x);
+    w -= weight(y);
+    x = find(x), y = find(y);
+    if(x == y) return false;
+    if(data[x] > data[y]) {
+      swap(x, y);
+      w *= -1;
+    }
+    data[x] += data[y];
+    data[y] = x;
+    ws[y] = w;
+    return true;
+  }
+
+  T diff(int x, int y) {
+    return weight(y) - weight(x);
+  }
+};
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "structure/union-find/weighted-union-find.cpp"
 template< typename T >
 struct WeightedUnionFind {
   vector< int > data;

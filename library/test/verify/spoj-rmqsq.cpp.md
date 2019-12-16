@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: test/verify/spoj-rmqsq.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
@@ -36,8 +37,31 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+int main() {
+  int N, Q;
+  scanf("%d", &N);
+  vector< int > vs(N);
+  for(int i = 0; i < N; i++) scanf("%d", &vs[i]);
+  SparseTable< int > table(vs);
+  scanf("%d", &Q);
+  while(Q--) {
+    int x, y;
+    scanf("%d %d", &x, &y);
+    printf("%d\n", table.rmq(x, y + 1));
+  }
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "test/verify/spoj-rmqsq.cpp"
 int main() {
   int N, Q;
   scanf("%d", &N);

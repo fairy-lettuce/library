@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: test/verify/atcoder-abc-132-f.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
@@ -36,6 +37,8 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
 int main() {
@@ -60,6 +63,35 @@ int main() {
   cout << ret << endl;
 }
 
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "test/verify/atcoder-abc-132-f.cpp"
+int main() {
+  int N, K;
+  cin >> N >> K;
+  auto range = quotient_range(N);
+
+  vector< modint > dp(range.size());
+  dp[0] = 1;
+  for(int i = 0; i < K; i++) {
+    reverse(begin(dp), end(dp));
+    vector< modint > dp2(range.size());
+    modint add = 0;
+    for(int j = range.size() - 1; j >= 0; j--) {
+      add += dp[j];
+      dp2[j] = add * (range[j].first.second - range[j].first.first + 1);
+    }
+    dp.swap(dp2);
+  }
+  modint ret;
+  for(auto &t : dp) ret += t;
+  cout << ret << endl;
+}
 
 ```
 {% endraw %}

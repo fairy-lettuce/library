@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: math/number-theory/euler-phi-table.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d4a327615e3a055131f0682831111ce2">math/number-theory</a>
@@ -36,8 +37,32 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+vector< int > euler_phi_table(int n) {
+  vector< int > euler(n + 1);
+  for(int i = 0; i <= n; i++) {
+    euler[i] = i;
+  }
+  for(int i = 2; i <= n; i++) {
+    if(euler[i] == i) {
+      for(int j = i; j <= n; j += i) {
+        euler[j] = euler[j] / i * (i - 1);
+      }
+    }
+  }
+  return euler;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "math/number-theory/euler-phi-table.cpp"
 vector< int > euler_phi_table(int n) {
   vector< int > euler(n + 1);
   for(int i = 0; i <= n; i++) {

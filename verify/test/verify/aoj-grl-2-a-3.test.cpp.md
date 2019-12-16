@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: test/verify/aoj-grl-2-a-3.test.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-2-a-3.test.cpp">View this file on GitHub</a>
@@ -35,14 +36,17 @@ layout: default
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A</a>
 
 
-## Depends On
+## Depends on
+
 * :heavy_check_mark: <a href="../../../library/graph/mst/boruvka.cpp.html">graph/mst/boruvka.cpp</a>
 * :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
 * :heavy_check_mark: <a href="../../../library/structure/union-find/union-find.cpp.html">structure/union-find/union-find.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A"

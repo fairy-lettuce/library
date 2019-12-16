@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: math/fps/berlekamp-massey.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#1201bfd5f7a5d1c5bfa65e9be4237f63">math/fps</a>
@@ -35,13 +36,49 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-sparse-matrix-det.test.cpp.html">test/verify/yosupo-sparse-matrix-det.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< class T >
+FormalPowerSeries< T > berlekamp_massey(const FormalPowerSeries< T > &s) {
+  const int N = (int) s.size();
+  FormalPowerSeries< T > b = {T(-1)}, c = {T(-1)};
+  T y = T(1);
+  for(int ed = 1; ed <= N; ed++) {
+    int l = int(c.size()), m = int(b.size());
+    T x = 0;
+    for(int i = 0; i < l; i++) x += c[i] * s[ed - l + i];
+    b.emplace_back(0);
+    m++;
+    if(x == T(0)) continue;
+    T freq = x / y;
+    if(l < m) {
+      auto tmp = c;
+      c.insert(begin(c), m - l, T(0));
+      for(int i = 0; i < m; i++) c[m - 1 - i] -= freq * b[m - 1 - i];
+      b = tmp;
+      y = x;
+    } else {
+      for(int i = 0; i < m; i++) c[l - 1 - i] -= freq * b[m - 1 - i];
+    }
+  }
+  return c;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "math/fps/berlekamp-massey.cpp"
 template< class T >
 FormalPowerSeries< T > berlekamp_massey(const FormalPowerSeries< T > &s) {
   const int N = (int) s.size();

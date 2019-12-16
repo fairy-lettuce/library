@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: dp/divide-and-conquer-optimization.cpp
+
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
@@ -36,8 +37,32 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T, typename Compare = less< T > >
+vector< vector< T > > divide_and_conquer_optimization(int H, int W, T INF, const function< T(int, int) > &f, const Compare &comp = Compare()) {
+  vector< vector< T > > dp(H + 1, vector< T >(W + 1, INF));
+  dp[0][0] = 0;
+  for(int i = 1; i <= H; i++) {
+    function< T(int, int) > get_cost = [&](int y, int x) {
+      if(x >= y) return INF;
+      return dp[i - 1][x] + f(x, y);
+    };
+    auto ret = monotone_minima(W + 1, W + 1, get_cost, comp);
+    for(int j = 0; j <= W; j++) dp[i][j] = ret[j].second;
+  }
+  return dp;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "dp/divide-and-conquer-optimization.cpp"
 template< typename T, typename Compare = less< T > >
 vector< vector< T > > divide_and_conquer_optimization(int H, int W, T INF, const function< T(int, int) > &f, const Compare &comp = Compare()) {
   vector< vector< T > > dp(H + 1, vector< T >(W + 1, INF));

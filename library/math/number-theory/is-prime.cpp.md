@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: math/number-theory/is-prime.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d4a327615e3a055131f0682831111ce2">math/number-theory</a>
@@ -35,13 +36,30 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-alds-1-1-c.test.cpp.html">test/verify/aoj-alds-1-1-c.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+bool is_prime(int64_t x) {
+  for(int64_t i = 2; i * i <= x; i++) {
+    if(x % i == 0) return false;
+  }
+  return true;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "math/number-theory/is-prime.cpp"
 bool is_prime(int64_t x) {
   for(int64_t i = 2; i * i <= x; i++) {
     if(x % i == 0) return false;

@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: test/verify/atcoder-code-thanks-festival-2017-g.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
@@ -36,8 +37,30 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+int main() {
+  int N, M;
+  cin >> N >> M;
+  Matrix< int > g(N, vector< int >(N));
+  for(int i = 0; i < M; i++) {
+    int x, y;
+    cin >> x >> y;
+    --x, --y;
+    g[x][y] = g[y][x] = true;
+  }
+  cout << maximum_independent_set(g).size() << endl;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "test/verify/atcoder-code-thanks-festival-2017-g.cpp"
 int main() {
   int N, M;
   cin >> N >> M;

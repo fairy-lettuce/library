@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: math/combinatorics/mod-pow.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d319ed68764efb4f50b1628220df55d7">math/combinatorics</a>
@@ -35,13 +36,16 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-ntl-1-b.test.cpp.html">test/verify/aoj-ntl-1-b.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-sqrt-mod.test.cpp.html">test/verify/yosupo-sqrt-mod.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp.html">test/verify/yosupo-sqrt-of-formal-power-series.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
 template< typename T >
@@ -55,6 +59,24 @@ T mod_pow(T x, T n, const T &p) {
   return ret;
 }
 
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "math/combinatorics/mod-pow.cpp"
+template< typename T >
+T mod_pow(T x, T n, const T &p) {
+  T ret = 1;
+  while(n > 0) {
+    if(n & 1) (ret *= x) %= p;
+    (x *= x) %= p;
+    n >>= 1;
+  }
+  return ret;
+}
 
 ```
 {% endraw %}

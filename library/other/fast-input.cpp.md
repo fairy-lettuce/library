@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: other/fast-input.cpp
+
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#795f3202b17cb6bc3d4b771d8c6c9eaf">other</a>
@@ -36,8 +37,41 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< int sz >
+struct FastInput {
+  char buf[sz + 1];
+  char *o;
+
+  FastInput() { init(); }
+
+  void init() {
+    o = buf;
+    buf[fread(buf, sizeof(char), sizeof(char) * sz, stdin)] = '\0';
+  }
+
+  int64_t read() {
+    int64_t ret = 0, sign = 1;
+    while(*o && *o <= 32) ++o;
+    if(*o == '-') sign *= -1, ++o;
+    while(*o >= '0' && *o <= '9') {
+      ret *= 10;
+      ret += *o++ - '0';
+    }
+    return ret * sign;
+  }
+};
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "other/fast-input.cpp"
 template< int sz >
 struct FastInput {
   char buf[sz + 1];

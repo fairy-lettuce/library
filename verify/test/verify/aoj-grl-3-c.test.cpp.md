@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: test/verify/aoj-grl-3-c.test.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-3-c.test.cpp">View this file on GitHub</a>
@@ -35,13 +36,16 @@ layout: default
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C</a>
 
 
-## Depends On
+## Depends on
+
 * :heavy_check_mark: <a href="../../../library/graph/connected-components/strongly-connected-components.cpp.html">graph/connected-components/strongly-connected-components.cpp</a>
 * :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C"

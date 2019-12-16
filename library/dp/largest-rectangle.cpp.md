@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: dp/largest-rectangle.cpp
+
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
@@ -35,13 +36,41 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-dpl-3-c.test.cpp.html">test/verify/aoj-dpl-3-c.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+int64_t largest_rectangle(vector< T > height)
+{
+  stack< int > st;
+  height.push_back(0);
+  vector< int > left(height.size());
+  int64_t ret = 0;
+  for(int i = 0; i < height.size(); i++) {
+    while(!st.empty() && height[st.top()] >= height[i]) {
+      ret = max(ret, (int64_t) (i - left[st.top()] - 1) * height[st.top()]);
+      st.pop();
+    }
+    left[i] = st.empty() ? -1 : st.top();
+    st.emplace(i);
+  }
+  return (ret);
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "dp/largest-rectangle.cpp"
 template< typename T >
 int64_t largest_rectangle(vector< T > height)
 {

@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: structure/others/binary-indexed-tree.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#40d73e22b7d986e3399449c25c8b23a1">structure/others</a>
@@ -35,13 +36,42 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-dsl-2-b.test.cpp.html">test/verify/aoj-dsl-2-b.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+struct BinaryIndexedTree {
+  vector< T > data;
+
+  BinaryIndexedTree(int sz) {
+    data.assign(++sz, 0);
+  }
+
+  T sum(int k) {
+    T ret = 0;
+    for(++k; k > 0; k -= k & -k) ret += data[k];
+    return (ret);
+  }
+
+  void add(int k, T x) {
+    for(++k; k < data.size(); k += k & -k) data[k] += x;
+  }
+};
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "structure/others/binary-indexed-tree.cpp"
 template< typename T >
 struct BinaryIndexedTree {
   vector< T > data;

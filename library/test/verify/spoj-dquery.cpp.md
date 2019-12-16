@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: test/verify/spoj-dquery.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
@@ -36,8 +37,43 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+nt main() {
+  int N, Q;
+  cin >> N;
+  vector< int > A(N);
+  for(int i = 0; i < N; i++) {
+    cin >> A[i];
+  }
+  cin >> Q;
+  vector< int > f(1000001);
+  Mo mo(N, Q);
+  for(int i = 0; i < Q; i++) {
+    int l, r;
+    cin >> l >> r;
+    mo.add(--l, r);
+  }
+  int ret = 0;
+  auto add = [&](int idx) { if(f[A[idx]]++ == 0) ret++; };
+  auto del = [&](int idx) { if(f[A[idx]]-- == 1) --ret; };
+  vector< int > ans(Q);
+  auto rem = [&](int idx) { ans[idx] = ret; };
+  mo.run(add, del, rem);
+  for(int i = 0; i < Q; i++) {
+    cout << ans[i] << "\n";
+  }
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "test/verify/spoj-dquery.cpp"
 nt main() {
   int N, Q;
   cin >> N;

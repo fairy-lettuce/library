@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: test/verify/spoj-treeiso.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
@@ -36,8 +37,43 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+int main() {
+  int T;
+  cin >> T;
+  while(T--) {
+    int N;
+    cin >> N;
+    UnWeightedGraph x(N), y(N);
+    for(int i = 1; i < N; i++) {
+      int a, b;
+      cin >> a >> b;
+      --a, --b;
+      x[a].emplace_back(b);
+      x[b].emplace_back(a);
+    }
+    for(int i = 1; i < N; i++) {
+      int a, b;
+      cin >> a >> b;
+      --a, --b;
+      y[a].emplace_back(b);
+      y[b].emplace_back(a);
+    }
+    if(tree_isomorphism(x, y)) cout << "YES\n";
+    else cout << "NO\n";
+  }
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "test/verify/spoj-treeiso.cpp"
 int main() {
   int T;
   cin >> T;

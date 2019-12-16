@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: test/verify/codeforces-250-e.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
@@ -36,8 +37,35 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+int main() {
+  int N, M;
+  cin >> N >> M;
+  PolynominalMod< modint > C(M + 1);
+  C[0] = 1;
+  for(int i = 0; i < N; i++) {
+    int k;
+    cin >> k;
+    if(k <= M) C[k] = mod - 4;
+  }
+  C = C.sqrt();
+  C[0] += 1;
+  C = C.inverse();
+  for(int i = 1; i <= M; i++) {
+    cout << C[i] * 2 << "\n";
+  }
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "test/verify/codeforces-250-e.cpp"
 int main() {
   int N, M;
   cin >> N >> M;

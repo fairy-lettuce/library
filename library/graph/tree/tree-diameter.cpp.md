@@ -26,6 +26,7 @@ layout: default
 
 
 # :heavy_check_mark: graph/tree/tree-diameter.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#28790b6202284cbbffc9d712b59f4b80">graph/tree</a>
@@ -35,13 +36,42 @@ layout: default
 
 
 
-## Verified With
+## Verified with
+
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-5-a.test.cpp.html">test/verify/aoj-grl-5-a.test.cpp</a>
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+template< typename T >
+pair< T, int > dfs(const WeightedGraph< T > &g, int idx, int par) {
+  pair< T, int > ret(0, idx);
+  for(auto &e : g[idx]) {
+    if(e.to == par) continue;
+    auto cost = dfs(g, e.to, idx);
+    cost.first += e.cost;
+    ret = max(ret, cost);
+  }
+  return ret;
+}
+
+template< typename T >
+T tree_diameter(const WeightedGraph< T > &g) {
+  auto p = dfs(g, 0, -1);
+  auto q = dfs(g, p.second, -1);
+  return (q.first);
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "graph/tree/tree-diameter.cpp"
 template< typename T >
 pair< T, int > dfs(const WeightedGraph< T > &g, int idx, int par) {
   pair< T, int > ret(0, idx);

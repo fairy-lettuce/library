@@ -26,6 +26,7 @@ layout: default
 
 
 # :warning: test/verify/atcoder-atc-001-c-3.cpp
+
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
@@ -36,8 +37,27 @@ layout: default
 
 
 ## Code
+
+<a id="unbundled"></a>
 {% raw %}
 ```cpp
+int main() {
+  int N;
+  cin >> N;
+  vector< modint > A(N + 1), B(N + 1);
+  for(int i = 1; i <= N; i++) cin >> A[i] >> B[i];
+  ArbitraryModConvolution< modint > fft;
+  auto C = fft.multiply(A, B);
+  for(int i = 1; i <= 2 * N; i++) cout << C[i] << "\n";
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "test/verify/atcoder-atc-001-c-3.cpp"
 int main() {
   int N;
   cin >> N;
