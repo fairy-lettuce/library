@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: dp/hu-tucker.cpp
+# :heavy_check_mark: dp/hu-tucker.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
 * <a href="{{ site.github.repository_url }}/blob/master/dp/hu-tucker.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-07-20 01:29:30+09:00
+    - Last commit date: 2019-12-20 16:29:52+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-2415.test.cpp.html">test/verify/aoj-2415.test.cpp</a>
 
 
 ## Code
@@ -41,7 +46,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-te< typename Heap, typename T >
+template< typename Heap, typename T >
 T hu_tucker(vector< T > vs, T INF) {
   int N = (int) vs.size();
   Heap heap;
@@ -120,7 +125,7 @@ T hu_tucker(vector< T > vs, T INF) {
 {% raw %}
 ```cpp
 #line 1 "dp/hu-tucker.cpp"
-te< typename Heap, typename T >
+template< typename Heap, typename T >
 T hu_tucker(vector< T > vs, T INF) {
   int N = (int) vs.size();
   Heap heap;
