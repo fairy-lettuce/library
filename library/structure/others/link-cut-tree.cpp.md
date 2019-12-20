@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: structure/others/link-cut-tree.cpp
+# :heavy_check_mark: structure/others/link-cut-tree.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#40d73e22b7d986e3399449c25c8b23a1">structure/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/others/link-cut-tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 22:41:48+09:00
+    - Last commit date: 2019-12-20 17:10:52+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2450-2.test.cpp.html">test/verify/aoj-2450-2.test.cpp</a>
 
 
 ## Code
@@ -44,7 +49,7 @@ layout: default
 template< typename Monoid = int, typename OperatorMonoid = Monoid >
 struct LinkCutTree {
   using F = function< Monoid(Monoid, Monoid) >;
-  using G = function< Monoid(Monoid, OperatorMonoid, int) >;
+  using G = function< Monoid(Monoid, OperatorMonoid) >;
   using H = function< OperatorMonoid(OperatorMonoid, OperatorMonoid) >;
   using S = function< Monoid(Monoid) >;
 
@@ -88,8 +93,8 @@ struct LinkCutTree {
 
   void propagate(Node *t, const OperatorMonoid &x) {
     t->lazy = h(t->lazy, x);
-    t->key = g(t->key, x, 1);
-    t->sum = g(t->sum, x, t->sz);
+    t->key = g(t->key, x);
+    t->sum = g(t->sum, x);
   }
 
   void toggle(Node *t) {
@@ -250,7 +255,6 @@ struct LinkCutTree {
     return x;
   }
 };
-
 
 ```
 {% endraw %}
@@ -262,7 +266,7 @@ struct LinkCutTree {
 template< typename Monoid = int, typename OperatorMonoid = Monoid >
 struct LinkCutTree {
   using F = function< Monoid(Monoid, Monoid) >;
-  using G = function< Monoid(Monoid, OperatorMonoid, int) >;
+  using G = function< Monoid(Monoid, OperatorMonoid) >;
   using H = function< OperatorMonoid(OperatorMonoid, OperatorMonoid) >;
   using S = function< Monoid(Monoid) >;
 
@@ -306,8 +310,8 @@ struct LinkCutTree {
 
   void propagate(Node *t, const OperatorMonoid &x) {
     t->lazy = h(t->lazy, x);
-    t->key = g(t->key, x, 1);
-    t->sum = g(t->sum, x, t->sz);
+    t->key = g(t->key, x);
+    t->sum = g(t->sum, x);
   }
 
   void toggle(Node *t) {
@@ -468,7 +472,6 @@ struct LinkCutTree {
     return x;
   }
 };
-
 
 ```
 {% endraw %}

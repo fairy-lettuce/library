@@ -269,7 +269,7 @@ layout: default
 * :heavy_check_mark: <a href="library/structure/others/binary-indexed-tree.cpp.html">structure/others/binary-indexed-tree.cpp</a>
 * :warning: <a href="library/structure/others/disjoint-sparse-table.cpp.html">structure/others/disjoint-sparse-table.cpp</a>
 * :warning: <a href="library/structure/others/link-cut-tree-subtree.cpp.html">structure/others/link-cut-tree-subtree.cpp</a>
-* :warning: <a href="library/structure/others/link-cut-tree.cpp.html">structure/others/link-cut-tree.cpp</a>
+* :heavy_check_mark: <a href="library/structure/others/link-cut-tree.cpp.html">structure/others/link-cut-tree.cpp</a>
 * :warning: <a href="library/structure/others/persistent-array.cpp.html">structure/others/persistent-array.cpp</a>
 * :warning: <a href="library/structure/others/priority-sum-structure.cpp.html">structure/others/priority-sum-structure.cpp</a>
 * :warning: <a href="library/structure/others/sliding-window-aggregation.cpp.html">structure/others/sliding-window-aggregation.cpp</a>
@@ -376,6 +376,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1615.test.cpp.html">test/verify/aoj-1615.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2306.test.cpp.html">test/verify/aoj-2306.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2415.test.cpp.html">test/verify/aoj-2415.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-2450-2.test.cpp.html">test/verify/aoj-2450-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2450.test.cpp.html">test/verify/aoj-2450.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-alds-1-1-c-2.test.cpp.html">test/verify/aoj-alds-1-1-c-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-alds-1-1-c.test.cpp.html">test/verify/aoj-alds-1-1-c.test.cpp</a>
