@@ -40,7 +40,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../library/graph/shortest-path/dijkstra.cpp.html">graph/shortest-path/dijkstra.cpp</a>
 * :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
-* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

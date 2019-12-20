@@ -41,7 +41,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/graph/shortest-path/dijkstra-radix-heap.cpp.html">graph/shortest-path/dijkstra-radix-heap.cpp</a>
 * :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
 * :heavy_check_mark: <a href="../../../library/structure/heap/radix-heap.cpp.html">structure/heap/radix-heap.cpp</a>
-* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
