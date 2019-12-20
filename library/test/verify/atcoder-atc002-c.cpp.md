@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/atcoder-atc002-c.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-03 22:44:33 +0900
+    - Last commit date: 2019-12-03 22:44:33+09:00
 
 
 

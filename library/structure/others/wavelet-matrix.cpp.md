@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#40d73e22b7d986e3399449c25c8b23a1">structure/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/others/wavelet-matrix.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 22:41:48 +0900
+    - Last commit date: 2019-11-30 22:41:48+09:00
 
 
 
@@ -350,6 +350,7 @@ struct WaveletMatrix {
     return freq_dfs(0, left, right, 0, lower, upper);
   }
 };
+
 
 ```
 {% endraw %}

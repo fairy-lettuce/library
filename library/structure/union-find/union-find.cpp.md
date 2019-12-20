@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#16695eacefd17254ea5bccf40066c856">structure/union-find</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/union-find/union-find.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 22:41:48 +0900
+    - Last commit date: 2019-11-30 22:41:48+09:00
 
 
 

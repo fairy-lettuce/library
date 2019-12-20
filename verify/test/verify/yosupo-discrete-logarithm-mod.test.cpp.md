@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-discrete-logarithm-mod.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-11 22:31:39 +0900
+    - Last commit date: 2019-12-11 22:31:39+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/discrete_logarithm_mod">https://judge.yosupo.jp/problem/discrete_logarithm_mod</a>
@@ -39,7 +39,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-log.cpp.html">math/combinatorics/mod-log.cpp</a>
-* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -52,6 +52,149 @@ layout: default
 #include "../../template/template.cpp"
 
 #include "../../math/combinatorics/mod-log.cpp"
+
+int main() {
+  int T;
+  cin >> T;
+  while(T--) {
+    int64_t X, Y, M;
+    cin >> X >> Y >> M;
+    cout << mod_log(X, Y, M) << endl;
+  }
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "test/verify/yosupo-discrete-logarithm-mod.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/discrete_logarithm_mod" 
+
+#line 1 "test/verify/../../template/template.cpp"
+#include<bits/stdc++.h>
+
+using namespace std;
+
+using int64 = long long;
+const int mod = 1e9 + 7;
+
+const int64 infll = (1LL << 62) - 1;
+const int inf = (1 << 30) - 1;
+
+struct IoSetup {
+  IoSetup() {
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    cout << fixed << setprecision(10);
+    cerr << fixed << setprecision(10);
+  }
+} iosetup;
+
+
+template< typename T1, typename T2 >
+ostream &operator<<(ostream &os, const pair< T1, T2 >& p) {
+  os << p.first << " " << p.second;
+  return os;
+}
+
+template< typename T1, typename T2 >
+istream &operator>>(istream &is, pair< T1, T2 > &p) {
+  is >> p.first >> p.second;
+  return is;
+}
+
+template< typename T >
+ostream &operator<<(ostream &os, const vector< T > &v) {
+  for(int i = 0; i < (int) v.size(); i++) {
+    os << v[i] << (i + 1 != v.size() ? " " : "");
+  }
+  return os;
+}
+
+template< typename T >
+istream &operator>>(istream &is, vector< T > &v) {
+  for(T &in : v) is >> in;
+  return is;
+}
+
+template< typename T1, typename T2 >
+inline bool chmax(T1 &a, T2 b) { return a < b && (a = b, true); }
+
+template< typename T1, typename T2 >
+inline bool chmin(T1 &a, T2 b) { return a > b && (a = b, true); }
+
+template< typename T = int64 >
+vector< T > make_v(size_t a) {
+  return vector< T >(a);
+}
+
+template< typename T, typename... Ts >
+auto make_v(size_t a, Ts... ts) {
+  return vector< decltype(make_v< T >(ts...)) >(a, make_v< T >(ts...));
+}
+
+template< typename T, typename V >
+typename enable_if< is_class< T >::value == 0 >::type fill_v(T &t, const V &v) {
+  t = v;
+}
+
+template< typename T, typename V >
+typename enable_if< is_class< T >::value != 0 >::type fill_v(T &t, const V &v) {
+  for(auto &e : t) fill_v(e, v);
+}
+
+template< typename F >
+struct FixPoint : F {
+  FixPoint(F &&f) : F(forward< F >(f)) {}
+ 
+  template< typename... Args >
+  decltype(auto) operator()(Args &&... args) const {
+    return F::operator()(*this, forward< Args >(args)...);
+  }
+};
+ 
+template< typename F >
+inline decltype(auto) MFP(F &&f) {
+  return FixPoint< F >{forward< F >(f)};
+}
+#line 4 "test/verify/yosupo-discrete-logarithm-mod.test.cpp"
+
+#line 1 "test/verify/../../math/combinatorics/mod-log.cpp"
+int64_t mod_log(int64_t a, int64_t b, int64_t p) {
+  int64_t g = 1;
+
+  for(int64_t i = p; i; i /= 2) (g *= a) %= p;
+  g = __gcd(g, p);
+
+  int64_t t = 1, c = 0;
+  for(; t % g; c++) {
+    if(t == b) return c;
+    (t *= a) %= p;
+  }
+  if(b % g) return -1;
+
+  t /= g;
+  b /= g;
+
+  int64_t n = p / g, h = 0, gs = 1;
+
+  for(; h * h < n; h++) (gs *= a) %= n;
+
+  unordered_map< int64_t, int64_t > bs;
+  for(int64_t s = 0, e = b; s < h; bs[e] = ++s) {
+    (e *= a) %= n;
+  }
+
+  for(int64_t s = 0, e = t; s < n;) {
+    (e *= gs) %= n;
+    s += h;
+    if(bs.count(e)) return c + s - bs[e];
+  }
+  return -1;
+}
+#line 6 "test/verify/yosupo-discrete-logarithm-mod.test.cpp"
 
 int main() {
   int T;

@@ -25,20 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: graph/tree/rerooting.cpp
+# :heavy_check_mark: graph/tree/rerooting.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#28790b6202284cbbffc9d712b59f4b80">graph/tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/tree/rerooting.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-16 22:22:41 +0900
+    - Last commit date: 2019-12-16 22:22:41+09:00
 
 
 
 
 ## Verified with
 
-* :warning: <a href="../../../verify/test/verify/aoj-1595.test.cpp.html">test/verify/aoj-1595.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-1595.test.cpp.html">test/verify/aoj-1595.test.cpp</a>
 
 
 ## Code

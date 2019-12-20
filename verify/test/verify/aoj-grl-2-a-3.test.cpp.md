@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-2-a-3.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43 +0900
+    - Last commit date: 2019-11-30 23:02:43+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A</a>
@@ -41,7 +41,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/graph/mst/boruvka.cpp.html">graph/mst/boruvka.cpp</a>
 * :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
 * :heavy_check_mark: <a href="../../../library/structure/union-find/union-find.cpp.html">structure/union-find/union-find.cpp</a>
-* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -57,6 +57,210 @@ layout: default
 #include "../../structure/union-find/union-find.cpp"
 
 #include "../../graph/mst/boruvka.cpp"
+
+int main() {
+  int V, E;
+  cin >> V >> E;
+  Edges< int > g;
+  for(int i = 0; i < E; i++) {
+    int x, y, z;
+    cin >> x >> y >> z;
+    g.emplace_back(x, y, z);
+  }
+  const int INF = 1 << 30;
+  auto f = [&](int sz, vector< int > belong) {
+    vector< pair< int, int > > ret(sz, {INF, -1});
+    for(auto &e : g) {
+      if(belong[e.src] == belong[e.to]) continue;
+      ret[belong[e.src]] = min(ret[belong[e.src]], make_pair(e.cost, belong[e.to]));
+      ret[belong[e.to]] = min(ret[belong[e.to]], make_pair(e.cost, belong[e.src]));
+    }
+    return ret;
+  };
+  cout << boruvka< int, decltype(f) >(V, f) << endl;
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "test/verify/aoj-grl-2-a-3.test.cpp"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A"
+
+#line 1 "test/verify/../../template/template.cpp"
+#include<bits/stdc++.h>
+
+using namespace std;
+
+using int64 = long long;
+const int mod = 1e9 + 7;
+
+const int64 infll = (1LL << 62) - 1;
+const int inf = (1 << 30) - 1;
+
+struct IoSetup {
+  IoSetup() {
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    cout << fixed << setprecision(10);
+    cerr << fixed << setprecision(10);
+  }
+} iosetup;
+
+
+template< typename T1, typename T2 >
+ostream &operator<<(ostream &os, const pair< T1, T2 >& p) {
+  os << p.first << " " << p.second;
+  return os;
+}
+
+template< typename T1, typename T2 >
+istream &operator>>(istream &is, pair< T1, T2 > &p) {
+  is >> p.first >> p.second;
+  return is;
+}
+
+template< typename T >
+ostream &operator<<(ostream &os, const vector< T > &v) {
+  for(int i = 0; i < (int) v.size(); i++) {
+    os << v[i] << (i + 1 != v.size() ? " " : "");
+  }
+  return os;
+}
+
+template< typename T >
+istream &operator>>(istream &is, vector< T > &v) {
+  for(T &in : v) is >> in;
+  return is;
+}
+
+template< typename T1, typename T2 >
+inline bool chmax(T1 &a, T2 b) { return a < b && (a = b, true); }
+
+template< typename T1, typename T2 >
+inline bool chmin(T1 &a, T2 b) { return a > b && (a = b, true); }
+
+template< typename T = int64 >
+vector< T > make_v(size_t a) {
+  return vector< T >(a);
+}
+
+template< typename T, typename... Ts >
+auto make_v(size_t a, Ts... ts) {
+  return vector< decltype(make_v< T >(ts...)) >(a, make_v< T >(ts...));
+}
+
+template< typename T, typename V >
+typename enable_if< is_class< T >::value == 0 >::type fill_v(T &t, const V &v) {
+  t = v;
+}
+
+template< typename T, typename V >
+typename enable_if< is_class< T >::value != 0 >::type fill_v(T &t, const V &v) {
+  for(auto &e : t) fill_v(e, v);
+}
+
+template< typename F >
+struct FixPoint : F {
+  FixPoint(F &&f) : F(forward< F >(f)) {}
+ 
+  template< typename... Args >
+  decltype(auto) operator()(Args &&... args) const {
+    return F::operator()(*this, forward< Args >(args)...);
+  }
+};
+ 
+template< typename F >
+inline decltype(auto) MFP(F &&f) {
+  return FixPoint< F >{forward< F >(f)};
+}
+#line 1 "test/verify/../../graph/template.cpp"
+template< typename T >
+struct edge {
+  int src, to;
+  T cost;
+
+  edge(int to, T cost) : src(-1), to(to), cost(cost) {}
+
+  edge(int src, int to, T cost) : src(src), to(to), cost(cost) {}
+
+  edge &operator=(const int &x) {
+    to = x;
+    return *this;
+  }
+
+  operator int() const { return to; }
+};
+
+template< typename T >
+using Edges = vector< edge< T > >;
+template< typename T >
+using WeightedGraph = vector< Edges< T > >;
+using UnWeightedGraph = vector< vector< int > >;
+template< typename T >
+using Matrix = vector< vector< T > >;
+#line 5 "test/verify/aoj-grl-2-a-3.test.cpp"
+
+#line 1 "test/verify/../../structure/union-find/union-find.cpp"
+struct UnionFind {
+  vector< int > data;
+ 
+  UnionFind(int sz) {
+    data.assign(sz, -1);
+  }
+ 
+  bool unite(int x, int y) {
+    x = find(x), y = find(y);
+    if(x == y) return (false);
+    if(data[x] > data[y]) swap(x, y);
+    data[x] += data[y];
+    data[y] = x;
+    return (true);
+  }
+ 
+  int find(int k) {
+    if(data[k] < 0) return (k);
+    return (data[k] = find(data[k]));
+  }
+ 
+  int size(int k) {
+    return (-data[find(k)]);
+  }
+};
+#line 7 "test/verify/aoj-grl-2-a-3.test.cpp"
+
+#line 1 "test/verify/../../graph/mst/boruvka.cpp"
+template< typename T, typename F >
+T boruvka(int N, F f) {
+  vector< int > rev(N), belong(N);
+  UnionFind uf(N);
+  T ret = T();
+  while(uf.size(0) != N) {
+    int ptr = 0;
+    for(int i = 0; i < N; i++) {
+      if(uf.find(i) == i) {
+        belong[i] = ptr++;
+        rev[belong[i]] = i;
+      }
+    }
+    for(int i = 0; i < N; i++) {
+      belong[i] = belong[uf.find(i)];
+    }
+    auto v = f(ptr, belong);
+    bool update = false;
+    for(int i = 0; i < ptr; i++) {
+      if(~v[i].second && uf.unite(rev[i], rev[v[i].second])) {
+        ret += v[i].first;
+        update = true;
+      }
+    }
+    if(!update) return -1; // notice!!
+  }
+  return ret;
+}
+#line 9 "test/verify/aoj-grl-2-a-3.test.cpp"
 
 int main() {
   int V, E;

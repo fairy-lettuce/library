@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#ed7daeb157cd9b31e53896ad3c771a26">geometry</a>
 * <a href="{{ site.github.repository_url }}/blob/master/geometry/template.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-14 16:01:02 +0900
+    - Last commit date: 2019-11-14 16:01:02+09:00
 
 
 

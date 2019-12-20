@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#e557c7f962c39680942b9dada22cabec">graph/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/others/maximum-clique.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43 +0900
+    - Last commit date: 2019-11-30 23:02:43+09:00
 
 
 
@@ -237,6 +237,7 @@ T maximum_clique(Matrix< bool > g, function< T(vector< int >) > f) {
   }
   return t;
 }
+
 
 ```
 {% endraw %}

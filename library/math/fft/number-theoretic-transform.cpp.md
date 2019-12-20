@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#f2e6b7734e19ae7657e83160bba9f2e7">math/fft</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/fft/number-theoretic-transform.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-03 22:21:44 +0900
+    - Last commit date: 2019-12-03 22:21:44+09:00
 
 
 

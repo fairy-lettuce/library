@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-6-a-2.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43 +0900
+    - Last commit date: 2019-11-30 23:02:43+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A</a>
@@ -40,7 +40,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../library/graph/flow/ford-fulkerson.cpp.html">graph/flow/ford-fulkerson.cpp</a>
 * :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
-* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -54,6 +54,204 @@ layout: default
 #include "../../graph/template.cpp"
 
 #include "../../graph/flow/ford-fulkerson.cpp"
+
+
+int main() {
+  int V, E;
+  scanf("%d %d", &V, &E);
+  FordFulkerson< int > g(V);
+  for(int i = 0; i < E; i++) {
+    int a, b, c;
+    scanf("%d %d %d", &a, &b, &c);
+    g.add_edge(a, b, c);
+  }
+  printf("%d\n", g.max_flow(0, V - 1));
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "test/verify/aoj-grl-6-a-2.test.cpp"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A"
+
+#line 1 "test/verify/../../template/template.cpp"
+#include<bits/stdc++.h>
+
+using namespace std;
+
+using int64 = long long;
+const int mod = 1e9 + 7;
+
+const int64 infll = (1LL << 62) - 1;
+const int inf = (1 << 30) - 1;
+
+struct IoSetup {
+  IoSetup() {
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    cout << fixed << setprecision(10);
+    cerr << fixed << setprecision(10);
+  }
+} iosetup;
+
+
+template< typename T1, typename T2 >
+ostream &operator<<(ostream &os, const pair< T1, T2 >& p) {
+  os << p.first << " " << p.second;
+  return os;
+}
+
+template< typename T1, typename T2 >
+istream &operator>>(istream &is, pair< T1, T2 > &p) {
+  is >> p.first >> p.second;
+  return is;
+}
+
+template< typename T >
+ostream &operator<<(ostream &os, const vector< T > &v) {
+  for(int i = 0; i < (int) v.size(); i++) {
+    os << v[i] << (i + 1 != v.size() ? " " : "");
+  }
+  return os;
+}
+
+template< typename T >
+istream &operator>>(istream &is, vector< T > &v) {
+  for(T &in : v) is >> in;
+  return is;
+}
+
+template< typename T1, typename T2 >
+inline bool chmax(T1 &a, T2 b) { return a < b && (a = b, true); }
+
+template< typename T1, typename T2 >
+inline bool chmin(T1 &a, T2 b) { return a > b && (a = b, true); }
+
+template< typename T = int64 >
+vector< T > make_v(size_t a) {
+  return vector< T >(a);
+}
+
+template< typename T, typename... Ts >
+auto make_v(size_t a, Ts... ts) {
+  return vector< decltype(make_v< T >(ts...)) >(a, make_v< T >(ts...));
+}
+
+template< typename T, typename V >
+typename enable_if< is_class< T >::value == 0 >::type fill_v(T &t, const V &v) {
+  t = v;
+}
+
+template< typename T, typename V >
+typename enable_if< is_class< T >::value != 0 >::type fill_v(T &t, const V &v) {
+  for(auto &e : t) fill_v(e, v);
+}
+
+template< typename F >
+struct FixPoint : F {
+  FixPoint(F &&f) : F(forward< F >(f)) {}
+ 
+  template< typename... Args >
+  decltype(auto) operator()(Args &&... args) const {
+    return F::operator()(*this, forward< Args >(args)...);
+  }
+};
+ 
+template< typename F >
+inline decltype(auto) MFP(F &&f) {
+  return FixPoint< F >{forward< F >(f)};
+}
+#line 1 "test/verify/../../graph/template.cpp"
+template< typename T >
+struct edge {
+  int src, to;
+  T cost;
+
+  edge(int to, T cost) : src(-1), to(to), cost(cost) {}
+
+  edge(int src, int to, T cost) : src(src), to(to), cost(cost) {}
+
+  edge &operator=(const int &x) {
+    to = x;
+    return *this;
+  }
+
+  operator int() const { return to; }
+};
+
+template< typename T >
+using Edges = vector< edge< T > >;
+template< typename T >
+using WeightedGraph = vector< Edges< T > >;
+using UnWeightedGraph = vector< vector< int > >;
+template< typename T >
+using Matrix = vector< vector< T > >;
+#line 5 "test/verify/aoj-grl-6-a-2.test.cpp"
+
+#line 1 "test/verify/../../graph/flow/ford-fulkerson.cpp"
+template< typename flow_t >
+struct FordFulkerson {
+  struct edge {
+    int to;
+    flow_t cap;
+    int rev;
+    bool isrev;
+    int idx;
+  };
+
+  vector< vector< edge > > graph;
+  vector< int > used;
+  const flow_t INF;
+  int timestamp;
+
+  FordFulkerson(int n) : INF(numeric_limits< flow_t >::max()), timestamp(0) {
+    graph.resize(n);
+    used.assign(n, -1);
+  }
+
+  void add_edge(int from, int to, flow_t cap, int idx = -1) {
+    graph[from].emplace_back((edge) {to, cap, (int) graph[to].size(), false, idx});
+    graph[to].emplace_back((edge) {from, 0, (int) graph[from].size() - 1, true, idx});
+  }
+
+  flow_t dfs(int idx, const int t, flow_t flow) {
+    if(idx == t) return flow;
+    used[idx] = timestamp;
+    for(auto &e : graph[idx]) {
+      if(e.cap > 0 && used[e.to] != timestamp) {
+        flow_t d = dfs(e.to, t, min(flow, e.cap));
+        if(d > 0) {
+          e.cap -= d;
+          graph[e.to][e.rev].cap += d;
+          return d;
+        }
+      }
+    }
+    return 0;
+  }
+
+  flow_t max_flow(int s, int t) {
+    flow_t flow = 0;
+    for(flow_t f; (f = dfs(s, t, INF)) > 0; timestamp++) {
+      flow += f;
+    }
+    return flow;
+  }
+
+  void output() {
+    for(int i = 0; i < graph.size(); i++) {
+      for(auto &e : graph[i]) {
+        if(e.isrev) continue;
+        auto &rev_e = graph[e.to][e.rev];
+        cout << i << "->" << e.to << " (flow: " << rev_e.cap << "/" << e.cap + rev_e.cap << ")" << endl;
+      }
+    }
+  }
+};
+#line 7 "test/verify/aoj-grl-6-a-2.test.cpp"
 
 
 int main() {

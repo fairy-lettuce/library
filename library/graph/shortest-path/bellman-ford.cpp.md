@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#73feb47c464a017d041247d88424b879">graph/shortest-path</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/shortest-path/bellman-ford.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43 +0900
+    - Last commit date: 2019-11-30 23:02:43+09:00
 
 
 
@@ -90,6 +90,7 @@ vector< T > bellman_ford(Edges< T > &edges, int V, int s) {
   }
   return dist;
 }
+
 
 ```
 {% endraw %}

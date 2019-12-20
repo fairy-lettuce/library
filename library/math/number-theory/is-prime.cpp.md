@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#d4a327615e3a055131f0682831111ce2">math/number-theory</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/number-theory/is-prime.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:36:31 +0900
+    - Last commit date: 2019-11-30 23:36:31+09:00
 
 
 

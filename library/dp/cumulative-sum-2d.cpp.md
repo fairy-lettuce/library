@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
 * <a href="{{ site.github.repository_url }}/blob/master/dp/cumulative-sum-2d.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-07-20 01:29:30 +0900
+    - Last commit date: 2019-07-20 01:29:30+09:00
 
 
 

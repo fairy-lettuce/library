@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#495454930b047da7eed81bd52d55784a">structure/trie</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/trie/trie.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 22:41:48 +0900
+    - Last commit date: 2019-11-30 22:41:48+09:00
 
 
 

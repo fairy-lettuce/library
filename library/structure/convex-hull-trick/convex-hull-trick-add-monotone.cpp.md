@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#3ad23896bbde10d07ed9c44a914e070b">structure/convex-hull-trick</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 22:41:48 +0900
+    - Last commit date: 2019-11-30 22:41:48+09:00
 
 
 

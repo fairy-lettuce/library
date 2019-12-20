@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#b45cffe084dd3d20d928bee85e7b0f21">string</a>
 * <a href="{{ site.github.repository_url }}/blob/master/string/aho-corasick.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-04 20:30:24 +0900
+    - Last commit date: 2019-11-04 20:30:24+09:00
 
 
 

@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-5-c-2.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-11 21:18:41 +0900
+    - Last commit date: 2019-12-11 21:18:41+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C</a>
@@ -40,7 +40,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
 * :heavy_check_mark: <a href="../../../library/graph/tree/heavy-light-decomposition.cpp.html">graph/tree/heavy-light-decomposition.cpp</a>
-* :warning: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -54,6 +54,235 @@ layout: default
 #include "../../graph/template.cpp"
 
 #include "../../graph/tree/heavy-light-decomposition.cpp"
+
+int main() {
+  int N, Q;
+  scanf("%d", &N);
+  UnWeightedGraph g(N);
+  HeavyLightDecomposition< UnWeightedGraph > tree(g);
+  for(int i = 0; i < N; i++) {
+    int k;
+    scanf("%d", &k);
+    for(int j = 0; j < k; j++) {
+      int c;
+      scanf("%d", &c);
+      g[i].push_back(c);
+    }
+  }
+  tree.build();
+  scanf("%d", &Q);
+  for(int i = 0; i < Q; i++) {
+    int u, v;
+    scanf("%d %d", &u, &v);
+    printf("%d\n", tree.lca(u, v));
+  }
+}
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "test/verify/aoj-grl-5-c-2.test.cpp"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C"
+
+#line 1 "test/verify/../../template/template.cpp"
+#include<bits/stdc++.h>
+
+using namespace std;
+
+using int64 = long long;
+const int mod = 1e9 + 7;
+
+const int64 infll = (1LL << 62) - 1;
+const int inf = (1 << 30) - 1;
+
+struct IoSetup {
+  IoSetup() {
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    cout << fixed << setprecision(10);
+    cerr << fixed << setprecision(10);
+  }
+} iosetup;
+
+
+template< typename T1, typename T2 >
+ostream &operator<<(ostream &os, const pair< T1, T2 >& p) {
+  os << p.first << " " << p.second;
+  return os;
+}
+
+template< typename T1, typename T2 >
+istream &operator>>(istream &is, pair< T1, T2 > &p) {
+  is >> p.first >> p.second;
+  return is;
+}
+
+template< typename T >
+ostream &operator<<(ostream &os, const vector< T > &v) {
+  for(int i = 0; i < (int) v.size(); i++) {
+    os << v[i] << (i + 1 != v.size() ? " " : "");
+  }
+  return os;
+}
+
+template< typename T >
+istream &operator>>(istream &is, vector< T > &v) {
+  for(T &in : v) is >> in;
+  return is;
+}
+
+template< typename T1, typename T2 >
+inline bool chmax(T1 &a, T2 b) { return a < b && (a = b, true); }
+
+template< typename T1, typename T2 >
+inline bool chmin(T1 &a, T2 b) { return a > b && (a = b, true); }
+
+template< typename T = int64 >
+vector< T > make_v(size_t a) {
+  return vector< T >(a);
+}
+
+template< typename T, typename... Ts >
+auto make_v(size_t a, Ts... ts) {
+  return vector< decltype(make_v< T >(ts...)) >(a, make_v< T >(ts...));
+}
+
+template< typename T, typename V >
+typename enable_if< is_class< T >::value == 0 >::type fill_v(T &t, const V &v) {
+  t = v;
+}
+
+template< typename T, typename V >
+typename enable_if< is_class< T >::value != 0 >::type fill_v(T &t, const V &v) {
+  for(auto &e : t) fill_v(e, v);
+}
+
+template< typename F >
+struct FixPoint : F {
+  FixPoint(F &&f) : F(forward< F >(f)) {}
+ 
+  template< typename... Args >
+  decltype(auto) operator()(Args &&... args) const {
+    return F::operator()(*this, forward< Args >(args)...);
+  }
+};
+ 
+template< typename F >
+inline decltype(auto) MFP(F &&f) {
+  return FixPoint< F >{forward< F >(f)};
+}
+#line 1 "test/verify/../../graph/template.cpp"
+template< typename T >
+struct edge {
+  int src, to;
+  T cost;
+
+  edge(int to, T cost) : src(-1), to(to), cost(cost) {}
+
+  edge(int src, int to, T cost) : src(src), to(to), cost(cost) {}
+
+  edge &operator=(const int &x) {
+    to = x;
+    return *this;
+  }
+
+  operator int() const { return to; }
+};
+
+template< typename T >
+using Edges = vector< edge< T > >;
+template< typename T >
+using WeightedGraph = vector< Edges< T > >;
+using UnWeightedGraph = vector< vector< int > >;
+template< typename T >
+using Matrix = vector< vector< T > >;
+#line 5 "test/verify/aoj-grl-5-c-2.test.cpp"
+
+#line 1 "test/verify/../../graph/tree/heavy-light-decomposition.cpp"
+template< typename G >
+struct HeavyLightDecomposition {
+  G &g;
+  vector< int > sz, in, out, head, rev, par;
+
+  HeavyLightDecomposition(G &g) :
+      g(g), sz(g.size()), in(g.size()), out(g.size()), head(g.size()), rev(g.size()), par(g.size()) {}
+
+  void dfs_sz(int idx, int p) {
+    par[idx] = p;
+    sz[idx] = 1;
+    if(g[idx].size() && g[idx][0] == p) swap(g[idx][0], g[idx].back());
+    for(auto &to : g[idx]) {
+      if(to == p) continue;
+      dfs_sz(to, idx);
+      sz[idx] += sz[to];
+      if(sz[g[idx][0]] < sz[to]) swap(g[idx][0], to);
+    }
+  }
+
+  void dfs_hld(int idx, int par, int &times) {
+    in[idx] = times++;
+    rev[in[idx]] = idx;
+    for(auto &to : g[idx]) {
+      if(to == par) continue;
+      head[to] = (g[idx][0] == to ? head[idx] : to);
+      dfs_hld(to, idx, times);
+    }
+    out[idx] = times;
+  }
+
+  void build() {
+    dfs_sz(0, -1);
+    int t = 0;
+    dfs_hld(0, -1, t);
+  }
+
+  /* k: 0-indexed */
+  int la(int v, int k) {
+    while(1) {
+      int u = head[v];
+      if(in[v] - k >= in[u]) return rev[in[v] - k];
+      k -= in[v] - in[u] + 1;
+      v = par[u];
+    }
+  }
+
+  int lca(int u, int v) {
+    for(;; v = par[head[v]]) {
+      if(in[u] > in[v]) swap(u, v);
+      if(head[u] == head[v]) return u;
+    }
+  }
+
+  template< typename T, typename Q, typename F, typename S >
+  T query(int u, int v, const T &ti, const Q &q, const F &f, const S &s, bool edge = false) {
+    T l = ti, r = ti;
+    for(;; v = par[head[v]]) {
+      if(in[u] > in[v]) swap(u, v), swap(l, r);
+      if(head[u] == head[v]) break;
+      l = f(q(in[head[v]], in[v] + 1), l);
+    }
+    return s(f(q(in[u] + edge, in[v] + 1), l), r);
+  }
+
+  template< typename T, typename Q, typename F >
+  T query(int u, int v, const T &ti, const Q &q, const F &f, bool edge = false) {
+    return query(u, v, ti, q, f, f, edge);
+  }
+
+  template< typename Q >
+  void add(int u, int v, const Q &q, bool edge = false) {
+    for(;; v = par[head[v]]) {
+      if(in[u] > in[v]) swap(u, v);
+      if(head[u] == head[v]) break;
+      q(in[head[v]], in[v] + 1);
+    }
+    q(in[u] + edge, in[v] + 1);
+  }
+};
+#line 7 "test/verify/aoj-grl-5-c-2.test.cpp"
 
 int main() {
   int N, Q;

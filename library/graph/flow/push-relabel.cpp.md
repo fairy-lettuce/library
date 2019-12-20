@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#2af6c4bb6ad7cfa010303133dc15971f">graph/flow</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/flow/push-relabel.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43 +0900
+    - Last commit date: 2019-11-30 23:02:43+09:00
 
 
 

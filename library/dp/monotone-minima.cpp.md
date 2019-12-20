@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
 * <a href="{{ site.github.repository_url }}/blob/master/dp/monotone-minima.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-07-20 01:29:30 +0900
+    - Last commit date: 2019-07-20 01:29:30+09:00
 
 
 
@@ -94,6 +94,7 @@ vector< pair< int, T > > monotone_minima(int H, int W, const function< T(int, in
   dfs(0, H - 1, 0, W - 1);
   return dp;
 }
+
 
 ```
 {% endraw %}

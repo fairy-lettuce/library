@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#d319ed68764efb4f50b1628220df55d7">math/combinatorics</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/combinatorics/binomial.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:36:31 +0900
+    - Last commit date: 2019-11-30 23:36:31+09:00
 
 
 

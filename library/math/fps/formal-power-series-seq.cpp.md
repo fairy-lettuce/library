@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#1201bfd5f7a5d1c5bfa65e9be4237f63">math/fps</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/fps/formal-power-series-seq.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:36:31 +0900
+    - Last commit date: 2019-11-30 23:36:31+09:00
 
 
 
