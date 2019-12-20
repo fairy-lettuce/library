@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: math/number-theory/convert-base.cpp
+# :heavy_check_mark: math/number-theory/convert-base.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -34,6 +34,11 @@ layout: default
     - Last commit date: 2019-11-30 23:36:31+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-0233.test.cpp.html">test/verify/aoj-0233.test.cpp</a>
 
 
 ## Code

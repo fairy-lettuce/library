@@ -36,6 +36,11 @@ layout: default
 
 
 
+## Verified with
+
+* :warning: <a href="../../../verify/test/verify/yosupo-convolution-mod-2.test.cpp.html">test/verify/yosupo-convolution-mod-2.test.cpp</a>
+
+
 ## Code
 
 <a id="unbundled"></a>
