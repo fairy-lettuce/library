@@ -41,9 +41,13 @@ layout: default
 * :warning: <a href="library/dp/cumulative-sum-2d.cpp.html">dp/cumulative-sum-2d.cpp</a>
 * :warning: <a href="library/dp/cumulative-sum.cpp.html">dp/cumulative-sum.cpp</a>
 * :warning: <a href="library/dp/divide-and-conquer-optimization.cpp.html">dp/divide-and-conquer-optimization.cpp</a>
+* :heavy_check_mark: <a href="library/dp/edit-distance.cpp.html">dp/edit-distance.cpp</a>
 * :heavy_check_mark: <a href="library/dp/hu-tucker.cpp.html">dp/hu-tucker.cpp</a>
+* :heavy_check_mark: <a href="library/dp/knapsack-01-2.cpp.html">dp/knapsack-01-2.cpp</a>
+* :heavy_check_mark: <a href="library/dp/knapsack-01.cpp.html">dp/knapsack-01.cpp</a>
 * :heavy_check_mark: <a href="library/dp/knapsack-limitations-2.cpp.html">dp/knapsack-limitations-2.cpp</a>
 * :heavy_check_mark: <a href="library/dp/knapsack-limitations.cpp.html">dp/knapsack-limitations.cpp</a>
+* :heavy_check_mark: <a href="library/dp/knapsack.cpp.html">dp/knapsack.cpp</a>
 * :heavy_check_mark: <a href="library/dp/largest-rectangle.cpp.html">dp/largest-rectangle.cpp</a>
 * :heavy_check_mark: <a href="library/dp/longest-increasing-subsequence.cpp.html">dp/longest-increasing-subsequence.cpp</a>
 * :warning: <a href="library/dp/monotone-minima.cpp.html">dp/monotone-minima.cpp</a>
@@ -382,7 +386,11 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-alds-1-1-c.test.cpp.html">test/verify/aoj-alds-1-1-c.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-alds-1-14-b.test.cpp.html">test/verify/aoj-alds-1-14-b.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-alds-1-14-d.test.cpp.html">test/verify/aoj-alds-1-14-d.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-dpl-1-b.test.cpp.html">test/verify/aoj-dpl-1-b.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-dpl-1-c.test.cpp.html">test/verify/aoj-dpl-1-c.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-dpl-1-d.test.cpp.html">test/verify/aoj-dpl-1-d.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-dpl-1-e.test.cpp.html">test/verify/aoj-dpl-1-e.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-dpl-1-f.test.cpp.html">test/verify/aoj-dpl-1-f.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-dpl-1-g.test.cpp.html">test/verify/aoj-dpl-1-g.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-dpl-1-i.test.cpp.html">test/verify/aoj-dpl-1-i.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-dpl-3-c.test.cpp.html">test/verify/aoj-dpl-3-c.test.cpp</a>
