@@ -280,7 +280,7 @@ layout: default
 * :warning: <a href="library/structure/others/sparse-table.cpp.html">structure/others/sparse-table.cpp</a>
 * :warning: <a href="library/structure/others/sqrt-decomposition.cpp.html">structure/others/sqrt-decomposition.cpp</a>
 * :warning: <a href="library/structure/others/union-rectangle.cpp.html">structure/others/union-rectangle.cpp</a>
-* :warning: <a href="library/structure/others/wavelet-matrix.cpp.html">structure/others/wavelet-matrix.cpp</a>
+* :heavy_check_mark: <a href="library/structure/others/wavelet-matrix.cpp.html">structure/others/wavelet-matrix.cpp</a>
 
 
 <div id="bd066fce418dc5d58690e9bbe0a7a21f"></div>
@@ -382,6 +382,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2415.test.cpp.html">test/verify/aoj-2415.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2450-2.test.cpp.html">test/verify/aoj-2450-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2450.test.cpp.html">test/verify/aoj-2450.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-2674.test.cpp.html">test/verify/aoj-2674.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-alds-1-1-c-2.test.cpp.html">test/verify/aoj-alds-1-1-c-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-alds-1-1-c.test.cpp.html">test/verify/aoj-alds-1-1-c.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-alds-1-14-b.test.cpp.html">test/verify/aoj-alds-1-14-b.test.cpp</a>
