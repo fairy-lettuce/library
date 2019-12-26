@@ -279,7 +279,9 @@ layout: default
 * :warning: <a href="library/structure/others/sliding-window-aggregation.cpp.html">structure/others/sliding-window-aggregation.cpp</a>
 * :warning: <a href="library/structure/others/sparse-table.cpp.html">structure/others/sparse-table.cpp</a>
 * :warning: <a href="library/structure/others/sqrt-decomposition.cpp.html">structure/others/sqrt-decomposition.cpp</a>
+* :heavy_check_mark: <a href="library/structure/others/succinct-indexable-dictionary.cpp.html">structure/others/succinct-indexable-dictionary.cpp</a>
 * :warning: <a href="library/structure/others/union-rectangle.cpp.html">structure/others/union-rectangle.cpp</a>
+* :heavy_check_mark: <a href="library/structure/others/wavelet-matrix-rectangle-sum.cpp.html">structure/others/wavelet-matrix-rectangle-sum.cpp</a>
 * :heavy_check_mark: <a href="library/structure/others/wavelet-matrix.cpp.html">structure/others/wavelet-matrix.cpp</a>
 
 
@@ -443,6 +445,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-multipoint-evaluation.test.cpp.html">test/verify/yosupo-multipoint-evaluation.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-partition-function.test.cpp.html">test/verify/yosupo-partition-function.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-polynomial-interpolation.test.cpp.html">test/verify/yosupo-polynomial-interpolation.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-rectangle-sum.test.cpp.html">test/verify/yosupo-rectangle-sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sparse-matrix-det.test.cpp.html">test/verify/yosupo-sparse-matrix-det.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sqrt-mod.test.cpp.html">test/verify/yosupo-sqrt-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp.html">test/verify/yosupo-sqrt-of-formal-power-series.test.cpp</a>

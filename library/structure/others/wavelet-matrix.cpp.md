@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#40d73e22b7d986e3399449c25c8b23a1">structure/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/others/wavelet-matrix.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-27 01:02:34+09:00
+    - Last commit date: 2019-12-27 01:39:33+09:00
 
 
 
@@ -46,43 +46,6 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-struct SuccinctIndexableDictionary {
-  size_t length;
-  size_t blocks;
-  vector< unsigned > bit, sum;
-
-  SuccinctIndexableDictionary() = default;
-
-  SuccinctIndexableDictionary(size_t length) : length(length), blocks((length + 31) >> 5) {
-    bit.assign(blocks, 0U);
-    sum.assign(blocks, 0U);
-  }
-
-  void set(int k) {
-    bit[k >> 5] |= 1U << (k & 31);
-  }
-
-  void build() {
-    sum[0] = 0U;
-    for(int i = 1; i < blocks; i++) {
-      sum[i] = sum[i - 1] + __builtin_popcount(bit[i - 1]);
-    }
-  }
-
-  bool operator[](int k) {
-    return (bool((bit[k >> 5] >> (k & 31)) & 1));
-  }
-
-  int rank(int k) {
-    return (sum[k >> 5] + __builtin_popcount(bit[k >> 5] & ((1U << (k & 31)) - 1)));
-  }
-
-  int rank(bool val, int k) {
-    return (val ? rank(k) : k - rank(k));
-  }
-};
-
-
 template< typename T, int MAXLOG >
 struct WaveletMatrix {
   size_t length;
@@ -177,7 +140,6 @@ struct WaveletMatrix {
     return range_freq(l, r, upper) - range_freq(l, r, lower);
   }
 };
-
 
 ```
 {% endraw %}
@@ -186,43 +148,6 @@ struct WaveletMatrix {
 {% raw %}
 ```cpp
 #line 1 "structure/others/wavelet-matrix.cpp"
-struct SuccinctIndexableDictionary {
-  size_t length;
-  size_t blocks;
-  vector< unsigned > bit, sum;
-
-  SuccinctIndexableDictionary() = default;
-
-  SuccinctIndexableDictionary(size_t length) : length(length), blocks((length + 31) >> 5) {
-    bit.assign(blocks, 0U);
-    sum.assign(blocks, 0U);
-  }
-
-  void set(int k) {
-    bit[k >> 5] |= 1U << (k & 31);
-  }
-
-  void build() {
-    sum[0] = 0U;
-    for(int i = 1; i < blocks; i++) {
-      sum[i] = sum[i - 1] + __builtin_popcount(bit[i - 1]);
-    }
-  }
-
-  bool operator[](int k) {
-    return (bool((bit[k >> 5] >> (k & 31)) & 1));
-  }
-
-  int rank(int k) {
-    return (sum[k >> 5] + __builtin_popcount(bit[k >> 5] & ((1U << (k & 31)) - 1)));
-  }
-
-  int rank(bool val, int k) {
-    return (val ? rank(k) : k - rank(k));
-  }
-};
-
-
 template< typename T, int MAXLOG >
 struct WaveletMatrix {
   size_t length;
@@ -317,7 +242,6 @@ struct WaveletMatrix {
     return range_freq(l, r, upper) - range_freq(l, r, lower);
   }
 };
-
 
 ```
 {% endraw %}

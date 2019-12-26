@@ -25,21 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/aoj-2674.test.cpp
+# :heavy_check_mark: test/verify/yosupo-rectangle-sum.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-2674.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-rectangle-sum.test.cpp">View this file on GitHub</a>
     - Last commit date: 2019-12-27 01:39:33+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2674">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2674</a>
+* see: <a href="https://judge.yosupo.jp/problem/rectangle_sum">https://judge.yosupo.jp/problem/rectangle_sum</a>
 
 
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/structure/others/succinct-indexable-dictionary.cpp.html">structure/others/succinct-indexable-dictionary.cpp</a>
-* :heavy_check_mark: <a href="../../../library/structure/others/wavelet-matrix.cpp.html">structure/others/wavelet-matrix.cpp</a>
+* :heavy_check_mark: <a href="../../../library/structure/others/wavelet-matrix-rectangle-sum.cpp.html">structure/others/wavelet-matrix-rectangle-sum.cpp</a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -48,28 +48,37 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2674"
+#define PROBLEM "https://judge.yosupo.jp/problem/rectangle_sum"
 
 #include "../../template/template.cpp"
 
 #include "../../structure/others/succinct-indexable-dictionary.cpp"
-#include "../../structure/others/wavelet-matrix.cpp"
+#include "../../structure/others/wavelet-matrix-rectangle-sum.cpp"
 
 int main() {
   int N, Q;
-  cin >> N;
-  vector< int > X(N);
+  cin >> N >> Q;
+  vector< int > x(N), y(N), w(N);
+  vector< pair< int, int > > xs(N);
   for(int i = 0; i < N; i++) {
-    cin >> X[i];
-    X[i] += 5e8;
+    cin >> x[i] >> y[i] >> w[i];
+    xs[i] = {x[i], i};
   }
-  WaveletMatrix< int, 30 > matrix(X);
-  cin >> Q;
+  sort(begin(xs), end(xs));
+  vector< int > ys(N);
+  vector< int64 > ws(N);
+  for(int i = 0; i < N; i++) {
+    x[i] = lower_bound(begin(xs), end(xs), make_pair(x[i], i)) - begin(xs);
+    ys[x[i]] = y[i];
+    ws[x[i]] = w[i];
+  }
+  WaveletMatrixRectangleSum< int, 30, int64 > mat(ys, ws);
   while(Q--) {
-    int L, R, E;
-    cin >> L >> R >> E;
-    --L, --R;
-    cout << (R - L + 1) - matrix.range_freq(L, R + 1, min(X[L], X[R]) - E, max(X[L], X[R]) + E + 1) << "\n";
+    int l, r, d, u;
+    cin >> l >> d >> r >> u;
+    l = lower_bound(begin(xs), end(xs), make_pair(l, -1)) - begin(xs);
+    r = lower_bound(begin(xs), end(xs), make_pair(r, -1)) - begin(xs);
+    cout << mat.range_sum(l, r, d, u) << "\n";
   }
 }
 
@@ -79,8 +88,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/verify/aoj-2674.test.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2674"
+#line 1 "test/verify/yosupo-rectangle-sum.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/rectangle_sum"
 
 #line 1 "test/verify/../../template/template.cpp"
 #include<bits/stdc++.h>
@@ -169,7 +178,7 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 4 "test/verify/aoj-2674.test.cpp"
+#line 4 "test/verify/yosupo-rectangle-sum.test.cpp"
 
 #line 1 "test/verify/../../structure/others/succinct-indexable-dictionary.cpp"
 struct SuccinctIndexableDictionary {
@@ -207,31 +216,39 @@ struct SuccinctIndexableDictionary {
     return (val ? rank(k) : k - rank(k));
   }
 };
-#line 1 "test/verify/../../structure/others/wavelet-matrix.cpp"
-template< typename T, int MAXLOG >
-struct WaveletMatrix {
+#line 1 "test/verify/../../structure/others/wavelet-matrix-rectangle-sum.cpp"
+template< typename T, int MAXLOG, typename D >
+struct WaveletMatrixRectangleSum {
   size_t length;
   SuccinctIndexableDictionary matrix[MAXLOG];
+  vector< D > ds[MAXLOG];
   int mid[MAXLOG];
 
-  WaveletMatrix(vector< T > v) : length(v.size()) {
-    vector< T > l(length), r(length);
+  WaveletMatrixRectangleSum(const vector< T > &v, const vector< D > &d) : length(v.size()) {
+    assert(v.size() == d.size());
+    vector< int > l(length), r(length), ord(length);
+    iota(begin(ord), end(ord), 0);
     for(int level = MAXLOG - 1; level >= 0; level--) {
       matrix[level] = SuccinctIndexableDictionary(length + 1);
       int left = 0, right = 0;
       for(int i = 0; i < length; i++) {
-        if(((v[i] >> level) & 1)) {
+        if(((v[ord[i]] >> level) & 1)) {
           matrix[level].set(i);
-          r[right++] = v[i];
+          r[right++] = ord[i];
         } else {
-          l[left++] = v[i];
+          l[left++] = ord[i];
         }
       }
       mid[level] = left;
       matrix[level].build();
-      v.swap(l);
+      ord.swap(l);
       for(int i = 0; i < right; i++) {
-        v[left + i] = r[i];
+        ord[left + i] = r[i];
+      }
+      ds[level].resize(length + 1);
+      ds[level][0] = D();
+      for(int i = 0; i < length; i++) {
+        ds[level][i + 1] = ds[level][i] + d[ord[i]];
       }
     }
   }
@@ -240,85 +257,48 @@ struct WaveletMatrix {
     return {matrix[level].rank(f, l) + mid[level] * f, matrix[level].rank(f, r) + mid[level] * f};
   }
 
-  // v[k]
-  T access(int k) {
-    T ret = 0;
-    for(int level = MAXLOG - 1; level >= 0; level--) {
-      bool f = matrix[level][k];
-      if(f) ret |= T(1) << level;
-      k = matrix[level].rank(f, k) + mid[level] * f;
-    }
-    return ret;
-  }
-
-  T operator[](const int &k) {
-    return access(k);
-  }
-
-  // count i s.t. (0 <= i < r) && v[i] == x
-  int rank(const T &x, int r) {
-    int l = 0;
-    for(int level = MAXLOG - 1; level >= 0; level--) {
-      tie(l, r) = succ((x >> level) & 1, l, r, level);
-    }
-    return r - l;
-  }
-
-
-  // k-th(0-indexed) smallest number in v[l,r)
-  T kth_smallest(int l, int r, int k) {
-    assert(0 <= k && k < r - l);
-    T ret = 0;
-    for(int level = MAXLOG - 1; level >= 0; level--) {
-      int cnt = matrix[level].rank(false, r) - matrix[level].rank(false, l);
-      bool f = cnt <= k;
-      if(f) {
-        ret |= T(1) << level;
-        k -= cnt;
-      }
-      tie(l, r) = succ(f, l, r, level);
-    }
-    return ret;
-  }
-
-  // k-th(0-indexed) largest number in v[l,r)
-  T kth_largest(int l, int r, int k) {
-    return kth_smallest(l, r, r - l - k - 1);
-  }
-
-  // count i s.t. (l <= i < r) && (v[i] < upper)
-  T range_freq(int l, int r, T upper) {
-    int ret = 0;
+  // count d[i] s.t. (l <= i < r) && (v[i] < upper)
+  D range_sum(int l, int r, T upper) {
+    D ret = 0;
     for(int level = MAXLOG - 1; level >= 0; level--) {
       bool f = ((upper >> level) & 1);
-      if(f) ret += matrix[level].rank(false, r) - matrix[level].rank(false, l);
+      if(f) ret += ds[level][matrix[level].rank(false, r)] - ds[level][matrix[level].rank(false, l)];
       tie(l, r) = succ(f, l, r, level);
     }
     return ret;
   }
 
-  // count i s.t. (l <= i < r) && (lower <= v[i] < upper)
-  T range_freq(int l, int r, T lower, T upper) {
-    return range_freq(l, r, upper) - range_freq(l, r, lower);
+  D range_sum(int l, int r, T lower, T upper) {
+    return range_sum(l, r, upper) - range_sum(l, r, lower);
   }
 };
-#line 7 "test/verify/aoj-2674.test.cpp"
+
+#line 7 "test/verify/yosupo-rectangle-sum.test.cpp"
 
 int main() {
   int N, Q;
-  cin >> N;
-  vector< int > X(N);
+  cin >> N >> Q;
+  vector< int > x(N), y(N), w(N);
+  vector< pair< int, int > > xs(N);
   for(int i = 0; i < N; i++) {
-    cin >> X[i];
-    X[i] += 5e8;
+    cin >> x[i] >> y[i] >> w[i];
+    xs[i] = {x[i], i};
   }
-  WaveletMatrix< int, 30 > matrix(X);
-  cin >> Q;
+  sort(begin(xs), end(xs));
+  vector< int > ys(N);
+  vector< int64 > ws(N);
+  for(int i = 0; i < N; i++) {
+    x[i] = lower_bound(begin(xs), end(xs), make_pair(x[i], i)) - begin(xs);
+    ys[x[i]] = y[i];
+    ws[x[i]] = w[i];
+  }
+  WaveletMatrixRectangleSum< int, 30, int64 > mat(ys, ws);
   while(Q--) {
-    int L, R, E;
-    cin >> L >> R >> E;
-    --L, --R;
-    cout << (R - L + 1) - matrix.range_freq(L, R + 1, min(X[L], X[R]) - E, max(X[L], X[R]) + E + 1) << "\n";
+    int l, r, d, u;
+    cin >> l >> d >> r >> u;
+    l = lower_bound(begin(xs), end(xs), make_pair(l, -1)) - begin(xs);
+    r = lower_bound(begin(xs), end(xs), make_pair(r, -1)) - begin(xs);
+    cout << mat.range_sum(l, r, d, u) << "\n";
   }
 }
 
