@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-rectangle-sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-31 16:31:54+09:00
+    - Last commit date: 2019-12-31 17:29:03+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/rectangle_sum">https://judge.yosupo.jp/problem/rectangle_sum</a>
@@ -72,15 +72,16 @@ int main() {
     ys[x[i]] = y[i];
     ws[x[i]] = w[i];
   }
-  WaveletMatrixRectangleSum< int, 30, int64 > mat(ys, ws);
+  CompressedWaveletMatrixRectangleSum< int, 18, int64 > mat(ys, ws);
   while(Q--) {
     int l, r, d, u;
     cin >> l >> d >> r >> u;
     l = lower_bound(begin(xs), end(xs), make_pair(l, -1)) - begin(xs);
     r = lower_bound(begin(xs), end(xs), make_pair(r, -1)) - begin(xs);
-    cout << mat.range_sum(l, r, d, u) << "\n";
+    cout << mat.rect_sum(l, r, d, u) << "\n";
   }
 }
+
 
 ```
 {% endraw %}
@@ -224,6 +225,8 @@ struct WaveletMatrixRectangleSum {
   vector< D > ds[MAXLOG];
   int mid[MAXLOG];
 
+  WaveletMatrixRectangleSum() = default;
+
   WaveletMatrixRectangleSum(const vector< T > &v, const vector< D > &d) : length(v.size()) {
     assert(v.size() == d.size());
     vector< int > l(length), r(length), ord(length);
@@ -258,7 +261,7 @@ struct WaveletMatrixRectangleSum {
   }
 
   // count d[i] s.t. (l <= i < r) && (v[i] < upper)
-  D range_sum(int l, int r, T upper) {
+  D rect_sum(int l, int r, T upper) {
     D ret = 0;
     for(int level = MAXLOG - 1; level >= 0; level--) {
       bool f = ((upper >> level) & 1);
@@ -268,8 +271,34 @@ struct WaveletMatrixRectangleSum {
     return ret;
   }
 
-  D range_sum(int l, int r, T lower, T upper) {
-    return range_sum(l, r, upper) - range_sum(l, r, lower);
+  D rect_sum(int l, int r, T lower, T upper) {
+    return rect_sum(l, r, upper) - rect_sum(l, r, lower);
+  }
+};
+
+template< typename T, int MAXLOG, typename D >
+struct CompressedWaveletMatrixRectangleSum {
+  WaveletMatrixRectangleSum< int, MAXLOG, D > mat;
+  vector< T > ys;
+
+  CompressedWaveletMatrixRectangleSum(const vector< T > &v, const vector< D > &d) : ys(v) {
+    sort(begin(ys), end(ys));
+    ys.erase(unique(begin(ys), end(ys)), end(ys));
+    vector< int > t(v.size());
+    for(int i = 0; i < v.size(); i++) t[i] = get(v[i]);
+    mat = WaveletMatrixRectangleSum< int, MAXLOG, D >(t, d);
+  }
+
+  inline int get(const T &x) {
+    return lower_bound(begin(ys), end(ys), x) - begin(ys);
+  }
+
+  D rect_sum(int l, int r, T upper) {
+    return mat.rect_sum(l, r, get(upper));
+  }
+
+  D rect_sum(int l, int r, T lower, T upper) {
+    return mat.rect_sum(l, r, get(lower), get(upper));
   }
 };
 
@@ -292,15 +321,16 @@ int main() {
     ys[x[i]] = y[i];
     ws[x[i]] = w[i];
   }
-  WaveletMatrixRectangleSum< int, 30, int64 > mat(ys, ws);
+  CompressedWaveletMatrixRectangleSum< int, 18, int64 > mat(ys, ws);
   while(Q--) {
     int l, r, d, u;
     cin >> l >> d >> r >> u;
     l = lower_bound(begin(xs), end(xs), make_pair(l, -1)) - begin(xs);
     r = lower_bound(begin(xs), end(xs), make_pair(r, -1)) - begin(xs);
-    cout << mat.range_sum(l, r, d, u) << "\n";
+    cout << mat.rect_sum(l, r, d, u) << "\n";
   }
 }
+
 
 ```
 {% endraw %}
