@@ -25,19 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: structure/others/succinct-indexable-dictionary.cpp
+# :heavy_check_mark: structure/wavelet/succinct-indexable-dictionary.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#40d73e22b7d986e3399449c25c8b23a1">structure/others</a>
-* <a href="{{ site.github.repository_url }}/blob/master/structure/others/succinct-indexable-dictionary.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-27 01:39:33+09:00
+* category: <a href="../../../index.html#5f498e54a9680c92dbc18487ab14a24d">structure/wavelet</a>
+* <a href="{{ site.github.repository_url }}/blob/master/structure/wavelet/succinct-indexable-dictionary.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-12-31 16:31:54+09:00
 
 
 
 
 ## Verified with
 
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2674-2.test.cpp.html">test/verify/aoj-2674-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2674.test.cpp.html">test/verify/aoj-2674.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-rectangle-sum.test.cpp.html">test/verify/yosupo-rectangle-sum.test.cpp</a>
 
@@ -89,7 +90,7 @@ struct SuccinctIndexableDictionary {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "structure/others/succinct-indexable-dictionary.cpp"
+#line 1 "structure/wavelet/succinct-indexable-dictionary.cpp"
 struct SuccinctIndexableDictionary {
   size_t length;
   size_t blocks;

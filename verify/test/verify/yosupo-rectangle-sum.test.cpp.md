@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-rectangle-sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-27 01:39:33+09:00
+    - Last commit date: 2019-12-31 16:31:54+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/rectangle_sum">https://judge.yosupo.jp/problem/rectangle_sum</a>
@@ -38,8 +38,8 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/structure/others/succinct-indexable-dictionary.cpp.html">structure/others/succinct-indexable-dictionary.cpp</a>
-* :heavy_check_mark: <a href="../../../library/structure/others/wavelet-matrix-rectangle-sum.cpp.html">structure/others/wavelet-matrix-rectangle-sum.cpp</a>
+* :heavy_check_mark: <a href="../../../library/structure/wavelet/succinct-indexable-dictionary.cpp.html">structure/wavelet/succinct-indexable-dictionary.cpp</a>
+* :heavy_check_mark: <a href="../../../library/structure/wavelet/wavelet-matrix-rectangle-sum.cpp.html">structure/wavelet/wavelet-matrix-rectangle-sum.cpp</a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -52,8 +52,8 @@ layout: default
 
 #include "../../template/template.cpp"
 
-#include "../../structure/others/succinct-indexable-dictionary.cpp"
-#include "../../structure/others/wavelet-matrix-rectangle-sum.cpp"
+#include "../../structure/wavelet/succinct-indexable-dictionary.cpp"
+#include "../../structure/wavelet/wavelet-matrix-rectangle-sum.cpp"
 
 int main() {
   int N, Q;
@@ -180,7 +180,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-rectangle-sum.test.cpp"
 
-#line 1 "test/verify/../../structure/others/succinct-indexable-dictionary.cpp"
+#line 1 "test/verify/../../structure/wavelet/succinct-indexable-dictionary.cpp"
 struct SuccinctIndexableDictionary {
   size_t length;
   size_t blocks;
@@ -216,7 +216,7 @@ struct SuccinctIndexableDictionary {
     return (val ? rank(k) : k - rank(k));
   }
 };
-#line 1 "test/verify/../../structure/others/wavelet-matrix-rectangle-sum.cpp"
+#line 1 "test/verify/../../structure/wavelet/wavelet-matrix-rectangle-sum.cpp"
 template< typename T, int MAXLOG, typename D >
 struct WaveletMatrixRectangleSum {
   size_t length;

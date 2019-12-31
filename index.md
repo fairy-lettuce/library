@@ -279,10 +279,7 @@ layout: default
 * :warning: <a href="library/structure/others/sliding-window-aggregation.cpp.html">structure/others/sliding-window-aggregation.cpp</a>
 * :warning: <a href="library/structure/others/sparse-table.cpp.html">structure/others/sparse-table.cpp</a>
 * :warning: <a href="library/structure/others/sqrt-decomposition.cpp.html">structure/others/sqrt-decomposition.cpp</a>
-* :heavy_check_mark: <a href="library/structure/others/succinct-indexable-dictionary.cpp.html">structure/others/succinct-indexable-dictionary.cpp</a>
 * :warning: <a href="library/structure/others/union-rectangle.cpp.html">structure/others/union-rectangle.cpp</a>
-* :heavy_check_mark: <a href="library/structure/others/wavelet-matrix-rectangle-sum.cpp.html">structure/others/wavelet-matrix-rectangle-sum.cpp</a>
-* :heavy_check_mark: <a href="library/structure/others/wavelet-matrix.cpp.html">structure/others/wavelet-matrix.cpp</a>
 
 
 <div id="bd066fce418dc5d58690e9bbe0a7a21f"></div>
@@ -318,6 +315,16 @@ layout: default
 * :warning: <a href="library/structure/union-find/union-find-undo.cpp.html">structure/union-find/union-find-undo.cpp</a>
 * :heavy_check_mark: <a href="library/structure/union-find/union-find.cpp.html">structure/union-find/union-find.cpp</a>
 * :heavy_check_mark: <a href="library/structure/union-find/weighted-union-find.cpp.html">structure/union-find/weighted-union-find.cpp</a>
+
+
+<div id="5f498e54a9680c92dbc18487ab14a24d"></div>
+
+### structure/wavelet
+
+* :heavy_check_mark: <a href="library/structure/wavelet/succinct-indexable-dictionary.cpp.html">structure/wavelet/succinct-indexable-dictionary.cpp</a>
+* :heavy_check_mark: <a href="library/structure/wavelet/wavelet-matrix-rectangle-sum.cpp.html">structure/wavelet/wavelet-matrix-rectangle-sum.cpp</a>
+* :heavy_check_mark: <a href="library/structure/wavelet/wavelet-matrix.cpp.html">structure/wavelet/wavelet-matrix.cpp</a>
+* :heavy_check_mark: <a href="library/structure/wavelet/wavelet-tree.cpp.html">structure/wavelet/wavelet-tree.cpp</a>
 
 
 <div id="66f6181bcb4cff4cd38fbc804a036db6"></div>
@@ -384,6 +391,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2415.test.cpp.html">test/verify/aoj-2415.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2450-2.test.cpp.html">test/verify/aoj-2450-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2450.test.cpp.html">test/verify/aoj-2450.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-2674-2.test.cpp.html">test/verify/aoj-2674-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2674.test.cpp.html">test/verify/aoj-2674.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-alds-1-1-c-2.test.cpp.html">test/verify/aoj-alds-1-1-c-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-alds-1-1-c.test.cpp.html">test/verify/aoj-alds-1-1-c.test.cpp</a>

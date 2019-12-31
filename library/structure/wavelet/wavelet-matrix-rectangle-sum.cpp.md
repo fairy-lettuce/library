@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: structure/others/wavelet-matrix-rectangle-sum.cpp
+# :heavy_check_mark: structure/wavelet/wavelet-matrix-rectangle-sum.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#40d73e22b7d986e3399449c25c8b23a1">structure/others</a>
-* <a href="{{ site.github.repository_url }}/blob/master/structure/others/wavelet-matrix-rectangle-sum.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-27 01:39:33+09:00
+* category: <a href="../../../index.html#5f498e54a9680c92dbc18487ab14a24d">structure/wavelet</a>
+* <a href="{{ site.github.repository_url }}/blob/master/structure/wavelet/wavelet-matrix-rectangle-sum.cpp">View this file on GitHub</a>
+    - Last commit date: 2019-12-31 16:31:54+09:00
 
 
 
@@ -109,7 +109,7 @@ struct WaveletMatrixRectangleSum {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "structure/others/wavelet-matrix-rectangle-sum.cpp"
+#line 1 "structure/wavelet/wavelet-matrix-rectangle-sum.cpp"
 template< typename T, int MAXLOG, typename D >
 struct WaveletMatrixRectangleSum {
   size_t length;
