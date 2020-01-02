@@ -242,8 +242,9 @@ layout: default
 ### structure/bbst
 
 * :warning: <a href="library/structure/bbst/persistent-red-black-tree.cpp.html">structure/bbst/persistent-red-black-tree.cpp</a>
+* :warning: <a href="library/structure/bbst/randomized-binary-search-tree-lazy.cpp.html">structure/bbst/randomized-binary-search-tree-lazy.cpp</a>
 * :warning: <a href="library/structure/bbst/randomized-binary-search-tree-set.cpp.html">structure/bbst/randomized-binary-search-tree-set.cpp</a>
-* :warning: <a href="library/structure/bbst/randomized-binary-search-tree.cpp.html">structure/bbst/randomized-binary-search-tree.cpp</a>
+* :heavy_check_mark: <a href="library/structure/bbst/randomized-binary-search-tree.cpp.html">structure/bbst/randomized-binary-search-tree.cpp</a>
 * :warning: <a href="library/structure/bbst/red-black-tree.cpp.html">structure/bbst/red-black-tree.cpp</a>
 
 
@@ -385,6 +386,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0304.test.cpp.html">test/verify/aoj-0304.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1163.test.cpp.html">test/verify/aoj-1163.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1254.test.cpp.html">test/verify/aoj-1254.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-1508.test.cpp.html">test/verify/aoj-1508.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1595.test.cpp.html">test/verify/aoj-1595.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1615.test.cpp.html">test/verify/aoj-1615.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2306.test.cpp.html">test/verify/aoj-2306.test.cpp</a>
