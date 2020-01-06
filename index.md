@@ -336,14 +336,6 @@ layout: default
 * :heavy_check_mark: <a href="library/template/template.cpp.html">template/template.cpp</a>
 
 
-<div id="5a4423c79a88aeb6104a40a645f9430c"></div>
-
-### test/verify
-
-* :warning: <a href="library/test/verify/atcoder-atc-001-c-2.cpp.html">test/verify/atcoder-atc-001-c-2.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-atc-001-c-3.cpp.html">test/verify/atcoder-atc-001-c-3.cpp</a>
-
-
 ## Verify Files
 
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0233.test.cpp.html">test/verify/aoj-0233.test.cpp</a>
