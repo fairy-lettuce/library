@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: math/combinatorics/arbitrary-mod-int.cpp
+# :x: math/combinatorics/arbitrary-mod-int.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -34,6 +34,11 @@ layout: default
     - Last commit date: 2019-11-30 23:36:31+09:00
 
 
+
+
+## Verified with
+
+* :x: <a href="../../../verify/test/verify/yosupo-montmort-number-mod.test.cpp.html">test/verify/yosupo-montmort-number-mod.test.cpp</a>
 
 
 ## Code
