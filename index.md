@@ -253,7 +253,7 @@ layout: default
 ### structure/convex-hull-trick
 
 * :warning: <a href="library/structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp.html">structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp</a>
-* :warning: <a href="library/structure/convex-hull-trick/dynamic-li-chao-tree.cpp.html">structure/convex-hull-trick/dynamic-li-chao-tree.cpp</a>
+* :heavy_check_mark: <a href="library/structure/convex-hull-trick/dynamic-li-chao-tree.cpp.html">structure/convex-hull-trick/dynamic-li-chao-tree.cpp</a>
 * :warning: <a href="library/structure/convex-hull-trick/li-chao-tree.cpp.html">structure/convex-hull-trick/li-chao-tree.cpp</a>
 * :warning: <a href="library/structure/convex-hull-trick/persistent-dynamic-li-chao-tree.cpp.html">structure/convex-hull-trick/persistent-dynamic-li-chao-tree.cpp</a>
 
@@ -339,43 +339,8 @@ layout: default
 
 ### test/verify
 
-* :warning: <a href="library/test/verify/atcoder-abc-002-d.cpp.html">test/verify/atcoder-abc-002-d.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-abc-036-c.cpp.html">test/verify/atcoder-abc-036-c.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-abc-132-f.cpp.html">test/verify/atcoder-abc-132-f.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-agc-018-d.cpp.html">test/verify/atcoder-agc-018-d.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-agc-034-c.cpp.html">test/verify/atcoder-agc-034-c.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-arc-030-d.cpp.html">test/verify/atcoder-arc-030-d.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-arc-033-d.cpp.html">test/verify/atcoder-arc-033-d.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-arc-039-d.cpp.html">test/verify/atcoder-arc-039-d.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-arc-042-d.cpp.html">test/verify/atcoder-arc-042-d.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-arc-062-f.cpp.html">test/verify/atcoder-arc-062-f.cpp</a>
 * :warning: <a href="library/test/verify/atcoder-atc-001-c-2.cpp.html">test/verify/atcoder-atc-001-c-2.cpp</a>
 * :warning: <a href="library/test/verify/atcoder-atc-001-c-3.cpp.html">test/verify/atcoder-atc-001-c-3.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-atc-001-c.cpp.html">test/verify/atcoder-atc-001-c.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-atc002-c.cpp.html">test/verify/atcoder-atc002-c.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-cf16-tournament-round3-a.cpp.html">test/verify/atcoder-cf16-tournament-round3-a.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-code-thanks-festival-2017-g.cpp.html">test/verify/atcoder-code-thanks-festival-2017-g.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-colopl2018-final-c.cpp.html">test/verify/atcoder-colopl2018-final-c.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-joisc-2015-g.cpp.html">test/verify/atcoder-joisc-2015-g.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-shpc-2018-final-e-2.cpp.html">test/verify/atcoder-shpc-2018-final-e-2.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-shpc-2018-final-e.cpp.html">test/verify/atcoder-shpc-2018-final-e.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-tenka1-2016-final-c.cpp.html">test/verify/atcoder-tenka1-2016-final-c.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-tkppc-2015-j.cpp.html">test/verify/atcoder-tkppc-2015-j.cpp</a>
-* :warning: <a href="library/test/verify/atcoder-wupc-2019-d.cpp.html">test/verify/atcoder-wupc-2019-d.cpp</a>
-* :warning: <a href="library/test/verify/codeforces-250-e.cpp.html">test/verify/codeforces-250-e.cpp</a>
-* :warning: <a href="library/test/verify/codeforces-438-f.cpp.html">test/verify/codeforces-438-f.cpp</a>
-* :warning: <a href="library/test/verify/codeforces-564-e.cpp.html">test/verify/codeforces-564-e.cpp</a>
-* :warning: <a href="library/test/verify/codeforces-dynamic-connectivity-contest-a.cpp.html">test/verify/codeforces-dynamic-connectivity-contest-a.cpp</a>
-* :warning: <a href="library/test/verify/codeforces-neerc-ssc-2014-a.cpp.html">test/verify/codeforces-neerc-ssc-2014-a.cpp</a>
-* :warning: <a href="library/test/verify/spoj-dquery.cpp.html">test/verify/spoj-dquery.cpp</a>
-* :warning: <a href="library/test/verify/spoj-factmodp.cpp.html">test/verify/spoj-factmodp.cpp</a>
-* :warning: <a href="library/test/verify/spoj-frequent.cpp.html">test/verify/spoj-frequent.cpp</a>
-* :warning: <a href="library/test/verify/spoj-rmqsq.cpp.html">test/verify/spoj-rmqsq.cpp</a>
-* :warning: <a href="library/test/verify/spoj-treeiso.cpp.html">test/verify/spoj-treeiso.cpp</a>
-* :warning: <a href="library/test/verify/yahoo-procon2018-final-c.cpp.html">test/verify/yahoo-procon2018-final-c.cpp</a>
-* :warning: <a href="library/test/verify/yukicoder-3046.cpp.html">test/verify/yukicoder-3046.cpp</a>
-* :warning: <a href="library/test/verify/yukicoder-502.cpp.html">test/verify/yukicoder-502.cpp</a>
-* :warning: <a href="library/test/verify/yukicoder-715.cpp.html">test/verify/yukicoder-715.cpp</a>
 
 
 ## Verify Files
@@ -449,6 +414,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-factorize.test.cpp.html">test/verify/yosupo-factorize.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-general-matching.test.cpp.html">test/verify/yosupo-general-matching.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-inv-of-formal-power-series.test.cpp.html">test/verify/yosupo-inv-of-formal-power-series.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-line-add-get-min.test.cpp.html">test/verify/yosupo-line-add-get-min.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-log-of-formal-power-series.test.cpp.html">test/verify/yosupo-log-of-formal-power-series.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-matrix-det.test.cpp.html">test/verify/yosupo-matrix-det.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-maximum-independent-set.test.cpp.html">test/verify/yosupo-maximum-independent-set.test.cpp</a>
@@ -456,6 +422,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-partition-function.test.cpp.html">test/verify/yosupo-partition-function.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-polynomial-interpolation.test.cpp.html">test/verify/yosupo-polynomial-interpolation.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-rectangle-sum.test.cpp.html">test/verify/yosupo-rectangle-sum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-segment-add-get-min.test.cpp.html">test/verify/yosupo-segment-add-get-min.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sparse-matrix-det.test.cpp.html">test/verify/yosupo-sparse-matrix-det.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sqrt-mod.test.cpp.html">test/verify/yosupo-sqrt-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp.html">test/verify/yosupo-sqrt-of-formal-power-series.test.cpp</a>
