@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/verify/yosupo-montmort-number-mod.test.cpp
+# :heavy_check_mark: test/verify/yosupo-montmort-number-mod.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-montmort-number-mod.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-07 02:33:07+09:00
+    - Last commit date: 2020-01-07 02:37:39+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/montmort_number_mod">https://judge.yosupo.jp/problem/montmort_number_mod</a>
@@ -38,8 +38,8 @@ layout: default
 
 ## Depends on
 
-* :x: <a href="../../../library/math/combinatorics/arbitrary-mod-int.cpp.html">math/combinatorics/arbitrary-mod-int.cpp</a>
-* :x: <a href="../../../library/math/combinatorics/montmort.cpp.html">math/combinatorics/montmort.cpp</a>
+* :heavy_check_mark: <a href="../../../library/math/combinatorics/arbitrary-mod-int.cpp.html">math/combinatorics/arbitrary-mod-int.cpp</a>
+* :heavy_check_mark: <a href="../../../library/math/combinatorics/montmort.cpp.html">math/combinatorics/montmort.cpp</a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -169,31 +169,31 @@ struct ArbitraryModInt {
 
   ArbitraryModInt() : x(0) {}
 
-  ArbitraryModInt(int64_t y) : x(y >= 0 ? y % mod() : (mod() - (-y) % mod()) % mod()) {}
+  ArbitraryModInt(int64_t y) : x(y >= 0 ? y % get_mod() : (get_mod() - (-y) % get_mod()) % get_mod()) {}
 
-  static int &mod() {
+  static int &get_mod() {
     static int mod = 0;
     return mod;
   }
 
-  static int set_mod(int md) {
-    mod() = md;
+  static void set_mod(int md) {
+    get_mod() = md;
   }
 
   ArbitraryModInt &operator+=(const ArbitraryModInt &p) {
-    if((x += p.x) >= mod()) x -= mod();
+    if((x += p.x) >= get_mod()) x -= get_mod();
     return *this;
   }
 
   ArbitraryModInt &operator-=(const ArbitraryModInt &p) {
-    if((x += mod() - p.x) >= mod()) x -= mod();
+    if((x += get_mod() - p.x) >= get_mod()) x -= get_mod();
     return *this;
   }
 
   ArbitraryModInt &operator*=(const ArbitraryModInt &p) {
     unsigned long long a = (unsigned long long) x * p.x;
     unsigned xh = (unsigned) (a >> 32), xl = (unsigned) a, d, m;
-    asm("divl %4; \n\t" : "=a" (d), "=d" (m) : "d" (xh), "a" (xl), "r" (mod()));
+    asm("divl %4; \n\t" : "=a" (d), "=d" (m) : "d" (xh), "a" (xl), "r" (get_mod()));
     x = m;
     return *this;
   }
@@ -218,7 +218,7 @@ struct ArbitraryModInt {
   bool operator!=(const ArbitraryModInt &p) const { return x != p.x; }
 
   ArbitraryModInt inverse() const {
-    int a = x, b = mod(), u = 1, v = 0, t;
+    int a = x, b = get_mod(), u = 1, v = 0, t;
     while(b > 0) {
       t = a / b;
       swap(a -= t * b, b);

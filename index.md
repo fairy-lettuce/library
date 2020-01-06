@@ -150,7 +150,7 @@ layout: default
 
 ### math/combinatorics
 
-* :x: <a href="library/math/combinatorics/arbitrary-mod-int.cpp.html">math/combinatorics/arbitrary-mod-int.cpp</a>
+* :heavy_check_mark: <a href="library/math/combinatorics/arbitrary-mod-int.cpp.html">math/combinatorics/arbitrary-mod-int.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/bell-number.cpp.html">math/combinatorics/bell-number.cpp</a>
 * :warning: <a href="library/math/combinatorics/binomial-table.cpp.html">math/combinatorics/binomial-table.cpp</a>
 * :warning: <a href="library/math/combinatorics/binomial.cpp.html">math/combinatorics/binomial.cpp</a>
@@ -160,7 +160,7 @@ layout: default
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-log.cpp.html">math/combinatorics/mod-log.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-pow.cpp.html">math/combinatorics/mod-pow.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-sqrt.cpp.html">math/combinatorics/mod-sqrt.cpp</a>
-* :x: <a href="library/math/combinatorics/montmort.cpp.html">math/combinatorics/montmort.cpp</a>
+* :heavy_check_mark: <a href="library/math/combinatorics/montmort.cpp.html">math/combinatorics/montmort.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/partition-table.cpp.html">math/combinatorics/partition-table.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/stirling-number-second.cpp.html">math/combinatorics/stirling-number-second.cpp</a>
 
@@ -421,7 +421,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-log-of-formal-power-series.test.cpp.html">test/verify/yosupo-log-of-formal-power-series.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-matrix-det.test.cpp.html">test/verify/yosupo-matrix-det.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-maximum-independent-set.test.cpp.html">test/verify/yosupo-maximum-independent-set.test.cpp</a>
-* :x: <a href="verify/test/verify/yosupo-montmort-number-mod.test.cpp.html">test/verify/yosupo-montmort-number-mod.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-montmort-number-mod.test.cpp.html">test/verify/yosupo-montmort-number-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-multipoint-evaluation.test.cpp.html">test/verify/yosupo-multipoint-evaluation.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-partition-function.test.cpp.html">test/verify/yosupo-partition-function.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-polynomial-interpolation.test.cpp.html">test/verify/yosupo-polynomial-interpolation.test.cpp</a>
