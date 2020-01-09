@@ -259,6 +259,15 @@ layout: default
 * :warning: <a href="library/structure/convex-hull-trick/persistent-dynamic-li-chao-tree.cpp.html">structure/convex-hull-trick/persistent-dynamic-li-chao-tree.cpp</a>
 
 
+<div id="b1cd1e8cabf258d1ad55a5bb477f1b01"></div>
+
+### structure/develop
+
+* :heavy_check_mark: <a href="library/structure/develop/array-pool.cpp.html">structure/develop/array-pool.cpp</a>
+* :heavy_check_mark: <a href="library/structure/develop/dual-splay-tree.cpp.html">structure/develop/dual-splay-tree.cpp</a>
+* :heavy_check_mark: <a href="library/structure/develop/link-cut-tree-subtree-dual-semi-group.cpp.html">structure/develop/link-cut-tree-subtree-dual-semi-group.cpp</a>
+
+
 <div id="36999f024b84f3ad86db908172fedb57"></div>
 
 ### structure/heap
@@ -351,6 +360,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2415.test.cpp.html">test/verify/aoj-2415.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2450-2.test.cpp.html">test/verify/aoj-2450-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2450.test.cpp.html">test/verify/aoj-2450.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-2667.test.cpp.html">test/verify/aoj-2667.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2674-2.test.cpp.html">test/verify/aoj-2674-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2674.test.cpp.html">test/verify/aoj-2674.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-alds-1-1-c-2.test.cpp.html">test/verify/aoj-alds-1-1-c-2.test.cpp</a>
