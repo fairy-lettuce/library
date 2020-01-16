@@ -207,6 +207,7 @@ layout: default
 * :heavy_check_mark: <a href="library/math/number-theory/extgcd.cpp.html">math/number-theory/extgcd.cpp</a>
 * :heavy_check_mark: <a href="library/math/number-theory/fast-prime-factorization.cpp.html">math/number-theory/fast-prime-factorization.cpp</a>
 * :heavy_check_mark: <a href="library/math/number-theory/is-prime.cpp.html">math/number-theory/is-prime.cpp</a>
+* :warning: <a href="library/math/number-theory/moebius-mu-table.cpp.html">math/number-theory/moebius-mu-table.cpp</a>
 * :heavy_check_mark: <a href="library/math/number-theory/prime-factor.cpp.html">math/number-theory/prime-factor.cpp</a>
 * :heavy_check_mark: <a href="library/math/number-theory/prime-table.cpp.html">math/number-theory/prime-table.cpp</a>
 * :warning: <a href="library/math/number-theory/quotient-range.cpp.html">math/number-theory/quotient-range.cpp</a>
