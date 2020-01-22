@@ -156,6 +156,7 @@ layout: default
 * :warning: <a href="library/math/combinatorics/binomial.cpp.html">math/combinatorics/binomial.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/combination.cpp.html">math/combinatorics/combination.cpp</a>
 * :warning: <a href="library/math/combinatorics/lagrange-polynomial.cpp.html">math/combinatorics/lagrange-polynomial.cpp</a>
+* :warning: <a href="library/math/combinatorics/mod-int-2.cpp.html">math/combinatorics/mod-int-2.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-log.cpp.html">math/combinatorics/mod-log.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-pow.cpp.html">math/combinatorics/mod-pow.cpp</a>
