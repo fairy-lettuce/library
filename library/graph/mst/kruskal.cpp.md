@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#51f95ed2fd9ed3be34f576d38fbd25a2">graph/mst</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/mst/kruskal.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-01-24 16:48:25+09:00
 
 
 
@@ -47,16 +47,26 @@ layout: default
 {% raw %}
 ```cpp
 template< typename T >
-T kruskal(Edges< T > &edges, int V) {
+struct MinimumSpanningTree {
+  T cost;
+  Edges< T > edges;
+};
+
+template< typename T >
+MinimumSpanningTree< T > kruskal(Edges< T > &edges, int V) {
   sort(begin(edges), end(edges), [](const edge< T > &a, const edge< T > &b) {
-    return (a.cost < b.cost);
+    return a.cost < b.cost;
   });
   UnionFind tree(V);
-  T ret = 0;
+  T total = T();
+  Edges< T > es;
   for(auto &e : edges) {
-    if(tree.unite(e.src, e.to)) ret += e.cost;
+    if(tree.unite(e.src, e.to)) {
+      es.emplace_back(e);
+      total += e.cost;
+    }
   }
-  return (ret);
+  return {total, es};
 }
 
 ```
@@ -67,16 +77,26 @@ T kruskal(Edges< T > &edges, int V) {
 ```cpp
 #line 1 "graph/mst/kruskal.cpp"
 template< typename T >
-T kruskal(Edges< T > &edges, int V) {
+struct MinimumSpanningTree {
+  T cost;
+  Edges< T > edges;
+};
+
+template< typename T >
+MinimumSpanningTree< T > kruskal(Edges< T > &edges, int V) {
   sort(begin(edges), end(edges), [](const edge< T > &a, const edge< T > &b) {
-    return (a.cost < b.cost);
+    return a.cost < b.cost;
   });
   UnionFind tree(V);
-  T ret = 0;
+  T total = T();
+  Edges< T > es;
   for(auto &e : edges) {
-    if(tree.unite(e.src, e.to)) ret += e.cost;
+    if(tree.unite(e.src, e.to)) {
+      es.emplace_back(e);
+      total += e.cost;
+    }
   }
-  return (ret);
+  return {total, es};
 }
 
 ```

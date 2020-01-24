@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-2-a-2.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-01-24 16:48:25+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A</a>
@@ -60,14 +60,14 @@ layout: default
 
 int main() {
   int V, E;
-  scanf("%d %d", &V, &E);
+  cin >> V >> E;
   Edges< int > edges;
   for(int i = 0; i < E; i++) {
     int a, b, c;
-    scanf("%d %d %d", &a, &b, &c);
+    cin >> a >> b >> c;
     edges.emplace_back(a, b, c);
   }
-  printf("%d\n", kruskal(edges, V));
+  cout << kruskal(edges, V).cost << "\n";
 }
 
 ```
@@ -223,29 +223,39 @@ struct UnionFind {
 
 #line 1 "test/verify/../../graph/mst/kruskal.cpp"
 template< typename T >
-T kruskal(Edges< T > &edges, int V) {
+struct MinimumSpanningTree {
+  T cost;
+  Edges< T > edges;
+};
+
+template< typename T >
+MinimumSpanningTree< T > kruskal(Edges< T > &edges, int V) {
   sort(begin(edges), end(edges), [](const edge< T > &a, const edge< T > &b) {
-    return (a.cost < b.cost);
+    return a.cost < b.cost;
   });
   UnionFind tree(V);
-  T ret = 0;
+  T total = T();
+  Edges< T > es;
   for(auto &e : edges) {
-    if(tree.unite(e.src, e.to)) ret += e.cost;
+    if(tree.unite(e.src, e.to)) {
+      es.emplace_back(e);
+      total += e.cost;
+    }
   }
-  return (ret);
+  return {total, es};
 }
 #line 9 "test/verify/aoj-grl-2-a-2.test.cpp"
 
 int main() {
   int V, E;
-  scanf("%d %d", &V, &E);
+  cin >> V >> E;
   Edges< int > edges;
   for(int i = 0; i < E; i++) {
     int a, b, c;
-    scanf("%d %d %d", &a, &b, &c);
+    cin >> a >> b >> c;
     edges.emplace_back(a, b, c);
   }
-  printf("%d\n", kruskal(edges, V));
+  cout << kruskal(edges, V).cost << "\n";
 }
 
 ```

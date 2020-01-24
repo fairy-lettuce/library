@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-2-a.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-01-24 16:48:25+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A</a>
@@ -57,15 +57,15 @@ layout: default
 
 int main() {
   int V, E;
-  scanf("%d %d", &V, &E);
+  cin >> V >> E;
   WeightedGraph< int > g(V);
   for(int i = 0; i < E; i++) {
     int a, b, c;
-    scanf("%d %d %d", &a, &b, &c);
+    cin >> a >> b >> c;
     g[a].emplace_back(b, c);
     g[b].emplace_back(a, c);
   }
-  printf("%d\n", prim(g));
+  cout << prim(g).cost << "\n";
 }
 
 ```
@@ -193,38 +193,53 @@ using Matrix = vector< vector< T > >;
 
 #line 1 "test/verify/../../graph/mst/prim.cpp"
 template< typename T >
-T prim(WeightedGraph< T > &g) {
-  using Pi = pair< T, int >;
- 
-  T total = 0;
-  vector< bool > used(g.size(), false);
-  priority_queue< Pi, vector< Pi >, greater< Pi > > que;
-  que.emplace(0, 0);
+struct MinimumSpanningTree {
+  T cost;
+  Edges< T > edges;
+};
+
+template< typename T >
+MinimumSpanningTree< T > prim(WeightedGraph< T > &g) {
+  T total = T();
+  vector< int > used(g.size());
+  used[0] = true;
+  auto cmp = [](const edge< T > &a, const edge< T > &b) {
+    return a.cost > b.cost;
+  };
+  priority_queue< edge< T >, vector< edge< T > >, decltype(cmp) > que(cmp);
+  Edges< T > edges;
+  for(auto e : g[0]) {
+    e.src = 0;
+    que.emplace(e);
+  }
   while(!que.empty()) {
     auto p = que.top();
     que.pop();
-    if(used[p.second]) continue;
-    used[p.second] = true;
-    total += p.first;
-    for(auto &e : g[p.second]) {
-      que.emplace(e.cost, e.to);
+    if(used[p.to]) continue;
+    used[p.to] = true;
+    total += p.cost;
+    que.emplace(p);
+    for(auto e : g[p.to]) {
+      if(used[e.to]) continue;
+      e.src = p.to;
+      que.emplace(e);
     }
   }
-  return total;
+  return {total, edges};
 }
 #line 7 "test/verify/aoj-grl-2-a.test.cpp"
 
 int main() {
   int V, E;
-  scanf("%d %d", &V, &E);
+  cin >> V >> E;
   WeightedGraph< int > g(V);
   for(int i = 0; i < E; i++) {
     int a, b, c;
-    scanf("%d %d %d", &a, &b, &c);
+    cin >> a >> b >> c;
     g[a].emplace_back(b, c);
     g[b].emplace_back(a, c);
   }
-  printf("%d\n", prim(g));
+  cout << prim(g).cost << "\n";
 }
 
 ```
