@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#51f95ed2fd9ed3be34f576d38fbd25a2">graph/mst</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/mst/prim-fibonacchi-heap.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-01-24 18:37:57+09:00
 
 
 
@@ -47,20 +47,25 @@ layout: default
 {% raw %}
 ```cpp
 template< typename T >
-T prim_fibonacchi_heap(WeightedGraph< T > &g) {
+struct MinimumSpanningTree {
+  T cost;
+  Edges< T > edges;
+};
+
+template< typename T >
+MinimumSpanningTree< T > prim_fibonacchi_heap(WeightedGraph< T > g) {
   const auto INF = numeric_limits< T >::max();
   using Heap = FibonacchiHeap< T, int >;
   using Node = typename Heap::Node;
   using Pi = pair< T, int >;
 
   T total = 0;
-  vector< T > dist(g.size(), INF);
+  vector< edge< T > * > dist(g.size());
   vector< int > used(g.size());
   Heap heap;
   vector< Node * > keep(g.size(), nullptr);
-  dist[0] = 0;
   keep[0] = heap.push(0, 0);
-
+  Edges< T > es;
   while(!heap.empty()) {
     T cost;
     int idx;
@@ -68,19 +73,21 @@ T prim_fibonacchi_heap(WeightedGraph< T > &g) {
     if(used[idx]) continue;
     used[idx] = true;
     total += cost;
+    if(dist[idx]) es.emplace_back(*dist[idx]);
     for(auto &e : g[idx]) {
-      if(used[e.to] || dist[e.to] <= e.cost) continue;
+      if(used[e.to] || (dist[e.to] && dist[e.to]->cost <= e.cost)) continue;
+      e.src = idx;
       if(keep[e.to] == nullptr) {
-        dist[e.to] = e.cost;
+        dist[e.to] = &e;
         keep[e.to] = heap.push(e.cost, e.to);
       } else {
-        T d = dist[e.to] - e.cost;
+        T d = dist[e.to]->cost - e.cost;
         heap.decrease_key(keep[e.to], d);
-        dist[e.to] -= d;
+        dist[e.to] = &e;
       }
     }
   }
-  return total;
+  return {total, es};
 }
 
 ```
@@ -91,20 +98,25 @@ T prim_fibonacchi_heap(WeightedGraph< T > &g) {
 ```cpp
 #line 1 "graph/mst/prim-fibonacchi-heap.cpp"
 template< typename T >
-T prim_fibonacchi_heap(WeightedGraph< T > &g) {
+struct MinimumSpanningTree {
+  T cost;
+  Edges< T > edges;
+};
+
+template< typename T >
+MinimumSpanningTree< T > prim_fibonacchi_heap(WeightedGraph< T > g) {
   const auto INF = numeric_limits< T >::max();
   using Heap = FibonacchiHeap< T, int >;
   using Node = typename Heap::Node;
   using Pi = pair< T, int >;
 
   T total = 0;
-  vector< T > dist(g.size(), INF);
+  vector< edge< T > * > dist(g.size());
   vector< int > used(g.size());
   Heap heap;
   vector< Node * > keep(g.size(), nullptr);
-  dist[0] = 0;
   keep[0] = heap.push(0, 0);
-
+  Edges< T > es;
   while(!heap.empty()) {
     T cost;
     int idx;
@@ -112,19 +124,21 @@ T prim_fibonacchi_heap(WeightedGraph< T > &g) {
     if(used[idx]) continue;
     used[idx] = true;
     total += cost;
+    if(dist[idx]) es.emplace_back(*dist[idx]);
     for(auto &e : g[idx]) {
-      if(used[e.to] || dist[e.to] <= e.cost) continue;
+      if(used[e.to] || (dist[e.to] && dist[e.to]->cost <= e.cost)) continue;
+      e.src = idx;
       if(keep[e.to] == nullptr) {
-        dist[e.to] = e.cost;
+        dist[e.to] = &e;
         keep[e.to] = heap.push(e.cost, e.to);
       } else {
-        T d = dist[e.to] - e.cost;
+        T d = dist[e.to]->cost - e.cost;
         heap.decrease_key(keep[e.to], d);
-        dist[e.to] -= d;
+        dist[e.to] = &e;
       }
     }
   }
-  return total;
+  return {total, es};
 }
 
 ```
