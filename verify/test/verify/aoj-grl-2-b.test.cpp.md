@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-2-b.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-19 21:28:41+09:00
+    - Last commit date: 2020-02-19 21:42:58+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_B</a>
@@ -41,7 +41,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/graph/mst/chu-liu-edmond.cpp.html">graph/mst/chu-liu-edmond.cpp</a>
 * :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
 * :heavy_check_mark: <a href="../../../library/structure/heap/skew-heap.cpp.html">structure/heap/skew-heap.cpp</a>
-* :heavy_check_mark: <a href="../../../library/structure/union-find/union-find.cpp.html">structure/union-find/union-find.cpp</a>
+* :heavy_check_mark: <a href="../../../library/structure/union-find/union-find.cpp.html">Union-Find <small>(structure/union-find/union-find.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -196,14 +196,17 @@ using Matrix = vector< vector< T > >;
 #line 5 "test/verify/aoj-grl-2-b.test.cpp"
 
 #line 1 "test/verify/../../structure/union-find/union-find.cpp"
-/* @docs docs/union-find.md */
+/**
+ * @brief Union-Find
+ * @docs docs/union-find.md
+ */
 struct UnionFind {
   vector< int > data;
 
   UnionFind() = default;
 
   explicit UnionFind(size_t sz) : data(sz, -1) {}
-  
+
   bool unite(int x, int y) {
     x = find(x), y = find(y);
     if(x == y) return false;

@@ -25,15 +25,23 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: structure/union-find/union-find.cpp
+# :heavy_check_mark: Union-Find <small>(structure/union-find/union-find.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#16695eacefd17254ea5bccf40066c856">structure/union-find</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/union-find/union-find.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-19 21:28:41+09:00
+    - Last commit date: 2020-02-19 21:42:58+09:00
 
 
+## 概要
+
+集合を高速に扱うためのデータ構造. 集合を合併する操作(unite), ある要素がどの集合に属しているか(find) を問い合わせる操作を行うことが出来る.
+
+* $\mathrm{unite}(x, y)$: 集合 $x$ と $y$ を併合する. 併合済のとき $\mathrm{false}$, 未併合のとき $\mathrm{true}$ が返される.
+* $\mathrm{find}(k)$: 要素 $k$ が属する集合を求める.
+* $\mathrm{size}(k)$: 要素 $k$ が属する集合の要素の数を求める.
+* $\mathrm{same}(x, y)$: 要素 $x, y$ が同じ集合に属するか判定する. 
 
 
 ## Verified with
@@ -49,14 +57,17 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-/* @docs docs/union-find.md */
+/**
+ * @brief Union-Find
+ * @docs docs/union-find.md
+ */
 struct UnionFind {
   vector< int > data;
 
   UnionFind() = default;
 
   explicit UnionFind(size_t sz) : data(sz, -1) {}
-  
+
   bool unite(int x, int y) {
     x = find(x), y = find(y);
     if(x == y) return false;
@@ -87,14 +98,17 @@ struct UnionFind {
 {% raw %}
 ```cpp
 #line 1 "structure/union-find/union-find.cpp"
-/* @docs docs/union-find.md */
+/**
+ * @brief Union-Find
+ * @docs docs/union-find.md
+ */
 struct UnionFind {
   vector< int > data;
 
   UnionFind() = default;
 
   explicit UnionFind(size_t sz) : data(sz, -1) {}
-  
+
   bool unite(int x, int y) {
     x = find(x), y = find(y);
     if(x == y) return false;

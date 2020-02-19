@@ -326,7 +326,7 @@ layout: default
 * :warning: <a href="library/structure/union-find/partially-persistent-union-find.cpp.html">structure/union-find/partially-persistent-union-find.cpp</a>
 * :warning: <a href="library/structure/union-find/persistent-union-find.cpp.html">structure/union-find/persistent-union-find.cpp</a>
 * :warning: <a href="library/structure/union-find/union-find-undo.cpp.html">structure/union-find/union-find-undo.cpp</a>
-* :heavy_check_mark: <a href="library/structure/union-find/union-find.cpp.html">structure/union-find/union-find.cpp</a>
+* :heavy_check_mark: <a href="library/structure/union-find/union-find.cpp.html">Union-Find <small>(structure/union-find/union-find.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/union-find/weighted-union-find.cpp.html">structure/union-find/weighted-union-find.cpp</a>
 
 
