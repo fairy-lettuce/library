@@ -25,15 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: dp/cumulative-sum.cpp
+# :warning: CumulativeSum(一次元累積和) <small>(dp/cumulative-sum.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
 * <a href="{{ site.github.repository_url }}/blob/master/dp/cumulative-sum.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-07-20 01:29:30+09:00
+    - Last commit date: 2020-02-20 01:36:53+09:00
 
 
+## 概要
+
+$1$ 次元の累積和. 前計算として事前に累積和をとることで, 区間の和を $O(1)$ で求めることが出来る.
+
+* $\mathrm{add}(k, x)$: 要素 $k$ に値 $x$ を加える.
+* $\mathrm{build}()$: 累積和を構築する.
+* $\mathrm{query}(k)$: 区間 $[0, k]$ の和を求める(閉区間なので注意).
 
 
 ## Code
@@ -41,13 +48,19 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief CumulativeSum(一次元累積和)
+ * @docs docs/cumulative-sum.md
+ */
 template< class T >
 struct CumulativeSum {
   vector< T > data;
 
-  CumulativeSum(int sz) : data(sz, 0) {};
+  CumulativeSum() = default;
 
-  void add(int k, T x) {
+  explicit CumulativeSum(size_t sz) : data(sz, 0) {}
+
+  void add(int k, const T &x) {
     data[k] += x;
   }
 
@@ -57,9 +70,9 @@ struct CumulativeSum {
     }
   }
 
-  T query(int k) {
-    if(k < 0) return (0);
-    return (data[min(k, (int) data.size() - 1)]);
+  T query(int k) const {
+    if(k < 0) return 0;
+    return data[min(k, (int) data.size() - 1)];
   }
 };
 
@@ -70,13 +83,19 @@ struct CumulativeSum {
 {% raw %}
 ```cpp
 #line 1 "dp/cumulative-sum.cpp"
+/**
+ * @brief CumulativeSum(一次元累積和)
+ * @docs docs/cumulative-sum.md
+ */
 template< class T >
 struct CumulativeSum {
   vector< T > data;
 
-  CumulativeSum(int sz) : data(sz, 0) {};
+  CumulativeSum() = default;
 
-  void add(int k, T x) {
+  explicit CumulativeSum(size_t sz) : data(sz, 0) {}
+
+  void add(int k, const T &x) {
     data[k] += x;
   }
 
@@ -86,9 +105,9 @@ struct CumulativeSum {
     }
   }
 
-  T query(int k) {
-    if(k < 0) return (0);
-    return (data[min(k, (int) data.size() - 1)]);
+  T query(int k) const {
+    if(k < 0) return 0;
+    return data[min(k, (int) data.size() - 1)];
   }
 };
 

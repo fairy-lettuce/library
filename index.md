@@ -39,7 +39,7 @@ layout: default
 ### dp
 
 * :warning: <a href="library/dp/cumulative-sum-2d.cpp.html">dp/cumulative-sum-2d.cpp</a>
-* :warning: <a href="library/dp/cumulative-sum.cpp.html">dp/cumulative-sum.cpp</a>
+* :warning: <a href="library/dp/cumulative-sum.cpp.html">CumulativeSum(一次元累積和) <small>(dp/cumulative-sum.cpp)</small></a>
 * :warning: <a href="library/dp/divide-and-conquer-optimization.cpp.html">dp/divide-and-conquer-optimization.cpp</a>
 * :heavy_check_mark: <a href="library/dp/edit-distance.cpp.html">dp/edit-distance.cpp</a>
 * :heavy_check_mark: <a href="library/dp/hu-tucker.cpp.html">dp/hu-tucker.cpp</a>
@@ -306,7 +306,7 @@ layout: default
 * :warning: <a href="library/structure/segment-tree/segment-tree-2d.cpp.html">structure/segment-tree/segment-tree-2d.cpp</a>
 * :warning: <a href="library/structure/segment-tree/segment-tree-beats.cpp.html">structure/segment-tree/segment-tree-beats.cpp</a>
 * :warning: <a href="library/structure/segment-tree/segment-tree-fractional-cascading.cpp.html">structure/segment-tree/segment-tree-fractional-cascading.cpp</a>
-* :heavy_check_mark: <a href="library/structure/segment-tree/segment-tree.cpp.html">structure/segment-tree/segment-tree.cpp</a>
+* :heavy_check_mark: <a href="library/structure/segment-tree/segment-tree.cpp.html">Segment-Tree(セグメント木) <small>(structure/segment-tree/segment-tree.cpp)</small></a>
 
 
 <div id="495454930b047da7eed81bd52d55784a"></div>

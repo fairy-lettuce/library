@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dsl-2-a.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 22:41:48+09:00
+    - Last commit date: 2020-02-20 01:36:53+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A</a>
@@ -38,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/structure/segment-tree/segment-tree.cpp.html">structure/segment-tree/segment-tree.cpp</a>
+* :heavy_check_mark: <a href="../../../library/structure/segment-tree/segment-tree.cpp.html">Segment-Tree(セグメント木) <small>(structure/segment-tree/segment-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -164,6 +164,10 @@ inline decltype(auto) MFP(F &&f) {
 #line 4 "test/verify/aoj-dsl-2-a.test.cpp"
 
 #line 1 "test/verify/../../structure/segment-tree/segment-tree.cpp"
+/**
+ * @brief Segment-Tree(セグメント木)
+ * @docs docs/segment-tree.md
+ */
 template< typename Monoid >
 struct SegmentTree {
   using F = function< Monoid(Monoid, Monoid) >;
@@ -173,7 +177,7 @@ struct SegmentTree {
 
   const F f;
   const Monoid M1;
-
+  
   SegmentTree(int n, const F f, const Monoid &M1) : f(f), M1(M1) {
     sz = 1;
     while(sz < n) sz <<= 1;
@@ -221,7 +225,6 @@ struct SegmentTree {
     return a - sz;
   }
 
-
   template< typename C >
   int find_first(int a, const C &check) {
     Monoid L = M1;
@@ -259,7 +262,6 @@ struct SegmentTree {
     return -1;
   }
 };
-
 #line 6 "test/verify/aoj-dsl-2-a.test.cpp"
 
 int main() {

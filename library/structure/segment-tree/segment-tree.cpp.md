@@ -25,14 +25,34 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: structure/segment-tree/segment-tree.cpp
+# :heavy_check_mark: Segment-Tree(セグメント木) <small>(structure/segment-tree/segment-tree.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#bd066fce418dc5d58690e9bbe0a7a21f">structure/segment-tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/segment-tree/segment-tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 22:41:48+09:00
+    - Last commit date: 2020-02-20 01:36:53+09:00
 
+
+## 概要
+
+完全二分木である. モノイドについて区間に対する演算が $O(\log N)$ で処理できる.
+
+モノイドは次の条件を満たす代数的構造である.
+
+* 結合率を満たす。つまり $S$ の各元 $a, b, c$ に対して, $(a \cdot b) \cdot c = a \cdot (b \cdot c)$ が満たされる.
+* 単位元をもつ。つまり $S$ の任意の元 $a$ をとってきたときに $a \cdot e = e \cdot a = a$ なる $e$ が存在する.
+
+実装では木を 1-indexed の配列で表現している. ノード $k$ について, 親ノードは $\frac k 2$, 子ノードは $2k$, $2k+1$ である.
+
+* $\mathrm{SegmentTree}(n, f, M1)$:= サイズ $n$ で初期化する. ここで $f$ は2つの区間の要素をマージする二項演算, $M1$ はモノイドの単位元である.
+* $\mathrm{set}(k, x)$:= $k$ 番目の要素に $x$ を代入する.
+* $\mathrm{build}()$:= セグメント木を構築する.
+* $\mathrm{query}(a, b)$:= 区間 $[a, b)$ に対して二項演算した結果を返す.
+* $\mathrm{update}(k, x)$:= $k$ 番目の要素を $x$ に変更する.
+* operator[$k$] := $k$ 番目の要素を返す.
+* find_first($a$, $check$) := $[a,x)$ が $check$ を満たす最初の要素位置 $x$ を返す.
+* find_last($b$, $check$) := $[x,b)$ が $check$ を満たす最後の要素位置 $x$ を返す.
 
 
 
@@ -46,6 +66,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Segment-Tree(セグメント木)
+ * @docs docs/segment-tree.md
+ */
 template< typename Monoid >
 struct SegmentTree {
   using F = function< Monoid(Monoid, Monoid) >;
@@ -55,7 +79,7 @@ struct SegmentTree {
 
   const F f;
   const Monoid M1;
-
+  
   SegmentTree(int n, const F f, const Monoid &M1) : f(f), M1(M1) {
     sz = 1;
     while(sz < n) sz <<= 1;
@@ -103,7 +127,6 @@ struct SegmentTree {
     return a - sz;
   }
 
-
   template< typename C >
   int find_first(int a, const C &check) {
     Monoid L = M1;
@@ -141,7 +164,6 @@ struct SegmentTree {
     return -1;
   }
 };
-
 
 ```
 {% endraw %}
@@ -150,6 +172,10 @@ struct SegmentTree {
 {% raw %}
 ```cpp
 #line 1 "structure/segment-tree/segment-tree.cpp"
+/**
+ * @brief Segment-Tree(セグメント木)
+ * @docs docs/segment-tree.md
+ */
 template< typename Monoid >
 struct SegmentTree {
   using F = function< Monoid(Monoid, Monoid) >;
@@ -159,7 +185,7 @@ struct SegmentTree {
 
   const F f;
   const Monoid M1;
-
+  
   SegmentTree(int n, const F f, const Monoid &M1) : f(f), M1(M1) {
     sz = 1;
     while(sz < n) sz <<= 1;
@@ -207,7 +233,6 @@ struct SegmentTree {
     return a - sz;
   }
 
-
   template< typename C >
   int find_first(int a, const C &check) {
     Monoid L = M1;
@@ -245,7 +270,6 @@ struct SegmentTree {
     return -1;
   }
 };
-
 
 ```
 {% endraw %}
