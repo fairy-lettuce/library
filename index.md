@@ -283,7 +283,7 @@ layout: default
 
 ### structure/others
 
-* :heavy_check_mark: <a href="library/structure/others/binary-indexed-tree.cpp.html">structure/others/binary-indexed-tree.cpp</a>
+* :heavy_check_mark: <a href="library/structure/others/binary-indexed-tree.cpp.html">Binary-Indexed-Tree(BIT) <small>(structure/others/binary-indexed-tree.cpp)</small></a>
 * :warning: <a href="library/structure/others/disjoint-sparse-table.cpp.html">structure/others/disjoint-sparse-table.cpp</a>
 * :heavy_check_mark: <a href="library/structure/others/link-cut-tree-subtree.cpp.html">structure/others/link-cut-tree-subtree.cpp</a>
 * :heavy_check_mark: <a href="library/structure/others/link-cut-tree.cpp.html">structure/others/link-cut-tree.cpp</a>

@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dsl-2-b.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 22:41:48+09:00
+    - Last commit date: 2020-02-19 22:38:55+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B</a>
@@ -38,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/structure/others/binary-indexed-tree.cpp.html">structure/others/binary-indexed-tree.cpp</a>
+* :heavy_check_mark: <a href="../../../library/structure/others/binary-indexed-tree.cpp.html">Binary-Indexed-Tree(BIT) <small>(structure/others/binary-indexed-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -55,13 +55,13 @@ layout: default
 
 int main() {
   int N, Q;
-  scanf("%d %d", &N, &Q);
+  cin >> N >> Q;
   BinaryIndexedTree< int > bit(N);
   while(Q--) {
     int T, X, Y;
-    scanf("%d %d %d", &T, &X, &Y);
+    cin >> T >> X >> Y;
     if(T == 0) bit.add(X - 1, Y);
-    else printf("%d\n", bit.sum(Y - 1) - bit.sum(X - 2));
+    else cout << bit.query(Y - 1) - bit.query(X - 2) << "\n";
   }
 }
 
@@ -164,35 +164,61 @@ inline decltype(auto) MFP(F &&f) {
 #line 4 "test/verify/aoj-dsl-2-b.test.cpp"
 
 #line 1 "test/verify/../../structure/others/binary-indexed-tree.cpp"
+/**
+ * @brief Binary-Indexed-Tree(BIT)
+ * @docs docs/binary-indexed-tree.md
+ */
 template< typename T >
 struct BinaryIndexedTree {
   vector< T > data;
 
-  BinaryIndexedTree(int sz) {
-    data.assign(++sz, 0);
+  BinaryIndexedTree() = default;
+
+  explicit BinaryIndexedTree(size_t sz) : data(sz + 1, 0) {}
+
+  void add(int k, const T &x) {
+    for(++k; k < (int) data.size(); k += k & -k) data[k] += x;
   }
 
-  T sum(int k) {
-    T ret = 0;
+  T query(int k) const {
+    T ret = T();
     for(++k; k > 0; k -= k & -k) ret += data[k];
-    return (ret);
+    return ret;
   }
 
-  void add(int k, T x) {
-    for(++k; k < data.size(); k += k & -k) data[k] += x;
+  int lower_bound(T x) const {
+    int i = 0;
+    for(int k = 1 << (__lg(data.size() - 1) + 1); k > 0; k >>= 1) {
+      if(i + k < data.size() && data[i + k] < x) {
+        x -= data[i + k];
+        i += k;
+      }
+    }
+    return i;
+  }
+
+  int upper_bound(T x) const {
+    int i = 0;
+    for(int k = 1 << (__lg(data.size() - 1) + 1); k > 0; k >>= 1) {
+      if(i + k < data.size() && data[i + k] <= x) {
+        x -= data[i + k];
+        i += k;
+      }
+    }
+    return i;
   }
 };
 #line 6 "test/verify/aoj-dsl-2-b.test.cpp"
 
 int main() {
   int N, Q;
-  scanf("%d %d", &N, &Q);
+  cin >> N >> Q;
   BinaryIndexedTree< int > bit(N);
   while(Q--) {
     int T, X, Y;
-    scanf("%d %d %d", &T, &X, &Y);
+    cin >> T >> X >> Y;
     if(T == 0) bit.add(X - 1, Y);
-    else printf("%d\n", bit.sum(Y - 1) - bit.sum(X - 2));
+    else cout << bit.query(Y - 1) - bit.query(X - 2) << "\n";
   }
 }
 

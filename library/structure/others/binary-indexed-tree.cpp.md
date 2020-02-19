@@ -25,15 +25,24 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: structure/others/binary-indexed-tree.cpp
+# :heavy_check_mark: Binary-Indexed-Tree(BIT) <small>(structure/others/binary-indexed-tree.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#40d73e22b7d986e3399449c25c8b23a1">structure/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/others/binary-indexed-tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 22:41:48+09:00
+    - Last commit date: 2020-02-19 22:38:55+09:00
 
 
+## 概要
+
+Fenwick Tree とも呼ばれる. 数列に対し, ある要素に値を加える操作と, 区間和を求める操作をそれぞれ対数時間で行うことが出来るデータ構造. セグメント木や平衡二分探索
+木の機能を制限したものであるが, 実装が非常に単純で定数倍も軽いなどの利点がある.
+
+* $\mathrm{add}(k, x)$: 要素 $k$ に値 $x$ を加える.
+* $\mathrm{query}(k)$: 区間 $[0,k]$ の総和を求める(閉区間なので注意すること).
+* lower_bound$(x)$: 区間 $[0,k]$ の総和が $x$ 以上となる最小の $k$ を返す.
+* upper_bound$(x)$: 区間 $[0,k]$ の総和が $x$ を上回る最小の $k$ を返す.
 
 
 ## Verified with
@@ -46,22 +55,48 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Binary-Indexed-Tree(BIT)
+ * @docs docs/binary-indexed-tree.md
+ */
 template< typename T >
 struct BinaryIndexedTree {
   vector< T > data;
 
-  BinaryIndexedTree(int sz) {
-    data.assign(++sz, 0);
+  BinaryIndexedTree() = default;
+
+  explicit BinaryIndexedTree(size_t sz) : data(sz + 1, 0) {}
+
+  void add(int k, const T &x) {
+    for(++k; k < (int) data.size(); k += k & -k) data[k] += x;
   }
 
-  T sum(int k) {
-    T ret = 0;
+  T query(int k) const {
+    T ret = T();
     for(++k; k > 0; k -= k & -k) ret += data[k];
-    return (ret);
+    return ret;
   }
 
-  void add(int k, T x) {
-    for(++k; k < data.size(); k += k & -k) data[k] += x;
+  int lower_bound(T x) const {
+    int i = 0;
+    for(int k = 1 << (__lg(data.size() - 1) + 1); k > 0; k >>= 1) {
+      if(i + k < data.size() && data[i + k] < x) {
+        x -= data[i + k];
+        i += k;
+      }
+    }
+    return i;
+  }
+
+  int upper_bound(T x) const {
+    int i = 0;
+    for(int k = 1 << (__lg(data.size() - 1) + 1); k > 0; k >>= 1) {
+      if(i + k < data.size() && data[i + k] <= x) {
+        x -= data[i + k];
+        i += k;
+      }
+    }
+    return i;
   }
 };
 
@@ -72,22 +107,48 @@ struct BinaryIndexedTree {
 {% raw %}
 ```cpp
 #line 1 "structure/others/binary-indexed-tree.cpp"
+/**
+ * @brief Binary-Indexed-Tree(BIT)
+ * @docs docs/binary-indexed-tree.md
+ */
 template< typename T >
 struct BinaryIndexedTree {
   vector< T > data;
 
-  BinaryIndexedTree(int sz) {
-    data.assign(++sz, 0);
+  BinaryIndexedTree() = default;
+
+  explicit BinaryIndexedTree(size_t sz) : data(sz + 1, 0) {}
+
+  void add(int k, const T &x) {
+    for(++k; k < (int) data.size(); k += k & -k) data[k] += x;
   }
 
-  T sum(int k) {
-    T ret = 0;
+  T query(int k) const {
+    T ret = T();
     for(++k; k > 0; k -= k & -k) ret += data[k];
-    return (ret);
+    return ret;
   }
 
-  void add(int k, T x) {
-    for(++k; k < data.size(); k += k & -k) data[k] += x;
+  int lower_bound(T x) const {
+    int i = 0;
+    for(int k = 1 << (__lg(data.size() - 1) + 1); k > 0; k >>= 1) {
+      if(i + k < data.size() && data[i + k] < x) {
+        x -= data[i + k];
+        i += k;
+      }
+    }
+    return i;
+  }
+
+  int upper_bound(T x) const {
+    int i = 0;
+    for(int k = 1 << (__lg(data.size() - 1) + 1); k > 0; k >>= 1) {
+      if(i + k < data.size() && data[i + k] <= x) {
+        x -= data[i + k];
+        i += k;
+      }
+    }
+    return i;
   }
 };
 
