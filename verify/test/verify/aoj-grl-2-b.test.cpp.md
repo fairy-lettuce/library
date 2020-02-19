@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-2-b.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-02-19 21:28:41+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_B</a>
@@ -196,29 +196,34 @@ using Matrix = vector< vector< T > >;
 #line 5 "test/verify/aoj-grl-2-b.test.cpp"
 
 #line 1 "test/verify/../../structure/union-find/union-find.cpp"
+/* @docs docs/union-find.md */
 struct UnionFind {
   vector< int > data;
- 
-  UnionFind(int sz) {
-    data.assign(sz, -1);
-  }
- 
+
+  UnionFind() = default;
+
+  explicit UnionFind(size_t sz) : data(sz, -1) {}
+  
   bool unite(int x, int y) {
     x = find(x), y = find(y);
-    if(x == y) return (false);
+    if(x == y) return false;
     if(data[x] > data[y]) swap(x, y);
     data[x] += data[y];
     data[y] = x;
-    return (true);
+    return true;
   }
- 
+
   int find(int k) {
     if(data[k] < 0) return (k);
-    return (data[k] = find(data[k]));
+    return data[k] = find(data[k]);
   }
- 
+
   int size(int k) {
-    return (-data[find(k)]);
+    return -data[find(k)];
+  }
+
+  bool same(int x, int y) {
+    return find(x) == find(y);
   }
 };
 #line 1 "test/verify/../../structure/heap/skew-heap.cpp"
