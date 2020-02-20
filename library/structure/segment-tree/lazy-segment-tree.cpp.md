@@ -25,15 +25,28 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: structure/segment-tree/lazy-segment-tree.cpp
+# :heavy_check_mark: Lazy-Segment-Tree(遅延伝搬セグメント木) <small>(structure/segment-tree/lazy-segment-tree.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#bd066fce418dc5d58690e9bbe0a7a21f">structure/segment-tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/segment-tree/lazy-segment-tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-20 16:29:52+09:00
+    - Last commit date: 2020-02-20 22:23:04+09:00
 
 
+## 概要
+
+遅延伝搬を用いることで, 区間に対する更新が可能になる. コンストラクタに対し追加で作用素モノイドの情報も与える.
+
+* $\mathrm{LazySegmentTree}(n, f, g, h, M1, OM0)$:= サイズ $n$ で初期化する. ここで $f$ は2つの区間の要素をマージする二項演算, $g$ は要素と作用素をマージする二項演算, $h$ は作用素同士をマージする二項演算, $M1$ はモノイドの単位元, $OM0$ は作用素の単位元である.
+* $\mathrm{set}(k, x)$:= $k$ 番目の要素に $x$ を代入する.
+* $\mathrm{build}()$:= セグメント木を構築する.
+* $\mathrm{query}(a, b)$:= 区間 $[a, b)$ に対して二項演算した結果を返す.
+* $\mathrm{update}(a, b, x)$:= 区間 $[a, b)$ に対して作用素 $x$ を適用する.
+* operator[$k$] := $k$ 番目の要素を返す.
+* find_first($a$, $check$) := $[a,x)$ が $check$ を満たす最初の要素位置 $x$ を返
+す.
+* find_last($b$, $check$) := $[x,b)$ が $check$ を満たす最後の要素位置 $x$ を返す.
 
 
 ## Verified with
@@ -46,6 +59,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Lazy-Segment-Tree(遅延伝搬セグメント木)
+ * @docs docs/lazy-segment-tree.md
+ */
 template< typename Monoid, typename OperatorMonoid = Monoid >
 struct LazySegmentTree {
   using F = function< Monoid(Monoid, Monoid) >;
@@ -60,7 +77,6 @@ struct LazySegmentTree {
   const H h;
   const Monoid M1;
   const OperatorMonoid OM0;
-
 
   LazySegmentTree(int n, const F f, const G g, const H h,
                   const Monoid &M1, const OperatorMonoid OM0)
@@ -161,8 +177,7 @@ struct LazySegmentTree {
     }
     return -1;
   }
-
-
+  
   template< typename C >
   int find_last(int b, const C &check) {
     Monoid R = M1;
@@ -190,6 +205,10 @@ struct LazySegmentTree {
 {% raw %}
 ```cpp
 #line 1 "structure/segment-tree/lazy-segment-tree.cpp"
+/**
+ * @brief Lazy-Segment-Tree(遅延伝搬セグメント木)
+ * @docs docs/lazy-segment-tree.md
+ */
 template< typename Monoid, typename OperatorMonoid = Monoid >
 struct LazySegmentTree {
   using F = function< Monoid(Monoid, Monoid) >;
@@ -204,7 +223,6 @@ struct LazySegmentTree {
   const H h;
   const Monoid M1;
   const OperatorMonoid OM0;
-
 
   LazySegmentTree(int n, const F f, const G g, const H h,
                   const Monoid &M1, const OperatorMonoid OM0)
@@ -305,8 +323,7 @@ struct LazySegmentTree {
     }
     return -1;
   }
-
-
+  
   template< typename C >
   int find_last(int b, const C &check) {
     Monoid R = M1;

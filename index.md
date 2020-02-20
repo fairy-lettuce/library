@@ -39,7 +39,7 @@ layout: default
 ### dp
 
 * :warning: <a href="library/dp/cumulative-sum-2d.cpp.html">dp/cumulative-sum-2d.cpp</a>
-* :warning: <a href="library/dp/cumulative-sum.cpp.html">CumulativeSum(一次元累積和) <small>(dp/cumulative-sum.cpp)</small></a>
+* :warning: <a href="library/dp/cumulative-sum.cpp.html">Cumulative-Sum(一次元累積和) <small>(dp/cumulative-sum.cpp)</small></a>
 * :warning: <a href="library/dp/divide-and-conquer-optimization.cpp.html">dp/divide-and-conquer-optimization.cpp</a>
 * :heavy_check_mark: <a href="library/dp/edit-distance.cpp.html">dp/edit-distance.cpp</a>
 * :heavy_check_mark: <a href="library/dp/hu-tucker.cpp.html">dp/hu-tucker.cpp</a>
@@ -284,13 +284,13 @@ layout: default
 ### structure/others
 
 * :heavy_check_mark: <a href="library/structure/others/binary-indexed-tree.cpp.html">Binary-Indexed-Tree(BIT) <small>(structure/others/binary-indexed-tree.cpp)</small></a>
-* :warning: <a href="library/structure/others/disjoint-sparse-table.cpp.html">structure/others/disjoint-sparse-table.cpp</a>
+* :heavy_check_mark: <a href="library/structure/others/disjoint-sparse-table.cpp.html">Disjoint-Sparse-Table <small>(structure/others/disjoint-sparse-table.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/others/link-cut-tree-subtree.cpp.html">structure/others/link-cut-tree-subtree.cpp</a>
 * :heavy_check_mark: <a href="library/structure/others/link-cut-tree.cpp.html">structure/others/link-cut-tree.cpp</a>
 * :warning: <a href="library/structure/others/persistent-array.cpp.html">structure/others/persistent-array.cpp</a>
 * :warning: <a href="library/structure/others/priority-sum-structure.cpp.html">structure/others/priority-sum-structure.cpp</a>
 * :warning: <a href="library/structure/others/sliding-window-aggregation.cpp.html">structure/others/sliding-window-aggregation.cpp</a>
-* :warning: <a href="library/structure/others/sparse-table.cpp.html">structure/others/sparse-table.cpp</a>
+* :heavy_check_mark: <a href="library/structure/others/sparse-table.cpp.html">Sparse-Table(スパーステーブル) <small>(structure/others/sparse-table.cpp)</small></a>
 * :warning: <a href="library/structure/others/sqrt-decomposition.cpp.html">structure/others/sqrt-decomposition.cpp</a>
 * :warning: <a href="library/structure/others/union-rectangle.cpp.html">structure/others/union-rectangle.cpp</a>
 
@@ -299,9 +299,9 @@ layout: default
 
 ### structure/segment-tree
 
-* :warning: <a href="library/structure/segment-tree/dual-segment-tree.cpp.html">structure/segment-tree/dual-segment-tree.cpp</a>
-* :heavy_check_mark: <a href="library/structure/segment-tree/lazy-segment-tree.cpp.html">structure/segment-tree/lazy-segment-tree.cpp</a>
-* :warning: <a href="library/structure/segment-tree/persistent-segment-tree.cpp.html">structure/segment-tree/persistent-segment-tree.cpp</a>
+* :heavy_check_mark: <a href="library/structure/segment-tree/dual-segment-tree.cpp.html">Dual-Segment-Tree(双対セグメント木) <small>(structure/segment-tree/dual-segment-tree.cpp)</small></a>
+* :heavy_check_mark: <a href="library/structure/segment-tree/lazy-segment-tree.cpp.html">Lazy-Segment-Tree(遅延伝搬セグメント木) <small>(structure/segment-tree/lazy-segment-tree.cpp)</small></a>
+* :warning: <a href="library/structure/segment-tree/persistent-segment-tree.cpp.html">Persistent-Segment-Tree(永続セグメント木) <small>(structure/segment-tree/persistent-segment-tree.cpp)</small></a>
 * :warning: <a href="library/structure/segment-tree/segment-tree-2d-2.cpp.html">structure/segment-tree/segment-tree-2d-2.cpp</a>
 * :warning: <a href="library/structure/segment-tree/segment-tree-2d.cpp.html">structure/segment-tree/segment-tree-2d.cpp</a>
 * :warning: <a href="library/structure/segment-tree/segment-tree-beats.cpp.html">structure/segment-tree/segment-tree-beats.cpp</a>
@@ -384,6 +384,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-dsl-1-b.test.cpp.html">test/verify/aoj-dsl-1-b.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-dsl-2-a.test.cpp.html">test/verify/aoj-dsl-2-a.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-dsl-2-b.test.cpp.html">test/verify/aoj-dsl-2-b.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-dsl-2-d.test.cpp.html">test/verify/aoj-dsl-2-d.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-1-a-2.test.cpp.html">test/verify/aoj-grl-1-a-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-1-a-3.test.cpp.html">test/verify/aoj-grl-1-a-3.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-1-a.test.cpp.html">test/verify/aoj-grl-1-a.test.cpp</a>
@@ -434,5 +435,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sparse-matrix-det.test.cpp.html">test/verify/yosupo-sparse-matrix-det.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sqrt-mod.test.cpp.html">test/verify/yosupo-sqrt-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp.html">test/verify/yosupo-sqrt-of-formal-power-series.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-staticrmq-2.test.cpp.html">test/verify/yosupo-staticrmq-2.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-staticrmq.test.cpp.html">test/verify/yosupo-staticrmq.test.cpp</a>
 
 

@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: CumulativeSum(一次元累積和) <small>(dp/cumulative-sum.cpp)</small>
+# :warning: Cumulative-Sum(一次元累積和) <small>(dp/cumulative-sum.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
 * <a href="{{ site.github.repository_url }}/blob/master/dp/cumulative-sum.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-20 01:36:53+09:00
+    - Last commit date: 2020-02-20 22:23:04+09:00
 
 
 ## 概要
@@ -49,7 +49,7 @@ $1$ 次元の累積和. 前計算として事前に累積和をとることで, 
 {% raw %}
 ```cpp
 /**
- * @brief CumulativeSum(一次元累積和)
+ * @brief Cumulative-Sum(一次元累積和)
  * @docs docs/cumulative-sum.md
  */
 template< class T >
@@ -84,7 +84,7 @@ struct CumulativeSum {
 ```cpp
 #line 1 "dp/cumulative-sum.cpp"
 /**
- * @brief CumulativeSum(一次元累積和)
+ * @brief Cumulative-Sum(一次元累積和)
  * @docs docs/cumulative-sum.md
  */
 template< class T >

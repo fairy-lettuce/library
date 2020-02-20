@@ -25,15 +25,25 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: structure/segment-tree/dual-segment-tree.cpp
+# :heavy_check_mark: Dual-Segment-Tree(双対セグメント木) <small>(structure/segment-tree/dual-segment-tree.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#bd066fce418dc5d58690e9bbe0a7a21f">structure/segment-tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/segment-tree/dual-segment-tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 22:41:48+09:00
+    - Last commit date: 2020-02-20 22:23:04+09:00
 
 
+## 概要
+
+* $\mathrm{DualSegmentTree}(n, h, OM0)$:= サイズ $n$ で初期化する. ここで $h$ は2つの区間の作用素をマージする二項演算, $OM0$ は作用素の単位元である.
+* $\mathrm{update}(l, r, x)$:= 区間 $[l, r)$ に作用素 $x$ を適用する.
+* operator[$k$] := $k$ 番目の作用素を返す.
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-dsl-2-d.test.cpp.html">test/verify/aoj-dsl-2-d.test.cpp</a>
 
 
 ## Code
@@ -41,6 +51,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Dual-Segment-Tree(双対セグメント木)
+ * @docs docs/dual-segment-tree.md
+ */
 template< typename OperatorMonoid >
 struct DualSegmentTree {
   using H = function< OperatorMonoid(OperatorMonoid, OperatorMonoid) >;
@@ -50,9 +64,7 @@ struct DualSegmentTree {
   const H h;
   const OperatorMonoid OM0;
 
-
-  DualSegmentTree(int n, const H h, const OperatorMonoid OM0)
-      : h(h), OM0(OM0) {
+  DualSegmentTree(int n, const H h, const OperatorMonoid &OM0) : h(h), OM0(OM0) {
     sz = 1;
     height = 0;
     while(sz < n) sz <<= 1, height++;
@@ -93,6 +105,10 @@ struct DualSegmentTree {
 {% raw %}
 ```cpp
 #line 1 "structure/segment-tree/dual-segment-tree.cpp"
+/**
+ * @brief Dual-Segment-Tree(双対セグメント木)
+ * @docs docs/dual-segment-tree.md
+ */
 template< typename OperatorMonoid >
 struct DualSegmentTree {
   using H = function< OperatorMonoid(OperatorMonoid, OperatorMonoid) >;
@@ -102,9 +118,7 @@ struct DualSegmentTree {
   const H h;
   const OperatorMonoid OM0;
 
-
-  DualSegmentTree(int n, const H h, const OperatorMonoid OM0)
-      : h(h), OM0(OM0) {
+  DualSegmentTree(int n, const H h, const OperatorMonoid &OM0) : h(h), OM0(OM0) {
     sz = 1;
     height = 0;
     while(sz < n) sz <<= 1, height++;

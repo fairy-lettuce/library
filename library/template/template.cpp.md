@@ -73,6 +73,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-dsl-1-b.test.cpp.html">test/verify/aoj-dsl-1-b.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-dsl-2-a.test.cpp.html">test/verify/aoj-dsl-2-a.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-dsl-2-b.test.cpp.html">test/verify/aoj-dsl-2-b.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-dsl-2-d.test.cpp.html">test/verify/aoj-dsl-2-d.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-1-a-2.test.cpp.html">test/verify/aoj-grl-1-a-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-1-a-3.test.cpp.html">test/verify/aoj-grl-1-a-3.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-1-a.test.cpp.html">test/verify/aoj-grl-1-a.test.cpp</a>
@@ -123,6 +124,8 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-sparse-matrix-det.test.cpp.html">test/verify/yosupo-sparse-matrix-det.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-sqrt-mod.test.cpp.html">test/verify/yosupo-sqrt-mod.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp.html">test/verify/yosupo-sqrt-of-formal-power-series.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-staticrmq-2.test.cpp.html">test/verify/yosupo-staticrmq-2.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-staticrmq.test.cpp.html">test/verify/yosupo-staticrmq.test.cpp</a>
 
 
 ## Code

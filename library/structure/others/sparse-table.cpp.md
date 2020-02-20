@@ -25,15 +25,26 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: structure/others/sparse-table.cpp
+# :heavy_check_mark: Sparse-Table(スパーステーブル) <small>(structure/others/sparse-table.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#40d73e22b7d986e3399449c25c8b23a1">structure/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/others/sparse-table.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 22:41:48+09:00
+    - Last commit date: 2020-02-20 22:23:04+09:00
 
 
+## 概要
+
+更新がない場合の区間の最小値を, 前計算 $O(n \log n)$, クエリ $O(1)$ で処理する.
+
+* $\mathrm{SparseTable}(v)$: 配列 $v$ で初期化する.
+* $\mathrm{query}(l, r)$: 区間 $[l, r)$ の最小値を求める.
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-staticrmq.test.cpp.html">test/verify/yosupo-staticrmq.test.cpp</a>
 
 
 ## Code
@@ -41,12 +52,16 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Sparse-Table(スパーステーブル)
+ * @docs docs/sparse-table.md
+ */
 template< typename T >
 struct SparseTable {
   vector< vector< T > > st;
   vector< int > lookup;
 
-  SparseTable(const vector< T > &v) {
+  explicit SparseTable(const vector< T > &v) {
     int b = 0;
     while((1 << b) <= v.size()) ++b;
     st.assign(b, vector< T >(1 << b));
@@ -64,7 +79,7 @@ struct SparseTable {
     }
   }
 
-  inline T rmq(int l, int r) {
+  inline T query(int l, int r) const {
     int b = lookup[r - l];
     return min(st[b][l], st[b][r - (1 << b)]);
   }
@@ -77,12 +92,16 @@ struct SparseTable {
 {% raw %}
 ```cpp
 #line 1 "structure/others/sparse-table.cpp"
+/**
+ * @brief Sparse-Table(スパーステーブル)
+ * @docs docs/sparse-table.md
+ */
 template< typename T >
 struct SparseTable {
   vector< vector< T > > st;
   vector< int > lookup;
 
-  SparseTable(const vector< T > &v) {
+  explicit SparseTable(const vector< T > &v) {
     int b = 0;
     while((1 << b) <= v.size()) ++b;
     st.assign(b, vector< T >(1 << b));
@@ -100,7 +119,7 @@ struct SparseTable {
     }
   }
 
-  inline T rmq(int l, int r) {
+  inline T query(int l, int r) const {
     int b = lookup[r - l];
     return min(st[b][l], st[b][r - (1 << b)]);
   }

@@ -25,15 +25,26 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: structure/others/disjoint-sparse-table.cpp
+# :heavy_check_mark: Disjoint-Sparse-Table <small>(structure/others/disjoint-sparse-table.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#40d73e22b7d986e3399449c25c8b23a1">structure/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/others/disjoint-sparse-table.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 22:41:48+09:00
+    - Last commit date: 2020-02-20 22:23:04+09:00
 
 
+## 概要
+
+更新がない場合の半群に対する区間クエリを, 前計算 $O(n \log n)$, クエリ $O(1)$ で処理する.
+
+* $\mathrm{DisjointSparseTable}(v, f)$: 配列 $v$ で初期化する. $f$ は半群をマージする二項演算である.
+* $\mathrm{query}(l, r)$: 区間 $[l, r)$ の最小値を求める.
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-staticrmq-2.test.cpp.html">test/verify/yosupo-staticrmq-2.test.cpp</a>
 
 
 ## Code
@@ -41,11 +52,16 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Disjoint-Sparse-Table
+ * @docs docs/disjoint-sparse-table.md
+ */
 template< typename Semigroup >
 struct DisjointSparseTable {
   using F = function< Semigroup(Semigroup, Semigroup) >;
   const F f;
   vector< vector< Semigroup > > st;
+  vector< int > lookup;
 
   DisjointSparseTable(const vector< Semigroup > &v, const F &f) : f(f) {
     int b = 0;
@@ -64,11 +80,15 @@ struct DisjointSparseTable {
         for(int k = t + 1; k < r; k++) st[i][k] = f(st[i][k - 1], v[k]);
       }
     }
+    lookup.resize(1 << b);
+    for(int i = 2; i < lookup.size(); i++) {
+      lookup[i] = lookup[i >> 1] + 1;
+    }
   }
 
   Semigroup query(int l, int r) {
     if(l >= --r) return st[0][l];
-    int p = 31 - __builtin_clz(l ^ r);
+    int p = lookup[l ^ r];
     return f(st[p][l], st[p][r]);
   }
 };
@@ -80,11 +100,16 @@ struct DisjointSparseTable {
 {% raw %}
 ```cpp
 #line 1 "structure/others/disjoint-sparse-table.cpp"
+/**
+ * @brief Disjoint-Sparse-Table
+ * @docs docs/disjoint-sparse-table.md
+ */
 template< typename Semigroup >
 struct DisjointSparseTable {
   using F = function< Semigroup(Semigroup, Semigroup) >;
   const F f;
   vector< vector< Semigroup > > st;
+  vector< int > lookup;
 
   DisjointSparseTable(const vector< Semigroup > &v, const F &f) : f(f) {
     int b = 0;
@@ -103,11 +128,15 @@ struct DisjointSparseTable {
         for(int k = t + 1; k < r; k++) st[i][k] = f(st[i][k - 1], v[k]);
       }
     }
+    lookup.resize(1 << b);
+    for(int i = 2; i < lookup.size(); i++) {
+      lookup[i] = lookup[i >> 1] + 1;
+    }
   }
 
   Semigroup query(int l, int r) {
     if(l >= --r) return st[0][l];
-    int p = 31 - __builtin_clz(l ^ r);
+    int p = lookup[l ^ r];
     return f(st[p][l], st[p][r]);
   }
 };
