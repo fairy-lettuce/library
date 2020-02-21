@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-1-c.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-23 02:27:30+09:00
+    - Last commit date: 2020-02-21 17:07:30+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_C">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_C</a>
@@ -38,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/dp/knapsack.cpp.html">dp/knapsack.cpp</a>
+* :heavy_check_mark: <a href="../../../library/dp/knapsack.cpp.html">Knapsack(個数制限なしナップサック問題) <small>(dp/knapsack.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -161,6 +161,10 @@ inline decltype(auto) MFP(F &&f) {
 #line 4 "test/verify/aoj-dpl-1-c.test.cpp"
 
 #line 1 "test/verify/../../dp/knapsack.cpp"
+/**
+ * @brief Knapsack(個数制限なしナップサック問題)
+ * @docs docs/knapsack.md
+ */
 template< typename T, typename Compare = greater< T > >
 vector< T > knapsack(const vector< int > &w, const vector< T > &v, const int &W, const T &NG, const Compare &comp = Compare()) {
   const int N = (int) w.size();

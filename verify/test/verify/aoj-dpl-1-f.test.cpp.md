@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-1-f.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-23 02:27:30+09:00
+    - Last commit date: 2020-02-21 17:07:30+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_F">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_F</a>
@@ -38,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/dp/knapsack-01-2.cpp.html">dp/knapsack-01-2.cpp</a>
+* :heavy_check_mark: <a href="../../../library/dp/knapsack-01-2.cpp.html">Knapsack-01(0-1ナップサック問題) $O(N \sum {v_i})$ <small>(dp/knapsack-01-2.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -160,6 +160,10 @@ inline decltype(auto) MFP(F &&f) {
 #line 4 "test/verify/aoj-dpl-1-f.test.cpp"
 
 #line 1 "test/verify/../../dp/knapsack-01-2.cpp"
+/**
+ * @brief Knapsack-01(0-1ナップサック問題) $O(N \sum {v_i})$
+ * @docs docs/knapsack-01-2.md
+ */
 template< typename T >
 T knapsack_01_2(const vector< T > &w, const vector< int > &v, const T &W) {
   const int N = (int) w.size();

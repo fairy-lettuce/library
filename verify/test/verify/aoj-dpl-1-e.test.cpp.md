@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-1-e.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-23 02:27:30+09:00
+    - Last commit date: 2020-02-21 17:07:30+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E</a>
@@ -38,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/dp/edit-distance.cpp.html">dp/edit-distance.cpp</a>
+* :heavy_check_mark: <a href="../../../library/dp/edit-distance.cpp.html">Edit-Distance(編集距離) <small>(dp/edit-distance.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -159,6 +159,10 @@ inline decltype(auto) MFP(F &&f) {
 #line 4 "test/verify/aoj-dpl-1-e.test.cpp"
 
 #line 1 "test/verify/../../dp/edit-distance.cpp"
+/**
+ * @brief Edit-Distance(編集距離)
+ * @docs docs/edit-distance.md
+ */
 int edit_distance(const string &S, const string &T) {
   const int N = (int) S.size(), M = (int) T.size();
   vector< vector< int > > dp(N + 1, vector< int >(M + 1, N + M));
@@ -173,7 +177,6 @@ int edit_distance(const string &S, const string &T) {
   }
   return dp[N][M];
 }
-
 #line 6 "test/verify/aoj-dpl-1-e.test.cpp"
 
 int main() {

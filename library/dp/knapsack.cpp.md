@@ -25,15 +25,24 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: dp/knapsack.cpp
+# :heavy_check_mark: Knapsack(個数制限なしナップサック問題) <small>(dp/knapsack.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
 * <a href="{{ site.github.repository_url }}/blob/master/dp/knapsack.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-23 02:27:30+09:00
+    - Last commit date: 2020-02-21 17:07:30+09:00
 
 
+## 概要
+
+個数制限なしナップサック問題を次に示す.
+
+重さ $w_i$, 価値 $v_i$ であるような $N$ 種類の品物がある. 重さの和が $W$ 以下となるように選ぶとき, 価値の最大値を求めよ.
+
+重さを状態にした動的計画法により $O(NW)$. 
+
+* knapsack($w$, $v$, $W$, $NG$, $comp$): $W$ 以下の範囲で, 各重さについて価値の最大値を求める. $NG$ は到達ができない場合の値で, $comp$ は比較演算子.
 
 
 ## Verified with
@@ -46,6 +55,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Knapsack(個数制限なしナップサック問題)
+ * @docs docs/knapsack.md
+ */
 template< typename T, typename Compare = greater< T > >
 vector< T > knapsack(const vector< int > &w, const vector< T > &v, const int &W, const T &NG, const Compare &comp = Compare()) {
   const int N = (int) w.size();
@@ -70,6 +83,10 @@ vector< T > knapsack(const vector< int > &w, const vector< T > &v, const int &W,
 {% raw %}
 ```cpp
 #line 1 "dp/knapsack.cpp"
+/**
+ * @brief Knapsack(個数制限なしナップサック問題)
+ * @docs docs/knapsack.md
+ */
 template< typename T, typename Compare = greater< T > >
 vector< T > knapsack(const vector< int > &w, const vector< T > &v, const int &W, const T &NG, const Compare &comp = Compare()) {
   const int N = (int) w.size();

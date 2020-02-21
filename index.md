@@ -41,13 +41,13 @@ layout: default
 * :warning: <a href="library/dp/cumulative-sum-2d.cpp.html">dp/cumulative-sum-2d.cpp</a>
 * :warning: <a href="library/dp/cumulative-sum.cpp.html">Cumulative-Sum(一次元累積和) <small>(dp/cumulative-sum.cpp)</small></a>
 * :warning: <a href="library/dp/divide-and-conquer-optimization.cpp.html">dp/divide-and-conquer-optimization.cpp</a>
-* :heavy_check_mark: <a href="library/dp/edit-distance.cpp.html">dp/edit-distance.cpp</a>
+* :heavy_check_mark: <a href="library/dp/edit-distance.cpp.html">Edit-Distance(編集距離) <small>(dp/edit-distance.cpp)</small></a>
 * :heavy_check_mark: <a href="library/dp/hu-tucker.cpp.html">dp/hu-tucker.cpp</a>
-* :heavy_check_mark: <a href="library/dp/knapsack-01-2.cpp.html">dp/knapsack-01-2.cpp</a>
-* :heavy_check_mark: <a href="library/dp/knapsack-01.cpp.html">dp/knapsack-01.cpp</a>
+* :heavy_check_mark: <a href="library/dp/knapsack-01-2.cpp.html">Knapsack-01(0-1ナップサック問題) $O(N \sum {v_i})$ <small>(dp/knapsack-01-2.cpp)</small></a>
+* :heavy_check_mark: <a href="library/dp/knapsack-01.cpp.html">Knapsack-01(0-1ナップサック問題) $O(NW)$ <small>(dp/knapsack-01.cpp)</small></a>
 * :heavy_check_mark: <a href="library/dp/knapsack-limitations-2.cpp.html">dp/knapsack-limitations-2.cpp</a>
 * :heavy_check_mark: <a href="library/dp/knapsack-limitations.cpp.html">dp/knapsack-limitations.cpp</a>
-* :heavy_check_mark: <a href="library/dp/knapsack.cpp.html">dp/knapsack.cpp</a>
+* :heavy_check_mark: <a href="library/dp/knapsack.cpp.html">Knapsack(個数制限なしナップサック問題) <small>(dp/knapsack.cpp)</small></a>
 * :heavy_check_mark: <a href="library/dp/largest-rectangle.cpp.html">dp/largest-rectangle.cpp</a>
 * :heavy_check_mark: <a href="library/dp/longest-increasing-subsequence.cpp.html">dp/longest-increasing-subsequence.cpp</a>
 * :warning: <a href="library/dp/monotone-minima.cpp.html">dp/monotone-minima.cpp</a>
