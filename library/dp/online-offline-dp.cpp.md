@@ -25,15 +25,32 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: dp/online-offline-dp.cpp
+# :warning: Online-Offline-DP(オンライン・オフライン変換) <small>(dp/online-offline-dp.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
 * <a href="{{ site.github.repository_url }}/blob/master/dp/online-offline-dp.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-07-20 01:29:30+09:00
+    - Last commit date: 2020-02-24 21:31:21+09:00
 
 
+
+
+## 概要
+
+$dp[j] = \min \\{ dp[i] + f(i,j) : i \in [0,j) \\}$ (例: $f(i,j)$ を区間 $[i,j)$ のコストとすると、区間[0, j) を任意個に分割するときの最小コスト) を考える.
+
+愚直にDPをすると $O(N^2)$ かかるが, 最小値をとる位置 $i$ が $j$ の増加にしたがって単調増加する場合 $O(N \log^2 N)$ で解くことができる.
+
+区間 $[l, r)$ の dp 配列を埋めたい. $m = \frac {l + r} 2$ とする.
+遷移するときに $m$ をまたがないものは分割して再帰的に解くことにすると, $m$ をまたぐものだけを考えれば良い. $[l, m)$ の dp 配列の値はわかり, それ以前の dp の計算結果に依存しない形となる. つまり $2$ 変数関数 $g(j, i) = dp[i] + f(i, j) (l \le i \lt m, m \leq j \lt r)$ を定義できて, Monotone-Minima を用いて効率的に解くことができる. (日本語むずかしい　こまった）(分割統治FFTも同じ考え方なので下のコードのinduceの部分をFFTにするとできると思う)
+
+
+* `online_offline_dp(N, f, comp)`: 長さ $N + 1$ の dp 配列($dp[j]:=$ 区間 $[0, j)$ を任意個に分割するときのコスト) を返す. $f(i, j)$ は区間 $[i, j)$ のコストを与える $2$ 変数関数($0 \leq i \lt j \leq N$ を満たす範囲で定義されていればよい).
+
+## 計算量
+
+* $O(N \log^2 N)$
 
 
 ## Code
@@ -41,6 +58,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief  Online-Offline-DP(オンライン・オフライン変換)
+ * @docs docs/online-offline-dp.md
+ */
 template< typename T, typename Compare = less< T > >
 vector< T > online_offline_dp(int W, const function< T(int, int) > &f, const Compare &comp = Compare()) {
   vector< T > dp(W + 1);
@@ -85,6 +106,10 @@ vector< T > online_offline_dp(int W, const function< T(int, int) > &f, const Com
 {% raw %}
 ```cpp
 #line 1 "dp/online-offline-dp.cpp"
+/**
+ * @brief  Online-Offline-DP(オンライン・オフライン変換)
+ * @docs docs/online-offline-dp.md
+ */
 template< typename T, typename Compare = less< T > >
 vector< T > online_offline_dp(int W, const function< T(int, int) > &f, const Compare &comp = Compare()) {
   vector< T > dp(W + 1);

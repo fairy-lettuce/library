@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: dp/divide-and-conquer-optimization.cpp
+# :heavy_check_mark: Divide-And-Conquer-Optimization <small>(dp/divide-and-conquer-optimization.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
 * <a href="{{ site.github.repository_url }}/blob/master/dp/divide-and-conquer-optimization.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-07-20 01:29:30+09:00
+    - Last commit date: 2020-02-24 21:29:56+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-2603.test.cpp.html">test/verify/aoj-2603.test.cpp</a>
 
 
 ## Code
@@ -41,6 +46,9 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Divide-And-Conquer-Optimization
+ */
 template< typename T, typename Compare = less< T > >
 vector< vector< T > > divide_and_conquer_optimization(int H, int W, T INF, const function< T(int, int) > &f, const Compare &comp = Compare()) {
   vector< vector< T > > dp(H + 1, vector< T >(W + 1, INF));
@@ -63,6 +71,9 @@ vector< vector< T > > divide_and_conquer_optimization(int H, int W, T INF, const
 {% raw %}
 ```cpp
 #line 1 "dp/divide-and-conquer-optimization.cpp"
+/**
+ * @brief Divide-And-Conquer-Optimization
+ */
 template< typename T, typename Compare = less< T > >
 vector< vector< T > > divide_and_conquer_optimization(int H, int W, T INF, const function< T(int, int) > &f, const Compare &comp = Compare()) {
   vector< vector< T > > dp(H + 1, vector< T >(W + 1, INF));

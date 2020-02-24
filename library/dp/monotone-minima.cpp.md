@@ -25,15 +25,33 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: dp/monotone-minima.cpp
+# :heavy_check_mark: Monotone-Minima <small>(dp/monotone-minima.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
 * <a href="{{ site.github.repository_url }}/blob/master/dp/monotone-minima.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-07-20 01:29:30+09:00
+    - Last commit date: 2020-02-24 21:29:56+09:00
 
 
+
+
+## 概要
+
+$2$ 変数関数 $f(i, j) (0 \leq i \lt H, 0 \leq j \lt W)$ が Monotone であるとは, すべての $k$ に対して $\mathrm{argmin} f(k, *) \leq \mathrm{argmin} f(k + 1, *)$ を満たすことをいう. つまり各行の最小値をとる位置が右下に単調に下がっていることを意味する.
+
+Monge $\Rightarrow$ Totally Monotone(TM) $\Rightarrow$ Monotone なので, Monotone は弱い条件である.
+
+* `monotone_minima(H, W, f, comp)`: 各行について, 最小値をとる位置と最小値をペアで返す. `f` は $2$ 変数関数, `comp` は比較関数.
+
+## 計算量
+
+* $O(N \log N)$
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-2603.test.cpp.html">test/verify/aoj-2603.test.cpp</a>
 
 
 ## Code
@@ -41,6 +59,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Monotone-Minima
+ * @docs docs/monotone-minima.md
+ */
 template< typename T, typename Compare = less< T > >
 vector< pair< int, T > > monotone_minima(int H, int W, const function< T(int, int) > &f, const Compare &comp = Compare()) {
   vector< pair< int, T > > dp(H);
@@ -63,7 +85,6 @@ vector< pair< int, T > > monotone_minima(int H, int W, const function< T(int, in
   dfs(0, H - 1, 0, W - 1);
   return dp;
 }
-
 
 ```
 {% endraw %}
@@ -72,6 +93,10 @@ vector< pair< int, T > > monotone_minima(int H, int W, const function< T(int, in
 {% raw %}
 ```cpp
 #line 1 "dp/monotone-minima.cpp"
+/**
+ * @brief Monotone-Minima
+ * @docs docs/monotone-minima.md
+ */
 template< typename T, typename Compare = less< T > >
 vector< pair< int, T > > monotone_minima(int H, int W, const function< T(int, int) > &f, const Compare &comp = Compare()) {
   vector< pair< int, T > > dp(H);
@@ -94,7 +119,6 @@ vector< pair< int, T > > monotone_minima(int H, int W, const function< T(int, in
   dfs(0, H - 1, 0, W - 1);
   return dp;
 }
-
 
 ```
 {% endraw %}
