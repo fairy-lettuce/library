@@ -25,15 +25,26 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: math/number-theory/convert-base.cpp
+# :heavy_check_mark: Convert-Base(進数変換) <small>(math/number-theory/convert-base.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d4a327615e3a055131f0682831111ce2">math/number-theory</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/number-theory/convert-base.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:36:31+09:00
+    - Last commit date: 2020-02-24 19:08:02+09:00
 
 
+
+
+## 概要
+
+10進数 $x$ を $b$ 進数に変換する.
+
+* `convert_base(x, b)`: 10 進数 `x` を `b` 進数に変換した結果を返す.
+
+## 計算量
+
+* $O(\log x)$
 
 
 ## Verified with
@@ -46,6 +57,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Convert-Base(進数変換)
+ * @docs docs/convert-base.md
+ */
 template< typename T >
 vector< T > convert_base(T x, T b) {
   vector< T > ret;
@@ -69,6 +84,10 @@ vector< T > convert_base(T x, T b) {
 {% raw %}
 ```cpp
 #line 1 "math/number-theory/convert-base.cpp"
+/**
+ * @brief Convert-Base(進数変換)
+ * @docs docs/convert-base.md
+ */
 template< typename T >
 vector< T > convert_base(T x, T b) {
   vector< T > ret;

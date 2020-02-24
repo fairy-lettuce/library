@@ -25,15 +25,26 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: math/number-theory/divisor.cpp
+# :warning: Divisor(約数列挙) <small>(math/number-theory/divisor.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d4a327615e3a055131f0682831111ce2">math/number-theory</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/number-theory/divisor.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:36:31+09:00
+    - Last commit date: 2020-02-24 19:08:02+09:00
 
 
+
+
+## 概要
+
+ある数の約数を列挙する.
+
+* `divisor(n)`: `n` の約数を返す.
+
+## 計算量
+
+* $O(\sqrt n)$
 
 
 ## Code
@@ -41,6 +52,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Divisor(約数列挙)
+ * @docs docs/divisor.md
+ */
 vector< int64_t > divisor(int64_t n) {
   vector< int64_t > ret;
   for(int64_t i = 1; i * i <= n; i++) {
@@ -50,7 +65,7 @@ vector< int64_t > divisor(int64_t n) {
     }
   }
   sort(begin(ret), end(ret));
-  return (ret);
+  return ret;
 }
 
 ```
@@ -60,6 +75,10 @@ vector< int64_t > divisor(int64_t n) {
 {% raw %}
 ```cpp
 #line 1 "math/number-theory/divisor.cpp"
+/**
+ * @brief Divisor(約数列挙)
+ * @docs docs/divisor.md
+ */
 vector< int64_t > divisor(int64_t n) {
   vector< int64_t > ret;
   for(int64_t i = 1; i * i <= n; i++) {
@@ -69,7 +88,7 @@ vector< int64_t > divisor(int64_t n) {
     }
   }
   sort(begin(ret), end(ret));
-  return (ret);
+  return ret;
 }
 
 ```

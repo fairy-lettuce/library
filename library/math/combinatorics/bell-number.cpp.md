@@ -25,15 +25,30 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: math/combinatorics/bell-number.cpp
+# :heavy_check_mark: Bell-Number(ベル数) <small>(math/combinatorics/bell-number.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d319ed68764efb4f50b1628220df55d7">math/combinatorics</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/combinatorics/bell-number.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:36:31+09:00
+    - Last commit date: 2020-02-24 19:08:02+09:00
 
 
+
+
+## 概要
+
+ベル数 $B(n,k)$ を求める.
+
+区別できる $n$ 個のボールを区別できない $k$ 個以下の箱に分割する方法の数を与える.
+
+特に $B(n,n)$ は $n$ 個のボールを任意個のグループに分割する方法の数である.
+
+* `bell_number(n, k)`: $B(n, k)$ を返す.
+
+## 計算量
+
+* $O(\min(n, k) \log n)$
 
 
 ## Verified with
@@ -46,6 +61,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Bell-Number(ベル数)
+ * @docs docs/bell-number.md
+ */
 template< typename T >
 T bell_number(int n, int k) {
   if(n == 0) return 1;
@@ -71,6 +90,10 @@ T bell_number(int n, int k) {
 {% raw %}
 ```cpp
 #line 1 "math/combinatorics/bell-number.cpp"
+/**
+ * @brief Bell-Number(ベル数)
+ * @docs docs/bell-number.md
+ */
 template< typename T >
 T bell_number(int n, int k) {
   if(n == 0) return 1;

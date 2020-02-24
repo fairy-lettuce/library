@@ -25,15 +25,30 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: math/number-theory/euler-phi.cpp
+# :heavy_check_mark: Euler's-Phi-Function(オイラーのφ関数) <small>(math/number-theory/euler-phi.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d4a327615e3a055131f0682831111ce2">math/number-theory</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/number-theory/euler-phi.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:36:31+09:00
+    - Last commit date: 2020-02-24 19:08:02+09:00
 
 
+
+
+## 概要
+
+正の整数 $n$ が与えられたとき, $1$ から $n$ までの自然数のうち $n$ と互いに素なものの個数 $\phi(n)$ を求める.
+
+以下の式で効率的に求めることができる.
+
+$\phi(n)=n\displaystyle\prod_{i=1}^k(1-\dfrac{1}{p_i})$ (ただし $p_i$ は $n$ の素因数)
+
+* `euler_phi(n)`: $\phi(n)$ を返す.
+
+## 計算量
+
+* $O(\sqrt N)$
 
 
 ## Verified with
@@ -46,6 +61,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Euler's-Phi-Function(オイラーのφ関数)
+ * @docs docs/euler-phi.md
+ */
 int64_t euler_phi(int64_t n) {
   int64_t ret = n;
   for(int64_t i = 2; i * i <= n; i++) {
@@ -65,6 +84,10 @@ int64_t euler_phi(int64_t n) {
 {% raw %}
 ```cpp
 #line 1 "math/number-theory/euler-phi.cpp"
+/**
+ * @brief Euler's-Phi-Function(オイラーのφ関数)
+ * @docs docs/euler-phi.md
+ */
 int64_t euler_phi(int64_t n) {
   int64_t ret = n;
   for(int64_t i = 2; i * i <= n; i++) {

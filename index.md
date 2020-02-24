@@ -151,8 +151,8 @@ layout: default
 ### math/combinatorics
 
 * :heavy_check_mark: <a href="library/math/combinatorics/arbitrary-mod-int.cpp.html">math/combinatorics/arbitrary-mod-int.cpp</a>
-* :heavy_check_mark: <a href="library/math/combinatorics/bell-number.cpp.html">math/combinatorics/bell-number.cpp</a>
-* :warning: <a href="library/math/combinatorics/binomial-table.cpp.html">math/combinatorics/binomial-table.cpp</a>
+* :heavy_check_mark: <a href="library/math/combinatorics/bell-number.cpp.html">Bell-Number(ベル数) <small>(math/combinatorics/bell-number.cpp)</small></a>
+* :warning: <a href="library/math/combinatorics/binomial-table.cpp.html">Binomial-Table(二項係数テーブル) <small>(math/combinatorics/binomial-table.cpp)</small></a>
 * :warning: <a href="library/math/combinatorics/binomial.cpp.html">math/combinatorics/binomial.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/combination.cpp.html">math/combinatorics/combination.cpp</a>
 * :warning: <a href="library/math/combinatorics/lagrange-polynomial.cpp.html">math/combinatorics/lagrange-polynomial.cpp</a>
@@ -161,8 +161,8 @@ layout: default
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-log.cpp.html">math/combinatorics/mod-log.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-pow.cpp.html">math/combinatorics/mod-pow.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-sqrt.cpp.html">math/combinatorics/mod-sqrt.cpp</a>
-* :heavy_check_mark: <a href="library/math/combinatorics/montmort.cpp.html">math/combinatorics/montmort.cpp</a>
-* :heavy_check_mark: <a href="library/math/combinatorics/partition-table.cpp.html">math/combinatorics/partition-table.cpp</a>
+* :heavy_check_mark: <a href="library/math/combinatorics/montmort.cpp.html">Montmort-Number(モンモール数) <small>(math/combinatorics/montmort.cpp)</small></a>
+* :heavy_check_mark: <a href="library/math/combinatorics/partition-table.cpp.html">Partition-Table(分割数テーブル) <small>(math/combinatorics/partition-table.cpp)</small></a>
 * :heavy_check_mark: <a href="library/math/combinatorics/stirling-number-second.cpp.html">math/combinatorics/stirling-number-second.cpp</a>
 
 
@@ -201,10 +201,10 @@ layout: default
 
 ### math/number-theory
 
-* :heavy_check_mark: <a href="library/math/number-theory/convert-base.cpp.html">math/number-theory/convert-base.cpp</a>
-* :warning: <a href="library/math/number-theory/divisor.cpp.html">math/number-theory/divisor.cpp</a>
-* :warning: <a href="library/math/number-theory/euler-phi-table.cpp.html">math/number-theory/euler-phi-table.cpp</a>
-* :heavy_check_mark: <a href="library/math/number-theory/euler-phi.cpp.html">math/number-theory/euler-phi.cpp</a>
+* :heavy_check_mark: <a href="library/math/number-theory/convert-base.cpp.html">Convert-Base(進数変換) <small>(math/number-theory/convert-base.cpp)</small></a>
+* :warning: <a href="library/math/number-theory/divisor.cpp.html">Divisor(約数列挙) <small>(math/number-theory/divisor.cpp)</small></a>
+* :warning: <a href="library/math/number-theory/euler-phi-table.cpp.html">Euler’s-Phi-Function-Table(オイラーのφ関数テーブル) <small>(math/number-theory/euler-phi-table.cpp)</small></a>
+* :heavy_check_mark: <a href="library/math/number-theory/euler-phi.cpp.html">Euler's-Phi-Function(オイラーのφ関数) <small>(math/number-theory/euler-phi.cpp)</small></a>
 * :heavy_check_mark: <a href="library/math/number-theory/extgcd.cpp.html">math/number-theory/extgcd.cpp</a>
 * :heavy_check_mark: <a href="library/math/number-theory/fast-prime-factorization.cpp.html">math/number-theory/fast-prime-factorization.cpp</a>
 * :heavy_check_mark: <a href="library/math/number-theory/is-prime.cpp.html">math/number-theory/is-prime.cpp</a>

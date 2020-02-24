@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-montmort-number-mod.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-07 02:37:39+09:00
+    - Last commit date: 2020-02-24 19:08:02+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/montmort_number_mod">https://judge.yosupo.jp/problem/montmort_number_mod</a>
@@ -39,7 +39,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/arbitrary-mod-int.cpp.html">math/combinatorics/arbitrary-mod-int.cpp</a>
-* :heavy_check_mark: <a href="../../../library/math/combinatorics/montmort.cpp.html">math/combinatorics/montmort.cpp</a>
+* :heavy_check_mark: <a href="../../../library/math/combinatorics/montmort.cpp.html">Montmort-Number(モンモール数) <small>(math/combinatorics/montmort.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -249,6 +249,10 @@ struct ArbitraryModInt {
   }
 };
 #line 1 "test/verify/../../math/combinatorics/montmort.cpp"
+/**
+ * @brief Montmort-Number(モンモール数)
+ * @docs docs/montmort.md
+ */
 template< typename T >
 vector< T > montmort(int N) {
   vector< T > dp(N + 1);

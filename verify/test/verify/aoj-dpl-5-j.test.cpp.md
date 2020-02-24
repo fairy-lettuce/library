@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-5-j.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:36:31+09:00
+    - Last commit date: 2020-02-24 19:08:02+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_J">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_J</a>
@@ -39,7 +39,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
-* :heavy_check_mark: <a href="../../../library/math/combinatorics/partition-table.cpp.html">math/combinatorics/partition-table.cpp</a>
+* :heavy_check_mark: <a href="../../../library/math/combinatorics/partition-table.cpp.html">Partition-Table(分割数テーブル) <small>(math/combinatorics/partition-table.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -59,7 +59,7 @@ layout: default
 int main() {
   int N, K;
   cin >> N >> K;
-  cout << get_partition< modint >(N, K)[N][K] << endl;
+  cout << partition_table< modint >(N, K)[N][K] << endl;
 }
 
 ```
@@ -241,8 +241,12 @@ using modint = ModInt< mod >;
 #line 6 "test/verify/aoj-dpl-5-j.test.cpp"
 
 #line 1 "test/verify/../../math/combinatorics/partition-table.cpp"
+/**
+ * @brief Partition-Table(分割数テーブル)
+ * @docs docs/partition-table.md
+ */
 template< typename T >
-vector< vector< T > > get_partition(int n, int k) {
+vector< vector< T > > partition_table(int n, int k) {
   vector< vector< T > > dp(n + 1, vector< T >(k + 1));
   dp[0][0] = 1;
   for(int i = 0; i <= n; i++) {
@@ -258,7 +262,7 @@ vector< vector< T > > get_partition(int n, int k) {
 int main() {
   int N, K;
   cin >> N >> K;
-  cout << get_partition< modint >(N, K)[N][K] << endl;
+  cout << partition_table< modint >(N, K)[N][K] << endl;
 }
 
 ```

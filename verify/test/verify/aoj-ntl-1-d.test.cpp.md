@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-ntl-1-d.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:36:31+09:00
+    - Last commit date: 2020-02-24 19:08:02+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_D</a>
@@ -38,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/math/number-theory/euler-phi.cpp.html">math/number-theory/euler-phi.cpp</a>
+* :heavy_check_mark: <a href="../../../library/math/number-theory/euler-phi.cpp.html">Euler's-Phi-Function(オイラーのφ関数) <small>(math/number-theory/euler-phi.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -158,6 +158,10 @@ inline decltype(auto) MFP(F &&f) {
 #line 4 "test/verify/aoj-ntl-1-d.test.cpp"
 
 #line 1 "test/verify/../../math/number-theory/euler-phi.cpp"
+/**
+ * @brief Euler's-Phi-Function(オイラーのφ関数)
+ * @docs docs/euler-phi.md
+ */
 int64_t euler_phi(int64_t n) {
   int64_t ret = n;
   for(int64_t i = 2; i * i <= n; i++) {

@@ -25,15 +25,32 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: math/number-theory/euler-phi-table.cpp
+# :warning: Euler’s-Phi-Function-Table(オイラーのφ関数テーブル) <small>(math/number-theory/euler-phi-table.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d4a327615e3a055131f0682831111ce2">math/number-theory</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/number-theory/euler-phi-table.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:36:31+09:00
+    - Last commit date: 2020-02-24 19:08:02+09:00
 
 
+
+
+## 概要
+
+正の整数 $n$ が与えられたとき, $1$ から $n$ までの自然数のうち $n$ と互いに素なものの個数 $\phi(n)$ を求める.
+
+以下の式で効率的に求めることができる.
+
+$\phi(n)=n\displaystyle\prod_{i=1}^k(1-\dfrac{1}{p_i})$ (ただし $p_i$ は $n$ の素因数)
+
+これは各素因数側から割っていっても同じように計算できるので, $n$ 以下のテーブルを効率的に構築可能である.
+
+* `euler_phi_table(n)`: `n` 以下のオイラーの $\phi$ 関数テーブルを返す.
+
+## 計算量
+
+* $O(N \log \log N)$
 
 
 ## Code
@@ -41,6 +58,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Euler’s-Phi-Function-Table(オイラーのφ関数テーブル)
+ * @docs docs/euler-phi-table.md
+ */
 vector< int > euler_phi_table(int n) {
   vector< int > euler(n + 1);
   for(int i = 0; i <= n; i++) {
@@ -63,6 +84,10 @@ vector< int > euler_phi_table(int n) {
 {% raw %}
 ```cpp
 #line 1 "math/number-theory/euler-phi-table.cpp"
+/**
+ * @brief Euler’s-Phi-Function-Table(オイラーのφ関数テーブル)
+ * @docs docs/euler-phi-table.md
+ */
 vector< int > euler_phi_table(int n) {
   vector< int > euler(n + 1);
   for(int i = 0; i <= n; i++) {

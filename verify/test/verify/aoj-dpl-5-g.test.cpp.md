@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-5-g.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:36:31+09:00
+    - Last commit date: 2020-02-24 19:08:02+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_G">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_G</a>
@@ -38,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/math/combinatorics/bell-number.cpp.html">math/combinatorics/bell-number.cpp</a>
+* :heavy_check_mark: <a href="../../../library/math/combinatorics/bell-number.cpp.html">Bell-Number(ベル数) <small>(math/combinatorics/bell-number.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/combination.cpp.html">math/combinatorics/combination.cpp</a>
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
@@ -277,6 +277,10 @@ struct Combination {
 #line 7 "test/verify/aoj-dpl-5-g.test.cpp"
 
 #line 1 "test/verify/../../math/combinatorics/bell-number.cpp"
+/**
+ * @brief Bell-Number(ベル数)
+ * @docs docs/bell-number.md
+ */
 template< typename T >
 T bell_number(int n, int k) {
   if(n == 0) return 1;

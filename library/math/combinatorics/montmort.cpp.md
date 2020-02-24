@@ -25,15 +25,28 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: math/combinatorics/montmort.cpp
+# :heavy_check_mark: Montmort-Number(モンモール数) <small>(math/combinatorics/montmort.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d319ed68764efb4f50b1628220df55d7">math/combinatorics</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/combinatorics/montmort.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-07 02:33:07+09:00
+    - Last commit date: 2020-02-24 19:08:02+09:00
 
 
+
+
+## 概要
+
+完全順列の総数をモンモール数とよぶ.
+
+長さ $n$ の完全順列とは, 長さ $n$ の順列であって $i(1 \leq i \leq N)$ 番目の要素が $i$ でない順列を指す.
+
+* `montmort(n)`: `n` 番目のモンモール数を返す.
+
+## 計算量
+
+* $O(n)$
 
 
 ## Verified with
@@ -46,6 +59,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Montmort-Number(モンモール数)
+ * @docs docs/montmort.md
+ */
 template< typename T >
 vector< T > montmort(int N) {
   vector< T > dp(N + 1);
@@ -64,6 +81,10 @@ vector< T > montmort(int N) {
 {% raw %}
 ```cpp
 #line 1 "math/combinatorics/montmort.cpp"
+/**
+ * @brief Montmort-Number(モンモール数)
+ * @docs docs/montmort.md
+ */
 template< typename T >
 vector< T > montmort(int N) {
   vector< T > dp(N + 1);
