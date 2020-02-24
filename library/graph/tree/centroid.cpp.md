@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: graph/tree/centroid.cpp
+# :heavy_check_mark: Centroid(木の重心) <small>(graph/tree/centroid.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#28790b6202284cbbffc9d712b59f4b80">graph/tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/tree/centroid.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-02-24 21:04:47+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2821.test.cpp.html">test/verify/aoj-2821.test.cpp</a>
 
 
 ## Code
@@ -41,6 +46,9 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Centroid(木の重心)
+ */
 template< typename G >
 vector< int > centroid(const G &g) {
   const int N = (int) g.size();
@@ -79,6 +87,9 @@ vector< int > centroid(const G &g) {
 {% raw %}
 ```cpp
 #line 1 "graph/tree/centroid.cpp"
+/**
+ * @brief Centroid(木の重心)
+ */
 template< typename G >
 vector< int > centroid(const G &g) {
   const int N = (int) g.size();

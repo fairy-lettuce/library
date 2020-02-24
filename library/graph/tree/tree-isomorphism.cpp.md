@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: graph/tree/tree-isomorphism.cpp
+# :heavy_check_mark: Tree-Isomorphism(木の同型性判定) <small>(graph/tree/tree-isomorphism.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#28790b6202284cbbffc9d712b59f4b80">graph/tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/tree/tree-isomorphism.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-02-24 21:04:47+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2821.test.cpp.html">test/verify/aoj-2821.test.cpp</a>
 
 
 ## Code
@@ -41,14 +46,16 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-template< typename G >
-bool tree_isomorphism(const G &a, const G &b) {
+/**
+ * @brief Tree-Isomorphism(木の同型性判定)
+ */
+bool tree_isomorphism(const UnWeightedGraph &a, const UnWeightedGraph &b) {
   if(a.size() != b.size()) return false;
 
   const int N = (int) a.size();
   using pvi = pair< vector< int >, vector< int > >;
 
-  auto get_uku = [&](const G &t, int e) {
+  auto get_uku = [&](const UnWeightedGraph &t, int e) {
     stack< pair< int, int > > st;
     st.emplace(e, -1);
     vector< int > dep(N, -1), par(N);
@@ -118,14 +125,16 @@ bool tree_isomorphism(const G &a, const G &b) {
 {% raw %}
 ```cpp
 #line 1 "graph/tree/tree-isomorphism.cpp"
-template< typename G >
-bool tree_isomorphism(const G &a, const G &b) {
+/**
+ * @brief Tree-Isomorphism(木の同型性判定)
+ */
+bool tree_isomorphism(const UnWeightedGraph &a, const UnWeightedGraph &b) {
   if(a.size() != b.size()) return false;
 
   const int N = (int) a.size();
   using pvi = pair< vector< int >, vector< int > >;
 
-  auto get_uku = [&](const G &t, int e) {
+  auto get_uku = [&](const UnWeightedGraph &t, int e) {
     stack< pair< int, int > > st;
     st.emplace(e, -1);
     vector< int > dep(N, -1), par(N);

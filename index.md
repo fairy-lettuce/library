@@ -137,13 +137,13 @@ layout: default
 ### graph/tree
 
 * :warning: <a href="library/graph/tree/centroid-decomposition.cpp.html">graph/tree/centroid-decomposition.cpp</a>
-* :warning: <a href="library/graph/tree/centroid.cpp.html">graph/tree/centroid.cpp</a>
+* :heavy_check_mark: <a href="library/graph/tree/centroid.cpp.html">Centroid(木の重心) <small>(graph/tree/centroid.cpp)</small></a>
 * :warning: <a href="library/graph/tree/convert-rooted-tree.cpp.html">graph/tree/convert-rooted-tree.cpp</a>
 * :heavy_check_mark: <a href="library/graph/tree/doubling-lowest-common-ancestor.cpp.html">graph/tree/doubling-lowest-common-ancestor.cpp</a>
 * :heavy_check_mark: <a href="library/graph/tree/heavy-light-decomposition.cpp.html">graph/tree/heavy-light-decomposition.cpp</a>
 * :heavy_check_mark: <a href="library/graph/tree/rerooting.cpp.html">graph/tree/rerooting.cpp</a>
 * :heavy_check_mark: <a href="library/graph/tree/tree-diameter.cpp.html">graph/tree/tree-diameter.cpp</a>
-* :warning: <a href="library/graph/tree/tree-isomorphism.cpp.html">graph/tree/tree-isomorphism.cpp</a>
+* :heavy_check_mark: <a href="library/graph/tree/tree-isomorphism.cpp.html">Tree-Isomorphism(木の同型性判定) <small>(graph/tree/tree-isomorphism.cpp)</small></a>
 
 
 <div id="d319ed68764efb4f50b1628220df55d7"></div>
@@ -365,6 +365,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2667.test.cpp.html">test/verify/aoj-2667.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2674-2.test.cpp.html">test/verify/aoj-2674-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2674.test.cpp.html">test/verify/aoj-2674.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-2821.test.cpp.html">test/verify/aoj-2821.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-alds-1-1-c-2.test.cpp.html">test/verify/aoj-alds-1-1-c-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-alds-1-1-c.test.cpp.html">test/verify/aoj-alds-1-1-c.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-alds-1-14-b.test.cpp.html">test/verify/aoj-alds-1-14-b.test.cpp</a>
