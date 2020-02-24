@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#f2e6b7734e19ae7657e83160bba9f2e7">math/fft</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/fft/number-theoretic-transform.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-03 22:21:44+09:00
+    - Last commit date: 2020-02-24 19:19:55+09:00
 
 
 
@@ -105,7 +105,6 @@ struct NumberTheoreticTransform {
     }
   }
 
-
   void ntt(vector< int > &a) {
     const int n = (int) a.size();
     assert((n & (n - 1)) == 0);
@@ -127,7 +126,6 @@ struct NumberTheoreticTransform {
       }
     }
   }
-
 
   vector< int > multiply(vector< int > a, vector< int > b) {
     int need = a.size() + b.size() - 1;
@@ -216,7 +214,6 @@ struct NumberTheoreticTransform {
     }
   }
 
-
   void ntt(vector< int > &a) {
     const int n = (int) a.size();
     assert((n & (n - 1)) == 0);
@@ -238,7 +235,6 @@ struct NumberTheoreticTransform {
       }
     }
   }
-
 
   vector< int > multiply(vector< int > a, vector< int > b) {
     int need = a.size() + b.size() - 1;

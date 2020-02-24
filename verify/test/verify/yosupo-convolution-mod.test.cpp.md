@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-convolution-mod.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-20 16:47:22+09:00
+    - Last commit date: 2020-02-24 19:19:55+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/convolution_mod">https://judge.yosupo.jp/problem/convolution_mod</a>
@@ -222,7 +222,6 @@ struct NumberTheoreticTransform {
     }
   }
 
-
   void ntt(vector< int > &a) {
     const int n = (int) a.size();
     assert((n & (n - 1)) == 0);
@@ -244,7 +243,6 @@ struct NumberTheoreticTransform {
       }
     }
   }
-
 
   vector< int > multiply(vector< int > a, vector< int > b) {
     int need = a.size() + b.size() - 1;
