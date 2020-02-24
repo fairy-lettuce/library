@@ -42,6 +42,10 @@ layout: default
 * `update(l, r, x)`: 区間 $[l, r)$ に作用素 `x` を適用する.
 * `operator[k]`: `k` 番目の作用素を返す.
 
+## 計算量
+
+* クエリ: $O(\log N)$
+
 
 ## Verified with
 
