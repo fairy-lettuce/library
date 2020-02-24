@@ -34,6 +34,8 @@ layout: default
     - Last commit date: 2020-02-21 17:07:30+09:00
 
 
+
+
 ## 概要
 
 0-1 ナップサック問題を次に示す.
@@ -42,7 +44,7 @@ layout: default
 
 価値を状態にした動的計画法により $O(N \sum {v_i})$. 
 
-* knapsack_01_2($w$, $v$, $W$): 重さが $W$ 以下で価値の和の最大値を返す.
+* `knapsack_01_2(w, v, W)`: 重さが `W` 以下で価値の和の最大値を返す.
 
 
 ## Verified with

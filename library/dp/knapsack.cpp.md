@@ -34,6 +34,8 @@ layout: default
     - Last commit date: 2020-02-21 17:07:30+09:00
 
 
+
+
 ## 概要
 
 個数制限なしナップサック問題を次に示す.
@@ -42,7 +44,7 @@ layout: default
 
 重さを状態にした動的計画法により $O(NW)$. 
 
-* knapsack($w$, $v$, $W$, $NG$, $comp$): $W$ 以下の範囲で, 各重さについて価値の最大値を求める. $NG$ は到達ができない場合の値で, $comp$ は比較演算子.
+* `knapsack(w, v, W, NG, comp)`: `W` 以下の範囲で, 各重さについて価値の最大値を求める. `NG` は到達ができない場合の値で, `comp` は比較演算子.
 
 
 ## Verified with
