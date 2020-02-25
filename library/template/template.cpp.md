@@ -116,6 +116,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-line-add-get-min.test.cpp.html">test/verify/yosupo-line-add-get-min.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-log-of-formal-power-series.test.cpp.html">test/verify/yosupo-log-of-formal-power-series.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-matrix-det.test.cpp.html">test/verify/yosupo-matrix-det.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-maximum-independent-set-2.test.cpp.html">test/verify/yosupo-maximum-independent-set-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-maximum-independent-set.test.cpp.html">test/verify/yosupo-maximum-independent-set.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-montmort-number-mod.test.cpp.html">test/verify/yosupo-montmort-number-mod.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-multipoint-evaluation.test.cpp.html">test/verify/yosupo-multipoint-evaluation.test.cpp</a>

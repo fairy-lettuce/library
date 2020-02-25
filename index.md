@@ -111,6 +111,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/graph/others/chromatic-number.cpp.html">graph/others/chromatic-number.cpp</a>
 * :heavy_check_mark: <a href="library/graph/others/dominator-tree.cpp.html">graph/others/dominator-tree.cpp</a>
+* :heavy_check_mark: <a href="library/graph/others/enumerate-clique.cpp.html">graph/others/enumerate-clique.cpp</a>
 * :warning: <a href="library/graph/others/eulerian-trail.cpp.html">graph/others/eulerian-trail.cpp</a>
 * :heavy_check_mark: <a href="library/graph/others/lowlink.cpp.html">graph/others/lowlink.cpp</a>
 * :heavy_check_mark: <a href="library/graph/others/maximum-clique.cpp.html">graph/others/maximum-clique.cpp</a>
@@ -427,6 +428,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-line-add-get-min.test.cpp.html">test/verify/yosupo-line-add-get-min.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-log-of-formal-power-series.test.cpp.html">test/verify/yosupo-log-of-formal-power-series.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-matrix-det.test.cpp.html">test/verify/yosupo-matrix-det.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-maximum-independent-set-2.test.cpp.html">test/verify/yosupo-maximum-independent-set-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-maximum-independent-set.test.cpp.html">test/verify/yosupo-maximum-independent-set.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-montmort-number-mod.test.cpp.html">test/verify/yosupo-montmort-number-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-multipoint-evaluation.test.cpp.html">test/verify/yosupo-multipoint-evaluation.test.cpp</a>
