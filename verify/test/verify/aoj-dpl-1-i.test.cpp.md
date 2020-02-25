@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-1-i.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-03 22:44:33+09:00
+    - Last commit date: 2020-02-26 02:30:05+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_I">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_I</a>
@@ -38,8 +38,8 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/dp/knapsack-limitations-2.cpp.html">dp/knapsack-limitations-2.cpp</a>
-* :heavy_check_mark: <a href="../../../library/dp/knapsack-limitations.cpp.html">dp/knapsack-limitations.cpp</a>
+* :heavy_check_mark: <a href="../../../library/dp/knapsack-limitations-2.cpp.html">Knapsack-Limitations(個数制限つきナップサック問題) $O(N^2 \max(v_i)^2)$ <small>(dp/knapsack-limitations-2.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/dp/knapsack-limitations.cpp.html">Knapsack-Limitations(個数制限つきナップサック問題) $O(NW)$ <small>(dp/knapsack-limitations.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -167,6 +167,10 @@ inline decltype(auto) MFP(F &&f) {
 #line 4 "test/verify/aoj-dpl-1-i.test.cpp"
 
 #line 1 "test/verify/../../dp/knapsack-limitations.cpp"
+/**
+ * @brief Knapsack-Limitations(個数制限つきナップサック問題) $O(NW)$
+ * @docs docs/knapsack-limitations.md
+ */
 template< typename T, typename Compare = greater< T > >
 vector< T > knapsack_limitations(const vector< int > &w, const vector< int > &m, const vector< T > &v,
                                  const int &W, const T &NG, const Compare &comp = Compare()) {
@@ -196,6 +200,10 @@ vector< T > knapsack_limitations(const vector< int > &w, const vector< int > &m,
 #line 6 "test/verify/aoj-dpl-1-i.test.cpp"
 
 #line 1 "test/verify/../../dp/knapsack-limitations-2.cpp"
+/**
+ * @brief Knapsack-Limitations(個数制限つきナップサック問題) $O(N^2 \max(v_i)^2)$
+ * @docs docs/knapsack-limitations-2.md
+ */
 template< typename T >
 T knapsack_limitations(const vector< T > &w, const vector< T > &m, const vector< int > &v,
                        const T &W) {

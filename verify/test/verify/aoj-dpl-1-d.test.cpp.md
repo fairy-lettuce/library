@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-1-d.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-03 22:44:33+09:00
+    - Last commit date: 2020-02-26 02:30:05+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D</a>
@@ -38,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/dp/longest-increasing-subsequence.cpp.html">dp/longest-increasing-subsequence.cpp</a>
+* :heavy_check_mark: <a href="../../../library/dp/longest-increasing-subsequence.cpp.html">Longest-Increasing-Subsequence(最長増加部分列) <small>(dp/longest-increasing-subsequence.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -160,6 +160,10 @@ inline decltype(auto) MFP(F &&f) {
 #line 4 "test/verify/aoj-dpl-1-d.test.cpp"
 
 #line 1 "test/verify/../../dp/longest-increasing-subsequence.cpp"
+/**
+ * @brief Longest-Increasing-Subsequence(最長増加部分列)
+ * @docs docs/longest-increasing-subsequence.md
+ */
 template< typename T >
 size_t longest_increasing_subsequence(const vector< T > &a, bool strict) {
   vector< T > lis;

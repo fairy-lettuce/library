@@ -25,15 +25,30 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: dp/knapsack-limitations-2.cpp
+# :heavy_check_mark: Knapsack-Limitations(個数制限つきナップサック問題) $O(N^2 \max(v_i)^2)$ <small>(dp/knapsack-limitations-2.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
 * <a href="{{ site.github.repository_url }}/blob/master/dp/knapsack-limitations-2.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-08-30 00:42:45+09:00
+    - Last commit date: 2020-02-26 02:30:05+09:00
 
 
+
+
+## 概要
+
+個数制限つきナップサック問題を次に示す.
+
+重さ $w_i$, 価値 $v_i$ であるような $N$ 種類の品物がある. $i$ 番目の品物は $m_i$ 個まで選ぶことができる. 重さの和が $W$ 以下となるように選ぶとき, 価値の最大値を求めよ.
+
+まず「dp[価値の和]:= 重さの和の最小値」をある程度の大きさ($N \max(v_i)^2$)まで求める。残りの分は, 効率が良い順(価値/重さが大きい順)に貪欲にとってもいいことが示せて, なんかできる(c).
+
+* `knapsack_limitations(w, m, v, W)`: 価値の最大値を求める. 
+
+## 計算量
+
+* $O(N^2 \max(v_i)^2)$
 
 
 ## Verified with
@@ -46,6 +61,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Knapsack-Limitations(個数制限つきナップサック問題) $O(N^2 \max(v_i)^2)$
+ * @docs docs/knapsack-limitations-2.md
+ */
 template< typename T >
 T knapsack_limitations(const vector< T > &w, const vector< T > &m, const vector< int > &v,
                        const T &W) {
@@ -88,6 +107,10 @@ T knapsack_limitations(const vector< T > &w, const vector< T > &m, const vector<
 {% raw %}
 ```cpp
 #line 1 "dp/knapsack-limitations-2.cpp"
+/**
+ * @brief Knapsack-Limitations(個数制限つきナップサック問題) $O(N^2 \max(v_i)^2)$
+ * @docs docs/knapsack-limitations-2.md
+ */
 template< typename T >
 T knapsack_limitations(const vector< T > &w, const vector< T > &m, const vector< int > &v,
                        const T &W) {

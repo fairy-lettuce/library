@@ -45,11 +45,11 @@ layout: default
 * :heavy_check_mark: <a href="library/dp/hu-tucker.cpp.html">dp/hu-tucker.cpp</a>
 * :heavy_check_mark: <a href="library/dp/knapsack-01-2.cpp.html">Knapsack-01(0-1ナップサック問題) $O(N \sum {v_i})$ <small>(dp/knapsack-01-2.cpp)</small></a>
 * :heavy_check_mark: <a href="library/dp/knapsack-01.cpp.html">Knapsack-01(0-1ナップサック問題) $O(NW)$ <small>(dp/knapsack-01.cpp)</small></a>
-* :heavy_check_mark: <a href="library/dp/knapsack-limitations-2.cpp.html">dp/knapsack-limitations-2.cpp</a>
-* :heavy_check_mark: <a href="library/dp/knapsack-limitations.cpp.html">dp/knapsack-limitations.cpp</a>
+* :heavy_check_mark: <a href="library/dp/knapsack-limitations-2.cpp.html">Knapsack-Limitations(個数制限つきナップサック問題) $O(N^2 \max(v_i)^2)$ <small>(dp/knapsack-limitations-2.cpp)</small></a>
+* :heavy_check_mark: <a href="library/dp/knapsack-limitations.cpp.html">Knapsack-Limitations(個数制限つきナップサック問題) $O(NW)$ <small>(dp/knapsack-limitations.cpp)</small></a>
 * :heavy_check_mark: <a href="library/dp/knapsack.cpp.html">Knapsack(個数制限なしナップサック問題) <small>(dp/knapsack.cpp)</small></a>
 * :heavy_check_mark: <a href="library/dp/largest-rectangle.cpp.html">dp/largest-rectangle.cpp</a>
-* :heavy_check_mark: <a href="library/dp/longest-increasing-subsequence.cpp.html">dp/longest-increasing-subsequence.cpp</a>
+* :heavy_check_mark: <a href="library/dp/longest-increasing-subsequence.cpp.html">Longest-Increasing-Subsequence(最長増加部分列) <small>(dp/longest-increasing-subsequence.cpp)</small></a>
 * :heavy_check_mark: <a href="library/dp/monotone-minima.cpp.html">Monotone-Minima <small>(dp/monotone-minima.cpp)</small></a>
 * :warning: <a href="library/dp/online-offline-dp.cpp.html">Online-Offline-DP(オンライン・オフライン変換) <small>(dp/online-offline-dp.cpp)</small></a>
 * :warning: <a href="library/dp/slide-min.cpp.html">dp/slide-min.cpp</a>
