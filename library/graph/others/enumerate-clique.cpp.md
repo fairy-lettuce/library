@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: graph/others/enumerate-clique.cpp
+# :heavy_check_mark: Enumerate-Clique(クリーク全列挙) <small>(graph/others/enumerate-clique.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#e557c7f962c39680942b9dada22cabec">graph/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/others/enumerate-clique.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-25 22:33:24+09:00
+    - Last commit date: 2020-02-25 22:57:51+09:00
 
 
 * see: <a href="https://www.slideshare.net/wata_orz/ss-12131479">https://www.slideshare.net/wata_orz/ss-12131479</a>
@@ -48,7 +48,7 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @bref Enumerate-Clique(クリーク全列挙)
+ * @brief Enumerate-Clique(クリーク全列挙)
  * @see https://www.slideshare.net/wata_orz/ss-12131479
  */
 vector< vector< int > > enumerate_clique(Matrix< bool > g) {
@@ -138,7 +138,7 @@ vector< vector< int > > enumerate_clique(Matrix< bool > g) {
 ```cpp
 #line 1 "graph/others/enumerate-clique.cpp"
 /**
- * @bref Enumerate-Clique(クリーク全列挙)
+ * @brief Enumerate-Clique(クリーク全列挙)
  * @see https://www.slideshare.net/wata_orz/ss-12131479
  */
 vector< vector< int > > enumerate_clique(Matrix< bool > g) {

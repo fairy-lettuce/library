@@ -111,10 +111,10 @@ layout: default
 
 * :heavy_check_mark: <a href="library/graph/others/chromatic-number.cpp.html">graph/others/chromatic-number.cpp</a>
 * :heavy_check_mark: <a href="library/graph/others/dominator-tree.cpp.html">graph/others/dominator-tree.cpp</a>
-* :heavy_check_mark: <a href="library/graph/others/enumerate-clique.cpp.html">graph/others/enumerate-clique.cpp</a>
+* :heavy_check_mark: <a href="library/graph/others/enumerate-clique.cpp.html">Enumerate-Clique(クリーク全列挙) <small>(graph/others/enumerate-clique.cpp)</small></a>
 * :warning: <a href="library/graph/others/eulerian-trail.cpp.html">graph/others/eulerian-trail.cpp</a>
 * :heavy_check_mark: <a href="library/graph/others/lowlink.cpp.html">graph/others/lowlink.cpp</a>
-* :heavy_check_mark: <a href="library/graph/others/maximum-clique.cpp.html">graph/others/maximum-clique.cpp</a>
+* :heavy_check_mark: <a href="library/graph/others/maximum-clique.cpp.html">Maximum-Clique(最大クリーク) <small>(graph/others/maximum-clique.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/maximum-independent-set.cpp.html">graph/others/maximum-independent-set.cpp</a>
 * :heavy_check_mark: <a href="library/graph/others/offline-dag-reachability.cpp.html">graph/others/offline-dag-reachability.cpp</a>
 * :heavy_check_mark: <a href="library/graph/others/topological-sort.cpp.html">graph/others/topological-sort.cpp</a>

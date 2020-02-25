@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: graph/others/maximum-clique.cpp
+# :heavy_check_mark: Maximum-Clique(最大クリーク) <small>(graph/others/maximum-clique.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#e557c7f962c39680942b9dada22cabec">graph/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/others/maximum-clique.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-25 22:33:24+09:00
+    - Last commit date: 2020-02-25 22:57:51+09:00
 
 
 
@@ -47,7 +47,7 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @bref Maximum-Clique(最大クリーク)
+ * @brief Maximum-Clique(最大クリーク)
  */
 template< int V >
 struct MaximumClique {
@@ -125,7 +125,7 @@ struct MaximumClique {
 ```cpp
 #line 1 "graph/others/maximum-clique.cpp"
 /**
- * @bref Maximum-Clique(最大クリーク)
+ * @brief Maximum-Clique(最大クリーク)
  */
 template< int V >
 struct MaximumClique {

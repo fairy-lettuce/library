@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-maximum-independent-set-2.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-25 22:33:24+09:00
+    - Last commit date: 2020-02-25 22:57:51+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/maximum_independent_set">https://judge.yosupo.jp/problem/maximum_independent_set</a>
@@ -38,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/others/maximum-clique.cpp.html">graph/others/maximum-clique.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/others/maximum-clique.cpp.html">Maximum-Clique(最大クリーク) <small>(graph/others/maximum-clique.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -173,7 +173,7 @@ inline decltype(auto) MFP(F &&f) {
 
 #line 1 "test/verify/../../graph/others/maximum-clique.cpp"
 /**
- * @bref Maximum-Clique(最大クリーク)
+ * @brief Maximum-Clique(最大クリーク)
  */
 template< int V >
 struct MaximumClique {
