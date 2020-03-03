@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Sum-Of-Floor-Of-Linear(一次関数の床関数の和) <small>(math/number-theory/sum-of-floor-of-linear.cpp)</small>
+# :heavy_check_mark: Kth-Root <small>(math/number-theory/kth-root.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#d4a327615e3a055131f0682831111ce2">math/number-theory</a>
-* <a href="{{ site.github.repository_url }}/blob/master/math/number-theory/sum-of-floor-of-linear.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/math/number-theory/kth-root.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-03 18:40:18+09:00
 
 
@@ -38,7 +38,7 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-sum-of-floor-of-linear.test.cpp.html">test/verify/yosupo-sum-of-floor-of-linear.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-kth-root-integer.test.cpp.html">test/verify/yosupo-kth-root-integer.test.cpp</a>
 
 
 ## Code
@@ -47,18 +47,21 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief Sum-Of-Floor-Of-Linear(一次関数の床関数の和)
+ * @brief Kth-Root
  */
-template< typename T >
-T sum_of_floor_of_linear(const T &n, const T &m, T a, T b) {
-  T ret = 0;
-  if(a >= m) ret += (n - 1) * n * (a / m) / 2, a %= m;
-  if(b >= m) ret += n * (b / m), b %= m;
-  T y = (a * n + b) / m;
-  if(y == 0) return ret;
-  T x = y * m - b;
-  ret += (n - (x + a - 1) / a) * y;
-  ret += sum_of_floor_of_linear(y, a, m, (a - x % a) % a);
+uint64_t kth_root(uint64_t a, int k) {
+  if(k == 1) return a;
+  auto check = [&](uint32_t x) {
+    uint64_t mul = 1;
+    for(int j = 0; j < k; j++) {
+      if(__builtin_mul_overflow(mul, x, &mul)) return false;
+    }
+    return mul <= a;
+  };
+  uint64_t ret = 0;
+  for(int i = 31; i >= 0; i--) {
+    if(check(ret | (1u << i))) ret |= 1u << i;
+  }
   return ret;
 }
 
@@ -68,20 +71,23 @@ T sum_of_floor_of_linear(const T &n, const T &m, T a, T b) {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "math/number-theory/sum-of-floor-of-linear.cpp"
+#line 1 "math/number-theory/kth-root.cpp"
 /**
- * @brief Sum-Of-Floor-Of-Linear(一次関数の床関数の和)
+ * @brief Kth-Root
  */
-template< typename T >
-T sum_of_floor_of_linear(const T &n, const T &m, T a, T b) {
-  T ret = 0;
-  if(a >= m) ret += (n - 1) * n * (a / m) / 2, a %= m;
-  if(b >= m) ret += n * (b / m), b %= m;
-  T y = (a * n + b) / m;
-  if(y == 0) return ret;
-  T x = y * m - b;
-  ret += (n - (x + a - 1) / a) * y;
-  ret += sum_of_floor_of_linear(y, a, m, (a - x % a) % a);
+uint64_t kth_root(uint64_t a, int k) {
+  if(k == 1) return a;
+  auto check = [&](uint32_t x) {
+    uint64_t mul = 1;
+    for(int j = 0; j < k; j++) {
+      if(__builtin_mul_overflow(mul, x, &mul)) return false;
+    }
+    return mul <= a;
+  };
+  uint64_t ret = 0;
+  for(int i = 31; i >= 0; i--) {
+    if(check(ret | (1u << i))) ret |= 1u << i;
+  }
   return ret;
 }
 

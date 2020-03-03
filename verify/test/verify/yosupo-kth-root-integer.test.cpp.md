@@ -25,20 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/yosupo-sum-of-floor-of-linear.test.cpp
+# :heavy_check_mark: test/verify/yosupo-kth-root-integer.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-sum-of-floor-of-linear.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-kth-root-integer.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-03 18:40:18+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/sum_of_floor_of_linear">https://judge.yosupo.jp/problem/sum_of_floor_of_linear</a>
+* see: <a href="https://judge.yosupo.jp/problem/kth_root_integer">https://judge.yosupo.jp/problem/kth_root_integer</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/math/number-theory/sum-of-floor-of-linear.cpp.html">Sum-Of-Floor-Of-Linear(一次関数の床関数の和) <small>(math/number-theory/sum-of-floor-of-linear.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/math/number-theory/kth-root.cpp.html">Kth-Root <small>(math/number-theory/kth-root.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -47,19 +47,20 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/sum_of_floor_of_linear"
+#define PROBLEM "https://judge.yosupo.jp/problem/kth_root_integer"
 
 #include "../../template/template.cpp"
 
-#include "../../math/number-theory/sum-of-floor-of-linear.cpp"
+#include "../../math/number-theory/kth-root.cpp"
 
 int main() {
   int T;
   cin >> T;
   while(T--) {
-    int64 N, M, A, B;
-    cin >> N >> M >> A >> B;
-    cout << sum_of_floor_of_linear(N, M, A, B) << "\n";
+    uint64_t a;
+    int k;
+    cin >> a >> k;
+    cout << kth_root(a, k) << "\n";
   }
 }
 
@@ -69,8 +70,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/verify/yosupo-sum-of-floor-of-linear.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/sum_of_floor_of_linear"
+#line 1 "test/verify/yosupo-kth-root-integer.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/kth_root_integer"
 
 #line 1 "test/verify/../../template/template.cpp"
 #include<bits/stdc++.h>
@@ -159,33 +160,37 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 4 "test/verify/yosupo-sum-of-floor-of-linear.test.cpp"
+#line 4 "test/verify/yosupo-kth-root-integer.test.cpp"
 
-#line 1 "test/verify/../../math/number-theory/sum-of-floor-of-linear.cpp"
+#line 1 "test/verify/../../math/number-theory/kth-root.cpp"
 /**
- * @brief Sum-Of-Floor-Of-Linear(一次関数の床関数の和)
+ * @brief Kth-Root
  */
-template< typename T >
-T sum_of_floor_of_linear(const T &n, const T &m, T a, T b) {
-  T ret = 0;
-  if(a >= m) ret += (n - 1) * n * (a / m) / 2, a %= m;
-  if(b >= m) ret += n * (b / m), b %= m;
-  T y = (a * n + b) / m;
-  if(y == 0) return ret;
-  T x = y * m - b;
-  ret += (n - (x + a - 1) / a) * y;
-  ret += sum_of_floor_of_linear(y, a, m, (a - x % a) % a);
+uint64_t kth_root(uint64_t a, int k) {
+  if(k == 1) return a;
+  auto check = [&](uint32_t x) {
+    uint64_t mul = 1;
+    for(int j = 0; j < k; j++) {
+      if(__builtin_mul_overflow(mul, x, &mul)) return false;
+    }
+    return mul <= a;
+  };
+  uint64_t ret = 0;
+  for(int i = 31; i >= 0; i--) {
+    if(check(ret | (1u << i))) ret |= 1u << i;
+  }
   return ret;
 }
-#line 6 "test/verify/yosupo-sum-of-floor-of-linear.test.cpp"
+#line 6 "test/verify/yosupo-kth-root-integer.test.cpp"
 
 int main() {
   int T;
   cin >> T;
   while(T--) {
-    int64 N, M, A, B;
-    cin >> N >> M >> A >> B;
-    cout << sum_of_floor_of_linear(N, M, A, B) << "\n";
+    uint64_t a;
+    int k;
+    cin >> a >> k;
+    cout << kth_root(a, k) << "\n";
   }
 }
 

@@ -211,11 +211,12 @@ layout: default
 * :heavy_check_mark: <a href="library/math/number-theory/extgcd.cpp.html">math/number-theory/extgcd.cpp</a>
 * :heavy_check_mark: <a href="library/math/number-theory/fast-prime-factorization.cpp.html">math/number-theory/fast-prime-factorization.cpp</a>
 * :heavy_check_mark: <a href="library/math/number-theory/is-prime.cpp.html">math/number-theory/is-prime.cpp</a>
+* :heavy_check_mark: <a href="library/math/number-theory/kth-root.cpp.html">Kth-Root <small>(math/number-theory/kth-root.cpp)</small></a>
 * :warning: <a href="library/math/number-theory/moebius-mu-table.cpp.html">math/number-theory/moebius-mu-table.cpp</a>
 * :heavy_check_mark: <a href="library/math/number-theory/prime-factor.cpp.html">math/number-theory/prime-factor.cpp</a>
 * :heavy_check_mark: <a href="library/math/number-theory/prime-table.cpp.html">math/number-theory/prime-table.cpp</a>
 * :warning: <a href="library/math/number-theory/quotient-range.cpp.html">math/number-theory/quotient-range.cpp</a>
-* :heavy_check_mark: <a href="library/math/number-theory/sum-of-floor-of-linear.cpp.html">Sum-Of-Floor-Of-Linear(一次関数の床関数の和)</a>
+* :heavy_check_mark: <a href="library/math/number-theory/sum-of-floor-of-linear.cpp.html">Sum-Of-Floor-Of-Linear(一次関数の床関数の和) <small>(math/number-theory/sum-of-floor-of-linear.cpp)</small></a>
 
 
 <div id="795f3202b17cb6bc3d4b771d8c6c9eaf"></div>
@@ -430,6 +431,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-find-linear-recurrence.test.cpp.html">test/verify/yosupo-find-linear-recurrence.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-general-matching.test.cpp.html">test/verify/yosupo-general-matching.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-inv-of-formal-power-series.test.cpp.html">test/verify/yosupo-inv-of-formal-power-series.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-kth-root-integer.test.cpp.html">test/verify/yosupo-kth-root-integer.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-line-add-get-min.test.cpp.html">test/verify/yosupo-line-add-get-min.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-log-of-formal-power-series.test.cpp.html">test/verify/yosupo-log-of-formal-power-series.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-matrix-det.test.cpp.html">test/verify/yosupo-matrix-det.test.cpp</a>
