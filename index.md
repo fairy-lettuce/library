@@ -214,6 +214,7 @@ layout: default
 * :heavy_check_mark: <a href="library/math/number-theory/prime-factor.cpp.html">math/number-theory/prime-factor.cpp</a>
 * :heavy_check_mark: <a href="library/math/number-theory/prime-table.cpp.html">math/number-theory/prime-table.cpp</a>
 * :warning: <a href="library/math/number-theory/quotient-range.cpp.html">math/number-theory/quotient-range.cpp</a>
+* :heavy_check_mark: <a href="library/math/number-theory/sum-of-floor-of-linear.cpp.html">Sum-Of-Floor-Of-Linear(一次関数の床関数の和)</a>
 
 
 <div id="795f3202b17cb6bc3d4b771d8c6c9eaf"></div>
@@ -425,6 +426,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-exp-of-formal-power-series.test.cpp.html">test/verify/yosupo-exp-of-formal-power-series.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-factorize.test.cpp.html">test/verify/yosupo-factorize.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-find-linear-recurrence.test.cpp.html">test/verify/yosupo-find-linear-recurrence.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-general-matching.test.cpp.html">test/verify/yosupo-general-matching.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-inv-of-formal-power-series.test.cpp.html">test/verify/yosupo-inv-of-formal-power-series.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-line-add-get-min.test.cpp.html">test/verify/yosupo-line-add-get-min.test.cpp</a>
@@ -443,5 +445,6 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp.html">test/verify/yosupo-sqrt-of-formal-power-series.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-staticrmq-2.test.cpp.html">test/verify/yosupo-staticrmq-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-staticrmq.test.cpp.html">test/verify/yosupo-staticrmq.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-sum-of-floor-of-linear.test.cpp.html">test/verify/yosupo-sum-of-floor-of-linear.test.cpp</a>
 
 

@@ -38,6 +38,7 @@ layout: default
 
 ## Verified with
 
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-find-linear-recurrence.test.cpp.html">test/verify/yosupo-find-linear-recurrence.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-sparse-matrix-det.test.cpp.html">test/verify/yosupo-sparse-matrix-det.test.cpp</a>
 
 
