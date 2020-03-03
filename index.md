@@ -163,6 +163,7 @@ layout: default
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-log.cpp.html">math/combinatorics/mod-log.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-pow.cpp.html">math/combinatorics/mod-pow.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-sqrt.cpp.html">math/combinatorics/mod-sqrt.cpp</a>
+* :heavy_check_mark: <a href="library/math/combinatorics/mod-tetration.cpp.html">Mod-Tetration <small>(math/combinatorics/mod-tetration.cpp)</small></a>
 * :heavy_check_mark: <a href="library/math/combinatorics/montmort.cpp.html">Montmort-Number(モンモール数) <small>(math/combinatorics/montmort.cpp)</small></a>
 * :heavy_check_mark: <a href="library/math/combinatorics/partition-table.cpp.html">Partition-Table(分割数テーブル) <small>(math/combinatorics/partition-table.cpp)</small></a>
 * :heavy_check_mark: <a href="library/math/combinatorics/stirling-number-second.cpp.html">math/combinatorics/stirling-number-second.cpp</a>
@@ -446,5 +447,6 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-staticrmq-2.test.cpp.html">test/verify/yosupo-staticrmq-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-staticrmq.test.cpp.html">test/verify/yosupo-staticrmq.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sum-of-floor-of-linear.test.cpp.html">test/verify/yosupo-sum-of-floor-of-linear.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-tetration-mod.test.cpp.html">test/verify/yosupo-tetration-mod.test.cpp</a>
 
 
