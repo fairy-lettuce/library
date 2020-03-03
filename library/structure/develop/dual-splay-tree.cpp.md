@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: structure/develop/dual-splay-tree.cpp
+# :warning: structure/develop/dual-splay-tree.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -34,11 +34,6 @@ layout: default
     - Last commit date: 2020-01-09 17:25:25+09:00
 
 
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2667.test.cpp.html">test/verify/aoj-2667.test.cpp</a>
 
 
 ## Code

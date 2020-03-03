@@ -142,7 +142,7 @@ layout: default
 * :heavy_check_mark: <a href="library/graph/tree/centroid.cpp.html">Centroid(木の重心) <small>(graph/tree/centroid.cpp)</small></a>
 * :warning: <a href="library/graph/tree/convert-rooted-tree.cpp.html">graph/tree/convert-rooted-tree.cpp</a>
 * :heavy_check_mark: <a href="library/graph/tree/doubling-lowest-common-ancestor.cpp.html">graph/tree/doubling-lowest-common-ancestor.cpp</a>
-* :heavy_check_mark: <a href="library/graph/tree/heavy-light-decomposition.cpp.html">graph/tree/heavy-light-decomposition.cpp</a>
+* :heavy_check_mark: <a href="library/graph/tree/heavy-light-decomposition.cpp.html">Heavy-Light-Decomposition(HL分解) <small>(graph/tree/heavy-light-decomposition.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/rerooting.cpp.html">graph/tree/rerooting.cpp</a>
 * :heavy_check_mark: <a href="library/graph/tree/tree-diameter.cpp.html">graph/tree/tree-diameter.cpp</a>
 * :heavy_check_mark: <a href="library/graph/tree/tree-isomorphism.cpp.html">Tree-Isomorphism(木の同型性判定) <small>(graph/tree/tree-isomorphism.cpp)</small></a>
@@ -267,9 +267,9 @@ layout: default
 
 ### structure/develop
 
-* :heavy_check_mark: <a href="library/structure/develop/array-pool.cpp.html">structure/develop/array-pool.cpp</a>
-* :heavy_check_mark: <a href="library/structure/develop/dual-splay-tree.cpp.html">structure/develop/dual-splay-tree.cpp</a>
-* :heavy_check_mark: <a href="library/structure/develop/link-cut-tree-subtree-dual-semi-group.cpp.html">structure/develop/link-cut-tree-subtree-dual-semi-group.cpp</a>
+* :warning: <a href="library/structure/develop/array-pool.cpp.html">structure/develop/array-pool.cpp</a>
+* :warning: <a href="library/structure/develop/dual-splay-tree.cpp.html">structure/develop/dual-splay-tree.cpp</a>
+* :warning: <a href="library/structure/develop/link-cut-tree-subtree-dual-semi-group.cpp.html">structure/develop/link-cut-tree-subtree-dual-semi-group.cpp</a>
 
 
 <div id="36999f024b84f3ad86db908172fedb57"></div>
