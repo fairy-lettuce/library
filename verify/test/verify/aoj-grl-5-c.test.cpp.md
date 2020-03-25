@@ -39,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
 * :heavy_check_mark: <a href="../../../library/graph/tree/doubling-lowest-common-ancestor.cpp.html">graph/tree/doubling-lowest-common-ancestor.cpp</a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

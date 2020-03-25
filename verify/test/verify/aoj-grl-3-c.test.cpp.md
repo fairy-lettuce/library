@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/verify/aoj-grl-3-c.test.cpp
+# :heavy_check_mark: test/verify/aoj-grl-3-c.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-3-c.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-25 22:02:49+09:00
+    - Last commit date: 2020-03-26 00:14:24+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C</a>
@@ -39,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../../library/graph/connected-components/strongly-connected-components.cpp.html">Strongly-Connected-Components(強連結成分分解) <small>(graph/connected-components/strongly-connected-components.cpp)</small></a>
-* :question: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/connected-components/strongly-connected-components.cpp.html">Strongly-Connected-Components(強連結成分分解) <small>(graph/connected-components/strongly-connected-components.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -52,26 +52,22 @@ layout: default
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C"
 
 #include "../../template/template.cpp"
-#include "../../graph/template.cpp"
+
+#include "../../graph/graph-template.cpp"
 
 #include "../../graph/connected-components/strongly-connected-components.cpp"
 
 int main() {
   int V, E, Q;
-  scanf("%d %d", &V, &E);
-  UnWeightedGraph g(V), buff;
-  for(int i = 0; i < E; i++) {
-    int a, b;
-    scanf("%d %d", &a, &b);
-    g[a].emplace_back(b);
-  }
-  StronglyConnectedComponents< UnWeightedGraph > scc(g);
-  scc.build(buff);
-  scanf("%d", &Q);
+  cin >> V >> E;
+  StronglyConnectedComponents<> scc(V);
+  scc.read(E, false, 0, true);
+  scc.build();
+  cin >> Q;
   while(Q--) {
     int a, b;
-    scanf("%d %d", &a, &b);
-    puts(scc[a] == scc[b] ? "1" : "0");
+    cin >> a >> b;
+    cout << (int) (scc[a] == scc[b]) << "\n";
   }
 }
 
@@ -171,32 +167,58 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 1 "graph/template.cpp"
-template< typename T >
-struct edge {
-  int src, to;
+#line 4 "test/verify/aoj-grl-3-c.test.cpp"
+
+#line 1 "graph/graph-template.cpp"
+template< typename T = int >
+struct Edge {
+  int from, to;
   T cost;
+  int idx;
 
-  edge(int to, T cost) : src(-1), to(to), cost(cost) {}
+  Edge() = default;
 
-  edge(int src, int to, T cost) : src(src), to(to), cost(cost) {}
-
-  edge &operator=(const int &x) {
-    to = x;
-    return *this;
-  }
+  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx) {}
 
   operator int() const { return to; }
 };
 
-template< typename T >
-using Edges = vector< edge< T > >;
-template< typename T >
-using WeightedGraph = vector< Edges< T > >;
-using UnWeightedGraph = vector< vector< int > >;
-template< typename T >
-using Matrix = vector< vector< T > >;
-#line 5 "test/verify/aoj-grl-3-c.test.cpp"
+template< typename T = int >
+struct Graph {
+  vector< vector< Edge< T > > > g;
+  int es;
+
+  Graph() = default;
+
+  explicit Graph(int n) : g(n), es(0) {}
+
+  size_t size() const {
+    return g.size();
+  }
+
+  void add_directed_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es++);
+  }
+
+  void add_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es);
+    g[to].emplace_back(to, from, cost, es++);
+  }
+
+  void read(int M, int padding = -1, bool weighted = false, bool directed = false) {
+    for(int i = 0; i < M; i++) {
+      int a, b;
+      cin >> a >> b;
+      a += padding;
+      b += padding;
+      T c = T(1);
+      if(weighted) cin >> c;
+      if(directed) add_directed_edge(a, b, c);
+      else add_edge(a, b, c);
+    }
+  }
+};
+#line 6 "test/verify/aoj-grl-3-c.test.cpp"
 
 #line 1 "graph/connected-components/strongly-connected-components.cpp"
 /**
@@ -258,24 +280,19 @@ private:
     for(auto &to : rg.g[idx]) rdfs(to, cnt);
   }
 };
-#line 7 "test/verify/aoj-grl-3-c.test.cpp"
+#line 8 "test/verify/aoj-grl-3-c.test.cpp"
 
 int main() {
   int V, E, Q;
-  scanf("%d %d", &V, &E);
-  UnWeightedGraph g(V), buff;
-  for(int i = 0; i < E; i++) {
-    int a, b;
-    scanf("%d %d", &a, &b);
-    g[a].emplace_back(b);
-  }
-  StronglyConnectedComponents< UnWeightedGraph > scc(g);
-  scc.build(buff);
-  scanf("%d", &Q);
+  cin >> V >> E;
+  StronglyConnectedComponents<> scc(V);
+  scc.read(E, false, 0, true);
+  scc.build();
+  cin >> Q;
   while(Q--) {
     int a, b;
-    scanf("%d %d", &a, &b);
-    puts(scc[a] == scc[b] ? "1" : "0");
+    cin >> a >> b;
+    cout << (int) (scc[a] == scc[b]) << "\n";
   }
 }
 

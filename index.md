@@ -67,7 +67,7 @@ layout: default
 ### graph
 
 * :heavy_check_mark: <a href="library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
-* :question: <a href="library/graph/template.cpp.html">graph/template.cpp</a>
+* :heavy_check_mark: <a href="library/graph/template.cpp.html">graph/template.cpp</a>
 
 
 <div id="3a7c46e10de1b2cce1293b2074b86f0a"></div>
@@ -75,7 +75,7 @@ layout: default
 ### graph/connected-components
 
 * :heavy_check_mark: <a href="library/graph/connected-components/bi-connected-components.cpp.html">Bi-Connected-Components(二重頂点連結成分分解) <small>(graph/connected-components/bi-connected-components.cpp)</small></a>
-* :question: <a href="library/graph/connected-components/strongly-connected-components.cpp.html">Strongly-Connected-Components(強連結成分分解) <small>(graph/connected-components/strongly-connected-components.cpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/connected-components/strongly-connected-components.cpp.html">Strongly-Connected-Components(強連結成分分解) <small>(graph/connected-components/strongly-connected-components.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/connected-components/two-edge-connected-components.cpp.html">Two-Edge-Connected-Components(二重辺連結成分分解) <small>(graph/connected-components/two-edge-connected-components.cpp)</small></a>
 
 
@@ -351,7 +351,7 @@ layout: default
 
 ### template
 
-* :question: <a href="library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="library/template/template.cpp.html">template/template.cpp</a>
 
 
 <div id="5a4423c79a88aeb6104a40a645f9430c"></div>
@@ -451,7 +451,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-2-b.test.cpp.html">test/verify/aoj-grl-2-b.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-3-a.test.cpp.html">test/verify/aoj-grl-3-a.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-3-b.test.cpp.html">test/verify/aoj-grl-3-b.test.cpp</a>
-* :x: <a href="verify/test/verify/aoj-grl-3-c.test.cpp.html">test/verify/aoj-grl-3-c.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-grl-3-c.test.cpp.html">test/verify/aoj-grl-3-c.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-5-a.test.cpp.html">test/verify/aoj-grl-5-a.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-5-c-2.test.cpp.html">test/verify/aoj-grl-5-c-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-5-c.test.cpp.html">test/verify/aoj-grl-5-c.test.cpp</a>
