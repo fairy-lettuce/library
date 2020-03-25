@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: graph/tree/centroid-decomposition.cpp
+# :heavy_check_mark: Centroid-Decomosition(重心分解) <small>(graph/tree/centroid-decomposition.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#28790b6202284cbbffc9d712b59f4b80">graph/tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/tree/centroid-decomposition.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-03-26 01:18:25+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/verify/yukicoder-1002.test.cpp.html">test/verify/yukicoder-1002.test.cpp</a>
 
 
 ## Code
@@ -41,14 +46,28 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-template< typename G >
-struct CentroidDecomposition {
-  const G &g;
-  vector< int > sub;
-  vector< vector< int > > belong;
-  vector< bool > v;
+/**
+ * @brief Centroid-Decomosition(重心分解)
+ */
+template< typename T >
+struct CentroidDecomposition : Graph< T > {
+public:
+  using Graph< T >::Graph;
+  using Graph< T >::g;
+  Graph< int > tree;
 
-  CentroidDecomposition(const G &g) : g(g), sub(g.size()), v(g.size()), belong(g.size()) {}
+  int build(int t = 0) {
+    sub.assign(g.size(), 0);
+    v.assign(g.size(), 0);
+    tree = Graph< T >(g.size());
+    return build_dfs(0);
+  }
+
+  explicit CentroidDecomposition(const Graph< T > &g) : Graph< T >(g) {}
+
+private:
+  vector< int > sub;
+  vector< int > v;
 
   inline int build_dfs(int idx, int par) {
     sub[idx] = 1;
@@ -67,28 +86,14 @@ struct CentroidDecomposition {
     return idx;
   }
 
-  inline void belong_dfs(int idx, int par, int centroid) {
-    belong[idx].emplace_back(centroid);
-    for(auto &to : g[idx]) {
-      if(to == par || v[to]) continue;
-      belong_dfs(to, idx, centroid);
-    }
-  }
-
-  inline int build(UnWeightedGraph &t, int idx) {
+  inline int build_dfs(int idx) {
     int centroid = search_centroid(idx, -1, build_dfs(idx, -1) / 2);
     v[centroid] = true;
-    belong_dfs(centroid, -1, centroid);
     for(auto &to : g[centroid]) {
-      if(!v[to]) t[centroid].emplace_back(build(t, to));
+      if(!v[to]) tree.add_directed_edge(centroid, build_dfs(to));
     }
     v[centroid] = false;
     return centroid;
-  }
-
-  inline int build(UnWeightedGraph &t) {
-    t.resize(g.size());
-    return build(t, 0);
   }
 };
 
@@ -99,14 +104,28 @@ struct CentroidDecomposition {
 {% raw %}
 ```cpp
 #line 1 "graph/tree/centroid-decomposition.cpp"
-template< typename G >
-struct CentroidDecomposition {
-  const G &g;
-  vector< int > sub;
-  vector< vector< int > > belong;
-  vector< bool > v;
+/**
+ * @brief Centroid-Decomosition(重心分解)
+ */
+template< typename T >
+struct CentroidDecomposition : Graph< T > {
+public:
+  using Graph< T >::Graph;
+  using Graph< T >::g;
+  Graph< int > tree;
 
-  CentroidDecomposition(const G &g) : g(g), sub(g.size()), v(g.size()), belong(g.size()) {}
+  int build(int t = 0) {
+    sub.assign(g.size(), 0);
+    v.assign(g.size(), 0);
+    tree = Graph< T >(g.size());
+    return build_dfs(0);
+  }
+
+  explicit CentroidDecomposition(const Graph< T > &g) : Graph< T >(g) {}
+
+private:
+  vector< int > sub;
+  vector< int > v;
 
   inline int build_dfs(int idx, int par) {
     sub[idx] = 1;
@@ -125,28 +144,14 @@ struct CentroidDecomposition {
     return idx;
   }
 
-  inline void belong_dfs(int idx, int par, int centroid) {
-    belong[idx].emplace_back(centroid);
-    for(auto &to : g[idx]) {
-      if(to == par || v[to]) continue;
-      belong_dfs(to, idx, centroid);
-    }
-  }
-
-  inline int build(UnWeightedGraph &t, int idx) {
+  inline int build_dfs(int idx) {
     int centroid = search_centroid(idx, -1, build_dfs(idx, -1) / 2);
     v[centroid] = true;
-    belong_dfs(centroid, -1, centroid);
     for(auto &to : g[centroid]) {
-      if(!v[to]) t[centroid].emplace_back(build(t, to));
+      if(!v[to]) tree.add_directed_edge(centroid, build_dfs(to));
     }
     v[centroid] = false;
     return centroid;
-  }
-
-  inline int build(UnWeightedGraph &t) {
-    t.resize(g.size());
-    return build(t, 0);
   }
 };
 

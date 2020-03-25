@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: Online-Offline-DP(オンライン・オフライン変換) <small>(dp/online-offline-dp.cpp)</small>
+# :heavy_check_mark: Online-Offline-DP(オンライン・オフライン変換) <small>(dp/online-offline-dp.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -51,6 +51,13 @@ $dp[j] = \min \\{ dp[i] + f(i,j) : i \in [0,j) \\}$ (例: $f(i,j)$ を区間 $[i
 ## 計算量
 
 * $O(N \log^2 N)$
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-703.test.cpp.html">test/verify/yukicoder-703.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-704.test.cpp.html">test/verify/yukicoder-704.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-705.test.cpp.html">test/verify/yukicoder-705.test.cpp</a>
 
 
 ## Code

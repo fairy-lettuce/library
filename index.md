@@ -51,7 +51,7 @@ layout: default
 * :heavy_check_mark: <a href="library/dp/largest-rectangle.cpp.html">dp/largest-rectangle.cpp</a>
 * :heavy_check_mark: <a href="library/dp/longest-increasing-subsequence.cpp.html">Longest-Increasing-Subsequence(最長増加部分列) <small>(dp/longest-increasing-subsequence.cpp)</small></a>
 * :heavy_check_mark: <a href="library/dp/monotone-minima.cpp.html">Monotone-Minima <small>(dp/monotone-minima.cpp)</small></a>
-* :warning: <a href="library/dp/online-offline-dp.cpp.html">Online-Offline-DP(オンライン・オフライン変換) <small>(dp/online-offline-dp.cpp)</small></a>
+* :heavy_check_mark: <a href="library/dp/online-offline-dp.cpp.html">Online-Offline-DP(オンライン・オフライン変換) <small>(dp/online-offline-dp.cpp)</small></a>
 * :warning: <a href="library/dp/slide-min.cpp.html">dp/slide-min.cpp</a>
 
 
@@ -140,7 +140,7 @@ layout: default
 
 ### graph/tree
 
-* :warning: <a href="library/graph/tree/centroid-decomposition.cpp.html">graph/tree/centroid-decomposition.cpp</a>
+* :heavy_check_mark: <a href="library/graph/tree/centroid-decomposition.cpp.html">Centroid-Decomosition(重心分解) <small>(graph/tree/centroid-decomposition.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/centroid.cpp.html">Centroid(木の重心) <small>(graph/tree/centroid.cpp)</small></a>
 * :warning: <a href="library/graph/tree/convert-rooted-tree.cpp.html">graph/tree/convert-rooted-tree.cpp</a>
 * :heavy_check_mark: <a href="library/graph/tree/doubling-lowest-common-ancestor.cpp.html">Doubling-Lowest-Common-Ancestor(最小共通祖先) <small>(graph/tree/doubling-lowest-common-ancestor.cpp)</small></a>
@@ -393,7 +393,6 @@ layout: default
 * :warning: <a href="library/test/verify/yahoo-procon2018-final-c.cpp.html">test/verify/yahoo-procon2018-final-c.cpp</a>
 * :warning: <a href="library/test/verify/yukicoder-3046.cpp.html">test/verify/yukicoder-3046.cpp</a>
 * :warning: <a href="library/test/verify/yukicoder-502.cpp.html">test/verify/yukicoder-502.cpp</a>
-* :warning: <a href="library/test/verify/yukicoder-715.cpp.html">test/verify/yukicoder-715.cpp</a>
 
 
 ## Verify Files
@@ -497,5 +496,9 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sum-of-floor-of-linear.test.cpp.html">test/verify/yosupo-sum-of-floor-of-linear.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-tetration-mod.test.cpp.html">test/verify/yosupo-tetration-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-two-edge-connected-components.test.cpp.html">test/verify/yosupo-two-edge-connected-components.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yukicoder-1002.test.cpp.html">test/verify/yukicoder-1002.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yukicoder-703.test.cpp.html">test/verify/yukicoder-703.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yukicoder-704.test.cpp.html">test/verify/yukicoder-704.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yukicoder-705.test.cpp.html">test/verify/yukicoder-705.test.cpp</a>
 
 
