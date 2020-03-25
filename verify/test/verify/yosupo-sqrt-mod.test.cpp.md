@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-sqrt-mod.test.cpp">View this file on GitHub</a>
     - Last commit date: 2019-12-11 22:31:39+09:00
 
@@ -40,7 +41,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-pow.cpp.html">math/combinatorics/mod-pow.cpp</a>
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-sqrt.cpp.html">math/combinatorics/mod-sqrt.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -74,7 +75,7 @@ int main() {
 #line 1 "test/verify/yosupo-sqrt-mod.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/sqrt_mod"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -163,7 +164,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-sqrt-mod.test.cpp"
 
-#line 1 "test/verify/../../math/combinatorics/mod-pow.cpp"
+#line 1 "math/combinatorics/mod-pow.cpp"
 template< typename T >
 T mod_pow(T x, T n, const T &p) {
   T ret = 1;
@@ -175,7 +176,7 @@ T mod_pow(T x, T n, const T &p) {
   return ret;
 }
 
-#line 1 "test/verify/../../math/combinatorics/mod-sqrt.cpp"
+#line 1 "math/combinatorics/mod-sqrt.cpp"
 template< typename T >
 T mod_sqrt(const T &a, const T &p) {
   if(a == 0) return 0;

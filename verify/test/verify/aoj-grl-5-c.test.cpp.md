@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-5-c.test.cpp">View this file on GitHub</a>
     - Last commit date: 2019-11-30 23:02:43+09:00
 
@@ -38,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
+* :question: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
 * :heavy_check_mark: <a href="../../../library/graph/tree/doubling-lowest-common-ancestor.cpp.html">graph/tree/doubling-lowest-common-ancestor.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -87,7 +88,7 @@ int main() {
 #line 1 "test/verify/aoj-grl-5-c.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -174,7 +175,7 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 1 "test/verify/../../graph/template.cpp"
+#line 1 "graph/template.cpp"
 template< typename T >
 struct edge {
   int src, to;
@@ -201,7 +202,7 @@ template< typename T >
 using Matrix = vector< vector< T > >;
 #line 5 "test/verify/aoj-grl-5-c.test.cpp"
 
-#line 1 "test/verify/../../graph/tree/doubling-lowest-common-ancestor.cpp"
+#line 1 "graph/tree/doubling-lowest-common-ancestor.cpp"
 template< typename G >
 struct DoublingLowestCommonAncestor {
   const int LOG;

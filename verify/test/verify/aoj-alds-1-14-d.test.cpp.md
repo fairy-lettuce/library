@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-alds-1-14-d.test.cpp">View this file on GitHub</a>
     - Last commit date: 2019-11-30 23:36:31+09:00
 
@@ -39,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/string/suffix-array.cpp.html">string/suffix-array.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -77,7 +78,7 @@ int main() {
 #line 1 "test/verify/aoj-alds-1-14-d.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_D"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -166,7 +167,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/aoj-alds-1-14-d.test.cpp"
 
-#line 1 "test/verify/../../string/suffix-array.cpp"
+#line 1 "string/suffix-array.cpp"
 struct SuffixArray {
   vector< int > SA;
   const string s;

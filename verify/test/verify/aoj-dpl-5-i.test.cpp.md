@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-5-i.test.cpp">View this file on GitHub</a>
     - Last commit date: 2019-11-30 23:36:31+09:00
 
@@ -41,7 +42,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/combination.cpp.html">math/combinatorics/combination.cpp</a>
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/stirling-number-second.cpp.html">math/combinatorics/stirling-number-second.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -74,7 +75,7 @@ int main() {
 #line 1 "test/verify/aoj-dpl-5-i.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -163,7 +164,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/aoj-dpl-5-i.test.cpp"
 
-#line 1 "test/verify/../../math/combinatorics/mod-int.cpp"
+#line 1 "math/combinatorics/mod-int.cpp"
 template< int mod >
 struct ModInt {
   int x;
@@ -241,7 +242,7 @@ struct ModInt {
 };
 
 using modint = ModInt< mod >;
-#line 1 "test/verify/../../math/combinatorics/combination.cpp"
+#line 1 "math/combinatorics/combination.cpp"
 template< typename T >
 struct Combination {
   vector< T > _fact, _rfact, _inv;
@@ -277,7 +278,7 @@ struct Combination {
 };
 #line 7 "test/verify/aoj-dpl-5-i.test.cpp"
 
-#line 1 "test/verify/../../math/combinatorics/stirling-number-second.cpp"
+#line 1 "math/combinatorics/stirling-number-second.cpp"
 template< typename T >
 T stirling_number_second(int n, int k) {
   Combination< T > table(k);

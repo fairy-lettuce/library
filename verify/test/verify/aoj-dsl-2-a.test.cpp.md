@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dsl-2-a.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-02-20 01:36:53+09:00
 
@@ -39,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/structure/segment-tree/segment-tree.cpp.html">Segment-Tree(セグメント木) <small>(structure/segment-tree/segment-tree.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -74,7 +75,7 @@ int main() {
 #line 1 "test/verify/aoj-dsl-2-a.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -163,7 +164,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/aoj-dsl-2-a.test.cpp"
 
-#line 1 "test/verify/../../structure/segment-tree/segment-tree.cpp"
+#line 1 "structure/segment-tree/segment-tree.cpp"
 /**
  * @brief Segment-Tree(セグメント木)
  * @docs docs/segment-tree.md

@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-montmort-number-mod.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-02-24 19:08:02+09:00
 
@@ -40,7 +41,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/arbitrary-mod-int.cpp.html">math/combinatorics/arbitrary-mod-int.cpp</a>
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/montmort.cpp.html">Montmort-Number(モンモール数) <small>(math/combinatorics/montmort.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -73,7 +74,7 @@ int main() {
 #line 1 "test/verify/yosupo-montmort-number-mod.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/montmort_number_mod"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -162,7 +163,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-montmort-number-mod.test.cpp"
 
-#line 1 "test/verify/../../math/combinatorics/arbitrary-mod-int.cpp"
+#line 1 "math/combinatorics/arbitrary-mod-int.cpp"
 struct ArbitraryModInt {
 
   int x;
@@ -248,7 +249,7 @@ struct ArbitraryModInt {
     return (is);
   }
 };
-#line 1 "test/verify/../../math/combinatorics/montmort.cpp"
+#line 1 "math/combinatorics/montmort.cpp"
 /**
  * @brief Montmort-Number(モンモール数)
  * @docs docs/montmort.md

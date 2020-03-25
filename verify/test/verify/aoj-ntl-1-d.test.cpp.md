@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-ntl-1-d.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-03 18:28:13+09:00
 
@@ -39,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/math/number-theory/euler-phi.cpp.html">Euler's-Phi-Function(オイラーのφ関数) <small>(math/number-theory/euler-phi.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -68,7 +69,7 @@ int main() {
 #line 1 "test/verify/aoj-ntl-1-d.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_D"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -157,7 +158,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/aoj-ntl-1-d.test.cpp"
 
-#line 1 "test/verify/../../math/number-theory/euler-phi.cpp"
+#line 1 "math/number-theory/euler-phi.cpp"
 /**
  * @brief Euler's-Phi-Function(オイラーのφ関数)
  * @docs docs/euler-phi.md

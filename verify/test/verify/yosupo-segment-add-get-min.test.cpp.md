@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-segment-add-get-min.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-01-07 02:07:19+09:00
 
@@ -39,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/structure/convex-hull-trick/dynamic-li-chao-tree.cpp.html">structure/convex-hull-trick/dynamic-li-chao-tree.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -89,7 +90,7 @@ int main() {
 #line 1 "test/verify/yosupo-segment-add-get-min.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/segment_add_get_min"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -178,7 +179,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-segment-add-get-min.test.cpp"
 
-#line 1 "test/verify/../../structure/convex-hull-trick/dynamic-li-chao-tree.cpp"
+#line 1 "structure/convex-hull-trick/dynamic-li-chao-tree.cpp"
 template< typename T, T x_low, T x_high, T id >
 struct DynamicLiChaoTree {
 

@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-tetration-mod.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-03 18:28:13+09:00
 
@@ -41,7 +42,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-pow.cpp.html">math/combinatorics/mod-pow.cpp</a>
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-tetration.cpp.html">Mod-Tetration <small>(math/combinatorics/mod-tetration.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/math/number-theory/euler-phi.cpp.html">Euler's-Phi-Function(オイラーのφ関数) <small>(math/number-theory/euler-phi.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -77,7 +78,7 @@ int main() {
 #line 1 "test/verify/yosupo-tetration-mod.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/tetration_mod"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -166,7 +167,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-tetration-mod.test.cpp"
 
-#line 1 "test/verify/../../math/combinatorics/mod-pow.cpp"
+#line 1 "math/combinatorics/mod-pow.cpp"
 template< typename T >
 T mod_pow(T x, T n, const T &p) {
   T ret = 1;
@@ -178,7 +179,7 @@ T mod_pow(T x, T n, const T &p) {
   return ret;
 }
 
-#line 1 "test/verify/../../math/number-theory/euler-phi.cpp"
+#line 1 "math/number-theory/euler-phi.cpp"
 /**
  * @brief Euler's-Phi-Function(オイラーのφ関数)
  * @docs docs/euler-phi.md
@@ -197,7 +198,7 @@ T euler_phi(T n) {
 }
 #line 7 "test/verify/yosupo-tetration-mod.test.cpp"
 
-#line 1 "test/verify/../../math/combinatorics/mod-tetration.cpp"
+#line 1 "math/combinatorics/mod-tetration.cpp"
 /**
  * @brief Mod-Tetration
  */

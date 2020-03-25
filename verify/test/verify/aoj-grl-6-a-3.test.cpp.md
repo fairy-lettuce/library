@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-6-a-3.test.cpp">View this file on GitHub</a>
     - Last commit date: 2019-11-30 23:02:43+09:00
 
@@ -39,8 +40,8 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/graph/flow/push-relabel.cpp.html">graph/flow/push-relabel.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -76,7 +77,7 @@ int main() {
 #line 1 "test/verify/aoj-grl-6-a-3.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -163,7 +164,7 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 1 "test/verify/../../graph/template.cpp"
+#line 1 "graph/template.cpp"
 template< typename T >
 struct edge {
   int src, to;
@@ -190,7 +191,7 @@ template< typename T >
 using Matrix = vector< vector< T > >;
 #line 5 "test/verify/aoj-grl-6-a-3.test.cpp"
 
-#line 1 "test/verify/../../graph/flow/push-relabel.cpp"
+#line 1 "graph/flow/push-relabel.cpp"
 class Stack {
 private:
   const int N, H;

@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: graph/connected-components/bi-connected-components.cpp
+# :heavy_check_mark: Bi-Connected-Components(二重頂点連結成分分解) <small>(graph/connected-components/bi-connected-components.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#3a7c46e10de1b2cce1293b2074b86f0a">graph/connected-components</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/connected-components/bi-connected-components.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-03-25 22:02:49+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-3022.test.cpp.html">test/verify/aoj-3022.test.cpp</a>
 
 
 ## Code
@@ -41,45 +46,53 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-template< typename G >
-struct BiConnectedComponents : LowLink< G > {
-  using LL = LowLink< G >;
- 
+/**
+ * @brief Bi-Connected-Components(二重頂点連結成分分解)
+ */
+template< typename T = int >
+struct BiConnectedComponents : LowLink< T > {
+public:
+  using LowLink< T >::LowLink;
+  using LowLink< T >::g;
+  using LowLink< T >::ord;
+  using LowLink< T >::low;
+
+  vector< vector< Edge< T > > > bc;
+
+  void build() override {
+    LowLink< T >::build();
+    used.assign(g.size(), 0);
+    for(int i = 0; i < used.size(); i++) {
+      if(!used[i]) dfs(i, -1);
+    }
+  }
+
+  explicit BiConnectedComponents(const Graph< T > &g) : Graph< T >(g) {}
+
+private:
   vector< int > used;
-  vector< vector< pair< int, int > > > bc;
-  vector< pair< int, int > > tmp;
- 
-  BiConnectedComponents(const G &g) : LL(g) {}
- 
+  vector< Edge< T > > tmp;
+
   void dfs(int idx, int par) {
     used[idx] = true;
-    for(auto &to : this->g[idx]) {
-      if(to == par) continue;
-      if(!used[to] || this->ord[to] < this->ord[idx]) {
-        tmp.emplace_back(minmax(idx, to));
+    bool beet = false;
+    for(auto &to : g[idx]) {
+      if(to == par && !exchange(beet, true)) continue;
+      if(!used[to] || ord[to] < ord[idx]) {
+        tmp.emplace_back(to);
       }
       if(!used[to]) {
         dfs(to, idx);
-        if(this->low[to] >= this->ord[idx]) {
+        if(low[to] >= ord[idx]) {
           bc.emplace_back();
           for(;;) {
             auto e = tmp.back();
             bc.back().emplace_back(e);
             tmp.pop_back();
-            if(e.first == min(idx, to) && e.second == max(idx, to)) {
-              break;
-            }
+            if(e.idx == to.idx) break;
           }
         }
       }
-    }
-  }
- 
-  void build() override {
-    LL::build();
-    used.assign(this->g.size(), 0);
-    for(int i = 0; i < used.size(); i++) {
-      if(!used[i]) dfs(i, -1);
     }
   }
 };
@@ -91,45 +104,53 @@ struct BiConnectedComponents : LowLink< G > {
 {% raw %}
 ```cpp
 #line 1 "graph/connected-components/bi-connected-components.cpp"
-template< typename G >
-struct BiConnectedComponents : LowLink< G > {
-  using LL = LowLink< G >;
- 
+/**
+ * @brief Bi-Connected-Components(二重頂点連結成分分解)
+ */
+template< typename T = int >
+struct BiConnectedComponents : LowLink< T > {
+public:
+  using LowLink< T >::LowLink;
+  using LowLink< T >::g;
+  using LowLink< T >::ord;
+  using LowLink< T >::low;
+
+  vector< vector< Edge< T > > > bc;
+
+  void build() override {
+    LowLink< T >::build();
+    used.assign(g.size(), 0);
+    for(int i = 0; i < used.size(); i++) {
+      if(!used[i]) dfs(i, -1);
+    }
+  }
+
+  explicit BiConnectedComponents(const Graph< T > &g) : Graph< T >(g) {}
+
+private:
   vector< int > used;
-  vector< vector< pair< int, int > > > bc;
-  vector< pair< int, int > > tmp;
- 
-  BiConnectedComponents(const G &g) : LL(g) {}
- 
+  vector< Edge< T > > tmp;
+
   void dfs(int idx, int par) {
     used[idx] = true;
-    for(auto &to : this->g[idx]) {
-      if(to == par) continue;
-      if(!used[to] || this->ord[to] < this->ord[idx]) {
-        tmp.emplace_back(minmax(idx, to));
+    bool beet = false;
+    for(auto &to : g[idx]) {
+      if(to == par && !exchange(beet, true)) continue;
+      if(!used[to] || ord[to] < ord[idx]) {
+        tmp.emplace_back(to);
       }
       if(!used[to]) {
         dfs(to, idx);
-        if(this->low[to] >= this->ord[idx]) {
+        if(low[to] >= ord[idx]) {
           bc.emplace_back();
           for(;;) {
             auto e = tmp.back();
             bc.back().emplace_back(e);
             tmp.pop_back();
-            if(e.first == min(idx, to) && e.second == max(idx, to)) {
-              break;
-            }
+            if(e.idx == to.idx) break;
           }
         }
       }
-    }
-  }
- 
-  void build() override {
-    LL::build();
-    used.assign(this->g.size(), 0);
-    for(int i = 0; i < used.size(); i++) {
-      if(!used[i]) dfs(i, -1);
     }
   }
 };

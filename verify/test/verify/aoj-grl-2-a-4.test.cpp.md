@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-2-a-4.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-01-24 18:37:57+09:00
 
@@ -39,9 +40,9 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/graph/mst/prim-fibonacchi-heap.cpp.html">graph/mst/prim-fibonacchi-heap.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
+* :question: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
 * :heavy_check_mark: <a href="../../../library/structure/heap/fibonacchi-heap.cpp.html">structure/heap/fibonacchi-heap.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -80,7 +81,7 @@ int main() {
 #line 1 "test/verify/aoj-grl-2-a-4.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -167,7 +168,7 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 1 "test/verify/../../graph/template.cpp"
+#line 1 "graph/template.cpp"
 template< typename T >
 struct edge {
   int src, to;
@@ -194,7 +195,7 @@ template< typename T >
 using Matrix = vector< vector< T > >;
 #line 5 "test/verify/aoj-grl-2-a-4.test.cpp"
 
-#line 1 "test/verify/../../structure/heap/fibonacchi-heap.cpp"
+#line 1 "structure/heap/fibonacchi-heap.cpp"
 template< typename key_t, typename val_t >
 struct FibonacchiHeap {
   struct Node {
@@ -364,7 +365,7 @@ struct FibonacchiHeap {
 };
 #line 7 "test/verify/aoj-grl-2-a-4.test.cpp"
 
-#line 1 "test/verify/../../graph/mst/prim-fibonacchi-heap.cpp"
+#line 1 "graph/mst/prim-fibonacchi-heap.cpp"
 template< typename T >
 struct MinimumSpanningTree {
   T cost;

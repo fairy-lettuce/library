@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-factorize.test.cpp">View this file on GitHub</a>
     - Last commit date: 2019-12-12 22:16:00+09:00
 
@@ -39,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/math/number-theory/fast-prime-factorization.cpp.html">math/number-theory/fast-prime-factorization.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -75,7 +76,7 @@ int main() {
 #line 1 "test/verify/yosupo-factorize.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/factorize"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -164,7 +165,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-factorize.test.cpp"
 
-#line 1 "test/verify/../../math/number-theory/fast-prime-factorization.cpp"
+#line 1 "math/number-theory/fast-prime-factorization.cpp"
 namespace FastPrimeFactorization {
 
   template< typename word, typename dword, typename sword >

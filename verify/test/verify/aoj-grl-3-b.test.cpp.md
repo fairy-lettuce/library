@@ -29,8 +29,9 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-3-b.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-03-26 00:08:52+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B</a>
@@ -38,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/others/lowlink.cpp.html">graph/others/lowlink.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/others/low-link.cpp.html">Low-Link <small>(graph/others/low-link.cpp)</small></a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -51,24 +52,21 @@ layout: default
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B"
 
 #include "../../template/template.cpp"
-#include "../../graph/template.cpp"
 
-#include "../../graph/others/lowlink.cpp"
+#include "../../graph/graph-template.cpp"
+
+#include "../../graph/others/low-link.cpp"
 
 int main() {
   int V, E;
-  scanf("%d %d", &V, &E);
-  UnWeightedGraph g(V);
-  for(int i = 0; i < E; i++) {
-    int x, y;
-    scanf("%d %d", &x, &y);
-    g[x].push_back(y);
-    g[y].push_back(x);
-  }
-  LowLink< UnWeightedGraph > lowlink(g);
-  lowlink.build();
-  sort(lowlink.bridge.begin(), lowlink.bridge.end());
-  for(auto &p : lowlink.bridge) printf("%d %d\n", p.first, p.second);
+  cin >> V >> E;
+  LowLink<> g(V);
+  g.read(E, 0);
+  g.build();
+  auto &bridge = g.bridge;
+  for(auto &v : bridge) tie(v.from, v.to) = minmax({v.from, v.to});
+  sort(bridge.begin(), bridge.end(), [](auto &p, auto &q) { return tie(p.from, p.to) < tie(q.from, q.to); });
+  for(auto &v : bridge) cout << v.from << " " << v.to << "\n";
 }
 
 ```
@@ -80,7 +78,7 @@ int main() {
 #line 1 "test/verify/aoj-grl-3-b.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -167,57 +165,104 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 1 "test/verify/../../graph/template.cpp"
-template< typename T >
-struct edge {
-  int src, to;
+#line 4 "test/verify/aoj-grl-3-b.test.cpp"
+
+#line 1 "graph/graph-template.cpp"
+template< typename T = int >
+struct Edge {
+  int from, to;
   T cost;
+  int idx;
 
-  edge(int to, T cost) : src(-1), to(to), cost(cost) {}
+  Edge() = default;
 
-  edge(int src, int to, T cost) : src(src), to(to), cost(cost) {}
-
-  edge &operator=(const int &x) {
-    to = x;
-    return *this;
-  }
+  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx) {}
 
   operator int() const { return to; }
 };
 
-template< typename T >
-using Edges = vector< edge< T > >;
-template< typename T >
-using WeightedGraph = vector< Edges< T > >;
-using UnWeightedGraph = vector< vector< int > >;
-template< typename T >
-using Matrix = vector< vector< T > >;
-#line 5 "test/verify/aoj-grl-3-b.test.cpp"
+template< typename T = int >
+struct Graph {
+  vector< vector< Edge< T > > > g;
+  int es;
 
-#line 1 "test/verify/../../graph/others/lowlink.cpp"
-template< typename G >
-struct LowLink {
-  const G &g;
-  vector< int > used, ord, low;
-  vector< int > articulation;
-  vector< pair< int, int > > bridge;
- 
-  LowLink(const G &g) : g(g) {}
- 
+  Graph() = default;
+
+  explicit Graph(int n) : g(n), es(0) {}
+
+  size_t size() const {
+    return g.size();
+  }
+
+  void add_directed_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es++);
+  }
+
+  void add_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es);
+    g[to].emplace_back(to, from, cost, es++);
+  }
+
+  void read(int M, int padding = -1, bool weighted = false, bool directed = false) {
+    for(int i = 0; i < M; i++) {
+      int a, b;
+      cin >> a >> b;
+      a += padding;
+      b += padding;
+      T c = T(1);
+      if(weighted) cin >> c;
+      if(directed) add_directed_edge(a, b, c);
+      else add_edge(a, b, c);
+    }
+  }
+};
+#line 6 "test/verify/aoj-grl-3-b.test.cpp"
+
+#line 1 "graph/others/low-link.cpp"
+/**
+ * @brief Low-Link
+ * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213
+ */
+template< typename T = int >
+struct LowLink : Graph< T > {
+public:
+  using Graph< T >::Graph;
+  vector< int > ord, low, articulation;
+  vector< Edge< T > > bridge;
+  using Graph< T >::g;
+
+  virtual void build() {
+    used.assign(g.size(), 0);
+    ord.assign(g.size(), 0);
+    low.assign(g.size(), 0);
+    int k = 0;
+    for(int i = 0; i < (int) g.size(); i++) {
+      if(!used[i]) k = dfs(i, k, -1);
+    }
+  }
+
+  explicit LowLink(const Graph< T > &g) : Graph< T >(g) {}
+
+private:
+  vector< int > used;
+
   int dfs(int idx, int k, int par) {
     used[idx] = true;
     ord[idx] = k++;
     low[idx] = ord[idx];
-    bool is_articulation = false;
+    bool is_articulation = false, beet = false;
     int cnt = 0;
     for(auto &to : g[idx]) {
+      if(to == par && !exchange(beet, true)) {
+        continue;
+      }
       if(!used[to]) {
         ++cnt;
         k = dfs(to, k, idx);
         low[idx] = min(low[idx], low[to]);
-        is_articulation |= ~par && low[to] >= ord[idx];
-        if(ord[idx] < low[to]) bridge.emplace_back(minmax(idx, (int) to));
-      } else if(to != par) {
+        is_articulation |= par >= 0 && low[to] >= ord[idx];
+        if(ord[idx] < low[to]) bridge.emplace_back(to);
+      } else {
         low[idx] = min(low[idx], ord[to]);
       }
     }
@@ -225,33 +270,19 @@ struct LowLink {
     if(is_articulation) articulation.push_back(idx);
     return k;
   }
- 
-  virtual void build() {
-    used.assign(g.size(), 0);
-    ord.assign(g.size(), 0);
-    low.assign(g.size(), 0);
-    int k = 0;
-    for(int i = 0; i < g.size(); i++) {
-      if(!used[i]) k = dfs(i, k, -1);
-    }
-  }
 };
-#line 7 "test/verify/aoj-grl-3-b.test.cpp"
+#line 8 "test/verify/aoj-grl-3-b.test.cpp"
 
 int main() {
   int V, E;
-  scanf("%d %d", &V, &E);
-  UnWeightedGraph g(V);
-  for(int i = 0; i < E; i++) {
-    int x, y;
-    scanf("%d %d", &x, &y);
-    g[x].push_back(y);
-    g[y].push_back(x);
-  }
-  LowLink< UnWeightedGraph > lowlink(g);
-  lowlink.build();
-  sort(lowlink.bridge.begin(), lowlink.bridge.end());
-  for(auto &p : lowlink.bridge) printf("%d %d\n", p.first, p.second);
+  cin >> V >> E;
+  LowLink<> g(V);
+  g.read(E, 0);
+  g.build();
+  auto &bridge = g.bridge;
+  for(auto &v : bridge) tie(v.from, v.to) = minmax({v.from, v.to});
+  sort(bridge.begin(), bridge.end(), [](auto &p, auto &q) { return tie(p.from, p.to) < tie(q.from, q.to); });
+  for(auto &v : bridge) cout << v.from << " " << v.to << "\n";
 }
 
 ```

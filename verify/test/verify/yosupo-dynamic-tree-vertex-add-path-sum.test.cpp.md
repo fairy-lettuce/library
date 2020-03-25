@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-01-07 02:17:06+09:00
 
@@ -39,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/structure/others/link-cut-tree-subtree.cpp.html">structure/others/link-cut-tree-subtree.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -123,7 +124,7 @@ int main() {
 #line 1 "test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -212,7 +213,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp"
 
-#line 1 "test/verify/../../structure/others/link-cut-tree-subtree.cpp"
+#line 1 "structure/others/link-cut-tree-subtree.cpp"
 template< typename SUM, typename KEY >
 struct LinkCutTreeSubtree {
  

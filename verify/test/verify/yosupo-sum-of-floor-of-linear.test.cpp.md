@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-sum-of-floor-of-linear.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-03 18:40:18+09:00
 
@@ -39,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/math/number-theory/sum-of-floor-of-linear.cpp.html">Sum-Of-Floor-Of-Linear(一次関数の床関数の和) <small>(math/number-theory/sum-of-floor-of-linear.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -72,7 +73,7 @@ int main() {
 #line 1 "test/verify/yosupo-sum-of-floor-of-linear.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/sum_of_floor_of_linear"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -161,7 +162,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-sum-of-floor-of-linear.test.cpp"
 
-#line 1 "test/verify/../../math/number-theory/sum-of-floor-of-linear.cpp"
+#line 1 "math/number-theory/sum-of-floor-of-linear.cpp"
 /**
  * @brief Sum-Of-Floor-Of-Linear(一次関数の床関数の和)
  */

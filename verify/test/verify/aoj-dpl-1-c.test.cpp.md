@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-1-c.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-02-21 17:07:30+09:00
 
@@ -39,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/dp/knapsack.cpp.html">Knapsack(個数制限なしナップサック問題) <small>(dp/knapsack.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -71,7 +72,7 @@ int main() {
 #line 1 "test/verify/aoj-dpl-1-c.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_C"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -160,7 +161,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/aoj-dpl-1-c.test.cpp"
 
-#line 1 "test/verify/../../dp/knapsack.cpp"
+#line 1 "dp/knapsack.cpp"
 /**
  * @brief Knapsack(個数制限なしナップサック問題)
  * @docs docs/knapsack.md

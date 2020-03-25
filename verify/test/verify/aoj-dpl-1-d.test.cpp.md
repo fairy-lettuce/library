@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-1-d.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-02-26 02:30:05+09:00
 
@@ -39,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/dp/longest-increasing-subsequence.cpp.html">Longest-Increasing-Subsequence(最長増加部分列) <small>(dp/longest-increasing-subsequence.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -70,7 +71,7 @@ int main() {
 #line 1 "test/verify/aoj-dpl-1-d.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -159,7 +160,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/aoj-dpl-1-d.test.cpp"
 
-#line 1 "test/verify/../../dp/longest-increasing-subsequence.cpp"
+#line 1 "dp/longest-increasing-subsequence.cpp"
 /**
  * @brief Longest-Increasing-Subsequence(最長増加部分列)
  * @docs docs/longest-increasing-subsequence.md

@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-find-linear-recurrence.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-03 17:43:59+09:00
 
@@ -41,7 +42,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
 * :heavy_check_mark: <a href="../../../library/math/fps/berlekamp-massey.cpp.html">math/fps/berlekamp-massey.cpp</a>
 * :heavy_check_mark: <a href="../../../library/math/fps/formal-power-series.cpp.html">math/fps/formal-power-series.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -83,7 +84,7 @@ int main() {
 #line 1 "test/verify/yosupo-find-linear-recurrence.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/find_linear_recurrence"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -172,7 +173,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-find-linear-recurrence.test.cpp"
 
-#line 1 "test/verify/../../math/combinatorics/mod-int.cpp"
+#line 1 "math/combinatorics/mod-int.cpp"
 template< int mod >
 struct ModInt {
   int x;
@@ -252,7 +253,7 @@ struct ModInt {
 using modint = ModInt< mod >;
 #line 6 "test/verify/yosupo-find-linear-recurrence.test.cpp"
 
-#line 1 "test/verify/../../math/fps/formal-power-series.cpp"
+#line 1 "math/fps/formal-power-series.cpp"
 template< typename T >
 struct FormalPowerSeries : vector< T > {
   using vector< T >::vector;
@@ -618,7 +619,7 @@ struct FormalPowerSeries : vector< T > {
 };
 #line 8 "test/verify/yosupo-find-linear-recurrence.test.cpp"
 
-#line 1 "test/verify/../../math/fps/berlekamp-massey.cpp"
+#line 1 "math/fps/berlekamp-massey.cpp"
 template< class T >
 FormalPowerSeries< T > berlekamp_massey(const FormalPowerSeries< T > &s) {
   const int N = (int) s.size();

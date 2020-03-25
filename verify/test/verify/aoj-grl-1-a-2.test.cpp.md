@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-1-a-2.test.cpp">View this file on GitHub</a>
     - Last commit date: 2019-11-30 23:02:43+09:00
 
@@ -39,9 +40,9 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/graph/shortest-path/dijkstra-fibonacchi-heap.cpp.html">graph/shortest-path/dijkstra-fibonacchi-heap.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
+* :question: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
 * :heavy_check_mark: <a href="../../../library/structure/heap/fibonacchi-heap.cpp.html">structure/heap/fibonacchi-heap.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -82,7 +83,7 @@ int main() {
 #line 1 "test/verify/aoj-grl-1-a-2.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -169,7 +170,7 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 1 "test/verify/../../graph/template.cpp"
+#line 1 "graph/template.cpp"
 template< typename T >
 struct edge {
   int src, to;
@@ -196,7 +197,7 @@ template< typename T >
 using Matrix = vector< vector< T > >;
 #line 5 "test/verify/aoj-grl-1-a-2.test.cpp"
 
-#line 1 "test/verify/../../structure/heap/fibonacchi-heap.cpp"
+#line 1 "structure/heap/fibonacchi-heap.cpp"
 template< typename key_t, typename val_t >
 struct FibonacchiHeap {
   struct Node {
@@ -366,7 +367,7 @@ struct FibonacchiHeap {
 };
 #line 7 "test/verify/aoj-grl-1-a-2.test.cpp"
 
-#line 1 "test/verify/../../graph/shortest-path/dijkstra-fibonacchi-heap.cpp"
+#line 1 "graph/shortest-path/dijkstra-fibonacchi-heap.cpp"
 template< typename T >
 vector< T > dijkstra_fibonacchi_heap(WeightedGraph< T > &g, int s) {
   const auto INF = numeric_limits< T >::max();

@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-convolution-mod.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-02-24 19:19:55+09:00
 
@@ -39,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/math/fft/number-theoretic-transform.cpp.html">math/fft/number-theoretic-transform.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -73,7 +74,7 @@ int main() {
 #line 1 "test/verify/yosupo-convolution-mod.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -162,7 +163,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-convolution-mod.test.cpp"
 
-#line 1 "test/verify/../../math/fft/number-theoretic-transform.cpp"
+#line 1 "math/fft/number-theoretic-transform.cpp"
 template< int mod >
 struct NumberTheoreticTransform {
 

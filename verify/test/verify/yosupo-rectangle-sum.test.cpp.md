@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-rectangle-sum.test.cpp">View this file on GitHub</a>
     - Last commit date: 2019-12-31 17:29:03+09:00
 
@@ -40,7 +41,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../library/structure/wavelet/succinct-indexable-dictionary.cpp.html">structure/wavelet/succinct-indexable-dictionary.cpp</a>
 * :heavy_check_mark: <a href="../../../library/structure/wavelet/wavelet-matrix-rectangle-sum.cpp.html">structure/wavelet/wavelet-matrix-rectangle-sum.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -92,7 +93,7 @@ int main() {
 #line 1 "test/verify/yosupo-rectangle-sum.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/rectangle_sum"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -181,7 +182,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-rectangle-sum.test.cpp"
 
-#line 1 "test/verify/../../structure/wavelet/succinct-indexable-dictionary.cpp"
+#line 1 "structure/wavelet/succinct-indexable-dictionary.cpp"
 struct SuccinctIndexableDictionary {
   size_t length;
   size_t blocks;
@@ -217,7 +218,7 @@ struct SuccinctIndexableDictionary {
     return (val ? rank(k) : k - rank(k));
   }
 };
-#line 1 "test/verify/../../structure/wavelet/wavelet-matrix-rectangle-sum.cpp"
+#line 1 "structure/wavelet/wavelet-matrix-rectangle-sum.cpp"
 template< typename T, int MAXLOG, typename D >
 struct WaveletMatrixRectangleSum {
   size_t length;

@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-bellnoulli-number.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-02-24 19:19:55+09:00
 
@@ -42,7 +43,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/math/fft/number-theoretic-transform-friendly-mod-int.cpp.html">math/fft/number-theoretic-transform-friendly-mod-int.cpp</a>
 * :heavy_check_mark: <a href="../../../library/math/fps/formal-power-series-seq.cpp.html">math/fps/formal-power-series-seq.cpp</a>
 * :heavy_check_mark: <a href="../../../library/math/fps/formal-power-series.cpp.html">math/fps/formal-power-series.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -88,7 +89,7 @@ int main() {
 #line 1 "test/verify/yosupo-bellnoulli-number.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/bernoulli_number"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -177,7 +178,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-bellnoulli-number.test.cpp"
 
-#line 1 "test/verify/../../math/combinatorics/mod-int.cpp"
+#line 1 "math/combinatorics/mod-int.cpp"
 template< int mod >
 struct ModInt {
   int x;
@@ -255,7 +256,7 @@ struct ModInt {
 };
 
 using modint = ModInt< mod >;
-#line 1 "test/verify/../../math/fft/number-theoretic-transform-friendly-mod-int.cpp"
+#line 1 "math/fft/number-theoretic-transform-friendly-mod-int.cpp"
 template< typename Mint >
 struct NumberTheoreticTransformFriendlyModInt {
 
@@ -334,7 +335,7 @@ struct NumberTheoreticTransformFriendlyModInt {
 };
 #line 7 "test/verify/yosupo-bellnoulli-number.test.cpp"
 
-#line 1 "test/verify/../../math/fps/formal-power-series.cpp"
+#line 1 "math/fps/formal-power-series.cpp"
 template< typename T >
 struct FormalPowerSeries : vector< T > {
   using vector< T >::vector;
@@ -698,7 +699,7 @@ struct FormalPowerSeries : vector< T > {
     return ret;
   }
 };
-#line 1 "test/verify/../../math/fps/formal-power-series-seq.cpp"
+#line 1 "math/fps/formal-power-series-seq.cpp"
 template< typename T >
 FormalPowerSeries< T > bernoulli(int N) {
   FormalPowerSeries< T > poly(N + 1);

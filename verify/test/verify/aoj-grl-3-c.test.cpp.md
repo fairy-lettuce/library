@@ -25,12 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/aoj-grl-3-c.test.cpp
+# :x: test/verify/aoj-grl-3-c.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-3-c.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:10:48+09:00
+    - Last commit date: 2020-03-25 22:02:49+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C</a>
@@ -38,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/connected-components/strongly-connected-components.cpp.html">graph/connected-components/strongly-connected-components.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/graph/connected-components/strongly-connected-components.cpp.html">Strongly-Connected-Components(強連結成分分解) <small>(graph/connected-components/strongly-connected-components.cpp)</small></a>
+* :question: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -83,7 +84,7 @@ int main() {
 #line 1 "test/verify/aoj-grl-3-c.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -170,7 +171,7 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 1 "test/verify/../../graph/template.cpp"
+#line 1 "graph/template.cpp"
 template< typename T >
 struct edge {
   int src, to;
@@ -197,53 +198,64 @@ template< typename T >
 using Matrix = vector< vector< T > >;
 #line 5 "test/verify/aoj-grl-3-c.test.cpp"
 
-#line 1 "test/verify/../../graph/connected-components/strongly-connected-components.cpp"
-template< typename G >
-struct StronglyConnectedComponents {
-  const G &g;
-  UnWeightedGraph gg, rg;
-  vector< int > comp, order, used;
+#line 1 "graph/connected-components/strongly-connected-components.cpp"
+/**
+ * @brief Strongly-Connected-Components(強連結成分分解)
+ */
+template< typename T = int >
+struct StronglyConnectedComponents : Graph< T > {
+public:
+  using Graph< T >::Graph;
+  using Graph< T >::g;
+  vector< int > comp;
+  Graph< T > dag;
+  vector< vector< int > > group;
 
-  StronglyConnectedComponents(G &g) : g(g), gg(g.size()), rg(g.size()), comp(g.size(), -1), used(g.size()) {
+  void build() {
+    rg = Graph< T >(g.size());
     for(int i = 0; i < g.size(); i++) {
-      for(auto e : g[i]) {
-        gg[i].emplace_back((int) e);
-        rg[(int) e].emplace_back(i);
+      for(auto &e : g[i]) {
+        rg.add_directed_edge(e.to, e.from, e.cost);
       }
+    }
+    comp.assign(g.size(), -1);
+    used.assign(g.size(), 0);
+    for(int i = 0; i < g.size(); i++) dfs(i);
+    reverse(begin(order), end(order));
+    int ptr = 0;
+    for(int i : order) if(comp[i] == -1) rdfs(i, ptr), ptr++;
+    dag = Graph< T >(ptr);
+    for(int i = 0; i < g.size(); i++) {
+      for(auto &e : g[i]) {
+        int x = comp[e.from], y = comp[e.to];
+        if(x == y) continue;
+        dag.add_directed_edge(x, y, e.cost);
+      }
+    }
+    group.resize(ptr);
+    for(int i = 0; i < g.size(); i++) {
+      group[comp[i]].emplace_back(i);
     }
   }
 
-  int operator[](int k) {
+  int operator[](int k) const {
     return comp[k];
   }
 
+private:
+  vector< int > order, used;
+  Graph< T > rg;
+
   void dfs(int idx) {
-    if(used[idx]) return;
-    used[idx] = true;
-    for(int to : gg[idx]) dfs(to);
+    if(exchange(used[idx], true)) return;
+    for(auto &to : g[idx]) dfs(to);
     order.push_back(idx);
   }
 
   void rdfs(int idx, int cnt) {
     if(comp[idx] != -1) return;
     comp[idx] = cnt;
-    for(int to : rg[idx]) rdfs(to, cnt);
-  }
-
-  void build(UnWeightedGraph &t) {
-    for(int i = 0; i < gg.size(); i++) dfs(i);
-    reverse(begin(order), end(order));
-    int ptr = 0;
-    for(int i : order) if(comp[i] == -1) rdfs(i, ptr), ptr++;
-
-    t.resize(ptr);
-    for(int i = 0; i < g.size(); i++) {
-      for(auto &to : g[i]) {
-        int x = comp[i], y = comp[to];
-        if(x == y) continue;
-        t[x].push_back(y);
-      }
-    }
+    for(auto &to : rg.g[idx]) rdfs(to, cnt);
   }
 };
 #line 7 "test/verify/aoj-grl-3-c.test.cpp"

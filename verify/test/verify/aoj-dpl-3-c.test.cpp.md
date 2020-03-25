@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-3-c.test.cpp">View this file on GitHub</a>
     - Last commit date: 2019-12-03 22:44:33+09:00
 
@@ -39,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/dp/largest-rectangle.cpp.html">dp/largest-rectangle.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -70,7 +71,7 @@ int main() {
 #line 1 "test/verify/aoj-dpl-3-c.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_3_C"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -159,7 +160,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/aoj-dpl-3-c.test.cpp"
 
-#line 1 "test/verify/../../dp/largest-rectangle.cpp"
+#line 1 "dp/largest-rectangle.cpp"
 template< typename T >
 int64_t largest_rectangle(vector< T > height)
 {

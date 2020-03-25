@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-1-e.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-02-21 17:07:30+09:00
 
@@ -39,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/dp/edit-distance.cpp.html">Edit-Distance(編集距離) <small>(dp/edit-distance.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -69,7 +70,7 @@ int main() {
 #line 1 "test/verify/aoj-dpl-1-e.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -158,7 +159,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/aoj-dpl-1-e.test.cpp"
 
-#line 1 "test/verify/../../dp/edit-distance.cpp"
+#line 1 "dp/edit-distance.cpp"
 /**
  * @brief Edit-Distance(編集距離)
  * @docs docs/edit-distance.md

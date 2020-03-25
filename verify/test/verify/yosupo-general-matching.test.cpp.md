@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-general-matching.test.cpp">View this file on GitHub</a>
     - Last commit date: 2019-12-12 22:16:00+09:00
 
@@ -39,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/graph/flow/gabow-edmonds.cpp.html">graph/flow/gabow-edmonds.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -76,7 +77,7 @@ int main() {
 #line 1 "test/verify/yosupo-general-matching.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/general_matching"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -165,7 +166,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-general-matching.test.cpp"
 
-#line 1 "test/verify/../../graph/flow/gabow-edmonds.cpp"
+#line 1 "graph/flow/gabow-edmonds.cpp"
 // https://qiita.com/Kutimoti_T/items/5b579773e0a24d650bdf
 struct GabowEdmonds {
 

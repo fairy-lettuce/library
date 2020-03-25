@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-maximum-independent-set-2.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-02-25 22:57:51+09:00
 
@@ -39,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/graph/others/maximum-clique.cpp.html">Maximum-Clique(最大クリーク) <small>(graph/others/maximum-clique.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -82,7 +83,7 @@ int main() {
 #line 1 "test/verify/yosupo-maximum-independent-set-2.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/maximum_independent_set"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -171,7 +172,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-maximum-independent-set-2.test.cpp"
 
-#line 1 "test/verify/../../graph/others/maximum-clique.cpp"
+#line 1 "graph/others/maximum-clique.cpp"
 /**
  * @brief Maximum-Clique(最大クリーク)
  */

@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-discrete-logarithm-mod.test.cpp">View this file on GitHub</a>
     - Last commit date: 2019-12-11 22:31:39+09:00
 
@@ -39,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-log.cpp.html">math/combinatorics/mod-log.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -72,7 +73,7 @@ int main() {
 #line 1 "test/verify/yosupo-discrete-logarithm-mod.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/discrete_logarithm_mod" 
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -161,7 +162,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-discrete-logarithm-mod.test.cpp"
 
-#line 1 "test/verify/../../math/combinatorics/mod-log.cpp"
+#line 1 "math/combinatorics/mod-log.cpp"
 int64_t mod_log(int64_t a, int64_t b, int64_t p) {
   int64_t g = 1;
 

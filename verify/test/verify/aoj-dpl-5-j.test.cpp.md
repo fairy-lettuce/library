@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-5-j.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-02-24 19:08:02+09:00
 
@@ -40,7 +41,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/partition-table.cpp.html">Partition-Table(分割数テーブル) <small>(math/combinatorics/partition-table.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -71,7 +72,7 @@ int main() {
 #line 1 "test/verify/aoj-dpl-5-j.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_J"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -160,7 +161,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/aoj-dpl-5-j.test.cpp"
 
-#line 1 "test/verify/../../math/combinatorics/mod-int.cpp"
+#line 1 "math/combinatorics/mod-int.cpp"
 template< int mod >
 struct ModInt {
   int x;
@@ -240,7 +241,7 @@ struct ModInt {
 using modint = ModInt< mod >;
 #line 6 "test/verify/aoj-dpl-5-j.test.cpp"
 
-#line 1 "test/verify/../../math/combinatorics/partition-table.cpp"
+#line 1 "math/combinatorics/partition-table.cpp"
 /**
  * @brief Partition-Table(分割数テーブル)
  * @docs docs/partition-table.md

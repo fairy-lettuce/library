@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-1-i.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-02-26 02:30:05+09:00
 
@@ -40,7 +41,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../library/dp/knapsack-limitations-2.cpp.html">Knapsack-Limitations(個数制限つきナップサック問題) $O(N^2 \max(v_i)^2)$ <small>(dp/knapsack-limitations-2.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/dp/knapsack-limitations.cpp.html">Knapsack-Limitations(個数制限つきナップサック問題) $O(NW)$ <small>(dp/knapsack-limitations.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -77,7 +78,7 @@ int main() {
 #line 1 "test/verify/aoj-dpl-1-i.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_I"
 
-#line 1 "test/verify/../../template/template.cpp"
+#line 1 "template/template.cpp"
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -166,7 +167,7 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/aoj-dpl-1-i.test.cpp"
 
-#line 1 "test/verify/../../dp/knapsack-limitations.cpp"
+#line 1 "dp/knapsack-limitations.cpp"
 /**
  * @brief Knapsack-Limitations(個数制限つきナップサック問題) $O(NW)$
  * @docs docs/knapsack-limitations.md
@@ -199,7 +200,7 @@ vector< T > knapsack_limitations(const vector< int > &w, const vector< int > &m,
 }
 #line 6 "test/verify/aoj-dpl-1-i.test.cpp"
 
-#line 1 "test/verify/../../dp/knapsack-limitations-2.cpp"
+#line 1 "dp/knapsack-limitations-2.cpp"
 /**
  * @brief Knapsack-Limitations(個数制限つきナップサック問題) $O(N^2 \max(v_i)^2)$
  * @docs docs/knapsack-limitations-2.md
