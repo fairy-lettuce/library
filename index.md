@@ -118,8 +118,8 @@ layout: default
 * :heavy_check_mark: <a href="library/graph/others/low-link.cpp.html">Low-Link <small>(graph/others/low-link.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/maximum-clique.cpp.html">Maximum-Clique(最大クリーク) <small>(graph/others/maximum-clique.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/maximum-independent-set.cpp.html">graph/others/maximum-independent-set.cpp</a>
-* :heavy_check_mark: <a href="library/graph/others/offline-dag-reachability.cpp.html">graph/others/offline-dag-reachability.cpp</a>
-* :heavy_check_mark: <a href="library/graph/others/topological-sort.cpp.html">graph/others/topological-sort.cpp</a>
+* :heavy_check_mark: <a href="library/graph/others/offline-dag-reachability.cpp.html">Offline-Dag-Reachability(DAGの到達可能性クエリ) <small>(graph/others/offline-dag-reachability.cpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/others/topological-sort.cpp.html">Topological-Sort(トポロジカルソート) <small>(graph/others/topological-sort.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/tree-decomposition.cpp.html">Tree-Decomposition(木分解) <small>(graph/others/tree-decomposition.cpp)</small></a>
 
 
@@ -128,9 +128,9 @@ layout: default
 ### graph/shortest-path
 
 * :heavy_check_mark: <a href="library/graph/shortest-path/bellman-ford.cpp.html">graph/shortest-path/bellman-ford.cpp</a>
-* :heavy_check_mark: <a href="library/graph/shortest-path/dijkstra-fibonacchi-heap.cpp.html">graph/shortest-path/dijkstra-fibonacchi-heap.cpp</a>
-* :heavy_check_mark: <a href="library/graph/shortest-path/dijkstra-radix-heap.cpp.html">graph/shortest-path/dijkstra-radix-heap.cpp</a>
-* :heavy_check_mark: <a href="library/graph/shortest-path/dijkstra.cpp.html">graph/shortest-path/dijkstra.cpp</a>
+* :heavy_check_mark: <a href="library/graph/shortest-path/dijkstra-fibonacchi-heap.cpp.html">Dijkstra-Fibonacchi-Heap(単一始点最短路) <small>(graph/shortest-path/dijkstra-fibonacchi-heap.cpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/shortest-path/dijkstra-radix-heap.cpp.html">Dijkstra-Radix-Heap(単一始点最短路) <small>(graph/shortest-path/dijkstra-radix-heap.cpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/shortest-path/dijkstra.cpp.html">Dijkstra(単一始点最短路) <small>(graph/shortest-path/dijkstra.cpp)</small></a>
 * :warning: <a href="library/graph/shortest-path/grid-bfs.cpp.html">graph/shortest-path/grid-bfs.cpp</a>
 * :heavy_check_mark: <a href="library/graph/shortest-path/shortest-path-faster-algorithm.cpp.html">graph/shortest-path/shortest-path-faster-algorithm.cpp</a>
 * :heavy_check_mark: <a href="library/graph/shortest-path/warshall-floyd.cpp.html">graph/shortest-path/warshall-floyd.cpp</a>
@@ -143,7 +143,7 @@ layout: default
 * :warning: <a href="library/graph/tree/centroid-decomposition.cpp.html">graph/tree/centroid-decomposition.cpp</a>
 * :heavy_check_mark: <a href="library/graph/tree/centroid.cpp.html">Centroid(木の重心) <small>(graph/tree/centroid.cpp)</small></a>
 * :warning: <a href="library/graph/tree/convert-rooted-tree.cpp.html">graph/tree/convert-rooted-tree.cpp</a>
-* :heavy_check_mark: <a href="library/graph/tree/doubling-lowest-common-ancestor.cpp.html">graph/tree/doubling-lowest-common-ancestor.cpp</a>
+* :heavy_check_mark: <a href="library/graph/tree/doubling-lowest-common-ancestor.cpp.html">Doubling-Lowest-Common-Ancestor(最小共通祖先) <small>(graph/tree/doubling-lowest-common-ancestor.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/heavy-light-decomposition.cpp.html">Heavy-Light-Decomposition(HL分解) <small>(graph/tree/heavy-light-decomposition.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/rerooting.cpp.html">graph/tree/rerooting.cpp</a>
 * :heavy_check_mark: <a href="library/graph/tree/tree-diameter.cpp.html">graph/tree/tree-diameter.cpp</a>

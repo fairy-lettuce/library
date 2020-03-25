@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: graph/others/offline-dag-reachability.cpp
+# :heavy_check_mark: Offline-Dag-Reachability(DAGの到達可能性クエリ) <small>(graph/others/offline-dag-reachability.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#e557c7f962c39680942b9dada22cabec">graph/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/others/offline-dag-reachability.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-03-26 01:02:16+09:00
 
 
 
@@ -46,8 +46,11 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-template< typename G >
-vector< int > offline_dag_reachability(const G &g, vector< pair< int, int > > &qs) {
+/**
+ * @brief Offline-Dag-Reachability(DAGの到達可能性クエリ)
+ */
+template< typename T >
+vector< int > offline_dag_reachability(const Graph< T > &g, vector< pair< int, int > > &qs) {
   const int N = (int) g.size();
   const int Q = (int) qs.size();
   auto ord = topological_sort(g);
@@ -59,7 +62,7 @@ vector< int > offline_dag_reachability(const G &g, vector< pair< int, int > > &q
       dp[qs[k].first] |= int64_t(1) << (k - l);
     }
     for(auto &idx : ord) {
-      for(auto &to : g[idx]) dp[to] |= dp[idx];
+      for(auto &to : g.g[idx]) dp[to] |= dp[idx];
     }
     for(int k = l; k < r; k++) {
       ans[k] = (dp[qs[k].second] >> (k - l)) & 1;
@@ -75,8 +78,11 @@ vector< int > offline_dag_reachability(const G &g, vector< pair< int, int > > &q
 {% raw %}
 ```cpp
 #line 1 "graph/others/offline-dag-reachability.cpp"
-template< typename G >
-vector< int > offline_dag_reachability(const G &g, vector< pair< int, int > > &qs) {
+/**
+ * @brief Offline-Dag-Reachability(DAGの到達可能性クエリ)
+ */
+template< typename T >
+vector< int > offline_dag_reachability(const Graph< T > &g, vector< pair< int, int > > &qs) {
   const int N = (int) g.size();
   const int Q = (int) qs.size();
   auto ord = topological_sort(g);
@@ -88,7 +94,7 @@ vector< int > offline_dag_reachability(const G &g, vector< pair< int, int > > &q
       dp[qs[k].first] |= int64_t(1) << (k - l);
     }
     for(auto &idx : ord) {
-      for(auto &to : g[idx]) dp[to] |= dp[idx];
+      for(auto &to : g.g[idx]) dp[to] |= dp[idx];
     }
     for(int k = l; k < r; k++) {
       ans[k] = (dp[qs[k].second] >> (k - l)) & 1;

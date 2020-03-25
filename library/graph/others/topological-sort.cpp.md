@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: graph/others/topological-sort.cpp
+# :heavy_check_mark: Topological-Sort(トポロジカルソート) <small>(graph/others/topological-sort.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#e557c7f962c39680942b9dada22cabec">graph/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/others/topological-sort.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-03-26 01:02:16+09:00
 
 
 
@@ -46,12 +46,15 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-template< typename G >
-vector< int > topological_sort(const G &g) {
+/**
+ * @brief Topological-Sort(トポロジカルソート)
+ */
+template< typename T >
+vector< int > topological_sort(const Graph< T > &g) {
   const int N = (int) g.size();
   vector< int > deg(N);
   for(int i = 0; i < N; i++) {
-    for(auto &to : g[i]) ++deg[to];
+    for(auto &to : g.g[i]) ++deg[to];
   }
   stack< int > st;
   for(int i = 0; i < N; i++) {
@@ -62,7 +65,7 @@ vector< int > topological_sort(const G &g) {
     auto p = st.top();
     st.pop();
     ord.emplace_back(p);
-    for(auto &to : g[p]) {
+    for(auto &to : g.g[p]) {
       if(--deg[to] == 0) st.emplace(to);
     }
   }
@@ -76,12 +79,15 @@ vector< int > topological_sort(const G &g) {
 {% raw %}
 ```cpp
 #line 1 "graph/others/topological-sort.cpp"
-template< typename G >
-vector< int > topological_sort(const G &g) {
+/**
+ * @brief Topological-Sort(トポロジカルソート)
+ */
+template< typename T >
+vector< int > topological_sort(const Graph< T > &g) {
   const int N = (int) g.size();
   vector< int > deg(N);
   for(int i = 0; i < N; i++) {
-    for(auto &to : g[i]) ++deg[to];
+    for(auto &to : g.g[i]) ++deg[to];
   }
   stack< int > st;
   for(int i = 0; i < N; i++) {
@@ -92,7 +98,7 @@ vector< int > topological_sort(const G &g) {
     auto p = st.top();
     st.pop();
     ord.emplace_back(p);
-    for(auto &to : g[p]) {
+    for(auto &to : g.g[p]) {
       if(--deg[to] == 0) st.emplace(to);
     }
   }

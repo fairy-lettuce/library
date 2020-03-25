@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: graph/tree/doubling-lowest-common-ancestor.cpp
+# :heavy_check_mark: Doubling-Lowest-Common-Ancestor(最小共通祖先) <small>(graph/tree/doubling-lowest-common-ancestor.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#28790b6202284cbbffc9d712b59f4b80">graph/tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/tree/doubling-lowest-common-ancestor.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-03-26 01:02:16+09:00
 
 
 
@@ -46,26 +46,28 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-template< typename G >
-struct DoublingLowestCommonAncestor {
-  const int LOG;
+/**
+ * @brief Doubling-Lowest-Common-Ancestor(最小共通祖先)
+ */
+template< typename T >
+struct DoublingLowestCommonAncestor : Graph< T > {
+public:
+  using Graph< T >::g;
   vector< int > dep;
-  const G &g;
+  vector< T > sum;
   vector< vector< int > > table;
+  const int LOG;
 
-  DoublingLowestCommonAncestor(const G &g) : g(g), dep(g.size()), LOG(32 - __builtin_clz(g.size())) {
-    table.assign(LOG, vector< int >(g.size(), -1));
-  }
+  explicit DoublingLowestCommonAncestor(int n)
+      : LOG(32 - __builtin_clz(g.size())), Graph< T >(n) {}
 
-  void dfs(int idx, int par, int d) {
-    table[0][idx] = par;
-    dep[idx] = d;
-    for(auto &to : g[idx]) {
-      if(to != par) dfs(to, idx, d + 1);
-    }
-  }
+  explicit DoublingLowestCommonAncestor(const Graph< T > &g)
+      : LOG(32 - __builtin_clz(g.size())), Graph< T >(g) {}
 
   void build() {
+    dep.assign(g.size(), 0);
+    sum.assign(g.size(), 0);
+    table.assign(LOG, vector< int >(g.size(), -1));
     dfs(0, -1, 0);
     for(int k = 0; k + 1 < LOG; k++) {
       for(int i = 0; i < table[k].size(); i++) {
@@ -75,7 +77,7 @@ struct DoublingLowestCommonAncestor {
     }
   }
 
-  int query(int u, int v) {
+  int lca(int u, int v) {
     if(dep[u] > dep[v]) swap(u, v);
     for(int i = LOG - 1; i >= 0; i--) {
       if(((dep[v] - dep[u]) >> i) & 1) v = table[i][v];
@@ -88,6 +90,22 @@ struct DoublingLowestCommonAncestor {
       }
     }
     return table[0][u];
+  }
+
+  T dist(int u, int v) {
+    return sum[u] + sum[v] - 2 * sum[lca(u, v)];
+  }
+
+private:
+  void dfs(int idx, int par, int d) {
+    table[0][idx] = par;
+    dep[idx] = d;
+    for(auto &to : g[idx]) {
+      if(to != par) {
+        sum[to] = sum[idx] + to.cost;
+        dfs(to, idx, d + 1);
+      }
+    }
   }
 };
 
@@ -98,26 +116,28 @@ struct DoublingLowestCommonAncestor {
 {% raw %}
 ```cpp
 #line 1 "graph/tree/doubling-lowest-common-ancestor.cpp"
-template< typename G >
-struct DoublingLowestCommonAncestor {
-  const int LOG;
+/**
+ * @brief Doubling-Lowest-Common-Ancestor(最小共通祖先)
+ */
+template< typename T >
+struct DoublingLowestCommonAncestor : Graph< T > {
+public:
+  using Graph< T >::g;
   vector< int > dep;
-  const G &g;
+  vector< T > sum;
   vector< vector< int > > table;
+  const int LOG;
 
-  DoublingLowestCommonAncestor(const G &g) : g(g), dep(g.size()), LOG(32 - __builtin_clz(g.size())) {
-    table.assign(LOG, vector< int >(g.size(), -1));
-  }
+  explicit DoublingLowestCommonAncestor(int n)
+      : LOG(32 - __builtin_clz(g.size())), Graph< T >(n) {}
 
-  void dfs(int idx, int par, int d) {
-    table[0][idx] = par;
-    dep[idx] = d;
-    for(auto &to : g[idx]) {
-      if(to != par) dfs(to, idx, d + 1);
-    }
-  }
+  explicit DoublingLowestCommonAncestor(const Graph< T > &g)
+      : LOG(32 - __builtin_clz(g.size())), Graph< T >(g) {}
 
   void build() {
+    dep.assign(g.size(), 0);
+    sum.assign(g.size(), 0);
+    table.assign(LOG, vector< int >(g.size(), -1));
     dfs(0, -1, 0);
     for(int k = 0; k + 1 < LOG; k++) {
       for(int i = 0; i < table[k].size(); i++) {
@@ -127,7 +147,7 @@ struct DoublingLowestCommonAncestor {
     }
   }
 
-  int query(int u, int v) {
+  int lca(int u, int v) {
     if(dep[u] > dep[v]) swap(u, v);
     for(int i = LOG - 1; i >= 0; i--) {
       if(((dep[v] - dep[u]) >> i) & 1) v = table[i][v];
@@ -140,6 +160,22 @@ struct DoublingLowestCommonAncestor {
       }
     }
     return table[0][u];
+  }
+
+  T dist(int u, int v) {
+    return sum[u] + sum[v] - 2 * sum[lca(u, v)];
+  }
+
+private:
+  void dfs(int idx, int par, int d) {
+    table[0][idx] = par;
+    dep[idx] = d;
+    for(auto &to : g[idx]) {
+      if(to != par) {
+        sum[to] = sum[idx] + to.cost;
+        dfs(to, idx, d + 1);
+      }
+    }
   }
 };
 

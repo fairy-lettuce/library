@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-5-c-2.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-03 16:48:02+09:00
+    - Last commit date: 2020-03-26 01:02:16+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
 * :heavy_check_mark: <a href="../../../library/graph/tree/heavy-light-decomposition.cpp.html">Heavy-Light-Decomposition(HL分解) <small>(graph/tree/heavy-light-decomposition.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
@@ -52,30 +52,29 @@ layout: default
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C"
 
 #include "../../template/template.cpp"
-#include "../../graph/template.cpp"
+#include "../../graph/graph-template.cpp"
 
 #include "../../graph/tree/heavy-light-decomposition.cpp"
 
 int main() {
   int N, Q;
-  scanf("%d", &N);
-  UnWeightedGraph g(N);
-  HeavyLightDecomposition< UnWeightedGraph > tree(g);
+  cin >> N;
+  HeavyLightDecomposition< int > hld(N);
   for(int i = 0; i < N; i++) {
     int k;
-    scanf("%d", &k);
+    cin >> k;
     for(int j = 0; j < k; j++) {
       int c;
-      scanf("%d", &c);
-      g[i].push_back(c);
+      cin >> c;
+      hld.add_edge(i, c);
     }
   }
-  tree.build();
-  scanf("%d", &Q);
+  hld.build();
+  cin >> Q;
   for(int i = 0; i < Q; i++) {
     int u, v;
-    scanf("%d %d", &u, &v);
-    printf("%d\n", tree.lca(u, v));
+    cin >> u >> v;
+    cout << hld.lca(u, v) << "\n";
   }
 }
 
@@ -175,31 +174,55 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 1 "graph/template.cpp"
-template< typename T >
-struct edge {
-  int src, to;
+#line 1 "graph/graph-template.cpp"
+template< typename T = int >
+struct Edge {
+  int from, to;
   T cost;
+  int idx;
 
-  edge(int to, T cost) : src(-1), to(to), cost(cost) {}
+  Edge() = default;
 
-  edge(int src, int to, T cost) : src(src), to(to), cost(cost) {}
-
-  edge &operator=(const int &x) {
-    to = x;
-    return *this;
-  }
+  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx) {}
 
   operator int() const { return to; }
 };
 
-template< typename T >
-using Edges = vector< edge< T > >;
-template< typename T >
-using WeightedGraph = vector< Edges< T > >;
-using UnWeightedGraph = vector< vector< int > >;
-template< typename T >
-using Matrix = vector< vector< T > >;
+template< typename T = int >
+struct Graph {
+  vector< vector< Edge< T > > > g;
+  int es;
+
+  Graph() = default;
+
+  explicit Graph(int n) : g(n), es(0) {}
+
+  size_t size() const {
+    return g.size();
+  }
+
+  void add_directed_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es++);
+  }
+
+  void add_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es);
+    g[to].emplace_back(to, from, cost, es++);
+  }
+
+  void read(int M, int padding = -1, bool weighted = false, bool directed = false) {
+    for(int i = 0; i < M; i++) {
+      int a, b;
+      cin >> a >> b;
+      a += padding;
+      b += padding;
+      T c = T(1);
+      if(weighted) cin >> c;
+      if(directed) add_directed_edge(a, b, c);
+      else add_edge(a, b, c);
+    }
+  }
+};
 #line 5 "test/verify/aoj-grl-5-c-2.test.cpp"
 
 #line 1 "graph/tree/heavy-light-decomposition.cpp"
@@ -207,39 +230,21 @@ using Matrix = vector< vector< T > >;
  * @brief Heavy-Light-Decomposition(HL分解)
  * @see https://smijake3.hatenablog.com/entry/2019/09/15/200200
  */
-template< typename G >
-struct HeavyLightDecomposition {
-  G &g;
+template< typename T = int >
+struct HeavyLightDecomposition : Graph< T > {
+public:
+  using Graph< T >::Graph;
+  using Graph< T >::g;
   vector< int > sz, in, out, head, rev, par, dep;
 
-  explicit HeavyLightDecomposition(G &g) :
-      g(g), sz(g.size()), in(g.size()), out(g.size()), head(g.size()), rev(g.size()), par(g.size()), dep(g.size()) {}
-
-  void dfs_sz(int idx, int p, int d) {
-    dep[idx] = d;
-    par[idx] = p;
-    sz[idx] = 1;
-    if(g[idx].size() && g[idx][0] == p) swap(g[idx][0], g[idx].back());
-    for(auto &to : g[idx]) {
-      if(to == p) continue;
-      dfs_sz(to, idx, d + 1);
-      sz[idx] += sz[to];
-      if(sz[g[idx][0]] < sz[to]) swap(g[idx][0], to);
-    }
-  }
-
-  void dfs_hld(int idx, int p, int &times) {
-    in[idx] = times++;
-    rev[in[idx]] = idx;
-    for(auto &to : g[idx]) {
-      if(to == p) continue;
-      head[to] = (g[idx][0] == to ? head[idx] : to);
-      dfs_hld(to, idx, times);
-    }
-    out[idx] = times;
-  }
-
   void build() {
+    sz.assign(g.size(), 0);
+    in.assign(g.size(), 0);
+    out.assign(g.size(), 0);
+    head.assign(g.size(), 0);
+    rev.assign(g.size(), 0);
+    par.assign(g.size(), 0);
+    dep.assign(g.size(), 0);
     dfs_sz(0, -1, 0);
     int t = 0;
     dfs_hld(0, -1, t);
@@ -266,9 +271,9 @@ struct HeavyLightDecomposition {
     return dep[u] + dep[v] - 2 * dep[lca(u, v)];
   }
 
-  template< typename T, typename Q, typename F, typename S >
-  T query(int u, int v, const T &ti, const Q &q, const F &f, const S &s, bool edge = false) {
-    T l = ti, r = ti;
+  template< typename E, typename Q, typename F, typename S >
+  E query(int u, int v, const E &ti, const Q &q, const F &f, const S &s, bool edge = false) {
+    E l = ti, r = ti;
     for(;; v = par[head[v]]) {
       if(in[u] > in[v]) swap(u, v), swap(l, r);
       if(head[u] == head[v]) break;
@@ -277,8 +282,8 @@ struct HeavyLightDecomposition {
     return s(f(q(in[u] + edge, in[v] + 1), l), r);
   }
 
-  template< typename T, typename Q, typename F >
-  T query(int u, int v, const T &ti, const Q &q, const F &f, bool edge = false) {
+  template< typename E, typename Q, typename F >
+  E query(int u, int v, const E &ti, const Q &q, const F &f, bool edge = false) {
     return query(u, v, ti, q, f, f, edge);
   }
 
@@ -310,29 +315,55 @@ struct HeavyLightDecomposition {
     }
     return es;
   }
+
+  explicit HeavyLightDecomposition(const Graph< T > &g) : Graph< T >(g) {}
+
+private:
+  void dfs_sz(int idx, int p, int d) {
+    dep[idx] = d;
+    par[idx] = p;
+    sz[idx] = 1;
+    if(g[idx].size() && g[idx][0] == p) swap(g[idx][0], g[idx].back());
+    for(auto &to : g[idx]) {
+      if(to == p) continue;
+      dfs_sz(to, idx, d + 1);
+      sz[idx] += sz[to];
+      if(sz[g[idx][0]] < sz[to]) swap(g[idx][0], to);
+    }
+  }
+
+  void dfs_hld(int idx, int p, int &times) {
+    in[idx] = times++;
+    rev[in[idx]] = idx;
+    for(auto &to : g[idx]) {
+      if(to == p) continue;
+      head[to] = (g[idx][0] == to ? head[idx] : to);
+      dfs_hld(to, idx, times);
+    }
+    out[idx] = times;
+  }
 };
 #line 7 "test/verify/aoj-grl-5-c-2.test.cpp"
 
 int main() {
   int N, Q;
-  scanf("%d", &N);
-  UnWeightedGraph g(N);
-  HeavyLightDecomposition< UnWeightedGraph > tree(g);
+  cin >> N;
+  HeavyLightDecomposition< int > hld(N);
   for(int i = 0; i < N; i++) {
     int k;
-    scanf("%d", &k);
+    cin >> k;
     for(int j = 0; j < k; j++) {
       int c;
-      scanf("%d", &c);
-      g[i].push_back(c);
+      cin >> c;
+      hld.add_edge(i, c);
     }
   }
-  tree.build();
-  scanf("%d", &Q);
+  hld.build();
+  cin >> Q;
   for(int i = 0; i < Q; i++) {
     int u, v;
-    scanf("%d %d", &u, &v);
-    printf("%d\n", tree.lca(u, v));
+    cin >> u >> v;
+    cout << hld.lca(u, v) << "\n";
   }
 }
 

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-1-a-3.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-03-26 01:02:16+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/shortest-path/dijkstra-radix-heap.cpp.html">graph/shortest-path/dijkstra-radix-heap.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/shortest-path/dijkstra-radix-heap.cpp.html">Dijkstra-Radix-Heap(単一始点最短路) <small>(graph/shortest-path/dijkstra-radix-heap.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/structure/heap/radix-heap.cpp.html">structure/heap/radix-heap.cpp</a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
@@ -53,7 +53,7 @@ layout: default
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A"
 
 #include "../../template/template.cpp"
-#include "../../graph/template.cpp"
+#include "../../graph/graph-template.cpp"
 
 #include "../../structure/heap/radix-heap.cpp"
 
@@ -61,16 +61,12 @@ layout: default
 
 int main() {
   int V, E, R;
-  scanf("%d %d %d", &V, &E, &R);
-  WeightedGraph< int > g(V);
-  for(int i = 0; i < E; i++) {
-    int a, b, c;
-    scanf("%d %d %d", &a, &b, &c);
-    g[a].emplace_back(b, c);
-  }
+  cin >> V >> E >> R;
+  Graph< int > g(V);
+  g.read(E, 0, true, true);
   for(auto &dist : dijkstra_radix_heap(g, R)) {
-    if(dist == numeric_limits< int >::max()) puts("INF");
-    else printf("%d\n", dist);
+    if(dist == numeric_limits< int >::max()) cout << "INF\n";
+    else cout << dist << "\n";
   }
 }
 
@@ -170,31 +166,55 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 1 "graph/template.cpp"
-template< typename T >
-struct edge {
-  int src, to;
+#line 1 "graph/graph-template.cpp"
+template< typename T = int >
+struct Edge {
+  int from, to;
   T cost;
+  int idx;
 
-  edge(int to, T cost) : src(-1), to(to), cost(cost) {}
+  Edge() = default;
 
-  edge(int src, int to, T cost) : src(src), to(to), cost(cost) {}
-
-  edge &operator=(const int &x) {
-    to = x;
-    return *this;
-  }
+  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx) {}
 
   operator int() const { return to; }
 };
 
-template< typename T >
-using Edges = vector< edge< T > >;
-template< typename T >
-using WeightedGraph = vector< Edges< T > >;
-using UnWeightedGraph = vector< vector< int > >;
-template< typename T >
-using Matrix = vector< vector< T > >;
+template< typename T = int >
+struct Graph {
+  vector< vector< Edge< T > > > g;
+  int es;
+
+  Graph() = default;
+
+  explicit Graph(int n) : g(n), es(0) {}
+
+  size_t size() const {
+    return g.size();
+  }
+
+  void add_directed_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es++);
+  }
+
+  void add_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es);
+    g[to].emplace_back(to, from, cost, es++);
+  }
+
+  void read(int M, int padding = -1, bool weighted = false, bool directed = false) {
+    for(int i = 0; i < M; i++) {
+      int a, b;
+      cin >> a >> b;
+      a += padding;
+      b += padding;
+      T c = T(1);
+      if(weighted) cin >> c;
+      if(directed) add_directed_edge(a, b, c);
+      else add_edge(a, b, c);
+    }
+  }
+};
 #line 5 "test/verify/aoj-grl-1-a-3.test.cpp"
 
 #line 1 "structure/heap/radix-heap.cpp"
@@ -242,8 +262,11 @@ struct RadixHeap {
 #line 7 "test/verify/aoj-grl-1-a-3.test.cpp"
 
 #line 1 "graph/shortest-path/dijkstra-radix-heap.cpp"
+/**
+ * @brief Dijkstra-Radix-Heap(単一始点最短路)
+ */
 template< typename T >
-vector< T > dijkstra_radix_heap(WeightedGraph< T > &g, int s) {
+vector< T > dijkstra_radix_heap(Graph< T > &g, int s) {
   const auto INF = numeric_limits< T >::max();
   vector< T > dist(g.size(), INF);
 
@@ -256,7 +279,7 @@ vector< T > dijkstra_radix_heap(WeightedGraph< T > &g, int s) {
     int idx;
     tie(cost, idx) = heap.pop();
     if(dist[idx] < cost) continue;
-    for(auto &e : g[idx]) {
+    for(auto &e : g.g[idx]) {
       auto next_cost = cost + e.cost;
       if(dist[e.to] <= next_cost) continue;
       dist[e.to] = next_cost;
@@ -269,16 +292,12 @@ vector< T > dijkstra_radix_heap(WeightedGraph< T > &g, int s) {
 
 int main() {
   int V, E, R;
-  scanf("%d %d %d", &V, &E, &R);
-  WeightedGraph< int > g(V);
-  for(int i = 0; i < E; i++) {
-    int a, b, c;
-    scanf("%d %d %d", &a, &b, &c);
-    g[a].emplace_back(b, c);
-  }
+  cin >> V >> E >> R;
+  Graph< int > g(V);
+  g.read(E, 0, true, true);
   for(auto &dist : dijkstra_radix_heap(g, R)) {
-    if(dist == numeric_limits< int >::max()) puts("INF");
-    else printf("%d\n", dist);
+    if(dist == numeric_limits< int >::max()) cout << "INF\n";
+    else cout << dist << "\n";
   }
 }
 

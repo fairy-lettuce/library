@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#28790b6202284cbbffc9d712b59f4b80">graph/tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/tree/heavy-light-decomposition.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-03 16:48:02+09:00
+    - Last commit date: 2020-03-26 01:02:16+09:00
 
 
 * see: <a href="https://smijake3.hatenablog.com/entry/2019/09/15/200200">https://smijake3.hatenablog.com/entry/2019/09/15/200200</a>
@@ -53,39 +53,21 @@ layout: default
  * @brief Heavy-Light-Decomposition(HL分解)
  * @see https://smijake3.hatenablog.com/entry/2019/09/15/200200
  */
-template< typename G >
-struct HeavyLightDecomposition {
-  G &g;
+template< typename T = int >
+struct HeavyLightDecomposition : Graph< T > {
+public:
+  using Graph< T >::Graph;
+  using Graph< T >::g;
   vector< int > sz, in, out, head, rev, par, dep;
 
-  explicit HeavyLightDecomposition(G &g) :
-      g(g), sz(g.size()), in(g.size()), out(g.size()), head(g.size()), rev(g.size()), par(g.size()), dep(g.size()) {}
-
-  void dfs_sz(int idx, int p, int d) {
-    dep[idx] = d;
-    par[idx] = p;
-    sz[idx] = 1;
-    if(g[idx].size() && g[idx][0] == p) swap(g[idx][0], g[idx].back());
-    for(auto &to : g[idx]) {
-      if(to == p) continue;
-      dfs_sz(to, idx, d + 1);
-      sz[idx] += sz[to];
-      if(sz[g[idx][0]] < sz[to]) swap(g[idx][0], to);
-    }
-  }
-
-  void dfs_hld(int idx, int p, int &times) {
-    in[idx] = times++;
-    rev[in[idx]] = idx;
-    for(auto &to : g[idx]) {
-      if(to == p) continue;
-      head[to] = (g[idx][0] == to ? head[idx] : to);
-      dfs_hld(to, idx, times);
-    }
-    out[idx] = times;
-  }
-
   void build() {
+    sz.assign(g.size(), 0);
+    in.assign(g.size(), 0);
+    out.assign(g.size(), 0);
+    head.assign(g.size(), 0);
+    rev.assign(g.size(), 0);
+    par.assign(g.size(), 0);
+    dep.assign(g.size(), 0);
     dfs_sz(0, -1, 0);
     int t = 0;
     dfs_hld(0, -1, t);
@@ -112,9 +94,9 @@ struct HeavyLightDecomposition {
     return dep[u] + dep[v] - 2 * dep[lca(u, v)];
   }
 
-  template< typename T, typename Q, typename F, typename S >
-  T query(int u, int v, const T &ti, const Q &q, const F &f, const S &s, bool edge = false) {
-    T l = ti, r = ti;
+  template< typename E, typename Q, typename F, typename S >
+  E query(int u, int v, const E &ti, const Q &q, const F &f, const S &s, bool edge = false) {
+    E l = ti, r = ti;
     for(;; v = par[head[v]]) {
       if(in[u] > in[v]) swap(u, v), swap(l, r);
       if(head[u] == head[v]) break;
@@ -123,8 +105,8 @@ struct HeavyLightDecomposition {
     return s(f(q(in[u] + edge, in[v] + 1), l), r);
   }
 
-  template< typename T, typename Q, typename F >
-  T query(int u, int v, const T &ti, const Q &q, const F &f, bool edge = false) {
+  template< typename E, typename Q, typename F >
+  E query(int u, int v, const E &ti, const Q &q, const F &f, bool edge = false) {
     return query(u, v, ti, q, f, f, edge);
   }
 
@@ -155,6 +137,33 @@ struct HeavyLightDecomposition {
       st.emplace(k);
     }
     return es;
+  }
+
+  explicit HeavyLightDecomposition(const Graph< T > &g) : Graph< T >(g) {}
+
+private:
+  void dfs_sz(int idx, int p, int d) {
+    dep[idx] = d;
+    par[idx] = p;
+    sz[idx] = 1;
+    if(g[idx].size() && g[idx][0] == p) swap(g[idx][0], g[idx].back());
+    for(auto &to : g[idx]) {
+      if(to == p) continue;
+      dfs_sz(to, idx, d + 1);
+      sz[idx] += sz[to];
+      if(sz[g[idx][0]] < sz[to]) swap(g[idx][0], to);
+    }
+  }
+
+  void dfs_hld(int idx, int p, int &times) {
+    in[idx] = times++;
+    rev[in[idx]] = idx;
+    for(auto &to : g[idx]) {
+      if(to == p) continue;
+      head[to] = (g[idx][0] == to ? head[idx] : to);
+      dfs_hld(to, idx, times);
+    }
+    out[idx] = times;
   }
 };
 
@@ -169,39 +178,21 @@ struct HeavyLightDecomposition {
  * @brief Heavy-Light-Decomposition(HL分解)
  * @see https://smijake3.hatenablog.com/entry/2019/09/15/200200
  */
-template< typename G >
-struct HeavyLightDecomposition {
-  G &g;
+template< typename T = int >
+struct HeavyLightDecomposition : Graph< T > {
+public:
+  using Graph< T >::Graph;
+  using Graph< T >::g;
   vector< int > sz, in, out, head, rev, par, dep;
 
-  explicit HeavyLightDecomposition(G &g) :
-      g(g), sz(g.size()), in(g.size()), out(g.size()), head(g.size()), rev(g.size()), par(g.size()), dep(g.size()) {}
-
-  void dfs_sz(int idx, int p, int d) {
-    dep[idx] = d;
-    par[idx] = p;
-    sz[idx] = 1;
-    if(g[idx].size() && g[idx][0] == p) swap(g[idx][0], g[idx].back());
-    for(auto &to : g[idx]) {
-      if(to == p) continue;
-      dfs_sz(to, idx, d + 1);
-      sz[idx] += sz[to];
-      if(sz[g[idx][0]] < sz[to]) swap(g[idx][0], to);
-    }
-  }
-
-  void dfs_hld(int idx, int p, int &times) {
-    in[idx] = times++;
-    rev[in[idx]] = idx;
-    for(auto &to : g[idx]) {
-      if(to == p) continue;
-      head[to] = (g[idx][0] == to ? head[idx] : to);
-      dfs_hld(to, idx, times);
-    }
-    out[idx] = times;
-  }
-
   void build() {
+    sz.assign(g.size(), 0);
+    in.assign(g.size(), 0);
+    out.assign(g.size(), 0);
+    head.assign(g.size(), 0);
+    rev.assign(g.size(), 0);
+    par.assign(g.size(), 0);
+    dep.assign(g.size(), 0);
     dfs_sz(0, -1, 0);
     int t = 0;
     dfs_hld(0, -1, t);
@@ -228,9 +219,9 @@ struct HeavyLightDecomposition {
     return dep[u] + dep[v] - 2 * dep[lca(u, v)];
   }
 
-  template< typename T, typename Q, typename F, typename S >
-  T query(int u, int v, const T &ti, const Q &q, const F &f, const S &s, bool edge = false) {
-    T l = ti, r = ti;
+  template< typename E, typename Q, typename F, typename S >
+  E query(int u, int v, const E &ti, const Q &q, const F &f, const S &s, bool edge = false) {
+    E l = ti, r = ti;
     for(;; v = par[head[v]]) {
       if(in[u] > in[v]) swap(u, v), swap(l, r);
       if(head[u] == head[v]) break;
@@ -239,8 +230,8 @@ struct HeavyLightDecomposition {
     return s(f(q(in[u] + edge, in[v] + 1), l), r);
   }
 
-  template< typename T, typename Q, typename F >
-  T query(int u, int v, const T &ti, const Q &q, const F &f, bool edge = false) {
+  template< typename E, typename Q, typename F >
+  E query(int u, int v, const E &ti, const Q &q, const F &f, bool edge = false) {
     return query(u, v, ti, q, f, f, edge);
   }
 
@@ -271,6 +262,33 @@ struct HeavyLightDecomposition {
       st.emplace(k);
     }
     return es;
+  }
+
+  explicit HeavyLightDecomposition(const Graph< T > &g) : Graph< T >(g) {}
+
+private:
+  void dfs_sz(int idx, int p, int d) {
+    dep[idx] = d;
+    par[idx] = p;
+    sz[idx] = 1;
+    if(g[idx].size() && g[idx][0] == p) swap(g[idx][0], g[idx].back());
+    for(auto &to : g[idx]) {
+      if(to == p) continue;
+      dfs_sz(to, idx, d + 1);
+      sz[idx] += sz[to];
+      if(sz[g[idx][0]] < sz[to]) swap(g[idx][0], to);
+    }
+  }
+
+  void dfs_hld(int idx, int p, int &times) {
+    in[idx] = times++;
+    rev[in[idx]] = idx;
+    for(auto &to : g[idx]) {
+      if(to == p) continue;
+      head[to] = (g[idx][0] == to ? head[idx] : to);
+      dfs_hld(to, idx, times);
+    }
+    out[idx] = times;
   }
 };
 

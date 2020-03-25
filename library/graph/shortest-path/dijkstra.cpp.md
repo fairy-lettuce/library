@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: graph/shortest-path/dijkstra.cpp
+# :heavy_check_mark: Dijkstra(単一始点最短路) <small>(graph/shortest-path/dijkstra.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#73feb47c464a017d041247d88424b879">graph/shortest-path</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/shortest-path/dijkstra.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-03-26 01:02:16+09:00
 
 
 
@@ -47,13 +47,16 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Dijkstra(単一始点最短路)
+ */
 template< typename T >
-vector< T > dijkstra(WeightedGraph< T > &g, int s) {
+vector< T > dijkstra(const Graph< T > &g, int s) {
   const auto INF = numeric_limits< T >::max();
   vector< T > dist(g.size(), INF);
 
   using Pi = pair< T, int >;
-  priority_queue< Pi, vector< Pi >, greater< Pi > > que;
+  priority_queue< Pi, vector< Pi >, greater<> > que;
   dist[s] = 0;
   que.emplace(dist[s], s);
   while(!que.empty()) {
@@ -62,7 +65,7 @@ vector< T > dijkstra(WeightedGraph< T > &g, int s) {
     tie(cost, idx) = que.top();
     que.pop();
     if(dist[idx] < cost) continue;
-    for(auto &e : g[idx]) {
+    for(auto &e : g.g[idx]) {
       auto next_cost = cost + e.cost;
       if(dist[e.to] <= next_cost) continue;
       dist[e.to] = next_cost;
@@ -79,13 +82,16 @@ vector< T > dijkstra(WeightedGraph< T > &g, int s) {
 {% raw %}
 ```cpp
 #line 1 "graph/shortest-path/dijkstra.cpp"
+/**
+ * @brief Dijkstra(単一始点最短路)
+ */
 template< typename T >
-vector< T > dijkstra(WeightedGraph< T > &g, int s) {
+vector< T > dijkstra(const Graph< T > &g, int s) {
   const auto INF = numeric_limits< T >::max();
   vector< T > dist(g.size(), INF);
 
   using Pi = pair< T, int >;
-  priority_queue< Pi, vector< Pi >, greater< Pi > > que;
+  priority_queue< Pi, vector< Pi >, greater<> > que;
   dist[s] = 0;
   que.emplace(dist[s], s);
   while(!que.empty()) {
@@ -94,7 +100,7 @@ vector< T > dijkstra(WeightedGraph< T > &g, int s) {
     tie(cost, idx) = que.top();
     que.pop();
     if(dist[idx] < cost) continue;
-    for(auto &e : g[idx]) {
+    for(auto &e : g.g[idx]) {
       auto next_cost = cost + e.cost;
       if(dist[e.to] <= next_cost) continue;
       dist[e.to] = next_cost;

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-5-c.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-03-26 01:02:16+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/tree/doubling-lowest-common-ancestor.cpp.html">graph/tree/doubling-lowest-common-ancestor.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/tree/doubling-lowest-common-ancestor.cpp.html">Doubling-Lowest-Common-Ancestor(最小共通祖先) <small>(graph/tree/doubling-lowest-common-ancestor.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -52,30 +52,29 @@ layout: default
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C"
 
 #include "../../template/template.cpp"
-#include "../../graph/template.cpp"
+#include "../../graph/graph-template.cpp"
 
 #include "../../graph/tree/doubling-lowest-common-ancestor.cpp"
 
 int main() {
   int N, Q;
-  scanf("%d", &N);
-  UnWeightedGraph g(N);
+  cin >> N;
+  DoublingLowestCommonAncestor< int > dlca(N);
   for(int i = 0; i < N; i++) {
     int k;
-    scanf("%d", &k);
-    while(k--) {
+    cin >> k;
+    for(int j = 0; j < k; j++) {
       int c;
-      scanf("%d", &c);
-      g[i].push_back(c);
+      cin >> c;
+      dlca.add_edge(i, c);
     }
   }
-  DoublingLowestCommonAncestor< UnWeightedGraph > lca(g);
-  lca.build();
-  scanf("%d", &Q);
-  while(Q--) {
-    int x, y;
-    scanf("%d %d", &x, &y);
-    printf("%d\n", lca.query(x, y));
+  dlca.build();
+  cin >> Q;
+  for(int i = 0; i < Q; i++) {
+    int u, v;
+    cin >> u >> v;
+    cout << dlca.lca(u, v) << "\n";
   }
 }
 
@@ -175,54 +174,80 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 1 "graph/template.cpp"
-template< typename T >
-struct edge {
-  int src, to;
+#line 1 "graph/graph-template.cpp"
+template< typename T = int >
+struct Edge {
+  int from, to;
   T cost;
+  int idx;
 
-  edge(int to, T cost) : src(-1), to(to), cost(cost) {}
+  Edge() = default;
 
-  edge(int src, int to, T cost) : src(src), to(to), cost(cost) {}
-
-  edge &operator=(const int &x) {
-    to = x;
-    return *this;
-  }
+  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx) {}
 
   operator int() const { return to; }
 };
 
-template< typename T >
-using Edges = vector< edge< T > >;
-template< typename T >
-using WeightedGraph = vector< Edges< T > >;
-using UnWeightedGraph = vector< vector< int > >;
-template< typename T >
-using Matrix = vector< vector< T > >;
+template< typename T = int >
+struct Graph {
+  vector< vector< Edge< T > > > g;
+  int es;
+
+  Graph() = default;
+
+  explicit Graph(int n) : g(n), es(0) {}
+
+  size_t size() const {
+    return g.size();
+  }
+
+  void add_directed_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es++);
+  }
+
+  void add_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es);
+    g[to].emplace_back(to, from, cost, es++);
+  }
+
+  void read(int M, int padding = -1, bool weighted = false, bool directed = false) {
+    for(int i = 0; i < M; i++) {
+      int a, b;
+      cin >> a >> b;
+      a += padding;
+      b += padding;
+      T c = T(1);
+      if(weighted) cin >> c;
+      if(directed) add_directed_edge(a, b, c);
+      else add_edge(a, b, c);
+    }
+  }
+};
 #line 5 "test/verify/aoj-grl-5-c.test.cpp"
 
 #line 1 "graph/tree/doubling-lowest-common-ancestor.cpp"
-template< typename G >
-struct DoublingLowestCommonAncestor {
-  const int LOG;
+/**
+ * @brief Doubling-Lowest-Common-Ancestor(最小共通祖先)
+ */
+template< typename T >
+struct DoublingLowestCommonAncestor : Graph< T > {
+public:
+  using Graph< T >::g;
   vector< int > dep;
-  const G &g;
+  vector< T > sum;
   vector< vector< int > > table;
+  const int LOG;
 
-  DoublingLowestCommonAncestor(const G &g) : g(g), dep(g.size()), LOG(32 - __builtin_clz(g.size())) {
-    table.assign(LOG, vector< int >(g.size(), -1));
-  }
+  explicit DoublingLowestCommonAncestor(int n)
+      : LOG(32 - __builtin_clz(g.size())), Graph< T >(n) {}
 
-  void dfs(int idx, int par, int d) {
-    table[0][idx] = par;
-    dep[idx] = d;
-    for(auto &to : g[idx]) {
-      if(to != par) dfs(to, idx, d + 1);
-    }
-  }
+  explicit DoublingLowestCommonAncestor(const Graph< T > &g)
+      : LOG(32 - __builtin_clz(g.size())), Graph< T >(g) {}
 
   void build() {
+    dep.assign(g.size(), 0);
+    sum.assign(g.size(), 0);
+    table.assign(LOG, vector< int >(g.size(), -1));
     dfs(0, -1, 0);
     for(int k = 0; k + 1 < LOG; k++) {
       for(int i = 0; i < table[k].size(); i++) {
@@ -232,7 +257,7 @@ struct DoublingLowestCommonAncestor {
     }
   }
 
-  int query(int u, int v) {
+  int lca(int u, int v) {
     if(dep[u] > dep[v]) swap(u, v);
     for(int i = LOG - 1; i >= 0; i--) {
       if(((dep[v] - dep[u]) >> i) & 1) v = table[i][v];
@@ -246,29 +271,44 @@ struct DoublingLowestCommonAncestor {
     }
     return table[0][u];
   }
+
+  T dist(int u, int v) {
+    return sum[u] + sum[v] - 2 * sum[lca(u, v)];
+  }
+
+private:
+  void dfs(int idx, int par, int d) {
+    table[0][idx] = par;
+    dep[idx] = d;
+    for(auto &to : g[idx]) {
+      if(to != par) {
+        sum[to] = sum[idx] + to.cost;
+        dfs(to, idx, d + 1);
+      }
+    }
+  }
 };
 #line 7 "test/verify/aoj-grl-5-c.test.cpp"
 
 int main() {
   int N, Q;
-  scanf("%d", &N);
-  UnWeightedGraph g(N);
+  cin >> N;
+  DoublingLowestCommonAncestor< int > dlca(N);
   for(int i = 0; i < N; i++) {
     int k;
-    scanf("%d", &k);
-    while(k--) {
+    cin >> k;
+    for(int j = 0; j < k; j++) {
       int c;
-      scanf("%d", &c);
-      g[i].push_back(c);
+      cin >> c;
+      dlca.add_edge(i, c);
     }
   }
-  DoublingLowestCommonAncestor< UnWeightedGraph > lca(g);
-  lca.build();
-  scanf("%d", &Q);
-  while(Q--) {
-    int x, y;
-    scanf("%d %d", &x, &y);
-    printf("%d\n", lca.query(x, y));
+  dlca.build();
+  cin >> Q;
+  for(int i = 0; i < Q; i++) {
+    int u, v;
+    cin >> u >> v;
+    cout << dlca.lca(u, v) << "\n";
   }
 }
 
