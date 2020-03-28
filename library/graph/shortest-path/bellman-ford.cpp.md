@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: graph/shortest-path/bellman-ford.cpp
+# :heavy_check_mark: Bellman-Ford(単一始点最短路) <small>(graph/shortest-path/bellman-ford.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#73feb47c464a017d041247d88424b879">graph/shortest-path</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/shortest-path/bellman-ford.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-03-28 20:39:54+09:00
 
 
 
@@ -47,24 +47,26 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Bellman-Ford(単一始点最短路)
+ */
 template< typename T >
-vector< T > bellman_ford(Edges< T > &edges, int V, int s) {
+vector< T > bellman_ford(const Edges< T > &edges, int V, int s) {
   const auto INF = numeric_limits< T >::max();
   vector< T > dist(V, INF);
   dist[s] = 0;
   for(int i = 0; i < V - 1; i++) {
     for(auto &e : edges) {
-      if(dist[e.src] == INF) continue;
-      dist[e.to] = min(dist[e.to], dist[e.src] + e.cost);
+      if(dist[e.from] == INF) continue;
+      dist[e.to] = min(dist[e.to], dist[e.from] + e.cost);
     }
   }
   for(auto &e : edges) {
-    if(dist[e.src] == INF) continue;
-    if(dist[e.src] + e.cost < dist[e.to]) return vector< T >();
+    if(dist[e.from] == INF) continue;
+    if(dist[e.from] + e.cost < dist[e.to]) return vector< T >();
   }
   return dist;
 }
-
 
 ```
 {% endraw %}
@@ -73,24 +75,26 @@ vector< T > bellman_ford(Edges< T > &edges, int V, int s) {
 {% raw %}
 ```cpp
 #line 1 "graph/shortest-path/bellman-ford.cpp"
+/**
+ * @brief Bellman-Ford(単一始点最短路)
+ */
 template< typename T >
-vector< T > bellman_ford(Edges< T > &edges, int V, int s) {
+vector< T > bellman_ford(const Edges< T > &edges, int V, int s) {
   const auto INF = numeric_limits< T >::max();
   vector< T > dist(V, INF);
   dist[s] = 0;
   for(int i = 0; i < V - 1; i++) {
     for(auto &e : edges) {
-      if(dist[e.src] == INF) continue;
-      dist[e.to] = min(dist[e.to], dist[e.src] + e.cost);
+      if(dist[e.from] == INF) continue;
+      dist[e.to] = min(dist[e.to], dist[e.from] + e.cost);
     }
   }
   for(auto &e : edges) {
-    if(dist[e.src] == INF) continue;
-    if(dist[e.src] + e.cost < dist[e.to]) return vector< T >();
+    if(dist[e.from] == INF) continue;
+    if(dist[e.from] + e.cost < dist[e.to]) return vector< T >();
   }
   return dist;
 }
-
 
 ```
 {% endraw %}

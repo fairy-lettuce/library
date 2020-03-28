@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-1-b.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-03-28 20:39:54+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/shortest-path/bellman-ford.cpp.html">graph/shortest-path/bellman-ford.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/shortest-path/bellman-ford.cpp.html">Bellman-Ford(単一始点最短路) <small>(graph/shortest-path/bellman-ford.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -52,24 +52,24 @@ layout: default
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B"
 
 #include "../../template/template.cpp"
-#include "../../graph/template.cpp"
+#include "../../graph/graph-template.cpp"
 
 #include "../../graph/shortest-path/bellman-ford.cpp"
 
 int main() {
   int V, E, R;
-  scanf("%d %d %d", &V, &E, &R);
-  Edges< int > es;
+  cin >> V >> E >> R;
+  Edges< > es;
   for(int i = 0; i < E; i++) {
     int a, b, c;
-    scanf("%d %d %d", &a, &b, &c);
+    cin >> a >> b >> c;
     es.emplace_back(a, b, c);
   }
   auto dists = bellman_ford(es, V, R);
-  if(dists.empty()) puts("NEGATIVE CYCLE");
+  if(dists.empty()) cout << "NEGATIVE CYCLE\n";
   for(auto &dist : dists) {
-    if(dist == numeric_limits< int >::max()) puts("INF");
-    else printf("%d\n", dist);
+    if(dist == numeric_limits< int >::max()) cout << "INF\n";
+    else cout << dist << "\n";
   }
 }
 
@@ -169,68 +169,97 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 1 "graph/template.cpp"
-template< typename T >
-struct edge {
-  int src, to;
+#line 1 "graph/graph-template.cpp"
+template< typename T = int >
+struct Edge {
+  int from, to;
   T cost;
+  int idx;
 
-  edge(int to, T cost) : src(-1), to(to), cost(cost) {}
+  Edge() = default;
 
-  edge(int src, int to, T cost) : src(src), to(to), cost(cost) {}
-
-  edge &operator=(const int &x) {
-    to = x;
-    return *this;
-  }
+  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx) {}
 
   operator int() const { return to; }
 };
 
-template< typename T >
-using Edges = vector< edge< T > >;
-template< typename T >
-using WeightedGraph = vector< Edges< T > >;
-using UnWeightedGraph = vector< vector< int > >;
-template< typename T >
-using Matrix = vector< vector< T > >;
+template< typename T = int >
+struct Graph {
+  vector< vector< Edge< T > > > g;
+  int es;
+
+  Graph() = default;
+
+  explicit Graph(int n) : g(n), es(0) {}
+
+  size_t size() const {
+    return g.size();
+  }
+
+  void add_directed_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es++);
+  }
+
+  void add_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es);
+    g[to].emplace_back(to, from, cost, es++);
+  }
+
+  void read(int M, int padding = -1, bool weighted = false, bool directed = false) {
+    for(int i = 0; i < M; i++) {
+      int a, b;
+      cin >> a >> b;
+      a += padding;
+      b += padding;
+      T c = T(1);
+      if(weighted) cin >> c;
+      if(directed) add_directed_edge(a, b, c);
+      else add_edge(a, b, c);
+    }
+  }
+};
+
+template< typename T = int >
+using Edges = vector< Edge< T > >;
 #line 5 "test/verify/aoj-grl-1-b.test.cpp"
 
 #line 1 "graph/shortest-path/bellman-ford.cpp"
+/**
+ * @brief Bellman-Ford(単一始点最短路)
+ */
 template< typename T >
-vector< T > bellman_ford(Edges< T > &edges, int V, int s) {
+vector< T > bellman_ford(const Edges< T > &edges, int V, int s) {
   const auto INF = numeric_limits< T >::max();
   vector< T > dist(V, INF);
   dist[s] = 0;
   for(int i = 0; i < V - 1; i++) {
     for(auto &e : edges) {
-      if(dist[e.src] == INF) continue;
-      dist[e.to] = min(dist[e.to], dist[e.src] + e.cost);
+      if(dist[e.from] == INF) continue;
+      dist[e.to] = min(dist[e.to], dist[e.from] + e.cost);
     }
   }
   for(auto &e : edges) {
-    if(dist[e.src] == INF) continue;
-    if(dist[e.src] + e.cost < dist[e.to]) return vector< T >();
+    if(dist[e.from] == INF) continue;
+    if(dist[e.from] + e.cost < dist[e.to]) return vector< T >();
   }
   return dist;
 }
-
 #line 7 "test/verify/aoj-grl-1-b.test.cpp"
 
 int main() {
   int V, E, R;
-  scanf("%d %d %d", &V, &E, &R);
-  Edges< int > es;
+  cin >> V >> E >> R;
+  Edges< > es;
   for(int i = 0; i < E; i++) {
     int a, b, c;
-    scanf("%d %d %d", &a, &b, &c);
+    cin >> a >> b >> c;
     es.emplace_back(a, b, c);
   }
   auto dists = bellman_ford(es, V, R);
-  if(dists.empty()) puts("NEGATIVE CYCLE");
+  if(dists.empty()) cout << "NEGATIVE CYCLE\n";
   for(auto &dist : dists) {
-    if(dist == numeric_limits< int >::max()) puts("INF");
-    else printf("%d\n", dist);
+    if(dist == numeric_limits< int >::max()) cout << "INF\n";
+    else cout << dist << "\n";
   }
 }
 

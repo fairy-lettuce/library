@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-5-a.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-03-28 20:39:54+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/tree/tree-diameter.cpp.html">graph/tree/tree-diameter.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/tree/tree-diameter.cpp.html">Tree-Diameter(木の直径) <small>(graph/tree/tree-diameter.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -52,21 +52,16 @@ layout: default
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A"
 
 #include "../../template/template.cpp"
-#include "../../graph/template.cpp"
+#include "../../graph/graph-template.cpp"
 
 #include "../../graph/tree/tree-diameter.cpp"
 
 int main() {
   int N;
-  scanf("%d", &N);
-  WeightedGraph< int > g(N);
-  for(int i = 1; i < N; i++) {
-    int x, y, z;
-    scanf("%d %d %d", &x, &y, &z);
-    g[x].emplace_back(y, z);
-    g[y].emplace_back(x, z);
-  }
-  printf("%d\n", tree_diameter(g));
+  cin >> N;
+  TreeDiameter< int > g(N);
+  g.read(N - 1, 0, true);
+  cout << g.build() << endl;
 }
 
 ```
@@ -165,65 +160,115 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 1 "graph/template.cpp"
-template< typename T >
-struct edge {
-  int src, to;
+#line 1 "graph/graph-template.cpp"
+template< typename T = int >
+struct Edge {
+  int from, to;
   T cost;
+  int idx;
 
-  edge(int to, T cost) : src(-1), to(to), cost(cost) {}
+  Edge() = default;
 
-  edge(int src, int to, T cost) : src(src), to(to), cost(cost) {}
-
-  edge &operator=(const int &x) {
-    to = x;
-    return *this;
-  }
+  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx) {}
 
   operator int() const { return to; }
 };
 
-template< typename T >
-using Edges = vector< edge< T > >;
-template< typename T >
-using WeightedGraph = vector< Edges< T > >;
-using UnWeightedGraph = vector< vector< int > >;
-template< typename T >
-using Matrix = vector< vector< T > >;
+template< typename T = int >
+struct Graph {
+  vector< vector< Edge< T > > > g;
+  int es;
+
+  Graph() = default;
+
+  explicit Graph(int n) : g(n), es(0) {}
+
+  size_t size() const {
+    return g.size();
+  }
+
+  void add_directed_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es++);
+  }
+
+  void add_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es);
+    g[to].emplace_back(to, from, cost, es++);
+  }
+
+  void read(int M, int padding = -1, bool weighted = false, bool directed = false) {
+    for(int i = 0; i < M; i++) {
+      int a, b;
+      cin >> a >> b;
+      a += padding;
+      b += padding;
+      T c = T(1);
+      if(weighted) cin >> c;
+      if(directed) add_directed_edge(a, b, c);
+      else add_edge(a, b, c);
+    }
+  }
+};
+
+template< typename T = int >
+using Edges = vector< Edge< T > >;
 #line 5 "test/verify/aoj-grl-5-a.test.cpp"
 
 #line 1 "graph/tree/tree-diameter.cpp"
-template< typename T >
-pair< T, int > dfs(const WeightedGraph< T > &g, int idx, int par) {
-  pair< T, int > ret(0, idx);
-  for(auto &e : g[idx]) {
-    if(e.to == par) continue;
-    auto cost = dfs(g, e.to, idx);
-    cost.first += e.cost;
-    ret = max(ret, cost);
-  }
-  return ret;
-}
+/**
+ * @brief Tree-Diameter(木の直径)
+ */
+template< typename T = int >
+struct TreeDiameter : Graph< T > {
+public:
+  using Graph< T >::Graph;
+  using Graph< T >::g;
+  vector< Edge< T > > path;
 
-template< typename T >
-T tree_diameter(const WeightedGraph< T > &g) {
-  auto p = dfs(g, 0, -1);
-  auto q = dfs(g, p.second, -1);
-  return (q.first);
-}
+  T build() {
+    to.assign(g.size(), -1);
+    auto p = dfs(0, -1);
+    auto q = dfs(p.second, -1);
+
+    int now = p.second;
+    while(now != q.second) {
+      for(auto &e : g[now]) {
+        if(to[now] == e.to) {
+          path.emplace_back(e);
+        }
+      }
+      now = to[now];
+    }
+    return q.first;
+  }
+
+  explicit TreeDiameter(const Graph< T > &g) : Graph< T >(g) {}
+
+private:
+  vector< int > to;
+
+  pair< T, int > dfs(int idx, int par) {
+    pair< T, int > ret(0, idx);
+    for(auto &e : g[idx]) {
+      if(e.to == par) continue;
+      auto cost = dfs(e.to, idx);
+      cost.first += e.cost;
+      if(ret < cost) {
+        ret = cost;
+        to[idx] = e.to;
+      }
+    }
+    return ret;
+  }
+};
 #line 7 "test/verify/aoj-grl-5-a.test.cpp"
 
 int main() {
   int N;
-  scanf("%d", &N);
-  WeightedGraph< int > g(N);
-  for(int i = 1; i < N; i++) {
-    int x, y, z;
-    scanf("%d %d %d", &x, &y, &z);
-    g[x].emplace_back(y, z);
-    g[y].emplace_back(x, z);
-  }
-  printf("%d\n", tree_diameter(g));
+  cin >> N;
+  TreeDiameter< int > g(N);
+  g.read(N - 1, 0, true);
+  cout << g.build() << endl;
 }
 
 ```

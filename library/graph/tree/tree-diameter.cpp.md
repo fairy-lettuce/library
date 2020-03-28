@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: graph/tree/tree-diameter.cpp
+# :heavy_check_mark: Tree-Diameter(木の直径) <small>(graph/tree/tree-diameter.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#28790b6202284cbbffc9d712b59f4b80">graph/tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/tree/tree-diameter.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-03-28 20:39:54+09:00
 
 
 
@@ -46,24 +46,52 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-template< typename T >
-pair< T, int > dfs(const WeightedGraph< T > &g, int idx, int par) {
-  pair< T, int > ret(0, idx);
-  for(auto &e : g[idx]) {
-    if(e.to == par) continue;
-    auto cost = dfs(g, e.to, idx);
-    cost.first += e.cost;
-    ret = max(ret, cost);
-  }
-  return ret;
-}
+/**
+ * @brief Tree-Diameter(木の直径)
+ */
+template< typename T = int >
+struct TreeDiameter : Graph< T > {
+public:
+  using Graph< T >::Graph;
+  using Graph< T >::g;
+  vector< Edge< T > > path;
 
-template< typename T >
-T tree_diameter(const WeightedGraph< T > &g) {
-  auto p = dfs(g, 0, -1);
-  auto q = dfs(g, p.second, -1);
-  return (q.first);
-}
+  T build() {
+    to.assign(g.size(), -1);
+    auto p = dfs(0, -1);
+    auto q = dfs(p.second, -1);
+
+    int now = p.second;
+    while(now != q.second) {
+      for(auto &e : g[now]) {
+        if(to[now] == e.to) {
+          path.emplace_back(e);
+        }
+      }
+      now = to[now];
+    }
+    return q.first;
+  }
+
+  explicit TreeDiameter(const Graph< T > &g) : Graph< T >(g) {}
+
+private:
+  vector< int > to;
+
+  pair< T, int > dfs(int idx, int par) {
+    pair< T, int > ret(0, idx);
+    for(auto &e : g[idx]) {
+      if(e.to == par) continue;
+      auto cost = dfs(e.to, idx);
+      cost.first += e.cost;
+      if(ret < cost) {
+        ret = cost;
+        to[idx] = e.to;
+      }
+    }
+    return ret;
+  }
+};
 
 ```
 {% endraw %}
@@ -72,24 +100,52 @@ T tree_diameter(const WeightedGraph< T > &g) {
 {% raw %}
 ```cpp
 #line 1 "graph/tree/tree-diameter.cpp"
-template< typename T >
-pair< T, int > dfs(const WeightedGraph< T > &g, int idx, int par) {
-  pair< T, int > ret(0, idx);
-  for(auto &e : g[idx]) {
-    if(e.to == par) continue;
-    auto cost = dfs(g, e.to, idx);
-    cost.first += e.cost;
-    ret = max(ret, cost);
-  }
-  return ret;
-}
+/**
+ * @brief Tree-Diameter(木の直径)
+ */
+template< typename T = int >
+struct TreeDiameter : Graph< T > {
+public:
+  using Graph< T >::Graph;
+  using Graph< T >::g;
+  vector< Edge< T > > path;
 
-template< typename T >
-T tree_diameter(const WeightedGraph< T > &g) {
-  auto p = dfs(g, 0, -1);
-  auto q = dfs(g, p.second, -1);
-  return (q.first);
-}
+  T build() {
+    to.assign(g.size(), -1);
+    auto p = dfs(0, -1);
+    auto q = dfs(p.second, -1);
+
+    int now = p.second;
+    while(now != q.second) {
+      for(auto &e : g[now]) {
+        if(to[now] == e.to) {
+          path.emplace_back(e);
+        }
+      }
+      now = to[now];
+    }
+    return q.first;
+  }
+
+  explicit TreeDiameter(const Graph< T > &g) : Graph< T >(g) {}
+
+private:
+  vector< int > to;
+
+  pair< T, int > dfs(int idx, int par) {
+    pair< T, int > ret(0, idx);
+    for(auto &e : g[idx]) {
+      if(e.to == par) continue;
+      auto cost = dfs(e.to, idx);
+      cost.first += e.cost;
+      if(ret < cost) {
+        ret = cost;
+        to[idx] = e.to;
+      }
+    }
+    return ret;
+  }
+};
 
 ```
 {% endraw %}

@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: graph/shortest-path/shortest-path-faster-algorithm.cpp
+# :heavy_check_mark: Shortest-Path-Faster-Algorithm(単一始点最短路) <small>(graph/shortest-path/shortest-path-faster-algorithm.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#73feb47c464a017d041247d88424b879">graph/shortest-path</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/shortest-path/shortest-path-faster-algorithm.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-03-28 20:39:54+09:00
 
 
 
@@ -46,8 +46,11 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Shortest-Path-Faster-Algorithm(単一始点最短路)
+ */
 template< typename T >
-vector< T > shortest_path_faster_algorithm(WeightedGraph< T > &g, int s) {
+vector< T > shortest_path_faster_algorithm(const Graph< T > &g, int s) {
   const auto INF = numeric_limits< T >::max();
   vector< T > dist(g.size(), INF);
   vector< int > pending(g.size(), 0), times(g.size(), 0);
@@ -62,7 +65,7 @@ vector< T > shortest_path_faster_algorithm(WeightedGraph< T > &g, int s) {
     int p = que.front();
     que.pop();
     pending[p] = false;
-    for(auto &e : g[p]) {
+    for(auto &e : g.g[p]) {
       T next_cost = dist[p] + e.cost;
       if(next_cost >= dist[e.to]) continue;
       dist[e.to] = next_cost;
@@ -83,8 +86,11 @@ vector< T > shortest_path_faster_algorithm(WeightedGraph< T > &g, int s) {
 {% raw %}
 ```cpp
 #line 1 "graph/shortest-path/shortest-path-faster-algorithm.cpp"
+/**
+ * @brief Shortest-Path-Faster-Algorithm(単一始点最短路)
+ */
 template< typename T >
-vector< T > shortest_path_faster_algorithm(WeightedGraph< T > &g, int s) {
+vector< T > shortest_path_faster_algorithm(const Graph< T > &g, int s) {
   const auto INF = numeric_limits< T >::max();
   vector< T > dist(g.size(), INF);
   vector< int > pending(g.size(), 0), times(g.size(), 0);
@@ -99,7 +105,7 @@ vector< T > shortest_path_faster_algorithm(WeightedGraph< T > &g, int s) {
     int p = que.front();
     que.pop();
     pending[p] = false;
-    for(auto &e : g[p]) {
+    for(auto &e : g.g[p]) {
       T next_cost = dist[p] + e.cost;
       if(next_cost >= dist[e.to]) continue;
       dist[e.to] = next_cost;

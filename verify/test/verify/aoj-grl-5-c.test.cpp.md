@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-5-c.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-26 01:02:16+09:00
+    - Last commit date: 2020-03-28 20:39:54+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C</a>
@@ -223,6 +223,9 @@ struct Graph {
     }
   }
 };
+
+template< typename T = int >
+using Edges = vector< Edge< T > >;
 #line 5 "test/verify/aoj-grl-5-c.test.cpp"
 
 #line 1 "graph/tree/doubling-lowest-common-ancestor.cpp"

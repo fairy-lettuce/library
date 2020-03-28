@@ -127,12 +127,12 @@ layout: default
 
 ### graph/shortest-path
 
-* :heavy_check_mark: <a href="library/graph/shortest-path/bellman-ford.cpp.html">graph/shortest-path/bellman-ford.cpp</a>
+* :heavy_check_mark: <a href="library/graph/shortest-path/bellman-ford.cpp.html">Bellman-Ford(単一始点最短路) <small>(graph/shortest-path/bellman-ford.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/shortest-path/dijkstra-fibonacchi-heap.cpp.html">Dijkstra-Fibonacchi-Heap(単一始点最短路) <small>(graph/shortest-path/dijkstra-fibonacchi-heap.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/shortest-path/dijkstra-radix-heap.cpp.html">Dijkstra-Radix-Heap(単一始点最短路) <small>(graph/shortest-path/dijkstra-radix-heap.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/shortest-path/dijkstra.cpp.html">Dijkstra(単一始点最短路) <small>(graph/shortest-path/dijkstra.cpp)</small></a>
 * :warning: <a href="library/graph/shortest-path/grid-bfs.cpp.html">graph/shortest-path/grid-bfs.cpp</a>
-* :heavy_check_mark: <a href="library/graph/shortest-path/shortest-path-faster-algorithm.cpp.html">graph/shortest-path/shortest-path-faster-algorithm.cpp</a>
+* :heavy_check_mark: <a href="library/graph/shortest-path/shortest-path-faster-algorithm.cpp.html">Shortest-Path-Faster-Algorithm(単一始点最短路) <small>(graph/shortest-path/shortest-path-faster-algorithm.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/shortest-path/warshall-floyd.cpp.html">graph/shortest-path/warshall-floyd.cpp</a>
 
 
@@ -146,7 +146,7 @@ layout: default
 * :heavy_check_mark: <a href="library/graph/tree/doubling-lowest-common-ancestor.cpp.html">Doubling-Lowest-Common-Ancestor(最小共通祖先) <small>(graph/tree/doubling-lowest-common-ancestor.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/heavy-light-decomposition.cpp.html">Heavy-Light-Decomposition(HL分解) <small>(graph/tree/heavy-light-decomposition.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/rerooting.cpp.html">graph/tree/rerooting.cpp</a>
-* :heavy_check_mark: <a href="library/graph/tree/tree-diameter.cpp.html">graph/tree/tree-diameter.cpp</a>
+* :heavy_check_mark: <a href="library/graph/tree/tree-diameter.cpp.html">Tree-Diameter(木の直径) <small>(graph/tree/tree-diameter.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/tree-isomorphism.cpp.html">Tree-Isomorphism(木の同型性判定) <small>(graph/tree/tree-isomorphism.cpp)</small></a>
 
 
