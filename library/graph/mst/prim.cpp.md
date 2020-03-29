@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: graph/mst/prim.cpp
+# :heavy_check_mark: Prim(最小全域木) <small>(graph/mst/prim.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#51f95ed2fd9ed3be34f576d38fbd25a2">graph/mst</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/mst/prim.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-24 18:37:57+09:00
+    - Last commit date: 2020-03-30 02:08:59+09:00
 
 
 
@@ -46,6 +46,9 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Prim(最小全域木)
+ */
 template< typename T >
 struct MinimumSpanningTree {
   T cost;
@@ -53,10 +56,10 @@ struct MinimumSpanningTree {
 };
 
 template< typename T >
-MinimumSpanningTree< T > prim(WeightedGraph< T > g) {
+MinimumSpanningTree< T > prim(const Graph< T > &g) {
   T total = T();
   vector< int > used(g.size());
-  vector< edge< T > * > dist(g.size());
+  vector< Edge< T > * > dist(g.size());
   using pi = pair< T, int >;
   priority_queue< pi, vector< pi >, greater<> > que;
   que.emplace(T(), 0);
@@ -68,9 +71,8 @@ MinimumSpanningTree< T > prim(WeightedGraph< T > g) {
     used[p.second] = true;
     total += p.first;
     if(dist[p.second]) edges.emplace_back(*dist[p.second]);
-    for(auto &e : g[p.second]) {
+    for(auto &e : g.g[p.second]) {
       if(used[e.to] || (dist[e.to] && dist[e.to]->cost <= e.cost)) continue;
-      e.src = p.second;
       que.emplace(e.cost, e.to);
     }
   }
@@ -84,6 +86,9 @@ MinimumSpanningTree< T > prim(WeightedGraph< T > g) {
 {% raw %}
 ```cpp
 #line 1 "graph/mst/prim.cpp"
+/**
+ * @brief Prim(最小全域木)
+ */
 template< typename T >
 struct MinimumSpanningTree {
   T cost;
@@ -91,10 +96,10 @@ struct MinimumSpanningTree {
 };
 
 template< typename T >
-MinimumSpanningTree< T > prim(WeightedGraph< T > g) {
+MinimumSpanningTree< T > prim(const Graph< T > &g) {
   T total = T();
   vector< int > used(g.size());
-  vector< edge< T > * > dist(g.size());
+  vector< Edge< T > * > dist(g.size());
   using pi = pair< T, int >;
   priority_queue< pi, vector< pi >, greater<> > que;
   que.emplace(T(), 0);
@@ -106,9 +111,8 @@ MinimumSpanningTree< T > prim(WeightedGraph< T > g) {
     used[p.second] = true;
     total += p.first;
     if(dist[p.second]) edges.emplace_back(*dist[p.second]);
-    for(auto &e : g[p.second]) {
+    for(auto &e : g.g[p.second]) {
       if(used[e.to] || (dist[e.to] && dist[e.to]->cost <= e.cost)) continue;
-      e.src = p.second;
       que.emplace(e.cost, e.to);
     }
   }

@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: graph/mst/kruskal.cpp
+# :heavy_check_mark: Kruskal(最小全域木) <small>(graph/mst/kruskal.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#51f95ed2fd9ed3be34f576d38fbd25a2">graph/mst</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/mst/kruskal.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-24 16:48:25+09:00
+    - Last commit date: 2020-03-30 02:08:59+09:00
 
 
 
@@ -46,6 +46,9 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Kruskal(最小全域木)
+ */
 template< typename T >
 struct MinimumSpanningTree {
   T cost;
@@ -54,14 +57,14 @@ struct MinimumSpanningTree {
 
 template< typename T >
 MinimumSpanningTree< T > kruskal(Edges< T > &edges, int V) {
-  sort(begin(edges), end(edges), [](const edge< T > &a, const edge< T > &b) {
+  sort(begin(edges), end(edges), [](const Edge< T > &a, const Edge< T > &b) {
     return a.cost < b.cost;
   });
   UnionFind tree(V);
   T total = T();
   Edges< T > es;
   for(auto &e : edges) {
-    if(tree.unite(e.src, e.to)) {
+    if(tree.unite(e.from, e.to)) {
       es.emplace_back(e);
       total += e.cost;
     }
@@ -76,6 +79,9 @@ MinimumSpanningTree< T > kruskal(Edges< T > &edges, int V) {
 {% raw %}
 ```cpp
 #line 1 "graph/mst/kruskal.cpp"
+/**
+ * @brief Kruskal(最小全域木)
+ */
 template< typename T >
 struct MinimumSpanningTree {
   T cost;
@@ -84,14 +90,14 @@ struct MinimumSpanningTree {
 
 template< typename T >
 MinimumSpanningTree< T > kruskal(Edges< T > &edges, int V) {
-  sort(begin(edges), end(edges), [](const edge< T > &a, const edge< T > &b) {
+  sort(begin(edges), end(edges), [](const Edge< T > &a, const Edge< T > &b) {
     return a.cost < b.cost;
   });
   UnionFind tree(V);
   T total = T();
   Edges< T > es;
   for(auto &e : edges) {
-    if(tree.unite(e.src, e.to)) {
+    if(tree.unite(e.from, e.to)) {
       es.emplace_back(e);
       total += e.cost;
     }

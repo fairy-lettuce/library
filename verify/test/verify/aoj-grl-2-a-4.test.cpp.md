@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-2-a-4.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-24 18:37:57+09:00
+    - Last commit date: 2020-03-30 02:08:59+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A</a>
@@ -39,10 +39,10 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/mst/prim-fibonacchi-heap.cpp.html">graph/mst/prim-fibonacchi-heap.cpp</a>
-* :question: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
-* :heavy_check_mark: <a href="../../../library/structure/heap/fibonacchi-heap.cpp.html">structure/heap/fibonacchi-heap.cpp</a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/mst/prim-fibonacchi-heap.cpp.html">Prim-Fibonacchi-Heap(最小全域木) <small>(graph/mst/prim-fibonacchi-heap.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/structure/heap/fibonacchi-heap.cpp.html">Fibonacchi-Heap(フィボナッチヒープ) <small>(structure/heap/fibonacchi-heap.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -53,7 +53,7 @@ layout: default
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A"
 
 #include "../../template/template.cpp"
-#include "../../graph/template.cpp"
+#include "../../graph/graph-template.cpp"
 
 #include "../../structure/heap/fibonacchi-heap.cpp"
 
@@ -62,13 +62,8 @@ layout: default
 int main() {
   int V, E;
   cin >> V >> E;
-  WeightedGraph< int > g(V);
-  for(int i = 0; i < E; i++) {
-    int a, b, c;
-    cin >> a >> b >> c;
-    g[a].emplace_back(b, c);
-    g[b].emplace_back(a, c);
-  }
+  Graph<> g(V);
+  g.read(E, 0, true);
   cout << prim_fibonacchi_heap(g).cost << "\n";
 }
 
@@ -168,34 +163,64 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 1 "graph/template.cpp"
-template< typename T >
-struct edge {
-  int src, to;
+#line 1 "graph/graph-template.cpp"
+template< typename T = int >
+struct Edge {
+  int from, to;
   T cost;
+  int idx;
 
-  edge(int to, T cost) : src(-1), to(to), cost(cost) {}
+  Edge() = default;
 
-  edge(int src, int to, T cost) : src(src), to(to), cost(cost) {}
-
-  edge &operator=(const int &x) {
-    to = x;
-    return *this;
-  }
+  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx) {}
 
   operator int() const { return to; }
 };
 
-template< typename T >
-using Edges = vector< edge< T > >;
-template< typename T >
-using WeightedGraph = vector< Edges< T > >;
-using UnWeightedGraph = vector< vector< int > >;
-template< typename T >
-using Matrix = vector< vector< T > >;
+template< typename T = int >
+struct Graph {
+  vector< vector< Edge< T > > > g;
+  int es;
+
+  Graph() = default;
+
+  explicit Graph(int n) : g(n), es(0) {}
+
+  size_t size() const {
+    return g.size();
+  }
+
+  void add_directed_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es++);
+  }
+
+  void add_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es);
+    g[to].emplace_back(to, from, cost, es++);
+  }
+
+  void read(int M, int padding = -1, bool weighted = false, bool directed = false) {
+    for(int i = 0; i < M; i++) {
+      int a, b;
+      cin >> a >> b;
+      a += padding;
+      b += padding;
+      T c = T(1);
+      if(weighted) cin >> c;
+      if(directed) add_directed_edge(a, b, c);
+      else add_edge(a, b, c);
+    }
+  }
+};
+
+template< typename T = int >
+using Edges = vector< Edge< T > >;
 #line 5 "test/verify/aoj-grl-2-a-4.test.cpp"
 
 #line 1 "structure/heap/fibonacchi-heap.cpp"
+/**
+ * @brief Fibonacchi-Heap(フィボナッチヒープ)
+ */
 template< typename key_t, typename val_t >
 struct FibonacchiHeap {
   struct Node {
@@ -366,6 +391,9 @@ struct FibonacchiHeap {
 #line 7 "test/verify/aoj-grl-2-a-4.test.cpp"
 
 #line 1 "graph/mst/prim-fibonacchi-heap.cpp"
+/**
+ * @brief Prim-Fibonacchi-Heap(最小全域木)
+ */
 template< typename T >
 struct MinimumSpanningTree {
   T cost;
@@ -373,14 +401,14 @@ struct MinimumSpanningTree {
 };
 
 template< typename T >
-MinimumSpanningTree< T > prim_fibonacchi_heap(WeightedGraph< T > g) {
+MinimumSpanningTree< T > prim_fibonacchi_heap(Graph< T > &g) {
   const auto INF = numeric_limits< T >::max();
   using Heap = FibonacchiHeap< T, int >;
   using Node = typename Heap::Node;
   using Pi = pair< T, int >;
 
   T total = 0;
-  vector< edge< T > * > dist(g.size());
+  vector< Edge< T > * > dist(g.size());
   vector< int > used(g.size());
   Heap heap;
   vector< Node * > keep(g.size(), nullptr);
@@ -394,9 +422,8 @@ MinimumSpanningTree< T > prim_fibonacchi_heap(WeightedGraph< T > g) {
     used[idx] = true;
     total += cost;
     if(dist[idx]) es.emplace_back(*dist[idx]);
-    for(auto &e : g[idx]) {
+    for(auto &e : g.g[idx]) {
       if(used[e.to] || (dist[e.to] && dist[e.to]->cost <= e.cost)) continue;
-      e.src = idx;
       if(keep[e.to] == nullptr) {
         dist[e.to] = &e;
         keep[e.to] = heap.push(e.cost, e.to);
@@ -409,18 +436,14 @@ MinimumSpanningTree< T > prim_fibonacchi_heap(WeightedGraph< T > g) {
   }
   return {total, es};
 }
+
 #line 9 "test/verify/aoj-grl-2-a-4.test.cpp"
 
 int main() {
   int V, E;
   cin >> V >> E;
-  WeightedGraph< int > g(V);
-  for(int i = 0; i < E; i++) {
-    int a, b, c;
-    cin >> a >> b >> c;
-    g[a].emplace_back(b, c);
-    g[b].emplace_back(a, c);
-  }
+  Graph<> g(V);
+  g.read(E, 0, true);
   cout << prim_fibonacchi_heap(g).cost << "\n";
 }
 

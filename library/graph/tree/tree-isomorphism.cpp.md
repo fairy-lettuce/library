@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#28790b6202284cbbffc9d712b59f4b80">graph/tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/tree/tree-isomorphism.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-24 21:04:47+09:00
+    - Last commit date: 2020-03-30 02:08:59+09:00
 
 
 
@@ -49,13 +49,14 @@ layout: default
 /**
  * @brief Tree-Isomorphism(木の同型性判定)
  */
-bool tree_isomorphism(const UnWeightedGraph &a, const UnWeightedGraph &b) {
+template< typename T >
+bool tree_isomorphism(const Graph< T > &a, const Graph< T > &b) {
   if(a.size() != b.size()) return false;
 
   const int N = (int) a.size();
   using pvi = pair< vector< int >, vector< int > >;
 
-  auto get_uku = [&](const UnWeightedGraph &t, int e) {
+  auto get_uku = [&](const Graph< T > &t, int e) {
     stack< pair< int, int > > st;
     st.emplace(e, -1);
     vector< int > dep(N, -1), par(N);
@@ -63,7 +64,7 @@ bool tree_isomorphism(const UnWeightedGraph &a, const UnWeightedGraph &b) {
       auto p = st.top();
       if(dep[p.first] == -1) {
         dep[p.first] = p.second == -1 ? 0 : dep[p.second] + 1;
-        for(auto &to : t[p.first]) if(to != p.second) st.emplace(to, p.first);
+        for(auto &to : t.g[p.first]) if(to != p.second) st.emplace(to, p.first);
       } else {
         par[p.first] = p.second;
         st.pop();
@@ -128,13 +129,14 @@ bool tree_isomorphism(const UnWeightedGraph &a, const UnWeightedGraph &b) {
 /**
  * @brief Tree-Isomorphism(木の同型性判定)
  */
-bool tree_isomorphism(const UnWeightedGraph &a, const UnWeightedGraph &b) {
+template< typename T >
+bool tree_isomorphism(const Graph< T > &a, const Graph< T > &b) {
   if(a.size() != b.size()) return false;
 
   const int N = (int) a.size();
   using pvi = pair< vector< int >, vector< int > >;
 
-  auto get_uku = [&](const UnWeightedGraph &t, int e) {
+  auto get_uku = [&](const Graph< T > &t, int e) {
     stack< pair< int, int > > st;
     st.emplace(e, -1);
     vector< int > dep(N, -1), par(N);
@@ -142,7 +144,7 @@ bool tree_isomorphism(const UnWeightedGraph &a, const UnWeightedGraph &b) {
       auto p = st.top();
       if(dep[p.first] == -1) {
         dep[p.first] = p.second == -1 ? 0 : dep[p.second] + 1;
-        for(auto &to : t[p.first]) if(to != p.second) st.emplace(to, p.first);
+        for(auto &to : t.g[p.first]) if(to != p.second) st.emplace(to, p.first);
       } else {
         par[p.first] = p.second;
         st.pop();

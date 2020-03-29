@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: structure/heap/fibonacchi-heap.cpp
+# :heavy_check_mark: Fibonacchi-Heap(フィボナッチヒープ) <small>(structure/heap/fibonacchi-heap.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#36999f024b84f3ad86db908172fedb57">structure/heap</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/heap/fibonacchi-heap.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 22:41:48+09:00
+    - Last commit date: 2020-03-30 02:08:59+09:00
 
 
 
@@ -47,6 +47,9 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Fibonacchi-Heap(フィボナッチヒープ)
+ */
 template< typename key_t, typename val_t >
 struct FibonacchiHeap {
   struct Node {
@@ -222,6 +225,9 @@ struct FibonacchiHeap {
 {% raw %}
 ```cpp
 #line 1 "structure/heap/fibonacchi-heap.cpp"
+/**
+ * @brief Fibonacchi-Heap(フィボナッチヒープ)
+ */
 template< typename key_t, typename val_t >
 struct FibonacchiHeap {
   struct Node {

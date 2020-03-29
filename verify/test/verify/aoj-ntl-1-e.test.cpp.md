@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/math/number-theory/extgcd.cpp.html">math/number-theory/extgcd.cpp</a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

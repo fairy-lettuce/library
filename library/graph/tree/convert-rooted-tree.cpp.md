@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: graph/tree/convert-rooted-tree.cpp
+# :warning: ConvertRootedTree(根付き木に変換) <small>(graph/tree/convert-rooted-tree.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#28790b6202284cbbffc9d712b59f4b80">graph/tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/tree/convert-rooted-tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-03-30 02:08:59+09:00
 
 
 
@@ -41,10 +41,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-template< typename G >
-G convert_rooted_tree(const G &g, int r = 0) {
+/**
+ * @brief ConvertRootedTree(根付き木に変換)
+ */
+template< typename T >
+Graph< T > convert_rooted_tree(const Graph< T > &g, int r = 0) {
   int N = (int) g.size();
-  G rg(N);
+  Graph< T > rg(N);
   vector< int > v(N);
   v[r] = 1;
   queue< int > que;
@@ -52,11 +55,11 @@ G convert_rooted_tree(const G &g, int r = 0) {
   while(!que.empty()) {
     auto p = que.front();
     que.pop();
-    for(auto &to : g[p]) {
+    for(auto &to : g.g[p]) {
       if(v[to] == 0) {
         v[to] = 1;
         que.emplace(to);
-        rg[p].emplace_back(to);
+        rg.add_directed_edge(p, to, to.cost);
       }
     }
   }
@@ -70,10 +73,13 @@ G convert_rooted_tree(const G &g, int r = 0) {
 {% raw %}
 ```cpp
 #line 1 "graph/tree/convert-rooted-tree.cpp"
-template< typename G >
-G convert_rooted_tree(const G &g, int r = 0) {
+/**
+ * @brief ConvertRootedTree(根付き木に変換)
+ */
+template< typename T >
+Graph< T > convert_rooted_tree(const Graph< T > &g, int r = 0) {
   int N = (int) g.size();
-  G rg(N);
+  Graph< T > rg(N);
   vector< int > v(N);
   v[r] = 1;
   queue< int > que;
@@ -81,11 +87,11 @@ G convert_rooted_tree(const G &g, int r = 0) {
   while(!que.empty()) {
     auto p = que.front();
     que.pop();
-    for(auto &to : g[p]) {
+    for(auto &to : g.g[p]) {
       if(v[to] == 0) {
         v[to] = 1;
         que.emplace(to);
-        rg[p].emplace_back(to);
+        rg.add_directed_edge(p, to, to.cost);
       }
     }
   }

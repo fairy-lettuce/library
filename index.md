@@ -67,7 +67,7 @@ layout: default
 ### graph
 
 * :heavy_check_mark: <a href="library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
-* :question: <a href="library/graph/template.cpp.html">graph/template.cpp</a>
+* :heavy_check_mark: <a href="library/graph/template.cpp.html">graph/template.cpp</a>
 
 
 <div id="3a7c46e10de1b2cce1293b2074b86f0a"></div>
@@ -101,9 +101,9 @@ layout: default
 
 * :heavy_check_mark: <a href="library/graph/mst/boruvka.cpp.html">graph/mst/boruvka.cpp</a>
 * :heavy_check_mark: <a href="library/graph/mst/chu-liu-edmond.cpp.html">graph/mst/chu-liu-edmond.cpp</a>
-* :heavy_check_mark: <a href="library/graph/mst/kruskal.cpp.html">graph/mst/kruskal.cpp</a>
-* :heavy_check_mark: <a href="library/graph/mst/prim-fibonacchi-heap.cpp.html">graph/mst/prim-fibonacchi-heap.cpp</a>
-* :heavy_check_mark: <a href="library/graph/mst/prim.cpp.html">graph/mst/prim.cpp</a>
+* :heavy_check_mark: <a href="library/graph/mst/kruskal.cpp.html">Kruskal(最小全域木) <small>(graph/mst/kruskal.cpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/mst/prim-fibonacchi-heap.cpp.html">Prim-Fibonacchi-Heap(最小全域木) <small>(graph/mst/prim-fibonacchi-heap.cpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/mst/prim.cpp.html">Prim(最小全域木) <small>(graph/mst/prim.cpp)</small></a>
 
 
 <div id="e557c7f962c39680942b9dada22cabec"></div>
@@ -112,7 +112,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/graph/others/block-cut-tree.cpp.html">Block-Cut-Tree <small>(graph/others/block-cut-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/chromatic-number.cpp.html">graph/others/chromatic-number.cpp</a>
-* :question: <a href="library/graph/others/dominator-tree.cpp.html">Dominator-Tree <small>(graph/others/dominator-tree.cpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/others/dominator-tree.cpp.html">Dominator-Tree <small>(graph/others/dominator-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/enumerate-clique.cpp.html">Enumerate-Clique(クリーク全列挙) <small>(graph/others/enumerate-clique.cpp)</small></a>
 * :warning: <a href="library/graph/others/eulerian-trail.cpp.html">graph/others/eulerian-trail.cpp</a>
 * :heavy_check_mark: <a href="library/graph/others/low-link.cpp.html">Low-Link <small>(graph/others/low-link.cpp)</small></a>
@@ -143,7 +143,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/graph/tree/centroid-decomposition.cpp.html">Centroid-Decomosition(重心分解) <small>(graph/tree/centroid-decomposition.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/centroid.cpp.html">Centroid(木の重心) <small>(graph/tree/centroid.cpp)</small></a>
-* :warning: <a href="library/graph/tree/convert-rooted-tree.cpp.html">graph/tree/convert-rooted-tree.cpp</a>
+* :warning: <a href="library/graph/tree/convert-rooted-tree.cpp.html">ConvertRootedTree(根付き木に変換) <small>(graph/tree/convert-rooted-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/doubling-lowest-common-ancestor.cpp.html">Doubling-Lowest-Common-Ancestor(最小共通祖先) <small>(graph/tree/doubling-lowest-common-ancestor.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/heavy-light-decomposition.cpp.html">Heavy-Light-Decomposition(HL分解) <small>(graph/tree/heavy-light-decomposition.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/rerooting.cpp.html">graph/tree/rerooting.cpp</a>
@@ -282,7 +282,7 @@ layout: default
 
 ### structure/heap
 
-* :heavy_check_mark: <a href="library/structure/heap/fibonacchi-heap.cpp.html">structure/heap/fibonacchi-heap.cpp</a>
+* :heavy_check_mark: <a href="library/structure/heap/fibonacchi-heap.cpp.html">Fibonacchi-Heap(フィボナッチヒープ) <small>(structure/heap/fibonacchi-heap.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/heap/radix-heap.cpp.html">structure/heap/radix-heap.cpp</a>
 * :heavy_check_mark: <a href="library/structure/heap/skew-heap.cpp.html">structure/heap/skew-heap.cpp</a>
 
@@ -352,7 +352,7 @@ layout: default
 
 ### template
 
-* :question: <a href="library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="library/template/template.cpp.html">template/template.cpp</a>
 
 
 <div id="5a4423c79a88aeb6104a40a645f9430c"></div>
@@ -400,7 +400,7 @@ layout: default
 
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0233.test.cpp.html">test/verify/aoj-0233.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0275.test.cpp.html">test/verify/aoj-0275.test.cpp</a>
-* :x: <a href="verify/test/verify/aoj-0294.test.cpp.html">test/verify/aoj-0294.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-0294.test.cpp.html">test/verify/aoj-0294.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0304.test.cpp.html">test/verify/aoj-0304.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1163.test.cpp.html">test/verify/aoj-1163.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1254.test.cpp.html">test/verify/aoj-1254.test.cpp</a>

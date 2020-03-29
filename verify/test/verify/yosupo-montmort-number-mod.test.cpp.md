@@ -41,7 +41,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/arbitrary-mod-int.cpp.html">math/combinatorics/arbitrary-mod-int.cpp</a>
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/montmort.cpp.html">Montmort-Number(モンモール数) <small>(math/combinatorics/montmort.cpp)</small></a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

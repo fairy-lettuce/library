@@ -40,8 +40,8 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
-* :question: <a href="../../../library/graph/others/dominator-tree.cpp.html">Dominator-Tree <small>(graph/others/dominator-tree.cpp)</small></a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/others/dominator-tree.cpp.html">Dominator-Tree <small>(graph/others/dominator-tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
