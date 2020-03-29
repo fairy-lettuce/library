@@ -66,7 +66,7 @@ layout: default
 
 ### graph
 
-* :question: <a href="library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
 * :heavy_check_mark: <a href="library/graph/template.cpp.html">graph/template.cpp</a>
 
 
@@ -114,7 +114,7 @@ layout: default
 * :heavy_check_mark: <a href="library/graph/others/chromatic-number.cpp.html">graph/others/chromatic-number.cpp</a>
 * :heavy_check_mark: <a href="library/graph/others/dominator-tree.cpp.html">Dominator-Tree <small>(graph/others/dominator-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/enumerate-clique.cpp.html">Enumerate-Clique(クリーク全列挙) <small>(graph/others/enumerate-clique.cpp)</small></a>
-* :question: <a href="library/graph/others/eulerian-trail.cpp.html">Eulerian-Trail(オイラー路) <small>(graph/others/eulerian-trail.cpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/others/eulerian-trail.cpp.html">Eulerian-Trail(オイラー路) <small>(graph/others/eulerian-trail.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/low-link.cpp.html">Low-Link <small>(graph/others/low-link.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/maximum-clique.cpp.html">Maximum-Clique(最大クリーク) <small>(graph/others/maximum-clique.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/maximum-independent-set.cpp.html">graph/others/maximum-independent-set.cpp</a>
@@ -143,7 +143,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/graph/tree/centroid-decomposition.cpp.html">Centroid-Decomosition(重心分解) <small>(graph/tree/centroid-decomposition.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/centroid.cpp.html">Centroid(木の重心) <small>(graph/tree/centroid.cpp)</small></a>
-* :warning: <a href="library/graph/tree/convert-rooted-tree.cpp.html">ConvertRootedTree(根付き木に変換) <small>(graph/tree/convert-rooted-tree.cpp)</small></a>
+* :warning: <a href="library/graph/tree/convert-rooted-tree.cpp.html">Convert-Rooted-Tree(根付き木に変換) <small>(graph/tree/convert-rooted-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/doubling-lowest-common-ancestor.cpp.html">Doubling-Lowest-Common-Ancestor(最小共通祖先) <small>(graph/tree/doubling-lowest-common-ancestor.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/heavy-light-decomposition.cpp.html">Heavy-Light-Decomposition(HL分解) <small>(graph/tree/heavy-light-decomposition.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/rerooting.cpp.html">graph/tree/rerooting.cpp</a>
@@ -352,7 +352,7 @@ layout: default
 
 ### template
 
-* :question: <a href="library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="library/template/template.cpp.html">template/template.cpp</a>
 
 
 <div id="5a4423c79a88aeb6104a40a645f9430c"></div>
@@ -398,7 +398,6 @@ layout: default
 
 ## Verify Files
 
-* :x: <a href="verify/test/verify/aoj-0225.test.cpp.html">test/verify/aoj-0225.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0233.test.cpp.html">test/verify/aoj-0233.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0275.test.cpp.html">test/verify/aoj-0275.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0294.test.cpp.html">test/verify/aoj-0294.test.cpp</a>

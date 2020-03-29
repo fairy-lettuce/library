@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: ConvertRootedTree(根付き木に変換) <small>(graph/tree/convert-rooted-tree.cpp)</small>
+# :warning: Convert-Rooted-Tree(根付き木に変換) <small>(graph/tree/convert-rooted-tree.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#28790b6202284cbbffc9d712b59f4b80">graph/tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/tree/convert-rooted-tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-30 02:08:59+09:00
+    - Last commit date: 2020-03-30 02:50:55+09:00
 
 
 
@@ -42,7 +42,7 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief ConvertRootedTree(根付き木に変換)
+ * @brief Convert-Rooted-Tree(根付き木に変換)
  */
 template< typename T >
 Graph< T > convert_rooted_tree(const Graph< T > &g, int r = 0) {
@@ -74,7 +74,7 @@ Graph< T > convert_rooted_tree(const Graph< T > &g, int r = 0) {
 ```cpp
 #line 1 "graph/tree/convert-rooted-tree.cpp"
 /**
- * @brief ConvertRootedTree(根付き木に変換)
+ * @brief Convert-Rooted-Tree(根付き木に変換)
  */
 template< typename T >
 Graph< T > convert_rooted_tree(const Graph< T > &g, int r = 0) {

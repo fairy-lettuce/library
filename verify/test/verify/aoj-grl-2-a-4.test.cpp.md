@@ -39,10 +39,10 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
 * :heavy_check_mark: <a href="../../../library/graph/mst/prim-fibonacchi-heap.cpp.html">Prim-Fibonacchi-Heap(最小全域木) <small>(graph/mst/prim-fibonacchi-heap.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/structure/heap/fibonacchi-heap.cpp.html">Fibonacchi-Heap(フィボナッチヒープ) <small>(structure/heap/fibonacchi-heap.cpp)</small></a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
