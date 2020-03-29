@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-6-a-4.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-12 22:16:00+09:00
+    - Last commit date: 2020-03-30 01:47:11+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A</a>
@@ -40,8 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/graph/flow/dinic-capacity-scaling.cpp.html">graph/flow/dinic-capacity-scaling.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -52,7 +51,6 @@ layout: default
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A"
 
 #include "../../template/template.cpp"
-#include "../../graph/template.cpp"
 
 #include "../../graph/flow/dinic-capacity-scaling.cpp"
 
@@ -164,32 +162,7 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 1 "graph/template.cpp"
-template< typename T >
-struct edge {
-  int src, to;
-  T cost;
-
-  edge(int to, T cost) : src(-1), to(to), cost(cost) {}
-
-  edge(int src, int to, T cost) : src(src), to(to), cost(cost) {}
-
-  edge &operator=(const int &x) {
-    to = x;
-    return *this;
-  }
-
-  operator int() const { return to; }
-};
-
-template< typename T >
-using Edges = vector< edge< T > >;
-template< typename T >
-using WeightedGraph = vector< Edges< T > >;
-using UnWeightedGraph = vector< vector< int > >;
-template< typename T >
-using Matrix = vector< vector< T > >;
-#line 5 "test/verify/aoj-grl-6-a-4.test.cpp"
+#line 4 "test/verify/aoj-grl-6-a-4.test.cpp"
 
 #line 1 "graph/flow/dinic-capacity-scaling.cpp"
 template< typename flow_t >
@@ -276,7 +249,7 @@ struct DinicCapacityScaling {
   }
 };
 
-#line 7 "test/verify/aoj-grl-6-a-4.test.cpp"
+#line 6 "test/verify/aoj-grl-6-a-4.test.cpp"
 
 int main() {
   int V, E;

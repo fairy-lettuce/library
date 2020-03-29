@@ -25,22 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/aoj-grl-5-c.test.cpp
+# :heavy_check_mark: test/verify/yosupo-dominatortree.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-5-c.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-28 20:39:54+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-dominatortree.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-30 01:47:11+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C</a>
+* see: <a href="https://judge.yosupo.jp/problem/dominatortree">https://judge.yosupo.jp/problem/dominatortree</a>
 
 
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/tree/doubling-lowest-common-ancestor.cpp.html">Doubling-Lowest-Common-Ancestor(最小共通祖先) <small>(graph/tree/doubling-lowest-common-ancestor.cpp)</small></a>
+* :question: <a href="../../../library/graph/others/dominator-tree.cpp.html">Dominator-Tree <small>(graph/others/dominator-tree.cpp)</small></a>
 * :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -49,34 +49,24 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C"
+#define PROBLEM "https://judge.yosupo.jp/problem/dominatortree"
 
 #include "../../template/template.cpp"
+
 #include "../../graph/graph-template.cpp"
 
-#include "../../graph/tree/doubling-lowest-common-ancestor.cpp"
+#include "../../graph/others/dominator-tree.cpp"
 
 int main() {
-  int N, Q;
-  cin >> N;
-  DoublingLowestCommonAncestor< int > dlca(N);
-  for(int i = 0; i < N; i++) {
-    int k;
-    cin >> k;
-    for(int j = 0; j < k; j++) {
-      int c;
-      cin >> c;
-      dlca.add_edge(i, c);
-    }
-  }
-  dlca.build();
-  cin >> Q;
-  for(int i = 0; i < Q; i++) {
-    int u, v;
-    cin >> u >> v;
-    cout << dlca.lca(u, v) << "\n";
-  }
+  int N, M, S;
+  cin >> N >> M >> S;
+  DominatorTree<> g(N);
+  g.read(M, 0, false, true);
+  g.build(S);
+  for(int i = 0; i < N; i++) cout << g[i] << " ";
+  cout << endl;
 }
+
 
 ```
 {% endraw %}
@@ -84,8 +74,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/verify/aoj-grl-5-c.test.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C"
+#line 1 "test/verify/yosupo-dominatortree.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/dominatortree"
 
 #line 1 "template/template.cpp"
 #include<bits/stdc++.h>
@@ -174,6 +164,8 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
+#line 4 "test/verify/yosupo-dominatortree.test.cpp"
+
 #line 1 "graph/graph-template.cpp"
 template< typename T = int >
 struct Edge {
@@ -226,94 +218,116 @@ struct Graph {
 
 template< typename T = int >
 using Edges = vector< Edge< T > >;
-#line 5 "test/verify/aoj-grl-5-c.test.cpp"
+#line 6 "test/verify/yosupo-dominatortree.test.cpp"
 
-#line 1 "graph/tree/doubling-lowest-common-ancestor.cpp"
+#line 1 "graph/others/dominator-tree.cpp"
 /**
- * @brief Doubling-Lowest-Common-Ancestor(最小共通祖先)
+ * @brief Dominator-Tree
  */
-template< typename T >
-struct DoublingLowestCommonAncestor : Graph< T > {
+template< typename T = int >
+struct DominatorTree : Graph< T > {
 public:
+  using Graph< T >::Graph;
   using Graph< T >::g;
-  vector< int > dep;
-  vector< T > sum;
-  vector< vector< int > > table;
-  const int LOG;
 
-  explicit DoublingLowestCommonAncestor(int n)
-      : LOG(32 - __builtin_clz(g.size())), Graph< T >(n) {}
+  void build(int root) {
+    rg = Graph< T >(g.size());
+    par.assign(g.size(), 0);
+    idom.assign(g.size(), -1);
+    semi.assign(g.size(), -1);
+    ord.reserve(g.size());
+    UnionFind uf(semi);
 
-  explicit DoublingLowestCommonAncestor(const Graph< T > &g)
-      : LOG(32 - __builtin_clz(g.size())), Graph< T >(g) {}
-
-  void build() {
-    dep.assign(g.size(), 0);
-    sum.assign(g.size(), 0);
-    table.assign(LOG, vector< int >(g.size(), -1));
-    dfs(0, -1, 0);
-    for(int k = 0; k + 1 < LOG; k++) {
-      for(int i = 0; i < table[k].size(); i++) {
-        if(table[k][i] == -1) table[k + 1][i] = -1;
-        else table[k + 1][i] = table[k][table[k][i]];
+    const int N = (int) g.size();
+    dfs(root);
+    for(int i = 0; i < N; i++) {
+      for(auto &to : g[i]) {
+        if(~semi[i]) rg.add_directed_edge(to, i);
       }
     }
-  }
 
-  int lca(int u, int v) {
-    if(dep[u] > dep[v]) swap(u, v);
-    for(int i = LOG - 1; i >= 0; i--) {
-      if(((dep[v] - dep[u]) >> i) & 1) v = table[i][v];
-    }
-    if(u == v) return u;
-    for(int i = LOG - 1; i >= 0; i--) {
-      if(table[i][u] != table[i][v]) {
-        u = table[i][u];
-        v = table[i][v];
+    vector< vector< int > > bucket(N);
+    vector< int > U(N);
+    for(int i = (int) ord.size() - 1; i >= 0; i--) {
+      int x = ord[i];
+      for(int v : rg.g[x]) {
+        v = uf.eval(v);
+        if(semi[x] > semi[v]) semi[x] = semi[v];
       }
+      bucket[ord[semi[x]]].emplace_back(x);
+      for(int v : bucket[par[x]]) U[v] = uf.eval(v);
+      bucket[par[x]].clear();
+      uf.link(par[x], x);
     }
-    return table[0][u];
+    for(int i = 1; i < ord.size(); i++) {
+      int x = ord[i], u = U[x];
+      idom[x] = semi[x] == semi[u] ? semi[x] : idom[u];
+    }
+    for(int i = 1; i < ord.size(); i++) {
+      int x = ord[i];
+      idom[x] = ord[idom[x]];
+    }
+    idom[root] = root;
   }
 
-  T dist(int u, int v) {
-    return sum[u] + sum[v] - 2 * sum[lca(u, v)];
+  int operator[](const int &k) const {
+    return idom[k];
   }
 
 private:
-  void dfs(int idx, int par, int d) {
-    table[0][idx] = par;
-    dep[idx] = d;
+  Graph< T > rg;
+
+  struct UnionFind {
+    const vector< int > &semi;
+    vector< int > par, m;
+
+    explicit UnionFind(const vector< int > &semi) : semi(semi), par(semi.size()), m(semi.size()) {
+      iota(begin(par), end(par), 0);
+      iota(begin(m), end(m), 0);
+    }
+
+    int find(int v) {
+      if(par[v] == v) return v;
+      int r = find(par[v]);
+      if(semi[m[v]] > semi[m[par[v]]]) m[v] = m[par[v]];
+      return par[v] = r;
+    }
+
+    int eval(int v) {
+      find(v);
+      return m[v];
+    }
+
+    void link(int p, int c) {
+      par[c] = p;
+    }
+  };
+
+  vector< int > ord, par;
+  vector< int > idom, semi;
+
+  void dfs(int idx) {
+    semi[idx] = (int) ord.size();
+    ord.emplace_back(idx);
     for(auto &to : g[idx]) {
-      if(to != par) {
-        sum[to] = sum[idx] + to.cost;
-        dfs(to, idx, d + 1);
-      }
+      if(~semi[to]) continue;
+      dfs(to);
+      par[to] = idx;
     }
   }
 };
-#line 7 "test/verify/aoj-grl-5-c.test.cpp"
+#line 8 "test/verify/yosupo-dominatortree.test.cpp"
 
 int main() {
-  int N, Q;
-  cin >> N;
-  DoublingLowestCommonAncestor< int > dlca(N);
-  for(int i = 0; i < N; i++) {
-    int k;
-    cin >> k;
-    for(int j = 0; j < k; j++) {
-      int c;
-      cin >> c;
-      dlca.add_edge(i, c);
-    }
-  }
-  dlca.build();
-  cin >> Q;
-  for(int i = 0; i < Q; i++) {
-    int u, v;
-    cin >> u >> v;
-    cout << dlca.lca(u, v) << "\n";
-  }
+  int N, M, S;
+  cin >> N >> M >> S;
+  DominatorTree<> g(N);
+  g.read(M, 0, false, true);
+  g.build(S);
+  for(int i = 0; i < N; i++) cout << g[i] << " ";
+  cout << endl;
 }
+
 
 ```
 {% endraw %}

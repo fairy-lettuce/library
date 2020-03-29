@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: graph/template.cpp
+# :question: graph/template.cpp
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,24 +38,17 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/verify/aoj-0294.test.cpp.html">test/verify/aoj-0294.test.cpp</a>
+* :x: <a href="../../verify/test/verify/aoj-0294.test.cpp.html">test/verify/aoj-0294.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-1163.test.cpp.html">test/verify/aoj-1163.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-1254.test.cpp.html">test/verify/aoj-1254.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-2306.test.cpp.html">test/verify/aoj-2306.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-2821.test.cpp.html">test/verify/aoj-2821.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-1-c.test.cpp.html">test/verify/aoj-grl-1-c.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-2-a-2.test.cpp.html">test/verify/aoj-grl-2-a-2.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-2-a-3.test.cpp.html">test/verify/aoj-grl-2-a-3.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-2-a-4.test.cpp.html">test/verify/aoj-grl-2-a-4.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-2-a.test.cpp.html">test/verify/aoj-grl-2-a.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-2-b.test.cpp.html">test/verify/aoj-grl-2-b.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-6-a-2.test.cpp.html">test/verify/aoj-grl-6-a-2.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-6-a-3.test.cpp.html">test/verify/aoj-grl-6-a-3.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-6-a-4.test.cpp.html">test/verify/aoj-grl-6-a-4.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-6-a.test.cpp.html">test/verify/aoj-grl-6-a.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-6-b.test.cpp.html">test/verify/aoj-grl-6-b.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-7-a-2.test.cpp.html">test/verify/aoj-grl-7-a-2.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-7-a.test.cpp.html">test/verify/aoj-grl-7-a.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-maximum-independent-set.test.cpp.html">test/verify/yosupo-maximum-independent-set.test.cpp</a>
 
 

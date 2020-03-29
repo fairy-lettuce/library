@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: template/template.cpp
+# :question: template/template.cpp
 
 <a href="../../index.html">Back to top page</a>
 
@@ -40,7 +40,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-0233.test.cpp.html">test/verify/aoj-0233.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-0275.test.cpp.html">test/verify/aoj-0275.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/aoj-0294.test.cpp.html">test/verify/aoj-0294.test.cpp</a>
+* :x: <a href="../../verify/test/verify/aoj-0294.test.cpp.html">test/verify/aoj-0294.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-0304.test.cpp.html">test/verify/aoj-0304.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-1163.test.cpp.html">test/verify/aoj-1163.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-1254.test.cpp.html">test/verify/aoj-1254.test.cpp</a>
@@ -110,6 +110,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-bellnoulli-number.test.cpp.html">test/verify/yosupo-bellnoulli-number.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-convolution-mod.test.cpp.html">test/verify/yosupo-convolution-mod.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-discrete-logarithm-mod.test.cpp.html">test/verify/yosupo-discrete-logarithm-mod.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-dominatortree.test.cpp.html">test/verify/yosupo-dominatortree.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-exp-of-formal-power-series.test.cpp.html">test/verify/yosupo-exp-of-formal-power-series.test.cpp</a>

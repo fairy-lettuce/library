@@ -67,7 +67,7 @@ layout: default
 ### graph
 
 * :heavy_check_mark: <a href="library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
-* :heavy_check_mark: <a href="library/graph/template.cpp.html">graph/template.cpp</a>
+* :question: <a href="library/graph/template.cpp.html">graph/template.cpp</a>
 
 
 <div id="3a7c46e10de1b2cce1293b2074b86f0a"></div>
@@ -112,7 +112,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/graph/others/block-cut-tree.cpp.html">Block-Cut-Tree <small>(graph/others/block-cut-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/chromatic-number.cpp.html">graph/others/chromatic-number.cpp</a>
-* :heavy_check_mark: <a href="library/graph/others/dominator-tree.cpp.html">graph/others/dominator-tree.cpp</a>
+* :question: <a href="library/graph/others/dominator-tree.cpp.html">Dominator-Tree <small>(graph/others/dominator-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/enumerate-clique.cpp.html">Enumerate-Clique(クリーク全列挙) <small>(graph/others/enumerate-clique.cpp)</small></a>
 * :warning: <a href="library/graph/others/eulerian-trail.cpp.html">graph/others/eulerian-trail.cpp</a>
 * :heavy_check_mark: <a href="library/graph/others/low-link.cpp.html">Low-Link <small>(graph/others/low-link.cpp)</small></a>
@@ -352,7 +352,7 @@ layout: default
 
 ### template
 
-* :heavy_check_mark: <a href="library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="library/template/template.cpp.html">template/template.cpp</a>
 
 
 <div id="5a4423c79a88aeb6104a40a645f9430c"></div>
@@ -400,7 +400,7 @@ layout: default
 
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0233.test.cpp.html">test/verify/aoj-0233.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0275.test.cpp.html">test/verify/aoj-0275.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/verify/aoj-0294.test.cpp.html">test/verify/aoj-0294.test.cpp</a>
+* :x: <a href="verify/test/verify/aoj-0294.test.cpp.html">test/verify/aoj-0294.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0304.test.cpp.html">test/verify/aoj-0304.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1163.test.cpp.html">test/verify/aoj-1163.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1254.test.cpp.html">test/verify/aoj-1254.test.cpp</a>
@@ -470,6 +470,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-bellnoulli-number.test.cpp.html">test/verify/yosupo-bellnoulli-number.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-convolution-mod.test.cpp.html">test/verify/yosupo-convolution-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-discrete-logarithm-mod.test.cpp.html">test/verify/yosupo-discrete-logarithm-mod.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-dominatortree.test.cpp.html">test/verify/yosupo-dominatortree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-exp-of-formal-power-series.test.cpp.html">test/verify/yosupo-exp-of-formal-power-series.test.cpp</a>
