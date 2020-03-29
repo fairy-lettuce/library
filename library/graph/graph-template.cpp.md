@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: graph/graph-template.cpp
+# :question: graph/graph-template.cpp
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,6 +38,7 @@ layout: default
 
 ## Verified with
 
+* :x: <a href="../../verify/test/verify/aoj-0225.test.cpp.html">test/verify/aoj-0225.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-0275.test.cpp.html">test/verify/aoj-0275.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-0294.test.cpp.html">test/verify/aoj-0294.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-0304.test.cpp.html">test/verify/aoj-0304.test.cpp</a>
@@ -65,6 +66,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-scc.test.cpp.html">test/verify/yosupo-scc.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-two-edge-connected-components.test.cpp.html">test/verify/yosupo-two-edge-connected-components.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-1002.test.cpp.html">test/verify/yukicoder-1002.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-583.test.cpp.html">test/verify/yukicoder-583.test.cpp</a>
 
 
 ## Code
