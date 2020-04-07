@@ -228,11 +228,12 @@ layout: default
 
 * :warning: <a href="library/other/compress.cpp.html">other/compress.cpp</a>
 * :warning: <a href="library/other/dice.cpp.html">other/dice.cpp</a>
-* :warning: <a href="library/other/fast-input.cpp.html">other/fast-input.cpp</a>
 * :warning: <a href="library/other/mo-rollback.cpp.html">other/mo-rollback.cpp</a>
 * :warning: <a href="library/other/mo.cpp.html">other/mo.cpp</a>
 * :warning: <a href="library/other/offline-dynamic-connectivity.cpp.html">other/offline-dynamic-connectivity.cpp</a>
+* :warning: <a href="library/other/printer.cpp.html">Printer(高速出力) <small>(other/printer.cpp)</small></a>
 * :warning: <a href="library/other/random-number-generator.cpp.html">other/random-number-generator.cpp</a>
+* :warning: <a href="library/other/scanner.cpp.html">Scanner(高速入力) <small>(other/scanner.cpp)</small></a>
 * :warning: <a href="library/other/timer.cpp.html">other/timer.cpp</a>
 
 
