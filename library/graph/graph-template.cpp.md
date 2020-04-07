@@ -65,6 +65,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-dominatortree.test.cpp.html">test/verify/yosupo-dominatortree.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-scc.test.cpp.html">test/verify/yosupo-scc.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-two-edge-connected-components.test.cpp.html">test/verify/yosupo-two-edge-connected-components.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-two-sat.test.cpp.html">test/verify/yosupo-two-sat.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-1002.test.cpp.html">test/verify/yukicoder-1002.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-583.test.cpp.html">test/verify/yukicoder-583.test.cpp</a>
 

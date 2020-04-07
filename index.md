@@ -121,6 +121,7 @@ layout: default
 * :heavy_check_mark: <a href="library/graph/others/offline-dag-reachability.cpp.html">Offline-Dag-Reachability(DAGの到達可能性クエリ) <small>(graph/others/offline-dag-reachability.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/topological-sort.cpp.html">Topological-Sort(トポロジカルソート) <small>(graph/others/topological-sort.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/tree-decomposition.cpp.html">Tree-Decomposition(木分解) <small>(graph/others/tree-decomposition.cpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/others/two-satisfiability.cpp.html">2-SAT <small>(graph/others/two-satisfiability.cpp)</small></a>
 
 
 <div id="73feb47c464a017d041247d88424b879"></div>
@@ -231,9 +232,9 @@ layout: default
 * :warning: <a href="library/other/mo-rollback.cpp.html">other/mo-rollback.cpp</a>
 * :warning: <a href="library/other/mo.cpp.html">other/mo.cpp</a>
 * :warning: <a href="library/other/offline-dynamic-connectivity.cpp.html">other/offline-dynamic-connectivity.cpp</a>
-* :warning: <a href="library/other/printer.cpp.html">Printer(高速出力) <small>(other/printer.cpp)</small></a>
+* :heavy_check_mark: <a href="library/other/printer.cpp.html">Printer(高速出力) <small>(other/printer.cpp)</small></a>
 * :warning: <a href="library/other/random-number-generator.cpp.html">other/random-number-generator.cpp</a>
-* :warning: <a href="library/other/scanner.cpp.html">Scanner(高速入力) <small>(other/scanner.cpp)</small></a>
+* :heavy_check_mark: <a href="library/other/scanner.cpp.html">Scanner(高速入力) <small>(other/scanner.cpp)</small></a>
 * :warning: <a href="library/other/timer.cpp.html">other/timer.cpp</a>
 
 
@@ -501,6 +502,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sum-of-floor-of-linear.test.cpp.html">test/verify/yosupo-sum-of-floor-of-linear.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-tetration-mod.test.cpp.html">test/verify/yosupo-tetration-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-two-edge-connected-components.test.cpp.html">test/verify/yosupo-two-edge-connected-components.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-two-sat.test.cpp.html">test/verify/yosupo-two-sat.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-1002.test.cpp.html">test/verify/yukicoder-1002.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-583.test.cpp.html">test/verify/yukicoder-583.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-703.test.cpp.html">test/verify/yukicoder-703.test.cpp</a>
