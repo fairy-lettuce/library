@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#ac1922c227762d9e573c4f7aedc86899">structure/bbst</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/bbst/persistent-red-black-tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-25 22:30:50+09:00
+    - Last commit date: 2020-04-26 00:10:50+09:00
 
 
 
@@ -41,7 +41,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-template< typename Monoid, typename F, size_t FEW = 1000 >
+template< typename Monoid, typename F, size_t FULL = 1000 >
 struct PersistentRedBlackTree : RedBlackTree< Monoid, F > {
   using RBT = RedBlackTree< Monoid, F >;
   using RBT::RedBlackTree;
@@ -59,8 +59,8 @@ public:
     return RBT::build(ret);
   }
 
-  bool few() {
-    return this->pool.ptr < FEW;
+  bool almost_full() const {
+    return this->pool.ptr < FULL;
   }
 };
 
@@ -71,7 +71,7 @@ public:
 {% raw %}
 ```cpp
 #line 1 "structure/bbst/persistent-red-black-tree.cpp"
-template< typename Monoid, typename F, size_t FEW = 1000 >
+template< typename Monoid, typename F, size_t FULL = 1000 >
 struct PersistentRedBlackTree : RedBlackTree< Monoid, F > {
   using RBT = RedBlackTree< Monoid, F >;
   using RBT::RedBlackTree;
@@ -89,8 +89,8 @@ public:
     return RBT::build(ret);
   }
 
-  bool few() {
-    return this->pool.ptr < FEW;
+  bool almost_full() const {
+    return this->pool.ptr < FULL;
   }
 };
 

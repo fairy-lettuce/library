@@ -236,6 +236,7 @@ layout: default
 * :warning: <a href="library/other/random-number-generator.cpp.html">other/random-number-generator.cpp</a>
 * :heavy_check_mark: <a href="library/other/scanner.cpp.html">Scanner(高速入力) <small>(other/scanner.cpp)</small></a>
 * :warning: <a href="library/other/timer.cpp.html">other/timer.cpp</a>
+* :heavy_check_mark: <a href="library/other/vector-pool.cpp.html">other/vector-pool.cpp</a>
 
 
 <div id="b45cffe084dd3d20d928bee85e7b0f21"></div>
@@ -260,7 +261,7 @@ layout: default
 * :warning: <a href="library/structure/bbst/randomized-binary-search-tree-lazy.cpp.html">structure/bbst/randomized-binary-search-tree-lazy.cpp</a>
 * :warning: <a href="library/structure/bbst/randomized-binary-search-tree-set.cpp.html">structure/bbst/randomized-binary-search-tree-set.cpp</a>
 * :heavy_check_mark: <a href="library/structure/bbst/randomized-binary-search-tree.cpp.html">structure/bbst/randomized-binary-search-tree.cpp</a>
-* :warning: <a href="library/structure/bbst/red-black-tree.cpp.html">structure/bbst/red-black-tree.cpp</a>
+* :heavy_check_mark: <a href="library/structure/bbst/red-black-tree.cpp.html">Red-Black-Tree(赤黒木) <small>(structure/bbst/red-black-tree.cpp)</small></a>
 
 
 <div id="3ad23896bbde10d07ed9c44a914e070b"></div>
@@ -408,6 +409,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0304.test.cpp.html">test/verify/aoj-0304.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1163.test.cpp.html">test/verify/aoj-1163.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1254.test.cpp.html">test/verify/aoj-1254.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-1508-2.test.cpp.html">test/verify/aoj-1508-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1508.test.cpp.html">test/verify/aoj-1508.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1595.test.cpp.html">test/verify/aoj-1595.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1615.test.cpp.html">test/verify/aoj-1615.test.cpp</a>
