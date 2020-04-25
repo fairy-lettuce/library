@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: structure/bbst/persistent-red-black-tree.cpp
+# :warning: structure/bbst/lazy-persistent-red-black-tree.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#ac1922c227762d9e573c4f7aedc86899">structure/bbst</a>
-* <a href="{{ site.github.repository_url }}/blob/master/structure/bbst/persistent-red-black-tree.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/structure/bbst/lazy-persistent-red-black-tree.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-25 22:30:50+09:00
 
 
@@ -41,26 +41,20 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-template< typename Monoid, typename F, size_t FEW = 1000 >
-struct PersistentRedBlackTree : RedBlackTree< Monoid, F > {
-  using RBT = RedBlackTree< Monoid, F >;
-  using RBT::RedBlackTree;
+template< class D, class L, D (*f)(D, D), D (*g)(D, L), L (*h)(L, L), L (*p)(L, int) >
+struct PersistentRedBlackTree : RedBlackTree< D, L, f, g, h, p > {
+  using RBT = RedBlackTree< D, L, f, g, h, p >;
   using Node = typename RBT::Node;
 
-private:
-  Node *clone(Node *t) override {
-    return &(*RBT::pool.alloc() = *t);
-  }
+  PersistentRedBlackTree(int sz, const D &M1, const L &OM0) :
+      RBT(sz, M1, OM0) {}
 
-public:
+  Node *clone(Node *t) override { return &(*RBT::pool.alloc() = *t); }
+
   Node *rebuild(Node *r) {
     auto ret = RBT::dump(r);
     RBT::pool.clear();
     return RBT::build(ret);
-  }
-
-  bool few() {
-    return this->pool.ptr < FEW;
   }
 };
 
@@ -70,27 +64,21 @@ public:
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "structure/bbst/persistent-red-black-tree.cpp"
-template< typename Monoid, typename F, size_t FEW = 1000 >
-struct PersistentRedBlackTree : RedBlackTree< Monoid, F > {
-  using RBT = RedBlackTree< Monoid, F >;
-  using RBT::RedBlackTree;
+#line 1 "structure/bbst/lazy-persistent-red-black-tree.cpp"
+template< class D, class L, D (*f)(D, D), D (*g)(D, L), L (*h)(L, L), L (*p)(L, int) >
+struct PersistentRedBlackTree : RedBlackTree< D, L, f, g, h, p > {
+  using RBT = RedBlackTree< D, L, f, g, h, p >;
   using Node = typename RBT::Node;
 
-private:
-  Node *clone(Node *t) override {
-    return &(*RBT::pool.alloc() = *t);
-  }
+  PersistentRedBlackTree(int sz, const D &M1, const L &OM0) :
+      RBT(sz, M1, OM0) {}
 
-public:
+  Node *clone(Node *t) override { return &(*RBT::pool.alloc() = *t); }
+
   Node *rebuild(Node *r) {
     auto ret = RBT::dump(r);
     RBT::pool.clear();
     return RBT::build(ret);
-  }
-
-  bool few() {
-    return this->pool.ptr < FEW;
   }
 };
 

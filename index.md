@@ -254,6 +254,8 @@ layout: default
 
 ### structure/bbst
 
+* :warning: <a href="library/structure/bbst/lazy-persistent-red-black-tree.cpp.html">structure/bbst/lazy-persistent-red-black-tree.cpp</a>
+* :warning: <a href="library/structure/bbst/lazy-red-black-tree.cpp.html">structure/bbst/lazy-red-black-tree.cpp</a>
 * :warning: <a href="library/structure/bbst/persistent-red-black-tree.cpp.html">structure/bbst/persistent-red-black-tree.cpp</a>
 * :warning: <a href="library/structure/bbst/randomized-binary-search-tree-lazy.cpp.html">structure/bbst/randomized-binary-search-tree-lazy.cpp</a>
 * :warning: <a href="library/structure/bbst/randomized-binary-search-tree-set.cpp.html">structure/bbst/randomized-binary-search-tree-set.cpp</a>
