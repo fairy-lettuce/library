@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: structure/bbst/lazy-persistent-red-black-tree.cpp
+# :warning: structure/bbst/persistent-lazy-red-black-tree.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#ac1922c227762d9e573c4f7aedc86899">structure/bbst</a>
-* <a href="{{ site.github.repository_url }}/blob/master/structure/bbst/lazy-persistent-red-black-tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-25 22:30:50+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/structure/bbst/persistent-lazy-red-black-tree.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-04-28 21:53:51+09:00
 
 
 
@@ -41,20 +41,26 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-template< class D, class L, D (*f)(D, D), D (*g)(D, L), L (*h)(L, L), L (*p)(L, int) >
-struct PersistentRedBlackTree : RedBlackTree< D, L, f, g, h, p > {
-  using RBT = RedBlackTree< D, L, f, g, h, p >;
+template< typename Monoid, typename OperatorMonoid, typename F, typename G, typename H, size_t FULL = 1000 >
+struct PersistentLazyRedBlackTree : LazyRedBlackTree< Monoid, OperatorMonoid, F, G, H > {
+  using RBT = LazyRedBlackTree< Monoid, OperatorMonoid, F, G, H >;
+  using RBT::LazyRedBlackTree;
   using Node = typename RBT::Node;
-
-  PersistentRedBlackTree(int sz, const D &M1, const L &OM0) :
-      RBT(sz, M1, OM0) {}
-
-  Node *clone(Node *t) override { return &(*RBT::pool.alloc() = *t); }
-
+ 
+private:
+  Node *clone(Node *t) override {
+    return &(*RBT::pool.alloc() = *t);
+  }
+ 
+public:
   Node *rebuild(Node *r) {
     auto ret = RBT::dump(r);
     RBT::pool.clear();
     return RBT::build(ret);
+  }
+ 
+  bool almost_full() const {
+    return this->pool.ptr < FULL;
   }
 };
 
@@ -64,21 +70,27 @@ struct PersistentRedBlackTree : RedBlackTree< D, L, f, g, h, p > {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "structure/bbst/lazy-persistent-red-black-tree.cpp"
-template< class D, class L, D (*f)(D, D), D (*g)(D, L), L (*h)(L, L), L (*p)(L, int) >
-struct PersistentRedBlackTree : RedBlackTree< D, L, f, g, h, p > {
-  using RBT = RedBlackTree< D, L, f, g, h, p >;
+#line 1 "structure/bbst/persistent-lazy-red-black-tree.cpp"
+template< typename Monoid, typename OperatorMonoid, typename F, typename G, typename H, size_t FULL = 1000 >
+struct PersistentLazyRedBlackTree : LazyRedBlackTree< Monoid, OperatorMonoid, F, G, H > {
+  using RBT = LazyRedBlackTree< Monoid, OperatorMonoid, F, G, H >;
+  using RBT::LazyRedBlackTree;
   using Node = typename RBT::Node;
-
-  PersistentRedBlackTree(int sz, const D &M1, const L &OM0) :
-      RBT(sz, M1, OM0) {}
-
-  Node *clone(Node *t) override { return &(*RBT::pool.alloc() = *t); }
-
+ 
+private:
+  Node *clone(Node *t) override {
+    return &(*RBT::pool.alloc() = *t);
+  }
+ 
+public:
   Node *rebuild(Node *r) {
     auto ret = RBT::dump(r);
     RBT::pool.clear();
     return RBT::build(ret);
+  }
+ 
+  bool almost_full() const {
+    return this->pool.ptr < FULL;
   }
 };
 
