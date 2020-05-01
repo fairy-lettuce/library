@@ -163,7 +163,7 @@ layout: default
 * :heavy_check_mark: <a href="library/math/combinatorics/combination.cpp.html">math/combinatorics/combination.cpp</a>
 * :warning: <a href="library/math/combinatorics/lagrange-polynomial.cpp.html">math/combinatorics/lagrange-polynomial.cpp</a>
 * :warning: <a href="library/math/combinatorics/mod-int-2.cpp.html">math/combinatorics/mod-int-2.cpp</a>
-* :heavy_check_mark: <a href="library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
+* :question: <a href="library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-log.cpp.html">math/combinatorics/mod-log.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-pow.cpp.html">math/combinatorics/mod-pow.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-sqrt.cpp.html">math/combinatorics/mod-sqrt.cpp</a>
@@ -236,7 +236,7 @@ layout: default
 * :warning: <a href="library/other/random-number-generator.cpp.html">other/random-number-generator.cpp</a>
 * :heavy_check_mark: <a href="library/other/scanner.cpp.html">Scanner(高速入力) <small>(other/scanner.cpp)</small></a>
 * :warning: <a href="library/other/timer.cpp.html">other/timer.cpp</a>
-* :heavy_check_mark: <a href="library/other/vector-pool.cpp.html">other/vector-pool.cpp</a>
+* :question: <a href="library/other/vector-pool.cpp.html">other/vector-pool.cpp</a>
 
 
 <div id="b45cffe084dd3d20d928bee85e7b0f21"></div>
@@ -255,7 +255,7 @@ layout: default
 
 ### structure/bbst
 
-* :heavy_check_mark: <a href="library/structure/bbst/lazy-red-black-tree.cpp.html">structure/bbst/lazy-red-black-tree.cpp</a>
+* :x: <a href="library/structure/bbst/lazy-red-black-tree.cpp.html">Lazy-Red-Black-Tree(遅延伝搬赤黒木) <small>(structure/bbst/lazy-red-black-tree.cpp)</small></a>
 * :warning: <a href="library/structure/bbst/persistent-lazy-red-black-tree.cpp.html">structure/bbst/persistent-lazy-red-black-tree.cpp</a>
 * :warning: <a href="library/structure/bbst/persistent-red-black-tree.cpp.html">structure/bbst/persistent-red-black-tree.cpp</a>
 * :warning: <a href="library/structure/bbst/randomized-binary-search-tree-lazy.cpp.html">structure/bbst/randomized-binary-search-tree-lazy.cpp</a>
@@ -357,7 +357,7 @@ layout: default
 
 ### template
 
-* :heavy_check_mark: <a href="library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="library/template/template.cpp.html">template/template.cpp</a>
 
 
 <div id="5a4423c79a88aeb6104a40a645f9430c"></div>
@@ -495,7 +495,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-multipoint-evaluation.test.cpp.html">test/verify/yosupo-multipoint-evaluation.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-partition-function.test.cpp.html">test/verify/yosupo-partition-function.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-polynomial-interpolation.test.cpp.html">test/verify/yosupo-polynomial-interpolation.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/verify/yosupo-range-affine-range-sum-2.test.cpp.html">test/verify/yosupo-range-affine-range-sum-2.test.cpp</a>
+* :x: <a href="verify/test/verify/yosupo-range-affine-range-sum-2.test.cpp.html">test/verify/yosupo-range-affine-range-sum-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-range-affine-range-sum.test.cpp.html">test/verify/yosupo-range-affine-range-sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-rectangle-sum.test.cpp.html">test/verify/yosupo-rectangle-sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-scc.test.cpp.html">test/verify/yosupo-scc.test.cpp</a>

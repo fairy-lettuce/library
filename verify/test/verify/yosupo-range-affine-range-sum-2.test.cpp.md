@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/yosupo-range-affine-range-sum-2.test.cpp
+# :x: test/verify/yosupo-range-affine-range-sum-2.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-range-affine-range-sum-2.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-28 21:53:51+09:00
+    - Last commit date: 2020-05-01 18:08:24+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/range_affine_range_sum">https://judge.yosupo.jp/problem/range_affine_range_sum</a>
@@ -39,10 +39,10 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
-* :heavy_check_mark: <a href="../../../library/other/vector-pool.cpp.html">other/vector-pool.cpp</a>
-* :heavy_check_mark: <a href="../../../library/structure/bbst/lazy-red-black-tree.cpp.html">structure/bbst/lazy-red-black-tree.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
+* :question: <a href="../../../library/other/vector-pool.cpp.html">other/vector-pool.cpp</a>
+* :x: <a href="../../../library/structure/bbst/lazy-red-black-tree.cpp.html">Lazy-Red-Black-Tree(遅延伝搬赤黒木) <small>(structure/bbst/lazy-red-black-tree.cpp)</small></a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -302,7 +302,8 @@ struct VectorPool {
 
 #line 1 "structure/bbst/lazy-red-black-tree.cpp"
 /**
- * @bref Lazy-Red-Black-Tree(遅延伝搬赤黒木)
+ * @brief Lazy-Red-Black-Tree(遅延伝搬赤黒木)
+ * @docs docs/lazy-red-black-tree.md
  */
 template< typename Monoid, typename OperatorMonoid, typename F, typename G, typename H >
 struct LazyRedBlackTree {
@@ -411,8 +412,8 @@ private:
   }
 
   Node *update(Node *t) {
-    t->cnt = count(t->l) + count(t->r) + (!t->l || !t->r);
-    t->level = t->l ? t->l->level + (t->l->color == BLACK) : 0;
+    t->cnt = count(t->l) + count(t->r) + t->is_leaf();
+    t->level = t->is_leaf() ? 0 : t->l->level + (t->l->color == BLACK);
     t->sum = f(f(sum(t->l), t->key), sum(t->r));
     return t;
   }
@@ -429,6 +430,12 @@ private:
 
   Node *merge(Node *l) {
     return l;
+  }
+
+  Monoid query(Node *t, int a, int b, OperatorMonoid pp, int l, int r) {
+    if(r <= a || b <= l) return M1;
+    if(a <= l && r <= b) return g(t->sum, pp);
+    return f(query(t->l, a, b, h(pp, t->lazy), l, l + count(t->l)), query(t->r, a, b, h(pp, t->lazy), r - count(t->r), r));
   }
 
 public:
@@ -520,12 +527,8 @@ public:
     return v;
   }
 
-  Monoid query(Node *&t, int a, int b) {
-    auto x = split(t, a);
-    auto y = split(x.second, b - a);
-    auto ret = sum(y.first);
-    t = merge(x.first, merge(y.first, y.second));
-    return ret;
+  Monoid query(Node *t, int a, int b) {
+    return query(t, a, b, OM0, 0, count(t));
   }
 
   void set_propagate(Node *&t, int a, int b, const OperatorMonoid &pp) {
@@ -537,7 +540,7 @@ public:
 
   void set_element(Node *&t, int k, const Monoid &x) {
     if(t->is_leaf()) {
-      t->key = x;
+      t->key = t->sum = x;
       return;
     }
     t = propagate(t);

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-staticrmq-3.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-28 21:53:51+09:00
+    - Last commit date: 2020-05-01 18:08:24+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/staticrmq">https://judge.yosupo.jp/problem/staticrmq</a>
@@ -39,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/other/vector-pool.cpp.html">other/vector-pool.cpp</a>
+* :question: <a href="../../../library/other/vector-pool.cpp.html">other/vector-pool.cpp</a>
 * :heavy_check_mark: <a href="../../../library/structure/bbst/red-black-tree.cpp.html">Red-Black-Tree(赤黒木) <small>(structure/bbst/red-black-tree.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -196,6 +196,7 @@ struct VectorPool {
 #line 1 "structure/bbst/red-black-tree.cpp"
 /**
  * @brief Red-Black-Tree(赤黒木)
+ * @docs docs/red-black-tree.md
  */
 template< typename Monoid, typename F >
 struct RedBlackTree {
