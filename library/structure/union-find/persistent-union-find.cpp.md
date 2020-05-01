@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: structure/union-find/persistent-union-find.cpp
+# :heavy_check_mark: Persistent-Union-Find(永続Union-Find) <small>(structure/union-find/persistent-union-find.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#16695eacefd17254ea5bccf40066c856">structure/union-find</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/union-find/persistent-union-find.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 22:41:48+09:00
+    - Last commit date: 2020-05-01 18:25:23+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-persistent-unionfind.test.cpp.html">test/verify/yosupo-persistent-unionfind.test.cpp</a>
 
 
 ## Code
@@ -41,33 +46,31 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-struct PersistentUnionFind
-{
+/*
+ * @brief Persistent-Union-Find(永続Union-Find)
+ */
+struct PersistentUnionFind {
   PersistentArray< int, 3 > data;
 
   PersistentUnionFind() {}
 
-  PersistentUnionFind(int sz)
-  {
+  PersistentUnionFind(int sz) {
     data.build(vector< int >(sz, -1));
   }
 
-  int find(int k)
-  {
+  int find(int k) {
     int p = data.get(k);
     return p >= 0 ? find(p) : k;
   }
 
-  int size(int k)
-  {
+  int size(int k) {
     return (-data.get(find(k)));
   }
 
-  PersistentUnionFind unite(int x, int y)
-  {
+  bool unite(int x, int y) {
     x = find(x);
     y = find(y);
-    if(x == y) return *this;
+    if(x == y) return false;
     auto u = data.get(x);
     auto v = data.get(y);
 
@@ -82,7 +85,7 @@ struct PersistentUnionFind
       auto b = data.mutable_get(x);
       *b = y;
     }
-    return *this;
+    return true;
   }
 };
 
@@ -93,33 +96,31 @@ struct PersistentUnionFind
 {% raw %}
 ```cpp
 #line 1 "structure/union-find/persistent-union-find.cpp"
-struct PersistentUnionFind
-{
+/*
+ * @brief Persistent-Union-Find(永続Union-Find)
+ */
+struct PersistentUnionFind {
   PersistentArray< int, 3 > data;
 
   PersistentUnionFind() {}
 
-  PersistentUnionFind(int sz)
-  {
+  PersistentUnionFind(int sz) {
     data.build(vector< int >(sz, -1));
   }
 
-  int find(int k)
-  {
+  int find(int k) {
     int p = data.get(k);
     return p >= 0 ? find(p) : k;
   }
 
-  int size(int k)
-  {
+  int size(int k) {
     return (-data.get(find(k)));
   }
 
-  PersistentUnionFind unite(int x, int y)
-  {
+  bool unite(int x, int y) {
     x = find(x);
     y = find(y);
-    if(x == y) return *this;
+    if(x == y) return false;
     auto u = data.get(x);
     auto v = data.get(y);
 
@@ -134,7 +135,7 @@ struct PersistentUnionFind
       auto b = data.mutable_get(x);
       *b = y;
     }
-    return *this;
+    return true;
   }
 };
 

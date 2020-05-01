@@ -300,7 +300,7 @@ layout: default
 * :heavy_check_mark: <a href="library/structure/others/disjoint-sparse-table.cpp.html">Disjoint-Sparse-Table <small>(structure/others/disjoint-sparse-table.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/others/link-cut-tree-subtree.cpp.html">structure/others/link-cut-tree-subtree.cpp</a>
 * :heavy_check_mark: <a href="library/structure/others/link-cut-tree.cpp.html">structure/others/link-cut-tree.cpp</a>
-* :warning: <a href="library/structure/others/persistent-array.cpp.html">structure/others/persistent-array.cpp</a>
+* :heavy_check_mark: <a href="library/structure/others/persistent-array.cpp.html">structure/others/persistent-array.cpp</a>
 * :warning: <a href="library/structure/others/priority-sum-structure.cpp.html">structure/others/priority-sum-structure.cpp</a>
 * :warning: <a href="library/structure/others/sliding-window-aggregation.cpp.html">structure/others/sliding-window-aggregation.cpp</a>
 * :heavy_check_mark: <a href="library/structure/others/sparse-table.cpp.html">Sparse-Table(スパーステーブル) <small>(structure/others/sparse-table.cpp)</small></a>
@@ -337,7 +337,7 @@ layout: default
 
 * :warning: <a href="library/structure/union-find/bipartite-graph.cpp.html">structure/union-find/bipartite-graph.cpp</a>
 * :warning: <a href="library/structure/union-find/partially-persistent-union-find.cpp.html">structure/union-find/partially-persistent-union-find.cpp</a>
-* :warning: <a href="library/structure/union-find/persistent-union-find.cpp.html">structure/union-find/persistent-union-find.cpp</a>
+* :heavy_check_mark: <a href="library/structure/union-find/persistent-union-find.cpp.html">Persistent-Union-Find(永続Union-Find) <small>(structure/union-find/persistent-union-find.cpp)</small></a>
 * :warning: <a href="library/structure/union-find/union-find-undo.cpp.html">structure/union-find/union-find-undo.cpp</a>
 * :heavy_check_mark: <a href="library/structure/union-find/union-find.cpp.html">Union-Find <small>(structure/union-find/union-find.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/union-find/weighted-union-find.cpp.html">structure/union-find/weighted-union-find.cpp</a>
@@ -494,6 +494,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-montmort-number-mod.test.cpp.html">test/verify/yosupo-montmort-number-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-multipoint-evaluation.test.cpp.html">test/verify/yosupo-multipoint-evaluation.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-partition-function.test.cpp.html">test/verify/yosupo-partition-function.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-persistent-unionfind.test.cpp.html">test/verify/yosupo-persistent-unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-polynomial-interpolation.test.cpp.html">test/verify/yosupo-polynomial-interpolation.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-range-affine-range-sum-2.test.cpp.html">test/verify/yosupo-range-affine-range-sum-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-range-affine-range-sum.test.cpp.html">test/verify/yosupo-range-affine-range-sum.test.cpp</a>

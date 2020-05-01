@@ -129,6 +129,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-montmort-number-mod.test.cpp.html">test/verify/yosupo-montmort-number-mod.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-multipoint-evaluation.test.cpp.html">test/verify/yosupo-multipoint-evaluation.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-partition-function.test.cpp.html">test/verify/yosupo-partition-function.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-persistent-unionfind.test.cpp.html">test/verify/yosupo-persistent-unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-polynomial-interpolation.test.cpp.html">test/verify/yosupo-polynomial-interpolation.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-range-affine-range-sum-2.test.cpp.html">test/verify/yosupo-range-affine-range-sum-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-range-affine-range-sum.test.cpp.html">test/verify/yosupo-range-affine-range-sum.test.cpp</a>
