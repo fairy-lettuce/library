@@ -39,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../../library/other/vector-pool.cpp.html">other/vector-pool.cpp</a>
+* :heavy_check_mark: <a href="../../../library/other/vector-pool.cpp.html">other/vector-pool.cpp</a>
 * :heavy_check_mark: <a href="../../../library/structure/bbst/red-black-tree.cpp.html">Red-Black-Tree(赤黒木) <small>(structure/bbst/red-black-tree.cpp)</small></a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

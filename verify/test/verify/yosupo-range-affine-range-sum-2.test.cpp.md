@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/verify/yosupo-range-affine-range-sum-2.test.cpp
+# :heavy_check_mark: test/verify/yosupo-range-affine-range-sum-2.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-range-affine-range-sum-2.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-01 18:08:24+09:00
+    - Last commit date: 2020-05-01 18:16:03+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/range_affine_range_sum">https://judge.yosupo.jp/problem/range_affine_range_sum</a>
@@ -39,10 +39,10 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
-* :question: <a href="../../../library/other/vector-pool.cpp.html">other/vector-pool.cpp</a>
-* :x: <a href="../../../library/structure/bbst/lazy-red-black-tree.cpp.html">Lazy-Red-Black-Tree(遅延伝搬赤黒木) <small>(structure/bbst/lazy-red-black-tree.cpp)</small></a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
+* :heavy_check_mark: <a href="../../../library/other/vector-pool.cpp.html">other/vector-pool.cpp</a>
+* :heavy_check_mark: <a href="../../../library/structure/bbst/lazy-red-black-tree.cpp.html">Lazy-Red-Black-Tree(遅延伝搬赤黒木) <small>(structure/bbst/lazy-red-black-tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -432,12 +432,6 @@ private:
     return l;
   }
 
-  Monoid query(Node *t, int a, int b, OperatorMonoid pp, int l, int r) {
-    if(r <= a || b <= l) return M1;
-    if(a <= l && r <= b) return g(t->sum, pp);
-    return f(query(t->l, a, b, h(pp, t->lazy), l, l + count(t->l)), query(t->r, a, b, h(pp, t->lazy), r - count(t->r), r));
-  }
-
 public:
 
   VectorPool< Node > pool;
@@ -527,15 +521,19 @@ public:
     return v;
   }
 
-  Monoid query(Node *t, int a, int b) {
-    return query(t, a, b, OM0, 0, count(t));
+  Monoid query(Node *&t, int a, int b) {
+    auto x = split(t, a);
+    auto y = split(x.second, b - a);
+    Monoid ret = sum(y.first);
+    t = merge(x.first, y.first, y.second);
+    return ret;
   }
 
   void set_propagate(Node *&t, int a, int b, const OperatorMonoid &pp) {
     auto x = split(t, a);
     auto y = split(x.second, b - a);
     y.first->lazy = h(y.first->lazy, pp);
-    t = merge(x.first, merge(propagate(y.first), y.second));
+    t = merge(x.first, propagate(y.first), y.second);
   }
 
   void set_element(Node *&t, int k, const Monoid &x) {
