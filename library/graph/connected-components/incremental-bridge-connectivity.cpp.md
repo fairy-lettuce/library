@@ -25,16 +25,30 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Incremental-Bridge-Connectivity <small>(graph/connected-components/incremental-bridge-connectivity.cpp)</small>
+# :heavy_check_mark: IncrementalBridgeConnectivity <small>(graph/connected-components/incremental-bridge-connectivity.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#3a7c46e10de1b2cce1293b2074b86f0a">graph/connected-components</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/connected-components/incremental-bridge-connectivity.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-10 02:05:35+09:00
+    - Last commit date: 2020-05-10 02:35:14+09:00
 
 
 * see: <a href="https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity">https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity</a>
+
+
+## 概要
+
+辺の追加クエリのみ存在するとき, 二重辺連結成分を効率的に管理するデータ構造.
+
+* `IncrementalBridgeConnectivity(sz)`: `sz` 頂点で初期化する.
+* `find(k)`: 頂点 `k` が属する二重辺連結成分(の代表元)を求める.
+* `bridge_size()`: 現在の橋の個数を返す.
+* `add_edge(x, y)`: 頂点 `x` と `y` との間に無向辺を追加する.
+
+## 計算量
+
+ならし $O(n \log n)$
 
 
 ## Verified with
@@ -48,13 +62,15 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief Incremental-Bridge-Connectivity
+ * @brief IncrementalBridgeConnectivity
+ * @docs docs/incremental-bridge-connectivity.md
  * @see https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity
  */
 struct IncrementalBridgeConnectivity {
 private:
   UnionFind cc, bcc;
   vector< int > bbf;
+  size_t bridge;
 
   int size() {
     return bbf.size();
@@ -81,6 +97,7 @@ private:
       bbf[x] = bbf[y];
       bcc.unite(x, y);
       x = nxt;
+      --bridge;
     }
   }
 
@@ -95,10 +112,14 @@ private:
   }
 
 public:
-  explicit IncrementalBridgeConnectivity(int sz) : cc(sz), bcc(sz), bbf(sz, sz) {}
+  explicit IncrementalBridgeConnectivity(int sz) : cc(sz), bcc(sz), bbf(sz, sz), bridge(0) {}
 
   int find(int k) {
     return bcc.find(k);
+  }
+
+  size_t bridge_size() const {
+    return bridge;
   }
 
   void add_edge(int x, int y) {
@@ -112,6 +133,7 @@ public:
       if(cc.size(x) > cc.size(y)) swap(x, y);
       link(x, y);
       cc.unite(x, y);
+      ++bridge;
     }
   }
 };
@@ -124,13 +146,15 @@ public:
 ```cpp
 #line 1 "graph/connected-components/incremental-bridge-connectivity.cpp"
 /**
- * @brief Incremental-Bridge-Connectivity
+ * @brief IncrementalBridgeConnectivity
+ * @docs docs/incremental-bridge-connectivity.md
  * @see https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity
  */
 struct IncrementalBridgeConnectivity {
 private:
   UnionFind cc, bcc;
   vector< int > bbf;
+  size_t bridge;
 
   int size() {
     return bbf.size();
@@ -157,6 +181,7 @@ private:
       bbf[x] = bbf[y];
       bcc.unite(x, y);
       x = nxt;
+      --bridge;
     }
   }
 
@@ -171,10 +196,14 @@ private:
   }
 
 public:
-  explicit IncrementalBridgeConnectivity(int sz) : cc(sz), bcc(sz), bbf(sz, sz) {}
+  explicit IncrementalBridgeConnectivity(int sz) : cc(sz), bcc(sz), bbf(sz, sz), bridge(0) {}
 
   int find(int k) {
     return bcc.find(k);
+  }
+
+  size_t bridge_size() const {
+    return bridge;
   }
 
   void add_edge(int x, int y) {
@@ -188,6 +217,7 @@ public:
       if(cc.size(x) > cc.size(y)) swap(x, y);
       link(x, y);
       cc.unite(x, y);
+      ++bridge;
     }
   }
 };

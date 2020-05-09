@@ -75,7 +75,7 @@ layout: default
 ### graph/connected-components
 
 * :heavy_check_mark: <a href="library/graph/connected-components/bi-connected-components.cpp.html">Bi-Connected-Components(二重頂点連結成分分解) <small>(graph/connected-components/bi-connected-components.cpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/connected-components/incremental-bridge-connectivity.cpp.html">Incremental-Bridge-Connectivity <small>(graph/connected-components/incremental-bridge-connectivity.cpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/connected-components/incremental-bridge-connectivity.cpp.html">IncrementalBridgeConnectivity <small>(graph/connected-components/incremental-bridge-connectivity.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/connected-components/strongly-connected-components.cpp.html">Strongly-Connected-Components(強連結成分分解) <small>(graph/connected-components/strongly-connected-components.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/connected-components/two-edge-connected-components.cpp.html">Two-Edge-Connected-Components(二重辺連結成分分解) <small>(graph/connected-components/two-edge-connected-components.cpp)</small></a>
 
