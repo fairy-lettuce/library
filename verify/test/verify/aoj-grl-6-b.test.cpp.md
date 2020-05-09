@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-6-b.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-05-09 22:53:41+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B</a>
@@ -40,7 +40,6 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/graph/flow/primal-dual.cpp.html">graph/flow/primal-dual.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/template.cpp.html">graph/template.cpp</a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -52,7 +51,6 @@ layout: default
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B"
 
 #include "../../template/template.cpp"
-#include "../../graph/template.cpp"
 
 #include "../../graph/flow/primal-dual.cpp"
 
@@ -165,32 +163,7 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 1 "graph/template.cpp"
-template< typename T >
-struct edge {
-  int src, to;
-  T cost;
-
-  edge(int to, T cost) : src(-1), to(to), cost(cost) {}
-
-  edge(int src, int to, T cost) : src(src), to(to), cost(cost) {}
-
-  edge &operator=(const int &x) {
-    to = x;
-    return *this;
-  }
-
-  operator int() const { return to; }
-};
-
-template< typename T >
-using Edges = vector< edge< T > >;
-template< typename T >
-using WeightedGraph = vector< Edges< T > >;
-using UnWeightedGraph = vector< vector< int > >;
-template< typename T >
-using Matrix = vector< vector< T > >;
-#line 5 "test/verify/aoj-grl-6-b.test.cpp"
+#line 4 "test/verify/aoj-grl-6-b.test.cpp"
 
 #line 1 "graph/flow/primal-dual.cpp"
 template< typename flow_t, typename cost_t >
@@ -269,7 +242,7 @@ struct PrimalDual {
     }
   }
 };
-#line 7 "test/verify/aoj-grl-6-b.test.cpp"
+#line 6 "test/verify/aoj-grl-6-b.test.cpp"
 
 
 int main() {
