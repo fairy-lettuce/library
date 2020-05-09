@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-alds-1-14-b.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-09 22:53:41+09:00
+    - Last commit date: 2020-05-10 01:03:47+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B</a>
@@ -170,6 +170,7 @@ inline decltype(auto) MFP(F &&f) {
 /**
  * @brief Rolling-Hash(ローリングハッシュ)
  * @see https://qiita.com/keymoon/items/11fac5627672a6d6a9f6
+ * @docs docs/rolling-hash.md
  */
 struct RollingHash {
   static const uint64_t mod = (1ull << 61ull) - 1;

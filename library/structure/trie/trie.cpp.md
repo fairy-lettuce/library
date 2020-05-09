@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: structure/trie/trie.cpp
+# :heavy_check_mark: structure/trie/trie.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -34,6 +34,11 @@ layout: default
     - Last commit date: 2019-11-30 22:41:48+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/verify/yukicoder-430.test.cpp.html">test/verify/yukicoder-430.test.cpp</a>
 
 
 ## Code

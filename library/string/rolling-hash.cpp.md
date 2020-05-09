@@ -31,10 +31,27 @@ layout: default
 
 * category: <a href="../../index.html#b45cffe084dd3d20d928bee85e7b0f21">string</a>
 * <a href="{{ site.github.repository_url }}/blob/master/string/rolling-hash.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-09 22:53:41+09:00
+    - Last commit date: 2020-05-10 01:03:47+09:00
 
 
 * see: <a href="https://qiita.com/keymoon/items/11fac5627672a6d6a9f6">https://qiita.com/keymoon/items/11fac5627672a6d6a9f6</a>
+
+
+## 概要
+
+文字列の一致判定を mod $2^{61}-1$ のハッシュを用いて効率的に行う.
+
+* `RollingHash(s, base)`: 文字列 $s$ のハッシュテーブルを構築する.
+* `generate_base()`: $2^{61} - 1$ 以下の乱数を返す。これを `base` とすると Hack されにくい.
+* `query(l, r)`: 区間 $[l, r)$ のハッシュ値を返す.
+* `combine(h1, h2, h2len)`: ハッシュ値 `h1` と長さ `h2len` のハッシュ値 `h2` を結合する. `power[h2len]` での配列外参照に注意(TODO 実装).
+* `lcp(b, l1, r1, l2, r2)`: 区間 $[l1, r1)$ と, ハッシュテーブルが `b` からなる区間 $[l2, r2)$ の文字列の最長共通接頭辞の長さを返す.
+
+## 計算量
+
+* 構築: $O(n)$
+* `lcp()`: $O(\log n)$
+* クエリ: $O(1)$
 
 
 ## Verified with
@@ -50,6 +67,7 @@ layout: default
 /**
  * @brief Rolling-Hash(ローリングハッシュ)
  * @see https://qiita.com/keymoon/items/11fac5627672a6d6a9f6
+ * @docs docs/rolling-hash.md
  */
 struct RollingHash {
   static const uint64_t mod = (1ull << 61ull) - 1;
@@ -129,6 +147,7 @@ struct RollingHash {
 /**
  * @brief Rolling-Hash(ローリングハッシュ)
  * @see https://qiita.com/keymoon/items/11fac5627672a6d6a9f6
+ * @docs docs/rolling-hash.md
  */
 struct RollingHash {
   static const uint64_t mod = (1ull << 61ull) - 1;

@@ -243,7 +243,7 @@ layout: default
 
 ### string
 
-* :warning: <a href="library/string/aho-corasick.cpp.html">string/aho-corasick.cpp</a>
+* :heavy_check_mark: <a href="library/string/aho-corasick.cpp.html">Aho-Corasick(エイホ–コラシック法) <small>(string/aho-corasick.cpp)</small></a>
 * :warning: <a href="library/string/longest-common-prefix-array.cpp.html">string/longest-common-prefix-array.cpp</a>
 * :warning: <a href="library/string/manacher.cpp.html">string/manacher.cpp</a>
 * :heavy_check_mark: <a href="library/string/rolling-hash.cpp.html">Rolling-Hash(ローリングハッシュ) <small>(string/rolling-hash.cpp)</small></a>
@@ -328,7 +328,7 @@ layout: default
 
 * :warning: <a href="library/structure/trie/binary-trie.cpp.html">structure/trie/binary-trie.cpp</a>
 * :warning: <a href="library/structure/trie/persistent-binary-trie.cpp.html">structure/trie/persistent-binary-trie.cpp</a>
-* :warning: <a href="library/structure/trie/trie.cpp.html">structure/trie/trie.cpp</a>
+* :heavy_check_mark: <a href="library/structure/trie/trie.cpp.html">structure/trie/trie.cpp</a>
 
 
 <div id="16695eacefd17254ea5bccf40066c856"></div>
@@ -512,6 +512,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-two-edge-connected-components.test.cpp.html">test/verify/yosupo-two-edge-connected-components.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-two-sat.test.cpp.html">test/verify/yosupo-two-sat.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-1002.test.cpp.html">test/verify/yukicoder-1002.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yukicoder-430.test.cpp.html">test/verify/yukicoder-430.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-583.test.cpp.html">test/verify/yukicoder-583.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-703.test.cpp.html">test/verify/yukicoder-703.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-704.test.cpp.html">test/verify/yukicoder-704.test.cpp</a>
