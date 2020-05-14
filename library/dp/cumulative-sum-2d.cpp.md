@@ -25,15 +25,35 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: dp/cumulative-sum-2d.cpp
+# :heavy_check_mark: Cumulative-Sum-2D(二次元累積和) <small>(dp/cumulative-sum-2d.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
 * <a href="{{ site.github.repository_url }}/blob/master/dp/cumulative-sum-2d.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-07-20 01:29:30+09:00
+    - Last commit date: 2020-05-15 00:48:56+09:00
 
 
+
+
+## 概要
+
+$2$ 次元の累積和. 前計算として事前に累積和をとることで, 矩形和を $O(1)$ で求めることが出来る.
+
+* `add(x, y, z)`: 要素 $(x, y)$ に値 `z` を加える.
+* `build()`: 累積和を構築する.
+* `query(sx, sy, gx, gy)`: 左下 $(sx, sy)$, 右上 $(gx, gy)$ の矩形和を求める(半開区間で与えることに注意すること. 具体的には列 $gx$ と行 $gy$ は含まない).
+
+## 計算量
+
+* `add(k, x, y)`: $O(1)$
+* `build()`: $O(WH)$
+* `query(sx, sy, gx, gy)`: $O(1)$
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-0560.test.cpp.html">test/verify/aoj-0560.test.cpp</a>
 
 
 ## Code
@@ -41,6 +61,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Cumulative-Sum-2D(二次元累積和)
+ * @docs docs/cumulative-sum-2d.md
+*/
 template< class T >
 struct CumulativeSum2D {
   vector< vector< T > > data;
@@ -61,7 +85,7 @@ struct CumulativeSum2D {
     }
   }
 
-  T query(int sx, int sy, int gx, int gy) {
+  T query(int sx, int sy, int gx, int gy) const {
     return (data[gx][gy] - data[sx][gy] - data[gx][sy] + data[sx][sy]);
   }
 };
@@ -73,6 +97,10 @@ struct CumulativeSum2D {
 {% raw %}
 ```cpp
 #line 1 "dp/cumulative-sum-2d.cpp"
+/**
+ * @brief Cumulative-Sum-2D(二次元累積和)
+ * @docs docs/cumulative-sum-2d.md
+*/
 template< class T >
 struct CumulativeSum2D {
   vector< vector< T > > data;
@@ -93,7 +121,7 @@ struct CumulativeSum2D {
     }
   }
 
-  T query(int sx, int sy, int gx, int gy) {
+  T query(int sx, int sy, int gx, int gy) const {
     return (data[gx][gy] - data[sx][gy] - data[gx][sy] + data[sx][sy]);
   }
 };

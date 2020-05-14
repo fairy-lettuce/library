@@ -38,7 +38,7 @@ layout: default
 
 ### dp
 
-* :warning: <a href="library/dp/cumulative-sum-2d.cpp.html">dp/cumulative-sum-2d.cpp</a>
+* :heavy_check_mark: <a href="library/dp/cumulative-sum-2d.cpp.html">Cumulative-Sum-2D(二次元累積和) <small>(dp/cumulative-sum-2d.cpp)</small></a>
 * :heavy_check_mark: <a href="library/dp/cumulative-sum.cpp.html">Cumulative-Sum(一次元累積和) <small>(dp/cumulative-sum.cpp)</small></a>
 * :heavy_check_mark: <a href="library/dp/divide-and-conquer-optimization.cpp.html">Divide-And-Conquer-Optimization <small>(dp/divide-and-conquer-optimization.cpp)</small></a>
 * :heavy_check_mark: <a href="library/dp/edit-distance.cpp.html">Edit-Distance(編集距離) <small>(dp/edit-distance.cpp)</small></a>
@@ -411,6 +411,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0275.test.cpp.html">test/verify/aoj-0275.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0294.test.cpp.html">test/verify/aoj-0294.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0304.test.cpp.html">test/verify/aoj-0304.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-0560.test.cpp.html">test/verify/aoj-0560.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1163.test.cpp.html">test/verify/aoj-1163.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1254.test.cpp.html">test/verify/aoj-1254.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1508-2.test.cpp.html">test/verify/aoj-1508-2.test.cpp</a>
