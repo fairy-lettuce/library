@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: Cumulative-Sum(一次元累積和) <small>(dp/cumulative-sum.cpp)</small>
+# :heavy_check_mark: Cumulative-Sum(一次元累積和) <small>(dp/cumulative-sum.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -49,6 +49,11 @@ $1$ 次元の累積和. 前計算として事前に累積和をとることで, 
 * `add(k, x)`: $O(1)$
 * `build()`: $O(N)$
 * `query(k)`: $O(1)$
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-static-range-sum.test.cpp.html">test/verify/yosupo-static-range-sum.test.cpp</a>
 
 
 ## Code

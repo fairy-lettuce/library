@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: structure/others/sliding-window-aggregation.cpp
+# :heavy_check_mark: structure/others/sliding-window-aggregation.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -38,7 +38,7 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/verify/yosupo-queue-operate-all-composite.test.cpp.html">test/verify/yosupo-queue-operate-all-composite.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-queue-operate-all-composite.test.cpp.html">test/verify/yosupo-queue-operate-all-composite.test.cpp</a>
 
 
 ## Code

@@ -25,22 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/aoj-grl-1-a.test.cpp
+# :heavy_check_mark: test/verify/yosupo-static-range-sum.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-1-a.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-28 20:39:54+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-static-range-sum.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-05-15 00:40:42+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A</a>
+* see: <a href="https://judge.yosupo.jp/problem/static_range_sum">https://judge.yosupo.jp/problem/static_range_sum</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/shortest-path/dijkstra.cpp.html">Dijkstra(単一始点最短路) <small>(graph/shortest-path/dijkstra.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/dp/cumulative-sum.cpp.html">Cumulative-Sum(一次元累積和) <small>(dp/cumulative-sum.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -49,21 +48,26 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A"
+#define PROBLEM "https://judge.yosupo.jp/problem/static_range_sum"
 
 #include "../../template/template.cpp"
-#include "../../graph/graph-template.cpp"
 
-#include "../../graph/shortest-path/dijkstra.cpp"
+#include "../../dp/cumulative-sum.cpp"
 
 int main() {
-  int V, E, R;
-  cin >> V >> E >> R;
-  Graph< int > g(V);
-  g.read(E, 0, true, true);
-  for(auto &dist : dijkstra(g, R)) {
-    if(dist == numeric_limits< int >::max()) cout << "INF\n";
-    else cout << dist << "\n";
+  int n, q;
+  cin >> n >> q;
+  CumulativeSum< int64 > cs(n);
+  for(int i = 0; i < n; i++) {
+    int x;
+    cin >> x;
+    cs.add(i, x);
+  }
+  cs.build();
+  for(int i = 0; i < q; i++) {
+    int l, r;
+    cin >> l >> r;
+    cout << cs.query(r - 1) - cs.query(l - 1) << "\n";
   }
 }
 
@@ -73,8 +77,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/verify/aoj-grl-1-a.test.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A"
+#line 1 "test/verify/yosupo-static-range-sum.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/static_range_sum"
 
 #line 1 "template/template.cpp"
 #include<bits/stdc++.h>
@@ -163,98 +167,52 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 1 "graph/graph-template.cpp"
-template< typename T = int >
-struct Edge {
-  int from, to;
-  T cost;
-  int idx;
+#line 4 "test/verify/yosupo-static-range-sum.test.cpp"
 
-  Edge() = default;
-
-  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx) {}
-
-  operator int() const { return to; }
-};
-
-template< typename T = int >
-struct Graph {
-  vector< vector< Edge< T > > > g;
-  int es;
-
-  Graph() = default;
-
-  explicit Graph(int n) : g(n), es(0) {}
-
-  size_t size() const {
-    return g.size();
-  }
-
-  void add_directed_edge(int from, int to, T cost = 1) {
-    g[from].emplace_back(from, to, cost, es++);
-  }
-
-  void add_edge(int from, int to, T cost = 1) {
-    g[from].emplace_back(from, to, cost, es);
-    g[to].emplace_back(to, from, cost, es++);
-  }
-
-  void read(int M, int padding = -1, bool weighted = false, bool directed = false) {
-    for(int i = 0; i < M; i++) {
-      int a, b;
-      cin >> a >> b;
-      a += padding;
-      b += padding;
-      T c = T(1);
-      if(weighted) cin >> c;
-      if(directed) add_directed_edge(a, b, c);
-      else add_edge(a, b, c);
-    }
-  }
-};
-
-template< typename T = int >
-using Edges = vector< Edge< T > >;
-#line 5 "test/verify/aoj-grl-1-a.test.cpp"
-
-#line 1 "graph/shortest-path/dijkstra.cpp"
+#line 1 "dp/cumulative-sum.cpp"
 /**
- * @brief Dijkstra(単一始点最短路)
+ * @brief Cumulative-Sum(一次元累積和)
+ * @docs docs/cumulative-sum.md
  */
-template< typename T >
-vector< T > dijkstra(const Graph< T > &g, int s) {
-  const auto INF = numeric_limits< T >::max();
-  vector< T > dist(g.size(), INF);
+template< class T >
+struct CumulativeSum {
+  vector< T > data;
 
-  using Pi = pair< T, int >;
-  priority_queue< Pi, vector< Pi >, greater<> > que;
-  dist[s] = 0;
-  que.emplace(dist[s], s);
-  while(!que.empty()) {
-    T cost;
-    int idx;
-    tie(cost, idx) = que.top();
-    que.pop();
-    if(dist[idx] < cost) continue;
-    for(auto &e : g.g[idx]) {
-      auto next_cost = cost + e.cost;
-      if(dist[e.to] <= next_cost) continue;
-      dist[e.to] = next_cost;
-      que.emplace(dist[e.to], e.to);
+  CumulativeSum() = default;
+
+  explicit CumulativeSum(size_t sz) : data(sz, 0) {}
+
+  void add(int k, const T &x) {
+    data[k] += x;
+  }
+
+  void build() {
+    for(int i = 1; i < data.size(); i++) {
+      data[i] += data[i - 1];
     }
   }
-  return dist;
-}
-#line 7 "test/verify/aoj-grl-1-a.test.cpp"
+
+  T query(int k) const {
+    if(k < 0) return 0;
+    return data[min(k, (int) data.size() - 1)];
+  }
+};
+#line 6 "test/verify/yosupo-static-range-sum.test.cpp"
 
 int main() {
-  int V, E, R;
-  cin >> V >> E >> R;
-  Graph< int > g(V);
-  g.read(E, 0, true, true);
-  for(auto &dist : dijkstra(g, R)) {
-    if(dist == numeric_limits< int >::max()) cout << "INF\n";
-    else cout << dist << "\n";
+  int n, q;
+  cin >> n >> q;
+  CumulativeSum< int64 > cs(n);
+  for(int i = 0; i < n; i++) {
+    int x;
+    cin >> x;
+    cs.add(i, x);
+  }
+  cs.build();
+  for(int i = 0; i < q; i++) {
+    int l, r;
+    cin >> l >> r;
+    cout << cs.query(r - 1) - cs.query(l - 1) << "\n";
   }
 }
 

@@ -39,7 +39,7 @@ layout: default
 ### dp
 
 * :warning: <a href="library/dp/cumulative-sum-2d.cpp.html">dp/cumulative-sum-2d.cpp</a>
-* :warning: <a href="library/dp/cumulative-sum.cpp.html">Cumulative-Sum(一次元累積和) <small>(dp/cumulative-sum.cpp)</small></a>
+* :heavy_check_mark: <a href="library/dp/cumulative-sum.cpp.html">Cumulative-Sum(一次元累積和) <small>(dp/cumulative-sum.cpp)</small></a>
 * :heavy_check_mark: <a href="library/dp/divide-and-conquer-optimization.cpp.html">Divide-And-Conquer-Optimization <small>(dp/divide-and-conquer-optimization.cpp)</small></a>
 * :heavy_check_mark: <a href="library/dp/edit-distance.cpp.html">Edit-Distance(編集距離) <small>(dp/edit-distance.cpp)</small></a>
 * :heavy_check_mark: <a href="library/dp/hu-tucker.cpp.html">dp/hu-tucker.cpp</a>
@@ -52,7 +52,6 @@ layout: default
 * :heavy_check_mark: <a href="library/dp/longest-increasing-subsequence.cpp.html">Longest-Increasing-Subsequence(最長増加部分列) <small>(dp/longest-increasing-subsequence.cpp)</small></a>
 * :heavy_check_mark: <a href="library/dp/monotone-minima.cpp.html">Monotone-Minima <small>(dp/monotone-minima.cpp)</small></a>
 * :heavy_check_mark: <a href="library/dp/online-offline-dp.cpp.html">Online-Offline-DP(オンライン・オフライン変換) <small>(dp/online-offline-dp.cpp)</small></a>
-* :warning: <a href="library/dp/slide-min.cpp.html">dp/slide-min.cpp</a>
 
 
 <div id="ed7daeb157cd9b31e53896ad3c771a26"></div>
@@ -164,7 +163,7 @@ layout: default
 * :heavy_check_mark: <a href="library/math/combinatorics/combination.cpp.html">math/combinatorics/combination.cpp</a>
 * :warning: <a href="library/math/combinatorics/lagrange-polynomial.cpp.html">math/combinatorics/lagrange-polynomial.cpp</a>
 * :warning: <a href="library/math/combinatorics/mod-int-2.cpp.html">math/combinatorics/mod-int-2.cpp</a>
-* :question: <a href="library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
+* :heavy_check_mark: <a href="library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-log.cpp.html">math/combinatorics/mod-log.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-pow.cpp.html">math/combinatorics/mod-pow.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-sqrt.cpp.html">math/combinatorics/mod-sqrt.cpp</a>
@@ -307,7 +306,7 @@ layout: default
 * :heavy_check_mark: <a href="library/structure/others/link-cut-tree.cpp.html">structure/others/link-cut-tree.cpp</a>
 * :heavy_check_mark: <a href="library/structure/others/persistent-array.cpp.html">structure/others/persistent-array.cpp</a>
 * :warning: <a href="library/structure/others/priority-sum-structure.cpp.html">structure/others/priority-sum-structure.cpp</a>
-* :x: <a href="library/structure/others/sliding-window-aggregation.cpp.html">structure/others/sliding-window-aggregation.cpp</a>
+* :heavy_check_mark: <a href="library/structure/others/sliding-window-aggregation.cpp.html">structure/others/sliding-window-aggregation.cpp</a>
 * :heavy_check_mark: <a href="library/structure/others/sparse-table.cpp.html">Sparse-Table(スパーステーブル) <small>(structure/others/sparse-table.cpp)</small></a>
 * :warning: <a href="library/structure/others/sqrt-decomposition.cpp.html">structure/others/sqrt-decomposition.cpp</a>
 * :warning: <a href="library/structure/others/union-rectangle.cpp.html">structure/others/union-rectangle.cpp</a>
@@ -362,7 +361,7 @@ layout: default
 
 ### template
 
-* :question: <a href="library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="library/template/template.cpp.html">template/template.cpp</a>
 
 
 <div id="5a4423c79a88aeb6104a40a645f9430c"></div>
@@ -502,7 +501,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-partition-function.test.cpp.html">test/verify/yosupo-partition-function.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-persistent-unionfind.test.cpp.html">test/verify/yosupo-persistent-unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-polynomial-interpolation.test.cpp.html">test/verify/yosupo-polynomial-interpolation.test.cpp</a>
-* :x: <a href="verify/test/verify/yosupo-queue-operate-all-composite.test.cpp.html">test/verify/yosupo-queue-operate-all-composite.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-queue-operate-all-composite.test.cpp.html">test/verify/yosupo-queue-operate-all-composite.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-range-affine-range-sum-2.test.cpp.html">test/verify/yosupo-range-affine-range-sum-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-range-affine-range-sum-3.test.cpp.html">test/verify/yosupo-range-affine-range-sum-3.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-range-affine-range-sum.test.cpp.html">test/verify/yosupo-range-affine-range-sum.test.cpp</a>
@@ -512,6 +511,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sparse-matrix-det.test.cpp.html">test/verify/yosupo-sparse-matrix-det.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sqrt-mod.test.cpp.html">test/verify/yosupo-sqrt-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp.html">test/verify/yosupo-sqrt-of-formal-power-series.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-static-range-sum.test.cpp.html">test/verify/yosupo-static-range-sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-staticrmq-2.test.cpp.html">test/verify/yosupo-staticrmq-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-staticrmq-3.test.cpp.html">test/verify/yosupo-staticrmq-3.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-staticrmq.test.cpp.html">test/verify/yosupo-staticrmq.test.cpp</a>

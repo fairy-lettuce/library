@@ -25,23 +25,23 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/verify/yosupo-queue-operate-all-composite.test.cpp
+# :heavy_check_mark: test/verify/yosupo-queue-operate-all-composite.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-queue-operate-all-composite.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-15 00:30:26+09:00
+    - Last commit date: 2020-05-15 00:40:42+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/bernoulli_number">https://judge.yosupo.jp/problem/bernoulli_number</a>
+* see: <a href="https://judge.yosupo.jp/problem/queue_operate_all_composite">https://judge.yosupo.jp/problem/queue_operate_all_composite</a>
 
 
 ## Depends on
 
-* :question: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
-* :x: <a href="../../../library/structure/others/sliding-window-aggregation.cpp.html">structure/others/sliding-window-aggregation.cpp</a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
+* :heavy_check_mark: <a href="../../../library/structure/others/sliding-window-aggregation.cpp.html">structure/others/sliding-window-aggregation.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -49,7 +49,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/bernoulli_number"
+#define PROBLEM "https://judge.yosupo.jp/problem/queue_operate_all_composite"
 
 #include "../../template/template.cpp"
 
@@ -98,7 +98,7 @@ int main() {
 {% raw %}
 ```cpp
 #line 1 "test/verify/yosupo-queue-operate-all-composite.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/bernoulli_number"
+#define PROBLEM "https://judge.yosupo.jp/problem/queue_operate_all_composite"
 
 #line 1 "template/template.cpp"
 #include<bits/stdc++.h>
