@@ -40,6 +40,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-1508-2.test.cpp.html">test/verify/aoj-1508-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-range-affine-range-sum-2.test.cpp.html">test/verify/yosupo-range-affine-range-sum-2.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-range-affine-range-sum-3.test.cpp.html">test/verify/yosupo-range-affine-range-sum-3.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-staticrmq-3.test.cpp.html">test/verify/yosupo-staticrmq-3.test.cpp</a>
 
 

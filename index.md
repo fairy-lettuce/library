@@ -257,7 +257,9 @@ layout: default
 ### structure/bbst
 
 * :heavy_check_mark: <a href="library/structure/bbst/lazy-red-black-tree.cpp.html">Lazy-Red-Black-Tree(遅延伝搬赤黒木) <small>(structure/bbst/lazy-red-black-tree.cpp)</small></a>
+* :heavy_check_mark: <a href="library/structure/bbst/lazy-weight-balanced-tree.cpp.html">Lazy-Weight-Balanced-Tree(遅延伝搬重み平衡木) <small>(structure/bbst/lazy-weight-balanced-tree.cpp)</small></a>
 * :warning: <a href="library/structure/bbst/persistent-lazy-red-black-tree.cpp.html">structure/bbst/persistent-lazy-red-black-tree.cpp</a>
+* :warning: <a href="library/structure/bbst/persistent-lazy-weight-balanced-tree.cpp.html">Persistent-Lazy-Weight-Balanced-Tree(永続遅延伝搬重み平衡木) <small>(structure/bbst/persistent-lazy-weight-balanced-tree.cpp)</small></a>
 * :warning: <a href="library/structure/bbst/persistent-red-black-tree.cpp.html">structure/bbst/persistent-red-black-tree.cpp</a>
 * :warning: <a href="library/structure/bbst/persistent-weight-balanced-tree.cpp.html">Persistent-Weight-Balanced-Tree(永続重み平衡木) <small>(structure/bbst/persistent-weight-balanced-tree.cpp)</small></a>
 * :warning: <a href="library/structure/bbst/randomized-binary-search-tree-lazy.cpp.html">structure/bbst/randomized-binary-search-tree-lazy.cpp</a>
@@ -500,6 +502,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-persistent-unionfind.test.cpp.html">test/verify/yosupo-persistent-unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-polynomial-interpolation.test.cpp.html">test/verify/yosupo-polynomial-interpolation.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-range-affine-range-sum-2.test.cpp.html">test/verify/yosupo-range-affine-range-sum-2.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-range-affine-range-sum-3.test.cpp.html">test/verify/yosupo-range-affine-range-sum-3.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-range-affine-range-sum.test.cpp.html">test/verify/yosupo-range-affine-range-sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-rectangle-sum.test.cpp.html">test/verify/yosupo-rectangle-sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-scc.test.cpp.html">test/verify/yosupo-scc.test.cpp</a>
