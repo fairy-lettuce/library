@@ -75,7 +75,7 @@ layout: default
 ### graph/connected-components
 
 * :heavy_check_mark: <a href="library/graph/connected-components/bi-connected-components.cpp.html">Bi-Connected-Components(二重頂点連結成分分解) <small>(graph/connected-components/bi-connected-components.cpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/connected-components/incremental-bridge-connectivity.cpp.html">IncrementalBridgeConnectivity <small>(graph/connected-components/incremental-bridge-connectivity.cpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/connected-components/incremental-bridge-connectivity.cpp.html">Incremental-Bridge-Connectivity <small>(graph/connected-components/incremental-bridge-connectivity.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/connected-components/strongly-connected-components.cpp.html">Strongly-Connected-Components(強連結成分分解) <small>(graph/connected-components/strongly-connected-components.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/connected-components/two-edge-connected-components.cpp.html">Two-Edge-Connected-Components(二重辺連結成分分解) <small>(graph/connected-components/two-edge-connected-components.cpp)</small></a>
 
@@ -259,10 +259,12 @@ layout: default
 * :heavy_check_mark: <a href="library/structure/bbst/lazy-red-black-tree.cpp.html">Lazy-Red-Black-Tree(遅延伝搬赤黒木) <small>(structure/bbst/lazy-red-black-tree.cpp)</small></a>
 * :warning: <a href="library/structure/bbst/persistent-lazy-red-black-tree.cpp.html">structure/bbst/persistent-lazy-red-black-tree.cpp</a>
 * :warning: <a href="library/structure/bbst/persistent-red-black-tree.cpp.html">structure/bbst/persistent-red-black-tree.cpp</a>
+* :warning: <a href="library/structure/bbst/persistent-weight-balanced-tree.cpp.html">Persistent-Weight-Balanced-Tree(永続重み平衡木) <small>(structure/bbst/persistent-weight-balanced-tree.cpp)</small></a>
 * :warning: <a href="library/structure/bbst/randomized-binary-search-tree-lazy.cpp.html">structure/bbst/randomized-binary-search-tree-lazy.cpp</a>
 * :warning: <a href="library/structure/bbst/randomized-binary-search-tree-set.cpp.html">structure/bbst/randomized-binary-search-tree-set.cpp</a>
 * :heavy_check_mark: <a href="library/structure/bbst/randomized-binary-search-tree.cpp.html">structure/bbst/randomized-binary-search-tree.cpp</a>
 * :heavy_check_mark: <a href="library/structure/bbst/red-black-tree.cpp.html">Red-Black-Tree(赤黒木) <small>(structure/bbst/red-black-tree.cpp)</small></a>
+* :warning: <a href="library/structure/bbst/weight-balanced-tree.cpp.html">Weight-Balanced-Tree(重み平衡木) <small>(structure/bbst/weight-balanced-tree.cpp)</small></a>
 
 
 <div id="3ad23896bbde10d07ed9c44a914e070b"></div>

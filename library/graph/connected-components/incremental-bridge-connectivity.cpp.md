@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: IncrementalBridgeConnectivity <small>(graph/connected-components/incremental-bridge-connectivity.cpp)</small>
+# :heavy_check_mark: Incremental-Bridge-Connectivity <small>(graph/connected-components/incremental-bridge-connectivity.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#3a7c46e10de1b2cce1293b2074b86f0a">graph/connected-components</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/connected-components/incremental-bridge-connectivity.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-10 02:35:14+09:00
+    - Last commit date: 2020-05-14 22:00:37+09:00
 
 
 * see: <a href="https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity">https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity</a>
@@ -62,7 +62,7 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief IncrementalBridgeConnectivity
+ * @brief Incremental-Bridge-Connectivity
  * @docs docs/incremental-bridge-connectivity.md
  * @see https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity
  */
@@ -146,7 +146,7 @@ public:
 ```cpp
 #line 1 "graph/connected-components/incremental-bridge-connectivity.cpp"
 /**
- * @brief IncrementalBridgeConnectivity
+ * @brief Incremental-Bridge-Connectivity
  * @docs docs/incremental-bridge-connectivity.md
  * @see https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity
  */

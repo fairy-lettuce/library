@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-two-edge-connected-components-2.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-10 02:35:14+09:00
+    - Last commit date: 2020-05-14 22:00:37+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/two_edge_connected_components">https://judge.yosupo.jp/problem/two_edge_connected_components</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/connected-components/incremental-bridge-connectivity.cpp.html">IncrementalBridgeConnectivity <small>(graph/connected-components/incremental-bridge-connectivity.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/graph/connected-components/incremental-bridge-connectivity.cpp.html">Incremental-Bridge-Connectivity <small>(graph/connected-components/incremental-bridge-connectivity.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/structure/union-find/union-find.cpp.html">Union-Find <small>(structure/union-find/union-find.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
@@ -219,7 +219,7 @@ struct UnionFind {
 
 #line 1 "graph/connected-components/incremental-bridge-connectivity.cpp"
 /**
- * @brief IncrementalBridgeConnectivity
+ * @brief Incremental-Bridge-Connectivity
  * @docs docs/incremental-bridge-connectivity.md
  * @see https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity
  */
