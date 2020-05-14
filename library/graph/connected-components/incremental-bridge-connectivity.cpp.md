@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#3a7c46e10de1b2cce1293b2074b86f0a">graph/connected-components</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/connected-components/incremental-bridge-connectivity.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-14 22:00:37+09:00
+    - Last commit date: 2020-05-15 01:29:43+09:00
 
 
 * see: <a href="https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity">https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity</a>
@@ -53,6 +53,7 @@ layout: default
 
 ## Verified with
 
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-three-edge-connected-components.test.cpp.html">test/verify/yosupo-three-edge-connected-components.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-two-edge-connected-components-2.test.cpp.html">test/verify/yosupo-two-edge-connected-components-2.test.cpp</a>
 
 
@@ -112,6 +113,8 @@ private:
   }
 
 public:
+  IncrementalBridgeConnectivity() = default;
+
   explicit IncrementalBridgeConnectivity(int sz) : cc(sz), bcc(sz), bbf(sz, sz), bridge(0) {}
 
   int find(int k) {
@@ -196,6 +199,8 @@ private:
   }
 
 public:
+  IncrementalBridgeConnectivity() = default;
+
   explicit IncrementalBridgeConnectivity(int sz) : cc(sz), bcc(sz), bbf(sz, sz), bridge(0) {}
 
   int find(int k) {

@@ -25,21 +25,23 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/yosupo-two-edge-connected-components-2.test.cpp
+# :heavy_check_mark: test/verify/yosupo-three-edge-connected-components.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-two-edge-connected-components-2.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-three-edge-connected-components.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-05-15 01:29:43+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/two_edge_connected_components">https://judge.yosupo.jp/problem/two_edge_connected_components</a>
+* see: <a href="https://judge.yosupo.jp/problem/three_edge_connected_components">https://judge.yosupo.jp/problem/three_edge_connected_components</a>
 
 
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/graph/connected-components/incremental-bridge-connectivity.cpp.html">Incremental-Bridge-Connectivity <small>(graph/connected-components/incremental-bridge-connectivity.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/graph/connected-components/three-edge-connected-components.cpp.html">Three-Edge-Connected-Components(三重辺連結成分分解) <small>(graph/connected-components/three-edge-connected-components.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
 * :heavy_check_mark: <a href="../../../library/structure/union-find/union-find.cpp.html">Union-Find <small>(structure/union-find/union-find.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
@@ -49,37 +51,25 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/two_edge_connected_components"
+#define PROBLEM "https://judge.yosupo.jp/problem/three_edge_connected_components"
 
 #include "../../template/template.cpp"
 
 #include "../../structure/union-find/union-find.cpp"
 
+#include "../../graph/graph-template.cpp"
 #include "../../graph/connected-components/incremental-bridge-connectivity.cpp"
+#include "../../graph/connected-components/three-edge-connected-components.cpp"
 
 int main() {
-  int n, m;
-  cin >> n >> m;
-  IncrementalBridgeConnectivity ibc(n);
-  for(int i = 0; i < m; i++) {
-    int a, b;
-    cin >> a >> b;
-    ibc.add_edge(a, b);
-  }
-  vector< int > id(n, -1);
-  int k = 0;
-  vector< vector< int > > ans(n);
-  for(int i = 0; i < n; i++) {
-    int r = ibc.find(i);
-    if(id[r] == -1) {
-      id[r] = k;
-      k += 1;
-    }
-    ans[id[r]].push_back(i);
-  }
-  cout << k << "\n";
-  for(int i = 0; i < k; i++) {
-    cout << ans[i].size() << " " << ans[i] << "\n";
+  int N, M;
+  cin >> N >> M;
+  ThreeEdgeConnectedComponents<> g(N);
+  g.read(M, 0);
+  g.build();
+  cout << g.group.size() << "\n";
+  for(auto &p : g.group) {
+    cout << p.size() << " " << p << "\n";
   }
 }
 
@@ -89,8 +79,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/verify/yosupo-two-edge-connected-components-2.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/two_edge_connected_components"
+#line 1 "test/verify/yosupo-three-edge-connected-components.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/three_edge_connected_components"
 
 #line 1 "template/template.cpp"
 #include<bits/stdc++.h>
@@ -179,7 +169,7 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 4 "test/verify/yosupo-two-edge-connected-components-2.test.cpp"
+#line 4 "test/verify/yosupo-three-edge-connected-components.test.cpp"
 
 #line 1 "structure/union-find/union-find.cpp"
 /**
@@ -215,8 +205,60 @@ struct UnionFind {
     return find(x) == find(y);
   }
 };
-#line 6 "test/verify/yosupo-two-edge-connected-components-2.test.cpp"
+#line 6 "test/verify/yosupo-three-edge-connected-components.test.cpp"
 
+#line 1 "graph/graph-template.cpp"
+template< typename T = int >
+struct Edge {
+  int from, to;
+  T cost;
+  int idx;
+
+  Edge() = default;
+
+  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx) {}
+
+  operator int() const { return to; }
+};
+
+template< typename T = int >
+struct Graph {
+  vector< vector< Edge< T > > > g;
+  int es;
+
+  Graph() = default;
+
+  explicit Graph(int n) : g(n), es(0) {}
+
+  size_t size() const {
+    return g.size();
+  }
+
+  void add_directed_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es++);
+  }
+
+  void add_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es);
+    g[to].emplace_back(to, from, cost, es++);
+  }
+
+  void read(int M, int padding = -1, bool weighted = false, bool directed = false) {
+    for(int i = 0; i < M; i++) {
+      int a, b;
+      cin >> a >> b;
+      a += padding;
+      b += padding;
+      T c = T(1);
+      if(weighted) cin >> c;
+      if(directed) add_directed_edge(a, b, c);
+      else add_edge(a, b, c);
+    }
+  }
+};
+
+template< typename T = int >
+using Edges = vector< Edge< T > >;
 #line 1 "graph/connected-components/incremental-bridge-connectivity.cpp"
 /**
  * @brief Incremental-Bridge-Connectivity
@@ -296,31 +338,117 @@ public:
     }
   }
 };
-#line 8 "test/verify/yosupo-two-edge-connected-components-2.test.cpp"
+#line 1 "graph/connected-components/three-edge-connected-components.cpp"
+/**
+ * @brief Three-Edge-Connected-Components(三重辺連結成分分解)
+ */
+template< typename T = int >
+struct ThreeEdgeConnectedComponents : Graph< T > {
+public:
+  using Graph< T >::Graph;
+  using Graph< T >::g;
+  vector< vector< int > > group;
+
+  void build() {
+    uf = UnionFind(g.size());
+    bcc = IncrementalBridgeConnectivity(g.size());
+    used.assign(g.size(), 0);
+    in.assign(g.size(), 0);
+    out.assign(g.size(), 0);
+    deg.assign(g.size(), 0);
+    low.assign(g.size(), g.size());
+    for(int from = 0; from < g.size(); from++) {
+      for(auto &to : g[from]) {
+        if(from < to) bcc.add_edge(from, to);
+      }
+    }
+    int cnt = 0;
+    for(int i = 0; i < g.size(); i++) {
+      if(used[i]) continue;
+      vector< int > tmp;
+      dfs(i, -1, tmp, cnt);
+      cnt++;
+    }
+    vector< int > id(g.size(), -1);
+    cnt = 0;
+    for(int i = 0; i < g.size(); i++) {
+      if(id[uf.find(i)] == -1) id[uf.find(i)] = cnt++;
+    }
+    group.resize(cnt);
+    for(int i = 0; i < g.size(); i++) {
+      group[id[uf.find(i)]].emplace_back(i);
+    }
+  }
+
+  int operator[](const int &k) {
+    return uf.find(k);
+  }
+
+private:
+  vector< int > used;
+  vector< int > in, out, low, deg;
+  IncrementalBridgeConnectivity bcc;
+  UnionFind uf;
+
+  void absorb(vector< int > &path, int v, int w = -1) {
+    while(!path.empty()) {
+      int x = path.back();
+      if(w != -1 && (in[x] > in[w] or in[w] >= out[x])) break;
+      path.pop_back();
+      uf.unite(v, x);
+      deg[v] += deg[x] - 2;
+    }
+  }
+
+  void dfs(int idx, int p, vector< int > &path, int &k) {
+    used[idx] = 1;
+    in[idx] = low[idx] = k++;
+    for(auto &to : g[idx]) {
+      if(idx == to || bcc.find(idx) != bcc.find(to)) continue;
+      deg[idx]++;
+      if(to == p) {
+        p = -1;
+        continue;
+      }
+      if(used[to]) {
+        if(in[idx] > in[to]) {
+          if(in[to] < low[idx]) {
+            low[idx] = in[to];
+            absorb(path, idx);
+          }
+        } else {
+          deg[idx] -= 2;
+          absorb(path, idx, to);
+        }
+      } else {
+        vector< int > ps;
+        dfs(to, idx, ps, k);
+        if(deg[to] == 2) ps.pop_back();
+        if(low[to] < low[idx]) {
+          low[idx] = low[to];
+          absorb(path, idx);
+          path = ps;
+        } else {
+          absorb(ps, idx);
+        }
+      }
+    }
+    out[idx] = k;
+    path.push_back(idx);
+  }
+};
+
+#line 10 "test/verify/yosupo-three-edge-connected-components.test.cpp"
 
 int main() {
-  int n, m;
-  cin >> n >> m;
-  IncrementalBridgeConnectivity ibc(n);
-  for(int i = 0; i < m; i++) {
-    int a, b;
-    cin >> a >> b;
-    ibc.add_edge(a, b);
-  }
-  vector< int > id(n, -1);
-  int k = 0;
-  vector< vector< int > > ans(n);
-  for(int i = 0; i < n; i++) {
-    int r = ibc.find(i);
-    if(id[r] == -1) {
-      id[r] = k;
-      k += 1;
-    }
-    ans[id[r]].push_back(i);
-  }
-  cout << k << "\n";
-  for(int i = 0; i < k; i++) {
-    cout << ans[i].size() << " " << ans[i] << "\n";
+  int N, M;
+  cin >> N >> M;
+  ThreeEdgeConnectedComponents<> g(N);
+  g.read(M, 0);
+  g.build();
+  cout << g.group.size() << "\n";
+  for(auto &p : g.group) {
+    cout << p.size() << " " << p << "\n";
   }
 }
 
