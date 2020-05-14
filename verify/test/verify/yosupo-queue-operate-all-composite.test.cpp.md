@@ -25,23 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/aoj-dpl-5-i.test.cpp
+# :x: test/verify/yosupo-queue-operate-all-composite.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-5-i.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:36:31+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-queue-operate-all-composite.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-05-15 00:30:26+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I</a>
+* see: <a href="https://judge.yosupo.jp/problem/bernoulli_number">https://judge.yosupo.jp/problem/bernoulli_number</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/math/combinatorics/combination.cpp.html">math/combinatorics/combination.cpp</a>
 * :question: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
-* :heavy_check_mark: <a href="../../../library/math/combinatorics/stirling-number-second.cpp.html">math/combinatorics/stirling-number-second.cpp</a>
+* :x: <a href="../../../library/structure/others/sliding-window-aggregation.cpp.html">structure/others/sliding-window-aggregation.cpp</a>
 * :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -50,19 +49,45 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I"
+#define PROBLEM "https://judge.yosupo.jp/problem/bernoulli_number"
 
 #include "../../template/template.cpp"
 
 #include "../../math/combinatorics/mod-int.cpp"
-#include "../../math/combinatorics/combination.cpp"
 
-#include "../../math/combinatorics/stirling-number-second.cpp"
+#include "../../structure/others/sliding-window-aggregation.cpp"
+
+const int MOD = 998244353;
+using mint = ModInt< MOD >;
 
 int main() {
-  int N, K;
-  cin >> N >> K;
-  cout << stirling_number_second< modint >(N, K) << endl;
+  int Q;
+  cin >> Q;
+  using pi = pair< mint, mint >;
+  auto f = [](const pi &a, const pi &b) -> pi {
+    return {a.first * b.first, a.second * b.first + b.second};
+  };
+  SlidingWindowAggregation< pi > swa(f);
+  while(Q--) {
+    int t;
+    cin >> t;
+    if(t == 0) {
+      mint a, b;
+      cin >> a >> b;
+      swa.push(pi(a, b));
+    } else if(t == 1) {
+      swa.pop();
+    } else {
+      mint x;
+      cin >> x;
+      if(swa.empty()) {
+        cout << x << "\n";
+      } else {
+        auto s = swa.fold_all();
+        cout << s.first * x + s.second << "\n";
+      }
+    }
+  }
 }
 
 
@@ -72,8 +97,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/verify/aoj-dpl-5-i.test.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I"
+#line 1 "test/verify/yosupo-queue-operate-all-composite.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/bernoulli_number"
 
 #line 1 "template/template.cpp"
 #include<bits/stdc++.h>
@@ -162,7 +187,7 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 4 "test/verify/aoj-dpl-5-i.test.cpp"
+#line 4 "test/verify/yosupo-queue-operate-all-composite.test.cpp"
 
 #line 1 "math/combinatorics/mod-int.cpp"
 template< int mod >
@@ -242,61 +267,96 @@ struct ModInt {
 };
 
 using modint = ModInt< mod >;
-#line 1 "math/combinatorics/combination.cpp"
-template< typename T >
-struct Combination {
-  vector< T > _fact, _rfact, _inv;
+#line 6 "test/verify/yosupo-queue-operate-all-composite.test.cpp"
 
-  Combination(int sz) : _fact(sz + 1), _rfact(sz + 1), _inv(sz + 1) {
-    _fact[0] = _rfact[sz] = _inv[0] = 1;
-    for(int i = 1; i <= sz; i++) _fact[i] = _fact[i - 1] * i;
-    _rfact[sz] /= _fact[sz];
-    for(int i = sz - 1; i >= 0; i--) _rfact[i] = _rfact[i + 1] * (i + 1);
-    for(int i = 1; i <= sz; i++) _inv[i] = _rfact[i] * _fact[i - 1];
+#line 1 "structure/others/sliding-window-aggregation.cpp"
+template< typename SemiGroup >
+struct SlidingWindowAggregation {
+  using F = function< SemiGroup(SemiGroup, SemiGroup) >;
+ 
+  struct Node {
+    SemiGroup val, sum;
+ 
+    Node(const SemiGroup &val, const SemiGroup &sum) : val(val), sum(sum) {}
+  };
+ 
+  SlidingWindowAggregation(F f) : f(f) {}
+ 
+ 
+  const F f;
+  stack< Node > front, back;
+ 
+  bool empty() const {
+    return front.empty() && back.empty();
   }
-
-  inline T fact(int k) const { return _fact[k]; }
-
-  inline T rfact(int k) const { return _rfact[k]; }
-
-  inline T inv(int k) const { return _inv[k]; }
-
-  T P(int n, int r) const {
-    if(r < 0 || n < r) return 0;
-    return fact(n) * rfact(n - r);
+ 
+  size_t size() const {
+    return front.size() + back.size();
   }
-
-  T C(int p, int q) const {
-    if(q < 0 || p < q) return 0;
-    return fact(p) * rfact(q) * rfact(p - q);
+ 
+  SemiGroup fold_all() const {
+    if(front.empty()) {
+      return back.top().sum;
+    } else if(back.empty()) {
+      return front.top().sum;
+    } else {
+      return f(front.top().sum, back.top().sum);
+    }
   }
-
-  T H(int n, int r) const {
-    if(n < 0 || r < 0) return (0);
-    return r == 0 ? 1 : C(n + r - 1, r);
+ 
+  void push(const SemiGroup &x) {
+    if(back.empty()) {
+      back.emplace(x, x);
+    } else {
+      back.emplace(x, f(back.top().sum, x));
+    }
+  }
+ 
+  void pop() {
+    if(front.empty()) {
+      front.emplace(back.top().val, back.top().val);
+      back.pop();
+      while(!back.empty()) {
+        front.emplace(back.top().val, f(back.top().val, front.top().sum));
+        back.pop();
+      }
+    }
+    front.pop();
   }
 };
-#line 7 "test/verify/aoj-dpl-5-i.test.cpp"
+#line 8 "test/verify/yosupo-queue-operate-all-composite.test.cpp"
 
-#line 1 "math/combinatorics/stirling-number-second.cpp"
-template< typename T >
-T stirling_number_second(int n, int k) {
-  Combination< T > table(k);
-  T ret = 0;
-  for(int i = 0; i <= k; i++) {
-    auto add = T(i).pow(n) * table.C(k, i);
-    if((k - i) & 1) ret -= add;
-    else ret += add;
-  }
-  return ret * table.rfact(k);
-}
-
-#line 9 "test/verify/aoj-dpl-5-i.test.cpp"
+const int MOD = 998244353;
+using mint = ModInt< MOD >;
 
 int main() {
-  int N, K;
-  cin >> N >> K;
-  cout << stirling_number_second< modint >(N, K) << endl;
+  int Q;
+  cin >> Q;
+  using pi = pair< mint, mint >;
+  auto f = [](const pi &a, const pi &b) -> pi {
+    return {a.first * b.first, a.second * b.first + b.second};
+  };
+  SlidingWindowAggregation< pi > swa(f);
+  while(Q--) {
+    int t;
+    cin >> t;
+    if(t == 0) {
+      mint a, b;
+      cin >> a >> b;
+      swa.push(pi(a, b));
+    } else if(t == 1) {
+      swa.pop();
+    } else {
+      mint x;
+      cin >> x;
+      if(swa.empty()) {
+        cout << x << "\n";
+      } else {
+        auto s = swa.fold_all();
+        cout << s.first * x + s.second << "\n";
+      }
+    }
+  }
 }
 
 
