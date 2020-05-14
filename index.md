@@ -266,7 +266,7 @@ layout: default
 * :warning: <a href="library/structure/bbst/randomized-binary-search-tree-set.cpp.html">structure/bbst/randomized-binary-search-tree-set.cpp</a>
 * :heavy_check_mark: <a href="library/structure/bbst/randomized-binary-search-tree.cpp.html">structure/bbst/randomized-binary-search-tree.cpp</a>
 * :heavy_check_mark: <a href="library/structure/bbst/red-black-tree.cpp.html">Red-Black-Tree(赤黒木) <small>(structure/bbst/red-black-tree.cpp)</small></a>
-* :warning: <a href="library/structure/bbst/weight-balanced-tree.cpp.html">Weight-Balanced-Tree(重み平衡木) <small>(structure/bbst/weight-balanced-tree.cpp)</small></a>
+* :heavy_check_mark: <a href="library/structure/bbst/weight-balanced-tree.cpp.html">Weight-Balanced-Tree(重み平衡木) <small>(structure/bbst/weight-balanced-tree.cpp)</small></a>
 
 
 <div id="3ad23896bbde10d07ed9c44a914e070b"></div>
@@ -415,6 +415,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1163.test.cpp.html">test/verify/aoj-1163.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1254.test.cpp.html">test/verify/aoj-1254.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1508-2.test.cpp.html">test/verify/aoj-1508-2.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-1508-3.test.cpp.html">test/verify/aoj-1508-3.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1508.test.cpp.html">test/verify/aoj-1508.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1595.test.cpp.html">test/verify/aoj-1595.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1615.test.cpp.html">test/verify/aoj-1615.test.cpp</a>
