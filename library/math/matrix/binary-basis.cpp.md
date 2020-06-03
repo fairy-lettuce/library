@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: math/matrix/binary-basis.cpp
+# :heavy_check_mark: math/matrix/binary-basis.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#a9839e7477a4d9c748aee996b52a14d5">math/matrix</a>
 * <a href="{{ site.github.repository_url }}/blob/master/math/matrix/binary-basis.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-03 21:22:34+09:00
+    - Last commit date: 2020-06-03 21:44:16+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/verify/yukicoder-184.test.cpp.html">test/verify/yukicoder-184.test.cpp</a>
 
 
 ## Code
@@ -100,6 +105,10 @@ struct BinaryBasis {
       }
     }
     return ret;
+  }
+
+  size_t size() const {
+    return basis.size();
   }
 };
 
@@ -169,6 +178,10 @@ struct BinaryBasis {
       }
     }
     return ret;
+  }
+
+  size_t size() const {
+    return basis.size();
   }
 };
 
