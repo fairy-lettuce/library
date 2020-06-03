@@ -202,6 +202,7 @@ layout: default
 
 ### math/matrix
 
+* :warning: <a href="library/math/matrix/binary-basis.cpp.html">math/matrix/binary-basis.cpp</a>
 * :heavy_check_mark: <a href="library/math/matrix/matrix.cpp.html">math/matrix/matrix.cpp</a>
 
 
