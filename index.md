@@ -180,7 +180,7 @@ layout: default
 
 * :warning: <a href="library/math/fft/arbitrary-mod-convolution-long.cpp.html">math/fft/arbitrary-mod-convolution-long.cpp</a>
 * :warning: <a href="library/math/fft/arbitrary-mod-convolution.cpp.html">math/fft/arbitrary-mod-convolution.cpp</a>
-* :warning: <a href="library/math/fft/fast-fourier-transform.cpp.html">math/fft/fast-fourier-transform.cpp</a>
+* :heavy_check_mark: <a href="library/math/fft/fast-fourier-transform.cpp.html">math/fft/fast-fourier-transform.cpp</a>
 * :heavy_check_mark: <a href="library/math/fft/number-theoretic-transform-friendly-mod-int.cpp.html">math/fft/number-theoretic-transform-friendly-mod-int.cpp</a>
 * :heavy_check_mark: <a href="library/math/fft/number-theoretic-transform.cpp.html">math/fft/number-theoretic-transform.cpp</a>
 
@@ -491,6 +491,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-exp-of-formal-power-series.test.cpp.html">test/verify/yosupo-exp-of-formal-power-series.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-factorize.test.cpp.html">test/verify/yosupo-factorize.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-find-linear-recurrence.test.cpp.html">test/verify/yosupo-find-linear-recurrence.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-frequency-table-of-tree-distance.test.cpp.html">test/verify/yosupo-frequency-table-of-tree-distance.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-general-matching.test.cpp.html">test/verify/yosupo-general-matching.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-inv-of-formal-power-series.test.cpp.html">test/verify/yosupo-inv-of-formal-power-series.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-kth-root-integer.test.cpp.html">test/verify/yosupo-kth-root-integer.test.cpp</a>
