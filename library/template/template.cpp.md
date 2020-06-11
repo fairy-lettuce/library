@@ -159,6 +159,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-184.test.cpp.html">test/verify/yukicoder-184.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-430.test.cpp.html">test/verify/yukicoder-430.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-583.test.cpp.html">test/verify/yukicoder-583.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-650.test.cpp.html">test/verify/yukicoder-650.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-703.test.cpp.html">test/verify/yukicoder-703.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-704.test.cpp.html">test/verify/yukicoder-704.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-705.test.cpp.html">test/verify/yukicoder-705.test.cpp</a>

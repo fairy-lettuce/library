@@ -204,6 +204,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/math/matrix/binary-basis.cpp.html">math/matrix/binary-basis.cpp</a>
 * :heavy_check_mark: <a href="library/math/matrix/matrix.cpp.html">math/matrix/matrix.cpp</a>
+* :heavy_check_mark: <a href="library/math/matrix/square-matrix.cpp.html">Square-Matrix(正方行列) <small>(math/matrix/square-matrix.cpp)</small></a>
 
 
 <div id="d4a327615e3a055131f0682831111ce2"></div>
@@ -530,6 +531,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-184.test.cpp.html">test/verify/yukicoder-184.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-430.test.cpp.html">test/verify/yukicoder-430.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-583.test.cpp.html">test/verify/yukicoder-583.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yukicoder-650.test.cpp.html">test/verify/yukicoder-650.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-703.test.cpp.html">test/verify/yukicoder-703.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-704.test.cpp.html">test/verify/yukicoder-704.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-705.test.cpp.html">test/verify/yukicoder-705.test.cpp</a>
