@@ -57,6 +57,7 @@ Fenwick Tree とも呼ばれる. 数列に対し, ある要素に値を加える
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-dsl-2-b.test.cpp.html">test/verify/aoj-dsl-2-b.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-point-add-rectangle-sum.test.cpp.html">test/verify/yosupo-point-add-rectangle-sum.test.cpp</a>
 
 
 ## Code

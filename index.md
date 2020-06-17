@@ -355,6 +355,7 @@ layout: default
 ### structure/wavelet
 
 * :heavy_check_mark: <a href="library/structure/wavelet/succinct-indexable-dictionary.cpp.html">structure/wavelet/succinct-indexable-dictionary.cpp</a>
+* :heavy_check_mark: <a href="library/structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp.html">structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp</a>
 * :heavy_check_mark: <a href="library/structure/wavelet/wavelet-matrix-rectangle-sum.cpp.html">structure/wavelet/wavelet-matrix-rectangle-sum.cpp</a>
 * :heavy_check_mark: <a href="library/structure/wavelet/wavelet-matrix.cpp.html">structure/wavelet/wavelet-matrix.cpp</a>
 * :heavy_check_mark: <a href="library/structure/wavelet/wavelet-tree.cpp.html">structure/wavelet/wavelet-tree.cpp</a>
@@ -505,6 +506,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-multipoint-evaluation.test.cpp.html">test/verify/yosupo-multipoint-evaluation.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-partition-function.test.cpp.html">test/verify/yosupo-partition-function.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-persistent-unionfind.test.cpp.html">test/verify/yosupo-persistent-unionfind.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-point-add-rectangle-sum.test.cpp.html">test/verify/yosupo-point-add-rectangle-sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-polynomial-interpolation.test.cpp.html">test/verify/yosupo-polynomial-interpolation.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-queue-operate-all-composite.test.cpp.html">test/verify/yosupo-queue-operate-all-composite.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-range-affine-range-sum-2.test.cpp.html">test/verify/yosupo-range-affine-range-sum-2.test.cpp</a>

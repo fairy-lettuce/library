@@ -38,6 +38,7 @@ layout: default
 
 ## Verified with
 
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-point-add-rectangle-sum.test.cpp.html">test/verify/yosupo-point-add-rectangle-sum.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-tree-decomposition-width-2.test.cpp.html">test/verify/yosupo-tree-decomposition-width-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-two-sat.test.cpp.html">test/verify/yosupo-two-sat.test.cpp</a>
 

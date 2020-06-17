@@ -40,6 +40,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2674-2.test.cpp.html">test/verify/aoj-2674-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2674.test.cpp.html">test/verify/aoj-2674.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-point-add-rectangle-sum.test.cpp.html">test/verify/yosupo-point-add-rectangle-sum.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-rectangle-sum.test.cpp.html">test/verify/yosupo-rectangle-sum.test.cpp</a>
 
 
