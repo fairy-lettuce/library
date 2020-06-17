@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#40d73e22b7d986e3399449c25c8b23a1">structure/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/others/binary-indexed-tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-19 22:38:55+09:00
+    - Last commit date: 2020-06-17 14:51:53+09:00
 
 
 
@@ -41,6 +41,8 @@ layout: default
 Fenwick Tree とも呼ばれる. 数列に対し, ある要素に値を加える操作と, 区間和を求める操作をそれぞれ対数時間で行うことが出来るデータ構造. セグメント木や平衡二分探索
 木の機能を制限したものであるが, 実装が非常に単純で定数倍も軽いなどの利点がある.
 
+* `BinaryIndexedTree(sz)`: 長さ `sz` の $0$ で初期化された配列で構築する.
+* `BinaryIndexedTree(vs)`: 配列 `vs` で構築する.
 * `add(k, x)`: 要素 `k` に値 `x` を加える.
 * `query(k)`: 区間 $[0,k]$ の総和を求める(閉区間なので注意すること).
 * `lower_bound(x)`: 区間 $[0,k]$ の総和が `x` 以上となる最小の $k$ を返す.
@@ -48,6 +50,7 @@ Fenwick Tree とも呼ばれる. 数列に対し, ある要素に値を加える
 
 ## 計算量
 
+* 構築: $O(N)$
 * クエリ: $O(\log N)$
 
 
@@ -72,6 +75,14 @@ struct BinaryIndexedTree {
   BinaryIndexedTree() = default;
 
   explicit BinaryIndexedTree(size_t sz) : data(sz + 1, 0) {}
+
+  explicit BinaryIndexedTree(const vector< T > &vs) : data(vs.size() + 1, 0) {
+    for(size_t i = 0; i < vs.size(); i++) data[i + 1] = vs[i];
+    for(size_t i = 1; i < data.size(); i++) {
+      size_t j = i + (i & -i);
+      if(j < data.size()) data[j] += data[i];
+    }
+  }
 
   void add(int k, const T &x) {
     for(++k; k < (int) data.size(); k += k & -k) data[k] += x;
@@ -124,6 +135,14 @@ struct BinaryIndexedTree {
   BinaryIndexedTree() = default;
 
   explicit BinaryIndexedTree(size_t sz) : data(sz + 1, 0) {}
+
+  explicit BinaryIndexedTree(const vector< T > &vs) : data(vs.size() + 1, 0) {
+    for(size_t i = 0; i < vs.size(); i++) data[i + 1] = vs[i];
+    for(size_t i = 1; i < data.size(); i++) {
+      size_t j = i + (i & -i);
+      if(j < data.size()) data[j] += data[i];
+    }
+  }
 
   void add(int k, const T &x) {
     for(++k; k < (int) data.size(); k += k & -k) data[k] += x;

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dsl-2-b.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-19 22:38:55+09:00
+    - Last commit date: 2020-06-17 14:51:53+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B</a>
@@ -176,6 +176,14 @@ struct BinaryIndexedTree {
   BinaryIndexedTree() = default;
 
   explicit BinaryIndexedTree(size_t sz) : data(sz + 1, 0) {}
+
+  explicit BinaryIndexedTree(const vector< T > &vs) : data(vs.size() + 1, 0) {
+    for(size_t i = 0; i < vs.size(); i++) data[i + 1] = vs[i];
+    for(size_t i = 1; i < data.size(); i++) {
+      size_t j = i + (i & -i);
+      if(j < data.size()) data[j] += data[i];
+    }
+  }
 
   void add(int k, const T &x) {
     for(++k; k < (int) data.size(); k += k & -k) data[k] += x;
