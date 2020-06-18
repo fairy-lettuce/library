@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
+# :x: test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-18 20:43:51+09:00
+    - Last commit date: 2020-06-18 21:29:10+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum">https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum</a>
@@ -39,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/structure/bbst/lazy-splay-tree.cpp.html">Lazy-Splay-Tree(遅延伝搬Splay木) <small>(structure/bbst/lazy-splay-tree.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/structure/others/link-cut-tree.cpp.html">Link-Cut-Tree <small>(structure/others/link-cut-tree.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :x: <a href="../../../library/structure/bbst/reversible-splay-tree.cpp.html">Reversible-Splay-Tree(反転可能Splay木) <small>(structure/bbst/reversible-splay-tree.cpp)</small></a>
+* :x: <a href="../../../library/structure/others/link-cut-tree.cpp.html">Link-Cut-Tree <small>(structure/others/link-cut-tree.cpp)</small></a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -53,18 +53,18 @@ layout: default
 
 #include "../../template/template.cpp"
 
-#include "../../structure/bbst/lazy-splay-tree.cpp"
+#include "../../structure/bbst/reversible-splay-tree.cpp"
 
 #include "../../structure/others/link-cut-tree.cpp"
 
 int main() {
   int N, Q;
   cin >> N >> Q;
-  using LCT = LinkCutTree< int64, int >;
+  using LCT = LinkCutTree< ReversibleSplayTree, int64 >;
 
   auto add = [](int64 a, int64 b) { return a + b; };
   auto s = [](int64 a) { return a; };
-  LCT lct(add, add, add, s, 0, 0);
+  LCT lct(add, s, 0);
 
   vector< int > A(N);
   cin >> A;
@@ -204,22 +204,19 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp"
 
-#line 1 "structure/bbst/lazy-splay-tree.cpp"
+#line 1 "structure/bbst/reversible-splay-tree.cpp"
 /**
- * @brief Lazy-Splay-Tree(遅延伝搬Splay木)
+ * @brief Reversible-Splay-Tree(反転可能Splay木)
  */
-template< typename Monoid = int, typename OperatorMonoid = Monoid >
-struct LazySplayTree {
+template< typename Monoid = int, typename OperatorMonoid = void >
+struct ReversibleSplayTree {
 public:
   using F = function< Monoid(Monoid, Monoid) >;
-  using G = function< Monoid(Monoid, OperatorMonoid) >;
-  using H = function< OperatorMonoid(OperatorMonoid, OperatorMonoid) >;
   using S = function< Monoid(Monoid) >;
 
   struct Node {
     Node *l, *r, *p;
     Monoid key, sum;
-    OperatorMonoid lazy;
     bool rev;
     size_t sz;
 
@@ -227,20 +224,16 @@ public:
       return !p || (p->l != this && p->r != this);
     }
 
-    Node(const Monoid &key, const OperatorMonoid &om) :
-        key(key), sum(key), lazy(om), sz(1), rev(false),
+    Node(const Monoid &key) :
+        key(key), sum(key), sz(1), rev(false),
         l(nullptr), r(nullptr), p(nullptr) {}
   };
 
-  LazySplayTree(const F &f, const Monoid &M1) :
-      LazySplayTree(f, [](const Monoid &a) { return a; }, M1) {}
+  ReversibleSplayTree(const F &f, const Monoid &M1) :
+      ReversibleSplayTree(f, [](const Monoid &a) { return a; }, M1) {}
 
-  LazySplayTree(const F &f, const S &s, const Monoid &M1) :
-      LazySplayTree(f, G(), H(), s, M1, OperatorMonoid()) {}
-
-  LazySplayTree(const F &f, const G &g, const H &h, const S &s,
-                const Monoid &M1, const OperatorMonoid &OM0) :
-      f(f), g(g), h(h), s(s), M1(M1), OM0(OM0) {}
+  ReversibleSplayTree(const F &f, const S &s, const Monoid &M1) :
+      f(f), s(s), M1(M1) {}
 
 
   inline size_t count(const Node *t) { return t ? t->sz : 0; }
@@ -248,7 +241,7 @@ public:
   inline const Monoid &sum(const Node *t) { return t ? t->sum : M1; }
 
   Node *alloc(const Monoid &v = Monoid()) {
-    return new Node(v, OM0);
+    return new Node(v);
   }
 
   void splay(Node *t) {
@@ -331,18 +324,6 @@ public:
     return t;
   }
 
-  void set_propagate(Node *&t, int a, int b, const OperatorMonoid &pp) {
-    auto x = split(t, a);
-    auto y = split(x.second, b - a);
-    set_propagate(y.first, pp);
-    t = merge(x.first, y.first, y.second);
-  }
-
-  virtual void set_propagate(Node *&t, const OperatorMonoid &pp) {
-    propagate(t, pp);
-    push(t);
-  }
-
   pair< Node *, Node * > split(Node *t, int k) {
     if(!t) return {nullptr, nullptr};
     push(t);
@@ -423,11 +404,6 @@ public:
   }
 
   void push(Node *t) {
-    if(t->lazy != OM0) {
-      if(t->l) propagate(t->l, t->lazy);
-      if(t->r) propagate(t->r, t->lazy);
-      t->lazy = OM0;
-    }
     if(t->rev) {
       if(t->l) toggle(t->l);
       if(t->r) toggle(t->r);
@@ -437,21 +413,12 @@ public:
 
 private:
   const Monoid M1;
-  const OperatorMonoid OM0;
   const F f;
-  const G g;
-  const H h;
   const S s;
 
   Node *build(int l, int r, const vector< Monoid > &v) {
     if(l + 1 >= r) return alloc(v[l]);
     return merge(build(l, (l + r) >> 1, v), build((l + r) >> 1, r, v));
-  }
-
-  void propagate(Node *t, const OperatorMonoid &x) {
-    t->lazy = h(t->lazy, x);
-    t->key = g(t->key, x);
-    t->sum = g(t->sum, x);
   }
 
   void rotr(Node *t) {
@@ -488,10 +455,10 @@ private:
 /**
  * @brief Link-Cut-Tree
  */
-template< typename Monoid = int, typename OperatorMonoid = Monoid >
-struct LinkCutTree : LazySplayTree< Monoid, OperatorMonoid > {
-  using LST = LazySplayTree< Monoid, OperatorMonoid >;
-  using LST::LazySplayTree;
+template< template< typename, typename > typename ST, typename Monoid = int, typename OperatorMonoid = Monoid >
+struct LinkCutTree : ST< Monoid, OperatorMonoid > {
+  using LST = ST< Monoid, OperatorMonoid >;
+  using LST::ST;
   using Node = typename LST::Node;
 
   Node *expose(Node *t) {
@@ -574,11 +541,11 @@ struct LinkCutTree : LazySplayTree< Monoid, OperatorMonoid > {
 int main() {
   int N, Q;
   cin >> N >> Q;
-  using LCT = LinkCutTree< int64, int >;
+  using LCT = LinkCutTree< ReversibleSplayTree, int64 >;
 
   auto add = [](int64 a, int64 b) { return a + b; };
   auto s = [](int64 a) { return a; };
-  LCT lct(add, add, add, s, 0, 0);
+  LCT lct(add, s, 0);
 
   vector< int > A(N);
   cin >> A;

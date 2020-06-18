@@ -44,7 +44,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/structure/others/binary-indexed-tree.cpp.html">Binary-Indexed-Tree(BIT) <small>(structure/others/binary-indexed-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/structure/wavelet/succinct-indexable-dictionary.cpp.html">structure/wavelet/succinct-indexable-dictionary.cpp</a>
 * :heavy_check_mark: <a href="../../../library/structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp.html">structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

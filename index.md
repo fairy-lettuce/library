@@ -164,7 +164,7 @@ layout: default
 * :heavy_check_mark: <a href="library/math/combinatorics/combination.cpp.html">math/combinatorics/combination.cpp</a>
 * :warning: <a href="library/math/combinatorics/lagrange-polynomial.cpp.html">math/combinatorics/lagrange-polynomial.cpp</a>
 * :warning: <a href="library/math/combinatorics/mod-int-2.cpp.html">math/combinatorics/mod-int-2.cpp</a>
-* :heavy_check_mark: <a href="library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
+* :question: <a href="library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-log.cpp.html">math/combinatorics/mod-log.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-pow.cpp.html">math/combinatorics/mod-pow.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-sqrt.cpp.html">math/combinatorics/mod-sqrt.cpp</a>
@@ -259,7 +259,7 @@ layout: default
 ### structure/bbst
 
 * :heavy_check_mark: <a href="library/structure/bbst/lazy-red-black-tree.cpp.html">Lazy-Red-Black-Tree(遅延伝搬赤黒木) <small>(structure/bbst/lazy-red-black-tree.cpp)</small></a>
-* :heavy_check_mark: <a href="library/structure/bbst/lazy-splay-tree.cpp.html">Lazy-Splay-Tree(遅延伝搬Splay木) <small>(structure/bbst/lazy-splay-tree.cpp)</small></a>
+* :x: <a href="library/structure/bbst/lazy-reversible-splay-tree.cpp.html">Lazy-Reversible-Splay-Tree(遅延伝搬反転可能Splay木) <small>(structure/bbst/lazy-reversible-splay-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/bbst/lazy-weight-balanced-tree.cpp.html">Lazy-Weight-Balanced-Tree(遅延伝搬重み平衡木) <small>(structure/bbst/lazy-weight-balanced-tree.cpp)</small></a>
 * :warning: <a href="library/structure/bbst/persistent-lazy-red-black-tree.cpp.html">structure/bbst/persistent-lazy-red-black-tree.cpp</a>
 * :warning: <a href="library/structure/bbst/persistent-lazy-weight-balanced-tree.cpp.html">Persistent-Lazy-Weight-Balanced-Tree(永続遅延伝搬重み平衡木) <small>(structure/bbst/persistent-lazy-weight-balanced-tree.cpp)</small></a>
@@ -269,6 +269,7 @@ layout: default
 * :warning: <a href="library/structure/bbst/randomized-binary-search-tree-set.cpp.html">structure/bbst/randomized-binary-search-tree-set.cpp</a>
 * :heavy_check_mark: <a href="library/structure/bbst/randomized-binary-search-tree.cpp.html">structure/bbst/randomized-binary-search-tree.cpp</a>
 * :heavy_check_mark: <a href="library/structure/bbst/red-black-tree.cpp.html">Red-Black-Tree(赤黒木) <small>(structure/bbst/red-black-tree.cpp)</small></a>
+* :x: <a href="library/structure/bbst/reversible-splay-tree.cpp.html">Reversible-Splay-Tree(反転可能Splay木) <small>(structure/bbst/reversible-splay-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/bbst/weight-balanced-tree.cpp.html">Weight-Balanced-Tree(重み平衡木) <small>(structure/bbst/weight-balanced-tree.cpp)</small></a>
 
 
@@ -307,7 +308,7 @@ layout: default
 * :heavy_check_mark: <a href="library/structure/others/binary-indexed-tree.cpp.html">Binary-Indexed-Tree(BIT) <small>(structure/others/binary-indexed-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/others/disjoint-sparse-table.cpp.html">Disjoint-Sparse-Table <small>(structure/others/disjoint-sparse-table.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/others/link-cut-tree-subtree.cpp.html">structure/others/link-cut-tree-subtree.cpp</a>
-* :heavy_check_mark: <a href="library/structure/others/link-cut-tree.cpp.html">Link-Cut-Tree <small>(structure/others/link-cut-tree.cpp)</small></a>
+* :x: <a href="library/structure/others/link-cut-tree.cpp.html">Link-Cut-Tree <small>(structure/others/link-cut-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/others/persistent-array.cpp.html">structure/others/persistent-array.cpp</a>
 * :warning: <a href="library/structure/others/priority-sum-structure.cpp.html">structure/others/priority-sum-structure.cpp</a>
 * :heavy_check_mark: <a href="library/structure/others/sliding-window-aggregation.cpp.html">structure/others/sliding-window-aggregation.cpp</a>
@@ -366,7 +367,7 @@ layout: default
 
 ### template
 
-* :heavy_check_mark: <a href="library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="library/template/template.cpp.html">template/template.cpp</a>
 
 
 <div id="5a4423c79a88aeb6104a40a645f9430c"></div>
@@ -427,7 +428,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2306.test.cpp.html">test/verify/aoj-2306.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2405.test.cpp.html">test/verify/aoj-2405.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2415.test.cpp.html">test/verify/aoj-2415.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/verify/aoj-2450-2.test.cpp.html">test/verify/aoj-2450-2.test.cpp</a>
+* :x: <a href="verify/test/verify/aoj-2450-2.test.cpp.html">test/verify/aoj-2450-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2450.test.cpp.html">test/verify/aoj-2450.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2603.test.cpp.html">test/verify/aoj-2603.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2667.test.cpp.html">test/verify/aoj-2667.test.cpp</a>
@@ -489,9 +490,9 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-convolution-mod.test.cpp.html">test/verify/yosupo-convolution-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-discrete-logarithm-mod.test.cpp.html">test/verify/yosupo-discrete-logarithm-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-dominatortree.test.cpp.html">test/verify/yosupo-dominatortree.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp</a>
+* :x: <a href="verify/test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp</a>
+* :x: <a href="verify/test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-exp-of-formal-power-series.test.cpp.html">test/verify/yosupo-exp-of-formal-power-series.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-factorize.test.cpp.html">test/verify/yosupo-factorize.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-find-linear-recurrence.test.cpp.html">test/verify/yosupo-find-linear-recurrence.test.cpp</a>
