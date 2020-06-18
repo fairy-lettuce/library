@@ -259,6 +259,7 @@ layout: default
 ### structure/bbst
 
 * :heavy_check_mark: <a href="library/structure/bbst/lazy-red-black-tree.cpp.html">Lazy-Red-Black-Tree(遅延伝搬赤黒木) <small>(structure/bbst/lazy-red-black-tree.cpp)</small></a>
+* :heavy_check_mark: <a href="library/structure/bbst/lazy-splay-tree.cpp.html">Lazy-Splay-Tree(遅延伝搬Splay木) <small>(structure/bbst/lazy-splay-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/bbst/lazy-weight-balanced-tree.cpp.html">Lazy-Weight-Balanced-Tree(遅延伝搬重み平衡木) <small>(structure/bbst/lazy-weight-balanced-tree.cpp)</small></a>
 * :warning: <a href="library/structure/bbst/persistent-lazy-red-black-tree.cpp.html">structure/bbst/persistent-lazy-red-black-tree.cpp</a>
 * :warning: <a href="library/structure/bbst/persistent-lazy-weight-balanced-tree.cpp.html">Persistent-Lazy-Weight-Balanced-Tree(永続遅延伝搬重み平衡木) <small>(structure/bbst/persistent-lazy-weight-balanced-tree.cpp)</small></a>
@@ -306,7 +307,7 @@ layout: default
 * :heavy_check_mark: <a href="library/structure/others/binary-indexed-tree.cpp.html">Binary-Indexed-Tree(BIT) <small>(structure/others/binary-indexed-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/others/disjoint-sparse-table.cpp.html">Disjoint-Sparse-Table <small>(structure/others/disjoint-sparse-table.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/others/link-cut-tree-subtree.cpp.html">structure/others/link-cut-tree-subtree.cpp</a>
-* :heavy_check_mark: <a href="library/structure/others/link-cut-tree.cpp.html">structure/others/link-cut-tree.cpp</a>
+* :heavy_check_mark: <a href="library/structure/others/link-cut-tree.cpp.html">Link-Cut-Tree <small>(structure/others/link-cut-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/others/persistent-array.cpp.html">structure/others/persistent-array.cpp</a>
 * :warning: <a href="library/structure/others/priority-sum-structure.cpp.html">structure/others/priority-sum-structure.cpp</a>
 * :heavy_check_mark: <a href="library/structure/others/sliding-window-aggregation.cpp.html">structure/others/sliding-window-aggregation.cpp</a>
