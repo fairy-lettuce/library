@@ -41,7 +41,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../library/string/aho-corasick.cpp.html">Aho-Corasick(エイホ–コラシック法) <small>(string/aho-corasick.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/structure/trie/trie.cpp.html">structure/trie/trie.cpp</a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

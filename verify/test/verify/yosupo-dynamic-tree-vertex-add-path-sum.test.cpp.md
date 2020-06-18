@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
+# :heavy_check_mark: test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-18 21:29:10+09:00
+    - Last commit date: 2020-06-19 01:29:44+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum">https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum</a>
@@ -39,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :x: <a href="../../../library/structure/bbst/reversible-splay-tree.cpp.html">Reversible-Splay-Tree(反転可能Splay木) <small>(structure/bbst/reversible-splay-tree.cpp)</small></a>
-* :x: <a href="../../../library/structure/others/link-cut-tree.cpp.html">Link-Cut-Tree <small>(structure/others/link-cut-tree.cpp)</small></a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/structure/bbst/reversible-splay-tree.cpp.html">Reversible-Splay-Tree(反転可能Splay木) <small>(structure/bbst/reversible-splay-tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/structure/others/link-cut-tree.cpp.html">Link-Cut-Tree <small>(structure/others/link-cut-tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -458,7 +458,7 @@ private:
 template< template< typename, typename > typename ST, typename Monoid = int, typename OperatorMonoid = Monoid >
 struct LinkCutTree : ST< Monoid, OperatorMonoid > {
   using LST = ST< Monoid, OperatorMonoid >;
-  using LST::ST;
+  using ST< Monoid, OperatorMonoid >::ST;
   using Node = typename LST::Node;
 
   Node *expose(Node *t) {

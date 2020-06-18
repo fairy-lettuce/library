@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: Lazy-Reversible-Splay-Tree(遅延伝搬反転可能Splay木) <small>(structure/bbst/lazy-reversible-splay-tree.cpp)</small>
+# :heavy_check_mark: Lazy-Reversible-Splay-Tree(遅延伝搬反転可能Splay木) <small>(structure/bbst/lazy-reversible-splay-tree.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -38,7 +38,7 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/verify/aoj-2450-2.test.cpp.html">test/verify/aoj-2450-2.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2450-2.test.cpp.html">test/verify/aoj-2450-2.test.cpp</a>
 
 
 ## Code

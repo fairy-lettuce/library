@@ -25,22 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: Link-Cut-Tree <small>(structure/others/link-cut-tree.cpp)</small>
+# :heavy_check_mark: Link-Cut-Tree <small>(structure/others/link-cut-tree.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#40d73e22b7d986e3399449c25c8b23a1">structure/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/others/link-cut-tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-18 21:29:10+09:00
+    - Last commit date: 2020-06-19 01:29:44+09:00
 
 
 
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/verify/aoj-2450-2.test.cpp.html">test/verify/aoj-2450-2.test.cpp</a>
-* :x: <a href="../../../verify/test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp</a>
-* :x: <a href="../../../verify/test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2450-2.test.cpp.html">test/verify/aoj-2450-2.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp</a>
 
 
 ## Code
@@ -54,7 +54,7 @@ layout: default
 template< template< typename, typename > typename ST, typename Monoid = int, typename OperatorMonoid = Monoid >
 struct LinkCutTree : ST< Monoid, OperatorMonoid > {
   using LST = ST< Monoid, OperatorMonoid >;
-  using LST::ST;
+  using ST< Monoid, OperatorMonoid >::ST;
   using Node = typename LST::Node;
 
   Node *expose(Node *t) {
@@ -146,7 +146,7 @@ struct LinkCutTree : ST< Monoid, OperatorMonoid > {
 template< template< typename, typename > typename ST, typename Monoid = int, typename OperatorMonoid = Monoid >
 struct LinkCutTree : ST< Monoid, OperatorMonoid > {
   using LST = ST< Monoid, OperatorMonoid >;
-  using LST::ST;
+  using ST< Monoid, OperatorMonoid >::ST;
   using Node = typename LST::Node;
 
   Node *expose(Node *t) {
