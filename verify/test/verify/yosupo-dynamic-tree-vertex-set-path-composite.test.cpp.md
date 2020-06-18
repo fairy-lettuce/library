@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-19 01:29:44+09:00
+    - Last commit date: 2020-06-19 01:56:15+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/dynamic_tree_vertex_set_path_composite">https://judge.yosupo.jp/problem/dynamic_tree_vertex_set_path_composite</a>
@@ -282,6 +282,7 @@ public:
       t = alloc(v);
       return t;
     } else {
+      splay(t);
       Node *cur = get_left(t), *z = alloc(v);
       splay(cur);
       z->p = cur;
@@ -296,6 +297,7 @@ public:
       t = alloc(v);
       return t;
     } else {
+      splay(t);
       Node *cur = get_right(t), *z = alloc(v);
       splay(cur);
       z->p = cur;
@@ -369,11 +371,13 @@ public:
   }
 
   void insert(Node *&t, int k, const Monoid &v) {
+    splay(t);
     auto x = split(t, k);
     t = merge(merge(x.first, alloc(v)), x.second);
   }
 
   Monoid erase(Node *&t, int k) {
+    splay(t);
     auto x = split(t, k);
     auto y = split(x.second, 1);
     auto v = y.first->c;
@@ -383,6 +387,7 @@ public:
   }
 
   Monoid query(Node *&t, int a, int b) {
+    splay(t);
     auto x = split(t, a);
     auto y = split(x.second, b - a);
     auto ret = sum(y.first);
@@ -409,6 +414,7 @@ public:
   }
 
   tuple< Node *, Node *, Node * > split3(Node *t, int a, int b) {
+    splay(t);
     auto x = split(t, a);
     auto y = split(x.second, b - a);
     return make_tuple(x.first, y.first, y.second);
@@ -422,6 +428,11 @@ public:
     }
   }
 
+  void set_element(Node *&t, int k, const Monoid &x) {
+    splay(t);
+    sub_set_element(t, k, x);
+  }
+
 private:
   const Monoid M1;
   const F f;
@@ -431,6 +442,20 @@ private:
     if(l + 1 >= r) return alloc(v[l]);
     return merge(build(l, (l + r) >> 1, v), build((l + r) >> 1, r, v));
   }
+
+  Node *sub_set_element(Node *&t, int k, const Monoid &x) {
+    push(t);
+    if(k < count(t->l)) {
+      return sub_set_element(t->l, k, x);
+    } else if(k == count(t->l)) {
+      t->key = x;
+      splay(t);
+      return t;
+    } else {
+      return sub_set_element(t->r, k - count(t->l) - 1, x);
+    }
+  }
+
 
   void rotr(Node *t) {
     auto *x = t->p, *y = x->p;

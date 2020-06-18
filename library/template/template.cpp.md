@@ -135,6 +135,8 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-partition-function.test.cpp.html">test/verify/yosupo-partition-function.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-persistent-unionfind.test.cpp.html">test/verify/yosupo-persistent-unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-point-add-rectangle-sum.test.cpp.html">test/verify/yosupo-point-add-rectangle-sum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-point-set-range-composite-2.test.cpp.html">test/verify/yosupo-point-set-range-composite-2.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-point-set-range-composite.test.cpp.html">test/verify/yosupo-point-set-range-composite.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-polynomial-interpolation.test.cpp.html">test/verify/yosupo-polynomial-interpolation.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-queue-operate-all-composite.test.cpp.html">test/verify/yosupo-queue-operate-all-composite.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-range-affine-range-sum-2.test.cpp.html">test/verify/yosupo-range-affine-range-sum-2.test.cpp</a>

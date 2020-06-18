@@ -25,22 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
+# :heavy_check_mark: test/verify/yosupo-point-set-range-composite.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-point-set-range-composite.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-06-19 01:56:15+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum">https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum</a>
+* see: <a href="https://judge.yosupo.jp/problem/point_set_range_composite">https://judge.yosupo.jp/problem/point_set_range_composite</a>
 
 
 ## Depends on
 
+* :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
 * :heavy_check_mark: <a href="../../../library/structure/bbst/reversible-splay-tree.cpp.html">Reversible-Splay-Tree(反転可能Splay木) <small>(structure/bbst/reversible-splay-tree.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/structure/others/link-cut-tree.cpp.html">Link-Cut-Tree <small>(structure/others/link-cut-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -49,62 +49,46 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum"
+#define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
 
 #include "../../template/template.cpp"
 
 #include "../../structure/bbst/reversible-splay-tree.cpp"
 
-#include "../../structure/others/link-cut-tree.cpp"
+#include "../../math/combinatorics/mod-int.cpp"
+
+using mint = ModInt< 998244353 >;
 
 int main() {
   int N, Q;
   cin >> N >> Q;
-  using LCT = LinkCutTree< ReversibleSplayTree, int64 >;
-
-  auto add = [](int64 a, int64 b) { return a + b; };
-  auto s = [](int64 a) { return a; };
-  LCT lct(add, s, 0);
-
-  vector< int > A(N);
-  cin >> A;
-
-  vector< LCT::Node * > vs(N);
+  using pi = pair< mint, mint >;
+  auto f = [](const pi &a, const pi &b) -> pi {
+    return {a.first * b.first, a.second * b.first + b.second};
+  };
+  ReversibleSplayTree< pi > seg(f, pi(1, 0));
+  vector< pi > V(N);
   for(int i = 0; i < N; i++) {
-    vs[i] = lct.alloc(A[i]);
+    cin >> V[i].first >> V[i].second;
   }
-  for(int i = 1; i < N; i++) {
-    int a, b;
-    cin >> a >> b;
-    lct.evert(vs[a]);
-    lct.link(vs[a], vs[b]);
-  }
-
-  while(Q--) {
-    int T;
-    cin >> T;
-    if(T == 0) {
-      int U, V, W, X;
-      cin >> U >> V >> W >> X;
-      lct.evert(vs[U]);
-      lct.cut(vs[V]);
-      lct.evert(vs[W]);
-      lct.link(vs[W], vs[X]);
-    } else if(T == 1) {
-      int P, X;
-      cin >> P >> X;
-      lct.expose(vs[P]);
-      vs[P]->key += X;
-      lct.update(vs[P]);
+  auto root = seg.build(V);
+  for(int i = 0; i < Q; i++) {
+    int t;
+    cin >> t;
+    if(t == 0) {
+      int p;
+      mint a, b;
+      cin >> p >> a >> b;
+      seg.set_element(root, p, pi(a, b));
     } else {
-      int U, V;
-      cin >> U >> V;
-      lct.evert(vs[U]);
-      cout << lct.query(vs[V]) << "\n";
+      int l, r;
+      mint x;
+      cin >> l >> r >> x;
+      auto ret = seg.query(root, l, r);
+      cout << ret.first * x + ret.second << "\n";
     }
   }
 }
-
 
 ```
 {% endraw %}
@@ -112,8 +96,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum"
+#line 1 "test/verify/yosupo-point-set-range-composite.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
 
 #line 1 "template/template.cpp"
 #include<bits/stdc++.h>
@@ -202,7 +186,7 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 4 "test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp"
+#line 4 "test/verify/yosupo-point-set-range-composite.test.cpp"
 
 #line 1 "structure/bbst/reversible-splay-tree.cpp"
 /**
@@ -474,143 +458,120 @@ private:
     return l;
   }
 };
-#line 6 "test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp"
+#line 6 "test/verify/yosupo-point-set-range-composite.test.cpp"
 
-#line 1 "structure/others/link-cut-tree.cpp"
-/**
- * @brief Link-Cut-Tree
- */
-template< template< typename, typename > typename ST, typename Monoid = int, typename OperatorMonoid = Monoid >
-struct LinkCutTree : ST< Monoid, OperatorMonoid > {
-  using LST = ST< Monoid, OperatorMonoid >;
-  using ST< Monoid, OperatorMonoid >::ST;
-  using Node = typename LST::Node;
+#line 1 "math/combinatorics/mod-int.cpp"
+template< int mod >
+struct ModInt {
+  int x;
 
-  Node *expose(Node *t) {
-    Node *rp = nullptr;
-    for(Node *cur = t; cur; cur = cur->p) {
-      this->splay(cur);
-      cur->r = rp;
-      this->update(cur);
-      rp = cur;
+  ModInt() : x(0) {}
+
+  ModInt(int64_t y) : x(y >= 0 ? y % mod : (mod - (-y) % mod) % mod) {}
+
+  ModInt &operator+=(const ModInt &p) {
+    if((x += p.x) >= mod) x -= mod;
+    return *this;
+  }
+
+  ModInt &operator-=(const ModInt &p) {
+    if((x += mod - p.x) >= mod) x -= mod;
+    return *this;
+  }
+
+  ModInt &operator*=(const ModInt &p) {
+    x = (int) (1LL * x * p.x % mod);
+    return *this;
+  }
+
+  ModInt &operator/=(const ModInt &p) {
+    *this *= p.inverse();
+    return *this;
+  }
+
+  ModInt operator-() const { return ModInt(-x); }
+
+  ModInt operator+(const ModInt &p) const { return ModInt(*this) += p; }
+
+  ModInt operator-(const ModInt &p) const { return ModInt(*this) -= p; }
+
+  ModInt operator*(const ModInt &p) const { return ModInt(*this) *= p; }
+
+  ModInt operator/(const ModInt &p) const { return ModInt(*this) /= p; }
+
+  bool operator==(const ModInt &p) const { return x == p.x; }
+
+  bool operator!=(const ModInt &p) const { return x != p.x; }
+
+  ModInt inverse() const {
+    int a = x, b = mod, u = 1, v = 0, t;
+    while(b > 0) {
+      t = a / b;
+      swap(a -= t * b, b);
+      swap(u -= t * v, v);
     }
-    this->splay(t);
-    return rp;
+    return ModInt(u);
   }
 
-  void link(Node *child, Node *parent) {
-    expose(child);
-    expose(parent);
-    child->p = parent;
-    parent->r = child;
-    this->update(parent);
-  }
-
-  void cut(Node *child) {
-    expose(child);
-    auto *parent = child->l;
-    child->l = nullptr;
-    parent->p = nullptr;
-    this->update(child);
-  }
-
-  void evert(Node *t) {
-    expose(t);
-    this->toggle(t);
-    this->push(t);
-  }
-
-  Node *lca(Node *u, Node *v) {
-    if(get_root(u) != get_root(v)) return nullptr;
-    expose(u);
-    return expose(v);
-  }
-
-  void set_propagate(Node *t, const OperatorMonoid &x) {
-    expose(t);
-    LST::set_propagate(t, x);
-  }
-
-  Node *get_kth(Node *x, int k) {
-    expose(x);
-    while(x) {
-      this->push(x);
-      if(x->r && x->r->sz > k) {
-        x = x->r;
-      } else {
-        if(x->r) k -= x->r->sz;
-        if(k == 0) return x;
-        k -= 1;
-        x = x->l;
-      }
+  ModInt pow(int64_t n) const {
+    ModInt ret(1), mul(x);
+    while(n > 0) {
+      if(n & 1) ret *= mul;
+      mul *= mul;
+      n >>= 1;
     }
-    return nullptr;
+    return ret;
   }
 
-  Node *get_root(Node *x) {
-    expose(x);
-    while(x->l) {
-      this->push(x);
-      x = x->l;
-    }
-    return x;
+  friend ostream &operator<<(ostream &os, const ModInt &p) {
+    return os << p.x;
   }
 
-  const Monoid &query(Node *t) {
-    expose(t);
-    return t->sum;
+  friend istream &operator>>(istream &is, ModInt &a) {
+    int64_t t;
+    is >> t;
+    a = ModInt< mod >(t);
+    return (is);
   }
+
+  static int get_mod() { return mod; }
 };
-#line 8 "test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp"
+
+using modint = ModInt< mod >;
+#line 8 "test/verify/yosupo-point-set-range-composite.test.cpp"
+
+using mint = ModInt< 998244353 >;
 
 int main() {
   int N, Q;
   cin >> N >> Q;
-  using LCT = LinkCutTree< ReversibleSplayTree, int64 >;
-
-  auto add = [](int64 a, int64 b) { return a + b; };
-  auto s = [](int64 a) { return a; };
-  LCT lct(add, s, 0);
-
-  vector< int > A(N);
-  cin >> A;
-
-  vector< LCT::Node * > vs(N);
+  using pi = pair< mint, mint >;
+  auto f = [](const pi &a, const pi &b) -> pi {
+    return {a.first * b.first, a.second * b.first + b.second};
+  };
+  ReversibleSplayTree< pi > seg(f, pi(1, 0));
+  vector< pi > V(N);
   for(int i = 0; i < N; i++) {
-    vs[i] = lct.alloc(A[i]);
+    cin >> V[i].first >> V[i].second;
   }
-  for(int i = 1; i < N; i++) {
-    int a, b;
-    cin >> a >> b;
-    lct.evert(vs[a]);
-    lct.link(vs[a], vs[b]);
-  }
-
-  while(Q--) {
-    int T;
-    cin >> T;
-    if(T == 0) {
-      int U, V, W, X;
-      cin >> U >> V >> W >> X;
-      lct.evert(vs[U]);
-      lct.cut(vs[V]);
-      lct.evert(vs[W]);
-      lct.link(vs[W], vs[X]);
-    } else if(T == 1) {
-      int P, X;
-      cin >> P >> X;
-      lct.expose(vs[P]);
-      vs[P]->key += X;
-      lct.update(vs[P]);
+  auto root = seg.build(V);
+  for(int i = 0; i < Q; i++) {
+    int t;
+    cin >> t;
+    if(t == 0) {
+      int p;
+      mint a, b;
+      cin >> p >> a >> b;
+      seg.set_element(root, p, pi(a, b));
     } else {
-      int U, V;
-      cin >> U >> V;
-      lct.evert(vs[U]);
-      cout << lct.query(vs[V]) << "\n";
+      int l, r;
+      mint x;
+      cin >> l >> r >> x;
+      auto ret = seg.query(root, l, r);
+      cout << ret.first * x + ret.second << "\n";
     }
   }
 }
-
 
 ```
 {% endraw %}

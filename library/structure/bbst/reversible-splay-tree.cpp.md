@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#ac1922c227762d9e573c4f7aedc86899">structure/bbst</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/bbst/reversible-splay-tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-18 21:29:10+09:00
+    - Last commit date: 2020-06-19 01:56:15+09:00
 
 
 
@@ -40,6 +40,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-point-set-range-composite.test.cpp.html">test/verify/yosupo-point-set-range-composite.test.cpp</a>
 
 
 ## Code
@@ -113,6 +114,7 @@ public:
       t = alloc(v);
       return t;
     } else {
+      splay(t);
       Node *cur = get_left(t), *z = alloc(v);
       splay(cur);
       z->p = cur;
@@ -127,6 +129,7 @@ public:
       t = alloc(v);
       return t;
     } else {
+      splay(t);
       Node *cur = get_right(t), *z = alloc(v);
       splay(cur);
       z->p = cur;
@@ -200,11 +203,13 @@ public:
   }
 
   void insert(Node *&t, int k, const Monoid &v) {
+    splay(t);
     auto x = split(t, k);
     t = merge(merge(x.first, alloc(v)), x.second);
   }
 
   Monoid erase(Node *&t, int k) {
+    splay(t);
     auto x = split(t, k);
     auto y = split(x.second, 1);
     auto v = y.first->c;
@@ -214,6 +219,7 @@ public:
   }
 
   Monoid query(Node *&t, int a, int b) {
+    splay(t);
     auto x = split(t, a);
     auto y = split(x.second, b - a);
     auto ret = sum(y.first);
@@ -240,6 +246,7 @@ public:
   }
 
   tuple< Node *, Node *, Node * > split3(Node *t, int a, int b) {
+    splay(t);
     auto x = split(t, a);
     auto y = split(x.second, b - a);
     return make_tuple(x.first, y.first, y.second);
@@ -253,6 +260,11 @@ public:
     }
   }
 
+  void set_element(Node *&t, int k, const Monoid &x) {
+    splay(t);
+    sub_set_element(t, k, x);
+  }
+
 private:
   const Monoid M1;
   const F f;
@@ -262,6 +274,20 @@ private:
     if(l + 1 >= r) return alloc(v[l]);
     return merge(build(l, (l + r) >> 1, v), build((l + r) >> 1, r, v));
   }
+
+  Node *sub_set_element(Node *&t, int k, const Monoid &x) {
+    push(t);
+    if(k < count(t->l)) {
+      return sub_set_element(t->l, k, x);
+    } else if(k == count(t->l)) {
+      t->key = x;
+      splay(t);
+      return t;
+    } else {
+      return sub_set_element(t->r, k - count(t->l) - 1, x);
+    }
+  }
+
 
   void rotr(Node *t) {
     auto *x = t->p, *y = x->p;
@@ -365,6 +391,7 @@ public:
       t = alloc(v);
       return t;
     } else {
+      splay(t);
       Node *cur = get_left(t), *z = alloc(v);
       splay(cur);
       z->p = cur;
@@ -379,6 +406,7 @@ public:
       t = alloc(v);
       return t;
     } else {
+      splay(t);
       Node *cur = get_right(t), *z = alloc(v);
       splay(cur);
       z->p = cur;
@@ -452,11 +480,13 @@ public:
   }
 
   void insert(Node *&t, int k, const Monoid &v) {
+    splay(t);
     auto x = split(t, k);
     t = merge(merge(x.first, alloc(v)), x.second);
   }
 
   Monoid erase(Node *&t, int k) {
+    splay(t);
     auto x = split(t, k);
     auto y = split(x.second, 1);
     auto v = y.first->c;
@@ -466,6 +496,7 @@ public:
   }
 
   Monoid query(Node *&t, int a, int b) {
+    splay(t);
     auto x = split(t, a);
     auto y = split(x.second, b - a);
     auto ret = sum(y.first);
@@ -492,6 +523,7 @@ public:
   }
 
   tuple< Node *, Node *, Node * > split3(Node *t, int a, int b) {
+    splay(t);
     auto x = split(t, a);
     auto y = split(x.second, b - a);
     return make_tuple(x.first, y.first, y.second);
@@ -505,6 +537,11 @@ public:
     }
   }
 
+  void set_element(Node *&t, int k, const Monoid &x) {
+    splay(t);
+    sub_set_element(t, k, x);
+  }
+
 private:
   const Monoid M1;
   const F f;
@@ -514,6 +551,20 @@ private:
     if(l + 1 >= r) return alloc(v[l]);
     return merge(build(l, (l + r) >> 1, v), build((l + r) >> 1, r, v));
   }
+
+  Node *sub_set_element(Node *&t, int k, const Monoid &x) {
+    push(t);
+    if(k < count(t->l)) {
+      return sub_set_element(t->l, k, x);
+    } else if(k == count(t->l)) {
+      t->key = x;
+      splay(t);
+      return t;
+    } else {
+      return sub_set_element(t->r, k - count(t->l) - 1, x);
+    }
+  }
+
 
   void rotr(Node *t) {
     auto *x = t->p, *y = x->p;
