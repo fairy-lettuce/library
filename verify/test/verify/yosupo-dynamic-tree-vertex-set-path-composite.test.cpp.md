@@ -25,20 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
+# :heavy_check_mark: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-06-18 20:43:51+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum">https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum</a>
+* see: <a href="https://judge.yosupo.jp/problem/dynamic_tree_vertex_set_path_composite">https://judge.yosupo.jp/problem/dynamic_tree_vertex_set_path_composite</a>
 
 
 ## Depends on
 
+* :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
 * :heavy_check_mark: <a href="../../../library/structure/bbst/lazy-splay-tree.cpp.html">Lazy-Splay-Tree(遅延伝搬Splay木) <small>(structure/bbst/lazy-splay-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/structure/others/link-cut-tree.cpp.html">Link-Cut-Tree <small>(structure/others/link-cut-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
@@ -49,7 +50,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum"
+#define PROBLEM "https://judge.yosupo.jp/problem/dynamic_tree_vertex_set_path_composite"
 
 #include "../../template/template.cpp"
 
@@ -57,21 +58,27 @@ layout: default
 
 #include "../../structure/others/link-cut-tree.cpp"
 
+#include "../../math/combinatorics/mod-int.cpp"
+
+using mint = ModInt< 998244353 >;
+
 int main() {
   int N, Q;
   cin >> N >> Q;
-  using LCT = LinkCutTree< int64, int >;
 
-  auto add = [](int64 a, int64 b) { return a + b; };
-  auto s = [](int64 a) { return a; };
-  LCT lct(add, add, add, s, 0, 0);
-
-  vector< int > A(N);
-  cin >> A;
+  using pi = pair< mint, mint >;
+  using pii = pair< pi, pi >;
+  using LCT = LinkCutTree< pair< pi, pi >, bool >;
+  auto f = [](const pi &x, const pi &y) { return pi(x.first * y.first, x.second * y.first + y.second); };
+  auto ff = [&](const pii &a, const pii &b) { return pii(f(a.first, b.first), f(b.second, a.second)); };
+  auto flip = [&](const pii &a) { return pii(a.second, a.first); };
+  LCT lct(ff, flip, pii());
 
   vector< LCT::Node * > vs(N);
   for(int i = 0; i < N; i++) {
-    vs[i] = lct.alloc(A[i]);
+    mint x, y;
+    cin >> x >> y;
+    vs[i] = lct.alloc(pii(pi(x, y), pi(x, y)));
   }
   for(int i = 1; i < N; i++) {
     int a, b;
@@ -91,19 +98,23 @@ int main() {
       lct.evert(vs[W]);
       lct.link(vs[W], vs[X]);
     } else if(T == 1) {
-      int P, X;
-      cin >> P >> X;
+      int P;
+      mint a, b;
+      cin >> P >> a >> b;
       lct.expose(vs[P]);
-      vs[P]->key += X;
+      vs[P]->key = pii(pi(a, b), pi(a, b));
       lct.update(vs[P]);
     } else {
       int U, V;
-      cin >> U >> V;
+      mint X;
+      cin >> U >> V >> X;
       lct.evert(vs[U]);
-      cout << lct.query(vs[V]) << "\n";
+      auto ret = lct.query(vs[V]).first;
+      cout << ret.first * X + ret.second << "\n";
     }
   }
 }
+
 
 
 ```
@@ -112,8 +123,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum"
+#line 1 "test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/dynamic_tree_vertex_set_path_composite"
 
 #line 1 "template/template.cpp"
 #include<bits/stdc++.h>
@@ -202,7 +213,7 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 4 "test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp"
+#line 4 "test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp"
 
 #line 1 "structure/bbst/lazy-splay-tree.cpp"
 /**
@@ -482,7 +493,7 @@ private:
     return l;
   }
 };
-#line 6 "test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp"
+#line 6 "test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp"
 
 #line 1 "structure/others/link-cut-tree.cpp"
 /**
@@ -569,23 +580,107 @@ struct LinkCutTree : LazySplayTree< Monoid, OperatorMonoid > {
     return t->sum;
   }
 };
-#line 8 "test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp"
+#line 8 "test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp"
+
+#line 1 "math/combinatorics/mod-int.cpp"
+template< int mod >
+struct ModInt {
+  int x;
+
+  ModInt() : x(0) {}
+
+  ModInt(int64_t y) : x(y >= 0 ? y % mod : (mod - (-y) % mod) % mod) {}
+
+  ModInt &operator+=(const ModInt &p) {
+    if((x += p.x) >= mod) x -= mod;
+    return *this;
+  }
+
+  ModInt &operator-=(const ModInt &p) {
+    if((x += mod - p.x) >= mod) x -= mod;
+    return *this;
+  }
+
+  ModInt &operator*=(const ModInt &p) {
+    x = (int) (1LL * x * p.x % mod);
+    return *this;
+  }
+
+  ModInt &operator/=(const ModInt &p) {
+    *this *= p.inverse();
+    return *this;
+  }
+
+  ModInt operator-() const { return ModInt(-x); }
+
+  ModInt operator+(const ModInt &p) const { return ModInt(*this) += p; }
+
+  ModInt operator-(const ModInt &p) const { return ModInt(*this) -= p; }
+
+  ModInt operator*(const ModInt &p) const { return ModInt(*this) *= p; }
+
+  ModInt operator/(const ModInt &p) const { return ModInt(*this) /= p; }
+
+  bool operator==(const ModInt &p) const { return x == p.x; }
+
+  bool operator!=(const ModInt &p) const { return x != p.x; }
+
+  ModInt inverse() const {
+    int a = x, b = mod, u = 1, v = 0, t;
+    while(b > 0) {
+      t = a / b;
+      swap(a -= t * b, b);
+      swap(u -= t * v, v);
+    }
+    return ModInt(u);
+  }
+
+  ModInt pow(int64_t n) const {
+    ModInt ret(1), mul(x);
+    while(n > 0) {
+      if(n & 1) ret *= mul;
+      mul *= mul;
+      n >>= 1;
+    }
+    return ret;
+  }
+
+  friend ostream &operator<<(ostream &os, const ModInt &p) {
+    return os << p.x;
+  }
+
+  friend istream &operator>>(istream &is, ModInt &a) {
+    int64_t t;
+    is >> t;
+    a = ModInt< mod >(t);
+    return (is);
+  }
+
+  static int get_mod() { return mod; }
+};
+
+using modint = ModInt< mod >;
+#line 10 "test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp"
+
+using mint = ModInt< 998244353 >;
 
 int main() {
   int N, Q;
   cin >> N >> Q;
-  using LCT = LinkCutTree< int64, int >;
 
-  auto add = [](int64 a, int64 b) { return a + b; };
-  auto s = [](int64 a) { return a; };
-  LCT lct(add, add, add, s, 0, 0);
-
-  vector< int > A(N);
-  cin >> A;
+  using pi = pair< mint, mint >;
+  using pii = pair< pi, pi >;
+  using LCT = LinkCutTree< pair< pi, pi >, bool >;
+  auto f = [](const pi &x, const pi &y) { return pi(x.first * y.first, x.second * y.first + y.second); };
+  auto ff = [&](const pii &a, const pii &b) { return pii(f(a.first, b.first), f(b.second, a.second)); };
+  auto flip = [&](const pii &a) { return pii(a.second, a.first); };
+  LCT lct(ff, flip, pii());
 
   vector< LCT::Node * > vs(N);
   for(int i = 0; i < N; i++) {
-    vs[i] = lct.alloc(A[i]);
+    mint x, y;
+    cin >> x >> y;
+    vs[i] = lct.alloc(pii(pi(x, y), pi(x, y)));
   }
   for(int i = 1; i < N; i++) {
     int a, b;
@@ -605,19 +700,23 @@ int main() {
       lct.evert(vs[W]);
       lct.link(vs[W], vs[X]);
     } else if(T == 1) {
-      int P, X;
-      cin >> P >> X;
+      int P;
+      mint a, b;
+      cin >> P >> a >> b;
       lct.expose(vs[P]);
-      vs[P]->key += X;
+      vs[P]->key = pii(pi(a, b), pi(a, b));
       lct.update(vs[P]);
     } else {
       int U, V;
-      cin >> U >> V;
+      mint X;
+      cin >> U >> V >> X;
       lct.evert(vs[U]);
-      cout << lct.query(vs[V]) << "\n";
+      auto ret = lct.query(vs[V]).first;
+      cout << ret.first * X + ret.second << "\n";
     }
   }
 }
+
 
 
 ```
