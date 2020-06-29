@@ -230,6 +230,7 @@ layout: default
 
 ### other
 
+* :warning: <a href="library/other/chrono-timer.cpp.html">other/chrono-timer.cpp</a>
 * :warning: <a href="library/other/compress.cpp.html">other/compress.cpp</a>
 * :warning: <a href="library/other/dice.cpp.html">other/dice.cpp</a>
 * :warning: <a href="library/other/mo-rollback.cpp.html">other/mo-rollback.cpp</a>
@@ -238,7 +239,7 @@ layout: default
 * :heavy_check_mark: <a href="library/other/printer.cpp.html">Printer(高速出力) <small>(other/printer.cpp)</small></a>
 * :warning: <a href="library/other/random-number-generator.cpp.html">other/random-number-generator.cpp</a>
 * :heavy_check_mark: <a href="library/other/scanner.cpp.html">Scanner(高速入力) <small>(other/scanner.cpp)</small></a>
-* :warning: <a href="library/other/timer.cpp.html">other/timer.cpp</a>
+* :warning: <a href="library/other/timer.cpp.html">Timer(タイマー) <small>(other/timer.cpp)</small></a>
 * :heavy_check_mark: <a href="library/other/vector-pool.cpp.html">other/vector-pool.cpp</a>
 
 
