@@ -241,6 +241,7 @@ layout: default
 * :heavy_check_mark: <a href="library/other/scanner.cpp.html">Scanner(高速入力) <small>(other/scanner.cpp)</small></a>
 * :warning: <a href="library/other/timer.cpp.html">Timer(タイマー) <small>(other/timer.cpp)</small></a>
 * :heavy_check_mark: <a href="library/other/vector-pool.cpp.html">other/vector-pool.cpp</a>
+* :warning: <a href="library/other/xor-shift.cpp.html">Xor-Shift <small>(other/xor-shift.cpp)</small></a>
 
 
 <div id="b45cffe084dd3d20d928bee85e7b0f21"></div>

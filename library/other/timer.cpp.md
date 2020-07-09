@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#795f3202b17cb6bc3d4b771d8c6c9eaf">other</a>
 * <a href="{{ site.github.repository_url }}/blob/master/other/timer.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-30 02:21:44+09:00
+    - Last commit date: 2020-07-10 00:47:43+09:00
 
 
 
@@ -83,12 +83,12 @@ struct Timer {
 
   void reset() { start = get_cycle(); }
 
-  inline double get_second() const { return (double) (get_cycle() - start) / CYCLES_PER_SEC; }
+  inline double get_second() const { return (double) get_cycle() / CYCLES_PER_SEC; }
 
-  static inline uint64_t get_cycle() {
+  inline uint64_t get_cycle() const {
     unsigned low, high;
     __asm__ volatile ("rdtsc" : "=a" (low), "=d" (high));
-    return ((uint64_t) low) | ((uint64_t) high << 32ull);
+    return (((uint64_t) low) | ((uint64_t) high << 32ull)) - start;
   }
 };
 
@@ -113,12 +113,12 @@ struct Timer {
 
   void reset() { start = get_cycle(); }
 
-  inline double get_second() const { return (double) (get_cycle() - start) / CYCLES_PER_SEC; }
+  inline double get_second() const { return (double) get_cycle() / CYCLES_PER_SEC; }
 
-  static inline uint64_t get_cycle() {
+  inline uint64_t get_cycle() const {
     unsigned low, high;
     __asm__ volatile ("rdtsc" : "=a" (low), "=d" (high));
-    return ((uint64_t) low) | ((uint64_t) high << 32ull);
+    return (((uint64_t) low) | ((uint64_t) high << 32ull)) - start;
   }
 };
 
