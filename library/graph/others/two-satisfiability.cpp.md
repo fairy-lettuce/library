@@ -31,15 +31,14 @@ layout: default
 
 * category: <a href="../../../index.html#e557c7f962c39680942b9dada22cabec">graph/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/others/two-satisfiability.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-04 01:00:50+09:00
+    - Last commit date: 2020-08-04 01:14:35+09:00
 
 
 
 
 ## Depends on
 
-* :x: <a href="../connected-components/strongly-connected-components.cpp.html">Strongly-Connected-Components(強連結成分分解) <small>(graph/connected-components/strongly-connected-components.cpp)</small></a>
-* :question: <a href="../graph-template.cpp.html">graph/graph-template.cpp</a>
+* :question: <a href="../connected-components/strongly-connected-components.cpp.html">Strongly-Connected-Components(強連結成分分解) <small>(graph/connected-components/strongly-connected-components.cpp)</small></a>
 
 
 ## Verified with
@@ -114,60 +113,7 @@ public:
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "graph/graph-template.cpp"
-template< typename T = int >
-struct Edge {
-  int from, to;
-  T cost;
-  int idx;
-
-  Edge() = default;
-
-  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx) {}
-
-  operator int() const { return to; }
-};
-
-template< typename T = int >
-struct Graph {
-  vector< vector< Edge< T > > > g;
-  int es;
-
-  Graph() = default;
-
-  explicit Graph(int n) : g(n), es(0) {}
-
-  size_t size() const {
-    return g.size();
-  }
-
-  void add_directed_edge(int from, int to, T cost = 1) {
-    g[from].emplace_back(from, to, cost, es++);
-  }
-
-  void add_edge(int from, int to, T cost = 1) {
-    g[from].emplace_back(from, to, cost, es);
-    g[to].emplace_back(to, from, cost, es++);
-  }
-
-  void read(int M, int padding = -1, bool weighted = false, bool directed = false) {
-    for(int i = 0; i < M; i++) {
-      int a, b;
-      cin >> a >> b;
-      a += padding;
-      b += padding;
-      T c = T(1);
-      if(weighted) cin >> c;
-      if(directed) add_directed_edge(a, b, c);
-      else add_edge(a, b, c);
-    }
-  }
-};
-
-template< typename T = int >
-using Edges = vector< Edge< T > >;
-#line 2 "graph/connected-components/strongly-connected-components.cpp"
-
+#line 1 "graph/connected-components/strongly-connected-components.cpp"
 /**
  * @brief Strongly-Connected-Components(強連結成分分解)
  */

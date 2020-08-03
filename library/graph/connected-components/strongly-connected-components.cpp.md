@@ -25,20 +25,15 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: Strongly-Connected-Components(強連結成分分解) <small>(graph/connected-components/strongly-connected-components.cpp)</small>
+# :question: Strongly-Connected-Components(強連結成分分解) <small>(graph/connected-components/strongly-connected-components.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#3a7c46e10de1b2cce1293b2074b86f0a">graph/connected-components</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/connected-components/strongly-connected-components.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-04 01:00:50+09:00
+    - Last commit date: 2020-08-04 01:14:35+09:00
 
 
-
-
-## Depends on
-
-* :question: <a href="../graph-template.cpp.html">graph/graph-template.cpp</a>
 
 
 ## Required by
@@ -48,8 +43,8 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/verify/aoj-grl-3-c.test.cpp.html">test/verify/aoj-grl-3-c.test.cpp</a>
-* :x: <a href="../../../verify/test/verify/yosupo-scc.test.cpp.html">test/verify/yosupo-scc.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-3-c.test.cpp.html">test/verify/aoj-grl-3-c.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-scc.test.cpp.html">test/verify/yosupo-scc.test.cpp</a>
 * :x: <a href="../../../verify/test/verify/yosupo-two-sat.test.cpp.html">test/verify/yosupo-two-sat.test.cpp</a>
 
 
@@ -58,8 +53,6 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#include "graph/graph-template.cpp"
-
 /**
  * @brief Strongly-Connected-Components(強連結成分分解)
  */
@@ -126,60 +119,7 @@ private:
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "graph/graph-template.cpp"
-template< typename T = int >
-struct Edge {
-  int from, to;
-  T cost;
-  int idx;
-
-  Edge() = default;
-
-  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx) {}
-
-  operator int() const { return to; }
-};
-
-template< typename T = int >
-struct Graph {
-  vector< vector< Edge< T > > > g;
-  int es;
-
-  Graph() = default;
-
-  explicit Graph(int n) : g(n), es(0) {}
-
-  size_t size() const {
-    return g.size();
-  }
-
-  void add_directed_edge(int from, int to, T cost = 1) {
-    g[from].emplace_back(from, to, cost, es++);
-  }
-
-  void add_edge(int from, int to, T cost = 1) {
-    g[from].emplace_back(from, to, cost, es);
-    g[to].emplace_back(to, from, cost, es++);
-  }
-
-  void read(int M, int padding = -1, bool weighted = false, bool directed = false) {
-    for(int i = 0; i < M; i++) {
-      int a, b;
-      cin >> a >> b;
-      a += padding;
-      b += padding;
-      T c = T(1);
-      if(weighted) cin >> c;
-      if(directed) add_directed_edge(a, b, c);
-      else add_edge(a, b, c);
-    }
-  }
-};
-
-template< typename T = int >
-using Edges = vector< Edge< T > >;
-#line 2 "graph/connected-components/strongly-connected-components.cpp"
-
+#line 1 "graph/connected-components/strongly-connected-components.cpp"
 /**
  * @brief Strongly-Connected-Components(強連結成分分解)
  */
