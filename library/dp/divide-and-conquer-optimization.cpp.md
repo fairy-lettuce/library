@@ -31,9 +31,25 @@ layout: default
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
 * <a href="{{ site.github.repository_url }}/blob/master/dp/divide-and-conquer-optimization.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-24 21:29:56+09:00
+    - Last commit date: 2020-08-04 00:02:11+09:00
 
 
+
+
+## 概要
+
+$dp[i][j] = \min_{0 \leq k \lt j}\\{dp[i-1][k]+f(k,j)\\}$ の形のDPを高速化するテク.
+
+$f(k,j)$ は $0 \leq k \lt j \leq W$ で定義される $2$ 変数関数.
+
+各行について Monotone-Minima を適用する.
+
+
+* `divide_and_conquer_optimization(H, W, INF, f)`: dp 配列を返す.
+
+## 計算量
+
+* $O(HW \log W)$
 
 
 ## Verified with
@@ -48,6 +64,7 @@ layout: default
 ```cpp
 /**
  * @brief Divide-And-Conquer-Optimization
+ * @docs docs/divide-and-conquer-optimization.md
  */
 template< typename T, typename Compare = less< T > >
 vector< vector< T > > divide_and_conquer_optimization(int H, int W, T INF, const function< T(int, int) > &f, const Compare &comp = Compare()) {
@@ -73,6 +90,7 @@ vector< vector< T > > divide_and_conquer_optimization(int H, int W, T INF, const
 #line 1 "dp/divide-and-conquer-optimization.cpp"
 /**
  * @brief Divide-And-Conquer-Optimization
+ * @docs docs/divide-and-conquer-optimization.md
  */
 template< typename T, typename Compare = less< T > >
 vector< vector< T > > divide_and_conquer_optimization(int H, int W, T INF, const function< T(int, int) > &f, const Compare &comp = Compare()) {

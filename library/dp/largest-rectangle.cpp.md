@@ -25,15 +25,28 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: dp/largest-rectangle.cpp
+# :heavy_check_mark: Largest-Rectangle(最大長方形) <small>(dp/largest-rectangle.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
 * <a href="{{ site.github.repository_url }}/blob/master/dp/largest-rectangle.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-07-20 01:29:30+09:00
+    - Last commit date: 2020-08-04 00:02:11+09:00
 
 
+
+
+## 概要
+
+ヒストグラム中の最大長方形の面積を求める.
+
+ヒストグラムを左から見る. スタックに自分より左にあるヒストグラムの高さと位置を単調増加になるように管理すると効率的に解ける.
+
+* `largest_rectangle(height)`: ヒストグラムが `height` のとき最大長方形の面積を返す.
+
+## 計算量
+
+* $O(N)$
 
 
 ## Verified with
@@ -46,6 +59,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Largest-Rectangle(最大長方形)
+ * @docs docs/largest-rectangle.md
+ */	
 template< typename T >
 int64_t largest_rectangle(vector< T > height)
 {
@@ -71,6 +88,10 @@ int64_t largest_rectangle(vector< T > height)
 {% raw %}
 ```cpp
 #line 1 "dp/largest-rectangle.cpp"
+/**
+ * @brief Largest-Rectangle(最大長方形)
+ * @docs docs/largest-rectangle.md
+ */	
 template< typename T >
 int64_t largest_rectangle(vector< T > height)
 {
