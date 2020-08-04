@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
 * :heavy_check_mark: <a href="../../../library/graph/mst/prim.cpp.html">Prim(最小全域木) <small>(graph/mst/prim.cpp)</small></a>
 * :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 

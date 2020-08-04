@@ -65,7 +65,7 @@ layout: default
 
 ### graph
 
-* :question: <a href="library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
 * :heavy_check_mark: <a href="library/graph/template.cpp.html">graph/template.cpp</a>
 
 
@@ -75,7 +75,7 @@ layout: default
 
 * :question: <a href="library/graph/connected-components/bi-connected-components.cpp.html">Bi-Connected-Components(二重頂点連結成分分解) <small>(graph/connected-components/bi-connected-components.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/connected-components/incremental-bridge-connectivity.cpp.html">Incremental-Bridge-Connectivity <small>(graph/connected-components/incremental-bridge-connectivity.cpp)</small></a>
-* :question: <a href="library/graph/connected-components/strongly-connected-components.cpp.html">Strongly-Connected-Components(強連結成分分解) <small>(graph/connected-components/strongly-connected-components.cpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/connected-components/strongly-connected-components.cpp.html">Strongly-Connected-Components(強連結成分分解) <small>(graph/connected-components/strongly-connected-components.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/connected-components/three-edge-connected-components.cpp.html">Three-Edge-Connected-Components(三重辺連結成分分解) <small>(graph/connected-components/three-edge-connected-components.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/connected-components/two-edge-connected-components.cpp.html">Two-Edge-Connected-Components(二重辺連結成分分解) <small>(graph/connected-components/two-edge-connected-components.cpp)</small></a>
 
@@ -122,7 +122,7 @@ layout: default
 * :heavy_check_mark: <a href="library/graph/others/offline-dag-reachability.cpp.html">Offline-Dag-Reachability(DAGの到達可能性クエリ) <small>(graph/others/offline-dag-reachability.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/topological-sort.cpp.html">Topological-Sort(トポロジカルソート) <small>(graph/others/topological-sort.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/tree-decomposition.cpp.html">Tree-Decomposition(木分解) <small>(graph/others/tree-decomposition.cpp)</small></a>
-* :x: <a href="library/graph/others/two-satisfiability.cpp.html">2-SAT <small>(graph/others/two-satisfiability.cpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/others/two-satisfiability.cpp.html">2-SAT <small>(graph/others/two-satisfiability.cpp)</small></a>
 
 
 <div id="73feb47c464a017d041247d88424b879"></div>
@@ -236,9 +236,9 @@ layout: default
 * :warning: <a href="library/other/mo-rollback.cpp.html">other/mo-rollback.cpp</a>
 * :warning: <a href="library/other/mo.cpp.html">other/mo.cpp</a>
 * :warning: <a href="library/other/offline-dynamic-connectivity.cpp.html">other/offline-dynamic-connectivity.cpp</a>
-* :question: <a href="library/other/printer.cpp.html">Printer(高速出力) <small>(other/printer.cpp)</small></a>
+* :heavy_check_mark: <a href="library/other/printer.cpp.html">Printer(高速出力) <small>(other/printer.cpp)</small></a>
 * :warning: <a href="library/other/random-number-generator.cpp.html">other/random-number-generator.cpp</a>
-* :question: <a href="library/other/scanner.cpp.html">Scanner(高速入力) <small>(other/scanner.cpp)</small></a>
+* :heavy_check_mark: <a href="library/other/scanner.cpp.html">Scanner(高速入力) <small>(other/scanner.cpp)</small></a>
 * :warning: <a href="library/other/timer.cpp.html">Timer(タイマー) <small>(other/timer.cpp)</small></a>
 * :heavy_check_mark: <a href="library/other/vector-pool.cpp.html">other/vector-pool.cpp</a>
 * :warning: <a href="library/other/xor-shift.cpp.html">Xor-Shift <small>(other/xor-shift.cpp)</small></a>
@@ -535,7 +535,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-tree-decomposition-width-2.test.cpp.html">test/verify/yosupo-tree-decomposition-width-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-two-edge-connected-components-2.test.cpp.html">test/verify/yosupo-two-edge-connected-components-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-two-edge-connected-components.test.cpp.html">test/verify/yosupo-two-edge-connected-components.test.cpp</a>
-* :x: <a href="verify/test/verify/yosupo-two-sat.test.cpp.html">test/verify/yosupo-two-sat.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-two-sat.test.cpp.html">test/verify/yosupo-two-sat.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-1002.test.cpp.html">test/verify/yukicoder-1002.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-184.test.cpp.html">test/verify/yukicoder-184.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-430.test.cpp.html">test/verify/yukicoder-430.test.cpp</a>
