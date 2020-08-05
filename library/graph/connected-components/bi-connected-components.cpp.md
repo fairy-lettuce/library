@@ -25,20 +25,34 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :question: Bi-Connected-Components(二重頂点連結成分分解) <small>(graph/connected-components/bi-connected-components.cpp)</small>
+# :heavy_check_mark: Bi-Connected-Components(二重頂点連結成分分解) <small>(graph/connected-components/bi-connected-components.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#3a7c46e10de1b2cce1293b2074b86f0a">graph/connected-components</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/connected-components/bi-connected-components.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-04 01:14:35+09:00
+    - Last commit date: 2020-08-05 16:40:46+09:00
 
 
+
+
+## 概要
+
+二重連結成分分解とも. 二重頂点連結成分とは, $1$ 個の頂点を取り除いても連結である部分グラフである. 
+
+関節点は, その頂点とそれを端点とする辺を削除したときの部分グラフが非連結になるような頂点を指す. したがって, 関節点を列挙した後に頑張ると列挙できる.
+
+
+* `build()`: 二重頂点連結成分分解する. `bc` には各二重頂点連結成分に属する辺が格納される.
+
+## 計算量
+
+* $O(E + V)$
 
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/verify/aoj-3022.test.cpp.html">test/verify/aoj-3022.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-3022.test.cpp.html">test/verify/aoj-3022.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-3139.test.cpp.html">test/verify/aoj-3139.test.cpp</a>
 
 
@@ -49,6 +63,7 @@ layout: default
 ```cpp
 /**
  * @brief Bi-Connected-Components(二重頂点連結成分分解)
+ * @docs docs/bi-connected-components.md
  */
 template< typename T = int >
 struct BiConnectedComponents : LowLink< T > {
@@ -107,6 +122,7 @@ private:
 #line 1 "graph/connected-components/bi-connected-components.cpp"
 /**
  * @brief Bi-Connected-Components(二重頂点連結成分分解)
+ * @docs docs/bi-connected-components.md
  */
 template< typename T = int >
 struct BiConnectedComponents : LowLink< T > {

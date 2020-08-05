@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-7-a.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-30 01:47:11+09:00
+    - Last commit date: 2020-08-05 16:40:46+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_7_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_7_A</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/flow/bipartite-matching.cpp.html">graph/flow/bipartite-matching.cpp</a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/flow/bipartite-matching.cpp.html">Bipartite-Matching(二部グラフの最大マッチング) <small>(graph/flow/bipartite-matching.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -165,6 +165,10 @@ inline decltype(auto) MFP(F &&f) {
 #line 4 "test/verify/aoj-grl-7-a.test.cpp"
 
 #line 1 "graph/flow/bipartite-matching.cpp"
+/**
+ * @brief Bipartite-Matching(二部グラフの最大マッチング)
+ * @docs docs/bipartite-matching.md
+ */
 struct BipartiteMatching {
   vector< vector< int > > graph;
   vector< int > match, alive, used;

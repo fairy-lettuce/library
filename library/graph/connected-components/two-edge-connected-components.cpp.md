@@ -31,9 +31,23 @@ layout: default
 
 * category: <a href="../../../index.html#3a7c46e10de1b2cce1293b2074b86f0a">graph/connected-components</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/connected-components/two-edge-connected-components.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-04 01:14:35+09:00
+    - Last commit date: 2020-08-05 16:40:46+09:00
 
 
+
+
+## 概要
+
+二辺連結成分分解とも. 二重辺連結成分とは, $1$ 本の辺を取り除いても連結である部分グラフである. つまり, 橋を含まない部分グラフなので, 橋を列挙することで二重辺連結成分を列挙できる.
+
+二重辺連結成分で縮約後の頂点と橋からなるグラフは森になっている.
+
+
+* `build()`: 二重辺連結成分分解する. `tree` には縮約後の頂点からなる森が格納される. `comp` には各頂点が属する二重辺連結成分の頂点番号が格納される. `group` には各二重辺連結成分について, それに属する頂点が格納される.
+
+## 計算量
+
+* $O(E + V)$
 
 
 ## Verified with
@@ -48,6 +62,7 @@ layout: default
 ```cpp
 /**
  * @brief Two-Edge-Connected-Components(二重辺連結成分分解)
+ * @docs docs/two-edge-connected-components.md
  */
 template< typename T = int >
 struct TwoEdgeConnectedComponents : LowLink< T > {
@@ -104,6 +119,7 @@ private:
 #line 1 "graph/connected-components/two-edge-connected-components.cpp"
 /**
  * @brief Two-Edge-Connected-Components(二重辺連結成分分解)
+ * @docs docs/two-edge-connected-components.md
  */
 template< typename T = int >
 struct TwoEdgeConnectedComponents : LowLink< T > {

@@ -25,15 +25,32 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: graph/flow/bipartite-matching.cpp
+# :heavy_check_mark: Bipartite-Matching(二部グラフの最大マッチング) <small>(graph/flow/bipartite-matching.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#2af6c4bb6ad7cfa010303133dc15971f">graph/flow</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/flow/bipartite-matching.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-08-05 16:40:46+09:00
 
 
+
+
+## 概要
+
+グラフ $G=(V, E)$ において, $V$ が $2$ つの部分集合 $X$ と $Y$ に分割され, $E$ のどの辺も一方の端点は $X$ に, もう一方の端点は $Y$ に属しているとき, $G$ を二部グラフという.
+
+グラフ $G=(V, E)$ において, $M$ が $E$ の部分集合でかつ $M$ のどの $2$ 辺も共通の端点をもたないとき, $M$ を $G$ のマッチングといい, 辺の本数が最大であるマッチングを最大マッチングという.
+
+ここでは, 二部グラフの最大マッチングを最大流のアルゴリズムを利用して求める.
+
+* `BipartiteMatching(n)`:= 全体のグラフの頂点数を `n` で初期化する.
+* `add_edge(u, v)`:= 頂点 `u`, `v` 間に辺を張る.
+* `bipartite_matching()`:= 二部グラフの最大マッチングを返す.
+
+## 計算量
+
+* $O(V E)$
 
 
 ## Verified with
@@ -46,6 +63,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Bipartite-Matching(二部グラフの最大マッチング)
+ * @docs docs/bipartite-matching.md
+ */
 struct BipartiteMatching {
   vector< vector< int > > graph;
   vector< int > match, alive, used;
@@ -101,6 +122,10 @@ struct BipartiteMatching {
 {% raw %}
 ```cpp
 #line 1 "graph/flow/bipartite-matching.cpp"
+/**
+ * @brief Bipartite-Matching(二部グラフの最大マッチング)
+ * @docs docs/bipartite-matching.md
+ */
 struct BipartiteMatching {
   vector< vector< int > > graph;
   vector< int > match, alive, used;
