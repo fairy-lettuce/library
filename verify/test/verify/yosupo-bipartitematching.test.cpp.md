@@ -25,21 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/yosupo-general-matching.test.cpp
+# :heavy_check_mark: test/verify/yosupo-bipartitematching.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-general-matching.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-12 22:16:00+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-bipartitematching.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-08-09 01:36:08+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/general_matching">https://judge.yosupo.jp/problem/general_matching</a>
+* see: <a href="https://judge.yosupo.jp/problem/bipartitematching">https://judge.yosupo.jp/problem/bipartitematching</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/flow/gabow-edmonds.cpp.html">graph/flow/gabow-edmonds.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/flow/bipartite-flow.cpp.html">Bipartite-Flow(二部グラフのフロー) <small>(graph/flow/bipartite-flow.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -48,24 +48,24 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/general_matching"
+#define PROBLEM "https://judge.yosupo.jp/problem/bipartitematching"
 
 #include "../../template/template.cpp"
 
-#include "../../graph/flow/gabow-edmonds.cpp"
+#include "../../graph/flow/bipartite-flow.cpp"
 
 int main() {
-  int N, M;
-  cin >> N >> M;
-  GabowEdmonds flow(N);
+  int L, R, M;
+  cin >> L >> R >> M;
+  BipartiteFlow flow(L, R);
   for(int i = 0; i < M; i++) {
     int a, b;
     cin >> a >> b;
     flow.add_edge(a, b);
   }
-  auto ret = flow.max_matching();
-  cout << ret.size() << endl;
-  for(auto &p : ret) cout << p << endl;
+  auto es = flow.max_matching();
+  cout << es.size() << "\n";
+  for(auto &p : es) cout << p.first << " " << p.second << "\n";
 }
 
 ```
@@ -74,8 +74,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/verify/yosupo-general-matching.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/general_matching"
+#line 1 "test/verify/yosupo-bipartitematching.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/bipartitematching"
 
 #line 1 "template/template.cpp"
 #include<bits/stdc++.h>
@@ -164,135 +164,122 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 4 "test/verify/yosupo-general-matching.test.cpp"
+#line 4 "test/verify/yosupo-bipartitematching.test.cpp"
 
-#line 1 "graph/flow/gabow-edmonds.cpp"
-// https://qiita.com/Kutimoti_T/items/5b579773e0a24d650bdf
-struct GabowEdmonds {
+#line 1 "graph/flow/bipartite-flow.cpp"
+/**
+ * @brief Bipartite-Flow(二部グラフのフロー)
+ */
+struct BipartiteFlow {
+  size_t n, m, time_stamp;
+  vector< vector< int > > graph;
+  vector< int > match_l, match_r, dist, used, alive;
 
-  struct edge {
-    int to, idx;
-  };
-
-  vector< vector< edge > > g;
-  vector< pair< int, int > > edges;
-  vector< int > mate, label, first;
-  queue< int > que;
-
-  GabowEdmonds(int n) : g(n + 1), mate(n + 1), label(n + 1, -1), first(n + 1) {}
+  explicit BipartiteFlow(size_t n, size_t m) :
+      n(n), m(m), graph(n), match_l(n, -1), match_r(m, -1), used(n), alive(n, 1), time_stamp(0) {}
 
   void add_edge(int u, int v) {
-    ++u, ++v;
-    g[u].push_back((edge) {v, (int) (edges.size() + g.size())});
-    g[v].push_back((edge) {u, (int) (edges.size() + g.size())});
-    edges.emplace_back(u, v);
+    graph[u].push_back(v);
   }
 
-  int find(int x) {
-    if(label[first[x]] < 0) return first[x];
-    first[x] = find(first[x]);
-    return first[x];
-  }
-
-  void rematch(int v, int w) {
-    int t = mate[v];
-    mate[v] = w;
-    if(mate[t] != v) return;
-    if(label[v] < g.size()) {
-      mate[t] = label[v];
-      rematch(label[v], t);
-    } else {
-      int x = edges[label[v] - g.size()].first;
-      int y = edges[label[v] - g.size()].second;
-      rematch(x, y);
-      rematch(y, x);
-    }
-  }
-
-  void assign_label(int x, int y, int num) {
-    int r = find(x);
-    int s = find(y);
-    int join = 0;
-    if(r == s) return;
-    label[r] = -num;
-    label[s] = -num;
-    while(true) {
-      if(s != 0) swap(r, s);
-      r = find(label[mate[r]]);
-      if(label[r] == -num) {
-        join = r;
-        break;
+  void build_augment_path() {
+    queue< int > que;
+    dist.assign(graph.size(), -1);
+    for(int i = 0; i < n; i++) {
+      if(match_l[i] == -1) {
+        que.emplace(i);
+        dist[i] = 0;
       }
-      label[r] = -num;
     }
-    int v = first[x];
-    while(v != join) {
-      que.push(v);
-      label[v] = num;
-      first[v] = join;
-      v = first[label[mate[v]]];
-    }
-    v = first[y];
-    while(v != join) {
-      que.push(v);
-      label[v] = num;
-      first[v] = join;
-      v = first[label[mate[v]]];
+    while(!que.empty()) {
+      int a = que.front();
+      que.pop();
+      for(auto &b : graph[a]) {
+        int c = match_r[b];
+        if(c >= 0 && dist[c] == -1) {
+          dist[c] = dist[a] + 1;
+          que.emplace(c);
+        }
+      }
     }
   }
 
-  bool augment_check(int u) {
-    que = queue< int >();
-    first[u] = 0;
-    label[u] = 0;
-    que.push(u);
-    while(!que.empty()) {
-      int x = que.front();
-      que.pop();
-      for(auto e : g[x]) {
-        int y = e.to;
-        if(mate[y] == 0 && y != u) {
-          mate[y] = x;
-          rematch(x, y);
-          return true;
-        } else if(label[y] >= 0) {
-          assign_label(x, y, e.idx);
-        } else if(label[mate[y]] < 0) {
-          label[mate[y]] = x;
-          first[mate[y]] = y;
-          que.push(mate[y]);
-        }
+  bool find_min_dist_augment_path(int a) {
+    used[a] = time_stamp;
+    for(auto &b : graph[a]) {
+      int c = match_r[b];
+      if(c < 0 || (used[c] != time_stamp && dist[c] == dist[a] + 1 && find_min_dist_augment_path(c))) {
+        match_r[b] = a;
+        match_l[a] = b;
+        return true;
       }
     }
     return false;
   }
 
+  bool find_augment_path(int a) {
+    used[a] = time_stamp;
+    for(auto &b : graph[a]) {
+      int c = match_r[b];
+      if(c < 0 || (alive[c] == 1 && used[c] != time_stamp && find_augment_path(c))) {
+        match_r[b] = a;
+        match_l[a] = b;
+        return true;
+      }
+    }
+    return false;
+  }
+
+
   vector< pair< int, int > > max_matching() {
-    for(int i = 1; i < g.size(); i++) {
-      if(mate[i] != 0) continue;
-      if(augment_check(i)) label.assign(g.size(), -1);
+    for(;;) {
+      build_augment_path();
+      ++time_stamp;
+      int flow = 0;
+      for(int i = 0; i < n; i++) {
+        if(match_l[i] == -1) flow += find_min_dist_augment_path(i);
+      }
+      if(flow == 0) break;
     }
     vector< pair< int, int > > ret;
-    for(int i = 1; i < g.size(); i++) {
-      if(i < mate[i]) ret.emplace_back(i - 1, mate[i] - 1);
+    for(int i = 0; i < n; i++) {
+      if(match_l[i] >= 0) ret.emplace_back(i, match_l[i]);
     }
     return ret;
   }
+
+  vector< pair< int, int > > lex_min_max_matching() {
+    max_matching();
+    for(auto &vs : graph) sort(begin(vs), end(vs));
+    vector< pair< int, int > > es;
+    for(int i = 0; i < n; i++) {
+      if(match_l[i] == -1 || alive[i] == 0) {
+        continue;
+      }
+      match_r[match_l[i]] = -1;
+      match_l[i] = -1;
+      ++time_stamp;
+      find_augment_path(i);
+      alive[i] = 0;
+      es.emplace_back(i, match_l[i]);
+    }
+    return es;
+  }
 };
-#line 6 "test/verify/yosupo-general-matching.test.cpp"
+#line 6 "test/verify/yosupo-bipartitematching.test.cpp"
 
 int main() {
-  int N, M;
-  cin >> N >> M;
-  GabowEdmonds flow(N);
+  int L, R, M;
+  cin >> L >> R >> M;
+  BipartiteFlow flow(L, R);
   for(int i = 0; i < M; i++) {
     int a, b;
     cin >> a >> b;
     flow.add_edge(a, b);
   }
-  auto ret = flow.max_matching();
-  cout << ret.size() << endl;
-  for(auto &p : ret) cout << p << endl;
+  auto es = flow.max_matching();
+  cout << es.size() << "\n";
+  for(auto &p : es) cout << p.first << " " << p.second << "\n";
 }
 
 ```

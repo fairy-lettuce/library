@@ -44,7 +44,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/graph/others/two-satisfiability.cpp.html">2-SAT <small>(graph/others/two-satisfiability.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/other/printer.cpp.html">Printer(高速出力) <small>(other/printer.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/other/scanner.cpp.html">Scanner(高速入力) <small>(other/scanner.cpp)</small></a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
