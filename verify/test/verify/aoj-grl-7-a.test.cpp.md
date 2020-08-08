@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-7-a.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-05 16:40:46+09:00
+    - Last commit date: 2020-08-09 01:28:21+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_7_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_7_A</a>
@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/graph/flow/bipartite-matching.cpp.html">Bipartite-Matching(二部グラフの最大マッチング) <small>(graph/flow/bipartite-matching.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -174,19 +174,19 @@ struct BipartiteMatching {
   vector< int > match, alive, used;
   int timestamp;
 
-  BipartiteMatching(int n) : graph(n), alive(n, 1), used(n, 0), match(n, -1), timestamp(0) {}
+  explicit BipartiteMatching(int n) : graph(n), alive(n, 1), used(n, 0), match(n, -1), timestamp(0) {}
 
   void add_edge(int u, int v) {
     graph[u].push_back(v);
     graph[v].push_back(u);
   }
 
-  bool dfs(int idx) {
+  bool augment(int idx) {
     used[idx] = timestamp;
     for(auto &to : graph[idx]) {
       int to_match = match[to];
       if(alive[to] == 0) continue;
-      if(to_match == -1 || (used[to_match] != timestamp && dfs(to_match))) {
+      if(to_match == -1 || (used[to_match] != timestamp && augment(to_match))) {
         match[idx] = to;
         match[to] = idx;
         return true;
@@ -197,25 +197,42 @@ struct BipartiteMatching {
 
   int bipartite_matching() {
     int ret = 0;
-    for(int i = 0; i < graph.size(); i++) {
+    for(int i = 0; i < (int) graph.size(); i++) {
       if(alive[i] == 0) continue;
       if(match[i] == -1) {
         ++timestamp;
-        ret += dfs(i);
+        ret += augment(i);
       }
     }
     return ret;
   }
 
-  void output() {
-    for(int i = 0; i < graph.size(); i++) {
+  int add_vertex(int idx) {
+    alive[idx] = 1;
+    ++timestamp;
+    return augment(idx);
+  }
+
+  int erase_vertex(int idx) {
+    alive[idx] = 0;
+    if(match[idx] == -1) {
+      return 0;
+    }
+    match[match[idx]] = -1;
+    ++timestamp;
+    int ret = augment(match[idx]);
+    match[idx] = -1;
+    return ret - 1;
+  }
+
+  void output() const {
+    for(int i = 0; i < (int) graph.size(); i++) {
       if(i < match[i]) {
         cout << i << "-" << match[i] << endl;
       }
     }
   }
 };
-
 #line 6 "test/verify/aoj-grl-7-a.test.cpp"
 
 int main() {

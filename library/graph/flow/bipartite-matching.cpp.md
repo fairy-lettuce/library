@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#2af6c4bb6ad7cfa010303133dc15971f">graph/flow</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/flow/bipartite-matching.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-05 16:40:46+09:00
+    - Last commit date: 2020-08-09 01:28:21+09:00
 
 
 
@@ -47,6 +47,9 @@ layout: default
 * `BipartiteMatching(n)`:= 全体のグラフの頂点数を `n` で初期化する.
 * `add_edge(u, v)`:= 頂点 `u`, `v` 間に辺を張る.
 * `bipartite_matching()`:= 二部グラフの最大マッチングを返す.
+* `add_vertex(idx)`:= 頂点 `idx` を追加し, フローの変化量を返す($0$ または $1$).
+* `erase_vertex(idx)`:= 頂点 `idx` を削除し, フローの変化量を返す($0$ または $-1$).
+* `output()`:= マッチングに使った辺を出力する.
 
 ## 計算量
 
@@ -72,19 +75,19 @@ struct BipartiteMatching {
   vector< int > match, alive, used;
   int timestamp;
 
-  BipartiteMatching(int n) : graph(n), alive(n, 1), used(n, 0), match(n, -1), timestamp(0) {}
+  explicit BipartiteMatching(int n) : graph(n), alive(n, 1), used(n, 0), match(n, -1), timestamp(0) {}
 
   void add_edge(int u, int v) {
     graph[u].push_back(v);
     graph[v].push_back(u);
   }
 
-  bool dfs(int idx) {
+  bool augment(int idx) {
     used[idx] = timestamp;
     for(auto &to : graph[idx]) {
       int to_match = match[to];
       if(alive[to] == 0) continue;
-      if(to_match == -1 || (used[to_match] != timestamp && dfs(to_match))) {
+      if(to_match == -1 || (used[to_match] != timestamp && augment(to_match))) {
         match[idx] = to;
         match[to] = idx;
         return true;
@@ -95,25 +98,42 @@ struct BipartiteMatching {
 
   int bipartite_matching() {
     int ret = 0;
-    for(int i = 0; i < graph.size(); i++) {
+    for(int i = 0; i < (int) graph.size(); i++) {
       if(alive[i] == 0) continue;
       if(match[i] == -1) {
         ++timestamp;
-        ret += dfs(i);
+        ret += augment(i);
       }
     }
     return ret;
   }
 
-  void output() {
-    for(int i = 0; i < graph.size(); i++) {
+  int add_vertex(int idx) {
+    alive[idx] = 1;
+    ++timestamp;
+    return augment(idx);
+  }
+
+  int erase_vertex(int idx) {
+    alive[idx] = 0;
+    if(match[idx] == -1) {
+      return 0;
+    }
+    match[match[idx]] = -1;
+    ++timestamp;
+    int ret = augment(match[idx]);
+    match[idx] = -1;
+    return ret - 1;
+  }
+
+  void output() const {
+    for(int i = 0; i < (int) graph.size(); i++) {
       if(i < match[i]) {
         cout << i << "-" << match[i] << endl;
       }
     }
   }
 };
-
 
 ```
 {% endraw %}
@@ -131,19 +151,19 @@ struct BipartiteMatching {
   vector< int > match, alive, used;
   int timestamp;
 
-  BipartiteMatching(int n) : graph(n), alive(n, 1), used(n, 0), match(n, -1), timestamp(0) {}
+  explicit BipartiteMatching(int n) : graph(n), alive(n, 1), used(n, 0), match(n, -1), timestamp(0) {}
 
   void add_edge(int u, int v) {
     graph[u].push_back(v);
     graph[v].push_back(u);
   }
 
-  bool dfs(int idx) {
+  bool augment(int idx) {
     used[idx] = timestamp;
     for(auto &to : graph[idx]) {
       int to_match = match[to];
       if(alive[to] == 0) continue;
-      if(to_match == -1 || (used[to_match] != timestamp && dfs(to_match))) {
+      if(to_match == -1 || (used[to_match] != timestamp && augment(to_match))) {
         match[idx] = to;
         match[to] = idx;
         return true;
@@ -154,25 +174,42 @@ struct BipartiteMatching {
 
   int bipartite_matching() {
     int ret = 0;
-    for(int i = 0; i < graph.size(); i++) {
+    for(int i = 0; i < (int) graph.size(); i++) {
       if(alive[i] == 0) continue;
       if(match[i] == -1) {
         ++timestamp;
-        ret += dfs(i);
+        ret += augment(i);
       }
     }
     return ret;
   }
 
-  void output() {
-    for(int i = 0; i < graph.size(); i++) {
+  int add_vertex(int idx) {
+    alive[idx] = 1;
+    ++timestamp;
+    return augment(idx);
+  }
+
+  int erase_vertex(int idx) {
+    alive[idx] = 0;
+    if(match[idx] == -1) {
+      return 0;
+    }
+    match[match[idx]] = -1;
+    ++timestamp;
+    int ret = augment(match[idx]);
+    match[idx] = -1;
+    return ret - 1;
+  }
+
+  void output() const {
+    for(int i = 0; i < (int) graph.size(); i++) {
       if(i < match[i]) {
         cout << i << "-" << match[i] << endl;
       }
     }
   }
 };
-
 
 ```
 {% endraw %}

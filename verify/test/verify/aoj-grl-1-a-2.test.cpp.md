@@ -42,7 +42,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
 * :heavy_check_mark: <a href="../../../library/graph/shortest-path/dijkstra-fibonacchi-heap.cpp.html">Dijkstra-Fibonacchi-Heap(単一始点最短路) <small>(graph/shortest-path/dijkstra-fibonacchi-heap.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/structure/heap/fibonacchi-heap.cpp.html">Fibonacchi-Heap(フィボナッチヒープ) <small>(structure/heap/fibonacchi-heap.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

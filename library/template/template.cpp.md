@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: template/template.cpp
+# :question: template/template.cpp
 
 <a href="../../index.html">Back to top page</a>
 
@@ -42,6 +42,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-0275.test.cpp.html">test/verify/aoj-0275.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-0294.test.cpp.html">test/verify/aoj-0294.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-0304.test.cpp.html">test/verify/aoj-0304.test.cpp</a>
+* :x: <a href="../../verify/test/verify/aoj-0334.test.cpp.html">test/verify/aoj-0334.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-0560.test.cpp.html">test/verify/aoj-0560.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-1163.test.cpp.html">test/verify/aoj-1163.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-1254.test.cpp.html">test/verify/aoj-1254.test.cpp</a>

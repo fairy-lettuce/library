@@ -84,6 +84,7 @@ layout: default
 
 ### graph/flow
 
+* :x: <a href="library/graph/flow/bipartite-flow.cpp.html">Bipartite-Flow(二部グラフのフロー) <small>(graph/flow/bipartite-flow.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/flow/bipartite-matching.cpp.html">Bipartite-Matching(二部グラフの最大マッチング) <small>(graph/flow/bipartite-matching.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/flow/dinic-capacity-scaling.cpp.html">graph/flow/dinic-capacity-scaling.cpp</a>
 * :heavy_check_mark: <a href="library/graph/flow/dinic.cpp.html">graph/flow/dinic.cpp</a>
@@ -369,7 +370,7 @@ layout: default
 
 ### template
 
-* :heavy_check_mark: <a href="library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="library/template/template.cpp.html">template/template.cpp</a>
 
 
 <div id="5a4423c79a88aeb6104a40a645f9430c"></div>
@@ -419,6 +420,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0275.test.cpp.html">test/verify/aoj-0275.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0294.test.cpp.html">test/verify/aoj-0294.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0304.test.cpp.html">test/verify/aoj-0304.test.cpp</a>
+* :x: <a href="verify/test/verify/aoj-0334.test.cpp.html">test/verify/aoj-0334.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-0560.test.cpp.html">test/verify/aoj-0560.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1163.test.cpp.html">test/verify/aoj-1163.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1254.test.cpp.html">test/verify/aoj-1254.test.cpp</a>
