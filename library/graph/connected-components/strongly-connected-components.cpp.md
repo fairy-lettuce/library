@@ -31,9 +31,26 @@ layout: default
 
 * category: <a href="../../../index.html#3a7c46e10de1b2cce1293b2074b86f0a">graph/connected-components</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/connected-components/strongly-connected-components.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-04 01:14:35+09:00
+    - Last commit date: 2020-08-10 20:09:21+09:00
 
 
+
+
+## 概要
+
+与えられた有向グラフを強連結成分分解する.
+
+グラフの任意の $2$ 頂点間に有効路が存在するとき, 有向グラフが強連結であるとよぶ. 強連結成分は, 極大で強連結な部分グラフである.
+
+適当な頂点からDFSをして, 帰りがけ順に頂点を列挙することを, 未訪問の頂点がある間繰り返す. 次に辺をすべて逆向きにしたグラフについて, 列挙した頂点の逆順にDFS する. $1$ 回の DFS で到達できた頂点が $1$ つの強連結成分となる.
+
+強連結成分を縮約後の頂点とそれらを結ぶ辺からなるグラフはDAGになっている.
+
+* `build()`: 強連結成分分解する. `dag` には縮約後の頂点と辺からなるDAGが格納される. `comp` には各頂点が属する強連結成分の頂点番号が格納される. `group` には各強連結成分について, それに属する頂点が格納される.
+
+## 計算量
+
+* $O(E + V)$
 
 
 ## Verified with
@@ -50,6 +67,7 @@ layout: default
 ```cpp
 /**
  * @brief Strongly-Connected-Components(強連結成分分解)
+ * @docs docs/strongly-connected-components.md
  */
 template< typename T = int >
 struct StronglyConnectedComponents : Graph< T > {
@@ -117,6 +135,7 @@ private:
 #line 1 "graph/connected-components/strongly-connected-components.cpp"
 /**
  * @brief Strongly-Connected-Components(強連結成分分解)
+ * @docs docs/strongly-connected-components.md
  */
 template< typename T = int >
 struct StronglyConnectedComponents : Graph< T > {

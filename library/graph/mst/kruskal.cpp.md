@@ -31,9 +31,20 @@ layout: default
 
 * category: <a href="../../../index.html#51f95ed2fd9ed3be34f576d38fbd25a2">graph/mst</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/mst/kruskal.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-30 02:08:59+09:00
+    - Last commit date: 2020-08-10 20:09:21+09:00
 
 
+
+
+## 概要
+
+最小全域木(全域木のうち, その辺群の重みの総和が最小になる木)を求める. Union-Findを用いて辺集合にある辺を加えて閉路を作らないか判定しながら, 辺を重みが小さい順に走査する.
+
+* `kruskal(edges, V)`: `V` 頂点の連結な重み付き辺集合 `edges` からなる重み付き連結グラフの最小全域木を求める. `cost` には辺の重みの総和, `edges` にはそれを構成する辺が格納される.
+
+## 計算量
+
+* $O(E \log V)$
 
 
 ## Verified with
@@ -48,6 +59,7 @@ layout: default
 ```cpp
 /**
  * @brief Kruskal(最小全域木)
+ * @docs docs/kruskal.md
  */
 template< typename T >
 struct MinimumSpanningTree {
@@ -81,6 +93,7 @@ MinimumSpanningTree< T > kruskal(Edges< T > &edges, int V) {
 #line 1 "graph/mst/kruskal.cpp"
 /**
  * @brief Kruskal(最小全域木)
+ * @docs docs/kruskal.md
  */
 template< typename T >
 struct MinimumSpanningTree {

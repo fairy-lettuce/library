@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-2-a-2.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-30 02:08:59+09:00
+    - Last commit date: 2020-08-10 20:09:21+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A</a>
@@ -260,6 +260,7 @@ struct UnionFind {
 #line 1 "graph/mst/kruskal.cpp"
 /**
  * @brief Kruskal(最小全域木)
+ * @docs docs/kruskal.md
  */
 template< typename T >
 struct MinimumSpanningTree {

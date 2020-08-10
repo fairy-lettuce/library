@@ -90,7 +90,6 @@ layout: default
 * :heavy_check_mark: <a href="library/graph/flow/dinic.cpp.html">graph/flow/dinic.cpp</a>
 * :heavy_check_mark: <a href="library/graph/flow/ford-fulkerson.cpp.html">graph/flow/ford-fulkerson.cpp</a>
 * :heavy_check_mark: <a href="library/graph/flow/gabow-edmonds.cpp.html">graph/flow/gabow-edmonds.cpp</a>
-* :heavy_check_mark: <a href="library/graph/flow/hopcroft-karp.cpp.html">graph/flow/hopcroft-karp.cpp</a>
 * :heavy_check_mark: <a href="library/graph/flow/hungarian.cpp.html">graph/flow/hungarian.cpp</a>
 * :heavy_check_mark: <a href="library/graph/flow/maxflow-lower-bound.cpp.html">graph/flow/maxflow-lower-bound.cpp</a>
 * :heavy_check_mark: <a href="library/graph/flow/primal-dual.cpp.html">graph/flow/primal-dual.cpp</a>
@@ -484,7 +483,6 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-6-a-4.test.cpp.html">test/verify/aoj-grl-6-a-4.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-6-a.test.cpp.html">test/verify/aoj-grl-6-a.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-6-b.test.cpp.html">test/verify/aoj-grl-6-b.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/verify/aoj-grl-7-a-2.test.cpp.html">test/verify/aoj-grl-7-a-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-7-a.test.cpp.html">test/verify/aoj-grl-7-a.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-ntl-1-a.test.cpp.html">test/verify/aoj-ntl-1-a.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-ntl-1-b.test.cpp.html">test/verify/aoj-ntl-1-b.test.cpp</a>

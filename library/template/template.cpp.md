@@ -106,7 +106,6 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-6-a-4.test.cpp.html">test/verify/aoj-grl-6-a-4.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-6-a.test.cpp.html">test/verify/aoj-grl-6-a.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-6-b.test.cpp.html">test/verify/aoj-grl-6-b.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-7-a-2.test.cpp.html">test/verify/aoj-grl-7-a-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-grl-7-a.test.cpp.html">test/verify/aoj-grl-7-a.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-ntl-1-a.test.cpp.html">test/verify/aoj-ntl-1-a.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-ntl-1-b.test.cpp.html">test/verify/aoj-ntl-1-b.test.cpp</a>

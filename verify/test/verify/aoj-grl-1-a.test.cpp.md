@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-1-a.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-28 20:39:54+09:00
+    - Last commit date: 2020-08-10 20:09:21+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A</a>
@@ -220,6 +220,7 @@ using Edges = vector< Edge< T > >;
 #line 1 "graph/shortest-path/dijkstra.cpp"
 /**
  * @brief Dijkstra(単一始点最短路)
+ * @docs docs/dijkstra.md
  */
 template< typename T >
 vector< T > dijkstra(const Graph< T > &g, int s) {

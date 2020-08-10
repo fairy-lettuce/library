@@ -31,9 +31,20 @@ layout: default
 
 * category: <a href="../../../index.html#73feb47c464a017d041247d88424b879">graph/shortest-path</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/shortest-path/dijkstra.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-26 01:02:16+09:00
+    - Last commit date: 2020-08-10 20:09:21+09:00
 
 
+
+
+## 概要
+
+負辺のないグラフで単一始点全点間最短路を求めるアルゴリズム. 各地点でもっとも近い頂点から距離が確定していく. 距離順でソートされたヒープを用いると, 効率よく距離を確定していくことができる.
+
+* `dijkstra(g, s)`: 重み付きグラフ `g` で, 頂点 `s` から全点間の最短コストを求める. 到達できない頂点には, 型の最大値が格納される.
+
+## 計算量
+
+* $O(E \log V)$ 
 
 
 ## Verified with
@@ -49,6 +60,7 @@ layout: default
 ```cpp
 /**
  * @brief Dijkstra(単一始点最短路)
+ * @docs docs/dijkstra.md
  */
 template< typename T >
 vector< T > dijkstra(const Graph< T > &g, int s) {
@@ -84,6 +96,7 @@ vector< T > dijkstra(const Graph< T > &g, int s) {
 #line 1 "graph/shortest-path/dijkstra.cpp"
 /**
  * @brief Dijkstra(単一始点最短路)
+ * @docs docs/dijkstra.md
  */
 template< typename T >
 vector< T > dijkstra(const Graph< T > &g, int s) {
