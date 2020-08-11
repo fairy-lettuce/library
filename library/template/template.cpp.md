@@ -149,6 +149,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-sparse-matrix-det.test.cpp.html">test/verify/yosupo-sparse-matrix-det.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-sqrt-mod.test.cpp.html">test/verify/yosupo-sqrt-mod.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp.html">test/verify/yosupo-sqrt-of-formal-power-series.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-static-range-inversions-query.test.cpp.html">test/verify/yosupo-static-range-inversions-query.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-static-range-sum.test.cpp.html">test/verify/yosupo-static-range-sum.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-staticrmq-2.test.cpp.html">test/verify/yosupo-staticrmq-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-staticrmq-3.test.cpp.html">test/verify/yosupo-staticrmq-3.test.cpp</a>

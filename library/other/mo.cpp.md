@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: other/mo.cpp
+# :heavy_check_mark: Mo's Algorithm <small>(other/mo.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#795f3202b17cb6bc3d4b771d8c6c9eaf">other</a>
 * <a href="{{ site.github.repository_url }}/blob/master/other/mo.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-07-20 01:29:30+09:00
+    - Last commit date: 2020-08-12 02:55:35+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-static-range-inversions-query.test.cpp.html">test/verify/yosupo-static-range-inversions-query.test.cpp</a>
 
 
 ## Code
@@ -41,45 +46,43 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Mo's Algorithm
+ */
 struct Mo {
-  using ADD = function< void(int) >;
-  using DEL = function< void(int) >;
-  using REM = function< void(int) >;
+  int n;
+  vector< pair< int, int > > lr;
 
-  int width;
-  vector< int > left, right, order;
-  vector< bool > v;
-
-  Mo(int N, int Q) : width((int) sqrt(N)), order(Q), v(N) {
-    iota(begin(order), end(order), 0);
-  }
+  explicit Mo(int n) : n(n) {}
 
   void add(int l, int r) { /* [l, r) */
-    left.emplace_back(l);
-    right.emplace_back(r);
+    lr.emplace_back(l, r);
   }
 
-  int run(const ADD &add, const DEL &del, const REM &rem) {
-    assert(left.size() == order.size());
-    sort(begin(order), end(order), [&](int a, int b) {
-      int ablock = left[a] / width, bblock = left[b] / width;
+  template< typename AL, typename AR, typename EL, typename ER, typename O >
+  void build(const AL &add_left, const AR &add_right, const EL &erase_left, const ER &erase_right, const O &out) {
+    int q = (int) lr.size();
+    int bs = n / min< int >(n, sqrt(q));
+    vector< int > ord(q);
+    iota(begin(ord), end(ord), 0);
+    sort(begin(ord), end(ord), [&](int a, int b) {
+      int ablock = lr[a].first / bs, bblock = lr[b].first / bs;
       if(ablock != bblock) return ablock < bblock;
-      if(ablock & 1) return right[a] < right[b];
-      return right[a] > right[b];
+      return (ablock & 1) ? lr[a].second > lr[b].second : lr[a].second < lr[b].second;
     });
-    int nl = 0, nr = 0;
-    auto push = [&](int idx) {
-      v[idx].flip();
-      if(v[idx]) add(idx);
-      else del(idx);
-    };
-    for(auto idx : order) {
-      while(nl > left[idx]) push(--nl);
-      while(nr < right[idx]) push(nr++);
-      while(nl < left[idx]) push(nl++);
-      while(nr > right[idx]) push(--nr);
-      rem(idx);
+    int l = 0, r = 0;
+    for(auto idx : ord) {
+      while(l > lr[idx].first) add_left(--l);
+      while(r < lr[idx].second) add_right(r++);
+      while(l < lr[idx].first) erase_left(l++);
+      while(r > lr[idx].second) erase_right(--r);
+      out(idx);
     }
+  }
+
+  template< typename A, typename E, typename O >
+  void build(const A &add, const E &erase, const O &out) {
+    build(add, add, erase, erase, out);
   }
 };
 
@@ -90,45 +93,43 @@ struct Mo {
 {% raw %}
 ```cpp
 #line 1 "other/mo.cpp"
+/**
+ * @brief Mo's Algorithm
+ */
 struct Mo {
-  using ADD = function< void(int) >;
-  using DEL = function< void(int) >;
-  using REM = function< void(int) >;
+  int n;
+  vector< pair< int, int > > lr;
 
-  int width;
-  vector< int > left, right, order;
-  vector< bool > v;
-
-  Mo(int N, int Q) : width((int) sqrt(N)), order(Q), v(N) {
-    iota(begin(order), end(order), 0);
-  }
+  explicit Mo(int n) : n(n) {}
 
   void add(int l, int r) { /* [l, r) */
-    left.emplace_back(l);
-    right.emplace_back(r);
+    lr.emplace_back(l, r);
   }
 
-  int run(const ADD &add, const DEL &del, const REM &rem) {
-    assert(left.size() == order.size());
-    sort(begin(order), end(order), [&](int a, int b) {
-      int ablock = left[a] / width, bblock = left[b] / width;
+  template< typename AL, typename AR, typename EL, typename ER, typename O >
+  void build(const AL &add_left, const AR &add_right, const EL &erase_left, const ER &erase_right, const O &out) {
+    int q = (int) lr.size();
+    int bs = n / min< int >(n, sqrt(q));
+    vector< int > ord(q);
+    iota(begin(ord), end(ord), 0);
+    sort(begin(ord), end(ord), [&](int a, int b) {
+      int ablock = lr[a].first / bs, bblock = lr[b].first / bs;
       if(ablock != bblock) return ablock < bblock;
-      if(ablock & 1) return right[a] < right[b];
-      return right[a] > right[b];
+      return (ablock & 1) ? lr[a].second > lr[b].second : lr[a].second < lr[b].second;
     });
-    int nl = 0, nr = 0;
-    auto push = [&](int idx) {
-      v[idx].flip();
-      if(v[idx]) add(idx);
-      else del(idx);
-    };
-    for(auto idx : order) {
-      while(nl > left[idx]) push(--nl);
-      while(nr < right[idx]) push(nr++);
-      while(nl < left[idx]) push(nl++);
-      while(nr > right[idx]) push(--nr);
-      rem(idx);
+    int l = 0, r = 0;
+    for(auto idx : ord) {
+      while(l > lr[idx].first) add_left(--l);
+      while(r < lr[idx].second) add_right(r++);
+      while(l < lr[idx].first) erase_left(l++);
+      while(r > lr[idx].second) erase_right(--r);
+      out(idx);
     }
+  }
+
+  template< typename A, typename E, typename O >
+  void build(const A &add, const E &erase, const O &out) {
+    build(add, add, erase, erase, out);
   }
 };
 

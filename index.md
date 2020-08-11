@@ -153,6 +153,13 @@ layout: default
 * :heavy_check_mark: <a href="library/graph/tree/tree-isomorphism.cpp.html">Tree-Isomorphism(木の同型性判定) <small>(graph/tree/tree-isomorphism.cpp)</small></a>
 
 
+<div id="2d899f8d163502b12eb4a60069f80c1c"></div>
+
+### icpc
+
+* :warning: <a href="library/icpc/make.py.html">icpc/make.py</a>
+
+
 <div id="d319ed68764efb4f50b1628220df55d7"></div>
 
 ### math/combinatorics
@@ -234,7 +241,7 @@ layout: default
 * :warning: <a href="library/other/compress.cpp.html">other/compress.cpp</a>
 * :warning: <a href="library/other/dice.cpp.html">other/dice.cpp</a>
 * :warning: <a href="library/other/mo-rollback.cpp.html">other/mo-rollback.cpp</a>
-* :warning: <a href="library/other/mo.cpp.html">other/mo.cpp</a>
+* :heavy_check_mark: <a href="library/other/mo.cpp.html">Mo's Algorithm <small>(other/mo.cpp)</small></a>
 * :warning: <a href="library/other/offline-dynamic-connectivity.cpp.html">other/offline-dynamic-connectivity.cpp</a>
 * :heavy_check_mark: <a href="library/other/printer.cpp.html">Printer(高速出力) <small>(other/printer.cpp)</small></a>
 * :warning: <a href="library/other/random-number-generator.cpp.html">other/random-number-generator.cpp</a>
@@ -526,6 +533,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sparse-matrix-det.test.cpp.html">test/verify/yosupo-sparse-matrix-det.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sqrt-mod.test.cpp.html">test/verify/yosupo-sqrt-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp.html">test/verify/yosupo-sqrt-of-formal-power-series.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-static-range-inversions-query.test.cpp.html">test/verify/yosupo-static-range-inversions-query.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-static-range-sum.test.cpp.html">test/verify/yosupo-static-range-sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-staticrmq-2.test.cpp.html">test/verify/yosupo-staticrmq-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-staticrmq-3.test.cpp.html">test/verify/yosupo-staticrmq-3.test.cpp</a>
