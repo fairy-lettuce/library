@@ -344,7 +344,7 @@ layout: default
 
 ### structure/trie
 
-* :warning: <a href="library/structure/trie/binary-trie.cpp.html">structure/trie/binary-trie.cpp</a>
+* :heavy_check_mark: <a href="library/structure/trie/binary-trie.cpp.html">Binary-Trie <small>(structure/trie/binary-trie.cpp)</small></a>
 * :warning: <a href="library/structure/trie/persistent-binary-trie.cpp.html">structure/trie/persistent-binary-trie.cpp</a>
 * :heavy_check_mark: <a href="library/structure/trie/trie.cpp.html">structure/trie/trie.cpp</a>
 
@@ -466,6 +466,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-dsl-1-a.test.cpp.html">test/verify/aoj-dsl-1-a.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-dsl-1-b.test.cpp.html">test/verify/aoj-dsl-1-b.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-dsl-2-a.test.cpp.html">test/verify/aoj-dsl-2-a.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-dsl-2-b-2.test.cpp.html">test/verify/aoj-dsl-2-b-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-dsl-2-b.test.cpp.html">test/verify/aoj-dsl-2-b.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-dsl-2-d.test.cpp.html">test/verify/aoj-dsl-2-d.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-1-a-2.test.cpp.html">test/verify/aoj-grl-1-a-2.test.cpp</a>
@@ -530,6 +531,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-rectangle-sum.test.cpp.html">test/verify/yosupo-rectangle-sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-scc.test.cpp.html">test/verify/yosupo-scc.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-segment-add-get-min.test.cpp.html">test/verify/yosupo-segment-add-get-min.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-set-xor-min.test.cpp.html">test/verify/yosupo-set-xor-min.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sparse-matrix-det.test.cpp.html">test/verify/yosupo-sparse-matrix-det.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sqrt-mod.test.cpp.html">test/verify/yosupo-sqrt-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp.html">test/verify/yosupo-sqrt-of-formal-power-series.test.cpp</a>
