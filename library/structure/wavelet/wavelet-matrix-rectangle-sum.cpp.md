@@ -25,15 +25,34 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: structure/wavelet/wavelet-matrix-rectangle-sum.cpp
+# :heavy_check_mark: Wavelet-Matrix-Rectangle-Sum <small>(structure/wavelet/wavelet-matrix-rectangle-sum.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5f498e54a9680c92dbc18487ab14a24d">structure/wavelet</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/wavelet/wavelet-matrix-rectangle-sum.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-31 17:29:03+09:00
+    - Last commit date: 2020-08-14 04:28:43+09:00
 
 
+
+
+## 概要
+
+$2$ 次元平面上にある重み付きの点が事前に与えられているとき, オンラインで矩形内にある点の重みの総和を効率的に求めるデータ構造.
+
+普通のウェーブレット行列に対し重みの累積和を持たせた配列を用意すると, 矩形内の点の個数を数えるのと同じように重みの総和を求めることができる.
+
+## 使い方
+* `WaveletMatrixRectangleSum(v, d)`: 各要素の高さ `v` , 対応する要素の重み `d` を初期値として構築する.
+* `rect_sum(l, r, upper)`: 区間 $[l, r)$ の高さ $[0, upper)$ にある要素の重みの総和を返す.
+* `rect_sum(l, r, lower, upper)`: 区間 $[l, r)$ の高さ $[lower, upper)$ にある要素の重みの総和を返す.
+
+## 計算量
+
+* 構築: $O(N \log V)$
+* クエリ: $O(\log V)$
+
+$V$ は値の最大値.
 
 
 ## Verified with
@@ -46,6 +65,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/*
+ * @brief Wavelet-Matrix-Rectangle-Sum
+ * @docs docs/wavelet-matrix-rectangle-sum.md
+ */
 template< typename T, int MAXLOG, typename D >
 struct WaveletMatrixRectangleSum {
   size_t length;
@@ -138,6 +161,10 @@ struct CompressedWaveletMatrixRectangleSum {
 {% raw %}
 ```cpp
 #line 1 "structure/wavelet/wavelet-matrix-rectangle-sum.cpp"
+/*
+ * @brief Wavelet-Matrix-Rectangle-Sum
+ * @docs docs/wavelet-matrix-rectangle-sum.md
+ */
 template< typename T, int MAXLOG, typename D >
 struct WaveletMatrixRectangleSum {
   size_t length;

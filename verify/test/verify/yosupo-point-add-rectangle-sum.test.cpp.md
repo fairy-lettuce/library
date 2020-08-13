@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-point-add-rectangle-sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-17 14:58:48+09:00
+    - Last commit date: 2020-08-14 04:28:43+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/point_add_rectangle_sum">https://judge.yosupo.jp/problem/point_add_rectangle_sum</a>
@@ -43,7 +43,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/other/scanner.cpp.html">Scanner(高速入力) <small>(other/scanner.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/structure/others/binary-indexed-tree.cpp.html">Binary-Indexed-Tree(BIT) <small>(structure/others/binary-indexed-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/structure/wavelet/succinct-indexable-dictionary.cpp.html">structure/wavelet/succinct-indexable-dictionary.cpp</a>
-* :heavy_check_mark: <a href="../../../library/structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp.html">structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp</a>
+* :heavy_check_mark: <a href="../../../library/structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp.html">Wavelet-Matrix-Point-Add-Rectangle-Sum <small>(structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -299,6 +299,10 @@ struct SuccinctIndexableDictionary {
   }
 };
 #line 1 "structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp"
+/*
+ * @brief Wavelet-Matrix-Point-Add-Rectangle-Sum
+ * @docs docs/wavelet-matrix-point-add-rectangle-sum.md
+ */
 template< typename T, int MAXLOG, typename D >
 struct WaveletMatrixPointAddRectangleSum {
   size_t length;

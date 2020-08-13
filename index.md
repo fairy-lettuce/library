@@ -366,8 +366,8 @@ layout: default
 ### structure/wavelet
 
 * :heavy_check_mark: <a href="library/structure/wavelet/succinct-indexable-dictionary.cpp.html">structure/wavelet/succinct-indexable-dictionary.cpp</a>
-* :heavy_check_mark: <a href="library/structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp.html">structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp</a>
-* :heavy_check_mark: <a href="library/structure/wavelet/wavelet-matrix-rectangle-sum.cpp.html">structure/wavelet/wavelet-matrix-rectangle-sum.cpp</a>
+* :heavy_check_mark: <a href="library/structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp.html">Wavelet-Matrix-Point-Add-Rectangle-Sum <small>(structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp)</small></a>
+* :heavy_check_mark: <a href="library/structure/wavelet/wavelet-matrix-rectangle-sum.cpp.html">Wavelet-Matrix-Rectangle-Sum <small>(structure/wavelet/wavelet-matrix-rectangle-sum.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/wavelet/wavelet-matrix.cpp.html">structure/wavelet/wavelet-matrix.cpp</a>
 * :heavy_check_mark: <a href="library/structure/wavelet/wavelet-tree.cpp.html">structure/wavelet/wavelet-tree.cpp</a>
 

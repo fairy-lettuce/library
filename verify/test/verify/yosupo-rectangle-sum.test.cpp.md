@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-rectangle-sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-31 17:29:03+09:00
+    - Last commit date: 2020-08-14 04:28:43+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/rectangle_sum">https://judge.yosupo.jp/problem/rectangle_sum</a>
@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/structure/wavelet/succinct-indexable-dictionary.cpp.html">structure/wavelet/succinct-indexable-dictionary.cpp</a>
-* :heavy_check_mark: <a href="../../../library/structure/wavelet/wavelet-matrix-rectangle-sum.cpp.html">structure/wavelet/wavelet-matrix-rectangle-sum.cpp</a>
+* :heavy_check_mark: <a href="../../../library/structure/wavelet/wavelet-matrix-rectangle-sum.cpp.html">Wavelet-Matrix-Rectangle-Sum <small>(structure/wavelet/wavelet-matrix-rectangle-sum.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -219,6 +219,10 @@ struct SuccinctIndexableDictionary {
   }
 };
 #line 1 "structure/wavelet/wavelet-matrix-rectangle-sum.cpp"
+/*
+ * @brief Wavelet-Matrix-Rectangle-Sum
+ * @docs docs/wavelet-matrix-rectangle-sum.md
+ */
 template< typename T, int MAXLOG, typename D >
 struct WaveletMatrixRectangleSum {
   size_t length;
