@@ -41,7 +41,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../library/structure/wavelet/succinct-indexable-dictionary.cpp.html">structure/wavelet/succinct-indexable-dictionary.cpp</a>
 * :heavy_check_mark: <a href="../../../library/structure/wavelet/wavelet-matrix-rectangle-sum.cpp.html">Wavelet-Matrix-Rectangle-Sum <small>(structure/wavelet/wavelet-matrix-rectangle-sum.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

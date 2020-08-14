@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/aoj-dsl-2-b-2.test.cpp
+# :x: test/verify/aoj-dsl-2-b-2.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dsl-2-b-2.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-14 03:56:52+09:00
+    - Last commit date: 2020-08-14 17:23:13+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/structure/trie/binary-trie.cpp.html">Binary-Trie <small>(structure/trie/binary-trie.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :x: <a href="../../../library/structure/trie/binary-trie.cpp.html">Binary-Trie <small>(structure/trie/binary-trie.cpp)</small></a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -174,7 +174,7 @@ inline decltype(auto) MFP(F &&f) {
  */
 template< typename T, int MAX_LOG, typename D = int >
 struct BinaryTrie {
-private:
+public:
   struct Node {
     Node *nxt[2];
     D exist;
@@ -185,17 +185,63 @@ private:
 
   Node *root;
 
-  void add(Node *t, T bit, int idx, int depth, D x, T xor_val) {
+  explicit BinaryTrie() : root(new Node()) {}
+
+  explicit BinaryTrie(Node *root) : root(root) {}
+
+  void add(const T &bit, int idx = -1, D delta = 1, T xor_val = 0) {
+    root = add(root, bit, idx, MAX_LOG, delta, xor_val);
+  }
+
+  void erase(const T &bit, T xor_val = 0) {
+    add(bit, -1, -1, xor_val);
+  }
+
+  Node *find(const T &bit, T xor_val = 0) {
+    return find(root, bit, MAX_LOG, xor_val);
+  }
+
+  D count(const T &bit, T xor_val = 0) {
+    auto node = find(bit, xor_val);
+    return node ? node->exist : 0;
+  }
+
+  pair< T, Node * > min_element(T xor_val = 0) {
+    assert(root->exist > 0);
+    return kth_element(0, xor_val);
+  }
+
+  pair< T, Node * > max_element(T xor_val = 0) {
+    assert(root->exist > 0);
+    return kth_element(root->exist - 1, xor_val);
+  }
+
+  pair< T, Node * > kth_element(D k, T xor_val = 0) { // 0-indexed
+    assert(0 <= k && k < root->exist);
+    return kth_element(root, k, MAX_LOG, xor_val);
+  }
+
+  D count_less(const T &bit, T xor_val = 0) { // < bit
+    return count_less(root, bit, MAX_LOG, xor_val);
+  }
+
+private:
+
+  virtual Node *clone(Node *t) { return t; }
+
+  Node *add(Node *t, T bit, int idx, int depth, D x, T xor_val, bool need = true) {
+    if(need) t = clone(t);
     if(depth == -1) {
       t->exist += x;
       if(idx >= 0) t->accept.emplace_back(idx);
     } else {
       bool f = (xor_val >> depth) & 1;
       auto &to = t->nxt[f ^ ((bit >> depth) & 1)];
-      if(!to) to = new Node();
-      add(to, bit, idx, depth - 1, x, xor_val);
+      if(!to) to = new Node(), need = false;
+      to = add(to, bit, idx, depth - 1, x, xor_val, need);
       t->exist += x;
     }
+    return t;
   }
 
   Node *find(Node *t, T bit, int depth, T xor_val) {
@@ -234,45 +280,6 @@ private:
       if(t->nxt[f]) ret += count_less(t->nxt[f], bit, bit_index - 1, xor_val);
     }
     return ret;
-  }
-
-public:
-  explicit BinaryTrie() : root(new Node()) {}
-
-  void add(const T &bit, int idx = -1, D delta = 1, T xor_val = 0) {
-    add(root, bit, idx, MAX_LOG, delta, xor_val);
-  }
-
-  void erase(const T &bit, T xor_val = 0) {
-    add(bit, -1, -1, xor_val);
-  }
-
-  Node *find(const T &bit, T xor_val = 0) {
-    return find(root, bit, MAX_LOG, xor_val);
-  }
-
-  D count(const T &bit, T xor_val = 0) {
-    auto node = find(bit, xor_val);
-    return node ? node->exist : 0;
-  }
-
-  pair< T, Node * > min_element(T xor_val = 0) {
-    assert(root->exist > 0);
-    return kth_element(0, xor_val);
-  }
-
-  pair< T, Node * > max_element(T xor_val = 0) {
-    assert(root->exist > 0);
-    return kth_element(root->exist - 1, xor_val);
-  }
-
-  pair< T, Node * > kth_element(D k, T xor_val = 0) { // 0-indexed
-    assert(0 <= k && k < root->exist);
-    return kth_element(root, k, MAX_LOG, xor_val);
-  }
-
-  D count_less(const T &bit, T xor_val = 0) { // < bit
-    return count_less(root, bit, MAX_LOG, xor_val);
   }
 };
 #line 6 "test/verify/aoj-dsl-2-b-2.test.cpp"
