@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-range-kth-smallest.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-20 02:05:47+09:00
+    - Last commit date: 2020-08-20 02:29:21+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/range_kth_smallest">https://judge.yosupo.jp/problem/range_kth_smallest</a>
@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/structure/wavelet/succinct-indexable-dictionary.cpp.html">structure/wavelet/succinct-indexable-dictionary.cpp</a>
-* :heavy_check_mark: <a href="../../../library/structure/wavelet/wavelet-matrix.cpp.html">structure/wavelet/wavelet-matrix.cpp</a>
+* :heavy_check_mark: <a href="../../../library/structure/wavelet/wavelet-matrix.cpp.html">Wavelet-Matrix(ウェーブレット行列) <small>(structure/wavelet/wavelet-matrix.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -204,6 +204,10 @@ struct SuccinctIndexableDictionary {
   }
 };
 #line 1 "structure/wavelet/wavelet-matrix.cpp"
+/*
+ * @brief Wavelet-Matrix(ウェーブレット行列)
+ * @docs docs/wavelet-matrix.md
+ */
 template< typename T, int MAXLOG >
 struct WaveletMatrix {
   size_t length;

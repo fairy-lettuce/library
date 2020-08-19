@@ -49,6 +49,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-1508-2.test.cpp.html">test/verify/aoj-1508-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-1508-3.test.cpp.html">test/verify/aoj-1508-3.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-1508.test.cpp.html">test/verify/aoj-1508.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-1549-2.test.cpp.html">test/verify/aoj-1549-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-1549.test.cpp.html">test/verify/aoj-1549.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-1595.test.cpp.html">test/verify/aoj-1595.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-1615.test.cpp.html">test/verify/aoj-1615.test.cpp</a>
@@ -145,6 +146,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-range-affine-range-sum-2.test.cpp.html">test/verify/yosupo-range-affine-range-sum-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-range-affine-range-sum-3.test.cpp.html">test/verify/yosupo-range-affine-range-sum-3.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-range-affine-range-sum.test.cpp.html">test/verify/yosupo-range-affine-range-sum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-range-kth-smallest-2.test.cpp.html">test/verify/yosupo-range-kth-smallest-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-range-kth-smallest.test.cpp.html">test/verify/yosupo-range-kth-smallest.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-rectangle-sum.test.cpp.html">test/verify/yosupo-rectangle-sum.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-scc.test.cpp.html">test/verify/yosupo-scc.test.cpp</a>

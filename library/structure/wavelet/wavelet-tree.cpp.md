@@ -25,20 +25,47 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: structure/wavelet/wavelet-tree.cpp
+# :heavy_check_mark: Wavelet-Tree(ウェーブレット木) <small>(structure/wavelet/wavelet-tree.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5f498e54a9680c92dbc18487ab14a24d">structure/wavelet</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/wavelet/wavelet-tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-12-31 17:29:03+09:00
+    - Last commit date: 2020-08-20 02:29:21+09:00
 
 
+
+
+## 概要
+
+$2$ 次元平面上にある点が事前に与えられているとき, オンラインでいろいろなクエリを処理するデータ構造.
+
+基本的には事前に要素の値を要素数に圧縮する CompressedWaveletTree を用いると高速に動作する.
+
+ウェーブレット行列を用いたほうが時間と空間の計算量が良いため, 使い所なし. 悲しい.
+
+## 使い方
+* `WaveletTree(v)`: 各要素の高さ `v` を初期値として構築する.
+* `rank(x, r)`: 区間 $[0, r)$ に含まれる `x` の個数を返す.
+* `kth_smallest(l, r, k)`: 区間 $[l, r)$ に含まれる要素のうち $k$ 番目(0-indexed) に小さいものを返す.
+* `kth_largest(l, r, k)`: 区間 $[l, r)$ に含まれる要素のうち $k$ 番目 (0-indexed) に大きいものを返す.
+* `range_freq(l, r, lower, upper)`: 区間 $[l, r)$ に含まれる要素のうち $[lower, upper)$ である要素数を返す.
+* `prev_value(l, r, upper)`: 区間 $[l, r)$ に含まれる要素のうち `upper` の次に小さいものを返す.
+* `next_value(l, r, lower)`: 区間 $[l, r)$ に含まれる要素のうち `lower` の次に大きいものを返す.
+
+## 計算量
+
+* 構築: $O(N \log V)$
+* クエリ: $O(\log V)$
+
+$V$ は値の最大値.
 
 
 ## Verified with
 
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-1549-2.test.cpp.html">test/verify/aoj-1549-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2674-2.test.cpp.html">test/verify/aoj-2674-2.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-range-kth-smallest-2.test.cpp.html">test/verify/yosupo-range-kth-smallest-2.test.cpp</a>
 
 
 ## Code
@@ -46,6 +73,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/*
+ * @brief Wavelet-Tree(ウェーブレット木)
+ * @docs docs/wavelet-tree.md
+ */
 template< typename T, int MAXLOG >
 struct WaveletTree {
 
@@ -87,6 +118,18 @@ struct WaveletTree {
   WaveletTree(vector< T > v) {
     vector< T > rbuff(v.size());
     root = build(v, rbuff, MAXLOG - 1, 0, v.size());
+  }
+
+  int rank(Node *t, int l, int r, const T &x, int level) {
+    if(l >= r || t == nullptr) return 0;
+    if(level == -1) return r - l;
+    bool f = (x >> level) & 1;
+    l = t->sid.rank(f, l), r = t->sid.rank(f, r);
+    return rank(t->ch[f], l, r, x, level - 1);
+  }
+
+  int rank(const T &x, int r) {
+    return rank(root, 0, r, x, MAXLOG - 1);
   }
 
   T kth_smallest(Node *t, int l, int r, int k, int level) {
@@ -156,14 +199,6 @@ struct CompressedWaveletTree {
 
   inline int get(const T &x) {
     return lower_bound(begin(ys), end(ys), x) - begin(ys);
-  }
-
-  T access(int k) {
-    return ys[mat.access(k)];
-  }
-
-  T operator[](const int &k) {
-    return access(k);
   }
 
   int rank(const T &x, int r) {
@@ -207,6 +242,10 @@ struct CompressedWaveletTree {
 {% raw %}
 ```cpp
 #line 1 "structure/wavelet/wavelet-tree.cpp"
+/*
+ * @brief Wavelet-Tree(ウェーブレット木)
+ * @docs docs/wavelet-tree.md
+ */
 template< typename T, int MAXLOG >
 struct WaveletTree {
 
@@ -248,6 +287,18 @@ struct WaveletTree {
   WaveletTree(vector< T > v) {
     vector< T > rbuff(v.size());
     root = build(v, rbuff, MAXLOG - 1, 0, v.size());
+  }
+
+  int rank(Node *t, int l, int r, const T &x, int level) {
+    if(l >= r || t == nullptr) return 0;
+    if(level == -1) return r - l;
+    bool f = (x >> level) & 1;
+    l = t->sid.rank(f, l), r = t->sid.rank(f, r);
+    return rank(t->ch[f], l, r, x, level - 1);
+  }
+
+  int rank(const T &x, int r) {
+    return rank(root, 0, r, x, MAXLOG - 1);
   }
 
   T kth_smallest(Node *t, int l, int r, int k, int level) {
@@ -317,14 +368,6 @@ struct CompressedWaveletTree {
 
   inline int get(const T &x) {
     return lower_bound(begin(ys), end(ys), x) - begin(ys);
-  }
-
-  T access(int k) {
-    return ys[mat.access(k)];
-  }
-
-  T operator[](const int &k) {
-    return access(k);
   }
 
   int rank(const T &x, int r) {

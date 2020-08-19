@@ -25,16 +25,16 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/aoj-2674-2.test.cpp
+# :heavy_check_mark: test/verify/yosupo-range-kth-smallest-2.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-2674-2.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-range-kth-smallest-2.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-08-20 02:29:21+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2674">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2674</a>
+* see: <a href="https://judge.yosupo.jp/problem/range_kth_smallest">https://judge.yosupo.jp/problem/range_kth_smallest</a>
 
 
 ## Depends on
@@ -49,7 +49,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2674"
+#define PROBLEM "https://judge.yosupo.jp/problem/range_kth_smallest"
 
 #include "../../template/template.cpp"
 
@@ -58,19 +58,14 @@ layout: default
 
 int main() {
   int N, Q;
-  cin >> N;
-  vector< int > X(N);
-  for(int i = 0; i < N; i++) {
-    cin >> X[i];
-    X[i] += 5e8;
-  }
-  CompressedWaveletTree< int, 18 > matrix(X);
-  cin >> Q;
-  while(Q--) {
-    int L, R, E;
-    cin >> L >> R >> E;
-    --L, --R;
-    cout << (R - L + 1) - matrix.range_freq(L, R + 1, min(X[L], X[R]) - E, max(X[L], X[R]) + E + 1) << "\n";
+  cin >> N >> Q;
+  vector< int > A(N);
+  cin >> A;
+  CompressedWaveletTree< int, 18 > mat(A);
+  for(int i = 0; i < Q; i++) {
+    int a, b, c;
+    cin >> a >> b >> c;
+    cout << mat.kth_smallest(a, b, c) << "\n";
   }
 }
 
@@ -80,8 +75,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/verify/aoj-2674-2.test.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2674"
+#line 1 "test/verify/yosupo-range-kth-smallest-2.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/range_kth_smallest"
 
 #line 1 "template/template.cpp"
 #include<bits/stdc++.h>
@@ -170,7 +165,7 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 4 "test/verify/aoj-2674-2.test.cpp"
+#line 4 "test/verify/yosupo-range-kth-smallest-2.test.cpp"
 
 #line 1 "structure/wavelet/succinct-indexable-dictionary.cpp"
 struct SuccinctIndexableDictionary {
@@ -370,23 +365,18 @@ struct CompressedWaveletTree {
   }
 };
 
-#line 7 "test/verify/aoj-2674-2.test.cpp"
+#line 7 "test/verify/yosupo-range-kth-smallest-2.test.cpp"
 
 int main() {
   int N, Q;
-  cin >> N;
-  vector< int > X(N);
-  for(int i = 0; i < N; i++) {
-    cin >> X[i];
-    X[i] += 5e8;
-  }
-  CompressedWaveletTree< int, 18 > matrix(X);
-  cin >> Q;
-  while(Q--) {
-    int L, R, E;
-    cin >> L >> R >> E;
-    --L, --R;
-    cout << (R - L + 1) - matrix.range_freq(L, R + 1, min(X[L], X[R]) - E, max(X[L], X[R]) + E + 1) << "\n";
+  cin >> N >> Q;
+  vector< int > A(N);
+  cin >> A;
+  CompressedWaveletTree< int, 18 > mat(A);
+  for(int i = 0; i < Q; i++) {
+    int a, b, c;
+    cin >> a >> b >> c;
+    cout << mat.kth_smallest(a, b, c) << "\n";
   }
 }
 
