@@ -286,8 +286,8 @@ layout: default
 
 ### structure/convex-hull-trick
 
-* :heavy_check_mark: <a href="library/structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp.html">structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp</a>
-* :heavy_check_mark: <a href="library/structure/convex-hull-trick/dynamic-li-chao-tree.cpp.html">structure/convex-hull-trick/dynamic-li-chao-tree.cpp</a>
+* :heavy_check_mark: <a href="library/structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp.html">Convex-Hull-Trick-Add-Monotone <small>(structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp)</small></a>
+* :heavy_check_mark: <a href="library/structure/convex-hull-trick/dynamic-li-chao-tree.cpp.html">Dynamic-Li-Chao-Tree <small>(structure/convex-hull-trick/dynamic-li-chao-tree.cpp)</small></a>
 * :warning: <a href="library/structure/convex-hull-trick/li-chao-tree.cpp.html">structure/convex-hull-trick/li-chao-tree.cpp</a>
 * :warning: <a href="library/structure/convex-hull-trick/persistent-dynamic-li-chao-tree.cpp.html">structure/convex-hull-trick/persistent-dynamic-li-chao-tree.cpp</a>
 
@@ -446,6 +446,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2667.test.cpp.html">test/verify/aoj-2667.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2674-2.test.cpp.html">test/verify/aoj-2674-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2674.test.cpp.html">test/verify/aoj-2674.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-2725.test.cpp.html">test/verify/aoj-2725.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2821.test.cpp.html">test/verify/aoj-2821.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-3022.test.cpp.html">test/verify/aoj-3022.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-3139.test.cpp.html">test/verify/aoj-3139.test.cpp</a>

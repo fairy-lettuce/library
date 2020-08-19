@@ -25,15 +25,41 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp
+# :heavy_check_mark: Convex-Hull-Trick-Add-Monotone <small>(structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#3ad23896bbde10d07ed9c44a914e070b">structure/convex-hull-trick</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 22:41:48+09:00
+    - Last commit date: 2020-08-20 03:24:24+09:00
 
 
+
+
+## 概要
+
+直線 $ax+b$ の追加クエリ(ただし $a$ は単調増加または単調減少) と, ある点 $x$ での最小値クエリを効率的に処理する.
+
+追加クエリは $a$ の単調性を考えながら, 上手く stack で管理することで効率的に処理できる(凸包を求めるアルゴリズムと似ている).
+
+最小値クエリは $x$ が単調増加または単調減少のとき stack を端からみることで全体で $O(q + n)$, 単調性がない場合も二分探索することでクエリあたり $(\log n)$ で求められる.
+
+## 使い方
+
+`is_Min` を `true` にすると最小値, `false` にすると最大値を求める.
+
+* `add(a, b)`: 直線 $ax + b$ を追加する. ただし $a$ は広義単調増加または広義単調減少.
+* `query(x)`: $ax + b$ の最小値を求める.
+* `query_monotone_inc(x)`: $ax + b$ の最小値を求める. ただし $x$ は広義単調増加.
+* `query_monotone_dec(x)`: $ax + b$ の最小値を求める. ただし $x$ は広義単調減少.
+
+## 計算量
+
+* `add()`: 全体で $O(n)$
+* `query()`: クエリあたり $O(\log n)$
+* `query_monotone_inc(x)`, `query_monotone_dec(x)`: 全体で $O(n + q)$
+
+$n$ は追加する直線の個数, $q$ はクエリ数. 
 
 
 ## Verified with
@@ -46,6 +72,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Convex-Hull-Trick-Add-Monotone
+ * @docs docs/convex-hull-trick-add-monotone.md
+*/
 template< typename T, bool isMin >
 struct ConvexHullTrickAddMonotone {
 #define F first
@@ -139,6 +169,10 @@ struct ConvexHullTrickAddMonotone {
 {% raw %}
 ```cpp
 #line 1 "structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp"
+/**
+ * @brief Convex-Hull-Trick-Add-Monotone
+ * @docs docs/convex-hull-trick-add-monotone.md
+*/
 template< typename T, bool isMin >
 struct ConvexHullTrickAddMonotone {
 #define F first

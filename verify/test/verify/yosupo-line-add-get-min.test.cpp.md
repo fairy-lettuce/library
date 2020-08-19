@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-line-add-get-min.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-07 02:07:19+09:00
+    - Last commit date: 2020-08-20 03:24:24+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/line_add_get_min">https://judge.yosupo.jp/problem/line_add_get_min</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/structure/convex-hull-trick/dynamic-li-chao-tree.cpp.html">structure/convex-hull-trick/dynamic-li-chao-tree.cpp</a>
+* :heavy_check_mark: <a href="../../../library/structure/convex-hull-trick/dynamic-li-chao-tree.cpp.html">Dynamic-Li-Chao-Tree <small>(structure/convex-hull-trick/dynamic-li-chao-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -178,6 +178,10 @@ inline decltype(auto) MFP(F &&f) {
 #line 4 "test/verify/yosupo-line-add-get-min.test.cpp"
 
 #line 1 "structure/convex-hull-trick/dynamic-li-chao-tree.cpp"
+/**
+ * @brief Dynamic-Li-Chao-Tree
+ * @docs docs/dynamic-li-chao-tree.md
+*/
 template< typename T, T x_low, T x_high, T id >
 struct DynamicLiChaoTree {
 

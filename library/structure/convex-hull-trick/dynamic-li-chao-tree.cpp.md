@@ -25,19 +25,51 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: structure/convex-hull-trick/dynamic-li-chao-tree.cpp
+# :heavy_check_mark: Dynamic-Li-Chao-Tree <small>(structure/convex-hull-trick/dynamic-li-chao-tree.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#3ad23896bbde10d07ed9c44a914e070b">structure/convex-hull-trick</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/convex-hull-trick/dynamic-li-chao-tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-07 02:07:19+09:00
+    - Last commit date: 2020-08-20 03:24:24+09:00
 
 
+
+
+## 概要
+
+直線 $ax+b$ の追加クエリと, ある点 $x$ での最小値クエリを効率的に処理するデータ構造.
+
+セグメント木の各ノードにその区間で最小の直線を載せるイメージ.
+
+直線の追加クエリでは, そのノード $[l, r)$ の既存の直線と比較する. 交差しないとき上側の直線を捨て, 交差するときは $x$ を区間の中心 $\frac {l + r} {2}$ としたときの値の大小関係を比較する. 小さい方をそのノードの直線とし, 大きい方は子に再帰的に追加する.
+
+点 $x$ での最小値クエリでは, $x$ を含むノードが $O(\log n)$ 個なので, それらを見ればよい.
+
+静的な Li-Chao-Tree と動的な Li-Chao-Tree の速度差は(感覚的には)小さいため, 基本的には最小値クエリの先読みが不要な動的な方がおすすめ.
+
+## 使い方
+
+`x_low` には `query()` で与える $x$ の最小値, `x_high` には $x$ の最大値, `id` は単位元(十分大きい値) を指定する. すべての直線について `x_low`, `x_high` がオーバーフローしないとき意図した動作をする.
+
+最大値クエリは最小値クエリに帰着できて, `add_line(-a, -b)`, `-query(x)` とすればよい.
+
+
+* `add_line(a, b)`: 直線 $ax + b$ を追加する.
+* `add_segment(l, r, a, b)`: 区間 $[l, r)$ に線分 $ax + b$ を追加する.
+* `query(x)`: $ax + b$ の最小値を求める.
+
+## 計算量
+
+* `add_line(), query()`: $O(\log V)$
+* `add_segment()`: $O(\log^2 V)$
+
+$V$ は $x$ が動く範囲.
 
 
 ## Verified with
 
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2725.test.cpp.html">test/verify/aoj-2725.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-line-add-get-min.test.cpp.html">test/verify/yosupo-line-add-get-min.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-segment-add-get-min.test.cpp.html">test/verify/yosupo-segment-add-get-min.test.cpp</a>
 
@@ -47,6 +79,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Dynamic-Li-Chao-Tree
+ * @docs docs/dynamic-li-chao-tree.md
+*/
 template< typename T, T x_low, T x_high, T id >
 struct DynamicLiChaoTree {
 
@@ -146,6 +182,10 @@ struct DynamicLiChaoTree {
 {% raw %}
 ```cpp
 #line 1 "structure/convex-hull-trick/dynamic-li-chao-tree.cpp"
+/**
+ * @brief Dynamic-Li-Chao-Tree
+ * @docs docs/dynamic-li-chao-tree.md
+*/
 template< typename T, T x_low, T x_high, T id >
 struct DynamicLiChaoTree {
 

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yukicoder-952.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-01 18:16:03+09:00
+    - Last commit date: 2020-08-20 03:24:24+09:00
 
 
 * see: <a href="https://yukicoder.me/problems/no/952">https://yukicoder.me/problems/no/952</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp.html">structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp</a>
+* :heavy_check_mark: <a href="../../../library/structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp.html">Convex-Hull-Trick-Add-Monotone <small>(structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -190,6 +190,10 @@ inline decltype(auto) MFP(F &&f) {
 #line 4 "test/verify/yukicoder-952.test.cpp"
 
 #line 1 "structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp"
+/**
+ * @brief Convex-Hull-Trick-Add-Monotone
+ * @docs docs/convex-hull-trick-add-monotone.md
+*/
 template< typename T, bool isMin >
 struct ConvexHullTrickAddMonotone {
 #define F first
