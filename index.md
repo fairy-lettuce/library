@@ -65,7 +65,7 @@ layout: default
 
 ### graph
 
-* :question: <a href="library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
 * :heavy_check_mark: <a href="library/graph/template.cpp.html">graph/template.cpp</a>
 
 
@@ -147,7 +147,7 @@ layout: default
 * :heavy_check_mark: <a href="library/graph/tree/centroid.cpp.html">Centroid(木の重心) <small>(graph/tree/centroid.cpp)</small></a>
 * :warning: <a href="library/graph/tree/convert-rooted-tree.cpp.html">Convert-Rooted-Tree(根付き木に変換) <small>(graph/tree/convert-rooted-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/doubling-lowest-common-ancestor.cpp.html">Doubling-Lowest-Common-Ancestor(最小共通祖先) <small>(graph/tree/doubling-lowest-common-ancestor.cpp)</small></a>
-* :question: <a href="library/graph/tree/heavy-light-decomposition.cpp.html">Heavy-Light-Decomposition(HL分解) <small>(graph/tree/heavy-light-decomposition.cpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/tree/heavy-light-decomposition.cpp.html">Heavy-Light-Decomposition(HL分解) <small>(graph/tree/heavy-light-decomposition.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/rerooting.cpp.html">graph/tree/rerooting.cpp</a>
 * :heavy_check_mark: <a href="library/graph/tree/tree-diameter.cpp.html">Tree-Diameter(木の直径) <small>(graph/tree/tree-diameter.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/tree-isomorphism.cpp.html">Tree-Isomorphism(木の同型性判定) <small>(graph/tree/tree-isomorphism.cpp)</small></a>
@@ -344,8 +344,8 @@ layout: default
 
 ### structure/trie
 
-* :x: <a href="library/structure/trie/binary-trie.cpp.html">Binary-Trie <small>(structure/trie/binary-trie.cpp)</small></a>
-* :x: <a href="library/structure/trie/persistent-binary-trie.cpp.html">Persistent-Binary-Trie <small>(structure/trie/persistent-binary-trie.cpp)</small></a>
+* :heavy_check_mark: <a href="library/structure/trie/binary-trie.cpp.html">Binary-Trie <small>(structure/trie/binary-trie.cpp)</small></a>
+* :warning: <a href="library/structure/trie/persistent-binary-trie.cpp.html">Persistent-Binary-Trie <small>(structure/trie/persistent-binary-trie.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/trie/trie.cpp.html">structure/trie/trie.cpp</a>
 
 
@@ -376,7 +376,7 @@ layout: default
 
 ### template
 
-* :question: <a href="library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="library/template/template.cpp.html">template/template.cpp</a>
 
 
 <div id="5a4423c79a88aeb6104a40a645f9430c"></div>
@@ -435,7 +435,6 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1508.test.cpp.html">test/verify/aoj-1508.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1595.test.cpp.html">test/verify/aoj-1595.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-1615.test.cpp.html">test/verify/aoj-1615.test.cpp</a>
-* :x: <a href="verify/test/verify/aoj-2270.test.cpp.html">test/verify/aoj-2270.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2306.test.cpp.html">test/verify/aoj-2306.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2405.test.cpp.html">test/verify/aoj-2405.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2415.test.cpp.html">test/verify/aoj-2415.test.cpp</a>
@@ -467,7 +466,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-dsl-1-a.test.cpp.html">test/verify/aoj-dsl-1-a.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-dsl-1-b.test.cpp.html">test/verify/aoj-dsl-1-b.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-dsl-2-a.test.cpp.html">test/verify/aoj-dsl-2-a.test.cpp</a>
-* :x: <a href="verify/test/verify/aoj-dsl-2-b-2.test.cpp.html">test/verify/aoj-dsl-2-b-2.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-dsl-2-b-2.test.cpp.html">test/verify/aoj-dsl-2-b-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-dsl-2-b.test.cpp.html">test/verify/aoj-dsl-2-b.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-dsl-2-d.test.cpp.html">test/verify/aoj-dsl-2-d.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-grl-1-a-2.test.cpp.html">test/verify/aoj-grl-1-a-2.test.cpp</a>
@@ -532,7 +531,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-rectangle-sum.test.cpp.html">test/verify/yosupo-rectangle-sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-scc.test.cpp.html">test/verify/yosupo-scc.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-segment-add-get-min.test.cpp.html">test/verify/yosupo-segment-add-get-min.test.cpp</a>
-* :x: <a href="verify/test/verify/yosupo-set-xor-min.test.cpp.html">test/verify/yosupo-set-xor-min.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-set-xor-min.test.cpp.html">test/verify/yosupo-set-xor-min.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sparse-matrix-det.test.cpp.html">test/verify/yosupo-sparse-matrix-det.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sqrt-mod.test.cpp.html">test/verify/yosupo-sqrt-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp.html">test/verify/yosupo-sqrt-of-formal-power-series.test.cpp</a>

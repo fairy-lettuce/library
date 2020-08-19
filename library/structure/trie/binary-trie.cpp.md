@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: Binary-Trie <small>(structure/trie/binary-trie.cpp)</small>
+# :heavy_check_mark: Binary-Trie <small>(structure/trie/binary-trie.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -61,9 +61,8 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/verify/aoj-2270.test.cpp.html">test/verify/aoj-2270.test.cpp</a>
-* :x: <a href="../../../verify/test/verify/aoj-dsl-2-b-2.test.cpp.html">test/verify/aoj-dsl-2-b-2.test.cpp</a>
-* :x: <a href="../../../verify/test/verify/yosupo-set-xor-min.test.cpp.html">test/verify/yosupo-set-xor-min.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/aoj-dsl-2-b-2.test.cpp.html">test/verify/aoj-dsl-2-b-2.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-set-xor-min.test.cpp.html">test/verify/yosupo-set-xor-min.test.cpp</a>
 
 
 ## Code

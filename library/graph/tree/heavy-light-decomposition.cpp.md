@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :question: Heavy-Light-Decomposition(HL分解) <small>(graph/tree/heavy-light-decomposition.cpp)</small>
+# :heavy_check_mark: Heavy-Light-Decomposition(HL分解) <small>(graph/tree/heavy-light-decomposition.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -39,7 +39,6 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/verify/aoj-2270.test.cpp.html">test/verify/aoj-2270.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2450.test.cpp.html">test/verify/aoj-2450.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2667.test.cpp.html">test/verify/aoj-2667.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-5-c-2.test.cpp.html">test/verify/aoj-grl-5-c-2.test.cpp</a>

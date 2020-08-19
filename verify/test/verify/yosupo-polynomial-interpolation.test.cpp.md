@@ -44,7 +44,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/math/fps/formal-power-series.cpp.html">math/fps/formal-power-series.cpp</a>
 * :heavy_check_mark: <a href="../../../library/math/fps/multipoint-evaluation.cpp.html">math/fps/multipoint-evaluation.cpp</a>
 * :heavy_check_mark: <a href="../../../library/math/fps/polynomial-interpolation.cpp.html">math/fps/polynomial-interpolation.cpp</a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

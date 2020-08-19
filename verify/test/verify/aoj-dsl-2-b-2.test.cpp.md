@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/verify/aoj-dsl-2-b-2.test.cpp
+# :heavy_check_mark: test/verify/aoj-dsl-2-b-2.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :x: <a href="../../../library/structure/trie/binary-trie.cpp.html">Binary-Trie <small>(structure/trie/binary-trie.cpp)</small></a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/structure/trie/binary-trie.cpp.html">Binary-Trie <small>(structure/trie/binary-trie.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

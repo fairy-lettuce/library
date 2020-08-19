@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: Persistent-Binary-Trie <small>(structure/trie/persistent-binary-trie.cpp)</small>
+# :warning: Persistent-Binary-Trie <small>(structure/trie/persistent-binary-trie.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -34,11 +34,6 @@ layout: default
     - Last commit date: 2020-08-14 17:23:13+09:00
 
 
-
-
-## Verified with
-
-* :x: <a href="../../../verify/test/verify/aoj-2270.test.cpp.html">test/verify/aoj-2270.test.cpp</a>
 
 
 ## Code
