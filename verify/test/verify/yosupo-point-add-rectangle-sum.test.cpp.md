@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-point-add-rectangle-sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-14 04:28:43+09:00
+    - Last commit date: 2020-08-20 02:05:47+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/point_add_rectangle_sum">https://judge.yosupo.jp/problem/point_add_rectangle_sum</a>
@@ -102,7 +102,7 @@ int main() {
   CompressedWaveletMatrixPointAddRectangleSum< int, 18, int64 > mat(ys, ws);
   for(int i = 0; i < Q; i++) {
     if(t[i] == 0) {
-      mat.point_add(a[i], b[i], c[i]);
+      mat.point_add(a[i], c[i]);
     } else {
       out.writeln(mat.rect_sum(a[i], c[i], b[i], d[i]));
     }
@@ -308,11 +308,12 @@ struct WaveletMatrixPointAddRectangleSum {
   size_t length;
   SuccinctIndexableDictionary matrix[MAXLOG];
   BinaryIndexedTree< D > ds[MAXLOG];
+  vector< T > v;
   int mid[MAXLOG];
 
   WaveletMatrixPointAddRectangleSum() = default;
 
-  WaveletMatrixPointAddRectangleSum(const vector< T > &v, const vector< D > &d) : length(v.size()) {
+  WaveletMatrixPointAddRectangleSum(const vector< T > &v, const vector< D > &d) : length(v.size()), v(v) {
     assert(v.size() == d.size());
     vector< int > l(length), r(length), ord(length);
     iota(begin(ord), end(ord), 0);
@@ -349,9 +350,14 @@ struct WaveletMatrixPointAddRectangleSum {
   D rect_sum(int l, int r, T upper) {
     D ret = 0;
     for(int level = MAXLOG - 1; level >= 0; level--) {
-      bool f = ((upper >> level) & 1);
-      if(f) ret += ds[level].query(matrix[level].rank(false, r) - 1) - ds[level].query(matrix[level].rank(false, l) - 1);
-      tie(l, r) = succ(f, l, r, level);
+      if(((upper >> level) & 1)) {
+        auto nxt = succ(false, l, r, level);
+        ret += ds[level].query(nxt.second - 1) - ds[level].query(nxt.first - 1);
+        l = l - nxt.first + mid[level];
+        r = r - nxt.second + mid[level];
+      } else {
+        tie(l, r) = succ(false, l, r, level);
+      }
     }
     return ret;
   }
@@ -360,7 +366,8 @@ struct WaveletMatrixPointAddRectangleSum {
     return rect_sum(l, r, upper) - rect_sum(l, r, lower);
   }
 
-  void point_add(int k, T y, const D &x) {
+  void point_add(int k, const D &x) {
+    auto &y = v[k];
     for(int level = MAXLOG - 1; level >= 0; level--) {
       bool f = ((y >> level) & 1);
       k = matrix[level].rank(f, k) + mid[level] * f;
@@ -394,8 +401,8 @@ struct CompressedWaveletMatrixPointAddRectangleSum {
     return mat.rect_sum(l, r, get(lower), get(upper));
   }
 
-  void point_add(int k, T y, const D &x) {
-    mat.point_add(k, get(y), x);
+  void point_add(int k, const D &x) {
+    mat.point_add(k, x);
   }
 };
 #line 9 "test/verify/yosupo-point-add-rectangle-sum.test.cpp"
@@ -603,7 +610,7 @@ int main() {
   CompressedWaveletMatrixPointAddRectangleSum< int, 18, int64 > mat(ys, ws);
   for(int i = 0; i < Q; i++) {
     if(t[i] == 0) {
-      mat.point_add(a[i], b[i], c[i]);
+      mat.point_add(a[i], c[i]);
     } else {
       out.writeln(mat.rect_sum(a[i], c[i], b[i], d[i]));
     }

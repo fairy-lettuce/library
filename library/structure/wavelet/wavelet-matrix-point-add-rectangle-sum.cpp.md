@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5f498e54a9680c92dbc18487ab14a24d">structure/wavelet</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-14 04:28:43+09:00
+    - Last commit date: 2020-08-20 02:05:47+09:00
 
 
 
@@ -42,13 +42,15 @@ $2$ 次元平面上にある点の位置が事前に与えられているとき,
 
 Wavelet-Matrix-Rectangle-Sum で用いた重みの累積和を持たせた配列をBinary-Indexed-Tree に置き換えると, ある点に対する重みの加算を効率的に行える.
 
+基本的には事前に高さを要素数に圧縮する CompressedWaveletMatrixPointAddRectangleSum を用いると高速に動作する.
+
 ## 使い方
 * `WaveletMatrixRectangleSum(v, d)`: 各要素の高さ `v` , 対応する要素の重み `d` >を初期値として構築する.
 * `rect_sum(l, r, upper)`: 区間 $[l, r)$ の高さ $[0, upper)$ にある要素の重みの>
 総和を返す.
 * `rect_sum(l, r, lower, upper)`: 区間 $[l, r)$ の高さ $[lower, upper)$ にある要
 素の重みの総和を返す.
-* `point_add(k, y, x)`: 要素 $k$ (高さ $y$) の重みに $x$ を加算する.
+* `point_add(k, x)`: 要素 $k$ の重みに $x$ を加算する.
 
 ## 計算量
 
@@ -77,11 +79,12 @@ struct WaveletMatrixPointAddRectangleSum {
   size_t length;
   SuccinctIndexableDictionary matrix[MAXLOG];
   BinaryIndexedTree< D > ds[MAXLOG];
+  vector< T > v;
   int mid[MAXLOG];
 
   WaveletMatrixPointAddRectangleSum() = default;
 
-  WaveletMatrixPointAddRectangleSum(const vector< T > &v, const vector< D > &d) : length(v.size()) {
+  WaveletMatrixPointAddRectangleSum(const vector< T > &v, const vector< D > &d) : length(v.size()), v(v) {
     assert(v.size() == d.size());
     vector< int > l(length), r(length), ord(length);
     iota(begin(ord), end(ord), 0);
@@ -118,9 +121,14 @@ struct WaveletMatrixPointAddRectangleSum {
   D rect_sum(int l, int r, T upper) {
     D ret = 0;
     for(int level = MAXLOG - 1; level >= 0; level--) {
-      bool f = ((upper >> level) & 1);
-      if(f) ret += ds[level].query(matrix[level].rank(false, r) - 1) - ds[level].query(matrix[level].rank(false, l) - 1);
-      tie(l, r) = succ(f, l, r, level);
+      if(((upper >> level) & 1)) {
+        auto nxt = succ(false, l, r, level);
+        ret += ds[level].query(nxt.second - 1) - ds[level].query(nxt.first - 1);
+        l = l - nxt.first + mid[level];
+        r = r - nxt.second + mid[level];
+      } else {
+        tie(l, r) = succ(false, l, r, level);
+      }
     }
     return ret;
   }
@@ -129,7 +137,8 @@ struct WaveletMatrixPointAddRectangleSum {
     return rect_sum(l, r, upper) - rect_sum(l, r, lower);
   }
 
-  void point_add(int k, T y, const D &x) {
+  void point_add(int k, const D &x) {
+    auto &y = v[k];
     for(int level = MAXLOG - 1; level >= 0; level--) {
       bool f = ((y >> level) & 1);
       k = matrix[level].rank(f, k) + mid[level] * f;
@@ -163,8 +172,8 @@ struct CompressedWaveletMatrixPointAddRectangleSum {
     return mat.rect_sum(l, r, get(lower), get(upper));
   }
 
-  void point_add(int k, T y, const D &x) {
-    mat.point_add(k, get(y), x);
+  void point_add(int k, const D &x) {
+    mat.point_add(k, x);
   }
 };
 
@@ -184,11 +193,12 @@ struct WaveletMatrixPointAddRectangleSum {
   size_t length;
   SuccinctIndexableDictionary matrix[MAXLOG];
   BinaryIndexedTree< D > ds[MAXLOG];
+  vector< T > v;
   int mid[MAXLOG];
 
   WaveletMatrixPointAddRectangleSum() = default;
 
-  WaveletMatrixPointAddRectangleSum(const vector< T > &v, const vector< D > &d) : length(v.size()) {
+  WaveletMatrixPointAddRectangleSum(const vector< T > &v, const vector< D > &d) : length(v.size()), v(v) {
     assert(v.size() == d.size());
     vector< int > l(length), r(length), ord(length);
     iota(begin(ord), end(ord), 0);
@@ -225,9 +235,14 @@ struct WaveletMatrixPointAddRectangleSum {
   D rect_sum(int l, int r, T upper) {
     D ret = 0;
     for(int level = MAXLOG - 1; level >= 0; level--) {
-      bool f = ((upper >> level) & 1);
-      if(f) ret += ds[level].query(matrix[level].rank(false, r) - 1) - ds[level].query(matrix[level].rank(false, l) - 1);
-      tie(l, r) = succ(f, l, r, level);
+      if(((upper >> level) & 1)) {
+        auto nxt = succ(false, l, r, level);
+        ret += ds[level].query(nxt.second - 1) - ds[level].query(nxt.first - 1);
+        l = l - nxt.first + mid[level];
+        r = r - nxt.second + mid[level];
+      } else {
+        tie(l, r) = succ(false, l, r, level);
+      }
     }
     return ret;
   }
@@ -236,7 +251,8 @@ struct WaveletMatrixPointAddRectangleSum {
     return rect_sum(l, r, upper) - rect_sum(l, r, lower);
   }
 
-  void point_add(int k, T y, const D &x) {
+  void point_add(int k, const D &x) {
+    auto &y = v[k];
     for(int level = MAXLOG - 1; level >= 0; level--) {
       bool f = ((y >> level) & 1);
       k = matrix[level].rank(f, k) + mid[level] * f;
@@ -270,8 +286,8 @@ struct CompressedWaveletMatrixPointAddRectangleSum {
     return mat.rect_sum(l, r, get(lower), get(upper));
   }
 
-  void point_add(int k, T y, const D &x) {
-    mat.point_add(k, get(y), x);
+  void point_add(int k, const D &x) {
+    mat.point_add(k, x);
   }
 };
 
