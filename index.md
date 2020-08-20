@@ -135,6 +135,7 @@ layout: default
 * :heavy_check_mark: <a href="library/graph/shortest-path/dijkstra-radix-heap.cpp.html">Dijkstra-Radix-Heap(単一始点最短路) <small>(graph/shortest-path/dijkstra-radix-heap.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/shortest-path/dijkstra.cpp.html">Dijkstra(単一始点最短路) <small>(graph/shortest-path/dijkstra.cpp)</small></a>
 * :warning: <a href="library/graph/shortest-path/grid-bfs.cpp.html">graph/shortest-path/grid-bfs.cpp</a>
+* :heavy_check_mark: <a href="library/graph/shortest-path/k-shortest-walk.cpp.html">K-Shortest-Walk <small>(graph/shortest-path/k-shortest-walk.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/shortest-path/shortest-path-faster-algorithm.cpp.html">Shortest-Path-Faster-Algorithm(単一始点最短路) <small>(graph/shortest-path/shortest-path-faster-algorithm.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/shortest-path/warshall-floyd.cpp.html">graph/shortest-path/warshall-floyd.cpp</a>
 
@@ -307,6 +308,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/structure/heap/fibonacchi-heap.cpp.html">Fibonacchi-Heap(フィボナッチヒープ) <small>(structure/heap/fibonacchi-heap.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/heap/leftist-heap.cpp.html">Leftist-Heap <small>(structure/heap/leftist-heap.cpp)</small></a>
+* :heavy_check_mark: <a href="library/structure/heap/persistent-leftist-heap.cpp.html">Persistent-Leftist-Heap <small>(structure/heap/persistent-leftist-heap.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/heap/radix-heap.cpp.html">structure/heap/radix-heap.cpp</a>
 * :heavy_check_mark: <a href="library/structure/heap/skew-heap.cpp.html">structure/heap/skew-heap.cpp</a>
 
@@ -515,6 +517,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-frequency-table-of-tree-distance.test.cpp.html">test/verify/yosupo-frequency-table-of-tree-distance.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-general-matching.test.cpp.html">test/verify/yosupo-general-matching.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-inv-of-formal-power-series.test.cpp.html">test/verify/yosupo-inv-of-formal-power-series.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-k-shortest-walk.test.cpp.html">test/verify/yosupo-k-shortest-walk.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-kth-root-integer.test.cpp.html">test/verify/yosupo-kth-root-integer.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-line-add-get-min.test.cpp.html">test/verify/yosupo-line-add-get-min.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-log-of-formal-power-series.test.cpp.html">test/verify/yosupo-log-of-formal-power-series.test.cpp</a>

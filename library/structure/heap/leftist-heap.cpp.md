@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#36999f024b84f3ad86db908172fedb57">structure/heap</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/heap/leftist-heap.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-20 22:49:30+09:00
+    - Last commit date: 2020-08-21 01:30:35+09:00
 
 
 
@@ -39,6 +39,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-alds-1-9-c.test.cpp.html">test/verify/aoj-alds-1-9-c.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-k-shortest-walk.test.cpp.html">test/verify/yosupo-k-shortest-walk.test.cpp</a>
 
 
 ## Code
@@ -55,8 +56,9 @@ struct LeftistHeap {
     Node *l, *r;
     int s;
     T key;
+    int idx;
 
-    explicit Node(const T &key) : key(key), s(1), l(nullptr), r(nullptr) {}
+    explicit Node(const T &key, int idx) : key(key), s(1), l(nullptr), r(nullptr), idx(idx) {}
   };
 
   LeftistHeap() = default;
@@ -65,8 +67,8 @@ struct LeftistHeap {
     return t;
   }
 
-  Node *alloc(const T &key) {
-    return new Node(key);
+  Node *alloc(const T &key, int idx = -1) {
+    return new Node(key, idx);
   }
 
   Node *meld(Node *a, Node *b) {
@@ -79,15 +81,13 @@ struct LeftistHeap {
     return a;
   }
 
-  Node *push(Node *t, const T &key) {
-    return meld(t, alloc(key));
+  Node *push(Node *t, const T &key, int idx = -1) {
+    return meld(t, alloc(key, idx));
   }
 
   Node *pop(Node *t) {
     assert(t != nullptr);
-    auto ret = meld(t->l, t->r);
-    delete t;
-    return ret;
+    return meld(t->l, t->r);
   }
 
   Node *make_root() {
@@ -111,8 +111,9 @@ struct LeftistHeap {
     Node *l, *r;
     int s;
     T key;
+    int idx;
 
-    explicit Node(const T &key) : key(key), s(1), l(nullptr), r(nullptr) {}
+    explicit Node(const T &key, int idx) : key(key), s(1), l(nullptr), r(nullptr), idx(idx) {}
   };
 
   LeftistHeap() = default;
@@ -121,8 +122,8 @@ struct LeftistHeap {
     return t;
   }
 
-  Node *alloc(const T &key) {
-    return new Node(key);
+  Node *alloc(const T &key, int idx = -1) {
+    return new Node(key, idx);
   }
 
   Node *meld(Node *a, Node *b) {
@@ -135,15 +136,13 @@ struct LeftistHeap {
     return a;
   }
 
-  Node *push(Node *t, const T &key) {
-    return meld(t, alloc(key));
+  Node *push(Node *t, const T &key, int idx = -1) {
+    return meld(t, alloc(key, idx));
   }
 
   Node *pop(Node *t) {
     assert(t != nullptr);
-    auto ret = meld(t->l, t->r);
-    delete t;
-    return ret;
+    return meld(t->l, t->r);
   }
 
   Node *make_root() {

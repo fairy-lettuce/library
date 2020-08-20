@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#73feb47c464a017d041247d88424b879">graph/shortest-path</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/shortest-path/dijkstra.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-10 20:09:21+09:00
+    - Last commit date: 2020-08-21 01:30:35+09:00
 
 
 
@@ -40,7 +40,7 @@ layout: default
 
 負辺のないグラフで単一始点全点間最短路を求めるアルゴリズム. 各地点でもっとも近い頂点から距離が確定していく. 距離順でソートされたヒープを用いると, 効率よく距離を確定していくことができる.
 
-* `dijkstra(g, s)`: 重み付きグラフ `g` で, 頂点 `s` から全点間の最短コストを求める. 到達できない頂点には, 型の最大値が格納される.
+* `dijkstra(g, s)`: 重み付きグラフ `g` で, 頂点 `s` から全点間の最短コストを求める. `dist` には最短コスト(到達できないとき型の最大値), `from` にはその頂点の直前に訪れた頂点(頂点 `s` または到達できない頂点は $-1$), `id` はその頂点の直前に使った辺番号が格納される.
 
 ## 計算量
 
@@ -51,6 +51,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-0275.test.cpp.html">test/verify/aoj-0275.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-1-a.test.cpp.html">test/verify/aoj-grl-1-a.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-k-shortest-walk.test.cpp.html">test/verify/yosupo-k-shortest-walk.test.cpp</a>
 
 
 ## Code
@@ -63,10 +64,16 @@ layout: default
  * @docs docs/dijkstra.md
  */
 template< typename T >
-vector< T > dijkstra(const Graph< T > &g, int s) {
+struct ShortestPath {
+  vector< T > dist;
+  vector< int > from, id;
+};
+
+template< typename T >
+ShortestPath< T > dijkstra(const Graph< T > &g, int s) {
   const auto INF = numeric_limits< T >::max();
   vector< T > dist(g.size(), INF);
-
+  vector< int > from(g.size(), -1), id(g.size(), -1);
   using Pi = pair< T, int >;
   priority_queue< Pi, vector< Pi >, greater<> > que;
   dist[s] = 0;
@@ -81,10 +88,12 @@ vector< T > dijkstra(const Graph< T > &g, int s) {
       auto next_cost = cost + e.cost;
       if(dist[e.to] <= next_cost) continue;
       dist[e.to] = next_cost;
+      from[e.to] = idx;
+      id[e.to] = e.idx;
       que.emplace(dist[e.to], e.to);
     }
   }
-  return dist;
+  return {dist, from, id};
 }
 
 ```
@@ -99,10 +108,16 @@ vector< T > dijkstra(const Graph< T > &g, int s) {
  * @docs docs/dijkstra.md
  */
 template< typename T >
-vector< T > dijkstra(const Graph< T > &g, int s) {
+struct ShortestPath {
+  vector< T > dist;
+  vector< int > from, id;
+};
+
+template< typename T >
+ShortestPath< T > dijkstra(const Graph< T > &g, int s) {
   const auto INF = numeric_limits< T >::max();
   vector< T > dist(g.size(), INF);
-
+  vector< int > from(g.size(), -1), id(g.size(), -1);
   using Pi = pair< T, int >;
   priority_queue< Pi, vector< Pi >, greater<> > que;
   dist[s] = 0;
@@ -117,10 +132,12 @@ vector< T > dijkstra(const Graph< T > &g, int s) {
       auto next_cost = cost + e.cost;
       if(dist[e.to] <= next_cost) continue;
       dist[e.to] = next_cost;
+      from[e.to] = idx;
+      id[e.to] = e.idx;
       que.emplace(dist[e.to], e.to);
     }
   }
-  return dist;
+  return {dist, from, id};
 }
 
 ```

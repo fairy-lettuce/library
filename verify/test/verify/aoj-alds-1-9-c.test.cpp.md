@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-alds-1-9-c.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-20 22:49:30+09:00
+    - Last commit date: 2020-08-21 01:30:35+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_9_C">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_9_C</a>
@@ -178,8 +178,9 @@ struct LeftistHeap {
     Node *l, *r;
     int s;
     T key;
+    int idx;
 
-    explicit Node(const T &key) : key(key), s(1), l(nullptr), r(nullptr) {}
+    explicit Node(const T &key, int idx) : key(key), s(1), l(nullptr), r(nullptr), idx(idx) {}
   };
 
   LeftistHeap() = default;
@@ -188,8 +189,8 @@ struct LeftistHeap {
     return t;
   }
 
-  Node *alloc(const T &key) {
-    return new Node(key);
+  Node *alloc(const T &key, int idx = -1) {
+    return new Node(key, idx);
   }
 
   Node *meld(Node *a, Node *b) {
@@ -202,15 +203,13 @@ struct LeftistHeap {
     return a;
   }
 
-  Node *push(Node *t, const T &key) {
-    return meld(t, alloc(key));
+  Node *push(Node *t, const T &key, int idx = -1) {
+    return meld(t, alloc(key, idx));
   }
 
   Node *pop(Node *t) {
     assert(t != nullptr);
-    auto ret = meld(t->l, t->r);
-    delete t;
-    return ret;
+    return meld(t->l, t->r);
   }
 
   Node *make_root() {
