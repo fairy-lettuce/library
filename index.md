@@ -86,9 +86,9 @@ layout: default
 
 * :heavy_check_mark: <a href="library/graph/flow/bipartite-flow.cpp.html">Bipartite-Flow(二部グラフのフロー) <small>(graph/flow/bipartite-flow.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/flow/bipartite-matching.cpp.html">Bipartite-Matching(二部グラフの最大マッチング) <small>(graph/flow/bipartite-matching.cpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/flow/dinic-capacity-scaling.cpp.html">graph/flow/dinic-capacity-scaling.cpp</a>
-* :heavy_check_mark: <a href="library/graph/flow/dinic.cpp.html">graph/flow/dinic.cpp</a>
-* :heavy_check_mark: <a href="library/graph/flow/ford-fulkerson.cpp.html">graph/flow/ford-fulkerson.cpp</a>
+* :heavy_check_mark: <a href="library/graph/flow/dinic-capacity-scaling.cpp.html">Dinic-Capacity-Scaling(最大流) <small>(graph/flow/dinic-capacity-scaling.cpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/flow/dinic.cpp.html">Dinic(最大流) <small>(graph/flow/dinic.cpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/flow/ford-fulkerson.cpp.html">Ford-Fulkerson(最大流) <small>(graph/flow/ford-fulkerson.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/flow/gabow-edmonds.cpp.html">graph/flow/gabow-edmonds.cpp</a>
 * :heavy_check_mark: <a href="library/graph/flow/hungarian.cpp.html">graph/flow/hungarian.cpp</a>
 * :heavy_check_mark: <a href="library/graph/flow/maxflow-lower-bound.cpp.html">graph/flow/maxflow-lower-bound.cpp</a>

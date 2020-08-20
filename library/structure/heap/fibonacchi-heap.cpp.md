@@ -31,9 +31,10 @@ layout: default
 
 * category: <a href="../../../index.html#36999f024b84f3ad86db908172fedb57">structure/heap</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/heap/fibonacchi-heap.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-30 02:08:59+09:00
+    - Last commit date: 2020-08-20 17:25:40+09:00
 
 
+* see: <a href="https://www.cs.princeton.edu/~wayne/teaching/fibonacci-heap.pdf">https://www.cs.princeton.edu/~wayne/teaching/fibonacci-heap.pdf</a>
 
 
 ## Verified with
@@ -49,6 +50,7 @@ layout: default
 ```cpp
 /**
  * @brief Fibonacchi-Heap(フィボナッチヒープ)
+ * @see https://www.cs.princeton.edu/~wayne/teaching/fibonacci-heap.pdf
  */
 template< typename key_t, typename val_t >
 struct FibonacchiHeap {
@@ -227,6 +229,7 @@ struct FibonacchiHeap {
 #line 1 "structure/heap/fibonacchi-heap.cpp"
 /**
  * @brief Fibonacchi-Heap(フィボナッチヒープ)
+ * @see https://www.cs.princeton.edu/~wayne/teaching/fibonacci-heap.pdf
  */
 template< typename key_t, typename val_t >
 struct FibonacchiHeap {

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-1-a-2.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-10 20:09:21+09:00
+    - Last commit date: 2020-08-20 17:25:40+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A</a>
@@ -223,6 +223,7 @@ using Edges = vector< Edge< T > >;
 #line 1 "structure/heap/fibonacchi-heap.cpp"
 /**
  * @brief Fibonacchi-Heap(フィボナッチヒープ)
+ * @see https://www.cs.princeton.edu/~wayne/teaching/fibonacci-heap.pdf
  */
 template< typename key_t, typename val_t >
 struct FibonacchiHeap {

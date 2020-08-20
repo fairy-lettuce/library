@@ -25,15 +25,36 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: graph/flow/dinic.cpp
+# :heavy_check_mark: Dinic(最大流) <small>(graph/flow/dinic.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#2af6c4bb6ad7cfa010303133dc15971f">graph/flow</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/flow/dinic.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-08-20 17:25:40+09:00
 
 
+
+
+## 概要
+
+最大流を求めるアルゴリズム.
+
+残余グラフ上の辺数最小のパスを BFS により探して, DFS により増加パスがとれなくなるまでフローを流すことを繰り返し, 流せなくなったら終了する.
+
+## 使い方
+
+* `Dinic(V)`: 頂点数 `V` で初期化する.
+* `add_edge(from, to, cap, idx = -1)`: 頂点 `from` から `to` に容量 `cap` の辺を追加する.
+* `max_flow(s, t)`: 頂点 `s` から `t` に最大流を流し, その流量を返す.
+
+## 計算量
+
+$O(EV^2)$
+
+実測では高速に動作することが多いが, ネットワークが直接入力で与えられるなど最悪ケースを構成できる場合は遅いのでその場合は Push-Relabel などの別の最大流アルゴリズムを検討する必要がある.
+ 
+$2$ 部グラフの最大マッチングのとき $O(E \sqrt V)$, 辺容量が全て同じ場合 $O(\min (V^{\frac {2} {3}}, E^{\frac {1} {2}}) E)$ となる.
 
 
 ## Verified with
@@ -47,6 +68,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Dinic(最大流)
+ * @docs docs/dinic.md
+ */
 template< typename flow_t >
 struct Dinic {
   const flow_t INF;
@@ -62,14 +87,14 @@ struct Dinic {
   vector< vector< edge > > graph;
   vector< int > min_cost, iter;
 
-  Dinic(int V) : INF(numeric_limits< flow_t >::max()), graph(V) {}
+  explicit Dinic(int V) : INF(numeric_limits< flow_t >::max()), graph(V) {}
 
   void add_edge(int from, int to, flow_t cap, int idx = -1) {
     graph[from].emplace_back((edge) {to, cap, (int) graph[to].size(), false, idx});
     graph[to].emplace_back((edge) {from, 0, (int) graph[from].size() - 1, true, idx});
   }
 
-  bool bfs(int s, int t) {
+  bool build_augment_path(int s, int t) {
     min_cost.assign(graph.size(), -1);
     queue< int > que;
     min_cost[s] = 0;
@@ -87,12 +112,12 @@ struct Dinic {
     return min_cost[t] != -1;
   }
 
-  flow_t dfs(int idx, const int t, flow_t flow) {
+  flow_t find_min_dist_augment_path(int idx, const int t, flow_t flow) {
     if(idx == t) return flow;
     for(int &i = iter[idx]; i < graph[idx].size(); i++) {
       edge &e = graph[idx][i];
       if(e.cap > 0 && min_cost[idx] < min_cost[e.to]) {
-        flow_t d = dfs(e.to, t, min(flow, e.cap));
+        flow_t d = find_min_dist_augment_path(e.to, t, min(flow, e.cap));
         if(d > 0) {
           e.cap -= d;
           graph[e.to][e.rev].cap += d;
@@ -105,10 +130,10 @@ struct Dinic {
 
   flow_t max_flow(int s, int t) {
     flow_t flow = 0;
-    while(bfs(s, t)) {
+    while(build_augment_path(s, t)) {
       iter.assign(graph.size(), 0);
-      flow_t f = 0;
-      while((f = dfs(s, t, INF)) > 0) flow += f;
+      flow_t f;
+      while((f = find_min_dist_augment_path(s, t, INF)) > 0) flow += f;
     }
     return flow;
   }
@@ -131,6 +156,10 @@ struct Dinic {
 {% raw %}
 ```cpp
 #line 1 "graph/flow/dinic.cpp"
+/**
+ * @brief Dinic(最大流)
+ * @docs docs/dinic.md
+ */
 template< typename flow_t >
 struct Dinic {
   const flow_t INF;
@@ -146,14 +175,14 @@ struct Dinic {
   vector< vector< edge > > graph;
   vector< int > min_cost, iter;
 
-  Dinic(int V) : INF(numeric_limits< flow_t >::max()), graph(V) {}
+  explicit Dinic(int V) : INF(numeric_limits< flow_t >::max()), graph(V) {}
 
   void add_edge(int from, int to, flow_t cap, int idx = -1) {
     graph[from].emplace_back((edge) {to, cap, (int) graph[to].size(), false, idx});
     graph[to].emplace_back((edge) {from, 0, (int) graph[from].size() - 1, true, idx});
   }
 
-  bool bfs(int s, int t) {
+  bool build_augment_path(int s, int t) {
     min_cost.assign(graph.size(), -1);
     queue< int > que;
     min_cost[s] = 0;
@@ -171,12 +200,12 @@ struct Dinic {
     return min_cost[t] != -1;
   }
 
-  flow_t dfs(int idx, const int t, flow_t flow) {
+  flow_t find_min_dist_augment_path(int idx, const int t, flow_t flow) {
     if(idx == t) return flow;
     for(int &i = iter[idx]; i < graph[idx].size(); i++) {
       edge &e = graph[idx][i];
       if(e.cap > 0 && min_cost[idx] < min_cost[e.to]) {
-        flow_t d = dfs(e.to, t, min(flow, e.cap));
+        flow_t d = find_min_dist_augment_path(e.to, t, min(flow, e.cap));
         if(d > 0) {
           e.cap -= d;
           graph[e.to][e.rev].cap += d;
@@ -189,10 +218,10 @@ struct Dinic {
 
   flow_t max_flow(int s, int t) {
     flow_t flow = 0;
-    while(bfs(s, t)) {
+    while(build_augment_path(s, t)) {
       iter.assign(graph.size(), 0);
-      flow_t f = 0;
-      while((f = dfs(s, t, INF)) > 0) flow += f;
+      flow_t f;
+      while((f = find_min_dist_augment_path(s, t, INF)) > 0) flow += f;
     }
     return flow;
   }

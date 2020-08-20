@@ -25,15 +25,34 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: graph/flow/ford-fulkerson.cpp
+# :heavy_check_mark: Ford-Fulkerson(最大流) <small>(graph/flow/ford-fulkerson.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#2af6c4bb6ad7cfa010303133dc15971f">graph/flow</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/flow/ford-fulkerson.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-08-20 17:25:40+09:00
 
 
+
+
+## 概要
+
+最大流を求めるアルゴリズム.
+
+DFS により増加パスがとれなくなるまでフローを流すことを繰り返し, 流せなくなったら終了する.
+
+## 使い方
+
+* `FordFulkerson(V)`: 頂点数 `V` で初期化する.
+* `add_edge(from, to, cap, idx = -1)`: 頂点 `from` から `to` に容量 `cap` の辺を追加する.
+* `max_flow(s, t)`: 頂点 `s` から `t` に最大流を流し, その流量を返す.
+
+## 計算量
+
+$O(FE)$
+
+$F$ は最大流
 
 
 ## Verified with
@@ -46,6 +65,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief Ford-Fulkerson(最大流)
+ * @docs docs/ford-fulkerson.md
+ */
 template< typename flow_t >
 struct FordFulkerson {
   struct edge {
@@ -61,22 +84,19 @@ struct FordFulkerson {
   const flow_t INF;
   int timestamp;
 
-  FordFulkerson(int n) : INF(numeric_limits< flow_t >::max()), timestamp(0) {
-    graph.resize(n);
-    used.assign(n, -1);
-  }
+  explicit FordFulkerson(int V) : INF(numeric_limits< flow_t >::max()), graph(V), used(V, -1), timestamp(0) {}
 
   void add_edge(int from, int to, flow_t cap, int idx = -1) {
     graph[from].emplace_back((edge) {to, cap, (int) graph[to].size(), false, idx});
     graph[to].emplace_back((edge) {from, 0, (int) graph[from].size() - 1, true, idx});
   }
 
-  flow_t dfs(int idx, const int t, flow_t flow) {
+  flow_t find_augment_path(int idx, const int t, flow_t flow) {
     if(idx == t) return flow;
     used[idx] = timestamp;
     for(auto &e : graph[idx]) {
       if(e.cap > 0 && used[e.to] != timestamp) {
-        flow_t d = dfs(e.to, t, min(flow, e.cap));
+        flow_t d = find_augment_path(e.to, t, min(flow, e.cap));
         if(d > 0) {
           e.cap -= d;
           graph[e.to][e.rev].cap += d;
@@ -89,7 +109,7 @@ struct FordFulkerson {
 
   flow_t max_flow(int s, int t) {
     flow_t flow = 0;
-    for(flow_t f; (f = dfs(s, t, INF)) > 0; timestamp++) {
+    for(flow_t f; (f = find_augment_path(s, t, INF)) > 0; timestamp++) {
       flow += f;
     }
     return flow;
@@ -113,6 +133,10 @@ struct FordFulkerson {
 {% raw %}
 ```cpp
 #line 1 "graph/flow/ford-fulkerson.cpp"
+/**
+ * @brief Ford-Fulkerson(最大流)
+ * @docs docs/ford-fulkerson.md
+ */
 template< typename flow_t >
 struct FordFulkerson {
   struct edge {
@@ -128,22 +152,19 @@ struct FordFulkerson {
   const flow_t INF;
   int timestamp;
 
-  FordFulkerson(int n) : INF(numeric_limits< flow_t >::max()), timestamp(0) {
-    graph.resize(n);
-    used.assign(n, -1);
-  }
+  explicit FordFulkerson(int V) : INF(numeric_limits< flow_t >::max()), graph(V), used(V, -1), timestamp(0) {}
 
   void add_edge(int from, int to, flow_t cap, int idx = -1) {
     graph[from].emplace_back((edge) {to, cap, (int) graph[to].size(), false, idx});
     graph[to].emplace_back((edge) {from, 0, (int) graph[from].size() - 1, true, idx});
   }
 
-  flow_t dfs(int idx, const int t, flow_t flow) {
+  flow_t find_augment_path(int idx, const int t, flow_t flow) {
     if(idx == t) return flow;
     used[idx] = timestamp;
     for(auto &e : graph[idx]) {
       if(e.cap > 0 && used[e.to] != timestamp) {
-        flow_t d = dfs(e.to, t, min(flow, e.cap));
+        flow_t d = find_augment_path(e.to, t, min(flow, e.cap));
         if(d > 0) {
           e.cap -= d;
           graph[e.to][e.rev].cap += d;
@@ -156,7 +177,7 @@ struct FordFulkerson {
 
   flow_t max_flow(int s, int t) {
     flow_t flow = 0;
-    for(flow_t f; (f = dfs(s, t, INF)) > 0; timestamp++) {
+    for(flow_t f; (f = find_augment_path(s, t, INF)) > 0; timestamp++) {
       flow += f;
     }
     return flow;
