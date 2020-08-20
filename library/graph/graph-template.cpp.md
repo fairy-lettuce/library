@@ -66,6 +66,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-frequency-table-of-tree-distance.test.cpp.html">test/verify/yosupo-frequency-table-of-tree-distance.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-k-shortest-walk.test.cpp.html">test/verify/yosupo-k-shortest-walk.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-scc.test.cpp.html">test/verify/yosupo-scc.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-shortest-path.test.cpp.html">test/verify/yosupo-shortest-path.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-three-edge-connected-components.test.cpp.html">test/verify/yosupo-three-edge-connected-components.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-two-edge-connected-components.test.cpp.html">test/verify/yosupo-two-edge-connected-components.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-two-sat.test.cpp.html">test/verify/yosupo-two-sat.test.cpp</a>

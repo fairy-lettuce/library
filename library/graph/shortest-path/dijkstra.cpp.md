@@ -52,6 +52,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-0275.test.cpp.html">test/verify/aoj-0275.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-1-a.test.cpp.html">test/verify/aoj-grl-1-a.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-k-shortest-walk.test.cpp.html">test/verify/yosupo-k-shortest-walk.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-shortest-path.test.cpp.html">test/verify/yosupo-shortest-path.test.cpp</a>
 
 
 ## Code
