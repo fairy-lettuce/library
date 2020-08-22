@@ -135,6 +135,7 @@ layout: default
 * :heavy_check_mark: <a href="library/graph/shortest-path/dijkstra-radix-heap.cpp.html">Dijkstra-Radix-Heap(単一始点最短路) <small>(graph/shortest-path/dijkstra-radix-heap.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/shortest-path/dijkstra.cpp.html">Dijkstra(単一始点最短路) <small>(graph/shortest-path/dijkstra.cpp)</small></a>
 * :warning: <a href="library/graph/shortest-path/grid-bfs.cpp.html">graph/shortest-path/grid-bfs.cpp</a>
+* :heavy_check_mark: <a href="library/graph/shortest-path/k-shortest-path.cpp.html">K-Shortest-Path <small>(graph/shortest-path/k-shortest-path.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/shortest-path/k-shortest-walk.cpp.html">K-Shortest-Walk <small>(graph/shortest-path/k-shortest-walk.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/shortest-path/shortest-path-faster-algorithm.cpp.html">Shortest-Path-Faster-Algorithm(単一始点最短路) <small>(graph/shortest-path/shortest-path-faster-algorithm.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/shortest-path/warshall-floyd.cpp.html">graph/shortest-path/warshall-floyd.cpp</a>
@@ -559,6 +560,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-two-edge-connected-components.test.cpp.html">test/verify/yosupo-two-edge-connected-components.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-two-sat.test.cpp.html">test/verify/yosupo-two-sat.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-1002.test.cpp.html">test/verify/yukicoder-1002.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yukicoder-1069.test.cpp.html">test/verify/yukicoder-1069.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-184.test.cpp.html">test/verify/yukicoder-184.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-430.test.cpp.html">test/verify/yukicoder-430.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yukicoder-583.test.cpp.html">test/verify/yukicoder-583.test.cpp</a>
