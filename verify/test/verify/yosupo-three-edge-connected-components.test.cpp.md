@@ -42,8 +42,8 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/graph/connected-components/incremental-bridge-connectivity.cpp.html">Incremental-Bridge-Connectivity <small>(graph/connected-components/incremental-bridge-connectivity.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/graph/connected-components/three-edge-connected-components.cpp.html">Three-Edge-Connected-Components(三重辺連結成分分解) <small>(graph/connected-components/three-edge-connected-components.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
-* :question: <a href="../../../library/structure/union-find/union-find.cpp.html">Union-Find <small>(structure/union-find/union-find.cpp)</small></a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/structure/union-find/union-find.cpp.html">Union-Find <small>(structure/union-find/union-find.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

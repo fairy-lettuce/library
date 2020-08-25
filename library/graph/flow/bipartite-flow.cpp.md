@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :question: Bipartite-Flow(二部グラフのフロー) <small>(graph/flow/bipartite-flow.cpp)</small>
+# :heavy_check_mark: Bipartite-Flow(二部グラフのフロー) <small>(graph/flow/bipartite-flow.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -90,7 +90,7 @@ DAGの最小パス被覆は二部グラフの最大マッチング問題に帰�
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-0334.test.cpp.html">test/verify/aoj-0334.test.cpp</a>
-* :x: <a href="../../../verify/test/verify/yosupo-bipartite-edge-coloring.test.cpp.html">test/verify/yosupo-bipartite-edge-coloring.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-bipartite-edge-coloring.test.cpp.html">test/verify/yosupo-bipartite-edge-coloring.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-bipartitematching.test.cpp.html">test/verify/yosupo-bipartitematching.test.cpp</a>
 
 

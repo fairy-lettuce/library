@@ -42,7 +42,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
 * :heavy_check_mark: <a href="../../../library/other/vector-pool.cpp.html">other/vector-pool.cpp</a>
 * :heavy_check_mark: <a href="../../../library/structure/bbst/lazy-weight-balanced-tree.cpp.html">Lazy-Weight-Balanced-Tree(遅延伝搬重み平衡木) <small>(structure/bbst/lazy-weight-balanced-tree.cpp)</small></a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

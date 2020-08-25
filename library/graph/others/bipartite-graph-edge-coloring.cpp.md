@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: Bipartite-Graph-Edge-Coloring(二部グラフの辺彩色) <small>(graph/others/bipartite-graph-edge-coloring.cpp)</small>
+# :heavy_check_mark: Bipartite-Graph-Edge-Coloring(二部グラフの辺彩色) <small>(graph/others/bipartite-graph-edge-coloring.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#e557c7f962c39680942b9dada22cabec">graph/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/others/bipartite-graph-edge-coloring.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-26 02:14:53+09:00
+    - Last commit date: 2020-08-26 02:20:26+09:00
 
 
 * see: <a href="https://ei1333.hateblo.jp/entry/2020/08/25/015955">https://ei1333.hateblo.jp/entry/2020/08/25/015955</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/verify/yosupo-bipartite-edge-coloring.test.cpp.html">test/verify/yosupo-bipartite-edge-coloring.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-bipartite-edge-coloring.test.cpp.html">test/verify/yosupo-bipartite-edge-coloring.test.cpp</a>
 
 
 ## Code
@@ -194,7 +194,7 @@ public:
       res.emplace_back();
       for(auto &j : ans[i]) if(j < A.size()) res.back().emplace_back(j);
     }
-    return ans;
+    return res;
   }
 };
 
@@ -352,7 +352,7 @@ public:
       res.emplace_back();
       for(auto &j : ans[i]) if(j < A.size()) res.back().emplace_back(j);
     }
-    return ans;
+    return res;
   }
 };
 

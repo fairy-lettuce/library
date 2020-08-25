@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: template/template.cpp
+# :heavy_check_mark: template/template.cpp
 
 <a href="../../index.html">Back to top page</a>
 
@@ -117,7 +117,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-ntl-1-d.test.cpp.html">test/verify/aoj-ntl-1-d.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-ntl-1-e.test.cpp.html">test/verify/aoj-ntl-1-e.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-bellnoulli-number.test.cpp.html">test/verify/yosupo-bellnoulli-number.test.cpp</a>
-* :x: <a href="../../verify/test/verify/yosupo-bipartite-edge-coloring.test.cpp.html">test/verify/yosupo-bipartite-edge-coloring.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-bipartite-edge-coloring.test.cpp.html">test/verify/yosupo-bipartite-edge-coloring.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-bipartitematching.test.cpp.html">test/verify/yosupo-bipartitematching.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-convolution-mod.test.cpp.html">test/verify/yosupo-convolution-mod.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-discrete-logarithm-mod.test.cpp.html">test/verify/yosupo-discrete-logarithm-mod.test.cpp</a>

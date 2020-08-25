@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/verify/yosupo-bipartite-edge-coloring.test.cpp
+# :heavy_check_mark: test/verify/yosupo-bipartite-edge-coloring.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-bipartite-edge-coloring.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-26 02:14:53+09:00
+    - Last commit date: 2020-08-26 02:20:26+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/bipartite_edge_coloring">https://judge.yosupo.jp/problem/bipartite_edge_coloring</a>
@@ -39,11 +39,11 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../../library/graph/flow/bipartite-flow.cpp.html">Bipartite-Flow(二部グラフのフロー) <small>(graph/flow/bipartite-flow.cpp)</small></a>
-* :x: <a href="../../../library/graph/others/bipartite-graph-edge-coloring.cpp.html">Bipartite-Graph-Edge-Coloring(二部グラフの辺彩色) <small>(graph/others/bipartite-graph-edge-coloring.cpp)</small></a>
-* :question: <a href="../../../library/graph/others/eulerian-trail.cpp.html">Eulerian-Trail(オイラー路) <small>(graph/others/eulerian-trail.cpp)</small></a>
-* :question: <a href="../../../library/structure/union-find/union-find.cpp.html">Union-Find <small>(structure/union-find/union-find.cpp)</small></a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/flow/bipartite-flow.cpp.html">Bipartite-Flow(二部グラフのフロー) <small>(graph/flow/bipartite-flow.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/graph/others/bipartite-graph-edge-coloring.cpp.html">Bipartite-Graph-Edge-Coloring(二部グラフの辺彩色) <small>(graph/others/bipartite-graph-edge-coloring.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/graph/others/eulerian-trail.cpp.html">Eulerian-Trail(オイラー路) <small>(graph/others/eulerian-trail.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/structure/union-find/union-find.cpp.html">Union-Find <small>(structure/union-find/union-find.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -710,7 +710,7 @@ public:
       res.emplace_back();
       for(auto &j : ans[i]) if(j < A.size()) res.back().emplace_back(j);
     }
-    return ans;
+    return res;
   }
 };
 #line 10 "test/verify/yosupo-bipartite-edge-coloring.test.cpp"
