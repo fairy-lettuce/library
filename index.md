@@ -84,7 +84,7 @@ layout: default
 
 ### graph/flow
 
-* :heavy_check_mark: <a href="library/graph/flow/bipartite-flow.cpp.html">Bipartite-Flow(二部グラフのフロー) <small>(graph/flow/bipartite-flow.cpp)</small></a>
+* :question: <a href="library/graph/flow/bipartite-flow.cpp.html">Bipartite-Flow(二部グラフのフロー) <small>(graph/flow/bipartite-flow.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/flow/bipartite-matching.cpp.html">Bipartite-Matching(二部グラフの最大マッチング) <small>(graph/flow/bipartite-matching.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/flow/dinic-capacity-scaling.cpp.html">Dinic-Capacity-Scaling(最大流) <small>(graph/flow/dinic-capacity-scaling.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/flow/dinic.cpp.html">Dinic(最大流) <small>(graph/flow/dinic.cpp)</small></a>
@@ -111,11 +111,12 @@ layout: default
 
 ### graph/others
 
+* :x: <a href="library/graph/others/bipartite-graph-edge-coloring.cpp.html">Bipartite-Graph-Edge-Coloring(二部グラフの辺彩色) <small>(graph/others/bipartite-graph-edge-coloring.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/block-cut-tree.cpp.html">Block-Cut-Tree <small>(graph/others/block-cut-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/chromatic-number.cpp.html">graph/others/chromatic-number.cpp</a>
 * :heavy_check_mark: <a href="library/graph/others/dominator-tree.cpp.html">Dominator-Tree <small>(graph/others/dominator-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/enumerate-clique.cpp.html">Enumerate-Clique(クリーク全列挙) <small>(graph/others/enumerate-clique.cpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/others/eulerian-trail.cpp.html">Eulerian-Trail(オイラー路) <small>(graph/others/eulerian-trail.cpp)</small></a>
+* :question: <a href="library/graph/others/eulerian-trail.cpp.html">Eulerian-Trail(オイラー路) <small>(graph/others/eulerian-trail.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/low-link.cpp.html">Low-Link <small>(graph/others/low-link.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/maximum-clique.cpp.html">Maximum-Clique(最大クリーク) <small>(graph/others/maximum-clique.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/maximum-independent-set.cpp.html">graph/others/maximum-independent-set.cpp</a>
@@ -361,7 +362,7 @@ layout: default
 * :warning: <a href="library/structure/union-find/partially-persistent-union-find.cpp.html">structure/union-find/partially-persistent-union-find.cpp</a>
 * :heavy_check_mark: <a href="library/structure/union-find/persistent-union-find.cpp.html">Persistent-Union-Find(永続Union-Find) <small>(structure/union-find/persistent-union-find.cpp)</small></a>
 * :warning: <a href="library/structure/union-find/union-find-undo.cpp.html">structure/union-find/union-find-undo.cpp</a>
-* :heavy_check_mark: <a href="library/structure/union-find/union-find.cpp.html">Union-Find <small>(structure/union-find/union-find.cpp)</small></a>
+* :question: <a href="library/structure/union-find/union-find.cpp.html">Union-Find <small>(structure/union-find/union-find.cpp)</small></a>
 * :heavy_check_mark: <a href="library/structure/union-find/weighted-union-find.cpp.html">structure/union-find/weighted-union-find.cpp</a>
 
 
@@ -380,7 +381,7 @@ layout: default
 
 ### template
 
-* :heavy_check_mark: <a href="library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="library/template/template.cpp.html">template/template.cpp</a>
 
 
 <div id="5a4423c79a88aeb6104a40a645f9430c"></div>
@@ -505,6 +506,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-ntl-1-d.test.cpp.html">test/verify/aoj-ntl-1-d.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-ntl-1-e.test.cpp.html">test/verify/aoj-ntl-1-e.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-bellnoulli-number.test.cpp.html">test/verify/yosupo-bellnoulli-number.test.cpp</a>
+* :x: <a href="verify/test/verify/yosupo-bipartite-edge-coloring.test.cpp.html">test/verify/yosupo-bipartite-edge-coloring.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-bipartitematching.test.cpp.html">test/verify/yosupo-bipartitematching.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-convolution-mod.test.cpp.html">test/verify/yosupo-convolution-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-discrete-logarithm-mod.test.cpp.html">test/verify/yosupo-discrete-logarithm-mod.test.cpp</a>

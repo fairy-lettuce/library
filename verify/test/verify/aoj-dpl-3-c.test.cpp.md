@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/dp/largest-rectangle.cpp.html">Largest-Rectangle(最大長方形) <small>(dp/largest-rectangle.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

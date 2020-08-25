@@ -25,21 +25,24 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/yosupo-bipartitematching.test.cpp
+# :x: test/verify/yosupo-bipartite-edge-coloring.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-bipartitematching.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-10 19:29:34+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-bipartite-edge-coloring.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-08-26 02:14:53+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/bipartitematching">https://judge.yosupo.jp/problem/bipartitematching</a>
+* see: <a href="https://judge.yosupo.jp/problem/bipartite_edge_coloring">https://judge.yosupo.jp/problem/bipartite_edge_coloring</a>
 
 
 ## Depends on
 
 * :question: <a href="../../../library/graph/flow/bipartite-flow.cpp.html">Bipartite-Flow(二部グラフのフロー) <small>(graph/flow/bipartite-flow.cpp)</small></a>
+* :x: <a href="../../../library/graph/others/bipartite-graph-edge-coloring.cpp.html">Bipartite-Graph-Edge-Coloring(二部グラフの辺彩色) <small>(graph/others/bipartite-graph-edge-coloring.cpp)</small></a>
+* :question: <a href="../../../library/graph/others/eulerian-trail.cpp.html">Eulerian-Trail(オイラー路) <small>(graph/others/eulerian-trail.cpp)</small></a>
+* :question: <a href="../../../library/structure/union-find/union-find.cpp.html">Union-Find <small>(structure/union-find/union-find.cpp)</small></a>
 * :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -48,24 +51,32 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/bipartitematching"
+#define PROBLEM "https://judge.yosupo.jp/problem/bipartite_edge_coloring"
 
 #include "../../template/template.cpp"
 
+#include "../../structure/union-find/union-find.cpp"
+
 #include "../../graph/flow/bipartite-flow.cpp"
+#include "../../graph/others/eulerian-trail.cpp"
+#include "../../graph/others/bipartite-graph-edge-coloring.cpp"
 
 int main() {
   int L, R, M;
   cin >> L >> R >> M;
-  BipartiteFlow flow(L, R);
+  BipariteGraphEdgeColoring ecbg;
   for(int i = 0; i < M; i++) {
     int a, b;
     cin >> a >> b;
-    flow.add_edge(a, b);
+    ecbg.add_edge(a, b);
   }
-  auto es = flow.max_matching();
-  cout << es.size() << "\n";
-  for(auto &p : es) cout << p.first << " " << p.second << "\n";
+  auto res = ecbg.build();
+  cout << res.size() << "\n";
+  vector< int > color(M);
+  for(int i = 0; i < res.size(); i++) {
+    for(auto &j : res[i]) color[j] = i;
+  }
+  for(auto &c : color) cout << c << "\n";
 }
 
 ```
@@ -74,8 +85,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/verify/yosupo-bipartitematching.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/bipartitematching"
+#line 1 "test/verify/yosupo-bipartite-edge-coloring.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/bipartite_edge_coloring"
 
 #line 1 "template/template.cpp"
 #include<bits/stdc++.h>
@@ -164,7 +175,43 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 4 "test/verify/yosupo-bipartitematching.test.cpp"
+#line 4 "test/verify/yosupo-bipartite-edge-coloring.test.cpp"
+
+#line 1 "structure/union-find/union-find.cpp"
+/**
+ * @brief Union-Find
+ * @docs docs/union-find.md
+ */
+struct UnionFind {
+  vector< int > data;
+
+  UnionFind() = default;
+
+  explicit UnionFind(size_t sz) : data(sz, -1) {}
+
+  bool unite(int x, int y) {
+    x = find(x), y = find(y);
+    if(x == y) return false;
+    if(data[x] > data[y]) swap(x, y);
+    data[x] += data[y];
+    data[y] = x;
+    return true;
+  }
+
+  int find(int k) {
+    if(data[k] < 0) return (k);
+    return data[k] = find(data[k]);
+  }
+
+  int size(int k) {
+    return -data[find(k)];
+  }
+
+  bool same(int x, int y) {
+    return find(x) == find(y);
+  }
+};
+#line 6 "test/verify/yosupo-bipartite-edge-coloring.test.cpp"
 
 #line 1 "graph/flow/bipartite-flow.cpp"
 /**
@@ -412,20 +459,278 @@ private:
     return false;
   }
 };
-#line 6 "test/verify/yosupo-bipartitematching.test.cpp"
+#line 1 "graph/others/eulerian-trail.cpp"
+/**
+ * @brief Eulerian-Trail(オイラー路)
+ */
+template< bool directed >
+struct EulerianTrail {
+  vector< vector< pair< int, int > > > g;
+  vector< pair< int, int > > es;
+  int M;
+  vector< int > used_vertex, used_edge, deg;
+
+  explicit EulerianTrail(int V) : g(V), M(0), deg(V), used_vertex(V) {}
+
+  void add_edge(int a, int b) {
+    es.emplace_back(a, b);
+    g[a].emplace_back(b, M);
+    if(directed) {
+      deg[a]++;
+      deg[b]--;
+    } else {
+      g[b].emplace_back(a, M);
+      deg[a]++;
+      deg[b]++;
+    }
+    M++;
+  }
+
+  pair< int, int > get_edge(int idx) const {
+    return es[idx];
+  }
+
+  vector< vector< int > > enumerate_eulerian_trail() {
+    if(directed) {
+      for(auto &p : deg) if(p != 0) return {};
+    } else {
+      for(auto &p : deg) if(p & 1) return {};
+    }
+    used_edge.assign(M, 0);
+    vector< vector< int > > ret;
+    for(int i = 0; i < (int) g.size(); i++) {
+      if(g[i].empty() || used_vertex[i]) continue;
+      ret.emplace_back(go(i));
+    }
+    return ret;
+  }
+
+  vector< vector< int > > enumerate_semi_eulerian_trail() {
+    UnionFind uf(g.size());
+    for(auto &p : es) uf.unite(p.first, p.second);
+    vector< vector< int > > group(g.size());
+    for(int i = 0; i < (int) g.size(); i++) group[uf.find(i)].emplace_back(i);
+    vector< vector< int > > ret;
+    used_edge.assign(M, 0);
+    for(auto &vs : group) {
+      if(vs.empty()) continue;
+      int latte = -1, malta = -1;
+      if(directed) {
+        for(auto &p : vs) {
+          if(abs(deg[p]) > 1) {
+            return {};
+          } else if(deg[p] == 1) {
+            if(latte >= 0) return {};
+            latte = p;
+          }
+        }
+      } else {
+        for(auto &p : vs) {
+          if(deg[p] & 1) {
+            if(latte == -1) latte = p;
+            else if(malta == -1) malta = p;
+            else return {};
+          }
+        }
+      }
+      ret.emplace_back(go(latte == -1 ? vs.front() : latte));
+      if(ret.back().empty()) ret.pop_back();
+    }
+    return ret;
+  }
+
+  vector< int > go(int s) {
+    stack< pair< int, int > > st;
+    vector< int > ord;
+    st.emplace(s, -1);
+    while(!st.empty()) {
+      int idx = st.top().first;
+      used_vertex[idx] = true;
+      if(g[idx].empty()) {
+        ord.emplace_back(st.top().second);
+        st.pop();
+      } else {
+        auto e = g[idx].back();
+        g[idx].pop_back();
+        if(used_edge[e.second]) continue;
+        used_edge[e.second] = true;
+        st.emplace(e);
+      }
+    }
+    ord.pop_back();
+    reverse(ord.begin(), ord.end());
+    return ord;
+  }
+};
+#line 1 "graph/others/bipartite-graph-edge-coloring.cpp"
+/**
+ * @brief Bipartite-Graph-Edge-Coloring(二部グラフの辺彩色)
+ * @see https://ei1333.hateblo.jp/entry/2020/08/25/015955
+ */
+struct BipariteGraphEdgeColoring {
+private:
+  vector< vector< int > > ans;
+  vector< int > A, B;
+  int L, R;
+
+  struct RegularGraph {
+    int k{}, n{};
+    vector< int > A, B;
+  };
+  RegularGraph g;
+
+  static UnionFind contract(valarray< int > &deg, int k) {
+    using pi = pair< int, int >;
+    priority_queue< pi, vector< pi >, greater<> > que;
+    for(int i = 0; i < (int) deg.size(); i++) {
+      que.emplace(deg[i], i);
+    }
+    UnionFind uf(deg.size());
+    while(que.size() > 1) {
+      auto p = que.top();
+      que.pop();
+      auto q = que.top();
+      que.pop();
+      if(p.first + q.first > k) continue;
+      p.first += q.first;
+      uf.unite(p.second, q.second);
+      que.emplace(p);
+    }
+    return uf;
+  }
+
+
+  RegularGraph build_k_regular_graph() {
+    valarray< int > deg[2];
+    deg[0] = valarray< int >(L);
+    deg[1] = valarray< int >(R);
+    for(auto &p : A) deg[0][p]++;
+    for(auto &p : B) deg[1][p]++;
+
+    int k = max(deg[0].max(), deg[1].max());
+
+    /* step 1 */
+    UnionFind uf[2];
+    uf[0] = contract(deg[0], k);
+    uf[1] = contract(deg[1], k);
+
+    vector< int > id[2];
+    int ptr[] = {0, 0};
+    id[0] = vector< int >(L);
+    id[1] = vector< int >(R);
+    for(int i = 0; i < L; i++) if(uf[0].find(i) == i) id[0][i] = ptr[0]++;
+    for(int i = 0; i < R; i++) if(uf[1].find(i) == i) id[1][i] = ptr[1]++;
+
+    /* step 2 */
+    int N = max(ptr[0], ptr[1]);
+    deg[0] = valarray< int >(N);
+    deg[1] = valarray< int >(N);
+
+    /* step 3 */
+    vector< int > C, D;
+    C.reserve(N * k);
+    D.reserve(N * k);
+    for(int i = 0; i < (int) A.size(); i++) {
+      int u = id[0][uf[0].find(A[i])];
+      int v = id[1][uf[1].find(B[i])];
+      C.emplace_back(u);
+      D.emplace_back(v);
+      deg[0][u]++;
+      deg[1][v]++;
+    }
+    int j = 0;
+    for(int i = 0; i < N; i++) {
+      while(deg[0][i] < k) {
+        while(deg[1][j] == k) ++j;
+        C.emplace_back(i);
+        D.emplace_back(j);
+        ++deg[0][i];
+        ++deg[1][j];
+      }
+    }
+
+    return {k, N, C, D};
+  }
+
+  void rec(const vector< int > &ord, int k) {
+    if(k == 0) {
+      return;
+    } else if(k == 1) {
+      ans.emplace_back(ord);
+      return;
+    } else if((k & 1) == 0) {
+      EulerianTrail< false > et(g.n + g.n);
+      for(auto &p : ord) et.add_edge(g.A[p], g.B[p] + g.n);
+      auto paths = et.enumerate_eulerian_trail();
+      vector< int > path;
+      for(auto &ps : paths) {
+        for(auto &e : ps) path.emplace_back(ord[e]);
+      }
+      vector< int > beet[2];
+      for(int i = 0; i < (int) path.size(); i++) {
+        beet[i & 1].emplace_back(path[i]);
+      }
+      rec(beet[0], k / 2);
+      rec(beet[1], k / 2);
+    } else {
+      BipartiteFlow flow(g.n, g.n);
+      for(auto &i : ord) flow.add_edge(g.A[i], g.B[i]);
+      flow.max_matching();
+      vector< int > beet;
+      ans.emplace_back();
+      for(auto &i : ord) {
+        if(flow.match_l[g.A[i]] == g.B[i]) {
+          flow.match_l[g.A[i]] = -1;
+          ans.back().emplace_back(i);
+        } else {
+          beet.emplace_back(i);
+        }
+      }
+      rec(beet, k - 1);
+    }
+  }
+
+public:
+  explicit BipariteGraphEdgeColoring() : L(0), R(0) {}
+
+  void add_edge(int a, int b) {
+    A.emplace_back(a);
+    B.emplace_back(b);
+    L = max(L, a + 1);
+    R = max(R, b + 1);
+  }
+
+  vector< vector< int > > build() {
+    g = build_k_regular_graph();
+    vector< int > ord(g.A.size());
+    iota(ord.begin(), ord.end(), 0);
+    rec(ord, g.k);
+    vector< vector< int > > res;
+    for(int i = 0; i < (int) ans.size(); i++) {
+      res.emplace_back();
+      for(auto &j : ans[i]) if(j < A.size()) res.back().emplace_back(j);
+    }
+    return ans;
+  }
+};
+#line 10 "test/verify/yosupo-bipartite-edge-coloring.test.cpp"
 
 int main() {
   int L, R, M;
   cin >> L >> R >> M;
-  BipartiteFlow flow(L, R);
+  BipariteGraphEdgeColoring ecbg;
   for(int i = 0; i < M; i++) {
     int a, b;
     cin >> a >> b;
-    flow.add_edge(a, b);
+    ecbg.add_edge(a, b);
   }
-  auto es = flow.max_matching();
-  cout << es.size() << "\n";
-  for(auto &p : es) cout << p.first << " " << p.second << "\n";
+  auto res = ecbg.build();
+  cout << res.size() << "\n";
+  vector< int > color(M);
+  for(int i = 0; i < res.size(); i++) {
+    for(auto &j : res[i]) color[j] = i;
+  }
+  for(auto &c : color) cout << c << "\n";
 }
 
 ```

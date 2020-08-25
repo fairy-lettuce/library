@@ -42,8 +42,8 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/graph/others/tree-decomposition.cpp.html">Tree-Decomposition(木分解) <small>(graph/others/tree-decomposition.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/other/printer.cpp.html">Printer(高速出力) <small>(other/printer.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/other/scanner.cpp.html">Scanner(高速入力) <small>(other/scanner.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/structure/union-find/union-find.cpp.html">Union-Find <small>(structure/union-find/union-find.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/structure/union-find/union-find.cpp.html">Union-Find <small>(structure/union-find/union-find.cpp)</small></a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
