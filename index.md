@@ -299,9 +299,10 @@ layout: default
 
 ### structure/develop
 
-* :warning: <a href="library/structure/develop/array-pool.cpp.html">structure/develop/array-pool.cpp</a>
-* :warning: <a href="library/structure/develop/dual-splay-tree.cpp.html">structure/develop/dual-splay-tree.cpp</a>
-* :warning: <a href="library/structure/develop/link-cut-tree-subtree-dual-semi-group.cpp.html">structure/develop/link-cut-tree-subtree-dual-semi-group.cpp</a>
+* :heavy_check_mark: <a href="library/structure/develop/lazy-reversible-splay-tree.cpp.html">Lazy-Reversible-Splay-Tree(遅延伝搬反転可能Splay木) <small>(structure/develop/lazy-reversible-splay-tree.cpp)</small></a>
+* :heavy_check_mark: <a href="library/structure/develop/link-cut-tree.cpp.html">Link-Cut-Tree <small>(structure/develop/link-cut-tree.cpp)</small></a>
+* :heavy_check_mark: <a href="library/structure/develop/reversible-splay-tree.cpp.html">Reversible-Splay-Tree(反転可能Splay木) <small>(structure/develop/reversible-splay-tree.cpp)</small></a>
+* :heavy_check_mark: <a href="library/structure/develop/splay-tree-base.cpp.html">Splay-Tree-Base(Splay木) <small>(structure/develop/splay-tree-base.cpp)</small></a>
 
 
 <div id="36999f024b84f3ad86db908172fedb57"></div>
@@ -446,6 +447,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2405.test.cpp.html">test/verify/aoj-2405.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2415.test.cpp.html">test/verify/aoj-2415.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2450-2.test.cpp.html">test/verify/aoj-2450-2.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/aoj-2450-3.test.cpp.html">test/verify/aoj-2450-3.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2450.test.cpp.html">test/verify/aoj-2450.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2603.test.cpp.html">test/verify/aoj-2603.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/aoj-2667.test.cpp.html">test/verify/aoj-2667.test.cpp</a>
@@ -511,8 +513,10 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-convolution-mod.test.cpp.html">test/verify/yosupo-convolution-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-discrete-logarithm-mod.test.cpp.html">test/verify/yosupo-discrete-logarithm-mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-dominatortree.test.cpp.html">test/verify/yosupo-dominatortree.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-exp-of-formal-power-series.test.cpp.html">test/verify/yosupo-exp-of-formal-power-series.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-factorize.test.cpp.html">test/verify/yosupo-factorize.test.cpp</a>
@@ -533,6 +537,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-persistent-unionfind.test.cpp.html">test/verify/yosupo-persistent-unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-point-add-rectangle-sum.test.cpp.html">test/verify/yosupo-point-add-rectangle-sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-point-set-range-composite-2.test.cpp.html">test/verify/yosupo-point-set-range-composite-2.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/verify/yosupo-point-set-range-composite-3.test.cpp.html">test/verify/yosupo-point-set-range-composite-3.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-point-set-range-composite.test.cpp.html">test/verify/yosupo-point-set-range-composite.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-polynomial-interpolation.test.cpp.html">test/verify/yosupo-polynomial-interpolation.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-queue-operate-all-composite.test.cpp.html">test/verify/yosupo-queue-operate-all-composite.test.cpp</a>

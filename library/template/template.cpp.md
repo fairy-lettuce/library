@@ -57,6 +57,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-2405.test.cpp.html">test/verify/aoj-2405.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-2415.test.cpp.html">test/verify/aoj-2415.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-2450-2.test.cpp.html">test/verify/aoj-2450-2.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/aoj-2450-3.test.cpp.html">test/verify/aoj-2450-3.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-2450.test.cpp.html">test/verify/aoj-2450.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-2603.test.cpp.html">test/verify/aoj-2603.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-2667.test.cpp.html">test/verify/aoj-2667.test.cpp</a>
@@ -122,8 +123,10 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-convolution-mod.test.cpp.html">test/verify/yosupo-convolution-mod.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-discrete-logarithm-mod.test.cpp.html">test/verify/yosupo-discrete-logarithm-mod.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-dominatortree.test.cpp.html">test/verify/yosupo-dominatortree.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-exp-of-formal-power-series.test.cpp.html">test/verify/yosupo-exp-of-formal-power-series.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-factorize.test.cpp.html">test/verify/yosupo-factorize.test.cpp</a>
@@ -144,6 +147,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-persistent-unionfind.test.cpp.html">test/verify/yosupo-persistent-unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-point-add-rectangle-sum.test.cpp.html">test/verify/yosupo-point-add-rectangle-sum.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-point-set-range-composite-2.test.cpp.html">test/verify/yosupo-point-set-range-composite-2.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-point-set-range-composite-3.test.cpp.html">test/verify/yosupo-point-set-range-composite-3.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-point-set-range-composite.test.cpp.html">test/verify/yosupo-point-set-range-composite.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-polynomial-interpolation.test.cpp.html">test/verify/yosupo-polynomial-interpolation.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-queue-operate-all-composite.test.cpp.html">test/verify/yosupo-queue-operate-all-composite.test.cpp</a>
