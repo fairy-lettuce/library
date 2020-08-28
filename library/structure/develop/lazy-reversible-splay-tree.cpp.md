@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#b1cd1e8cabf258d1ad55a5bb477f1b01">structure/develop</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/develop/lazy-reversible-splay-tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-29 03:56:51+09:00
+    - Last commit date: 2020-08-29 04:05:55+09:00
 
 
 
@@ -118,15 +118,15 @@ public:
   }
 
   Node *push_front(Node *t, const T &x) override {
-    return push_front_node(t, new Node(x));
+    return push_front_node(t, new Node(x, OM0));
   }
 
   Node *push_back(Node *t, const T &x) override {
-    return push_back_node(t, new Node(x));
+    return push_back_node(t, new Node(x, OM0));
   }
 
   void insert(Node *&t, int k, const T &x) override {
-    insert_node(t, k, new Node(x));
+    insert_node(t, k, new Node(x, OM0));
   }
 
   void set_propagate(Node *&t, int a, int b, const E &pp) {
@@ -237,15 +237,15 @@ public:
   }
 
   Node *push_front(Node *t, const T &x) override {
-    return push_front_node(t, new Node(x));
+    return push_front_node(t, new Node(x, OM0));
   }
 
   Node *push_back(Node *t, const T &x) override {
-    return push_back_node(t, new Node(x));
+    return push_back_node(t, new Node(x, OM0));
   }
 
   void insert(Node *&t, int k, const T &x) override {
-    insert_node(t, k, new Node(x));
+    insert_node(t, k, new Node(x, OM0));
   }
 
   void set_propagate(Node *&t, int a, int b, const E &pp) {
