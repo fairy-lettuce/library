@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Lazy-Segment-Tree(遅延伝搬セグメント木) <small>(structure/segment-tree/lazy-segment-tree.cpp)</small>
+# :question: Lazy-Segment-Tree(遅延伝搬セグメント木) <small>(structure/segment-tree/lazy-segment-tree.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#bd066fce418dc5d58690e9bbe0a7a21f">structure/segment-tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/segment-tree/lazy-segment-tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-20 22:23:04+09:00
+    - Last commit date: 2020-09-08 00:34:41+09:00
 
 
 
@@ -59,7 +59,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2450.test.cpp.html">test/verify/aoj-2450.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-range-affine-range-sum.test.cpp.html">test/verify/yosupo-range-affine-range-sum.test.cpp</a>
+* :x: <a href="../../../verify/test/verify/yosupo-range-affine-range-sum.test.cpp.html">test/verify/yosupo-range-affine-range-sum.test.cpp</a>
 
 
 ## Code
@@ -71,12 +71,8 @@ layout: default
  * @brief Lazy-Segment-Tree(遅延伝搬セグメント木)
  * @docs docs/lazy-segment-tree.md
  */
-template< typename Monoid, typename OperatorMonoid = Monoid >
+template< typename Monoid, typename OperatorMonoid, typename F, typename G, typename H >
 struct LazySegmentTree {
-  using F = function< Monoid(Monoid, Monoid) >;
-  using G = function< Monoid(Monoid, OperatorMonoid) >;
-  using H = function< OperatorMonoid(OperatorMonoid, OperatorMonoid) >;
-
   int sz, height;
   vector< Monoid > data;
   vector< OperatorMonoid > lazy;
@@ -205,6 +201,12 @@ struct LazySegmentTree {
     return -1;
   }
 };
+
+template< typename Monoid, typename OperatorMonoid, typename F, typename G, typename H >
+LazySegmentTree< Monoid, OperatorMonoid, F, G, H > get_lazy_segment_tree
+    (int N, const F &f, const G &g, const H &h, const Monoid &M1, const OperatorMonoid &OM0) {
+  return {N, f, g, h, M1, OM0};
+}
 
 ```
 {% endraw %}
@@ -217,12 +219,8 @@ struct LazySegmentTree {
  * @brief Lazy-Segment-Tree(遅延伝搬セグメント木)
  * @docs docs/lazy-segment-tree.md
  */
-template< typename Monoid, typename OperatorMonoid = Monoid >
+template< typename Monoid, typename OperatorMonoid, typename F, typename G, typename H >
 struct LazySegmentTree {
-  using F = function< Monoid(Monoid, Monoid) >;
-  using G = function< Monoid(Monoid, OperatorMonoid) >;
-  using H = function< OperatorMonoid(OperatorMonoid, OperatorMonoid) >;
-
   int sz, height;
   vector< Monoid > data;
   vector< OperatorMonoid > lazy;
@@ -351,6 +349,12 @@ struct LazySegmentTree {
     return -1;
   }
 };
+
+template< typename Monoid, typename OperatorMonoid, typename F, typename G, typename H >
+LazySegmentTree< Monoid, OperatorMonoid, F, G, H > get_lazy_segment_tree
+    (int N, const F &f, const G &g, const H &h, const Monoid &M1, const OperatorMonoid &OM0) {
+  return {N, f, g, h, M1, OM0};
+}
 
 ```
 {% endraw %}

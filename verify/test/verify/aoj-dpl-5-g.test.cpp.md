@@ -41,8 +41,8 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/bell-number.cpp.html">Bell-Number(ベル数) <small>(math/combinatorics/bell-number.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/math/combinatorics/combination.cpp.html">math/combinatorics/combination.cpp</a>
-* :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

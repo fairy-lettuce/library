@@ -44,7 +44,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/graph/shortest-path/k-shortest-walk.cpp.html">K-Shortest-Walk <small>(graph/shortest-path/k-shortest-walk.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/structure/heap/leftist-heap.cpp.html">Leftist-Heap <small>(structure/heap/leftist-heap.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/structure/heap/persistent-leftist-heap.cpp.html">Persistent-Leftist-Heap <small>(structure/heap/persistent-leftist-heap.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

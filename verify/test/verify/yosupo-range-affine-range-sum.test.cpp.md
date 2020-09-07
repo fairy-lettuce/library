@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/yosupo-range-affine-range-sum.test.cpp
+# :x: test/verify/yosupo-range-affine-range-sum.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-range-affine-range-sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-28 21:53:51+09:00
+    - Last commit date: 2020-09-08 00:34:41+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/range_affine_range_sum">https://judge.yosupo.jp/problem/range_affine_range_sum</a>
@@ -39,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
-* :heavy_check_mark: <a href="../../../library/structure/segment-tree/lazy-segment-tree.cpp.html">Lazy-Segment-Tree(遅延伝搬セグメント木) <small>(structure/segment-tree/lazy-segment-tree.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
+* :question: <a href="../../../library/structure/segment-tree/lazy-segment-tree.cpp.html">Lazy-Segment-Tree(遅延伝搬セグメント木) <small>(structure/segment-tree/lazy-segment-tree.cpp)</small></a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -73,7 +73,7 @@ int main() {
   auto h = [](const qi &a, const qi &b) -> qi {
     return {a.first * b.first, a.second * b.first + b.second};
   };
-  LazySegmentTree< pi, qi > seg(N, f, g, h, pi(0, 0), pi(1, 0));
+  auto seg = get_lazy_segment_tree(N, f, g, h, pi(0, 0), pi(1, 0));
   for(int i = 0; i < N; i++) {
     mint a;
     cin >> a;
@@ -279,12 +279,8 @@ using modint = ModInt< mod >;
  * @brief Lazy-Segment-Tree(遅延伝搬セグメント木)
  * @docs docs/lazy-segment-tree.md
  */
-template< typename Monoid, typename OperatorMonoid = Monoid >
+template< typename Monoid, typename OperatorMonoid, typename F, typename G, typename H >
 struct LazySegmentTree {
-  using F = function< Monoid(Monoid, Monoid) >;
-  using G = function< Monoid(Monoid, OperatorMonoid) >;
-  using H = function< OperatorMonoid(OperatorMonoid, OperatorMonoid) >;
-
   int sz, height;
   vector< Monoid > data;
   vector< OperatorMonoid > lazy;
@@ -413,6 +409,12 @@ struct LazySegmentTree {
     return -1;
   }
 };
+
+template< typename Monoid, typename OperatorMonoid, typename F, typename G, typename H >
+LazySegmentTree< Monoid, OperatorMonoid, F, G, H > get_lazy_segment_tree
+    (int N, const F &f, const G &g, const H &h, const Monoid &M1, const OperatorMonoid &OM0) {
+  return {N, f, g, h, M1, OM0};
+}
 #line 8 "test/verify/yosupo-range-affine-range-sum.test.cpp"
 
 using mint = ModInt< 998244353 >;
@@ -431,7 +433,7 @@ int main() {
   auto h = [](const qi &a, const qi &b) -> qi {
     return {a.first * b.first, a.second * b.first + b.second};
   };
-  LazySegmentTree< pi, qi > seg(N, f, g, h, pi(0, 0), pi(1, 0));
+  auto seg = get_lazy_segment_tree(N, f, g, h, pi(0, 0), pi(1, 0));
   for(int i = 0; i < N; i++) {
     mint a;
     cin >> a;

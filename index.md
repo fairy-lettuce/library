@@ -174,7 +174,7 @@ layout: default
 * :heavy_check_mark: <a href="library/math/combinatorics/combination.cpp.html">math/combinatorics/combination.cpp</a>
 * :warning: <a href="library/math/combinatorics/lagrange-polynomial.cpp.html">math/combinatorics/lagrange-polynomial.cpp</a>
 * :warning: <a href="library/math/combinatorics/mod-int-2.cpp.html">math/combinatorics/mod-int-2.cpp</a>
-* :heavy_check_mark: <a href="library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
+* :question: <a href="library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-log.cpp.html">math/combinatorics/mod-log.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-pow.cpp.html">math/combinatorics/mod-pow.cpp</a>
 * :heavy_check_mark: <a href="library/math/combinatorics/mod-sqrt.cpp.html">math/combinatorics/mod-sqrt.cpp</a>
@@ -337,7 +337,7 @@ layout: default
 ### structure/segment-tree
 
 * :heavy_check_mark: <a href="library/structure/segment-tree/dual-segment-tree.cpp.html">Dual-Segment-Tree(双対セグメント木) <small>(structure/segment-tree/dual-segment-tree.cpp)</small></a>
-* :heavy_check_mark: <a href="library/structure/segment-tree/lazy-segment-tree.cpp.html">Lazy-Segment-Tree(遅延伝搬セグメント木) <small>(structure/segment-tree/lazy-segment-tree.cpp)</small></a>
+* :question: <a href="library/structure/segment-tree/lazy-segment-tree.cpp.html">Lazy-Segment-Tree(遅延伝搬セグメント木) <small>(structure/segment-tree/lazy-segment-tree.cpp)</small></a>
 * :warning: <a href="library/structure/segment-tree/persistent-segment-tree.cpp.html">Persistent-Segment-Tree(永続セグメント木) <small>(structure/segment-tree/persistent-segment-tree.cpp)</small></a>
 * :warning: <a href="library/structure/segment-tree/segment-tree-2d-2.cpp.html">structure/segment-tree/segment-tree-2d-2.cpp</a>
 * :warning: <a href="library/structure/segment-tree/segment-tree-2d.cpp.html">structure/segment-tree/segment-tree-2d.cpp</a>
@@ -382,7 +382,7 @@ layout: default
 
 ### template
 
-* :heavy_check_mark: <a href="library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="library/template/template.cpp.html">template/template.cpp</a>
 
 
 <div id="5a4423c79a88aeb6104a40a645f9430c"></div>
@@ -543,7 +543,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-queue-operate-all-composite.test.cpp.html">test/verify/yosupo-queue-operate-all-composite.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-range-affine-range-sum-2.test.cpp.html">test/verify/yosupo-range-affine-range-sum-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-range-affine-range-sum-3.test.cpp.html">test/verify/yosupo-range-affine-range-sum-3.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/verify/yosupo-range-affine-range-sum.test.cpp.html">test/verify/yosupo-range-affine-range-sum.test.cpp</a>
+* :x: <a href="verify/test/verify/yosupo-range-affine-range-sum.test.cpp.html">test/verify/yosupo-range-affine-range-sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-range-kth-smallest-2.test.cpp.html">test/verify/yosupo-range-kth-smallest-2.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-range-kth-smallest.test.cpp.html">test/verify/yosupo-range-kth-smallest.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/verify/yosupo-rectangle-sum.test.cpp.html">test/verify/yosupo-rectangle-sum.test.cpp</a>
