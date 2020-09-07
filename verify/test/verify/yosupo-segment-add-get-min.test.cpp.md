@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/structure/convex-hull-trick/dynamic-li-chao-tree.cpp.html">Dynamic-Li-Chao-Tree <small>(structure/convex-hull-trick/dynamic-li-chao-tree.cpp)</small></a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

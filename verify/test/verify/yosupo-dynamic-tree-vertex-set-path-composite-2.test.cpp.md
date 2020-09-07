@@ -39,11 +39,11 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
+* :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
 * :heavy_check_mark: <a href="../../../library/structure/develop/link-cut-tree.cpp.html">Link-Cut-Tree <small>(structure/develop/link-cut-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/structure/develop/reversible-splay-tree.cpp.html">Reversible-Splay-Tree(反転可能Splay木) <small>(structure/develop/reversible-splay-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/structure/develop/splay-tree-base.cpp.html">Splay-Tree-Base(Splay木) <small>(structure/develop/splay-tree-base.cpp)</small></a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

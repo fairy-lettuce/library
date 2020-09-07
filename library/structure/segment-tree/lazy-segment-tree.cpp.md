@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :question: Lazy-Segment-Tree(遅延伝搬セグメント木) <small>(structure/segment-tree/lazy-segment-tree.cpp)</small>
+# :heavy_check_mark: Lazy-Segment-Tree(遅延伝搬セグメント木) <small>(structure/segment-tree/lazy-segment-tree.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -59,7 +59,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2450.test.cpp.html">test/verify/aoj-2450.test.cpp</a>
-* :x: <a href="../../../verify/test/verify/yosupo-range-affine-range-sum.test.cpp.html">test/verify/yosupo-range-affine-range-sum.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-range-affine-range-sum.test.cpp.html">test/verify/yosupo-range-affine-range-sum.test.cpp</a>
 
 
 ## Code
