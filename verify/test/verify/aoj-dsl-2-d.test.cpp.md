@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dsl-2-d.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-20 22:23:04+09:00
+    - Last commit date: 2020-09-08 00:52:50+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_D</a>
@@ -58,7 +58,7 @@ int main() {
   int N, Q;
   cin >> N >> Q;
   auto h = [](int a, int b) { return b; };
-  DualSegmentTree< int > seg(N, h, INT_MAX);
+  auto seg = get_dual_segment_tree(N, h, INT_MAX);
   while(Q--) {
     int com;
     cin >> com;
@@ -177,10 +177,8 @@ inline decltype(auto) MFP(F &&f) {
  * @brief Dual-Segment-Tree(双対セグメント木)
  * @docs docs/dual-segment-tree.md
  */
-template< typename OperatorMonoid >
+template< typename OperatorMonoid, typename H >
 struct DualSegmentTree {
-  using H = function< OperatorMonoid(OperatorMonoid, OperatorMonoid) >;
-
   int sz, height;
   vector< OperatorMonoid > lazy;
   const H h;
@@ -219,13 +217,18 @@ struct DualSegmentTree {
     return lazy[k];
   }
 };
+
+template< typename OperatorMonoid, typename H >
+DualSegmentTree< OperatorMonoid, H > get_dual_segment_tree(int N, const H& h, const OperatorMonoid& OM0) {
+  return {N, h, OM0};
+}
 #line 6 "test/verify/aoj-dsl-2-d.test.cpp"
 
 int main() {
   int N, Q;
   cin >> N >> Q;
   auto h = [](int a, int b) { return b; };
-  DualSegmentTree< int > seg(N, h, INT_MAX);
+  auto seg = get_dual_segment_tree(N, h, INT_MAX);
   while(Q--) {
     int com;
     cin >> com;

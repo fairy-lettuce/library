@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#bd066fce418dc5d58690e9bbe0a7a21f">structure/segment-tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/segment-tree/segment-tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-20 01:36:53+09:00
+    - Last commit date: 2020-09-08 00:52:50+09:00
 
 
 
@@ -78,10 +78,8 @@ layout: default
  * @brief Segment-Tree(セグメント木)
  * @docs docs/segment-tree.md
  */
-template< typename Monoid >
+template< typename Monoid, typename F >
 struct SegmentTree {
-  using F = function< Monoid(Monoid, Monoid) >;
-
   int sz;
   vector< Monoid > seg;
 
@@ -172,6 +170,11 @@ struct SegmentTree {
     return -1;
   }
 };
+
+template< typename Monoid, typename F >
+SegmentTree< Monoid, F > get_segment_tree(int N, const F& f, const Monoid& M1) {
+  return {N, f, M1};
+}
 
 ```
 {% endraw %}
@@ -184,10 +187,8 @@ struct SegmentTree {
  * @brief Segment-Tree(セグメント木)
  * @docs docs/segment-tree.md
  */
-template< typename Monoid >
+template< typename Monoid, typename F >
 struct SegmentTree {
-  using F = function< Monoid(Monoid, Monoid) >;
-
   int sz;
   vector< Monoid > seg;
 
@@ -278,6 +279,11 @@ struct SegmentTree {
     return -1;
   }
 };
+
+template< typename Monoid, typename F >
+SegmentTree< Monoid, F > get_segment_tree(int N, const F& f, const Monoid& M1) {
+  return {N, f, M1};
+}
 
 ```
 {% endraw %}

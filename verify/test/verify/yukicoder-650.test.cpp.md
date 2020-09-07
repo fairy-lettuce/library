@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yukicoder-650.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-11 22:00:32+09:00
+    - Last commit date: 2020-09-08 00:52:50+09:00
 
 
 * see: <a href="https://yukicoder.me/problems/no/650">https://yukicoder.me/problems/no/650</a>
@@ -79,7 +79,7 @@ int main() {
   }
   using Mat = SquareMatrix< modint, 2 >;
   auto f = [](const Mat &a, const Mat &b) { return a * b; };
-  SegmentTree< Mat > seg(N, f, Mat::mul_identity());
+  auto seg = get_segment_tree(N, f, Mat::mul_identity());
   int Q;
   cin >> Q;
   while(Q--) {
@@ -375,10 +375,8 @@ private:
  * @brief Segment-Tree(セグメント木)
  * @docs docs/segment-tree.md
  */
-template< typename Monoid >
+template< typename Monoid, typename F >
 struct SegmentTree {
-  using F = function< Monoid(Monoid, Monoid) >;
-
   int sz;
   vector< Monoid > seg;
 
@@ -469,6 +467,11 @@ struct SegmentTree {
     return -1;
   }
 };
+
+template< typename Monoid, typename F >
+SegmentTree< Monoid, F > get_segment_tree(int N, const F& f, const Monoid& M1) {
+  return {N, f, M1};
+}
 #line 9 "test/verify/yukicoder-650.test.cpp"
 
 #line 1 "math/combinatorics/mod-int.cpp"
@@ -664,7 +667,7 @@ int main() {
   }
   using Mat = SquareMatrix< modint, 2 >;
   auto f = [](const Mat &a, const Mat &b) { return a * b; };
-  SegmentTree< Mat > seg(N, f, Mat::mul_identity());
+  auto seg = get_segment_tree(N, f, Mat::mul_identity());
   int Q;
   cin >> Q;
   while(Q--) {

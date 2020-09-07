@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#bd066fce418dc5d58690e9bbe0a7a21f">structure/segment-tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/structure/segment-tree/dual-segment-tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-20 22:23:04+09:00
+    - Last commit date: 2020-09-08 00:52:50+09:00
 
 
 
@@ -61,10 +61,8 @@ layout: default
  * @brief Dual-Segment-Tree(双対セグメント木)
  * @docs docs/dual-segment-tree.md
  */
-template< typename OperatorMonoid >
+template< typename OperatorMonoid, typename H >
 struct DualSegmentTree {
-  using H = function< OperatorMonoid(OperatorMonoid, OperatorMonoid) >;
-
   int sz, height;
   vector< OperatorMonoid > lazy;
   const H h;
@@ -103,6 +101,11 @@ struct DualSegmentTree {
     return lazy[k];
   }
 };
+
+template< typename OperatorMonoid, typename H >
+DualSegmentTree< OperatorMonoid, H > get_dual_segment_tree(int N, const H& h, const OperatorMonoid& OM0) {
+  return {N, h, OM0};
+}
 
 ```
 {% endraw %}
@@ -115,10 +118,8 @@ struct DualSegmentTree {
  * @brief Dual-Segment-Tree(双対セグメント木)
  * @docs docs/dual-segment-tree.md
  */
-template< typename OperatorMonoid >
+template< typename OperatorMonoid, typename H >
 struct DualSegmentTree {
-  using H = function< OperatorMonoid(OperatorMonoid, OperatorMonoid) >;
-
   int sz, height;
   vector< OperatorMonoid > lazy;
   const H h;
@@ -157,6 +158,11 @@ struct DualSegmentTree {
     return lazy[k];
   }
 };
+
+template< typename OperatorMonoid, typename H >
+DualSegmentTree< OperatorMonoid, H > get_dual_segment_tree(int N, const H& h, const OperatorMonoid& OM0) {
+  return {N, h, OM0};
+}
 
 ```
 {% endraw %}

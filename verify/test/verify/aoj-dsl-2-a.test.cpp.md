@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dsl-2-a.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-20 01:36:53+09:00
+    - Last commit date: 2020-09-08 00:52:50+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A</a>
@@ -57,7 +57,7 @@ layout: default
 int main() {
   int N, Q;
   scanf("%d %d", &N, &Q);
-  SegmentTree< int > seg(N, [](int a, int b) { return min(a, b); }, INT_MAX);
+  auto seg = get_segment_tree(N, [](int a, int b) { return min(a, b); }, INT_MAX);
   while(Q--) {
     int T, X, Y;
     scanf("%d %d %d", &T, &X, &Y);
@@ -169,10 +169,8 @@ inline decltype(auto) MFP(F &&f) {
  * @brief Segment-Tree(セグメント木)
  * @docs docs/segment-tree.md
  */
-template< typename Monoid >
+template< typename Monoid, typename F >
 struct SegmentTree {
-  using F = function< Monoid(Monoid, Monoid) >;
-
   int sz;
   vector< Monoid > seg;
 
@@ -263,12 +261,17 @@ struct SegmentTree {
     return -1;
   }
 };
+
+template< typename Monoid, typename F >
+SegmentTree< Monoid, F > get_segment_tree(int N, const F& f, const Monoid& M1) {
+  return {N, f, M1};
+}
 #line 6 "test/verify/aoj-dsl-2-a.test.cpp"
 
 int main() {
   int N, Q;
   scanf("%d %d", &N, &Q);
-  SegmentTree< int > seg(N, [](int a, int b) { return min(a, b); }, INT_MAX);
+  auto seg = get_segment_tree(N, [](int a, int b) { return min(a, b); }, INT_MAX);
   while(Q--) {
     int T, X, Y;
     scanf("%d %d %d", &T, &X, &Y);
