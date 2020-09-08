@@ -25,15 +25,31 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: graph/others/chromatic-number.cpp
+# :heavy_check_mark: Chromatic-Number(彩色数) <small>(graph/others/chromatic-number.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#e557c7f962c39680942b9dada22cabec">graph/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/others/chromatic-number.cpp">View this file on GitHub</a>
-    - Last commit date: 2019-11-30 23:02:43+09:00
+    - Last commit date: 2020-09-08 23:29:00+09:00
 
 
+* see: <a href="https://www.slideshare.net/wata_orz/ss-12131479">https://www.slideshare.net/wata_orz/ss-12131479</a>
+
+
+## 概要
+
+グラフの彩色数を求める. 彩色数とは, 隣接する頂点が異なる色となるように彩色するために必要な最小色数である.
+
+あるグラフが $k$ 彩色可能であることと, $k$ 個の独立集合で被覆できることは必要十分条件である. つまり独立集合から $k$ 個の頂点を選んで被覆する方法の総数が求まれば良い. これはbit DPと包除原理を用いて効率的に求められる.
+
+## 使い方
+
+* `chromatic_number(g)`: 隣接行列 `g` で表されるグラフの彩色数を求める.
+
+## 計算量
+
+* $O(2^N N)$
 
 
 ## Verified with
@@ -46,12 +62,18 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-int chromatic_number(const Matrix< bool > &g) {
+/**
+ * @brief Chromatic-Number(彩色数)
+ * @docs docs/chromatic-number.md
+ * @see https://www.slideshare.net/wata_orz/ss-12131479
+ */
+template< typename Matrix >
+int chromatic_number(Matrix &g) {
   int N = (int) g.size();
   vector< int > es(N);
   for(int i = 0; i < g.size(); i++) {
     for(int j = 0; j < g.size(); j++) {
-      es[i] |= g[i][j] << j;
+      if(g[i][j] != 0) es[i] |= 1 << j;
     }
   }
   int ret = N;
@@ -75,7 +97,6 @@ int chromatic_number(const Matrix< bool > &g) {
   }
   return ret;
 }
-
 
 ```
 {% endraw %}
@@ -84,12 +105,18 @@ int chromatic_number(const Matrix< bool > &g) {
 {% raw %}
 ```cpp
 #line 1 "graph/others/chromatic-number.cpp"
-int chromatic_number(const Matrix< bool > &g) {
+/**
+ * @brief Chromatic-Number(彩色数)
+ * @docs docs/chromatic-number.md
+ * @see https://www.slideshare.net/wata_orz/ss-12131479
+ */
+template< typename Matrix >
+int chromatic_number(Matrix &g) {
   int N = (int) g.size();
   vector< int > es(N);
   for(int i = 0; i < g.size(); i++) {
     for(int j = 0; j < g.size(); j++) {
-      es[i] |= g[i][j] << j;
+      if(g[i][j] != 0) es[i] |= 1 << j;
     }
   }
   int ret = N;
@@ -113,7 +140,6 @@ int chromatic_number(const Matrix< bool > &g) {
   }
   return ret;
 }
-
 
 ```
 {% endraw %}

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-2-a-3.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-30 01:47:11+09:00
+    - Last commit date: 2020-09-08 23:29:00+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A</a>
@@ -39,8 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/mst/boruvka.cpp.html">graph/mst/boruvka.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/mst/boruvka.cpp.html">Boruvka(最小全域木) <small>(graph/mst/boruvka.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/structure/union-find/union-find.cpp.html">Union-Find <small>(structure/union-find/union-find.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
@@ -53,7 +52,6 @@ layout: default
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A"
 
 #include "../../template/template.cpp"
-#include "../../graph/graph-template.cpp"
 
 #include "../../structure/union-find/union-find.cpp"
 
@@ -62,23 +60,22 @@ layout: default
 int main() {
   int V, E;
   cin >> V >> E;
-  Edges< int > g;
+  vector< int > X(E), Y(E), Z(E);
   for(int i = 0; i < E; i++) {
-    int x, y, z;
-    cin >> x >> y >> z;
-    g.emplace_back(x, y, z);
+    cin >> X[i] >> Y[i] >> Z[i];
   }
-  const int INF = 1 << 30;
-  auto f = [&](int sz, vector< int > belong) {
-    vector< pair< int, int > > ret(sz, {INF, -1});
-    for(auto &e : g) {
-      if(belong[e.from] == belong[e.to]) continue;
-      ret[belong[e.from]] = min(ret[belong[e.from]], make_pair(e.cost, belong[e.to]));
-      ret[belong[e.to]] = min(ret[belong[e.to]], make_pair(e.cost, belong[e.from]));
+  Boruvka< int > mst(V);
+  auto f = [&](vector< pair< int, int > > &ret) {
+    for(int i = 0; i < E; i++) {
+      X[i] = mst.find(X[i]);
+      Y[i] = mst.find(Y[i]);
+      if(X[i] == Y[i]) continue;
+      ret[X[i]] = min(ret[X[i]], make_pair(Z[i], Y[i]));
+      ret[Y[i]] = min(ret[Y[i]], make_pair(Z[i], X[i]));
     }
     return ret;
   };
-  cout << boruvka< int, decltype(f) >(V, f) << endl;
+  cout << mst.build(f) << endl;
 }
 
 ```
@@ -177,59 +174,7 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
-#line 1 "graph/graph-template.cpp"
-template< typename T = int >
-struct Edge {
-  int from, to;
-  T cost;
-  int idx;
-
-  Edge() = default;
-
-  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx) {}
-
-  operator int() const { return to; }
-};
-
-template< typename T = int >
-struct Graph {
-  vector< vector< Edge< T > > > g;
-  int es;
-
-  Graph() = default;
-
-  explicit Graph(int n) : g(n), es(0) {}
-
-  size_t size() const {
-    return g.size();
-  }
-
-  void add_directed_edge(int from, int to, T cost = 1) {
-    g[from].emplace_back(from, to, cost, es++);
-  }
-
-  void add_edge(int from, int to, T cost = 1) {
-    g[from].emplace_back(from, to, cost, es);
-    g[to].emplace_back(to, from, cost, es++);
-  }
-
-  void read(int M, int padding = -1, bool weighted = false, bool directed = false) {
-    for(int i = 0; i < M; i++) {
-      int a, b;
-      cin >> a >> b;
-      a += padding;
-      b += padding;
-      T c = T(1);
-      if(weighted) cin >> c;
-      if(directed) add_directed_edge(a, b, c);
-      else add_edge(a, b, c);
-    }
-  }
-};
-
-template< typename T = int >
-using Edges = vector< Edge< T > >;
-#line 5 "test/verify/aoj-grl-2-a-3.test.cpp"
+#line 4 "test/verify/aoj-grl-2-a-3.test.cpp"
 
 #line 1 "structure/union-find/union-find.cpp"
 /**
@@ -265,59 +210,66 @@ struct UnionFind {
     return find(x) == find(y);
   }
 };
-#line 7 "test/verify/aoj-grl-2-a-3.test.cpp"
+#line 6 "test/verify/aoj-grl-2-a-3.test.cpp"
 
 #line 1 "graph/mst/boruvka.cpp"
-template< typename T, typename F >
-T boruvka(int N, F f) {
-  vector< int > rev(N), belong(N);
-  UnionFind uf(N);
-  T ret = T();
-  while(uf.size(0) != N) {
-    int ptr = 0;
-    for(int i = 0; i < N; i++) {
-      if(uf.find(i) == i) {
-        belong[i] = ptr++;
-        rev[belong[i]] = i;
-      }
-    }
-    for(int i = 0; i < N; i++) {
-      belong[i] = belong[uf.find(i)];
-    }
-    auto v = f(ptr, belong);
-    bool update = false;
-    for(int i = 0; i < ptr; i++) {
-      if(~v[i].second && uf.unite(rev[i], rev[v[i].second])) {
-        ret += v[i].first;
-        update = true;
-      }
-    }
-    if(!update) return -1; // notice!!
+/**
+ * @brief Boruvka(最小全域木)
+ * @docs docs/boruvka.md
+ */
+template< typename T >
+struct Boruvka {
+private:
+  size_t V;
+  const T INF;
+  UnionFind uf;
+
+public:
+  explicit Boruvka(size_t V, T INF = numeric_limits< T >::max()) : V(V), uf(V), INF(INF) {}
+
+  inline int find(int k) {
+    return uf.find(k);
   }
-  return ret;
-}
-#line 9 "test/verify/aoj-grl-2-a-3.test.cpp"
+
+  template< typename F >
+  T build(const F &update) {
+    T ret = T();
+    while(uf.size(0) < V) {
+      vector< pair< T, int > > v(V, make_pair(INF, -1));
+      update(v);
+      bool con = false;
+      for(int i = 0; i < V; i++) {
+        if(v[i].second >= 0 && uf.unite(i, v[i].second)) {
+          ret += v[i].first;
+          con = true;
+        }
+      }
+      if(!con) return INF;
+    }
+    return ret;
+  }
+};
+#line 8 "test/verify/aoj-grl-2-a-3.test.cpp"
 
 int main() {
   int V, E;
   cin >> V >> E;
-  Edges< int > g;
+  vector< int > X(E), Y(E), Z(E);
   for(int i = 0; i < E; i++) {
-    int x, y, z;
-    cin >> x >> y >> z;
-    g.emplace_back(x, y, z);
+    cin >> X[i] >> Y[i] >> Z[i];
   }
-  const int INF = 1 << 30;
-  auto f = [&](int sz, vector< int > belong) {
-    vector< pair< int, int > > ret(sz, {INF, -1});
-    for(auto &e : g) {
-      if(belong[e.from] == belong[e.to]) continue;
-      ret[belong[e.from]] = min(ret[belong[e.from]], make_pair(e.cost, belong[e.to]));
-      ret[belong[e.to]] = min(ret[belong[e.to]], make_pair(e.cost, belong[e.from]));
+  Boruvka< int > mst(V);
+  auto f = [&](vector< pair< int, int > > &ret) {
+    for(int i = 0; i < E; i++) {
+      X[i] = mst.find(X[i]);
+      Y[i] = mst.find(Y[i]);
+      if(X[i] == Y[i]) continue;
+      ret[X[i]] = min(ret[X[i]], make_pair(Z[i], Y[i]));
+      ret[Y[i]] = min(ret[Y[i]], make_pair(Z[i], X[i]));
     }
     return ret;
   };
-  cout << boruvka< int, decltype(f) >(V, f) << endl;
+  cout << mst.build(f) << endl;
 }
 
 ```

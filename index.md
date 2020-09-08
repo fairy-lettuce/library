@@ -100,7 +100,7 @@ layout: default
 
 ### graph/mst
 
-* :heavy_check_mark: <a href="library/graph/mst/boruvka.cpp.html">graph/mst/boruvka.cpp</a>
+* :heavy_check_mark: <a href="library/graph/mst/boruvka.cpp.html">Boruvka(最小全域木) <small>(graph/mst/boruvka.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/mst/chu-liu-edmond.cpp.html">graph/mst/chu-liu-edmond.cpp</a>
 * :heavy_check_mark: <a href="library/graph/mst/kruskal.cpp.html">Kruskal(最小全域木) <small>(graph/mst/kruskal.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/mst/prim-fibonacchi-heap.cpp.html">Prim-Fibonacchi-Heap(最小全域木) <small>(graph/mst/prim-fibonacchi-heap.cpp)</small></a>
@@ -113,7 +113,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/graph/others/bipartite-graph-edge-coloring.cpp.html">Bipartite-Graph-Edge-Coloring(二部グラフの辺彩色) <small>(graph/others/bipartite-graph-edge-coloring.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/block-cut-tree.cpp.html">Block-Cut-Tree <small>(graph/others/block-cut-tree.cpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/others/chromatic-number.cpp.html">graph/others/chromatic-number.cpp</a>
+* :heavy_check_mark: <a href="library/graph/others/chromatic-number.cpp.html">Chromatic-Number(彩色数) <small>(graph/others/chromatic-number.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/dominator-tree.cpp.html">Dominator-Tree <small>(graph/others/dominator-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/enumerate-clique.cpp.html">Enumerate-Clique(クリーク全列挙) <small>(graph/others/enumerate-clique.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/eulerian-trail.cpp.html">Eulerian-Trail(オイラー路) <small>(graph/others/eulerian-trail.cpp)</small></a>
@@ -149,6 +149,7 @@ layout: default
 * :heavy_check_mark: <a href="library/graph/tree/centroid-decomposition.cpp.html">Centroid-Decomosition(重心分解) <small>(graph/tree/centroid-decomposition.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/centroid.cpp.html">Centroid(木の重心) <small>(graph/tree/centroid.cpp)</small></a>
 * :warning: <a href="library/graph/tree/convert-rooted-tree.cpp.html">Convert-Rooted-Tree(根付き木に変換) <small>(graph/tree/convert-rooted-tree.cpp)</small></a>
+* :warning: <a href="library/graph/tree/disjoint_set_union_on_tree.cpp.html">Disjoint-Set-Union-On-Tree <small>(graph/tree/disjoint_set_union_on_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/doubling-lowest-common-ancestor.cpp.html">Doubling-Lowest-Common-Ancestor(最小共通祖先) <small>(graph/tree/doubling-lowest-common-ancestor.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/heavy-light-decomposition.cpp.html">Heavy-Light-Decomposition(HL分解) <small>(graph/tree/heavy-light-decomposition.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/tree/rerooting.cpp.html">graph/tree/rerooting.cpp</a>
