@@ -117,7 +117,7 @@ layout: default
 * :heavy_check_mark: <a href="library/graph/others/dominator-tree.cpp.html">Dominator-Tree <small>(graph/others/dominator-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/enumerate-clique.cpp.html">Enumerate-Clique(クリーク全列挙) <small>(graph/others/enumerate-clique.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/eulerian-trail.cpp.html">Eulerian-Trail(オイラー路) <small>(graph/others/eulerian-trail.cpp)</small></a>
-* :heavy_check_mark: <a href="library/graph/others/low-link.cpp.html">Low-Link <small>(graph/others/low-link.cpp)</small></a>
+* :heavy_check_mark: <a href="library/graph/others/low-link.cpp.html">Low-Link(橋/関節点) <small>(graph/others/low-link.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/maximum-clique.cpp.html">Maximum-Clique(最大クリーク) <small>(graph/others/maximum-clique.cpp)</small></a>
 * :heavy_check_mark: <a href="library/graph/others/maximum-independent-set.cpp.html">graph/others/maximum-independent-set.cpp</a>
 * :heavy_check_mark: <a href="library/graph/others/offline-dag-reachability.cpp.html">Offline-Dag-Reachability(DAGの到達可能性クエリ) <small>(graph/others/offline-dag-reachability.cpp)</small></a>

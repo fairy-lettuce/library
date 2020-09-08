@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yukicoder-583.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-26 02:14:53+09:00
+    - Last commit date: 2020-09-08 21:03:17+09:00
 
 
 * see: <a href="https://yukicoder.me/problems/no/583">https://yukicoder.me/problems/no/583</a>
@@ -207,6 +207,7 @@ struct UnionFind {
 #line 1 "graph/others/eulerian-trail.cpp"
 /**
  * @brief Eulerian-Trail(オイラー路)
+ * @docs docs/eulerian-trail.md
  */
 template< bool directed >
 struct EulerianTrail {

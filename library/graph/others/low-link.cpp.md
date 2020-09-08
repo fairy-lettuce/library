@@ -25,16 +25,35 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Low-Link <small>(graph/others/low-link.cpp)</small>
+# :heavy_check_mark: Low-Link(橋/関節点) <small>(graph/others/low-link.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#e557c7f962c39680942b9dada22cabec">graph/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/others/low-link.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-04 01:14:35+09:00
+    - Last commit date: 2020-09-08 21:03:17+09:00
 
 
 * see: <a href="http://kagamiz.hatenablog.com/entry/2013/10/05/005213">http://kagamiz.hatenablog.com/entry/2013/10/05/005213</a>
+
+
+## 概要
+橋や関節点などを効率的に求める際に有効なアルゴリズム.
+
+グラフをDFSして各頂点 `idx` について, `ord[idx]` := DFS で頂点に訪れた順番, `low[idx]` := 頂点 $idx$ からDFS木の葉方向の辺を $0$ 回以上, 後退辺を $1$ 回以下通って到達可能な頂点の `ord` の最小値 を求める.
+
+ある頂点 $u$ が関節点であるとき, DFS木の根については子が $2$ つ以上, それ以外の頂点については 頂点 $u$ のある子 $v$ について `ord[u]` $\le$ `low[v]` を満たす.
+
+ある辺 $(u, v)$ が橋であるとき, `ord[u]` $\lt$ `low[v]` を満たす.
+
+## 使い方
+
+* `build()`: LowLink を構築する. 構築後, `articulation` には関節点, `bridge` には橋が格納される. 非連結でも多重辺を含んでいてもOK.
+
+
+## 計算量
+
+$O(V + E)$
 
 
 ## Verified with
@@ -52,8 +71,9 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief Low-Link
+ * @brief Low-Link(橋/関節点)
  * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213
+ * @docs docs/low-link.md
  */
 template< typename T = int >
 struct LowLink : Graph< T > {
@@ -112,8 +132,9 @@ private:
 ```cpp
 #line 1 "graph/others/low-link.cpp"
 /**
- * @brief Low-Link
+ * @brief Low-Link(橋/関節点)
  * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213
+ * @docs docs/low-link.md
  */
 template< typename T = int >
 struct LowLink : Graph< T > {

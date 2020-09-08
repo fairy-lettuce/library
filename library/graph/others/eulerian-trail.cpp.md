@@ -31,9 +31,29 @@ layout: default
 
 * category: <a href="../../../index.html#e557c7f962c39680942b9dada22cabec">graph/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/others/eulerian-trail.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-26 02:14:53+09:00
+    - Last commit date: 2020-09-08 21:03:17+09:00
 
 
+
+
+## 概要
+
+有向/無向グラフが与えられたときに, グラフの全ての辺をちょうど $1$ 回ずつ通る閉路やパスを各連結成分について求める.
+
+連結なグラフでオイラー閉路が存在する必要十分条件は, 有向グラフでは全ての頂点について入次数と出次数が等しいこと, 無向グラフでは全ての頂点の次数が偶数であることである.
+
+連結なグラフでオイラー路が存在する必要十分条件は, オイラー閉路の条件にマッチするかどうかに加えて, 有向グラフでは入次数と出次数の差が $1$ である頂点が $2$ 個, 無向グラフでは次数が奇数の頂点が $2$ 個であることである.
+
+## 使い方
+
+* `add_edge(a, b)`: 頂点 `a`, `b` 間に辺をはる.
+* `enumerate_eulerian_trail()`: すべての連結成分についてオイラー路を列挙し, オイラー路の辺の idx の列を結合したものを返す. オイラー路が存在しない連結成分があるとき空列を返す.
+* `enumerate_semi_eulerian_trail()`: すべての連結成分について準オイラー路を列挙し, 準オイラー路の辺の idx の列を結合したものを返す. 準オイラー路が存在しない連結成分があるとき空列を返す.
+* `get_edge(idx)`: `idx` 番目に追加した辺の ${from, to}$ を返す.
+
+## 計算量
+
+$O(V + E)$
 
 
 ## Verified with
@@ -49,6 +69,7 @@ layout: default
 ```cpp
 /**
  * @brief Eulerian-Trail(オイラー路)
+ * @docs docs/eulerian-trail.md
  */
 template< bool directed >
 struct EulerianTrail {
@@ -159,6 +180,7 @@ struct EulerianTrail {
 #line 1 "graph/others/eulerian-trail.cpp"
 /**
  * @brief Eulerian-Trail(オイラー路)
+ * @docs docs/eulerian-trail.md
  */
 template< bool directed >
 struct EulerianTrail {

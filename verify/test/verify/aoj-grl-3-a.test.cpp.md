@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-3-a.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-04 01:14:35+09:00
+    - Last commit date: 2020-09-08 21:03:17+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A</a>
@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/others/low-link.cpp.html">Low-Link <small>(graph/others/low-link.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/graph/others/low-link.cpp.html">Low-Link(橋/関節点) <small>(graph/others/low-link.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
@@ -223,8 +223,9 @@ using Edges = vector< Edge< T > >;
 
 #line 1 "graph/others/low-link.cpp"
 /**
- * @brief Low-Link
+ * @brief Low-Link(橋/関節点)
  * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213
+ * @docs docs/low-link.md
  */
 template< typename T = int >
 struct LowLink : Graph< T > {
