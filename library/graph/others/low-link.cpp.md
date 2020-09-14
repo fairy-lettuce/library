@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Low-Link(橋/関節点) <small>(graph/others/low-link.cpp)</small>
+# :question: Low-Link(橋/関節点) <small>(graph/others/low-link.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#e557c7f962c39680942b9dada22cabec">graph/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/others/low-link.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-08 21:03:17+09:00
+    - Last commit date: 2020-09-15 01:04:53+09:00
 
 
 * see: <a href="http://kagamiz.hatenablog.com/entry/2013/10/05/005213">http://kagamiz.hatenablog.com/entry/2013/10/05/005213</a>
@@ -56,13 +56,25 @@ layout: default
 $O(V + E)$
 
 
+## Depends on
+
+* :question: <a href="../graph-template.cpp.html">graph/graph-template.cpp</a>
+
+
+## Required by
+
+* :heavy_check_mark: <a href="../connected-components/bi-connected-components.cpp.html">Bi-Connected-Components(二重頂点連結成分分解) <small>(graph/connected-components/bi-connected-components.cpp)</small></a>
+* :x: <a href="../connected-components/two-edge-connected-components.cpp.html">Two-Edge-Connected-Components(二重辺連結成分分解) <small>(graph/connected-components/two-edge-connected-components.cpp)</small></a>
+* :heavy_check_mark: <a href="block-cut-tree.cpp.html">Block-Cut-Tree <small>(graph/others/block-cut-tree.cpp)</small></a>
+
+
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-3022.test.cpp.html">test/verify/aoj-3022.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-3139.test.cpp.html">test/verify/aoj-3139.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-3-a.test.cpp.html">test/verify/aoj-grl-3-a.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-3-b.test.cpp.html">test/verify/aoj-grl-3-b.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-two-edge-connected-components.test.cpp.html">test/verify/yosupo-two-edge-connected-components.test.cpp</a>
+* :x: <a href="../../../verify/test/verify/yosupo-two-edge-connected-components.test.cpp.html">test/verify/yosupo-two-edge-connected-components.test.cpp</a>
 
 
 ## Code
@@ -70,6 +82,8 @@ $O(V + E)$
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#include "../graph-template.cpp"
+
 /**
  * @brief Low-Link(橋/関節点)
  * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213
@@ -130,7 +144,61 @@ private:
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "graph/others/low-link.cpp"
+#line 2 "graph/graph-template.cpp"
+
+template< typename T = int >
+struct Edge {
+  int from, to;
+  T cost;
+  int idx;
+
+  Edge() = default;
+
+  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx) {}
+
+  operator int() const { return to; }
+};
+
+template< typename T = int >
+struct Graph {
+  vector< vector< Edge< T > > > g;
+  int es;
+
+  Graph() = default;
+
+  explicit Graph(int n) : g(n), es(0) {}
+
+  size_t size() const {
+    return g.size();
+  }
+
+  void add_directed_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es++);
+  }
+
+  void add_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es);
+    g[to].emplace_back(to, from, cost, es++);
+  }
+
+  void read(int M, int padding = -1, bool weighted = false, bool directed = false) {
+    for(int i = 0; i < M; i++) {
+      int a, b;
+      cin >> a >> b;
+      a += padding;
+      b += padding;
+      T c = T(1);
+      if(weighted) cin >> c;
+      if(directed) add_directed_edge(a, b, c);
+      else add_edge(a, b, c);
+    }
+  }
+};
+
+template< typename T = int >
+using Edges = vector< Edge< T > >;
+#line 2 "graph/others/low-link.cpp"
+
 /**
  * @brief Low-Link(橋/関節点)
  * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213

@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/yukicoder-1002.test.cpp
+# :x: test/verify/yukicoder-1002.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yukicoder-1002.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-28 20:39:54+09:00
+    - Last commit date: 2020-09-15 01:04:53+09:00
 
 
 * see: <a href="https://yukicoder.me/problems/no/1002">https://yukicoder.me/problems/no/1002</a>
@@ -39,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/tree/centroid-decomposition.cpp.html">Centroid-Decomosition(重心分解) <small>(graph/tree/centroid-decomposition.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :question: <a href="../../../library/graph/tree/centroid-decomposition.cpp.html">Centroid-Decomosition(重心分解) <small>(graph/tree/centroid-decomposition.cpp)</small></a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -52,8 +52,6 @@ layout: default
 #define PROBLEM "https://yukicoder.me/problems/no/1002"
 
 #include "../../template/template.cpp"
-
-#include "../../graph/graph-template.cpp"
 
 #include "../../graph/tree/centroid-decomposition.cpp"
 
@@ -230,7 +228,8 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yukicoder-1002.test.cpp"
 
-#line 1 "graph/graph-template.cpp"
+#line 2 "graph/graph-template.cpp"
+
 template< typename T = int >
 struct Edge {
   int from, to;
@@ -282,9 +281,8 @@ struct Graph {
 
 template< typename T = int >
 using Edges = vector< Edge< T > >;
-#line 6 "test/verify/yukicoder-1002.test.cpp"
+#line 2 "graph/tree/centroid-decomposition.cpp"
 
-#line 1 "graph/tree/centroid-decomposition.cpp"
 /**
  * @brief Centroid-Decomosition(重心分解)
  */
@@ -335,7 +333,7 @@ private:
     return centroid;
   }
 };
-#line 8 "test/verify/yukicoder-1002.test.cpp"
+#line 6 "test/verify/yukicoder-1002.test.cpp"
 
 int main() {
   int N, K;

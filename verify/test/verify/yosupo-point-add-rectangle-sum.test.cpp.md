@@ -39,12 +39,12 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/other/printer.cpp.html">Printer(高速出力) <small>(other/printer.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/other/scanner.cpp.html">Scanner(高速入力) <small>(other/scanner.cpp)</small></a>
+* :question: <a href="../../../library/other/printer.cpp.html">Printer(高速出力) <small>(other/printer.cpp)</small></a>
+* :question: <a href="../../../library/other/scanner.cpp.html">Scanner(高速入力) <small>(other/scanner.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/structure/others/binary-indexed-tree.cpp.html">Binary-Indexed-Tree(BIT) <small>(structure/others/binary-indexed-tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/structure/wavelet/succinct-indexable-dictionary.cpp.html">structure/wavelet/succinct-indexable-dictionary.cpp</a>
 * :heavy_check_mark: <a href="../../../library/structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp.html">Wavelet-Matrix-Point-Add-Rectangle-Sum <small>(structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

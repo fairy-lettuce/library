@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/yosupo-k-shortest-walk.test.cpp
+# :x: test/verify/yosupo-k-shortest-walk.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-k-shortest-walk.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-21 01:30:35+09:00
+    - Last commit date: 2020-09-15 01:04:53+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/k_shortest_walk">https://judge.yosupo.jp/problem/k_shortest_walk</a>
@@ -39,12 +39,12 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/shortest-path/dijkstra.cpp.html">Dijkstra(単一始点最短路) <small>(graph/shortest-path/dijkstra.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/graph/shortest-path/k-shortest-walk.cpp.html">K-Shortest-Walk <small>(graph/shortest-path/k-shortest-walk.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/structure/heap/leftist-heap.cpp.html">Leftist-Heap <small>(structure/heap/leftist-heap.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/structure/heap/persistent-leftist-heap.cpp.html">Persistent-Leftist-Heap <small>(structure/heap/persistent-leftist-heap.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :question: <a href="../../../library/graph/shortest-path/dijkstra.cpp.html">Dijkstra(単一始点最短路) <small>(graph/shortest-path/dijkstra.cpp)</small></a>
+* :x: <a href="../../../library/graph/shortest-path/k-shortest-walk.cpp.html">K-Shortest-Walk <small>(graph/shortest-path/k-shortest-walk.cpp)</small></a>
+* :question: <a href="../../../library/structure/heap/leftist-heap.cpp.html">Leftist-Heap <small>(structure/heap/leftist-heap.cpp)</small></a>
+* :x: <a href="../../../library/structure/heap/persistent-leftist-heap.cpp.html">Persistent-Leftist-Heap <small>(structure/heap/persistent-leftist-heap.cpp)</small></a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -173,7 +173,8 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-k-shortest-walk.test.cpp"
 
-#line 1 "graph/graph-template.cpp"
+#line 2 "graph/graph-template.cpp"
+
 template< typename T = int >
 struct Edge {
   int from, to;

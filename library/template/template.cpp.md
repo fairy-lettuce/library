@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: template/template.cpp
+# :question: template/template.cpp
 
 <a href="../../index.html">Back to top page</a>
 
@@ -122,7 +122,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-bipartitematching.test.cpp.html">test/verify/yosupo-bipartitematching.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-convolution-mod.test.cpp.html">test/verify/yosupo-convolution-mod.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-discrete-logarithm-mod.test.cpp.html">test/verify/yosupo-discrete-logarithm-mod.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-dominatortree.test.cpp.html">test/verify/yosupo-dominatortree.test.cpp</a>
+* :x: <a href="../../verify/test/verify/yosupo-dominatortree.test.cpp.html">test/verify/yosupo-dominatortree.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp.html">test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp</a>
@@ -131,10 +131,10 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-exp-of-formal-power-series.test.cpp.html">test/verify/yosupo-exp-of-formal-power-series.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-factorize.test.cpp.html">test/verify/yosupo-factorize.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-find-linear-recurrence.test.cpp.html">test/verify/yosupo-find-linear-recurrence.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-frequency-table-of-tree-distance.test.cpp.html">test/verify/yosupo-frequency-table-of-tree-distance.test.cpp</a>
+* :x: <a href="../../verify/test/verify/yosupo-frequency-table-of-tree-distance.test.cpp.html">test/verify/yosupo-frequency-table-of-tree-distance.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-general-matching.test.cpp.html">test/verify/yosupo-general-matching.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-inv-of-formal-power-series.test.cpp.html">test/verify/yosupo-inv-of-formal-power-series.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-k-shortest-walk.test.cpp.html">test/verify/yosupo-k-shortest-walk.test.cpp</a>
+* :x: <a href="../../verify/test/verify/yosupo-k-shortest-walk.test.cpp.html">test/verify/yosupo-k-shortest-walk.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-kth-root-integer.test.cpp.html">test/verify/yosupo-kth-root-integer.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-line-add-get-min.test.cpp.html">test/verify/yosupo-line-add-get-min.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-log-of-formal-power-series.test.cpp.html">test/verify/yosupo-log-of-formal-power-series.test.cpp</a>
@@ -157,10 +157,10 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-range-kth-smallest-2.test.cpp.html">test/verify/yosupo-range-kth-smallest-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-range-kth-smallest.test.cpp.html">test/verify/yosupo-range-kth-smallest.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-rectangle-sum.test.cpp.html">test/verify/yosupo-rectangle-sum.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-scc.test.cpp.html">test/verify/yosupo-scc.test.cpp</a>
+* :x: <a href="../../verify/test/verify/yosupo-scc.test.cpp.html">test/verify/yosupo-scc.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-segment-add-get-min.test.cpp.html">test/verify/yosupo-segment-add-get-min.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-set-xor-min.test.cpp.html">test/verify/yosupo-set-xor-min.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-shortest-path.test.cpp.html">test/verify/yosupo-shortest-path.test.cpp</a>
+* :x: <a href="../../verify/test/verify/yosupo-shortest-path.test.cpp.html">test/verify/yosupo-shortest-path.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-sparse-matrix-det.test.cpp.html">test/verify/yosupo-sparse-matrix-det.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-sqrt-mod.test.cpp.html">test/verify/yosupo-sqrt-mod.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp.html">test/verify/yosupo-sqrt-of-formal-power-series.test.cpp</a>
@@ -171,18 +171,18 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-staticrmq.test.cpp.html">test/verify/yosupo-staticrmq.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-sum-of-floor-of-linear.test.cpp.html">test/verify/yosupo-sum-of-floor-of-linear.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-tetration-mod.test.cpp.html">test/verify/yosupo-tetration-mod.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-three-edge-connected-components.test.cpp.html">test/verify/yosupo-three-edge-connected-components.test.cpp</a>
+* :x: <a href="../../verify/test/verify/yosupo-three-edge-connected-components.test.cpp.html">test/verify/yosupo-three-edge-connected-components.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-tree-decomposition-width-2.test.cpp.html">test/verify/yosupo-tree-decomposition-width-2.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-tree-diameter.test.cpp.html">test/verify/yosupo-tree-diameter.test.cpp</a>
+* :x: <a href="../../verify/test/verify/yosupo-tree-diameter.test.cpp.html">test/verify/yosupo-tree-diameter.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-two-edge-connected-components-2.test.cpp.html">test/verify/yosupo-two-edge-connected-components-2.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-two-edge-connected-components.test.cpp.html">test/verify/yosupo-two-edge-connected-components.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-two-sat.test.cpp.html">test/verify/yosupo-two-sat.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-1002.test.cpp.html">test/verify/yukicoder-1002.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-1069.test.cpp.html">test/verify/yukicoder-1069.test.cpp</a>
+* :x: <a href="../../verify/test/verify/yosupo-two-edge-connected-components.test.cpp.html">test/verify/yosupo-two-edge-connected-components.test.cpp</a>
+* :x: <a href="../../verify/test/verify/yosupo-two-sat.test.cpp.html">test/verify/yosupo-two-sat.test.cpp</a>
+* :x: <a href="../../verify/test/verify/yukicoder-1002.test.cpp.html">test/verify/yukicoder-1002.test.cpp</a>
+* :x: <a href="../../verify/test/verify/yukicoder-1069.test.cpp.html">test/verify/yukicoder-1069.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-184.test.cpp.html">test/verify/yukicoder-184.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-430.test.cpp.html">test/verify/yukicoder-430.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-583.test.cpp.html">test/verify/yukicoder-583.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-650.test.cpp.html">test/verify/yukicoder-650.test.cpp</a>
+* :x: <a href="../../verify/test/verify/yukicoder-650.test.cpp.html">test/verify/yukicoder-650.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-703.test.cpp.html">test/verify/yukicoder-703.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-704.test.cpp.html">test/verify/yukicoder-704.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yukicoder-705.test.cpp.html">test/verify/yukicoder-705.test.cpp</a>

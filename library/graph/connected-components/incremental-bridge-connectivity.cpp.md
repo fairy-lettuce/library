@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Incremental-Bridge-Connectivity <small>(graph/connected-components/incremental-bridge-connectivity.cpp)</small>
+# :question: Incremental-Bridge-Connectivity <small>(graph/connected-components/incremental-bridge-connectivity.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -53,7 +53,7 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-three-edge-connected-components.test.cpp.html">test/verify/yosupo-three-edge-connected-components.test.cpp</a>
+* :x: <a href="../../../verify/test/verify/yosupo-three-edge-connected-components.test.cpp.html">test/verify/yosupo-three-edge-connected-components.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-two-edge-connected-components-2.test.cpp.html">test/verify/yosupo-two-edge-connected-components-2.test.cpp</a>
 
 

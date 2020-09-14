@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Square-Matrix(正方行列) <small>(math/matrix/square-matrix.cpp)</small>
+# :question: Square-Matrix(正方行列) <small>(math/matrix/square-matrix.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -39,7 +39,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-1254.test.cpp.html">test/verify/aoj-1254.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/verify/yukicoder-650.test.cpp.html">test/verify/yukicoder-650.test.cpp</a>
+* :x: <a href="../../../verify/test/verify/yukicoder-650.test.cpp.html">test/verify/yukicoder-650.test.cpp</a>
 
 
 ## Code

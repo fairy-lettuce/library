@@ -41,7 +41,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../library/dp/monotone-minima.cpp.html">Monotone-Minima <small>(dp/monotone-minima.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/dp/online-offline-dp.cpp.html">Online-Offline-DP(オンライン・オフライン変換) <small>(dp/online-offline-dp.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

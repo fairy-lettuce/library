@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/yosupo-dominatortree.test.cpp
+# :x: test/verify/yosupo-dominatortree.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-dominatortree.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-30 01:47:11+09:00
+    - Last commit date: 2020-09-15 01:04:53+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/dominatortree">https://judge.yosupo.jp/problem/dominatortree</a>
@@ -39,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/others/dominator-tree.cpp.html">Dominator-Tree <small>(graph/others/dominator-tree.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :question: <a href="../../../library/graph/others/dominator-tree.cpp.html">Dominator-Tree <small>(graph/others/dominator-tree.cpp)</small></a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -166,7 +166,8 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-dominatortree.test.cpp"
 
-#line 1 "graph/graph-template.cpp"
+#line 2 "graph/graph-template.cpp"
+
 template< typename T = int >
 struct Edge {
   int from, to;

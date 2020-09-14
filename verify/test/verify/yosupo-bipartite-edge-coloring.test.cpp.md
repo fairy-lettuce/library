@@ -42,8 +42,8 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/graph/flow/bipartite-flow.cpp.html">Bipartite-Flow(二部グラフのフロー) <small>(graph/flow/bipartite-flow.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/graph/others/bipartite-graph-edge-coloring.cpp.html">Bipartite-Graph-Edge-Coloring(二部グラフの辺彩色) <small>(graph/others/bipartite-graph-edge-coloring.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/graph/others/eulerian-trail.cpp.html">Eulerian-Trail(オイラー路) <small>(graph/others/eulerian-trail.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/structure/union-find/union-find.cpp.html">Union-Find <small>(structure/union-find/union-find.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/structure/union-find/union-find.cpp.html">Union-Find <small>(structure/union-find/union-find.cpp)</small></a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

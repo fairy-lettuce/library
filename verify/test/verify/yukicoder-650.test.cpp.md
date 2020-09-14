@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/yukicoder-650.test.cpp
+# :x: test/verify/yukicoder-650.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yukicoder-650.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-08 00:52:50+09:00
+    - Last commit date: 2020-09-15 01:04:53+09:00
 
 
 * see: <a href="https://yukicoder.me/problems/no/650">https://yukicoder.me/problems/no/650</a>
@@ -39,12 +39,12 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/tree/heavy-light-decomposition.cpp.html">Heavy-Light-Decomposition(HL分解) <small>(graph/tree/heavy-light-decomposition.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
-* :heavy_check_mark: <a href="../../../library/math/matrix/square-matrix.cpp.html">Square-Matrix(正方行列) <small>(math/matrix/square-matrix.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/structure/segment-tree/segment-tree.cpp.html">Segment-Tree(セグメント木) <small>(structure/segment-tree/segment-tree.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :question: <a href="../../../library/graph/tree/heavy-light-decomposition.cpp.html">Heavy-Light-Decomposition(HL分解) <small>(graph/tree/heavy-light-decomposition.cpp)</small></a>
+* :question: <a href="../../../library/math/combinatorics/mod-int.cpp.html">math/combinatorics/mod-int.cpp</a>
+* :question: <a href="../../../library/math/matrix/square-matrix.cpp.html">Square-Matrix(正方行列) <small>(math/matrix/square-matrix.cpp)</small></a>
+* :question: <a href="../../../library/structure/segment-tree/segment-tree.cpp.html">Segment-Tree(セグメント木) <small>(structure/segment-tree/segment-tree.cpp)</small></a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -198,7 +198,8 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yukicoder-650.test.cpp"
 
-#line 1 "graph/graph-template.cpp"
+#line 2 "graph/graph-template.cpp"
+
 template< typename T = int >
 struct Edge {
   int from, to;

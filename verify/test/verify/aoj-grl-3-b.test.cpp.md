@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-3-b.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-08 21:03:17+09:00
+    - Last commit date: 2020-09-15 01:04:53+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B</a>
@@ -39,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/others/low-link.cpp.html">Low-Link(橋/関節点) <small>(graph/others/low-link.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :question: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :question: <a href="../../../library/graph/others/low-link.cpp.html">Low-Link(橋/関節点) <small>(graph/others/low-link.cpp)</small></a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -52,8 +52,6 @@ layout: default
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B"
 
 #include "../../template/template.cpp"
-
-#include "../../graph/graph-template.cpp"
 
 #include "../../graph/others/low-link.cpp"
 
@@ -167,7 +165,8 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/aoj-grl-3-b.test.cpp"
 
-#line 1 "graph/graph-template.cpp"
+#line 2 "graph/graph-template.cpp"
+
 template< typename T = int >
 struct Edge {
   int from, to;
@@ -219,9 +218,8 @@ struct Graph {
 
 template< typename T = int >
 using Edges = vector< Edge< T > >;
-#line 6 "test/verify/aoj-grl-3-b.test.cpp"
+#line 2 "graph/others/low-link.cpp"
 
-#line 1 "graph/others/low-link.cpp"
 /**
  * @brief Low-Link(橋/関節点)
  * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213
@@ -275,7 +273,7 @@ private:
     return k;
   }
 };
-#line 8 "test/verify/aoj-grl-3-b.test.cpp"
+#line 6 "test/verify/aoj-grl-3-b.test.cpp"
 
 int main() {
   int V, E;

@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: K-Shortest-Path <small>(graph/shortest-path/k-shortest-path.cpp)</small>
+# :x: K-Shortest-Path <small>(graph/shortest-path/k-shortest-path.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -54,7 +54,7 @@ verify が甘いため合っているかかなり不安です
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../../verify/test/verify/yukicoder-1069.test.cpp.html">test/verify/yukicoder-1069.test.cpp</a>
+* :x: <a href="../../../verify/test/verify/yukicoder-1069.test.cpp.html">test/verify/yukicoder-1069.test.cpp</a>
 
 
 ## Code

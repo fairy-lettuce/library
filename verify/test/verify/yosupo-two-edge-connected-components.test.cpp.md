@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/verify/yosupo-two-edge-connected-components.test.cpp
+# :x: test/verify/yosupo-two-edge-connected-components.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-two-edge-connected-components.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-08 21:03:17+09:00
+    - Last commit date: 2020-09-15 01:04:53+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/two_edge_connected_components">https://judge.yosupo.jp/problem/two_edge_connected_components</a>
@@ -39,10 +39,10 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/graph/connected-components/two-edge-connected-components.cpp.html">Two-Edge-Connected-Components(二重辺連結成分分解) <small>(graph/connected-components/two-edge-connected-components.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
-* :heavy_check_mark: <a href="../../../library/graph/others/low-link.cpp.html">Low-Link(橋/関節点) <small>(graph/others/low-link.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :x: <a href="../../../library/graph/connected-components/two-edge-connected-components.cpp.html">Two-Edge-Connected-Components(二重辺連結成分分解) <small>(graph/connected-components/two-edge-connected-components.cpp)</small></a>
+* :question: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :question: <a href="../../../library/graph/others/low-link.cpp.html">Low-Link(橋/関節点) <small>(graph/others/low-link.cpp)</small></a>
+* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code
@@ -54,9 +54,6 @@ layout: default
 
 #include "../../template/template.cpp"
 
-#include "../../graph/graph-template.cpp"
-
-#include "../../graph/others/low-link.cpp"
 #include "../../graph/connected-components/two-edge-connected-components.cpp"
 
 int main() {
@@ -169,7 +166,8 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-two-edge-connected-components.test.cpp"
 
-#line 1 "graph/graph-template.cpp"
+#line 2 "graph/graph-template.cpp"
+
 template< typename T = int >
 struct Edge {
   int from, to;
@@ -221,9 +219,8 @@ struct Graph {
 
 template< typename T = int >
 using Edges = vector< Edge< T > >;
-#line 6 "test/verify/yosupo-two-edge-connected-components.test.cpp"
+#line 2 "graph/others/low-link.cpp"
 
-#line 1 "graph/others/low-link.cpp"
 /**
  * @brief Low-Link(橋/関節点)
  * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213
@@ -277,7 +274,8 @@ private:
     return k;
   }
 };
-#line 1 "graph/connected-components/two-edge-connected-components.cpp"
+#line 2 "graph/connected-components/two-edge-connected-components.cpp"
+
 /**
  * @brief Two-Edge-Connected-Components(二重辺連結成分分解)
  * @docs docs/two-edge-connected-components.md
@@ -327,7 +325,7 @@ private:
     }
   }
 };
-#line 9 "test/verify/yosupo-two-edge-connected-components.test.cpp"
+#line 6 "test/verify/yosupo-two-edge-connected-components.test.cpp"
 
 int main() {
   int N, M;
