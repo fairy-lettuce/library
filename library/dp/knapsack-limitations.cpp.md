@@ -51,6 +51,11 @@ layout: default
 * $O(NW)$
 
 
+## Required by
+
+* :heavy_check_mark: <a href="knapsack-limitations-2.cpp.html">Knapsack-Limitations(個数制限つきナップサック問題) $O(N^2 \max(v_i)^2)$ <small>(dp/knapsack-limitations-2.cpp)</small></a>
+
+
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-dpl-1-g.test.cpp.html">test/verify/aoj-dpl-1-g.test.cpp</a>

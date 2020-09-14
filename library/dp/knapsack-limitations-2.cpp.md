@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#95687afb5d9a2a9fa39038f991640b0c">dp</a>
 * <a href="{{ site.github.repository_url }}/blob/master/dp/knapsack-limitations-2.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-26 02:30:05+09:00
+    - Last commit date: 2020-09-15 00:43:54+09:00
 
 
 
@@ -51,6 +51,11 @@ layout: default
 * $O(N^2 \max(v_i)^2)$
 
 
+## Depends on
+
+* :heavy_check_mark: <a href="knapsack-limitations.cpp.html">Knapsack-Limitations(個数制限つきナップサック問題) $O(NW)$ <small>(dp/knapsack-limitations.cpp)</small></a>
+
+
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-dpl-1-i.test.cpp.html">test/verify/aoj-dpl-1-i.test.cpp</a>
@@ -61,6 +66,8 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#include "knapsack-limitations.cpp"
+
 /**
  * @brief Knapsack-Limitations(個数制限つきナップサック問題) $O(N^2 \max(v_i)^2)$
  * @docs docs/knapsack-limitations-2.md
@@ -106,7 +113,39 @@ T knapsack_limitations(const vector< T > &w, const vector< T > &m, const vector<
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "dp/knapsack-limitations-2.cpp"
+#line 1 "dp/knapsack-limitations.cpp"
+/**
+ * @brief Knapsack-Limitations(個数制限つきナップサック問題) $O(NW)$
+ * @docs docs/knapsack-limitations.md
+ */
+template< typename T, typename Compare = greater< T > >
+vector< T > knapsack_limitations(const vector< int > &w, const vector< int > &m, const vector< T > &v,
+                                 const int &W, const T &NG, const Compare &comp = Compare()) {
+  const int N = (int) w.size();
+  vector< T > dp(W + 1, NG), deqv(W + 1);
+  dp[0] = T();
+  vector< int > deq(W + 1);
+  for(int i = 0; i < N; i++) {
+    for(int a = 0; a < w[i]; a++) {
+      int s = 0, t = 0;
+      for(int j = 0; w[i] * j + a <= W; j++) {
+        if(dp[w[i] * j + a] != NG) {
+          auto val = dp[w[i] * j + a] - j * v[i];
+          while(s < t && comp(val, deqv[t - 1])) --t;
+          deq[t] = j;
+          deqv[t++] = val;
+        }
+        if(s < t) {
+          dp[j * w[i] + a] = deqv[s] + j * v[i];
+          if(deq[s] == j - m[i]) ++s;
+        }
+      }
+    }
+  }
+  return dp;
+}
+#line 2 "dp/knapsack-limitations-2.cpp"
+
 /**
  * @brief Knapsack-Limitations(個数制限つきナップサック問題) $O(N^2 \max(v_i)^2)$
  * @docs docs/knapsack-limitations-2.md

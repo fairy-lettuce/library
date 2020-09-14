@@ -49,6 +49,12 @@ Monge $\Rightarrow$ Totally Monotone(TM) $\Rightarrow$ Monotone なので, Monot
 * $O(N \log N)$
 
 
+## Required by
+
+* :heavy_check_mark: <a href="divide-and-conquer-optimization.cpp.html">Divide-And-Conquer-Optimization <small>(dp/divide-and-conquer-optimization.cpp)</small></a>
+* :heavy_check_mark: <a href="online-offline-dp.cpp.html">Online-Offline-DP(オンライン・オフライン変換) <small>(dp/online-offline-dp.cpp)</small></a>
+
+
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/verify/aoj-2603.test.cpp.html">test/verify/aoj-2603.test.cpp</a>

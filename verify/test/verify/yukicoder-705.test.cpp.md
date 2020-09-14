@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yukicoder-705.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-26 01:18:25+09:00
+    - Last commit date: 2020-09-15 00:43:54+09:00
 
 
 * see: <a href="https://yukicoder.me/problems/no/705">https://yukicoder.me/problems/no/705</a>
@@ -53,7 +53,6 @@ layout: default
 
 #include "../../template/template.cpp"
 
-#include "../../dp/monotone-minima.cpp"
 #include "../../dp/online-offline-dp.cpp"
 
 int main() {
@@ -197,7 +196,8 @@ vector< pair< int, T > > monotone_minima(int H, int W, const function< T(int, in
   dfs(0, H - 1, 0, W - 1);
   return dp;
 }
-#line 1 "dp/online-offline-dp.cpp"
+#line 2 "dp/online-offline-dp.cpp"
+
 /**
  * @brief  Online-Offline-DP(オンライン・オフライン変換)
  * @docs docs/online-offline-dp.md
@@ -238,7 +238,7 @@ vector< T > online_offline_dp(int W, const function< T(int, int) > &f, const Com
   dfs(0, W + 1);
   return dp;
 };
-#line 7 "test/verify/yukicoder-705.test.cpp"
+#line 6 "test/verify/yukicoder-705.test.cpp"
 
 int main() {
   int n;

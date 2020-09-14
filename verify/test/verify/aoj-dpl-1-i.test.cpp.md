@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-dpl-1-i.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-26 02:30:05+09:00
+    - Last commit date: 2020-09-15 00:43:54+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_I">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_I</a>
@@ -52,8 +52,6 @@ layout: default
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_I"
 
 #include "../../template/template.cpp"
-
-#include "../../dp/knapsack-limitations.cpp"
 
 #include "../../dp/knapsack-limitations-2.cpp"
 
@@ -198,9 +196,8 @@ vector< T > knapsack_limitations(const vector< int > &w, const vector< int > &m,
   }
   return dp;
 }
-#line 6 "test/verify/aoj-dpl-1-i.test.cpp"
+#line 2 "dp/knapsack-limitations-2.cpp"
 
-#line 1 "dp/knapsack-limitations-2.cpp"
 /**
  * @brief Knapsack-Limitations(個数制限つきナップサック問題) $O(N^2 \max(v_i)^2)$
  * @docs docs/knapsack-limitations-2.md
@@ -239,7 +236,7 @@ T knapsack_limitations(const vector< T > &w, const vector< T > &m, const vector<
   }
   return ret;
 }
-#line 8 "test/verify/aoj-dpl-1-i.test.cpp"
+#line 6 "test/verify/aoj-dpl-1-i.test.cpp"
 
 int main() {
   int N;
