@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :question: Centroid-Decomosition(重心分解) <small>(graph/tree/centroid-decomposition.cpp)</small>
+# :heavy_check_mark: Centroid-Decomosition(重心分解) <small>(graph/tree/centroid-decomposition.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -38,14 +38,14 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="../graph-template.cpp.html">graph/graph-template.cpp</a>
 
 
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-3139.test.cpp.html">test/verify/aoj-3139.test.cpp</a>
-* :x: <a href="../../../verify/test/verify/yosupo-frequency-table-of-tree-distance.test.cpp.html">test/verify/yosupo-frequency-table-of-tree-distance.test.cpp</a>
-* :x: <a href="../../../verify/test/verify/yukicoder-1002.test.cpp.html">test/verify/yukicoder-1002.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-frequency-table-of-tree-distance.test.cpp.html">test/verify/yosupo-frequency-table-of-tree-distance.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yukicoder-1002.test.cpp.html">test/verify/yukicoder-1002.test.cpp</a>
 
 
 ## Code

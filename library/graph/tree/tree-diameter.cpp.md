@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :question: Tree-Diameter(木の直径) <small>(graph/tree/tree-diameter.cpp)</small>
+# :heavy_check_mark: Tree-Diameter(木の直径) <small>(graph/tree/tree-diameter.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -39,7 +39,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-5-a.test.cpp.html">test/verify/aoj-grl-5-a.test.cpp</a>
-* :x: <a href="../../../verify/test/verify/yosupo-tree-diameter.test.cpp.html">test/verify/yosupo-tree-diameter.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-tree-diameter.test.cpp.html">test/verify/yosupo-tree-diameter.test.cpp</a>
 
 
 ## Code

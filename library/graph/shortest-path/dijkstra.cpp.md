@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :question: Dijkstra(単一始点最短路) <small>(graph/shortest-path/dijkstra.cpp)</small>
+# :heavy_check_mark: Dijkstra(単一始点最短路) <small>(graph/shortest-path/dijkstra.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -51,8 +51,8 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-0275.test.cpp.html">test/verify/aoj-0275.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-1-a.test.cpp.html">test/verify/aoj-grl-1-a.test.cpp</a>
-* :x: <a href="../../../verify/test/verify/yosupo-k-shortest-walk.test.cpp.html">test/verify/yosupo-k-shortest-walk.test.cpp</a>
-* :x: <a href="../../../verify/test/verify/yosupo-shortest-path.test.cpp.html">test/verify/yosupo-shortest-path.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-k-shortest-walk.test.cpp.html">test/verify/yosupo-k-shortest-walk.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-shortest-path.test.cpp.html">test/verify/yosupo-shortest-path.test.cpp</a>
 
 
 ## Code

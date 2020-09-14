@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: Persistent-Leftist-Heap <small>(structure/heap/persistent-leftist-heap.cpp)</small>
+# :heavy_check_mark: Persistent-Leftist-Heap <small>(structure/heap/persistent-leftist-heap.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -38,7 +38,7 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/verify/yosupo-k-shortest-walk.test.cpp.html">test/verify/yosupo-k-shortest-walk.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-k-shortest-walk.test.cpp.html">test/verify/yosupo-k-shortest-walk.test.cpp</a>
 
 
 ## Code

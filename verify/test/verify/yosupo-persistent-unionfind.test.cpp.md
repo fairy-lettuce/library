@@ -41,7 +41,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../library/structure/others/persistent-array.cpp.html">structure/others/persistent-array.cpp</a>
 * :heavy_check_mark: <a href="../../../library/structure/union-find/persistent-union-find.cpp.html">Persistent-Union-Find(永続Union-Find) <small>(structure/union-find/persistent-union-find.cpp)</small></a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

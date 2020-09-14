@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../../library/structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp.html">Convex-Hull-Trick-Add-Monotone <small>(structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp)</small></a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

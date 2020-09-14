@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: Two-Edge-Connected-Components(二重辺連結成分分解) <small>(graph/connected-components/two-edge-connected-components.cpp)</small>
+# :heavy_check_mark: Two-Edge-Connected-Components(二重辺連結成分分解) <small>(graph/connected-components/two-edge-connected-components.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -52,13 +52,13 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../graph-template.cpp.html">graph/graph-template.cpp</a>
-* :question: <a href="../others/low-link.cpp.html">Low-Link(橋/関節点) <small>(graph/others/low-link.cpp)</small></a>
+* :heavy_check_mark: <a href="../graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="../others/low-link.cpp.html">Low-Link(橋/関節点) <small>(graph/others/low-link.cpp)</small></a>
 
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/verify/yosupo-two-edge-connected-components.test.cpp.html">test/verify/yosupo-two-edge-connected-components.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-two-edge-connected-components.test.cpp.html">test/verify/yosupo-two-edge-connected-components.test.cpp</a>
 
 
 ## Code

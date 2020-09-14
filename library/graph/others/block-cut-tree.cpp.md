@@ -40,8 +40,8 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../connected-components/bi-connected-components.cpp.html">Bi-Connected-Components(二重頂点連結成分分解) <small>(graph/connected-components/bi-connected-components.cpp)</small></a>
-* :question: <a href="../graph-template.cpp.html">graph/graph-template.cpp</a>
-* :question: <a href="low-link.cpp.html">Low-Link(橋/関節点) <small>(graph/others/low-link.cpp)</small></a>
+* :heavy_check_mark: <a href="../graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="low-link.cpp.html">Low-Link(橋/関節点) <small>(graph/others/low-link.cpp)</small></a>
 
 
 ## Verified with

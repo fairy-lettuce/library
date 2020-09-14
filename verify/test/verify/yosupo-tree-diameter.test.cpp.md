@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/verify/yosupo-tree-diameter.test.cpp
+# :heavy_check_mark: test/verify/yosupo-tree-diameter.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -39,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
-* :question: <a href="../../../library/graph/tree/tree-diameter.cpp.html">Tree-Diameter(木の直径) <small>(graph/tree/tree-diameter.cpp)</small></a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/tree/tree-diameter.cpp.html">Tree-Diameter(木の直径) <small>(graph/tree/tree-diameter.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

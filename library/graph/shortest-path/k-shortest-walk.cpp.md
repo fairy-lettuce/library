@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: K-Shortest-Walk <small>(graph/shortest-path/k-shortest-walk.cpp)</small>
+# :heavy_check_mark: K-Shortest-Walk <small>(graph/shortest-path/k-shortest-walk.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -54,7 +54,7 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/verify/yosupo-k-shortest-walk.test.cpp.html">test/verify/yosupo-k-shortest-walk.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-k-shortest-walk.test.cpp.html">test/verify/yosupo-k-shortest-walk.test.cpp</a>
 
 
 ## Code

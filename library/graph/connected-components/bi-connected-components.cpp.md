@@ -52,8 +52,8 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../graph-template.cpp.html">graph/graph-template.cpp</a>
-* :question: <a href="../others/low-link.cpp.html">Low-Link(橋/関節点) <small>(graph/others/low-link.cpp)</small></a>
+* :heavy_check_mark: <a href="../graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="../others/low-link.cpp.html">Low-Link(橋/関節点) <small>(graph/others/low-link.cpp)</small></a>
 
 
 ## Required by

@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/verify/yosupo-shortest-path.test.cpp
+# :heavy_check_mark: test/verify/yosupo-shortest-path.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -39,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
-* :question: <a href="../../../library/graph/shortest-path/dijkstra.cpp.html">Dijkstra(単一始点最短路) <small>(graph/shortest-path/dijkstra.cpp)</small></a>
-* :question: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="../../../library/graph/shortest-path/dijkstra.cpp.html">Dijkstra(単一始点最短路) <small>(graph/shortest-path/dijkstra.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/template/template.cpp.html">template/template.cpp</a>
 
 
 ## Code

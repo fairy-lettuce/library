@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: Printer(高速出力) <small>(other/printer.cpp)</small>
+# :heavy_check_mark: Printer(高速出力) <small>(other/printer.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -40,7 +40,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-point-add-rectangle-sum.test.cpp.html">test/verify/yosupo-point-add-rectangle-sum.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/verify/yosupo-tree-decomposition-width-2.test.cpp.html">test/verify/yosupo-tree-decomposition-width-2.test.cpp</a>
-* :x: <a href="../../verify/test/verify/yosupo-two-sat.test.cpp.html">test/verify/yosupo-two-sat.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/verify/yosupo-two-sat.test.cpp.html">test/verify/yosupo-two-sat.test.cpp</a>
 
 
 ## Code

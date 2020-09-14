@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :question: Low-Link(橋/関節点) <small>(graph/others/low-link.cpp)</small>
+# :heavy_check_mark: Low-Link(橋/関節点) <small>(graph/others/low-link.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -58,13 +58,13 @@ $O(V + E)$
 
 ## Depends on
 
-* :question: <a href="../graph-template.cpp.html">graph/graph-template.cpp</a>
+* :heavy_check_mark: <a href="../graph-template.cpp.html">graph/graph-template.cpp</a>
 
 
 ## Required by
 
 * :heavy_check_mark: <a href="../connected-components/bi-connected-components.cpp.html">Bi-Connected-Components(二重頂点連結成分分解) <small>(graph/connected-components/bi-connected-components.cpp)</small></a>
-* :x: <a href="../connected-components/two-edge-connected-components.cpp.html">Two-Edge-Connected-Components(二重辺連結成分分解) <small>(graph/connected-components/two-edge-connected-components.cpp)</small></a>
+* :heavy_check_mark: <a href="../connected-components/two-edge-connected-components.cpp.html">Two-Edge-Connected-Components(二重辺連結成分分解) <small>(graph/connected-components/two-edge-connected-components.cpp)</small></a>
 * :heavy_check_mark: <a href="block-cut-tree.cpp.html">Block-Cut-Tree <small>(graph/others/block-cut-tree.cpp)</small></a>
 
 
@@ -74,7 +74,7 @@ $O(V + E)$
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-3139.test.cpp.html">test/verify/aoj-3139.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-3-a.test.cpp.html">test/verify/aoj-grl-3-a.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-3-b.test.cpp.html">test/verify/aoj-grl-3-b.test.cpp</a>
-* :x: <a href="../../../verify/test/verify/yosupo-two-edge-connected-components.test.cpp.html">test/verify/yosupo-two-edge-connected-components.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-two-edge-connected-components.test.cpp.html">test/verify/yosupo-two-edge-connected-components.test.cpp</a>
 
 
 ## Code

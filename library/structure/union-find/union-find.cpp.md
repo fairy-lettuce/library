@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :question: Union-Find <small>(structure/union-find/union-find.cpp)</small>
+# :heavy_check_mark: Union-Find <small>(structure/union-find/union-find.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -59,7 +59,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-2-a-3.test.cpp.html">test/verify/aoj-grl-2-a-3.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-grl-2-b.test.cpp.html">test/verify/aoj-grl-2-b.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-bipartite-edge-coloring.test.cpp.html">test/verify/yosupo-bipartite-edge-coloring.test.cpp</a>
-* :x: <a href="../../../verify/test/verify/yosupo-three-edge-connected-components.test.cpp.html">test/verify/yosupo-three-edge-connected-components.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-three-edge-connected-components.test.cpp.html">test/verify/yosupo-three-edge-connected-components.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-tree-decomposition-width-2.test.cpp.html">test/verify/yosupo-tree-decomposition-width-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-two-edge-connected-components-2.test.cpp.html">test/verify/yosupo-two-edge-connected-components-2.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/verify/yukicoder-583.test.cpp.html">test/verify/yukicoder-583.test.cpp</a>
