@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-dominatortree.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-15 01:04:53+09:00
+    - Last commit date: 2020-09-15 01:41:10+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/dominatortree">https://judge.yosupo.jp/problem/dominatortree</a>
@@ -52,8 +52,6 @@ layout: default
 #define PROBLEM "https://judge.yosupo.jp/problem/dominatortree"
 
 #include "../../template/template.cpp"
-
-#include "../../graph/graph-template.cpp"
 
 #include "../../graph/others/dominator-tree.cpp"
 
@@ -219,9 +217,8 @@ struct Graph {
 
 template< typename T = int >
 using Edges = vector< Edge< T > >;
-#line 6 "test/verify/yosupo-dominatortree.test.cpp"
+#line 2 "graph/others/dominator-tree.cpp"
 
-#line 1 "graph/others/dominator-tree.cpp"
 /**
  * @brief Dominator-Tree
  */
@@ -317,7 +314,7 @@ private:
     }
   }
 };
-#line 8 "test/verify/yosupo-dominatortree.test.cpp"
+#line 6 "test/verify/yosupo-dominatortree.test.cpp"
 
 int main() {
   int N, M, S;

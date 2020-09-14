@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-5-a.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-15 01:04:53+09:00
+    - Last commit date: 2020-09-15 01:41:10+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A</a>
@@ -52,7 +52,6 @@ layout: default
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A"
 
 #include "../../template/template.cpp"
-#include "../../graph/graph-template.cpp"
 
 #include "../../graph/tree/tree-diameter.cpp"
 
@@ -160,6 +159,8 @@ template< typename F >
 inline decltype(auto) MFP(F &&f) {
   return FixPoint< F >{forward< F >(f)};
 }
+#line 4 "test/verify/aoj-grl-5-a.test.cpp"
+
 #line 2 "graph/graph-template.cpp"
 
 template< typename T = int >
@@ -213,9 +214,8 @@ struct Graph {
 
 template< typename T = int >
 using Edges = vector< Edge< T > >;
-#line 5 "test/verify/aoj-grl-5-a.test.cpp"
+#line 2 "graph/tree/tree-diameter.cpp"
 
-#line 1 "graph/tree/tree-diameter.cpp"
 /**
  * @brief Tree-Diameter(木の直径)
  */
@@ -262,7 +262,7 @@ private:
     return ret;
   }
 };
-#line 7 "test/verify/aoj-grl-5-a.test.cpp"
+#line 6 "test/verify/aoj-grl-5-a.test.cpp"
 
 int main() {
   int N;

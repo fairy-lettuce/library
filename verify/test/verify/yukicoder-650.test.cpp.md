@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yukicoder-650.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-15 01:04:53+09:00
+    - Last commit date: 2020-09-15 01:41:10+09:00
 
 
 * see: <a href="https://yukicoder.me/problems/no/650">https://yukicoder.me/problems/no/650</a>
@@ -56,7 +56,6 @@ layout: default
 
 #include "../../template/template.cpp"
 
-#include "../../graph/graph-template.cpp"
 #include "../../graph/tree/heavy-light-decomposition.cpp"
 
 #include "../../structure/segment-tree/segment-tree.cpp"
@@ -251,7 +250,8 @@ struct Graph {
 
 template< typename T = int >
 using Edges = vector< Edge< T > >;
-#line 1 "graph/tree/heavy-light-decomposition.cpp"
+#line 2 "graph/tree/heavy-light-decomposition.cpp"
+
 /**
  * @brief Heavy-Light-Decomposition(HL分解)
  * @see https://smijake3.hatenablog.com/entry/2019/09/15/200200
@@ -369,7 +369,7 @@ private:
     out[idx] = times;
   }
 };
-#line 7 "test/verify/yukicoder-650.test.cpp"
+#line 6 "test/verify/yukicoder-650.test.cpp"
 
 #line 1 "structure/segment-tree/segment-tree.cpp"
 /**
@@ -473,7 +473,7 @@ template< typename Monoid, typename F >
 SegmentTree< Monoid, F > get_segment_tree(int N, const F& f, const Monoid& M1) {
   return {N, f, M1};
 }
-#line 9 "test/verify/yukicoder-650.test.cpp"
+#line 8 "test/verify/yukicoder-650.test.cpp"
 
 #line 1 "math/combinatorics/mod-int.cpp"
 template< int mod >
@@ -651,7 +651,7 @@ struct SquareMatrix {
     return os;
   }
 };
-#line 12 "test/verify/yukicoder-650.test.cpp"
+#line 11 "test/verify/yukicoder-650.test.cpp"
 
 int main() {
   int N;

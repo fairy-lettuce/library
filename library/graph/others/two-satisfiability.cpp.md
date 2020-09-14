@@ -31,9 +31,15 @@ layout: default
 
 * category: <a href="../../../index.html#e557c7f962c39680942b9dada22cabec">graph/others</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/others/two-satisfiability.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-04 23:33:40+09:00
+    - Last commit date: 2020-09-15 01:41:10+09:00
 
 
+
+
+## Depends on
+
+* :heavy_check_mark: <a href="../connected-components/strongly-connected-components.cpp.html">Strongly-Connected-Components(強連結成分分解) <small>(graph/connected-components/strongly-connected-components.cpp)</small></a>
+* :heavy_check_mark: <a href="../graph-template.cpp.html">graph/graph-template.cpp</a>
 
 
 ## Verified with
@@ -46,6 +52,8 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#include "../connected-components/strongly-connected-components.cpp"
+
 /**
  * @brief 2-SAT
  */
@@ -106,7 +114,123 @@ public:
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "graph/others/two-satisfiability.cpp"
+#line 2 "graph/graph-template.cpp"
+
+template< typename T = int >
+struct Edge {
+  int from, to;
+  T cost;
+  int idx;
+
+  Edge() = default;
+
+  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx) {}
+
+  operator int() const { return to; }
+};
+
+template< typename T = int >
+struct Graph {
+  vector< vector< Edge< T > > > g;
+  int es;
+
+  Graph() = default;
+
+  explicit Graph(int n) : g(n), es(0) {}
+
+  size_t size() const {
+    return g.size();
+  }
+
+  void add_directed_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es++);
+  }
+
+  void add_edge(int from, int to, T cost = 1) {
+    g[from].emplace_back(from, to, cost, es);
+    g[to].emplace_back(to, from, cost, es++);
+  }
+
+  void read(int M, int padding = -1, bool weighted = false, bool directed = false) {
+    for(int i = 0; i < M; i++) {
+      int a, b;
+      cin >> a >> b;
+      a += padding;
+      b += padding;
+      T c = T(1);
+      if(weighted) cin >> c;
+      if(directed) add_directed_edge(a, b, c);
+      else add_edge(a, b, c);
+    }
+  }
+};
+
+template< typename T = int >
+using Edges = vector< Edge< T > >;
+#line 2 "graph/connected-components/strongly-connected-components.cpp"
+
+/**
+ * @brief Strongly-Connected-Components(強連結成分分解)
+ * @docs docs/strongly-connected-components.md
+ */
+template< typename T = int >
+struct StronglyConnectedComponents : Graph< T > {
+public:
+  using Graph< T >::Graph;
+  using Graph< T >::g;
+  vector< int > comp;
+  Graph< T > dag;
+  vector< vector< int > > group;
+
+  void build() {
+    rg = Graph< T >(g.size());
+    for(int i = 0; i < g.size(); i++) {
+      for(auto &e : g[i]) {
+        rg.add_directed_edge(e.to, e.from, e.cost);
+      }
+    }
+    comp.assign(g.size(), -1);
+    used.assign(g.size(), 0);
+    for(int i = 0; i < g.size(); i++) dfs(i);
+    reverse(begin(order), end(order));
+    int ptr = 0;
+    for(int i : order) if(comp[i] == -1) rdfs(i, ptr), ptr++;
+    dag = Graph< T >(ptr);
+    for(int i = 0; i < g.size(); i++) {
+      for(auto &e : g[i]) {
+        int x = comp[e.from], y = comp[e.to];
+        if(x == y) continue;
+        dag.add_directed_edge(x, y, e.cost);
+      }
+    }
+    group.resize(ptr);
+    for(int i = 0; i < g.size(); i++) {
+      group[comp[i]].emplace_back(i);
+    }
+  }
+
+  int operator[](int k) const {
+    return comp[k];
+  }
+
+private:
+  vector< int > order, used;
+  Graph< T > rg;
+
+  void dfs(int idx) {
+    if(exchange(used[idx], true)) return;
+    for(auto &to : g[idx]) dfs(to);
+    order.push_back(idx);
+  }
+
+  void rdfs(int idx, int cnt) {
+    if(comp[idx] != -1) return;
+    comp[idx] = cnt;
+    for(auto &to : rg.g[idx]) rdfs(to, cnt);
+  }
+};
+#line 2 "graph/others/two-satisfiability.cpp"
+
 /**
  * @brief 2-SAT
  */

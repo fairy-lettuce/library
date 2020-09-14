@@ -50,6 +50,12 @@ layout: default
 * クエリ: ならし $O(\alpha(N))$ ($\alpha$ はアッカーマンの逆関数) 
 
 
+## Required by
+
+* :heavy_check_mark: <a href="../../graph/connected-components/incremental-bridge-connectivity.cpp.html">Incremental-Bridge-Connectivity <small>(graph/connected-components/incremental-bridge-connectivity.cpp)</small></a>
+* :heavy_check_mark: <a href="../../graph/connected-components/three-edge-connected-components.cpp.html">Three-Edge-Connected-Components(三重辺連結成分分解) <small>(graph/connected-components/three-edge-connected-components.cpp)</small></a>
+
+
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/verify/aoj-2821.test.cpp.html">test/verify/aoj-2821.test.cpp</a>

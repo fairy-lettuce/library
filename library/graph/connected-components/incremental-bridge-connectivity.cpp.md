@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#3a7c46e10de1b2cce1293b2074b86f0a">graph/connected-components</a>
 * <a href="{{ site.github.repository_url }}/blob/master/graph/connected-components/incremental-bridge-connectivity.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-15 01:29:43+09:00
+    - Last commit date: 2020-09-15 01:41:10+09:00
 
 
 * see: <a href="https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity">https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity</a>
@@ -51,6 +51,16 @@ layout: default
 ならし $O(n \log n)$
 
 
+## Depends on
+
+* :heavy_check_mark: <a href="../../structure/union-find/union-find.cpp.html">Union-Find <small>(structure/union-find/union-find.cpp)</small></a>
+
+
+## Required by
+
+* :heavy_check_mark: <a href="three-edge-connected-components.cpp.html">Three-Edge-Connected-Components(三重辺連結成分分解) <small>(graph/connected-components/three-edge-connected-components.cpp)</small></a>
+
+
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/verify/yosupo-three-edge-connected-components.test.cpp.html">test/verify/yosupo-three-edge-connected-components.test.cpp</a>
@@ -62,6 +72,8 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#include "../../structure/union-find/union-find.cpp"
+
 /**
  * @brief Incremental-Bridge-Connectivity
  * @docs docs/incremental-bridge-connectivity.md
@@ -147,7 +159,42 @@ public:
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "graph/connected-components/incremental-bridge-connectivity.cpp"
+#line 1 "structure/union-find/union-find.cpp"
+/**
+ * @brief Union-Find
+ * @docs docs/union-find.md
+ */
+struct UnionFind {
+  vector< int > data;
+
+  UnionFind() = default;
+
+  explicit UnionFind(size_t sz) : data(sz, -1) {}
+
+  bool unite(int x, int y) {
+    x = find(x), y = find(y);
+    if(x == y) return false;
+    if(data[x] > data[y]) swap(x, y);
+    data[x] += data[y];
+    data[y] = x;
+    return true;
+  }
+
+  int find(int k) {
+    if(data[k] < 0) return (k);
+    return data[k] = find(data[k]);
+  }
+
+  int size(int k) {
+    return -data[find(k)];
+  }
+
+  bool same(int x, int y) {
+    return find(x) == find(y);
+  }
+};
+#line 2 "graph/connected-components/incremental-bridge-connectivity.cpp"
+
 /**
  * @brief Incremental-Bridge-Connectivity
  * @docs docs/incremental-bridge-connectivity.md

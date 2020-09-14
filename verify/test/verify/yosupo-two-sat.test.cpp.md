@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-two-sat.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-15 01:04:53+09:00
+    - Last commit date: 2020-09-15 01:41:10+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/two_sat">https://judge.yosupo.jp/problem/two_sat</a>
@@ -59,9 +59,6 @@ layout: default
 #include "../../other/scanner.cpp"
 #include "../../other/printer.cpp"
 
-#include "../../graph/graph-template.cpp"
-
-#include "../../graph/connected-components/strongly-connected-components.cpp"
 #include "../../graph/others/two-satisfiability.cpp"
 
 int main() {
@@ -412,9 +409,8 @@ struct Graph {
 
 template< typename T = int >
 using Edges = vector< Edge< T > >;
-#line 9 "test/verify/yosupo-two-sat.test.cpp"
+#line 2 "graph/connected-components/strongly-connected-components.cpp"
 
-#line 1 "graph/connected-components/strongly-connected-components.cpp"
 /**
  * @brief Strongly-Connected-Components(強連結成分分解)
  * @docs docs/strongly-connected-components.md
@@ -475,7 +471,8 @@ private:
     for(auto &to : rg.g[idx]) rdfs(to, cnt);
   }
 };
-#line 1 "graph/others/two-satisfiability.cpp"
+#line 2 "graph/others/two-satisfiability.cpp"
+
 /**
  * @brief 2-SAT
  */
@@ -529,7 +526,7 @@ public:
     return ret;
   }
 };
-#line 12 "test/verify/yosupo-two-sat.test.cpp"
+#line 9 "test/verify/yosupo-two-sat.test.cpp"
 
 int main() {
   Scanner input(stdin);

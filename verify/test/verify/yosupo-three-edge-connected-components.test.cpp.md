@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-three-edge-connected-components.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-15 01:04:53+09:00
+    - Last commit date: 2020-09-15 01:41:10+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/three_edge_connected_components">https://judge.yosupo.jp/problem/three_edge_connected_components</a>
@@ -55,10 +55,6 @@ layout: default
 
 #include "../../template/template.cpp"
 
-#include "../../structure/union-find/union-find.cpp"
-
-#include "../../graph/graph-template.cpp"
-#include "../../graph/connected-components/incremental-bridge-connectivity.cpp"
 #include "../../graph/connected-components/three-edge-connected-components.cpp"
 
 int main() {
@@ -171,42 +167,6 @@ inline decltype(auto) MFP(F &&f) {
 }
 #line 4 "test/verify/yosupo-three-edge-connected-components.test.cpp"
 
-#line 1 "structure/union-find/union-find.cpp"
-/**
- * @brief Union-Find
- * @docs docs/union-find.md
- */
-struct UnionFind {
-  vector< int > data;
-
-  UnionFind() = default;
-
-  explicit UnionFind(size_t sz) : data(sz, -1) {}
-
-  bool unite(int x, int y) {
-    x = find(x), y = find(y);
-    if(x == y) return false;
-    if(data[x] > data[y]) swap(x, y);
-    data[x] += data[y];
-    data[y] = x;
-    return true;
-  }
-
-  int find(int k) {
-    if(data[k] < 0) return (k);
-    return data[k] = find(data[k]);
-  }
-
-  int size(int k) {
-    return -data[find(k)];
-  }
-
-  bool same(int x, int y) {
-    return find(x) == find(y);
-  }
-};
-#line 6 "test/verify/yosupo-three-edge-connected-components.test.cpp"
-
 #line 2 "graph/graph-template.cpp"
 
 template< typename T = int >
@@ -260,7 +220,42 @@ struct Graph {
 
 template< typename T = int >
 using Edges = vector< Edge< T > >;
-#line 1 "graph/connected-components/incremental-bridge-connectivity.cpp"
+#line 1 "structure/union-find/union-find.cpp"
+/**
+ * @brief Union-Find
+ * @docs docs/union-find.md
+ */
+struct UnionFind {
+  vector< int > data;
+
+  UnionFind() = default;
+
+  explicit UnionFind(size_t sz) : data(sz, -1) {}
+
+  bool unite(int x, int y) {
+    x = find(x), y = find(y);
+    if(x == y) return false;
+    if(data[x] > data[y]) swap(x, y);
+    data[x] += data[y];
+    data[y] = x;
+    return true;
+  }
+
+  int find(int k) {
+    if(data[k] < 0) return (k);
+    return data[k] = find(data[k]);
+  }
+
+  int size(int k) {
+    return -data[find(k)];
+  }
+
+  bool same(int x, int y) {
+    return find(x) == find(y);
+  }
+};
+#line 2 "graph/connected-components/incremental-bridge-connectivity.cpp"
+
 /**
  * @brief Incremental-Bridge-Connectivity
  * @docs docs/incremental-bridge-connectivity.md
@@ -339,7 +334,8 @@ public:
     }
   }
 };
-#line 1 "graph/connected-components/three-edge-connected-components.cpp"
+#line 3 "graph/connected-components/three-edge-connected-components.cpp"
+
 /**
  * @brief Three-Edge-Connected-Components(三重辺連結成分分解)
  */
@@ -439,7 +435,7 @@ private:
   }
 };
 
-#line 10 "test/verify/yosupo-three-edge-connected-components.test.cpp"
+#line 6 "test/verify/yosupo-three-edge-connected-components.test.cpp"
 
 int main() {
   int N, M;

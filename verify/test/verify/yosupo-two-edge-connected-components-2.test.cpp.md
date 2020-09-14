@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/yosupo-two-edge-connected-components-2.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-15 01:29:43+09:00
+    - Last commit date: 2020-09-15 01:41:10+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/two_edge_connected_components">https://judge.yosupo.jp/problem/two_edge_connected_components</a>
@@ -52,8 +52,6 @@ layout: default
 #define PROBLEM "https://judge.yosupo.jp/problem/two_edge_connected_components"
 
 #include "../../template/template.cpp"
-
-#include "../../structure/union-find/union-find.cpp"
 
 #include "../../graph/connected-components/incremental-bridge-connectivity.cpp"
 
@@ -215,9 +213,8 @@ struct UnionFind {
     return find(x) == find(y);
   }
 };
-#line 6 "test/verify/yosupo-two-edge-connected-components-2.test.cpp"
+#line 2 "graph/connected-components/incremental-bridge-connectivity.cpp"
 
-#line 1 "graph/connected-components/incremental-bridge-connectivity.cpp"
 /**
  * @brief Incremental-Bridge-Connectivity
  * @docs docs/incremental-bridge-connectivity.md
@@ -296,7 +293,7 @@ public:
     }
   }
 };
-#line 8 "test/verify/yosupo-two-edge-connected-components-2.test.cpp"
+#line 6 "test/verify/yosupo-two-edge-connected-components-2.test.cpp"
 
 int main() {
   int n, m;

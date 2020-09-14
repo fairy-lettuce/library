@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#5a4423c79a88aeb6104a40a645f9430c">test/verify</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/verify/aoj-grl-3-c.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-09-15 01:04:53+09:00
+    - Last commit date: 2020-09-15 01:41:10+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C</a>
@@ -52,8 +52,6 @@ layout: default
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C"
 
 #include "../../template/template.cpp"
-
-#include "../../graph/graph-template.cpp"
 
 #include "../../graph/connected-components/strongly-connected-components.cpp"
 
@@ -222,9 +220,8 @@ struct Graph {
 
 template< typename T = int >
 using Edges = vector< Edge< T > >;
-#line 6 "test/verify/aoj-grl-3-c.test.cpp"
+#line 2 "graph/connected-components/strongly-connected-components.cpp"
 
-#line 1 "graph/connected-components/strongly-connected-components.cpp"
 /**
  * @brief Strongly-Connected-Components(強連結成分分解)
  * @docs docs/strongly-connected-components.md
@@ -285,7 +282,7 @@ private:
     for(auto &to : rg.g[idx]) rdfs(to, cnt);
   }
 };
-#line 8 "test/verify/aoj-grl-3-c.test.cpp"
+#line 6 "test/verify/aoj-grl-3-c.test.cpp"
 
 int main() {
   int V, E, Q;
