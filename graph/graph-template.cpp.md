@@ -18,6 +18,9 @@ data:
     path: graph/mst/prim-fibonacchi-heap.cpp
     title: "Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':heavy_check_mark:'
+    path: graph/mst/prim.cpp
+    title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
+  - icon: ':heavy_check_mark:'
     path: graph/connected-components/bi-connected-components.cpp
     title: "Bi-Connected-Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
@@ -116,6 +119,9 @@ data:
     path: test/verify/yosupo-scc.test.cpp
     title: test/verify/yosupo-scc.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-grl-2-a.test.cpp
+    title: test/verify/aoj-grl-2-a.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-3139.test.cpp
     title: test/verify/aoj-3139.test.cpp
   - icon: ':heavy_check_mark:'
@@ -193,6 +199,7 @@ data:
   - graph/tree/centroid-decomposition.cpp
   - graph/mst/kruskal.cpp
   - graph/mst/prim-fibonacchi-heap.cpp
+  - graph/mst/prim.cpp
   - graph/connected-components/bi-connected-components.cpp
   - graph/connected-components/three-edge-connected-components.cpp
   - graph/connected-components/strongly-connected-components.cpp
@@ -227,6 +234,7 @@ data:
   - test/verify/yosupo-tree-diameter.test.cpp
   - test/verify/aoj-grl-1-b-2.test.cpp
   - test/verify/yosupo-scc.test.cpp
+  - test/verify/aoj-grl-2-a.test.cpp
   - test/verify/aoj-3139.test.cpp
   - test/verify/aoj-2821.test.cpp
   - test/verify/yosupo-frequency-table-of-tree-distance.test.cpp

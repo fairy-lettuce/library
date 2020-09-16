@@ -1,16 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/mst/prim.cpp
     title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
+  - icon: ':heavy_check_mark:'
+    path: graph/graph-template.cpp
+    title: graph/graph-template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
@@ -44,8 +47,23 @@ data:
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-grl-2-a.test.cpp\"\
-    \n\n#line 1 \"graph/mst/prim.cpp\"\n/**\n * @brief Prim(\u6700\u5C0F\u5168\u57DF\
-    \u6728)\n * @docs docs/prim.md\n */\ntemplate< typename T >\nstruct MinimumSpanningTree\
+    \n\n#line 2 \"graph/graph-template.cpp\"\n\ntemplate< typename T = int >\nstruct\
+    \ Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int\
+    \ from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx)\
+    \ {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename T = int\
+    \ >\nstruct Graph {\n  vector< vector< Edge< T > > > g;\n  int es;\n\n  Graph()\
+    \ = default;\n\n  explicit Graph(int n) : g(n), es(0) {}\n\n  size_t size() const\
+    \ {\n    return g.size();\n  }\n\n  void add_directed_edge(int from, int to, T\
+    \ cost = 1) {\n    g[from].emplace_back(from, to, cost, es++);\n  }\n\n  void\
+    \ add_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from, to,\
+    \ cost, es);\n    g[to].emplace_back(to, from, cost, es++);\n  }\n\n  void read(int\
+    \ M, int padding = -1, bool weighted = false, bool directed = false) {\n    for(int\
+    \ i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n      a += padding;\n\
+    \      b += padding;\n      T c = T(1);\n      if(weighted) cin >> c;\n      if(directed)\
+    \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
+    \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 2 \"\
+    graph/mst/prim.cpp\"\n\n/**\n * @brief Prim(\u6700\u5C0F\u5168\u57DF\u6728)\n\
+    \ * @docs docs/prim.md\n */\ntemplate< typename T >\nstruct MinimumSpanningTree\
     \ {\n  T cost;\n  Edges< T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree<\
     \ T > prim(const Graph< T > &g) {\n  T total = T();\n  vector< int > used(g.size());\n\
     \  vector< Edge< T > * > dist(g.size());\n  using pi = pair< T, int >;\n  priority_queue<\
@@ -65,11 +83,12 @@ data:
   dependsOn:
   - template/template.cpp
   - graph/mst/prim.cpp
+  - graph/graph-template.cpp
   isVerificationFile: true
   path: test/verify/aoj-grl-2-a.test.cpp
   requiredBy: []
-  timestamp: '2020-09-16 23:08:58+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2020-09-16 23:14:29+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-2-a.test.cpp
 layout: document

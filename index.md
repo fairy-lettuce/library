@@ -133,7 +133,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/mst/prim-fibonacchi-heap.cpp
       title: "Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/mst/prim.cpp
       title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
   - name: graph/others
@@ -652,7 +652,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -948,7 +948,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-2-a-4.test.cpp
       title: test/verify/aoj-grl-2-a-4.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-2-a.test.cpp
       title: test/verify/aoj-grl-2-a.test.cpp
     - icon: ':heavy_check_mark:'

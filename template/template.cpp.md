@@ -321,7 +321,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-5-g.test.cpp
     title: test/verify/aoj-dpl-5-g.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-a.test.cpp
     title: test/verify/aoj-grl-2-a.test.cpp
   - icon: ':heavy_check_mark:'
@@ -451,7 +451,7 @@ data:
     path: test/verify/aoj-2415.test.cpp
     title: test/verify/aoj-2415.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     links: []
@@ -515,7 +515,7 @@ data:
   path: template/template.cpp
   requiredBy: []
   timestamp: '2019-08-13 21:45:04+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-1508.test.cpp
   - test/verify/aoj-0560.test.cpp

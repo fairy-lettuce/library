@@ -1,19 +1,49 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: graph/graph-template.cpp
+    title: graph/graph-template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-a.test.cpp
     title: test/verify/aoj-grl-2-a.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/prim.md
     document_title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
     links: []
-  bundledCode: "#line 1 \"graph/mst/prim.cpp\"\n/**\n * @brief Prim(\u6700\u5C0F\u5168\
+  bundledCode: "#line 2 \"graph/graph-template.cpp\"\n\ntemplate< typename T = int\
+    \ >\nstruct Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\
+    \n  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost),\
+    \ idx(idx) {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename\
+    \ T = int >\nstruct Graph {\n  vector< vector< Edge< T > > > g;\n  int es;\n\n\
+    \  Graph() = default;\n\n  explicit Graph(int n) : g(n), es(0) {}\n\n  size_t\
+    \ size() const {\n    return g.size();\n  }\n\n  void add_directed_edge(int from,\
+    \ int to, T cost = 1) {\n    g[from].emplace_back(from, to, cost, es++);\n  }\n\
+    \n  void add_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from,\
+    \ to, cost, es);\n    g[to].emplace_back(to, from, cost, es++);\n  }\n\n  void\
+    \ read(int M, int padding = -1, bool weighted = false, bool directed = false)\
+    \ {\n    for(int i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n\
+    \      a += padding;\n      b += padding;\n      T c = T(1);\n      if(weighted)\
+    \ cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n      else add_edge(a,\
+    \ b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\nusing Edges = vector<\
+    \ Edge< T > >;\n#line 2 \"graph/mst/prim.cpp\"\n\n/**\n * @brief Prim(\u6700\u5C0F\
+    \u5168\u57DF\u6728)\n * @docs docs/prim.md\n */\ntemplate< typename T >\nstruct\
+    \ MinimumSpanningTree {\n  T cost;\n  Edges< T > edges;\n};\n\ntemplate< typename\
+    \ T >\nMinimumSpanningTree< T > prim(const Graph< T > &g) {\n  T total = T();\n\
+    \  vector< int > used(g.size());\n  vector< Edge< T > * > dist(g.size());\n  using\
+    \ pi = pair< T, int >;\n  priority_queue< pi, vector< pi >, greater<> > que;\n\
+    \  que.emplace(T(), 0);\n  Edges< T > edges;\n  while(!que.empty()) {\n    auto\
+    \ p = que.top();\n    que.pop();\n    if(used[p.second]) continue;\n    used[p.second]\
+    \ = true;\n    total += p.first;\n    if(dist[p.second]) edges.emplace_back(*dist[p.second]);\n\
+    \    for(auto &e : g.g[p.second]) {\n      if(used[e.to] || (dist[e.to] && dist[e.to]->cost\
+    \ <= e.cost)) continue;\n      que.emplace(e.cost, e.to);\n    }\n  }\n  return\
+    \ {total, edges};\n}\n"
+  code: "#include \"../graph-template.cpp\"\n\n/**\n * @brief Prim(\u6700\u5C0F\u5168\
     \u57DF\u6728)\n * @docs docs/prim.md\n */\ntemplate< typename T >\nstruct MinimumSpanningTree\
     \ {\n  T cost;\n  Edges< T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree<\
     \ T > prim(const Graph< T > &g) {\n  T total = T();\n  vector< int > used(g.size());\n\
@@ -24,23 +54,13 @@ data:
     \ edges.emplace_back(*dist[p.second]);\n    for(auto &e : g.g[p.second]) {\n \
     \     if(used[e.to] || (dist[e.to] && dist[e.to]->cost <= e.cost)) continue;\n\
     \      que.emplace(e.cost, e.to);\n    }\n  }\n  return {total, edges};\n}\n"
-  code: "/**\n * @brief Prim(\u6700\u5C0F\u5168\u57DF\u6728)\n * @docs docs/prim.md\n\
-    \ */\ntemplate< typename T >\nstruct MinimumSpanningTree {\n  T cost;\n  Edges<\
-    \ T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree< T > prim(const\
-    \ Graph< T > &g) {\n  T total = T();\n  vector< int > used(g.size());\n  vector<\
-    \ Edge< T > * > dist(g.size());\n  using pi = pair< T, int >;\n  priority_queue<\
-    \ pi, vector< pi >, greater<> > que;\n  que.emplace(T(), 0);\n  Edges< T > edges;\n\
-    \  while(!que.empty()) {\n    auto p = que.top();\n    que.pop();\n    if(used[p.second])\
-    \ continue;\n    used[p.second] = true;\n    total += p.first;\n    if(dist[p.second])\
-    \ edges.emplace_back(*dist[p.second]);\n    for(auto &e : g.g[p.second]) {\n \
-    \     if(used[e.to] || (dist[e.to] && dist[e.to]->cost <= e.cost)) continue;\n\
-    \      que.emplace(e.cost, e.to);\n    }\n  }\n  return {total, edges};\n}\n"
-  dependsOn: []
+  dependsOn:
+  - graph/graph-template.cpp
   isVerificationFile: false
   path: graph/mst/prim.cpp
   requiredBy: []
-  timestamp: '2020-08-10 20:09:21+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2020-09-16 23:14:29+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-2-a.test.cpp
 documentation_of: graph/mst/prim.cpp
