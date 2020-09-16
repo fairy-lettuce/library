@@ -1,0 +1,80 @@
+---
+data:
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: template/template.cpp
+    title: template/template.cpp
+  - icon: ':x:'
+    path: graph/mst/prim.cpp
+    title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
+  _pathExtension: cpp
+  _verificationStatusIcon: ':x:'
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
+    links:
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
+  bundledCode: "#line 1 \"test/verify/aoj-grl-2-a.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
+    \n\n#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing namespace\
+    \ std;\n\nusing int64 = long long;\nconst int mod = 1e9 + 7;\n\nconst int64 infll\
+    \ = (1LL << 62) - 1;\nconst int inf = (1 << 30) - 1;\n\nstruct IoSetup {\n  IoSetup()\
+    \ {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n    cout << fixed\
+    \ << setprecision(10);\n    cerr << fixed << setprecision(10);\n  }\n} iosetup;\n\
+    \n\ntemplate< typename T1, typename T2 >\nostream &operator<<(ostream &os, const\
+    \ pair< T1, T2 >& p) {\n  os << p.first << \" \" << p.second;\n  return os;\n\
+    }\n\ntemplate< typename T1, typename T2 >\nistream &operator>>(istream &is, pair<\
+    \ T1, T2 > &p) {\n  is >> p.first >> p.second;\n  return is;\n}\n\ntemplate< typename\
+    \ T >\nostream &operator<<(ostream &os, const vector< T > &v) {\n  for(int i =\
+    \ 0; i < (int) v.size(); i++) {\n    os << v[i] << (i + 1 != v.size() ? \" \"\
+    \ : \"\");\n  }\n  return os;\n}\n\ntemplate< typename T >\nistream &operator>>(istream\
+    \ &is, vector< T > &v) {\n  for(T &in : v) is >> in;\n  return is;\n}\n\ntemplate<\
+    \ typename T1, typename T2 >\ninline bool chmax(T1 &a, T2 b) { return a < b &&\
+    \ (a = b, true); }\n\ntemplate< typename T1, typename T2 >\ninline bool chmin(T1\
+    \ &a, T2 b) { return a > b && (a = b, true); }\n\ntemplate< typename T = int64\
+    \ >\nvector< T > make_v(size_t a) {\n  return vector< T >(a);\n}\n\ntemplate<\
+    \ typename T, typename... Ts >\nauto make_v(size_t a, Ts... ts) {\n  return vector<\
+    \ decltype(make_v< T >(ts...)) >(a, make_v< T >(ts...));\n}\n\ntemplate< typename\
+    \ T, typename V >\ntypename enable_if< is_class< T >::value == 0 >::type fill_v(T\
+    \ &t, const V &v) {\n  t = v;\n}\n\ntemplate< typename T, typename V >\ntypename\
+    \ enable_if< is_class< T >::value != 0 >::type fill_v(T &t, const V &v) {\n  for(auto\
+    \ &e : t) fill_v(e, v);\n}\n\ntemplate< typename F >\nstruct FixPoint : F {\n\
+    \  FixPoint(F &&f) : F(forward< F >(f)) {}\n \n  template< typename... Args >\n\
+    \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
+    \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
+    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-grl-2-a.test.cpp\"\
+    \n\n#line 1 \"graph/mst/prim.cpp\"\n/**\n * @brief Prim(\u6700\u5C0F\u5168\u57DF\
+    \u6728)\n * @docs docs/prim.md\n */\ntemplate< typename T >\nstruct MinimumSpanningTree\
+    \ {\n  T cost;\n  Edges< T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree<\
+    \ T > prim(const Graph< T > &g) {\n  T total = T();\n  vector< int > used(g.size());\n\
+    \  vector< Edge< T > * > dist(g.size());\n  using pi = pair< T, int >;\n  priority_queue<\
+    \ pi, vector< pi >, greater<> > que;\n  que.emplace(T(), 0);\n  Edges< T > edges;\n\
+    \  while(!que.empty()) {\n    auto p = que.top();\n    que.pop();\n    if(used[p.second])\
+    \ continue;\n    used[p.second] = true;\n    total += p.first;\n    if(dist[p.second])\
+    \ edges.emplace_back(*dist[p.second]);\n    for(auto &e : g.g[p.second]) {\n \
+    \     if(used[e.to] || (dist[e.to] && dist[e.to]->cost <= e.cost)) continue;\n\
+    \      que.emplace(e.cost, e.to);\n    }\n  }\n  return {total, edges};\n}\n#line\
+    \ 6 \"test/verify/aoj-grl-2-a.test.cpp\"\n\nint main() {\n  int V, E;\n  cin >>\
+    \ V >> E;\n  Graph<> g(V);\n  g.read(E, 0, true);\n  cout << prim(g).cost << \"\
+    \\n\";\n}\n"
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/mst/prim.cpp\"\
+    \n\nint main() {\n  int V, E;\n  cin >> V >> E;\n  Graph<> g(V);\n  g.read(E,\
+    \ 0, true);\n  cout << prim(g).cost << \"\\n\";\n}\n"
+  dependsOn:
+  - template/template.cpp
+  - graph/mst/prim.cpp
+  isVerificationFile: true
+  path: test/verify/aoj-grl-2-a.test.cpp
+  requiredBy: []
+  timestamp: '2020-09-16 23:08:58+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
+  verifiedWith: []
+documentation_of: test/verify/aoj-grl-2-a.test.cpp
+layout: document
+redirect_from:
+- /verify/test/verify/aoj-grl-2-a.test.cpp
+- /verify/test/verify/aoj-grl-2-a.test.cpp.html
+title: test/verify/aoj-grl-2-a.test.cpp
+---
