@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/longest-increasing-subsequence.md
     document_title: "Longest-Increasing-Subsequence(\u6700\u9577\u5897\u52A0\u90E8\
       \u5206\u5217)"

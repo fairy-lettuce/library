@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/fft/fast-fourier-transform.cpp\"\nnamespace FastFourierTransform\
     \ {\n  using real = double;\n\n  struct C {\n    real x, y;\n\n    C() : x(0),\

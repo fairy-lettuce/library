@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/others/sqrt-decomposition.cpp\"\ntemplate< typename\
     \ T, typename E = int >\nstruct SqrtDecomposition {\n\n  vector< E > block_add,\

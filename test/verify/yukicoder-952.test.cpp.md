@@ -2,11 +2,11 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: template/template.cpp
-    title: template/template.cpp
-  - icon: ':heavy_check_mark:'
     path: structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp
     title: Convex-Hull-Trick-Add-Monotone
+  - icon: ':question:'
+    path: template/template.cpp
+    title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp

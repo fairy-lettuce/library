@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/bbst/randomized-binary-search-tree-lazy.cpp\"\n\
     template< class Monoid, class OperatorMonoid = Monoid >\nstruct RandomizedBinarySearchTree\

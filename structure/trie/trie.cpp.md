@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/trie/trie.cpp\"\ntemplate< int char_size >\nstruct\
     \ TrieNode {\n  int nxt[char_size];\n\n  int exist;\n  vector< int > accept;\n\

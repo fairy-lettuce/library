@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: Persistent-Leftist-Heap
     links: []
   bundledCode: "#line 1 \"structure/heap/persistent-leftist-heap.cpp\"\n/**\n * @brief\

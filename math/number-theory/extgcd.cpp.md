@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/number-theory/extgcd.cpp\"\ntemplate< typename T >\n\
     T extgcd(T a, T b, T &x, T &y) {\n  T d = a;\n  if(b != 0) {\n    d = extgcd(b,\

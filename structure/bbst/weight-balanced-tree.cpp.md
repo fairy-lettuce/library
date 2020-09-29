@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: "Weight-Balanced-Tree(\u91CD\u307F\u5E73\u8861\u6728)"
     links: []
   bundledCode: "#line 1 \"structure/bbst/weight-balanced-tree.cpp\"\n/**\n * @brief\

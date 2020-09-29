@@ -16,7 +16,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/knapsack-limitations.md
     document_title: "Knapsack-Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\
       \u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$"

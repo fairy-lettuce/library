@@ -4,15 +4,14 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-grl-2-b.test.cpp
-    title: test/verify/aoj-grl-2-b.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2415.test.cpp
     title: test/verify/aoj-2415.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-grl-2-b.test.cpp
+    title: test/verify/aoj-grl-2-b.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/heap/skew-heap.cpp\"\ntemplate< typename T, typename\
     \ E = T >\nstruct SkewHeap {\n  using G = function< T(T, E) >;\n  using H = function<\

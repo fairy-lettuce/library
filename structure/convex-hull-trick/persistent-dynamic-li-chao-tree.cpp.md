@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/convex-hull-trick/persistent-dynamic-li-chao-tree.cpp\"\
     \ntemplate< typename T, T x_low, T x_high, T id >\nstruct PersistentDynamicLiChaoTree\

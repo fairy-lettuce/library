@@ -2,11 +2,11 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: template/template.cpp
-    title: template/template.cpp
-  - icon: ':heavy_check_mark:'
     path: dp/edit-distance.cpp
     title: "Edit-Distance(\u7DE8\u96C6\u8DDD\u96E2)"
+  - icon: ':question:'
+    path: template/template.cpp
+    title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp

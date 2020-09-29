@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"other/mo-rollback.cpp\"\nstruct MoRollBack {\n  using ADD\
     \ = function< void(int) >;\n  using REM = function< void(int) >;\n  using RESET\

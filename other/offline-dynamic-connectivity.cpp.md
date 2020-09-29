@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"other/offline-dynamic-connectivity.cpp\"\nstruct OfflineDynamicConnectivity\
     \ {\n  using edge = pair< int, int >;\n\n  UnionFindUndo uf;\n  int V, Q, segsz;\n\

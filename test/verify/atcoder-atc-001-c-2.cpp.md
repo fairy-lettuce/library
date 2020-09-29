@@ -6,10 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_CLANG: ''
-    IGNORE_IF_GCC: ''
     links: []
   bundledCode: "#line 1 \"test/verify/atcoder-atc-001-c-2.cpp\"\n#define IGNORE\n\n\
     int main() {\n  int N;\n  cin >> N;\n  vector< int > A(N + 1), B(N + 1);\n  for(int\

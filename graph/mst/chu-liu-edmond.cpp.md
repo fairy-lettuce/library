@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"graph/mst/chu-liu-edmond.cpp\"\ntemplate< typename T >\n\
     struct MinimumSpanningTreeArborescence\n{\n  using Pi = pair< T, int >;\n  using\

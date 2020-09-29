@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/segment-tree/segment-tree-2d-2.cpp\"\ntemplate<\
     \ typename structure_t, typename get_t, typename update_t >\nstruct SegmentTree2D\

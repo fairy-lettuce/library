@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"graph/tree/rerooting.cpp\"\ntemplate< typename sum_t, typename\
     \ key_t >\nstruct ReRooting {\n  struct Edge {\n    int to;\n    key_t data;\n\

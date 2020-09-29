@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/others/priority-sum-structure.cpp\"\ntemplate<\
     \ typename T, typename Compare = less< T >, typename RCompare = greater< T > >\n\

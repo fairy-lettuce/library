@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/union-find/partially-persistent-union-find.cpp\"\
     \nstruct PartiallyPersistentUnionFind {\n  vector< int > data;\n  vector< int\

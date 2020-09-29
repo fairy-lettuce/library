@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: Mod-Tetration
     links: []
   bundledCode: "#line 1 \"math/combinatorics/mod-tetration.cpp\"\n/**\n * @brief Mod-Tetration\n\

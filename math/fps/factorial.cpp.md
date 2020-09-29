@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/fps/factorial.cpp\"\ntemplate< typename T >\nT factorial(int64_t\
     \ n) {\n  if(n >= T::get_mod()) return 0;\n  if(n == 0) return 1;\n\n  const int64_t\

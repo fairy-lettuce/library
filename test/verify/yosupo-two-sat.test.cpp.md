@@ -2,24 +2,24 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: template/template.cpp
-    title: template/template.cpp
-  - icon: ':heavy_check_mark:'
-    path: other/scanner.cpp
-    title: "Scanner(\u9AD8\u901F\u5165\u529B)"
-  - icon: ':heavy_check_mark:'
-    path: other/printer.cpp
-    title: "Printer(\u9AD8\u901F\u51FA\u529B)"
+    path: graph/connected-components/strongly-connected-components.cpp
+    title: "Strongly-Connected-Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
+      )"
+  - icon: ':question:'
+    path: graph/graph-template.cpp
+    title: graph/graph-template.cpp
   - icon: ':heavy_check_mark:'
     path: graph/others/two-satisfiability.cpp
     title: 2-SAT
   - icon: ':heavy_check_mark:'
-    path: graph/connected-components/strongly-connected-components.cpp
-    title: "Strongly-Connected-Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
-      )"
+    path: other/printer.cpp
+    title: "Printer(\u9AD8\u901F\u51FA\u529B)"
   - icon: ':heavy_check_mark:'
-    path: graph/graph-template.cpp
-    title: graph/graph-template.cpp
+    path: other/scanner.cpp
+    title: "Scanner(\u9AD8\u901F\u5165\u529B)"
+  - icon: ':question:'
+    path: template/template.cpp
+    title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp

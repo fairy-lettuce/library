@@ -2,17 +2,17 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: template/template.cpp
-    title: template/template.cpp
-  - icon: ':heavy_check_mark:'
-    path: math/combinatorics/mod-int.cpp
-    title: math/combinatorics/mod-int.cpp
+    path: math/combinatorics/bell-number.cpp
+    title: "Bell-Number(\u30D9\u30EB\u6570)"
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/combination.cpp
     title: math/combinatorics/combination.cpp
   - icon: ':heavy_check_mark:'
-    path: math/combinatorics/bell-number.cpp
-    title: "Bell-Number(\u30D9\u30EB\u6570)"
+    path: math/combinatorics/mod-int.cpp
+    title: math/combinatorics/mod-int.cpp
+  - icon: ':question:'
+    path: template/template.cpp
+    title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp

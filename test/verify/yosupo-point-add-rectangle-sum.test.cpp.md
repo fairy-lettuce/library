@@ -2,8 +2,11 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: template/template.cpp
-    title: template/template.cpp
+    path: other/printer.cpp
+    title: "Printer(\u9AD8\u901F\u51FA\u529B)"
+  - icon: ':heavy_check_mark:'
+    path: other/scanner.cpp
+    title: "Scanner(\u9AD8\u901F\u5165\u529B)"
   - icon: ':heavy_check_mark:'
     path: structure/others/binary-indexed-tree.cpp
     title: Binary-Indexed-Tree(BIT)
@@ -13,12 +16,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
     title: Wavelet-Matrix-Point-Add-Rectangle-Sum
-  - icon: ':heavy_check_mark:'
-    path: other/scanner.cpp
-    title: "Scanner(\u9AD8\u901F\u5165\u529B)"
-  - icon: ':heavy_check_mark:'
-    path: other/printer.cpp
-    title: "Printer(\u9AD8\u901F\u51FA\u529B)"
+  - icon: ':question:'
+    path: template/template.cpp
+    title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp

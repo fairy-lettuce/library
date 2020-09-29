@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/wavelet-matrix-point-add-rectangle-sum.md
     document_title: Wavelet-Matrix-Point-Add-Rectangle-Sum
     links: []

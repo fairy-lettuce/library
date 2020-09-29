@@ -6,10 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_CLANG: ''
-    IGNORE_IF_GCC: ''
     links: []
   bundledCode: "#line 1 \"test/verify/spoj-dquery.cpp\"\n#define IGNORE\n\nnt main()\
     \ {\n  int N, Q;\n  cin >> N;\n  vector< int > A(N);\n  for(int i = 0; i < N;\

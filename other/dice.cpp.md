@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"other/dice.cpp\"\nstruct Dice\n{\n  // int x, y;\n  int\
     \ l, r, f, b, d, u;\n\n  void RollN()\n  {\n    //  --y;\n    int buff = d;\n\

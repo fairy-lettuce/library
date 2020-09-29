@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/combinatorics/arbitrary-mod-int.cpp\"\nstruct ArbitraryModInt\
     \ {\n\n  int x;\n\n  ArbitraryModInt() : x(0) {}\n\n  ArbitraryModInt(int64_t\

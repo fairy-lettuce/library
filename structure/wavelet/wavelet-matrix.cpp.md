@@ -4,18 +4,17 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-range-kth-smallest.test.cpp
-    title: test/verify/yosupo-range-kth-smallest.test.cpp
+    path: test/verify/aoj-1549.test.cpp
+    title: test/verify/aoj-1549.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2674.test.cpp
     title: test/verify/aoj-2674.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-1549.test.cpp
-    title: test/verify/aoj-1549.test.cpp
+    path: test/verify/yosupo-range-kth-smallest.test.cpp
+    title: test/verify/yosupo-range-kth-smallest.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/wavelet-matrix.md
     document_title: "Wavelet-Matrix(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u884C\
       \u5217)"

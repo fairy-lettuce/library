@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: Persistent-Binary-Trie
     links: []
   bundledCode: "#line 1 \"structure/trie/persistent-binary-trie.cpp\"\n/**\n * @brief\

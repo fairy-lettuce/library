@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/convert-base.md
     document_title: "Convert-Base(\u9032\u6570\u5909\u63DB)"
     links: []

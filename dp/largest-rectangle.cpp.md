@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/largest-rectangle.md
     document_title: "Largest-Rectangle(\u6700\u5927\u9577\u65B9\u5F62)"
     links: []

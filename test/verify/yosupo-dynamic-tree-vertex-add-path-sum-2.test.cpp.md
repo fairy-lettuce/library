@@ -2,17 +2,17 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: template/template.cpp
-    title: template/template.cpp
-  - icon: ':heavy_check_mark:'
-    path: structure/develop/splay-tree-base.cpp
-    title: "Splay-Tree-Base(Splay\u6728)"
+    path: structure/develop/link-cut-tree.cpp
+    title: Link-Cut-Tree
   - icon: ':heavy_check_mark:'
     path: structure/develop/reversible-splay-tree.cpp
     title: "Reversible-Splay-Tree(\u53CD\u8EE2\u53EF\u80FDSplay\u6728)"
   - icon: ':heavy_check_mark:'
-    path: structure/develop/link-cut-tree.cpp
-    title: Link-Cut-Tree
+    path: structure/develop/splay-tree-base.cpp
+    title: "Splay-Tree-Base(Splay\u6728)"
+  - icon: ':question:'
+    path: template/template.cpp
+    title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp

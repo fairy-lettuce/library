@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/combinatorics/mod-int-2.cpp\"\nstatic constexpr uint32_t\
     \ mul_inv(uint32_t n, int e = 5, uint32_t x = 1) {\n  return e == 0 ? x : mul_inv(n,\

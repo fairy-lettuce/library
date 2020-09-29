@@ -4,33 +4,32 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-range-kth-smallest.test.cpp
-    title: test/verify/yosupo-range-kth-smallest.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1549-2.test.cpp
     title: test/verify/aoj-1549-2.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-rectangle-sum.test.cpp
-    title: test/verify/yosupo-rectangle-sum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-range-kth-smallest-2.test.cpp
-    title: test/verify/yosupo-range-kth-smallest-2.test.cpp
+    path: test/verify/aoj-1549.test.cpp
+    title: test/verify/aoj-1549.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2674-2.test.cpp
     title: test/verify/aoj-2674-2.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-point-add-rectangle-sum.test.cpp
-    title: test/verify/yosupo-point-add-rectangle-sum.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2674.test.cpp
     title: test/verify/aoj-2674.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-1549.test.cpp
-    title: test/verify/aoj-1549.test.cpp
+    path: test/verify/yosupo-point-add-rectangle-sum.test.cpp
+    title: test/verify/yosupo-point-add-rectangle-sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-range-kth-smallest-2.test.cpp
+    title: test/verify/yosupo-range-kth-smallest-2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-range-kth-smallest.test.cpp
+    title: test/verify/yosupo-range-kth-smallest.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-rectangle-sum.test.cpp
+    title: test/verify/yosupo-rectangle-sum.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/wavelet/succinct-indexable-dictionary.cpp\"\n\
     struct SuccinctIndexableDictionary {\n  size_t length;\n  size_t blocks;\n  vector<\

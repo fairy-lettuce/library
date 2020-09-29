@@ -4,15 +4,14 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-range-affine-range-sum.test.cpp
-    title: test/verify/yosupo-range-affine-range-sum.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2450.test.cpp
     title: test/verify/aoj-2450.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-range-affine-range-sum.test.cpp
+    title: test/verify/yosupo-range-affine-range-sum.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/lazy-segment-tree.md
     document_title: "Lazy-Segment-Tree(\u9045\u5EF6\u4F1D\u642C\u30BB\u30B0\u30E1\u30F3\
       \u30C8\u6728)"

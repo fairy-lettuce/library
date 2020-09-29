@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: Kth-Root
     links: []
   bundledCode: "#line 1 \"math/number-theory/kth-root.cpp\"\n/**\n * @brief Kth-Root\n\

@@ -4,18 +4,17 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-point-add-rectangle-sum.test.cpp
+    title: test/verify/yosupo-point-add-rectangle-sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-tree-decomposition-width-2.test.cpp
     title: test/verify/yosupo-tree-decomposition-width-2.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-two-sat.test.cpp
     title: test/verify/yosupo-two-sat.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-point-add-rectangle-sum.test.cpp
-    title: test/verify/yosupo-point-add-rectangle-sum.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: "Scanner(\u9AD8\u901F\u5165\u529B)"
     links: []
   bundledCode: "#line 1 \"other/scanner.cpp\"\n/**\n * @brief Scanner(\u9AD8\u901F\

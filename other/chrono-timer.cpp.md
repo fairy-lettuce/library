@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"other/chrono-timer.cpp\"\nstruct ChronoTimer {\n  chrono::high_resolution_clock::time_point\
     \ st;\n\n  ChronoTimer() { reset(); }\n\n  void reset() {\n    st = chrono::high_resolution_clock::now();\n\

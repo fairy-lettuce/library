@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/union-find/bipartite-graph.cpp\"\nstruct BipartiteGraph\
     \ : UnionFind\n{\n  vector< int > color;\n\n  BipartiteGraph(int v) : color(v\

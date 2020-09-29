@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"graph/shortest-path/grid-bfs.cpp\"\nvector< vector< int\
     \ > > grid_bfs(vector< string > &s, char start, const string &wall = \"#\") {\n\

@@ -6,10 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_CLANG: ''
-    IGNORE_IF_GCC: ''
     links: []
   bundledCode: "#line 1 \"test/verify/atcoder-shpc-2018-final-e-2.cpp\"\n#define IGNORE\n\
     \nusing pi = pair< int, int >;\nusing int64 = long long;\nconst int mod = 1e9\

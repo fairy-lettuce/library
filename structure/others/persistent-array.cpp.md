@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/others/persistent-array.cpp\"\ntemplate< typename\
     \ T, int LOG >\nstruct PersistentArray {\n  struct Node {\n    T data;\n    Node\

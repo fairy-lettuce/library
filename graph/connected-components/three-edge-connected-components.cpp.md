@@ -2,11 +2,11 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: graph/graph-template.cpp
-    title: graph/graph-template.cpp
-  - icon: ':heavy_check_mark:'
     path: graph/connected-components/incremental-bridge-connectivity.cpp
     title: Incremental-Bridge-Connectivity
+  - icon: ':question:'
+    path: graph/graph-template.cpp
+    title: graph/graph-template.cpp
   - icon: ':heavy_check_mark:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
@@ -18,7 +18,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: "Three-Edge-Connected-Components(\u4E09\u91CD\u8FBA\u9023\u7D50\
       \u6210\u5206\u5206\u89E3)"
     links: []

@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/bbst/randomized-binary-search-tree.cpp\"\ntemplate<\
     \ typename T >\nclass RandomizedBinarySearchTree {\n\n  using F = function< T(T,\

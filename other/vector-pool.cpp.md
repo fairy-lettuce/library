@@ -4,24 +4,23 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-range-affine-range-sum-2.test.cpp
-    title: test/verify/yosupo-range-affine-range-sum-2.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-staticrmq-3.test.cpp
-    title: test/verify/yosupo-staticrmq-3.test.cpp
+    path: test/verify/aoj-1508-2.test.cpp
+    title: test/verify/aoj-1508-2.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1508-3.test.cpp
     title: test/verify/aoj-1508-3.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-range-affine-range-sum-2.test.cpp
+    title: test/verify/yosupo-range-affine-range-sum-2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-range-affine-range-sum-3.test.cpp
     title: test/verify/yosupo-range-affine-range-sum-3.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-1508-2.test.cpp
-    title: test/verify/aoj-1508-2.test.cpp
+    path: test/verify/yosupo-staticrmq-3.test.cpp
+    title: test/verify/yosupo-staticrmq-3.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"other/vector-pool.cpp\"\ntemplate< class T >\nstruct VectorPool\
     \ {\n  vector< T > pool;\n  vector< T * > stock;\n  int ptr;\n\n  VectorPool()\

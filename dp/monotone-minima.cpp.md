@@ -3,13 +3,16 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: dp/divide-and-conquer-optimization.cpp
+    title: Divide-And-Conquer-Optimization
+  - icon: ':heavy_check_mark:'
     path: dp/online-offline-dp.cpp
     title: "Online-Offline-DP(\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u30AA\u30D5\u30E9\
       \u30A4\u30F3\u5909\u63DB)"
-  - icon: ':heavy_check_mark:'
-    path: dp/divide-and-conquer-optimization.cpp
-    title: Divide-And-Conquer-Optimization
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-2603.test.cpp
+    title: test/verify/aoj-2603.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-703.test.cpp
     title: test/verify/yukicoder-703.test.cpp
@@ -17,15 +20,11 @@ data:
     path: test/verify/yukicoder-704.test.cpp
     title: test/verify/yukicoder-704.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-2603.test.cpp
-    title: test/verify/aoj-2603.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-705.test.cpp
     title: test/verify/yukicoder-705.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/monotone-minima.md
     document_title: Monotone-Minima
     links: []

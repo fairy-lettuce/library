@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/divisor.md
     document_title: "Divisor(\u7D04\u6570\u5217\u6319)"
     links: []

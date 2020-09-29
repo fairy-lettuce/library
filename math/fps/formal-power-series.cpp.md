@@ -4,8 +4,26 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-bellnoulli-number.test.cpp
+    title: test/verify/yosupo-bellnoulli-number.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
+    title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-find-linear-recurrence.test.cpp
+    title: test/verify/yosupo-find-linear-recurrence.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
+    title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-log-of-formal-power-series.test.cpp
+    title: test/verify/yosupo-log-of-formal-power-series.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-multipoint-evaluation.test.cpp
     title: test/verify/yosupo-multipoint-evaluation.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-partition-function.test.cpp
+    title: test/verify/yosupo-partition-function.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
@@ -15,28 +33,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-bellnoulli-number.test.cpp
-    title: test/verify/yosupo-bellnoulli-number.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-find-linear-recurrence.test.cpp
-    title: test/verify/yosupo-find-linear-recurrence.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-partition-function.test.cpp
-    title: test/verify/yosupo-partition-function.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-log-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-log-of-formal-power-series.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/fps/formal-power-series.cpp\"\ntemplate< typename T\
     \ >\nstruct FormalPowerSeries : vector< T > {\n  using vector< T >::vector;\n\

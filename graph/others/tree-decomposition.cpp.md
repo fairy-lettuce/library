@@ -4,15 +4,14 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-tree-decomposition-width-2.test.cpp
-    title: test/verify/yosupo-tree-decomposition-width-2.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2405.test.cpp
     title: test/verify/aoj-2405.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-tree-decomposition-width-2.test.cpp
+    title: test/verify/yosupo-tree-decomposition-width-2.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: "Tree-Decomposition(\u6728\u5206\u89E3)"
     links:
     - https://ei1333.hateblo.jp/entry/2020/02/12/150319

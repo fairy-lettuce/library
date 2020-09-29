@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/combinatorics/binomial.cpp\"\ntemplate< typename T\
     \ >\nT binomial(int64_t N, int64_t K) {\n  if(K < 0 || N < K) return 0;\n  T ret\

@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/persistent-segment-tree.md
     document_title: "Persistent-Segment-Tree(\u6C38\u7D9A\u30BB\u30B0\u30E1\u30F3\u30C8\
       \u6728)"

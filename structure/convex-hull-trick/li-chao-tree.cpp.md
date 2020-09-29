@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/convex-hull-trick/li-chao-tree.cpp\"\ntemplate<\
     \ typename T >\nstruct LiChaoTree {\n  struct Line {\n    T a, b;\n\n    Line(T\

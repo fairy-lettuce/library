@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"graph/shortest-path/warshall-floyd.cpp\"\ntemplate< typename\
     \ T >\nvoid warshall_floyd(Matrix< T > &g, T INF) {\n  for(int k = 0; k < g.size();\

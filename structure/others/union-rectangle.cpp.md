@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/others/union-rectangle.cpp\"\ntemplate< typename\
     \ T >\nstruct UnionRectangle {\n  map< T, T > data;\n  int64 sum;\n\n  UnionRectangle()\

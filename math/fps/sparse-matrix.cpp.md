@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/fps/sparse-matrix.cpp\"\ntemplate< typename T >\nusing\
     \ FPSGraph = vector< vector< pair< int, T > > >;\n\ntemplate< typename T >\nFormalPowerSeries<\

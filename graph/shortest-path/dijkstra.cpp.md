@@ -7,18 +7,17 @@ data:
     path: test/verify/aoj-0275.test.cpp
     title: test/verify/aoj-0275.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-shortest-path.test.cpp
-    title: test/verify/yosupo-shortest-path.test.cpp
+    path: test/verify/aoj-grl-1-a.test.cpp
+    title: test/verify/aoj-grl-1-a.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-k-shortest-walk.test.cpp
     title: test/verify/yosupo-k-shortest-walk.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-grl-1-a.test.cpp
-    title: test/verify/aoj-grl-1-a.test.cpp
+    path: test/verify/yosupo-shortest-path.test.cpp
+    title: test/verify/yosupo-shortest-path.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/dijkstra.md
     document_title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
     links: []

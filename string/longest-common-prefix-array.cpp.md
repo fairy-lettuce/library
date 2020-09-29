@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"string/longest-common-prefix-array.cpp\"\nstruct LongestCommonPrefixArray\
     \ {\n  const SuffixArray &SA;\n  vector< int > LCP, rank;\n\n  LongestCommonPrefixArray(const\

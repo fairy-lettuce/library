@@ -4,18 +4,17 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-bipartitematching.test.cpp
-    title: test/verify/yosupo-bipartitematching.test.cpp
+    path: test/verify/aoj-0334.test.cpp
+    title: test/verify/aoj-0334.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bipartite-edge-coloring.test.cpp
     title: test/verify/yosupo-bipartite-edge-coloring.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-0334.test.cpp
-    title: test/verify/aoj-0334.test.cpp
+    path: test/verify/yosupo-bipartitematching.test.cpp
+    title: test/verify/yosupo-bipartitematching.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/bipartite-flow.md
     document_title: "Bipartite-Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\
       \u30FC)"

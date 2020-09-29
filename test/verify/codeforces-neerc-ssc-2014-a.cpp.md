@@ -6,10 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_CLANG: ''
-    IGNORE_IF_GCC: ''
     links: []
   bundledCode: "#line 1 \"test/verify/codeforces-neerc-ssc-2014-a.cpp\"\n#define IGNORE\n\
     \nstruct UnionFindUndo {\n  vector< int > data;\n  stack< pair< int, int > > history;\n\

@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/combinatorics/lagrange-polynomial.cpp\"\ntemplate<\
     \ typename T >\nT lagrange_polynomial(const vector< T > &y, int64_t t) {\n  int\

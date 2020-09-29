@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"other/compress.cpp\"\ntemplate< typename T >\nstruct Compress\
     \ {\n  vector< T > xs;\n\n  Compress() = default;\n\n  Compress(const vector<\

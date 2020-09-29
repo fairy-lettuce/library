@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/number-theory/prime-table.cpp\"\nvector< bool > prime_table(int\
     \ n) {\n  vector< bool > prime(n + 1, true);\n  if(n >= 0) prime[0] = false;\n\

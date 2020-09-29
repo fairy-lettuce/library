@@ -6,10 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_CLANG: ''
-    IGNORE_IF_GCC: ''
     links: []
   bundledCode: "#line 1 \"test/verify/atcoder-arc-062-f.cpp\"\n#define IGNORE\n\n\
     template< int mod >\nstruct ModInt {\n  int x;\n \n  ModInt() : x(0) {}\n \n \

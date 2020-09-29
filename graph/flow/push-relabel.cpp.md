@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"graph/flow/push-relabel.cpp\"\nclass Stack {\nprivate:\n\
     \  const int N, H;\n  vector< int > node;\n \npublic:\n  Stack(const int N, const\

@@ -2,14 +2,14 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: template/template.cpp
-    title: template/template.cpp
+    path: graph/shortest-path/warshall-floyd.cpp
+    title: graph/shortest-path/warshall-floyd.cpp
   - icon: ':heavy_check_mark:'
     path: graph/template.cpp
     title: graph/template.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/shortest-path/warshall-floyd.cpp
-    title: graph/shortest-path/warshall-floyd.cpp
+  - icon: ':question:'
+    path: template/template.cpp
+    title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp

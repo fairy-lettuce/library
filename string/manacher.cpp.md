@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"string/manacher.cpp\"\nvector< int > manacher(const string\
     \ &s) {\n  vector< int > radius(s.size());\n  int i = 0, j = 0;\n  while(i < s.size())\

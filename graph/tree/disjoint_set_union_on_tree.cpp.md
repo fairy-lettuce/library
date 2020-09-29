@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: Disjoint-Set-Union-On-Tree
     links: []
   bundledCode: "#line 1 \"graph/tree/disjoint_set_union_on_tree.cpp\"\n/**\n * @brief\

@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"graph/others/maximum-independent-set.cpp\"\ntemplate< typename\
     \ T >\nvector< int > maximum_independent_set(const Matrix< T > &g, int trial =\

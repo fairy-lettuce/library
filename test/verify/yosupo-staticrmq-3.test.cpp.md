@@ -2,14 +2,14 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: template/template.cpp
-    title: template/template.cpp
-  - icon: ':heavy_check_mark:'
     path: other/vector-pool.cpp
     title: other/vector-pool.cpp
   - icon: ':heavy_check_mark:'
     path: structure/bbst/red-black-tree.cpp
     title: "Red-Black-Tree(\u8D64\u9ED2\u6728)"
+  - icon: ':question:'
+    path: template/template.cpp
+    title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp

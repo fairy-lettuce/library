@@ -1,27 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-2667.test.cpp
-    title: test/verify/aoj-2667.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yukicoder-650.test.cpp
-    title: test/verify/yukicoder-650.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2450.test.cpp
     title: test/verify/aoj-2450.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-2667.test.cpp
+    title: test/verify/aoj-2667.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c-2.test.cpp
     title: test/verify/aoj-grl-5-c-2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yukicoder-650.test.cpp
+    title: test/verify/yukicoder-650.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
     links:
     - https://smijake3.hatenablog.com/entry/2019/09/15/200200

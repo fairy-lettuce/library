@@ -6,10 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_CLANG: ''
-    IGNORE_IF_GCC: ''
     links: []
   bundledCode: "#line 1 \"test/verify/codeforces-564-e.cpp\"\n#define IGNORE\n\nint\
     \ main() {\n  struct tap {\n    int64 sz, szsum, cashsz, cashszsum;\n \n    tap()\

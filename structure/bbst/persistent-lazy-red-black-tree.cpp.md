@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/bbst/persistent-lazy-red-black-tree.cpp\"\ntemplate<\
     \ typename Monoid, typename OperatorMonoid, typename F, typename G, typename H,\

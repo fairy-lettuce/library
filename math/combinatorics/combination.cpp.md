@@ -4,15 +4,14 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-dpl-5-i.test.cpp
-    title: test/verify/aoj-dpl-5-i.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-5-g.test.cpp
     title: test/verify/aoj-dpl-5-g.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-dpl-5-i.test.cpp
+    title: test/verify/aoj-dpl-5-i.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/combinatorics/combination.cpp\"\ntemplate< typename\
     \ T >\nstruct Combination {\n  vector< T > _fact, _rfact, _inv;\n\n  Combination(int\

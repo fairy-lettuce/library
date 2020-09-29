@@ -2,17 +2,17 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: template/template.cpp
-    title: template/template.cpp
+    path: math/combinatorics/combination.cpp
+    title: math/combinatorics/combination.cpp
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
   - icon: ':heavy_check_mark:'
-    path: math/combinatorics/combination.cpp
-    title: math/combinatorics/combination.cpp
-  - icon: ':heavy_check_mark:'
     path: math/combinatorics/stirling-number-second.cpp
     title: math/combinatorics/stirling-number-second.cpp
+  - icon: ':question:'
+    path: template/template.cpp
+    title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp

@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/combinatorics/mod-log.cpp\"\nint64_t mod_log(int64_t\
     \ a, int64_t b, int64_t p) {\n  int64_t g = 1;\n\n  for(int64_t i = p; i; i /=\

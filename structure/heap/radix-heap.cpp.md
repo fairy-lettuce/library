@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/heap/radix-heap.cpp\"\ntemplate< typename key_t,\
     \ typename val_t >\nstruct RadixHeap {\n  static constexpr int bit = sizeof(key_t)\

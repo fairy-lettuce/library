@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/timer.md
     document_title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
     links: []

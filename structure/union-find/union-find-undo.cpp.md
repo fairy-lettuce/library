@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/union-find/union-find-undo.cpp\"\nstruct UnionFindUndo\
     \ {\n  vector< int > data;\n  stack< pair< int, int > > history;\n\n  UnionFindUndo(int\

@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/number-theory/quotient-range.cpp\"\ntemplate< typename\
     \ T >\nvector< pair< pair< T, T >, T > > quotient_range(T N) {\n  T M;\n  vector<\

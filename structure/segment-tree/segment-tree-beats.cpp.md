@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/segment-tree/segment-tree-beats.cpp\"\ntemplate<\
     \ typename Monoid, typename OperatorMonoid = Monoid >\nstruct SegmentTreeBeats\

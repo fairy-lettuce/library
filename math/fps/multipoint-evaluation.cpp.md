@@ -12,7 +12,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/fps/multipoint-evaluation.cpp\"\ntemplate< typename\
     \ T >\nstruct PolyBuf {\n  using FPS = FormalPowerSeries< T >;\n  const FPS xs;\n\

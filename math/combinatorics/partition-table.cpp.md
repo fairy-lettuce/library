@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/partition-table.md
     document_title: "Partition-Table(\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB)"
     links: []

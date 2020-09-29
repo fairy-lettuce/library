@@ -4,15 +4,14 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-set-xor-min.test.cpp
-    title: test/verify/yosupo-set-xor-min.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dsl-2-b-2.test.cpp
     title: test/verify/aoj-dsl-2-b-2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-set-xor-min.test.cpp
+    title: test/verify/yosupo-set-xor-min.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/binary-trie.md
     document_title: Binary-Trie
     links: []

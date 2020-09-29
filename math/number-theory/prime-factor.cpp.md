@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/number-theory/prime-factor.cpp\"\nmap< int64_t, int\
     \ > prime_factor(int64_t n) {\n  map< int64_t, int > ret;\n  for(int64_t i = 2;\

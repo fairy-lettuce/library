@@ -4,21 +4,20 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-2450-3.test.cpp
+    title: test/verify/aoj-2450-3.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-2450-3.test.cpp
-    title: test/verify/aoj-2450-3.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-point-set-range-composite-3.test.cpp
     title: test/verify/yosupo-point-set-range-composite-3.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: "Reversible-Splay-Tree(\u53CD\u8EE2\u53EF\u80FDSplay\u6728)"
     links: []
   bundledCode: "#line 1 \"structure/develop/reversible-splay-tree.cpp\"\n/**\n * @brief\

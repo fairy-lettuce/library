@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: Mo's Algorithm
     links: []
   bundledCode: "#line 1 \"other/mo.cpp\"\n/**\n * @brief Mo's Algorithm\n */\nstruct\

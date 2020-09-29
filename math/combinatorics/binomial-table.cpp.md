@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/binomial-table.md
     document_title: "Binomial-Table(\u4E8C\u9805\u4FC2\u6570\u30C6\u30FC\u30D6\u30EB\
       )"

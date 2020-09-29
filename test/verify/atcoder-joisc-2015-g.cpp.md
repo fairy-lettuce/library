@@ -6,10 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_CLANG: ''
-    IGNORE_IF_GCC: ''
     links: []
   bundledCode: "#line 1 \"test/verify/atcoder-joisc-2015-g.cpp\"\n#define IGNORE\n\
     \nstruct UnionFind {\n  vector< int > data;\n \n  UnionFind(int sz) {\n    data.assign(sz,\

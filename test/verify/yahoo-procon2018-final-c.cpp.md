@@ -6,10 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_CLANG: ''
-    IGNORE_IF_GCC: ''
     links: []
   bundledCode: "#line 1 \"test/verify/yahoo-procon2018-final-c.cpp\"\n#define IGNORE\n\
     \nint main() {\n  int N, Q;\n  scanf(\"%d %d\", &N, &Q);\n  UnWeightedGraph g(N);\n\

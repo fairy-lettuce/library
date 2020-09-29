@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/cumulative-sum-2d.md
     document_title: "Cumulative-Sum-2D(\u4E8C\u6B21\u5143\u7D2F\u7A4D\u548C)"
     links: []

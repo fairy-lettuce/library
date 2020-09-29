@@ -19,7 +19,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/incremental-bridge-connectivity.md
     document_title: Incremental-Bridge-Connectivity
     links:

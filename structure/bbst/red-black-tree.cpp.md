@@ -4,15 +4,14 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-staticrmq-3.test.cpp
-    title: test/verify/yosupo-staticrmq-3.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1508-2.test.cpp
     title: test/verify/aoj-1508-2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-staticrmq-3.test.cpp
+    title: test/verify/yosupo-staticrmq-3.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/red-black-tree.md
     document_title: "Red-Black-Tree(\u8D64\u9ED2\u6728)"
     links: []

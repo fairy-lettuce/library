@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/number-theory/moebius-mu-table.cpp\"\nvector< int >\
     \ moebius_mu_table(int n) {\n  vector< int > mu(n + 1, 1), p(n + 1, 1);\n  for(int\

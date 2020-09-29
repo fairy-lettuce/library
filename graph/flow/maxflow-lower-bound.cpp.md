@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"graph/flow/maxflow-lower-bound.cpp\"\ntemplate< typename\
     \ flow_t, template< typename > class F >\nstruct MaxFlowLowerBound {\n  F< flow_t\

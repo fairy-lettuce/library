@@ -6,10 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_CLANG: ''
-    IGNORE_IF_GCC: ''
     links: []
   bundledCode: "#line 1 \"test/verify/atcoder-shpc-2018-final-e.cpp\"\n#define IGNORE\n\
     \nusing int64 = long long;\n\nint64 power[234567];\nconst int LIM = 1000000;\n\

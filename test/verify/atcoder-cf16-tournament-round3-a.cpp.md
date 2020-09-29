@@ -6,10 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_CLANG: ''
-    IGNORE_IF_GCC: ''
     links: []
   bundledCode: "#line 1 \"test/verify/atcoder-cf16-tournament-round3-a.cpp\"\n#define\
     \ IGNORE\n\nint main() {\n  int N, M, K, A[100000];\n  cin >> N >> M >> K;\n \

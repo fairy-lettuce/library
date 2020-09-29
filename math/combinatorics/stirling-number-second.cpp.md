@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/combinatorics/stirling-number-second.cpp\"\ntemplate<\
     \ typename T >\nT stirling_number_second(int n, int k) {\n  Combination< T > table(k);\n\

@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/edit-distance.md
     document_title: "Edit-Distance(\u7DE8\u96C6\u8DDD\u96E2)"
     links: []

@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: "Tree-Isomorphism(\u6728\u306E\u540C\u578B\u6027\u5224\u5B9A)"
     links: []
   bundledCode: "#line 1 \"graph/tree/tree-isomorphism.cpp\"\n/**\n * @brief Tree-Isomorphism(\u6728\

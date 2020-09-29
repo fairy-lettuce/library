@@ -2,15 +2,15 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: template/template.cpp
-    title: template/template.cpp
-  - icon: ':heavy_check_mark:'
-    path: structure/trie/trie.cpp
-    title: structure/trie/trie.cpp
-  - icon: ':heavy_check_mark:'
     path: string/aho-corasick.cpp
     title: "Aho-Corasick(\u30A8\u30A4\u30DB\u2013\u30B3\u30E9\u30B7\u30C3\u30AF\u6CD5\
       )"
+  - icon: ':heavy_check_mark:'
+    path: structure/trie/trie.cpp
+    title: structure/trie/trie.cpp
+  - icon: ':question:'
+    path: template/template.cpp
+    title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp

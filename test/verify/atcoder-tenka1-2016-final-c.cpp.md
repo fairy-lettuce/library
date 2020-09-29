@@ -6,10 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_CLANG: ''
-    IGNORE_IF_GCC: ''
     links: []
   bundledCode: "#line 1 \"test/verify/atcoder-tenka1-2016-final-c.cpp\"\n#define IGNORE\n\
     \nint main() {\n  Trie< 26, 'a' > trie;\n  string S, P[5000];\n  int M, W[5000];\n\

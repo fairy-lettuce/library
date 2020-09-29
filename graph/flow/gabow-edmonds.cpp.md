@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links:
     - https://qiita.com/Kutimoti_T/items/5b579773e0a24d650bdf
   bundledCode: "#line 1 \"graph/flow/gabow-edmonds.cpp\"\n// https://qiita.com/Kutimoti_T/items/5b579773e0a24d650bdf\n\

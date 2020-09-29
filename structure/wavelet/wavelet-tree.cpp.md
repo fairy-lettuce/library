@@ -7,15 +7,14 @@ data:
     path: test/verify/aoj-1549-2.test.cpp
     title: test/verify/aoj-1549-2.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-range-kth-smallest-2.test.cpp
-    title: test/verify/yosupo-range-kth-smallest-2.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2674-2.test.cpp
     title: test/verify/aoj-2674-2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-range-kth-smallest-2.test.cpp
+    title: test/verify/yosupo-range-kth-smallest-2.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/wavelet-tree.md
     document_title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728\
       )"

@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"graph/flow/hungarian.cpp\"\ntemplate< typename T >\nT hungarian(Matrix<\
     \ T > &A) {\n  const T infty = numeric_limits< T >::max();\n  const int N = (int)\

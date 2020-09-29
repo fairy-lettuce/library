@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: "BFS(\u5E45\u512A\u5148\u63A2\u7D22)"
     links: []
   bundledCode: "#line 1 \"graph/shortest-path/bfs.cpp\"\n/**\n * @brief BFS(\u5E45\

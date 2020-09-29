@@ -2,14 +2,14 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: template/template.cpp
-    title: template/template.cpp
-  - icon: ':heavy_check_mark:'
     path: structure/others/persistent-array.cpp
     title: structure/others/persistent-array.cpp
   - icon: ':heavy_check_mark:'
     path: structure/union-find/persistent-union-find.cpp
     title: "Persistent-Union-Find(\u6C38\u7D9AUnion-Find)"
+  - icon: ':question:'
+    path: template/template.cpp
+    title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp

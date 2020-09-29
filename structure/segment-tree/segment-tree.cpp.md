@@ -4,15 +4,14 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yukicoder-650.test.cpp
-    title: test/verify/yukicoder-650.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dsl-2-a.test.cpp
     title: test/verify/aoj-dsl-2-a.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yukicoder-650.test.cpp
+    title: test/verify/yukicoder-650.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/segment-tree.md
     document_title: "Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     links: []

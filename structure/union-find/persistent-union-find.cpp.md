@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: "Persistent-Union-Find(\u6C38\u7D9AUnion-Find)"
     links: []
   bundledCode: "#line 1 \"structure/union-find/persistent-union-find.cpp\"\n/*\n *\

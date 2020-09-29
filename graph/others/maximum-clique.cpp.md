@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: "Maximum-Clique(\u6700\u5927\u30AF\u30EA\u30FC\u30AF)"
     links: []
   bundledCode: "#line 1 \"graph/others/maximum-clique.cpp\"\n/**\n * @brief Maximum-Clique(\u6700\

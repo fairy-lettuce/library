@@ -4,15 +4,14 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yukicoder-583.test.cpp
-    title: test/verify/yukicoder-583.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bipartite-edge-coloring.test.cpp
     title: test/verify/yosupo-bipartite-edge-coloring.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yukicoder-583.test.cpp
+    title: test/verify/yukicoder-583.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/eulerian-trail.md
     document_title: "Eulerian-Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
     links: []

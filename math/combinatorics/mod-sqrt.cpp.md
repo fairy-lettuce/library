@@ -4,15 +4,14 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-mod.test.cpp
     title: test/verify/yosupo-sqrt-mod.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+    title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/combinatorics/mod-sqrt.cpp\"\ntemplate< typename T\
     \ >\nT mod_sqrt(const T &a, const T &p) {\n  if(a == 0) return 0;\n  if(p == 2)\

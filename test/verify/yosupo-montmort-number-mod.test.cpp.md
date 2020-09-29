@@ -2,14 +2,14 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: template/template.cpp
-    title: template/template.cpp
-  - icon: ':heavy_check_mark:'
     path: math/combinatorics/arbitrary-mod-int.cpp
     title: math/combinatorics/arbitrary-mod-int.cpp
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/montmort.cpp
     title: "Montmort-Number(\u30E2\u30F3\u30E2\u30FC\u30EB\u6570)"
+  - icon: ':question:'
+    path: template/template.cpp
+    title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp

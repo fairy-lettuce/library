@@ -6,10 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_CLANG: ''
-    IGNORE_IF_GCC: ''
     links: []
   bundledCode: "#line 1 \"test/verify/codeforces-dynamic-connectivity-contest-a.cpp\"\
     \n#define IGNORE\n\nint main() {\n  FILE *in, *out;\n  in = fopen(\"connect.in\"\

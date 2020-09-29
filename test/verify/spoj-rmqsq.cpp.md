@@ -6,10 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_CLANG: ''
-    IGNORE_IF_GCC: ''
     links: []
   bundledCode: "#line 1 \"test/verify/spoj-rmqsq.cpp\"\n#define IGNORE\n\nint main()\
     \ {\n  int N, Q;\n  scanf(\"%d\", &N);\n  vector< int > vs(N);\n  for(int i =\

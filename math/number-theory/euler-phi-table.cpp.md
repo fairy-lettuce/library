@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/euler-phi-table.md
     document_title: "Euler\u2019s-Phi-Function-Table(\u30AA\u30A4\u30E9\u30FC\u306E\
       \u03C6\u95A2\u6570\u30C6\u30FC\u30D6\u30EB)"

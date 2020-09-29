@@ -6,10 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_CLANG: ''
-    IGNORE_IF_GCC: ''
     links: []
   bundledCode: "#line 1 \"test/verify/yukicoder-3046.cpp\"\n#define IGNORE\n\nint\
     \ main() {\n  int K, N;\n  cin >> K >> N;\n  PolynominalMod< modint > X(K + 1);\n\

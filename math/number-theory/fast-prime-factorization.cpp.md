@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links:
     - http://miller-rabin.appspot.com/
   bundledCode: "#line 1 \"math/number-theory/fast-prime-factorization.cpp\"\nnamespace\

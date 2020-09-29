@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
   _extendedRequiredBy:
@@ -21,6 +21,9 @@ data:
     path: test/verify/aoj-3022.test.cpp
     title: test/verify/aoj-3022.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-3139.test.cpp
+    title: test/verify/aoj-3139.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-3-a.test.cpp
     title: test/verify/aoj-grl-3-a.test.cpp
   - icon: ':heavy_check_mark:'
@@ -29,13 +32,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-two-edge-connected-components.test.cpp
     title: test/verify/yosupo-two-edge-connected-components.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-3139.test.cpp
-    title: test/verify/aoj-3139.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/low-link.md
     document_title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
     links:

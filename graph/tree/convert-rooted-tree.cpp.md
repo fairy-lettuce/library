@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: "Convert-Rooted-Tree(\u6839\u4ED8\u304D\u6728\u306B\u5909\u63DB\
       )"
     links: []

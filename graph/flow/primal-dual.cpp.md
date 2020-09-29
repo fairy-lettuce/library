@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"graph/flow/primal-dual.cpp\"\ntemplate< typename flow_t,\
     \ typename cost_t >\nstruct PrimalDual {\n  const cost_t INF;\n\n  struct edge\

@@ -7,15 +7,14 @@ data:
     title: "Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-grl-2-a-4.test.cpp
-    title: test/verify/aoj-grl-2-a-4.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-a-2.test.cpp
     title: test/verify/aoj-grl-1-a-2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-grl-2-a-4.test.cpp
+    title: test/verify/aoj-grl-2-a-4.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: "Fibonacchi-Heap(\u30D5\u30A3\u30DC\u30CA\u30C3\u30C1\u30D2\u30FC\
       \u30D7)"
     links:

@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/fft/number-theoretic-transform.cpp\"\ntemplate< int\
     \ mod >\nstruct NumberTheoreticTransform {\n\n  vector< int > rev, rts;\n  int\

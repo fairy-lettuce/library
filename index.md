@@ -113,7 +113,7 @@ data:
       title: graph/flow/push-relabel.cpp
   - name: graph
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: graph/graph-template.cpp
       title: graph/graph-template.cpp
     - icon: ':heavy_check_mark:'
@@ -148,12 +148,18 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/others/chromatic-number.cpp
       title: "Chromatic-Number(\u5F69\u8272\u6570)"
+    - icon: ':x:'
+      path: graph/others/cycle-detection.cpp
+      title: "Cycle-Detection(\u9589\u8DEF\u691C\u51FA)"
     - icon: ':heavy_check_mark:'
       path: graph/others/dominator-tree.cpp
       title: Dominator-Tree
     - icon: ':heavy_check_mark:'
       path: graph/others/enumerate-clique.cpp
       title: "Enumerate-Clique(\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319)"
+    - icon: ':heavy_check_mark:'
+      path: graph/others/enumerate-triangles.cpp
+      title: "Enumerate-Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)"
     - icon: ':heavy_check_mark:'
       path: graph/others/eulerian-trail.cpp
       title: "Eulerian-Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
@@ -652,7 +658,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -1014,6 +1020,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-convolution-mod.test.cpp
       title: test/verify/yosupo-convolution-mod.test.cpp
+    - icon: ':x:'
+      path: test/verify/yosupo-cycle-detection.test.cpp
+      title: test/verify/yosupo-cycle-detection.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-discrete-logarithm-mod.test.cpp
       title: test/verify/yosupo-discrete-logarithm-mod.test.cpp
@@ -1035,6 +1044,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
       title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-enumerate-triangles.test.cpp
+      title: test/verify/yosupo-enumerate-triangles.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
       title: test/verify/yosupo-exp-of-formal-power-series.test.cpp

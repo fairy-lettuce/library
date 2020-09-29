@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/union-find/weighted-union-find.cpp\"\ntemplate<\
     \ typename T >\nstruct WeightedUnionFind {\n  vector< int > data;\n  vector< T\

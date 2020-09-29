@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/segment-tree/segment-tree-fractional-cascading.cpp\"\
     \nstruct SegmentTreeFractionalCascading {\n  vector< vector< int > > seg;\n  vector<\

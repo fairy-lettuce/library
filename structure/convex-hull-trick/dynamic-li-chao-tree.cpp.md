@@ -4,18 +4,17 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-segment-add-get-min.test.cpp
-    title: test/verify/yosupo-segment-add-get-min.test.cpp
+    path: test/verify/aoj-2725.test.cpp
+    title: test/verify/aoj-2725.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-line-add-get-min.test.cpp
     title: test/verify/yosupo-line-add-get-min.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-2725.test.cpp
-    title: test/verify/aoj-2725.test.cpp
+    path: test/verify/yosupo-segment-add-get-min.test.cpp
+    title: test/verify/yosupo-segment-add-get-min.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/dynamic-li-chao-tree.md
     document_title: Dynamic-Li-Chao-Tree
     links: []

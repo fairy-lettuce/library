@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/montmort.md
     document_title: "Montmort-Number(\u30E2\u30F3\u30E2\u30FC\u30EB\u6570)"
     links: []

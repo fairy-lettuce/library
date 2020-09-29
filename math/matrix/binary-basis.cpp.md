@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/matrix/binary-basis.cpp\"\ntemplate< typename T >\n\
     struct BinaryBasis {\n  vector< T > basis;\n  bool update;\n\n  BinaryBasis()\

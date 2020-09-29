@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"dp/hu-tucker.cpp\"\ntemplate< typename Heap, typename T\
     \ >\nT hu_tucker(vector< T > vs, T INF) {\n  int N = (int) vs.size();\n  Heap\

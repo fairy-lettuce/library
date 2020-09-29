@@ -7,15 +7,14 @@ data:
     path: test/verify/aoj-dsl-2-b.test.cpp
     title: test/verify/aoj-dsl-2-b.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-static-range-inversions-query.test.cpp
-    title: test/verify/yosupo-static-range-inversions-query.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-point-add-rectangle-sum.test.cpp
     title: test/verify/yosupo-point-add-rectangle-sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-static-range-inversions-query.test.cpp
+    title: test/verify/yosupo-static-range-inversions-query.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/binary-indexed-tree.md
     document_title: Binary-Indexed-Tree(BIT)
     links: []

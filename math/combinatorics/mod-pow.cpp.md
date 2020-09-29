@@ -4,21 +4,20 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-tetration-mod.test.cpp
-    title: test/verify/yosupo-tetration-mod.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-ntl-1-b.test.cpp
     title: test/verify/aoj-ntl-1-b.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-mod.test.cpp
     title: test/verify/yosupo-sqrt-mod.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+    title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-tetration-mod.test.cpp
+    title: test/verify/yosupo-tetration-mod.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/combinatorics/mod-pow.cpp\"\ntemplate< typename T >\n\
     T mod_pow(T x, T n, const T &p) {\n  T ret = 1;\n  while(n > 0) {\n    if(n &\

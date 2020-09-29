@@ -4,14 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-multipoint-evaluation.test.cpp
-    title: test/verify/yosupo-multipoint-evaluation.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-polynomial-interpolation.test.cpp
-    title: test/verify/yosupo-polynomial-interpolation.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+    path: test/verify/yosupo-bellnoulli-number.test.cpp
+    title: test/verify/yosupo-bellnoulli-number.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
     title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
@@ -19,18 +13,23 @@ data:
     path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
     title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-bellnoulli-number.test.cpp
-    title: test/verify/yosupo-bellnoulli-number.test.cpp
+    path: test/verify/yosupo-log-of-formal-power-series.test.cpp
+    title: test/verify/yosupo-log-of-formal-power-series.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-multipoint-evaluation.test.cpp
+    title: test/verify/yosupo-multipoint-evaluation.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-partition-function.test.cpp
     title: test/verify/yosupo-partition-function.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-log-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-log-of-formal-power-series.test.cpp
+    path: test/verify/yosupo-polynomial-interpolation.test.cpp
+    title: test/verify/yosupo-polynomial-interpolation.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+    title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\
     \ntemplate< typename Mint >\nstruct NumberTheoreticTransformFriendlyModInt {\n\

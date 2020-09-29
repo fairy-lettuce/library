@@ -4,15 +4,14 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-tetration-mod.test.cpp
-    title: test/verify/yosupo-tetration-mod.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-ntl-1-d.test.cpp
     title: test/verify/aoj-ntl-1-d.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-tetration-mod.test.cpp
+    title: test/verify/yosupo-tetration-mod.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     _deprecated_at_docs: docs/euler-phi.md
     document_title: "Euler's-Phi-Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\
       \u6570)"

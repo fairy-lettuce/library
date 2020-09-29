@@ -4,24 +4,23 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-1163.test.cpp
+    title: test/verify/aoj-1163.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2306.test.cpp
     title: test/verify/aoj-2306.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-c.test.cpp
     title: test/verify/aoj-grl-1-c.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-maximum-independent-set.test.cpp
-    title: test/verify/yosupo-maximum-independent-set.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-1163.test.cpp
-    title: test/verify/aoj-1163.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-b.test.cpp
     title: test/verify/aoj-grl-2-b.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-maximum-independent-set.test.cpp
+    title: test/verify/yosupo-maximum-independent-set.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"graph/template.cpp\"\ntemplate< typename T >\nstruct edge\
     \ {\n  int src, to;\n  T cost;\n\n  edge(int to, T cost) : src(-1), to(to), cost(cost)\

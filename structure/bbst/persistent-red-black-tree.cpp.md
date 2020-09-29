@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"structure/bbst/persistent-red-black-tree.cpp\"\ntemplate<\
     \ typename Monoid, typename F, size_t FULL = 1000 >\nstruct PersistentRedBlackTree\

@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     document_title: "Centroid(\u6728\u306E\u91CD\u5FC3)"
     links: []
   bundledCode: "#line 1 \"graph/tree/centroid.cpp\"\n/**\n * @brief Centroid(\u6728\

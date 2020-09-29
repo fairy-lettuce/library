@@ -9,7 +9,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"string/suffix-array.cpp\"\nstruct SuffixArray {\n  vector<\
     \ int > SA;\n  const string s;\n\n  SuffixArray(const string &str) : s(str) {\n\
