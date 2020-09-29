@@ -146,6 +146,9 @@ data:
       path: graph/others/block-cut-tree.cpp
       title: Block-Cut-Tree
     - icon: ':heavy_check_mark:'
+      path: graph/others/cartesian-tree.cpp
+      title: Cartesian-Tree
+    - icon: ':heavy_check_mark:'
       path: graph/others/chromatic-number.cpp
       title: "Chromatic-Number(\u5F69\u8272\u6570)"
     - icon: ':heavy_check_mark:'
@@ -1017,6 +1020,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-bipartitematching.test.cpp
       title: test/verify/yosupo-bipartitematching.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-cartesian-tree.test.cpp
+      title: test/verify/yosupo-cartesian-tree.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-convolution-mod.test.cpp
       title: test/verify/yosupo-convolution-mod.test.cpp

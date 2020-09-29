@@ -250,6 +250,9 @@ data:
     path: test/verify/yosupo-bipartitematching.test.cpp
     title: test/verify/yosupo-bipartitematching.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-cartesian-tree.test.cpp
+    title: test/verify/yosupo-cartesian-tree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-convolution-mod.test.cpp
     title: test/verify/yosupo-convolution-mod.test.cpp
   - icon: ':heavy_check_mark:'
@@ -611,6 +614,7 @@ data:
   - test/verify/aoj-dpl-1-g.test.cpp
   - test/verify/aoj-2405.test.cpp
   - test/verify/aoj-ntl-1-e.test.cpp
+  - test/verify/yosupo-cartesian-tree.test.cpp
   - test/verify/aoj-alds-1-1-c.test.cpp
   - test/verify/yukicoder-430.test.cpp
   - test/verify/aoj-dsl-2-a.test.cpp
