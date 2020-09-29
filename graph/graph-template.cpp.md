@@ -30,7 +30,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/others/block-cut-tree.cpp
     title: Block-Cut-Tree
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/cycle-detection.cpp
     title: "Cycle-Detection(\u9589\u8DEF\u691C\u51FA)"
   - icon: ':heavy_check_mark:'
@@ -124,7 +124,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c.test.cpp
     title: test/verify/aoj-grl-5-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-cycle-detection.test.cpp
     title: test/verify/yosupo-cycle-detection.test.cpp
   - icon: ':heavy_check_mark:'
@@ -167,7 +167,7 @@ data:
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/graph-template.cpp\"\n\ntemplate< typename T = int\
@@ -222,7 +222,7 @@ data:
   - graph/others/low-link.cpp
   - graph/others/dominator-tree.cpp
   timestamp: '2020-09-15 01:04:53+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-3022.test.cpp
   - test/verify/aoj-0294.test.cpp

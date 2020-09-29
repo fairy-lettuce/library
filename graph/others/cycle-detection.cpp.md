@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-cycle-detection.test.cpp
     title: test/verify/yosupo-cycle-detection.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Cycle-Detection(\u9589\u8DEF\u691C\u51FA)"
     links: []
@@ -67,7 +67,7 @@ data:
   path: graph/others/cycle-detection.cpp
   requiredBy: []
   timestamp: '2020-09-29 21:06:38+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-cycle-detection.test.cpp
 documentation_of: graph/others/cycle-detection.cpp

@@ -113,7 +113,7 @@ data:
       title: graph/flow/push-relabel.cpp
   - name: graph
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/graph-template.cpp
       title: graph/graph-template.cpp
     - icon: ':heavy_check_mark:'
@@ -148,7 +148,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/others/chromatic-number.cpp
       title: "Chromatic-Number(\u5F69\u8272\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/cycle-detection.cpp
       title: "Cycle-Detection(\u9589\u8DEF\u691C\u51FA)"
     - icon: ':heavy_check_mark:'
@@ -658,7 +658,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -1020,7 +1020,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-convolution-mod.test.cpp
       title: test/verify/yosupo-convolution-mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-cycle-detection.test.cpp
       title: test/verify/yosupo-cycle-detection.test.cpp
     - icon: ':heavy_check_mark:'

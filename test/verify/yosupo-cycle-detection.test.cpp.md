@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/cycle-detection.cpp
     title: "Cycle-Detection(\u9589\u8DEF\u691C\u51FA)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/ecycle_detection
+    PROBLEM: https://judge.yosupo.jp/problem/cycle_detection
     links:
-    - https://judge.yosupo.jp/problem/ecycle_detection
+    - https://judge.yosupo.jp/problem/cycle_detection
   bundledCode: "#line 1 \"test/verify/yosupo-cycle-detection.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/ecycle_detection\"\n\n#line 1 \"template/template.cpp\"\
+    \ \"https://judge.yosupo.jp/problem/cycle_detection\"\n\n#line 1 \"template/template.cpp\"\
     \n#include<bits/stdc++.h>\n\nusing namespace std;\n\nusing int64 = long long;\n\
     const int mod = 1e9 + 7;\n\nconst int64 infll = (1LL << 62) - 1;\nconst int inf\
     \ = (1 << 30) - 1;\n\nstruct IoSetup {\n  IoSetup() {\n    cin.tie(nullptr);\n\
@@ -83,8 +83,8 @@ data:
     \ 0, false, true);\n    auto ret = g.build();\n    if(ret.empty()) {\n       \
     \ cout << -1 << \"\\n\";\n    } else {\n        cout << ret.size() << \"\\n\"\
     ;\n        for(auto& e : ret) cout << e.idx << \"\\n\";\n    }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/ecycle_detection\"\n\n\
-    #include \"../../template/template.cpp\"\n\n#include \"../../graph/others/cycle-detection.cpp\"\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/cycle_detection\"\n\n#include\
+    \ \"../../template/template.cpp\"\n\n#include \"../../graph/others/cycle-detection.cpp\"\
     \n\nint main() {\n    int N, M;\n    cin >> N >> M;\n    CycleDetection<> g(N);\n\
     \    g.read(M, 0, false, true);\n    auto ret = g.build();\n    if(ret.empty())\
     \ {\n        cout << -1 << \"\\n\";\n    } else {\n        cout << ret.size()\
@@ -96,8 +96,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-cycle-detection.test.cpp
   requiredBy: []
-  timestamp: '2020-09-29 21:06:38+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2020-09-29 21:11:40+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-cycle-detection.test.cpp
 layout: document
