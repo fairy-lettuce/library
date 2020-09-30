@@ -64,17 +64,17 @@ data:
     \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
     \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 2 \"\
     graph/others/cycle-detection.cpp\"\n\n/**\n * @brief Cycle-Detection(\u9589\u8DEF\
-    \u691C\u51FA)\n */\ntemplate< typename T = int >\nstruct CycleDetection : Graph<\
-    \ T > {\n    using Graph< T >::Graph;\n    using Graph< T >::g;\n\n    vector<\
-    \ int > used;\n    Edges< T > pre, cyrcle;\n\n    bool dfs(int idx) {\n      \
-    \  used[idx] = 1;\n        for(auto& e : g[idx]) {\n            if(used[e] ==\
-    \ 0) {\n                pre[e] = e;\n                if(dfs(e)) return true;\n\
-    \            } else if(used[e] == 1) {\n                int cur = idx;\n     \
-    \           while(cur != e) {\n                    cyrcle.emplace_back(pre[cur]);\n\
-    \                    cur = pre[cur].from;\n                }\n               \
-    \ cyrcle.emplace_back(e);\n                return true;\n            }\n     \
-    \   }\n\n        used[idx] = 2;\n        return false;\n    }\n    Edges< T >\
-    \ build() {\n        used.assign(g.size(), 0);\n        pre.resize(g.size());\n\
+    \u691C\u51FA)\n * @docs docs/cycle-detection.md\n */\ntemplate< typename T = int\
+    \ >\nstruct CycleDetection : Graph< T > {\n    using Graph< T >::Graph;\n    using\
+    \ Graph< T >::g;\n\n    vector< int > used;\n    Edges< T > pre, cyrcle;\n\n \
+    \   bool dfs(int idx) {\n        used[idx] = 1;\n        for(auto& e : g[idx])\
+    \ {\n            if(used[e] == 0) {\n                pre[e] = e;\n           \
+    \     if(dfs(e)) return true;\n            } else if(used[e] == 1) {\n       \
+    \         int cur = idx;\n                while(cur != e) {\n                \
+    \    cyrcle.emplace_back(pre[cur]);\n                    cur = pre[cur].from;\n\
+    \                }\n                cyrcle.emplace_back(e);\n                return\
+    \ true;\n            }\n        }\n\n        used[idx] = 2;\n        return false;\n\
+    \    }\n    Edges< T > build() {\n        used.assign(g.size(), 0);\n        pre.resize(g.size());\n\
     \        for(int i = 0; i < (int)g.size(); i++) {\n            if(used[i] == 0\
     \ && dfs(i)) {\n                reverse(begin(cyrcle), end(cyrcle));\n       \
     \         return cyrcle;\n            }\n        }\n        return {};\n    }\n\
@@ -96,7 +96,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-cycle-detection.test.cpp
   requiredBy: []
-  timestamp: '2020-09-29 21:11:40+09:00'
+  timestamp: '2020-09-30 18:06:49+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-cycle-detection.test.cpp

@@ -63,7 +63,8 @@ data:
     \      b += padding;\n      T c = T(1);\n      if(weighted) cin >> c;\n      if(directed)\
     \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
     \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 2 \"\
-    graph/others/dominator-tree.cpp\"\n\n/**\n * @brief Dominator-Tree\n */\ntemplate<\
+    graph/others/dominator-tree.cpp\"\n\n/**\n * @brief Dominator-Tree\n * @docs docs/dominator-tree.md\n\
+    \ * @see http://sigma425.hatenablog.com/entry/2015/12/25/224053\n */\ntemplate<\
     \ typename T = int >\nstruct DominatorTree : Graph< T > {\npublic:\n  using Graph<\
     \ T >::Graph;\n  using Graph< T >::g;\n\n  void build(int root) {\n    rg = Graph<\
     \ T >(g.size());\n    par.assign(g.size(), 0);\n    idom.assign(g.size(), -1);\n\
@@ -107,7 +108,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-dominatortree.test.cpp
   requiredBy: []
-  timestamp: '2020-09-15 01:41:10+09:00'
+  timestamp: '2020-09-30 18:06:49+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-dominatortree.test.cpp

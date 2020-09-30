@@ -63,20 +63,20 @@ data:
     \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
     \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 2 \"\
     graph/tree/tree-diameter.cpp\"\n\n/**\n * @brief Tree-Diameter(\u6728\u306E\u76F4\
-    \u5F84)\n */\ntemplate< typename T = int >\nstruct TreeDiameter : Graph< T > {\n\
-    public:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n  vector< Edge< T\
-    \ > > path;\n\n  T build() {\n    to.assign(g.size(), -1);\n    auto p = dfs(0,\
-    \ -1);\n    auto q = dfs(p.second, -1);\n\n    int now = p.second;\n    while(now\
-    \ != q.second) {\n      for(auto &e : g[now]) {\n        if(to[now] == e.to) {\n\
-    \          path.emplace_back(e);\n        }\n      }\n      now = to[now];\n \
-    \   }\n    return q.first;\n  }\n\n  explicit TreeDiameter(const Graph< T > &g)\
-    \ : Graph< T >(g) {}\n\nprivate:\n  vector< int > to;\n\n  pair< T, int > dfs(int\
-    \ idx, int par) {\n    pair< T, int > ret(0, idx);\n    for(auto &e : g[idx])\
-    \ {\n      if(e.to == par) continue;\n      auto cost = dfs(e.to, idx);\n    \
-    \  cost.first += e.cost;\n      if(ret < cost) {\n        ret = cost;\n      \
-    \  to[idx] = e.to;\n      }\n    }\n    return ret;\n  }\n};\n#line 6 \"test/verify/aoj-grl-5-a.test.cpp\"\
-    \n\nint main() {\n  int N;\n  cin >> N;\n  TreeDiameter< int > g(N);\n  g.read(N\
-    \ - 1, 0, true);\n  cout << g.build() << endl;\n}\n"
+    \u5F84)\n * @docs docs/tree-diameter.md\n */\ntemplate< typename T = int >\nstruct\
+    \ TreeDiameter : Graph< T > {\npublic:\n  using Graph< T >::Graph;\n  using Graph<\
+    \ T >::g;\n  vector< Edge< T > > path;\n\n  T build() {\n    to.assign(g.size(),\
+    \ -1);\n    auto p = dfs(0, -1);\n    auto q = dfs(p.second, -1);\n\n    int now\
+    \ = p.second;\n    while(now != q.second) {\n      for(auto &e : g[now]) {\n \
+    \       if(to[now] == e.to) {\n          path.emplace_back(e);\n        }\n  \
+    \    }\n      now = to[now];\n    }\n    return q.first;\n  }\n\n  explicit TreeDiameter(const\
+    \ Graph< T > &g) : Graph< T >(g) {}\n\nprivate:\n  vector< int > to;\n\n  pair<\
+    \ T, int > dfs(int idx, int par) {\n    pair< T, int > ret(0, idx);\n    for(auto\
+    \ &e : g[idx]) {\n      if(e.to == par) continue;\n      auto cost = dfs(e.to,\
+    \ idx);\n      cost.first += e.cost;\n      if(ret < cost) {\n        ret = cost;\n\
+    \        to[idx] = e.to;\n      }\n    }\n    return ret;\n  }\n};\n#line 6 \"\
+    test/verify/aoj-grl-5-a.test.cpp\"\n\nint main() {\n  int N;\n  cin >> N;\n  TreeDiameter<\
+    \ int > g(N);\n  g.read(N - 1, 0, true);\n  cout << g.build() << endl;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/tree/tree-diameter.cpp\"\
     \n\nint main() {\n  int N;\n  cin >> N;\n  TreeDiameter< int > g(N);\n  g.read(N\
@@ -88,7 +88,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-grl-5-a.test.cpp
   requiredBy: []
-  timestamp: '2020-09-15 01:41:10+09:00'
+  timestamp: '2020-09-30 18:06:49+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-5-a.test.cpp
