@@ -862,6 +862,9 @@ data:
       path: test/verify/aoj-3139.test.cpp
       title: test/verify/aoj-3139.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-3198.test.cpp
+      title: test/verify/aoj-3198.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-alds-1-1-c-2.test.cpp
       title: test/verify/aoj-alds-1-1-c-2.test.cpp
     - icon: ':heavy_check_mark:'

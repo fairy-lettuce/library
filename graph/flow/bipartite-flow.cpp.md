@@ -7,6 +7,9 @@ data:
     path: test/verify/aoj-0334.test.cpp
     title: test/verify/aoj-0334.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-3198.test.cpp
+    title: test/verify/aoj-3198.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bipartite-edge-coloring.test.cpp
     title: test/verify/yosupo-bipartite-edge-coloring.test.cpp
   - icon: ':heavy_check_mark:'
@@ -20,6 +23,7 @@ data:
       \u30FC)"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0334
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3198
     - https://atcoder.jp/contests/utpc2013/tasks/utpc2013_11
   bundledCode: "#line 1 \"graph/flow/bipartite-flow.cpp\"\n/**\n * @brief Bipartite-Flow(\u4E8C\
     \u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\u30FC)\n * @docs docs/bipartite-flow.md\n\
@@ -34,7 +38,10 @@ data:
     \ == -1) flow += find_min_dist_augment_path(i);\n      }\n      if(flow == 0)\
     \ break;\n    }\n    vector< pair< int, int > > ret;\n    for(int i = 0; i < n;\
     \ i++) {\n      if(match_l[i] >= 0) ret.emplace_back(i, match_l[i]);\n    }\n\
-    \    return ret;\n  }\n\n  /* http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0334\
+    \    return ret;\n  }\n\n  /* http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3198\
+    \ */\n  void erase_edge(int a, int b) {\n    if(match_l[a] == b) {\n      match_l[a]\
+    \ = -1;\n      match_r[b] = -1;\n    }\n    g[a].erase(find(begin(g[a]), end(g[a]),\
+    \ b));\n    rg[b].erase(find(begin(rg[b]), end(rg[b]), a));\n  }\n\n  /* http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0334\
     \ */\n  vector< pair< int, int > > lex_max_matching() {\n    if(!matched) max_matching();\n\
     \    for(auto &vs : g) sort(begin(vs), end(vs));\n    vector< pair< int, int >\
     \ > es;\n    for(int i = 0; i < n; i++) {\n      if(match_l[i] == -1 || alive[i]\
@@ -112,7 +119,10 @@ data:
     \ i = 0; i < n; i++) {\n        if(match_l[i] == -1) flow += find_min_dist_augment_path(i);\n\
     \      }\n      if(flow == 0) break;\n    }\n    vector< pair< int, int > > ret;\n\
     \    for(int i = 0; i < n; i++) {\n      if(match_l[i] >= 0) ret.emplace_back(i,\
-    \ match_l[i]);\n    }\n    return ret;\n  }\n\n  /* http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0334\
+    \ match_l[i]);\n    }\n    return ret;\n  }\n\n  /* http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3198\
+    \ */\n  void erase_edge(int a, int b) {\n    if(match_l[a] == b) {\n      match_l[a]\
+    \ = -1;\n      match_r[b] = -1;\n    }\n    g[a].erase(find(begin(g[a]), end(g[a]),\
+    \ b));\n    rg[b].erase(find(begin(rg[b]), end(rg[b]), a));\n  }\n\n  /* http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0334\
     \ */\n  vector< pair< int, int > > lex_max_matching() {\n    if(!matched) max_matching();\n\
     \    for(auto &vs : g) sort(begin(vs), end(vs));\n    vector< pair< int, int >\
     \ > es;\n    for(int i = 0; i < n; i++) {\n      if(match_l[i] == -1 || alive[i]\
@@ -182,10 +192,11 @@ data:
   isVerificationFile: false
   path: graph/flow/bipartite-flow.cpp
   requiredBy: []
-  timestamp: '2020-08-10 19:29:34+09:00'
+  timestamp: '2020-09-30 14:25:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-bipartitematching.test.cpp
+  - test/verify/aoj-3198.test.cpp
   - test/verify/yosupo-bipartite-edge-coloring.test.cpp
   - test/verify/aoj-0334.test.cpp
 documentation_of: graph/flow/bipartite-flow.cpp
@@ -227,6 +238,7 @@ DAGの最小パス被覆は二部グラフの最大マッチング問題に帰�
 * `BipartiteFlow(n, m)`:= 左側の頂点数 `n`, 右側の頂点数 `m` で初期化する.
 * `add_edge(u, v)`:= 頂点 `u`, `v` 間に辺を張る.
 * `max_matching()`:= 最大マッチングを返す.
+* `erase_edge(a, b)`:= 頂点 `u`, `v` 間にある辺を削除する.
 * `min_vertex_cover()`:= 最小頂点被覆を返す.
 * `max_independent_set()`:= 最大安定集合を返す.
 * `min_edge_cover()`:= 最小辺被覆を返す.
@@ -236,6 +248,8 @@ DAGの最小パス被覆は二部グラフの最大マッチング問題に帰�
 
 ## 計算量
 
+* `add_edge(a, b)`: $O(1)$
+* `erase_edge(a, b)`: $O(V)$
 * `max_matching()`: $O(E \sqrt V)$
 * `min_vertex_cover()`: $O(E \sqrt V)$
 * `max_vertex_cover()`: $O(E \sqrt V)$
@@ -243,4 +257,3 @@ DAGの最小パス被覆は二部グラフの最大マッチング問題に帰�
 * `lex_max_matching()`: $O(E V)$ だと思うが早くできるのかも
 * `lex_min_vertex_cover(ord)`: $O(E \sqrt V)$
 * `build_residual_graph()`: $O(E + V)$
-

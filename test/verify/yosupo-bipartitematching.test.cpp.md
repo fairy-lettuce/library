@@ -58,7 +58,10 @@ data:
     \ == -1) flow += find_min_dist_augment_path(i);\n      }\n      if(flow == 0)\
     \ break;\n    }\n    vector< pair< int, int > > ret;\n    for(int i = 0; i < n;\
     \ i++) {\n      if(match_l[i] >= 0) ret.emplace_back(i, match_l[i]);\n    }\n\
-    \    return ret;\n  }\n\n  /* http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0334\
+    \    return ret;\n  }\n\n  /* http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3198\
+    \ */\n  void erase_edge(int a, int b) {\n    if(match_l[a] == b) {\n      match_l[a]\
+    \ = -1;\n      match_r[b] = -1;\n    }\n    g[a].erase(find(begin(g[a]), end(g[a]),\
+    \ b));\n    rg[b].erase(find(begin(rg[b]), end(rg[b]), a));\n  }\n\n  /* http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0334\
     \ */\n  vector< pair< int, int > > lex_max_matching() {\n    if(!matched) max_matching();\n\
     \    for(auto &vs : g) sort(begin(vs), end(vs));\n    vector< pair< int, int >\
     \ > es;\n    for(int i = 0; i < n; i++) {\n      if(match_l[i] == -1 || alive[i]\
@@ -142,7 +145,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-bipartitematching.test.cpp
   requiredBy: []
-  timestamp: '2020-08-10 19:29:34+09:00'
+  timestamp: '2020-09-30 14:25:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-bipartitematching.test.cpp

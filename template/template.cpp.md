@@ -91,6 +91,9 @@ data:
     path: test/verify/aoj-3139.test.cpp
     title: test/verify/aoj-3139.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-3198.test.cpp
+    title: test/verify/aoj-3198.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-alds-1-1-c-2.test.cpp
     title: test/verify/aoj-alds-1-1-c-2.test.cpp
   - icon: ':heavy_check_mark:'
@@ -607,6 +610,7 @@ data:
   - test/verify/yosupo-two-edge-connected-components.test.cpp
   - test/verify/aoj-alds-1-11-c.test.cpp
   - test/verify/aoj-1163.test.cpp
+  - test/verify/aoj-3198.test.cpp
   - test/verify/aoj-grl-1-b.test.cpp
   - test/verify/aoj-1508-3.test.cpp
   - test/verify/aoj-grl-5-c.test.cpp
