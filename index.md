@@ -387,6 +387,9 @@ data:
       path: math/number-theory/moebius-mu-table.cpp
       title: math/number-theory/moebius-mu-table.cpp
     - icon: ':heavy_check_mark:'
+      path: math/number-theory/prime-count.cpp
+      title: "Prime-Count(\u7D20\u6570\u306E\u500B\u6570)"
+    - icon: ':heavy_check_mark:'
       path: math/number-theory/prime-factor.cpp
       title: math/number-theory/prime-factor.cpp
     - icon: ':heavy_check_mark:'
@@ -1029,6 +1032,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-convolution-mod.test.cpp
       title: test/verify/yosupo-convolution-mod.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-counting-primes.test.cpp
+      title: test/verify/yosupo-counting-primes.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-cycle-detection.test.cpp
       title: test/verify/yosupo-cycle-detection.test.cpp

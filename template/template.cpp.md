@@ -259,6 +259,9 @@ data:
     path: test/verify/yosupo-convolution-mod.test.cpp
     title: test/verify/yosupo-convolution-mod.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-counting-primes.test.cpp
+    title: test/verify/yosupo-counting-primes.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-cycle-detection.test.cpp
     title: test/verify/yosupo-cycle-detection.test.cpp
   - icon: ':heavy_check_mark:'
@@ -553,6 +556,7 @@ data:
   - test/verify/yukicoder-583.test.cpp
   - test/verify/aoj-0275.test.cpp
   - test/verify/yosupo-kth-root-integer.test.cpp
+  - test/verify/yosupo-counting-primes.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - test/verify/yukicoder-703.test.cpp
   - test/verify/yosupo-queue-operate-all-composite.test.cpp

@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-alds-1-1-c-2.test.cpp
     title: test/verify/aoj-alds-1-1-c-2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-counting-primes.test.cpp
+    title: test/verify/yosupo-counting-primes.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -26,6 +29,7 @@ data:
   timestamp: '2019-11-30 23:36:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/verify/yosupo-counting-primes.test.cpp
   - test/verify/aoj-alds-1-1-c-2.test.cpp
 documentation_of: math/number-theory/prime-table.cpp
 layout: document
