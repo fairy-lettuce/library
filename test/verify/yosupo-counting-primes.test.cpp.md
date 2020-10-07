@@ -64,8 +64,8 @@ data:
     \  return prime;\n}\n#line 1 \"math/number-theory/prime-count.cpp\"\n/**\n * @brief\
     \ Prime-Count(\u7D20\u6570\u306E\u500B\u6570)\n */\ntemplate< int64_t LIM = 100000000000LL\
     \ >\nstruct PrimeCount {\nprivate:\n  int64_t sq;\n  vector< bool > prime;\n \
-    \ vector< int > prime_sum, primes;\n\n  int64_t p2(int64_t x, int64_t y) {\n \
-    \   if(x < 4) return 0;\n    int64_t a = pi(y);\n    int64_t b = pi(kth_root(x,\
+    \ vector< int64_t > prime_sum, primes;\n\n  int64_t p2(int64_t x, int64_t y) {\n\
+    \    if(x < 4) return 0;\n    int64_t a = pi(y);\n    int64_t b = pi(kth_root(x,\
     \ 2));\n    if(a >= b) return 0;\n    int64_t sum = (a - 2) * (a + 1) / 2 - (b\
     \ - 2) * (b + 1) / 2;\n    for(int64_t i = a; i < b; i++) sum += pi(x / primes[i]);\n\
     \    return sum;\n  }\n\n  int64_t phi(int64_t m, int64_t n) {\n    if(m < 1)\
@@ -96,7 +96,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-counting-primes.test.cpp
   requiredBy: []
-  timestamp: '2020-10-08 01:50:06+09:00'
+  timestamp: '2020-10-08 01:57:58+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-counting-primes.test.cpp
