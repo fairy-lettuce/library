@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-log.cpp
-    title: math/combinatorics/mod-log.cpp
+    title: "Mod-Log(\u96E2\u6563\u5BFE\u6570\u554F\u984C)"
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -45,15 +45,16 @@ data:
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-discrete-logarithm-mod.test.cpp\"\
-    \n\n#line 1 \"math/combinatorics/mod-log.cpp\"\nint64_t mod_log(int64_t a, int64_t\
-    \ b, int64_t p) {\n  int64_t g = 1;\n\n  for(int64_t i = p; i; i /= 2) (g *= a)\
-    \ %= p;\n  g = __gcd(g, p);\n\n  int64_t t = 1, c = 0;\n  for(; t % g; c++) {\n\
-    \    if(t == b) return c;\n    (t *= a) %= p;\n  }\n  if(b % g) return -1;\n\n\
-    \  t /= g;\n  b /= g;\n\n  int64_t n = p / g, h = 0, gs = 1;\n\n  for(; h * h\
-    \ < n; h++) (gs *= a) %= n;\n\n  unordered_map< int64_t, int64_t > bs;\n  for(int64_t\
-    \ s = 0, e = b; s < h; bs[e] = ++s) {\n    (e *= a) %= n;\n  }\n\n  for(int64_t\
-    \ s = 0, e = t; s < n;) {\n    (e *= gs) %= n;\n    s += h;\n    if(bs.count(e))\
-    \ return c + s - bs[e];\n  }\n  return -1;\n}\n#line 6 \"test/verify/yosupo-discrete-logarithm-mod.test.cpp\"\
+    \n\n#line 1 \"math/combinatorics/mod-log.cpp\"\n/**\n * @brief Mod-Log(\u96E2\u6563\
+    \u5BFE\u6570\u554F\u984C)\n * @docs docs/mod-log.md\n */\nint64_t mod_log(int64_t\
+    \ a, int64_t b, int64_t p) {\n  int64_t g = 1;\n\n  for(int64_t i = p; i; i /=\
+    \ 2) (g *= a) %= p;\n  g = __gcd(g, p);\n\n  int64_t t = 1, c = 0;\n  for(; t\
+    \ % g; c++) {\n    if(t == b) return c;\n    (t *= a) %= p;\n  }\n  if(b % g)\
+    \ return -1;\n\n  t /= g;\n  b /= g;\n\n  int64_t n = p / g, h = 0, gs = 1;\n\n\
+    \  for(; h * h < n; h++) (gs *= a) %= n;\n\n  unordered_map< int64_t, int64_t\
+    \ > bs;\n  for(int64_t s = 0, e = b; s < h; bs[e] = ++s) {\n    (e *= a) %= n;\n\
+    \  }\n\n  for(int64_t s = 0, e = t; s < n;) {\n    (e *= gs) %= n;\n    s += h;\n\
+    \    if(bs.count(e)) return c + s - bs[e];\n  }\n  return -1;\n}\n#line 6 \"test/verify/yosupo-discrete-logarithm-mod.test.cpp\"\
     \n\nint main() {\n  int T;\n  cin >> T;\n  while(T--) {\n    int64_t X, Y, M;\n\
     \    cin >> X >> Y >> M;\n    cout << mod_log(X, Y, M) << endl;\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/discrete_logarithm_mod\"\
@@ -66,7 +67,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-discrete-logarithm-mod.test.cpp
   requiredBy: []
-  timestamp: '2019-12-11 22:31:39+09:00'
+  timestamp: '2020-10-07 20:31:58+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-discrete-logarithm-mod.test.cpp

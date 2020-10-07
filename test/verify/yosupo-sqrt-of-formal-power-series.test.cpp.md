@@ -6,7 +6,7 @@ data:
     title: math/combinatorics/mod-int.cpp
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-pow.cpp
-    title: math/combinatorics/mod-pow.cpp
+    title: "Mod-Pow(\u3079\u304D\u4E57)"
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-sqrt.cpp
     title: math/combinatorics/mod-sqrt.cpp
@@ -107,10 +107,11 @@ data:
     \ 0);\n    b.resize(sz, 0);\n    ntt(a);\n    ntt(b);\n    Mint inv_sz = Mint(1)\
     \ / sz;\n    for(int i = 0; i < sz; i++) a[i] *= b[i] * inv_sz;\n    intt(a, false);\n\
     \    a.resize(need);\n    return a;\n  }\n};\n#line 7 \"test/verify/yosupo-sqrt-of-formal-power-series.test.cpp\"\
-    \n\n#line 1 \"math/combinatorics/mod-pow.cpp\"\ntemplate< typename T >\nT mod_pow(T\
-    \ x, T n, const T &p) {\n  T ret = 1;\n  while(n > 0) {\n    if(n & 1) (ret *=\
-    \ x) %= p;\n    (x *= x) %= p;\n    n >>= 1;\n  }\n  return ret;\n}\n\n#line 1\
-    \ \"math/combinatorics/mod-sqrt.cpp\"\ntemplate< typename T >\nT mod_sqrt(const\
+    \n\n#line 1 \"math/combinatorics/mod-pow.cpp\"\n/**\n * @brief Mod-Pow(\u3079\u304D\
+    \u4E57)\n * @docs docs/mod-pow.md\n */\ntemplate< typename T >\nT mod_pow(T x,\
+    \ int64_t n, const T &p) {\n  T ret = 1;\n  while(n > 0) {\n    if(n & 1) (ret\
+    \ *= x) %= p;\n    (x *= x) %= p;\n    n >>= 1;\n  }\n  return ret % p;\n}\n#line\
+    \ 1 \"math/combinatorics/mod-sqrt.cpp\"\ntemplate< typename T >\nT mod_sqrt(const\
     \ T &a, const T &p) {\n  if(a == 0) return 0;\n  if(p == 2) return a;\n  if(mod_pow(a,\
     \ (p - 1) >> 1, p) != 1) return -1;\n  T b = 1;\n  while(mod_pow(b, (p - 1) >>\
     \ 1, p) == 1) ++b;\n  T e = 0, m = p - 1;\n  while(m % 2 == 0) m >>= 1, ++e;\n\
@@ -267,7 +268,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   requiredBy: []
-  timestamp: '2020-02-24 19:19:55+09:00'
+  timestamp: '2020-10-07 20:31:58+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp

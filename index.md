@@ -285,16 +285,16 @@ data:
       title: math/combinatorics/mod-int.cpp
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-log.cpp
-      title: math/combinatorics/mod-log.cpp
+      title: "Mod-Log(\u96E2\u6563\u5BFE\u6570\u554F\u984C)"
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-pow.cpp
-      title: math/combinatorics/mod-pow.cpp
+      title: "Mod-Pow(\u3079\u304D\u4E57)"
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-sqrt.cpp
       title: math/combinatorics/mod-sqrt.cpp
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-tetration.cpp
-      title: Mod-Tetration
+      title: "Mod-Tetration(\u30C6\u30C8\u30EC\u30FC\u30B7\u30E7\u30F3)"
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/montmort.cpp
       title: "Montmort-Number(\u30E2\u30F3\u30E2\u30FC\u30EB\u6570)"

@@ -9,16 +9,16 @@ data:
     links: []
   bundledCode: "#line 1 \"math/combinatorics/binomial.cpp\"\ntemplate< typename T\
     \ >\nT binomial(int64_t N, int64_t K) {\n  if(K < 0 || N < K) return 0;\n  T ret\
-    \ = 1;\n  for(T i = 1; i <= K; ++i) {\n    ret *= N--;\n    ret /= i;\n  }\n \
-    \ return ret;\n}\n"
+    \ = 1;\n  for(int64_t i = 1; i <= K; ++i) {\n    ret *= N--;\n    ret /= i;\n\
+    \  }\n  return ret;\n}\n"
   code: "template< typename T >\nT binomial(int64_t N, int64_t K) {\n  if(K < 0 ||\
-    \ N < K) return 0;\n  T ret = 1;\n  for(T i = 1; i <= K; ++i) {\n    ret *= N--;\n\
-    \    ret /= i;\n  }\n  return ret;\n}\n"
+    \ N < K) return 0;\n  T ret = 1;\n  for(int64_t i = 1; i <= K; ++i) {\n    ret\
+    \ *= N--;\n    ret /= i;\n  }\n  return ret;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: math/combinatorics/binomial.cpp
   requiredBy: []
-  timestamp: '2019-11-30 23:36:31+09:00'
+  timestamp: '2020-10-07 20:31:58+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/combinatorics/binomial.cpp

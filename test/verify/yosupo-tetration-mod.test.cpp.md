@@ -3,10 +3,10 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-pow.cpp
-    title: math/combinatorics/mod-pow.cpp
+    title: "Mod-Pow(\u3079\u304D\u4E57)"
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-tetration.cpp
-    title: Mod-Tetration
+    title: "Mod-Tetration(\u30C6\u30C8\u30EC\u30FC\u30B7\u30E7\u30F3)"
   - icon: ':heavy_check_mark:'
     path: math/number-theory/euler-phi.cpp
     title: "Euler's-Phi-Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570)"
@@ -51,16 +51,18 @@ data:
     \ operator()(Args &&... args) const {\n    return F::operator()(*this, forward<\
     \ Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-tetration-mod.test.cpp\"\
-    \n\n#line 1 \"math/combinatorics/mod-pow.cpp\"\ntemplate< typename T >\nT mod_pow(T\
-    \ x, T n, const T &p) {\n  T ret = 1;\n  while(n > 0) {\n    if(n & 1) (ret *=\
-    \ x) %= p;\n    (x *= x) %= p;\n    n >>= 1;\n  }\n  return ret;\n}\n\n#line 1\
-    \ \"math/number-theory/euler-phi.cpp\"\n/**\n * @brief Euler's-Phi-Function(\u30AA\
+    \n\n#line 1 \"math/combinatorics/mod-pow.cpp\"\n/**\n * @brief Mod-Pow(\u3079\u304D\
+    \u4E57)\n * @docs docs/mod-pow.md\n */\ntemplate< typename T >\nT mod_pow(T x,\
+    \ int64_t n, const T &p) {\n  T ret = 1;\n  while(n > 0) {\n    if(n & 1) (ret\
+    \ *= x) %= p;\n    (x *= x) %= p;\n    n >>= 1;\n  }\n  return ret % p;\n}\n#line\
+    \ 1 \"math/number-theory/euler-phi.cpp\"\n/**\n * @brief Euler's-Phi-Function(\u30AA\
     \u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570)\n * @docs docs/euler-phi.md\n */\n\
     template< typename T >\nT euler_phi(T n) {\n  T ret = n;\n  for(T i = 2; i * i\
     \ <= n; i++) {\n    if(n % i == 0) {\n      ret -= ret / i;\n      while(n % i\
     \ == 0) n /= i;\n    }\n  }\n  if(n > 1) ret -= ret / n;\n  return ret;\n}\n#line\
     \ 7 \"test/verify/yosupo-tetration-mod.test.cpp\"\n\n#line 1 \"math/combinatorics/mod-tetration.cpp\"\
-    \n/**\n * @brief Mod-Tetration\n */\ntemplate< typename T >\nT mod_tetration(const\
+    \n/**\n * @brief Mod-Tetration(\u30C6\u30C8\u30EC\u30FC\u30B7\u30E7\u30F3)\n *\
+    \ @docs docs/mod-tetration.md\n */\ntemplate< typename T >\nT mod_tetration(const\
     \ T &a, const T &b, const T &m) {\n  if(m == 1) return 0;\n  if(a == 0) return\
     \ !(b & 1);\n  if(b == 0) return 1;\n  if(b == 1) return a % m;\n  if(b == 2)\
     \ return mod_pow(a % m, a, m);\n  auto phi = euler_phi(m);\n  return mod_pow(a\
@@ -82,7 +84,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-tetration-mod.test.cpp
   requiredBy: []
-  timestamp: '2020-03-03 18:28:13+09:00'
+  timestamp: '2020-10-07 20:31:58+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-tetration-mod.test.cpp
