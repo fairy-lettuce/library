@@ -63,19 +63,20 @@ data:
     \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
     using Edges = vector< Edge< T > >;\n#line 5 \"test/verify/aoj-grl-1-b.test.cpp\"\
     \n\n#line 1 \"graph/shortest-path/bellman-ford.cpp\"\n/**\n * @brief Bellman-Ford(\u5358\
-    \u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)\n */\ntemplate< typename T >\nvector< T\
-    \ > bellman_ford(const Edges< T > &edges, int V, int s) {\n  const auto INF =\
-    \ numeric_limits< T >::max();\n  vector< T > dist(V, INF);\n  dist[s] = 0;\n \
-    \ for(int i = 0; i < V - 1; i++) {\n    for(auto &e : edges) {\n      if(dist[e.from]\
-    \ == INF) continue;\n      dist[e.to] = min(dist[e.to], dist[e.from] + e.cost);\n\
-    \    }\n  }\n  for(auto &e : edges) {\n    if(dist[e.from] == INF) continue;\n\
-    \    if(dist[e.from] + e.cost < dist[e.to]) return vector< T >();\n  }\n  return\
-    \ dist;\n}\n#line 7 \"test/verify/aoj-grl-1-b.test.cpp\"\n\nint main() {\n  int\
-    \ V, E, R;\n  cin >> V >> E >> R;\n  Edges< > es;\n  for(int i = 0; i < E; i++)\
-    \ {\n    int a, b, c;\n    cin >> a >> b >> c;\n    es.emplace_back(a, b, c);\n\
-    \  }\n  auto dists = bellman_ford(es, V, R);\n  if(dists.empty()) cout << \"NEGATIVE\
-    \ CYCLE\\n\";\n  for(auto &dist : dists) {\n    if(dist == numeric_limits< int\
-    \ >::max()) cout << \"INF\\n\";\n    else cout << dist << \"\\n\";\n  }\n}\n"
+    \u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)\n * @docs docs/bellman-ford.md\n */\ntemplate<\
+    \ typename T >\nvector< T > bellman_ford(const Edges< T > &edges, int V, int s)\
+    \ {\n  const auto INF = numeric_limits< T >::max();\n  vector< T > dist(V, INF);\n\
+    \  dist[s] = 0;\n  for(int i = 0; i < V - 1; i++) {\n    for(auto &e : edges)\
+    \ {\n      if(dist[e.from] == INF) continue;\n      dist[e.to] = min(dist[e.to],\
+    \ dist[e.from] + e.cost);\n    }\n  }\n  for(auto &e : edges) {\n    if(dist[e.from]\
+    \ == INF) continue;\n    if(dist[e.from] + e.cost < dist[e.to]) return vector<\
+    \ T >();\n  }\n  return dist;\n}\n#line 7 \"test/verify/aoj-grl-1-b.test.cpp\"\
+    \n\nint main() {\n  int V, E, R;\n  cin >> V >> E >> R;\n  Edges< > es;\n  for(int\
+    \ i = 0; i < E; i++) {\n    int a, b, c;\n    cin >> a >> b >> c;\n    es.emplace_back(a,\
+    \ b, c);\n  }\n  auto dists = bellman_ford(es, V, R);\n  if(dists.empty()) cout\
+    \ << \"NEGATIVE CYCLE\\n\";\n  for(auto &dist : dists) {\n    if(dist == numeric_limits<\
+    \ int >::max()) cout << \"INF\\n\";\n    else cout << dist << \"\\n\";\n  }\n\
+    }\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B\"\
     \n\n#include \"../../template/template.cpp\"\n#include \"../../graph/graph-template.cpp\"\
     \n\n#include \"../../graph/shortest-path/bellman-ford.cpp\"\n\nint main() {\n\
@@ -92,7 +93,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-grl-1-b.test.cpp
   requiredBy: []
-  timestamp: '2020-09-15 01:04:53+09:00'
+  timestamp: '2020-10-07 14:06:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-1-b.test.cpp
