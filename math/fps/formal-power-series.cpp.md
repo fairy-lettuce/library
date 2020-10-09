@@ -276,16 +276,16 @@ data:
   timestamp: '2019-12-11 22:27:39+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-multipoint-evaluation.test.cpp
-  - test/verify/yosupo-polynomial-interpolation.test.cpp
-  - test/verify/yosupo-sparse-matrix-det.test.cpp
-  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
-  - test/verify/yosupo-bellnoulli-number.test.cpp
+  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - test/verify/yosupo-find-linear-recurrence.test.cpp
-  - test/verify/yosupo-partition-function.test.cpp
+  - test/verify/yosupo-polynomial-interpolation.test.cpp
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
+  - test/verify/yosupo-partition-function.test.cpp
+  - test/verify/yosupo-bellnoulli-number.test.cpp
+  - test/verify/yosupo-multipoint-evaluation.test.cpp
+  - test/verify/yosupo-sparse-matrix-det.test.cpp
+  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
 documentation_of: math/fps/formal-power-series.cpp
 layout: document
 redirect_from:

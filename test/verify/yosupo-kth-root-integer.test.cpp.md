@@ -45,15 +45,15 @@ data:
     \ operator()(Args &&... args) const {\n    return F::operator()(*this, forward<\
     \ Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-kth-root-integer.test.cpp\"\
-    \n\n#line 1 \"math/number-theory/kth-root.cpp\"\n/**\n * @brief Kth-Root\n */\n\
-    uint64_t kth_root(uint64_t a, int k) {\n  if(k == 1) return a;\n  auto check =\
-    \ [&](uint32_t x) {\n    uint64_t mul = 1;\n    for(int j = 0; j < k; j++) {\n\
-    \      if(__builtin_mul_overflow(mul, x, &mul)) return false;\n    }\n    return\
-    \ mul <= a;\n  };\n  uint64_t ret = 0;\n  for(int i = 31; i >= 0; i--) {\n   \
-    \ if(check(ret | (1u << i))) ret |= 1u << i;\n  }\n  return ret;\n}\n#line 6 \"\
-    test/verify/yosupo-kth-root-integer.test.cpp\"\n\nint main() {\n  int T;\n  cin\
-    \ >> T;\n  while(T--) {\n    uint64_t a;\n    int k;\n    cin >> a >> k;\n   \
-    \ cout << kth_root(a, k) << \"\\n\";\n  }\n}\n"
+    \n\n#line 1 \"math/number-theory/kth-root.cpp\"\n/**\n * @brief Kth-Root\n * @docs\
+    \ docs/kth-root.md\n */\nuint64_t kth_root(uint64_t a, int k) {\n  if(k == 1)\
+    \ return a;\n  auto check = [&](uint32_t x) {\n    uint64_t mul = 1;\n    for(int\
+    \ j = 0; j < k; j++) {\n      if(__builtin_mul_overflow(mul, x, &mul)) return\
+    \ false;\n    }\n    return mul <= a;\n  };\n  uint64_t ret = 0;\n  for(int i\
+    \ = 31; i >= 0; i--) {\n    if(check(ret | (1u << i))) ret |= 1u << i;\n  }\n\
+    \  return ret;\n}\n#line 6 \"test/verify/yosupo-kth-root-integer.test.cpp\"\n\n\
+    int main() {\n  int T;\n  cin >> T;\n  while(T--) {\n    uint64_t a;\n    int\
+    \ k;\n    cin >> a >> k;\n    cout << kth_root(a, k) << \"\\n\";\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/kth_root_integer\"\n\n\
     #include \"../../template/template.cpp\"\n\n#include \"../../math/number-theory/kth-root.cpp\"\
     \n\nint main() {\n  int T;\n  cin >> T;\n  while(T--) {\n    uint64_t a;\n   \
@@ -64,7 +64,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-kth-root-integer.test.cpp
   requiredBy: []
-  timestamp: '2020-03-03 18:40:18+09:00'
+  timestamp: '2020-10-09 19:49:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-kth-root-integer.test.cpp

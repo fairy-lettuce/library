@@ -56,8 +56,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-0275.test.cpp
-  - test/verify/yosupo-shortest-path.test.cpp
   - test/verify/yosupo-k-shortest-walk.test.cpp
+  - test/verify/yosupo-shortest-path.test.cpp
   - test/verify/aoj-grl-1-a.test.cpp
 documentation_of: graph/shortest-path/dijkstra.cpp
 layout: document

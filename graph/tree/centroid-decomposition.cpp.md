@@ -76,9 +76,9 @@ data:
   timestamp: '2020-09-15 01:04:53+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-3139.test.cpp
-  - test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
   - test/verify/yukicoder-1002.test.cpp
+  - test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
+  - test/verify/aoj-3139.test.cpp
 documentation_of: graph/tree/centroid-decomposition.cpp
 layout: document
 redirect_from:

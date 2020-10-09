@@ -52,8 +52,8 @@ data:
   timestamp: '2019-11-30 23:36:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-multipoint-evaluation.test.cpp
   - test/verify/yosupo-polynomial-interpolation.test.cpp
+  - test/verify/yosupo-multipoint-evaluation.test.cpp
 documentation_of: math/fps/multipoint-evaluation.cpp
 layout: document
 redirect_from:

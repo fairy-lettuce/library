@@ -373,7 +373,8 @@ data:
         )"
     - icon: ':heavy_check_mark:'
       path: math/number-theory/extgcd.cpp
-      title: math/number-theory/extgcd.cpp
+      title: "Extgcd(\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\
+        \u6CD5)"
     - icon: ':heavy_check_mark:'
       path: math/number-theory/fast-prime-factorization.cpp
       title: math/number-theory/fast-prime-factorization.cpp

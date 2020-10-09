@@ -96,8 +96,8 @@ data:
   timestamp: '2019-11-30 23:36:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-bellnoulli-number.test.cpp
   - test/verify/yosupo-partition-function.test.cpp
+  - test/verify/yosupo-bellnoulli-number.test.cpp
 documentation_of: math/fps/formal-power-series-seq.cpp
 layout: document
 redirect_from:

@@ -76,8 +76,8 @@ data:
   timestamp: '2020-08-20 17:25:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-1615.test.cpp
   - test/verify/aoj-grl-6-a.test.cpp
+  - test/verify/aoj-1615.test.cpp
 documentation_of: graph/flow/dinic.cpp
 layout: document
 redirect_from:
