@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: math/number-theory/prime-table.cpp
-    title: math/number-theory/prime-table.cpp
+    title: "Prime-Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -45,11 +45,12 @@ data:
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-alds-1-1-c-2.test.cpp\"\
-    \n\n#line 1 \"math/number-theory/prime-table.cpp\"\nvector< bool > prime_table(int\
-    \ n) {\n  vector< bool > prime(n + 1, true);\n  if(n >= 0) prime[0] = false;\n\
-    \  if(n >= 1) prime[1] = false;\n  for(int i = 2; i * i <= n; i++) {\n    if(!prime[i])\
-    \ continue;\n    for(int j = i + i; j <= n; j += i) {\n      prime[j] = false;\n\
-    \    }\n  }\n  return prime;\n}\n#line 6 \"test/verify/aoj-alds-1-1-c-2.test.cpp\"\
+    \n\n#line 1 \"math/number-theory/prime-table.cpp\"\n/**\n * @brief Prime-Table(\u7D20\
+    \u6570\u30C6\u30FC\u30D6\u30EB)\n * @docs docs/prime-table.md\n */\nvector< bool\
+    \ > prime_table(int n) {\n  vector< bool > prime(n + 1, true);\n  if(n >= 0) prime[0]\
+    \ = false;\n  if(n >= 1) prime[1] = false;\n  for(int i = 2; i * i <= n; i++)\
+    \ {\n    if(!prime[i]) continue;\n    for(int j = i * i; j <= n; j += i) {\n \
+    \     prime[j] = false;\n    }\n  }\n  return prime;\n}\n#line 6 \"test/verify/aoj-alds-1-1-c-2.test.cpp\"\
     \n\nint main() {\n  auto t = prime_table(100000000);\n  int N;\n  cin >> N;\n\
     \  int ret = 0;\n  while(N--) {\n    int x;\n    cin >> x;\n    ret += t[x];\n\
     \  }\n  cout << ret << endl;\n}\n"
@@ -64,7 +65,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-alds-1-1-c-2.test.cpp
   requiredBy: []
-  timestamp: '2019-11-30 23:36:31+09:00'
+  timestamp: '2020-10-13 00:39:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-alds-1-1-c-2.test.cpp

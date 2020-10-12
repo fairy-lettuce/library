@@ -364,6 +364,9 @@ data:
       path: math/number-theory/divisor.cpp
       title: "Divisor(\u7D04\u6570\u5217\u6319)"
     - icon: ':warning:'
+      path: math/number-theory/enumerate-primes.cpp
+      title: "Enumerate-Primes(\u7D20\u6570\u5217\u6319)"
+    - icon: ':warning:'
       path: math/number-theory/euler-phi-table.cpp
       title: "Euler\u2019s-Phi-Function-Table(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\
         \u95A2\u6570\u30C6\u30FC\u30D6\u30EB)"
@@ -395,7 +398,7 @@ data:
       title: math/number-theory/prime-factor.cpp
     - icon: ':heavy_check_mark:'
       path: math/number-theory/prime-table.cpp
-      title: math/number-theory/prime-table.cpp
+      title: "Prime-Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
     - icon: ':warning:'
       path: math/number-theory/quotient-range.cpp
       title: math/number-theory/quotient-range.cpp
@@ -769,6 +772,9 @@ data:
     - icon: ':warning:'
       path: test/verify/yahoo-procon2018-final-c.cpp
       title: test/verify/yahoo-procon2018-final-c.cpp
+    - icon: ':warning:'
+      path: test/verify/yosupo-enumerate-primes.cpp
+      title: test/verify/yosupo-enumerate-primes.cpp
     - icon: ':warning:'
       path: test/verify/yukicoder-3046.cpp
       title: test/verify/yukicoder-3046.cpp
