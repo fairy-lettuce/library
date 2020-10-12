@@ -773,9 +773,6 @@ data:
       path: test/verify/yahoo-procon2018-final-c.cpp
       title: test/verify/yahoo-procon2018-final-c.cpp
     - icon: ':warning:'
-      path: test/verify/yosupo-enumerate-primes.cpp
-      title: test/verify/yosupo-enumerate-primes.cpp
-    - icon: ':warning:'
       path: test/verify/yukicoder-3046.cpp
       title: test/verify/yukicoder-3046.cpp
     - icon: ':warning:'
@@ -1066,6 +1063,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
       title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
+    - icon: ':x:'
+      path: test/verify/yosupo-enumerate-primes.test.cpp
+      title: test/verify/yosupo-enumerate-primes.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-enumerate-triangles.test.cpp
       title: test/verify/yosupo-enumerate-triangles.test.cpp

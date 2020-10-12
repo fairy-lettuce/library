@@ -4,10 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
-  attributes:
-    links:
-    - https://judge.yosupo.jp/problem/enumerate_primes
+  _verificationStatusIcon: ':x:'
+  attributes: {}
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir).decode()\n  File \"/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
@@ -24,16 +22,16 @@ data:
     \  }\n  cout << d.size() << \" \" << ans.size() << \"\\n\";\n  cout << ans <<\
     \ \"\\n\";\n}\n"
   dependsOn: []
-  isVerificationFile: false
-  path: test/verify/yosupo-enumerate-primes.cpp
+  isVerificationFile: true
+  path: test/verify/yosupo-enumerate-primes.test.cpp
   requiredBy: []
   timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/verify/yosupo-enumerate-primes.cpp
+documentation_of: test/verify/yosupo-enumerate-primes.test.cpp
 layout: document
 redirect_from:
-- /library/test/verify/yosupo-enumerate-primes.cpp
-- /library/test/verify/yosupo-enumerate-primes.cpp.html
-title: test/verify/yosupo-enumerate-primes.cpp
+- /verify/test/verify/yosupo-enumerate-primes.test.cpp
+- /verify/test/verify/yosupo-enumerate-primes.test.cpp.html
+title: test/verify/yosupo-enumerate-primes.test.cpp
 ---
