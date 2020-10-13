@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/others/maximum-independent-set.cpp
     title: graph/others/maximum-independent-set.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/template.cpp
     title: graph/template.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

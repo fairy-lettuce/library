@@ -116,7 +116,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/graph-template.cpp
       title: graph/graph-template.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: graph/template.cpp
       title: graph/template.cpp
   - name: graph/mst
@@ -157,8 +157,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/others/dominator-tree.cpp
       title: Dominator-Tree
-    - icon: ':heavy_check_mark:'
-      path: graph/others/enumerate-clique.cpp
+    - icon: ':x:'
+      path: graph/others/enumerate-cliques.cpp
       title: "Enumerate-Clique(\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319)"
     - icon: ':heavy_check_mark:'
       path: graph/others/enumerate-triangles.cpp
@@ -363,7 +363,7 @@ data:
     - icon: ':warning:'
       path: math/number-theory/divisor.cpp
       title: "Divisor(\u7D04\u6570\u5217\u6319)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: math/number-theory/enumerate-primes.cpp
       title: "Enumerate-Primes(\u7D20\u6570\u5217\u6319)"
     - icon: ':warning:'
@@ -668,7 +668,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -826,7 +826,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-1615.test.cpp
       title: test/verify/aoj-1615.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/aoj-2306.test.cpp
       title: test/verify/aoj-2306.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1063,7 +1063,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
       title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-enumerate-primes.test.cpp
       title: test/verify/yosupo-enumerate-primes.test.cpp
     - icon: ':heavy_check_mark:'

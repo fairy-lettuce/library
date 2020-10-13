@@ -16,7 +16,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/formal-power-series.cpp
     title: math/fps/formal-power-series.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

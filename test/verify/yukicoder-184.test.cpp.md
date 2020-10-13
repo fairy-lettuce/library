@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/matrix/binary-basis.cpp
     title: math/matrix/binary-basis.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

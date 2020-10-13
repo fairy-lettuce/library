@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/mst/chu-liu-edmond.cpp
     title: graph/mst/chu-liu-edmond.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/template.cpp
     title: graph/template.cpp
   - icon: ':heavy_check_mark:'
@@ -13,7 +13,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
