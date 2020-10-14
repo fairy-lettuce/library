@@ -220,21 +220,19 @@ data:
     \     x -= get_div(x) * mod;\n      n >>= 1;\n    }\n    return ret;\n  }\n};\n\
     #line 9 \"test/verify/yosupo-exp-of-formal-power-series.test.cpp\"\n\nconst int\
     \ MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n  NumberTheoreticTransformFriendlyModInt<\
-    \ mint > ntt;\n  using FPS = FormalPowerSeries< mint >;\n  auto mult = [&](const\
-    \ FPS::P &a, const FPS::P &b) {\n    auto ret = ntt.multiply(a, b);\n    return\
-    \ FPS::P(ret.begin(), ret.end());\n  };\n  FPS::set_mult(mult);\n  FPS::set_fft([&](FPS::P\
-    \ &a) { ntt.ntt(a); }, [&](FPS::P &a) { ntt.intt(a); });\n\n  int N;\n  cin >>\
-    \ N;\n  FPS F(N);\n  cin >> F;\n  cout << F.exp() << endl;\n}\n\n"
+    \ mint > ntt;\n  using FPS = FormalPowerSeries< mint >;\n  FPS::set_mult([&](const\
+    \ FPS& a, const FPS& b) { return ntt.multiply(a, b);});\n  FPS::set_fft([&](FPS\
+    \ &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a); });\n\n  int N;\n  cin >> N;\n\
+    \  FPS F(N);\n  cin >> F;\n  cout << F.exp() << endl;\n}\n\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/exp_of_formal_power_series\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../math/combinatorics/mod-int.cpp\"\
     \n#include \"../../math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\n\
     \n#include \"../../math/fps/formal-power-series.cpp\"\n\nconst int MOD = 998244353;\n\
     using mint = ModInt< MOD >;\n\nint main() {\n  NumberTheoreticTransformFriendlyModInt<\
-    \ mint > ntt;\n  using FPS = FormalPowerSeries< mint >;\n  auto mult = [&](const\
-    \ FPS::P &a, const FPS::P &b) {\n    auto ret = ntt.multiply(a, b);\n    return\
-    \ FPS::P(ret.begin(), ret.end());\n  };\n  FPS::set_mult(mult);\n  FPS::set_fft([&](FPS::P\
-    \ &a) { ntt.ntt(a); }, [&](FPS::P &a) { ntt.intt(a); });\n\n  int N;\n  cin >>\
-    \ N;\n  FPS F(N);\n  cin >> F;\n  cout << F.exp() << endl;\n}\n\n"
+    \ mint > ntt;\n  using FPS = FormalPowerSeries< mint >;\n  FPS::set_mult([&](const\
+    \ FPS& a, const FPS& b) { return ntt.multiply(a, b);});\n  FPS::set_fft([&](FPS\
+    \ &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a); });\n\n  int N;\n  cin >> N;\n\
+    \  FPS F(N);\n  cin >> F;\n  cout << F.exp() << endl;\n}\n\n"
   dependsOn:
   - template/template.cpp
   - math/combinatorics/mod-int.cpp
@@ -243,7 +241,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
   requiredBy: []
-  timestamp: '2020-10-14 14:38:29+09:00'
+  timestamp: '2020-10-14 15:05:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-exp-of-formal-power-series.test.cpp
