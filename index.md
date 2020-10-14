@@ -159,7 +159,7 @@ data:
       title: Dominator-Tree
     - icon: ':heavy_check_mark:'
       path: graph/others/enumerate-cliques.cpp
-      title: "Enumerate-Clique(\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319)"
+      title: "Enumerate-Cliques(\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319)"
     - icon: ':heavy_check_mark:'
       path: graph/others/enumerate-triangles.cpp
       title: "Enumerate-Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)"

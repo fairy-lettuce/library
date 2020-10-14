@@ -10,10 +10,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/enumerate-cliques.md
-    document_title: "Enumerate-Clique(\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319)"
+    document_title: "Enumerate-Cliques(\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319)"
     links:
     - https://www.slideshare.net/wata_orz/ss-12131479
-  bundledCode: "#line 1 \"graph/others/enumerate-cliques.cpp\"\n/**\n * @brief Enumerate-Clique(\u30AF\
+  bundledCode: "#line 1 \"graph/others/enumerate-cliques.cpp\"\n/**\n * @brief Enumerate-Cliques(\u30AF\
     \u30EA\u30FC\u30AF\u5168\u5217\u6319)\n * @see https://www.slideshare.net/wata_orz/ss-12131479\n\
     \ * @docs docs/enumerate-cliques.md\n */\nvector< vector< int > > enumerate_cliques(Matrix<\
     \ bool > g) {\n\n  int N = (int) g.size(), M = 0;\n  vector< int > deg(N);\n \
@@ -41,7 +41,7 @@ data:
     \    used[k] = true;\n          que.emplace(k);\n        }\n      }\n    }\n \
     \ }\n  vector< int > rem;\n  for(int i = 0; i < N; i++) {\n    if(!used[i]) rem.emplace_back(i);\n\
     \  }\n  add_clique(rem, false);\n  return cliques;\n}\n"
-  code: "/**\n * @brief Enumerate-Clique(\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319\
+  code: "/**\n * @brief Enumerate-Cliques(\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319\
     )\n * @see https://www.slideshare.net/wata_orz/ss-12131479\n * @docs docs/enumerate-cliques.md\n\
     \ */\nvector< vector< int > > enumerate_cliques(Matrix< bool > g) {\n\n  int N\
     \ = (int) g.size(), M = 0;\n  vector< int > deg(N);\n  vector< vector< int > >\
@@ -73,7 +73,7 @@ data:
   isVerificationFile: false
   path: graph/others/enumerate-cliques.cpp
   requiredBy: []
-  timestamp: '2020-10-14 00:17:19+09:00'
+  timestamp: '2020-10-14 14:38:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-2306.test.cpp
@@ -82,5 +82,5 @@ layout: document
 redirect_from:
 - /library/graph/others/enumerate-cliques.cpp
 - /library/graph/others/enumerate-cliques.cpp.html
-title: "Enumerate-Clique(\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319)"
+title: "Enumerate-Cliques(\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319)"
 ---
