@@ -9,7 +9,7 @@ data:
     title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
   - icon: ':heavy_check_mark:'
     path: math/fps/formal-power-series.cpp
-    title: math/fps/formal-power-series.cpp
+    title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -101,15 +101,16 @@ data:
     \ 0);\n    b.resize(sz, 0);\n    ntt(a);\n    ntt(b);\n    Mint inv_sz = Mint(1)\
     \ / sz;\n    for(int i = 0; i < sz; i++) a[i] *= b[i] * inv_sz;\n    intt(a, false);\n\
     \    a.resize(need);\n    return a;\n  }\n};\n#line 7 \"test/verify/yosupo-inv-of-formal-power-series.test.cpp\"\
-    \n\n#line 1 \"math/fps/formal-power-series.cpp\"\ntemplate< typename T >\nstruct\
-    \ FormalPowerSeries : vector< T > {\n  using vector< T >::vector;\n  using P =\
-    \ FormalPowerSeries;\n\n  using MULT = function< vector< T >(P, P) >;\n  using\
-    \ FFT = function< void(P &) >;\n  using SQRT = function< T(T) >;\n\n  static MULT\
-    \ &get_mult() {\n    static MULT mult = nullptr;\n    return mult;\n  }\n\n  static\
-    \ void set_mult(MULT f) {\n    get_mult() = f;\n  }\n\n  static FFT &get_fft()\
-    \ {\n    static FFT fft = nullptr;\n    return fft;\n  }\n\n  static FFT &get_ifft()\
-    \ {\n    static FFT ifft = nullptr;\n    return ifft;\n  }\n\n  static void set_fft(FFT\
-    \ f, FFT g) {\n    get_fft() = f;\n    get_ifft() = g;\n  }\n\n  static SQRT &get_sqrt()\
+    \n\n#line 1 \"math/fps/formal-power-series.cpp\"\n/**\n * @brief Formal-Power-Series(\u5F62\
+    \u5F0F\u7684\u51AA\u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeries\
+    \ : vector< T > {\n  using vector< T >::vector;\n  using P = FormalPowerSeries;\n\
+    \n  using MULT = function< vector< T >(P, P) >;\n  using FFT = function< void(P\
+    \ &) >;\n  using SQRT = function< T(T) >;\n\n  static MULT &get_mult() {\n   \
+    \ static MULT mult = nullptr;\n    return mult;\n  }\n\n  static void set_mult(MULT\
+    \ f) {\n    get_mult() = f;\n  }\n\n  static FFT &get_fft() {\n    static FFT\
+    \ fft = nullptr;\n    return fft;\n  }\n\n  static FFT &get_ifft() {\n    static\
+    \ FFT ifft = nullptr;\n    return ifft;\n  }\n\n  static void set_fft(FFT f, FFT\
+    \ g) {\n    get_fft() = f;\n    get_ifft() = g;\n  }\n\n  static SQRT &get_sqrt()\
     \ {\n    static SQRT sqr = nullptr;\n    return sqr;\n  }\n\n  static void set_sqrt(SQRT\
     \ sqr) {\n    get_sqrt() = sqr;\n  }\n\n  void shrink() {\n    while(this->size()\
     \ && this->back() == T(0)) this->pop_back();\n  }\n\n  P operator+(const P &r)\
@@ -173,36 +174,44 @@ data:
     \  }\n\n  // F(0) must be 0\n  P exp(int deg = -1) const {\n    assert((*this)[0]\
     \ == T(0));\n    const int n = (int) this->size();\n    if(deg == -1) deg = n;\n\
     \    if(get_fft() != nullptr) {\n      P ret(*this);\n      ret.resize(deg, T(0));\n\
-    \      return ret.exp_rec();\n    }\n    P ret({T(1)});\n    for(int i = 1; i\
-    \ < deg; i <<= 1) {\n      ret = (ret * (pre(i << 1) + T(1) - ret.log(i << 1))).pre(i\
-    \ << 1);\n    }\n    return ret.pre(deg);\n  }\n\n\n  P online_convolution_exp(const\
-    \ P &conv_coeff) const {\n    const int n = (int) conv_coeff.size();\n    assert((n\
-    \ & (n - 1)) == 0);\n    vector< P > conv_ntt_coeff;\n    auto& fft = get_fft();\n\
-    \    auto& ifft = get_ifft();\n    for(int i = n; i >= 1; i >>= 1) {\n      P\
-    \ g(conv_coeff.pre(i));\n      fft(g);\n      conv_ntt_coeff.emplace_back(g);\n\
-    \    }\n    P conv_arg(n), conv_ret(n);\n    auto rec = [&](auto rec, int l, int\
-    \ r, int d) -> void {\n      if(r - l <= 16) {\n        for(int i = l; i < r;\
-    \ i++) {\n          T sum = 0;\n          for(int j = l; j < i; j++) sum += conv_arg[j]\
-    \ * conv_coeff[i - j];\n          conv_ret[i] += sum;\n          conv_arg[i] =\
-    \ i == 0 ? T(1) : conv_ret[i] / i;\n        }\n      } else {\n        int m =\
-    \ (l + r) / 2;\n        rec(rec, l, m, d + 1);\n        P pre(r - l);\n      \
-    \  for(int i = 0; i < m - l; i++) pre[i] = conv_arg[l + i];\n        fft(pre);\n\
-    \        for(int i = 0; i < r - l; i++) pre[i] *= conv_ntt_coeff[d][i];\n    \
-    \    ifft(pre);\n        for(int i = 0; i < r - m; i++) conv_ret[m + i] += pre[m\
-    \ + i - l];\n        rec(rec, m, r, d + 1);\n      }\n    };\n    rec(rec, 0,\
-    \ n, 0);\n    return conv_arg;\n  }\n\n  P exp_rec() const {\n    assert((*this)[0]\
-    \ == T(0));\n    const int n = (int) this->size();\n    int m = 1;\n    while(m\
-    \ < n) m *= 2;\n    P conv_coeff(m);\n    for(int i = 1; i < n; i++) conv_coeff[i]\
-    \ = (*this)[i] * i;\n    return online_convolution_exp(conv_coeff).pre(n);\n \
-    \ }\n\n\n  P inv_fast() const {\n    assert(((*this)[0]) != T(0));\n\n    const\
-    \ int n = (int) this->size();\n    P res{T(1) / (*this)[0]};\n\n    for(int d\
-    \ = 1; d < n; d <<= 1) {\n      P f(2 * d), g(2 * d);\n      for(int j = 0; j\
-    \ < min(n, 2 * d); j++) f[j] = (*this)[j];\n      for(int j = 0; j < d; j++) g[j]\
-    \ = res[j];\n      get_fft()(f);\n      get_fft()(g);\n      for(int j = 0; j\
-    \ < 2 * d; j++) f[j] *= g[j];\n      get_ifft()(f);\n      for(int j = 0; j <\
-    \ d; j++) {\n        f[j] = 0;\n        f[j + d] = -f[j + d];\n      }\n     \
-    \ get_fft()(f);\n      for(int j = 0; j < 2 * d; j++) f[j] *= g[j];\n      get_ifft()(f);\n\
-    \      for(int j = 0; j < d; j++) f[j] = res[j];\n      res = f;\n    }\n    return\
+    \      return ret.exp_fast(deg);\n    }\n    P ret({T(1)});\n    for(int i = 1;\
+    \ i < deg; i <<= 1) {\n      ret = (ret * (pre(i << 1) + T(1) - ret.log(i << 1))).pre(i\
+    \ << 1);\n    }\n    return ret.pre(deg);\n  }\n\n  P exp_fast(int deg) const\
+    \ {\n    if(deg == -1) deg = this->size();\n    assert((*this)[0] == T(0));\n\n\
+    \    P inv;\n    inv.reserve(deg + 1);\n    inv.push_back(T(0));\n    inv.push_back(T(1));\n\
+    \n    auto inplace_integral = [&](P &F) -> void {\n      const int n = (int) F.size();\n\
+    \      auto mod = T::get_mod();\n      while((int) inv.size() <= n) {\n      \
+    \  int i = inv.size();\n        inv.push_back((-inv[mod % i]) * (mod / i));\n\
+    \      }\n      F.insert(begin(F), T(0));\n      for(int i = 1; i <= n; i++) F[i]\
+    \ *= inv[i];\n    };\n\n    auto inplace_diff = [](P &F) -> void {\n      if(F.empty())\
+    \ return;\n      F.erase(begin(F));\n      T coeff = 1, one = 1;\n      for(int\
+    \ i = 0; i < (int) F.size(); i++) {\n        F[i] *= coeff;\n        coeff +=\
+    \ one;\n      }\n    };\n\n    P b{1, 1 < (int) this->size() ? (*this)[1] : 0},\
+    \ c{1}, z1, z2{1, 1};\n    for(int m = 2; m < deg; m *= 2) {\n      auto y = b;\n\
+    \      y.resize(2 * m);\n      get_fft()(y);\n      z1 = z2;\n      P z(m);\n\
+    \      for(int i = 0; i < m; ++i) z[i] = y[i] * z1[i];\n      get_ifft()(z);\n\
+    \      fill(begin(z), begin(z) + m / 2, T(0));\n      get_fft()(z);\n      for(int\
+    \ i = 0; i < m; ++i) z[i] *= -z1[i];\n      get_ifft()(z);\n      c.insert(end(c),\
+    \ begin(z) + m / 2, end(z));\n      z2 = c;\n      z2.resize(2 * m);\n      get_fft()(z2);\n\
+    \      P x(begin(*this), begin(*this) + min< int >(this->size(), m));\n      inplace_diff(x);\n\
+    \      x.push_back(T(0));\n      get_fft()(x);\n      for(int i = 0; i < m; ++i)\
+    \ x[i] *= y[i];\n      get_ifft()(x);\n      x -= b.diff();\n      x.resize(2\
+    \ * m);\n      for(int i = 0; i < m - 1; ++i) x[m + i] = x[i], x[i] = T(0);\n\
+    \      get_fft()(x);\n      for(int i = 0; i < 2 * m; ++i) x[i] *= z2[i];\n  \
+    \    get_ifft()(x);\n      x.pop_back();\n      inplace_integral(x);\n      for(int\
+    \ i = m; i < min< int >(this->size(), 2 * m); ++i) x[i] += (*this)[i];\n     \
+    \ fill(begin(x), begin(x) + m, T(0));\n      get_fft()(x);\n      for(int i =\
+    \ 0; i < 2 * m; ++i) x[i] *= y[i];\n      get_ifft()(x);\n      b.insert(end(b),\
+    \ begin(x) + m, end(x));\n    }\n    return P{begin(b), begin(b) + deg};\n  }\n\
+    \n\n  P inv_fast() const {\n    assert(((*this)[0]) != T(0));\n\n    const int\
+    \ n = (int) this->size();\n    P res{T(1) / (*this)[0]};\n\n    for(int d = 1;\
+    \ d < n; d <<= 1) {\n      P f(2 * d), g(2 * d);\n      for(int j = 0; j < min(n,\
+    \ 2 * d); j++) f[j] = (*this)[j];\n      for(int j = 0; j < d; j++) g[j] = res[j];\n\
+    \      get_fft()(f);\n      get_fft()(g);\n      for(int j = 0; j < 2 * d; j++)\
+    \ f[j] *= g[j];\n      get_ifft()(f);\n      for(int j = 0; j < d; j++) {\n  \
+    \      f[j] = 0;\n        f[j + d] = -f[j + d];\n      }\n      get_fft()(f);\n\
+    \      for(int j = 0; j < 2 * d; j++) f[j] *= g[j];\n      get_ifft()(f);\n  \
+    \    for(int j = 0; j < d; j++) f[j] = res[j];\n      res = f;\n    }\n    return\
     \ res.pre(n);\n  }\n\n  P pow(int64_t k, int deg = -1) const {\n    const int\
     \ n = (int) this->size();\n    if(deg == -1) deg = n;\n    for(int i = 0; i <\
     \ n; i++) {\n      if((*this)[i] != T(0)) {\n        T rev = T(1) / (*this)[i];\n\
@@ -243,7 +252,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
   requiredBy: []
-  timestamp: '2020-10-14 14:38:29+09:00'
+  timestamp: '2020-10-15 14:44:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-inv-of-formal-power-series.test.cpp

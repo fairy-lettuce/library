@@ -334,7 +334,7 @@ data:
       title: math/fps/formal-power-series-seq.cpp
     - icon: ':heavy_check_mark:'
       path: math/fps/formal-power-series.cpp
-      title: math/fps/formal-power-series.cpp
+      title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     - icon: ':heavy_check_mark:'
       path: math/fps/multipoint-evaluation.cpp
       title: math/fps/multipoint-evaluation.cpp
