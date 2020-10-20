@@ -1,12 +1,6 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
-    path: math/combinatorics/mod-int.cpp
-    title: math/combinatorics/mod-int.cpp
-  - icon: ':x:'
-    path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
-    title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
   - icon: ':x:'
     path: math/fps/diff.cpp
     title: Diff ($f'(x)$)
@@ -25,98 +19,13 @@ data:
   - icon: ':x:'
     path: math/fps/log.cpp
     title: Log ($\log {f(x)}$)
-  - icon: ':question:'
-    path: template/template.cpp
-    title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/exp_of_formal_power_series
-    links:
-    - https://judge.yosupo.jp/problem/exp_of_formal_power_series
-  bundledCode: "#line 1 \"test/verify/yosupo-exp-of-formal-power-series.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/exp_of_formal_power_series\"\
-    \n\n#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing namespace\
-    \ std;\n\nusing int64 = long long;\nconst int mod = 1e9 + 7;\n\nconst int64 infll\
-    \ = (1LL << 62) - 1;\nconst int inf = (1 << 30) - 1;\n\nstruct IoSetup {\n  IoSetup()\
-    \ {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n    cout << fixed\
-    \ << setprecision(10);\n    cerr << fixed << setprecision(10);\n  }\n} iosetup;\n\
-    \n\ntemplate< typename T1, typename T2 >\nostream &operator<<(ostream &os, const\
-    \ pair< T1, T2 >& p) {\n  os << p.first << \" \" << p.second;\n  return os;\n\
-    }\n\ntemplate< typename T1, typename T2 >\nistream &operator>>(istream &is, pair<\
-    \ T1, T2 > &p) {\n  is >> p.first >> p.second;\n  return is;\n}\n\ntemplate< typename\
-    \ T >\nostream &operator<<(ostream &os, const vector< T > &v) {\n  for(int i =\
-    \ 0; i < (int) v.size(); i++) {\n    os << v[i] << (i + 1 != v.size() ? \" \"\
-    \ : \"\");\n  }\n  return os;\n}\n\ntemplate< typename T >\nistream &operator>>(istream\
-    \ &is, vector< T > &v) {\n  for(T &in : v) is >> in;\n  return is;\n}\n\ntemplate<\
-    \ typename T1, typename T2 >\ninline bool chmax(T1 &a, T2 b) { return a < b &&\
-    \ (a = b, true); }\n\ntemplate< typename T1, typename T2 >\ninline bool chmin(T1\
-    \ &a, T2 b) { return a > b && (a = b, true); }\n\ntemplate< typename T = int64\
-    \ >\nvector< T > make_v(size_t a) {\n  return vector< T >(a);\n}\n\ntemplate<\
-    \ typename T, typename... Ts >\nauto make_v(size_t a, Ts... ts) {\n  return vector<\
-    \ decltype(make_v< T >(ts...)) >(a, make_v< T >(ts...));\n}\n\ntemplate< typename\
-    \ T, typename V >\ntypename enable_if< is_class< T >::value == 0 >::type fill_v(T\
-    \ &t, const V &v) {\n  t = v;\n}\n\ntemplate< typename T, typename V >\ntypename\
-    \ enable_if< is_class< T >::value != 0 >::type fill_v(T &t, const V &v) {\n  for(auto\
-    \ &e : t) fill_v(e, v);\n}\n\ntemplate< typename F >\nstruct FixPoint : F {\n\
-    \  FixPoint(F &&f) : F(forward< F >(f)) {}\n \n  template< typename... Args >\n\
-    \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
-    \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
-    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-exp-of-formal-power-series.test.cpp\"\
-    \n\n#line 1 \"math/combinatorics/mod-int.cpp\"\ntemplate< int mod >\nstruct ModInt\
-    \ {\n  int x;\n\n  ModInt() : x(0) {}\n\n  ModInt(int64_t y) : x(y >= 0 ? y %\
-    \ mod : (mod - (-y) % mod) % mod) {}\n\n  ModInt &operator+=(const ModInt &p)\
-    \ {\n    if((x += p.x) >= mod) x -= mod;\n    return *this;\n  }\n\n  ModInt &operator-=(const\
-    \ ModInt &p) {\n    if((x += mod - p.x) >= mod) x -= mod;\n    return *this;\n\
-    \  }\n\n  ModInt &operator*=(const ModInt &p) {\n    x = (int) (1LL * x * p.x\
-    \ % mod);\n    return *this;\n  }\n\n  ModInt &operator/=(const ModInt &p) {\n\
-    \    *this *= p.inverse();\n    return *this;\n  }\n\n  ModInt operator-() const\
-    \ { return ModInt(-x); }\n\n  ModInt operator+(const ModInt &p) const { return\
-    \ ModInt(*this) += p; }\n\n  ModInt operator-(const ModInt &p) const { return\
-    \ ModInt(*this) -= p; }\n\n  ModInt operator*(const ModInt &p) const { return\
-    \ ModInt(*this) *= p; }\n\n  ModInt operator/(const ModInt &p) const { return\
-    \ ModInt(*this) /= p; }\n\n  bool operator==(const ModInt &p) const { return x\
-    \ == p.x; }\n\n  bool operator!=(const ModInt &p) const { return x != p.x; }\n\
-    \n  ModInt inverse() const {\n    int a = x, b = mod, u = 1, v = 0, t;\n    while(b\
-    \ > 0) {\n      t = a / b;\n      swap(a -= t * b, b);\n      swap(u -= t * v,\
-    \ v);\n    }\n    return ModInt(u);\n  }\n\n  ModInt pow(int64_t n) const {\n\
-    \    ModInt ret(1), mul(x);\n    while(n > 0) {\n      if(n & 1) ret *= mul;\n\
-    \      mul *= mul;\n      n >>= 1;\n    }\n    return ret;\n  }\n\n  friend ostream\
-    \ &operator<<(ostream &os, const ModInt &p) {\n    return os << p.x;\n  }\n\n\
-    \  friend istream &operator>>(istream &is, ModInt &a) {\n    int64_t t;\n    is\
-    \ >> t;\n    a = ModInt< mod >(t);\n    return (is);\n  }\n\n  static int get_mod()\
-    \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 1 \"math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\
-    \ntemplate< typename Mint >\nstruct NumberTheoreticTransformFriendlyModInt {\n\
-    \n  vector< Mint > dw, idw;\n  int max_base;\n  Mint root;\n\n  NumberTheoreticTransformFriendlyModInt()\
-    \ {\n    const unsigned mod = Mint::get_mod();\n    assert(mod >= 3 && mod % 2\
-    \ == 1);\n    auto tmp = mod - 1;\n    max_base = 0;\n    while(tmp % 2 == 0)\
-    \ tmp >>= 1, max_base++;\n    root = 2;\n    while(root.pow((mod - 1) >> 1) ==\
-    \ 1) root += 1;\n    assert(root.pow(mod - 1) == 1);\n    dw.resize(max_base);\n\
-    \    idw.resize(max_base);\n    for(int i = 0; i < max_base; i++) {\n      dw[i]\
-    \ = -root.pow((mod - 1) >> (i + 2));\n      idw[i] = Mint(1) / dw[i];\n    }\n\
-    \  }\n\n  void ntt(vector< Mint > &a) {\n    const int n = (int) a.size();\n \
-    \   assert((n & (n - 1)) == 0);\n    assert(__builtin_ctz(n) <= max_base);\n \
-    \   for(int m = n; m >>= 1;) {\n      Mint w = 1;\n      for(int s = 0, k = 0;\
-    \ s < n; s += 2 * m) {\n        for(int i = s, j = s + m; i < s + m; ++i, ++j)\
-    \ {\n          auto x = a[i], y = a[j] * w;\n          a[i] = x + y, a[j] = x\
-    \ - y;\n        }\n        w *= dw[__builtin_ctz(++k)];\n      }\n    }\n  }\n\
-    \n  void intt(vector< Mint > &a, bool f = true) {\n    const int n = (int) a.size();\n\
-    \    assert((n & (n - 1)) == 0);\n    assert(__builtin_ctz(n) <= max_base);\n\
-    \    for(int m = 1; m < n; m *= 2) {\n      Mint w = 1;\n      for(int s = 0,\
-    \ k = 0; s < n; s += 2 * m) {\n        for(int i = s, j = s + m; i < s + m; ++i,\
-    \ ++j) {\n          auto x = a[i], y = a[j];\n          a[i] = x + y, a[j] = (x\
-    \ - y) * w;\n        }\n        w *= idw[__builtin_ctz(++k)];\n      }\n    }\n\
-    \    if(f) {\n      Mint inv_sz = Mint(1) / n;\n      for(int i = 0; i < n; i++)\
-    \ a[i] *= inv_sz;\n    }\n  }\n\n  vector< Mint > multiply(vector< Mint > a, vector<\
-    \ Mint > b) {\n    int need = a.size() + b.size() - 1;\n    int nbase = 1;\n \
-    \   while((1 << nbase) < need) nbase++;\n    int sz = 1 << nbase;\n    a.resize(sz,\
-    \ 0);\n    b.resize(sz, 0);\n    ntt(a);\n    ntt(b);\n    Mint inv_sz = Mint(1)\
-    \ / sz;\n    for(int i = 0; i < sz; i++) a[i] *= b[i] * inv_sz;\n    intt(a, false);\n\
-    \    a.resize(need);\n    return a;\n  }\n};\n#line 7 \"test/verify/yosupo-exp-of-formal-power-series.test.cpp\"\
-    \n\n#line 2 \"math/fps/formal-power-series.cpp\"\n\n/**\n * @brief Formal-Power-Series(\u5F62\
+    links: []
+  bundledCode: "#line 2 \"math/fps/formal-power-series.cpp\"\n\n/**\n * @brief Formal-Power-Series(\u5F62\
     \u5F0F\u7684\u51AA\u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeries\
     \ : vector< T > {\n  using vector< T >::vector;\n  using P = FormalPowerSeries;\n\
     \n  using MULT = function< vector< T >(P, P) >;\n  using FFT = function< void(P\
@@ -240,42 +149,33 @@ data:
     \  if(deg == -1) deg = n;\n  if(get_fft() != nullptr) {\n    P ret(*this);\n \
     \   ret.resize(deg, T(0));\n    return ret.exp_fast(deg);\n  }\n  P ret({T(1)});\n\
     \  for(int i = 1; i < deg; i <<= 1) {\n    ret = (ret * (pre(i << 1) + T(1) -\
-    \ ret.log(i << 1))).pre(i << 1);\n  }\n  return ret.pre(deg);\n}\n#line 9 \"test/verify/yosupo-exp-of-formal-power-series.test.cpp\"\
-    \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
-    \  NumberTheoreticTransformFriendlyModInt< mint > ntt;\n  using FPS = FormalPowerSeries<\
-    \ mint >;\n  FPS::set_mult([&](const FPS& a, const FPS& b) { return ntt.multiply(a,\
-    \ b);});\n  FPS::set_fft([&](FPS &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a);\
-    \ });\n\n  int N;\n  cin >> N;\n  FPS F(N);\n  cin >> F;\n  cout << F.exp() <<\
-    \ endl;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/exp_of_formal_power_series\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../math/combinatorics/mod-int.cpp\"\
-    \n#include \"../../math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\n\
-    \n#include \"../../math/fps/exp.cpp\"\n\nconst int MOD = 998244353;\nusing mint\
-    \ = ModInt< MOD >;\n\nint main() {\n  NumberTheoreticTransformFriendlyModInt<\
-    \ mint > ntt;\n  using FPS = FormalPowerSeries< mint >;\n  FPS::set_mult([&](const\
-    \ FPS& a, const FPS& b) { return ntt.multiply(a, b);});\n  FPS::set_fft([&](FPS\
-    \ &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a); });\n\n  int N;\n  cin >> N;\n\
-    \  FPS F(N);\n  cin >> F;\n  cout << F.exp() << endl;\n}\n"
+    \ ret.log(i << 1))).pre(i << 1);\n  }\n  return ret.pre(deg);\n}\n#line 4 \"math/fps/bell.cpp\"\
+    \n\ntemplate< typename T >\nFormalPowerSeries< T > bell(int N) {\n  FormalPowerSeries<\
+    \ T > poly(N + 1), ret(N + 1);\n  poly[1] = 1;\n  poly = poly.exp();\n  poly[0]\
+    \ -= 1;\n  poly = poly.exp();\n  T mul = 1;\n  for(int i = 0; i <= N; i++) {\n\
+    \    ret[i] = poly[i] * mul;\n    mul *= i + 1;\n  }\n  return ret;\n}\n"
+  code: "#pragma once\n#include \"formal-power-series.cpp\"\n#include \"exp.cpp\"\n\
+    \ntemplate< typename T >\nFormalPowerSeries< T > bell(int N) {\n  FormalPowerSeries<\
+    \ T > poly(N + 1), ret(N + 1);\n  poly[1] = 1;\n  poly = poly.exp();\n  poly[0]\
+    \ -= 1;\n  poly = poly.exp();\n  T mul = 1;\n  for(int i = 0; i <= N; i++) {\n\
+    \    ret[i] = poly[i] * mul;\n    mul *= i + 1;\n  }\n  return ret;\n}\n"
   dependsOn:
-  - template/template.cpp
-  - math/combinatorics/mod-int.cpp
-  - math/fft/number-theoretic-transform-friendly-mod-int.cpp
-  - math/fps/exp.cpp
   - math/fps/formal-power-series.cpp
+  - math/fps/exp.cpp
   - math/fps/diff.cpp
   - math/fps/log.cpp
   - math/fps/inv.cpp
   - math/fps/integral.cpp
-  isVerificationFile: true
-  path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
+  isVerificationFile: false
+  path: math/fps/bell.cpp
   requiredBy: []
   timestamp: '2020-10-21 02:38:15+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: test/verify/yosupo-exp-of-formal-power-series.test.cpp
+documentation_of: math/fps/bell.cpp
 layout: document
 redirect_from:
-- /verify/test/verify/yosupo-exp-of-formal-power-series.test.cpp
-- /verify/test/verify/yosupo-exp-of-formal-power-series.test.cpp.html
-title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
+- /library/math/fps/bell.cpp
+- /library/math/fps/bell.cpp.html
+title: math/fps/bell.cpp
 ---

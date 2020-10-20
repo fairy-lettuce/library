@@ -2,38 +2,65 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
+    path: math/fps/bell.cpp
+    title: math/fps/bell.cpp
+  - icon: ':x:'
+    path: math/fps/bellnoulli.cpp
+    title: math/fps/bellnoulli.cpp
+  - icon: ':x:'
     path: math/fps/diff.cpp
-    title: Diff $f'(x)$
-  - icon: ':heavy_check_mark:'
+    title: Diff ($f'(x)$)
+  - icon: ':warning:'
+    path: math/fps/eulerian.cpp
+    title: math/fps/eulerian.cpp
+  - icon: ':x:'
     path: math/fps/exp.cpp
-    title: Exp $e^{f(x)}$
-  - icon: ':heavy_check_mark:'
+    title: Exp ($e^{f(x)}$)
+  - icon: ':x:'
     path: math/fps/integral.cpp
-    title: Integral $\int f(x) dx$
-  - icon: ':heavy_check_mark:'
+    title: Integral ($\int f(x) dx$)
+  - icon: ':x:'
     path: math/fps/inv.cpp
-    title: Inv $\frac {1} {f(x)}$
-  - icon: ':heavy_check_mark:'
+    title: Inv ($\frac {1} {f(x)}$)
+  - icon: ':x:'
     path: math/fps/log.cpp
-    title: Log $\log {f(x)}$
-  - icon: ':heavy_check_mark:'
+    title: Log ($\log {f(x)}$)
+  - icon: ':x:'
+    path: math/fps/multipoint-evaluation.cpp
+    title: math/fps/multipoint-evaluation.cpp
+  - icon: ':x:'
+    path: math/fps/partition.cpp
+    title: math/fps/partition.cpp
+  - icon: ':x:'
+    path: math/fps/polynomial-interpolation.cpp
+    title: math/fps/polynomial-interpolation.cpp
+  - icon: ':x:'
     path: math/fps/sqrt.cpp
-    title: Sqrt $\sqrt {f(x)}$
+    title: Sqrt ($\sqrt {f(x)}$)
+  - icon: ':warning:'
+    path: math/fps/stirling-first.cpp
+    title: math/fps/stirling-first.cpp
+  - icon: ':warning:'
+    path: math/fps/stirling-second-kth-column.cpp
+    title: math/fps/stirling-second-kth-column.cpp
+  - icon: ':warning:'
+    path: math/fps/stirling-second.cpp
+    title: math/fps/stirling-second.cpp
   _extendedVerifiedWith:
   - icon: ':x:'
     path: test/verify/yosupo-bellnoulli-number.test.cpp
     title: test/verify/yosupo-bellnoulli-number.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
     title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-find-linear-recurrence.test.cpp
     title: test/verify/yosupo-find-linear-recurrence.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
     title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-log-of-formal-power-series.test.cpp
     title: test/verify/yosupo-log-of-formal-power-series.test.cpp
   - icon: ':x:'
@@ -48,7 +75,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sparse-matrix-det.test.cpp
     title: test/verify/yosupo-sparse-matrix-det.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   _pathExtension: cpp
@@ -188,11 +215,20 @@ data:
   isVerificationFile: false
   path: math/fps/formal-power-series.cpp
   requiredBy:
+  - math/fps/bell.cpp
   - math/fps/log.cpp
   - math/fps/exp.cpp
+  - math/fps/partition.cpp
+  - math/fps/stirling-second.cpp
+  - math/fps/stirling-second-kth-column.cpp
   - math/fps/integral.cpp
   - math/fps/inv.cpp
   - math/fps/sqrt.cpp
+  - math/fps/multipoint-evaluation.cpp
+  - math/fps/stirling-first.cpp
+  - math/fps/eulerian.cpp
+  - math/fps/bellnoulli.cpp
+  - math/fps/polynomial-interpolation.cpp
   - math/fps/diff.cpp
   timestamp: '2020-10-21 02:08:50+09:00'
   verificationStatus: LIBRARY_SOME_WA

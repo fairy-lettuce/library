@@ -291,7 +291,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-enumerate-triangles.test.cpp
     title: test/verify/yosupo-enumerate-triangles.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
     title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -306,7 +306,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-general-matching.test.cpp
     title: test/verify/yosupo-general-matching.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
     title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -318,7 +318,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-line-add-get-min.test.cpp
     title: test/verify/yosupo-line-add-get-min.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-log-of-formal-power-series.test.cpp
     title: test/verify/yosupo-log-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -396,7 +396,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-mod.test.cpp
     title: test/verify/yosupo-sqrt-mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'

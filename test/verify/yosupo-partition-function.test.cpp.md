@@ -4,15 +4,18 @@ data:
   - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
-  - icon: ':x:'
-    path: math/fps/formal-power-series-seq.cpp
-    title: math/fps/formal-power-series-seq.cpp
   - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
+  - icon: ':x:'
+    path: math/fps/inv.cpp
+    title: Inv ($\frac {1} {f(x)}$)
+  - icon: ':x:'
+    path: math/fps/partition.cpp
+    title: math/fps/partition.cpp
   - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
@@ -168,70 +171,53 @@ data:
     \    };\n    P x(*this), ret{1};\n    while(n > 0) {\n      if(n & 1) {\n    \
     \    ret *= x;\n        ret -= get_div(ret) * mod;\n      }\n      x *= x;\n \
     \     x -= get_div(x) * mod;\n      n >>= 1;\n    }\n    return ret;\n  }\n};\n\
-    #line 1 \"math/fps/formal-power-series-seq.cpp\"\ntemplate< typename T >\nFormalPowerSeries<\
-    \ T > bernoulli(int N) {\n  FormalPowerSeries< T > poly(N + 1);\n  poly[0] = T(1);\n\
-    \  for(int i = 1; i <= N; i++) {\n    poly[i] = poly[i - 1] / T(i + 1);\n  }\n\
-    \  poly = poly.inv();\n  T tmp(1);\n  for(int i = 1; i <= N; i++) {\n    tmp *=\
-    \ T(i);\n    poly[i] *= tmp;\n  }\n  return poly;\n}\n\ntemplate< typename T >\n\
-    FormalPowerSeries< T > partition(int N) {\n  FormalPowerSeries< T > poly(N + 1);\n\
-    \  poly[0] = 1;\n  for(int k = 1; k <= N; k++) {\n    if(1LL * k * (3 * k + 1)\
-    \ / 2 <= N) poly[k * (3 * k + 1) / 2] += (k % 2 ? -1 : 1);\n    if(1LL * k * (3\
-    \ * k - 1) / 2 <= N) poly[k * (3 * k - 1) / 2] += (k % 2 ? -1 : 1);\n  }\n  return\
-    \ poly.inv();\n}\n\ntemplate< typename T >\nFormalPowerSeries< T > bell(int N)\
-    \ {\n  FormalPowerSeries< T > poly(N + 1), ret(N + 1);\n  poly[1] = 1;\n  poly\
-    \ = poly.exp();\n  poly[0] -= 1;\n  poly = poly.exp();\n  T mul = 1;\n  for(int\
-    \ i = 0; i <= N; i++) {\n    ret[i] = poly[i] * mul;\n    mul *= i + 1;\n  }\n\
-    \  return ret;\n}\n\ntemplate< typename T >\nFormalPowerSeries< T > stirling_first(int\
-    \ N) {\n  if(N == 0) return {1};\n  int M = N / 2;\n  FormalPowerSeries< T > A\
-    \ = stirling_first< T >(M), B, C(N - M + 1);\n\n  if(N % 2 == 0) {\n    B = A;\n\
-    \  } else {\n    B.resize(M + 2);\n    B[M + 1] = 1;\n    for(int i = 1; i < M\
-    \ + 1; i++) B[i] = A[i - 1] + A[i] * M;\n  }\n\n  T tmp = 1;\n  for(int i = 0;\
-    \ i <= N - M; i++) {\n    C[N - M - i] = T(M).pow(i) / tmp;\n    B[i] *= tmp;\n\
-    \    tmp *= T(i + 1);\n  }\n  C *= B;\n  tmp = 1;\n  for(int i = 0; i <= N - M;\
-    \ i++) {\n    B[i] = C[N - M + i] / tmp;\n    tmp *= T(i + 1);\n  }\n  return\
-    \ A * B;\n}\n\ntemplate< typename T >\nFormalPowerSeries< T > stirling_second(int\
-    \ N) {\n  FormalPowerSeries< T > A(N + 1), B(N + 1);\n  modint tmp = 1;\n  for(int\
-    \ i = 0; i <= N; i++) {\n    T rev = T(1) / tmp;\n    A[i] = T(i).pow(N) * rev;\n\
-    \    B[i] = T(1) * rev;\n    if(i & 1) B[i] *= -1;\n    tmp *= i + 1;\n  }\n \
-    \ return (A * B).pre(N + 1);\n}\n\ntemplate< typename T >\nFormalPowerSeries<\
-    \ T > stirling_second_kth_column(int N, int K) {\n  FormalPowerSeries< T > poly(N\
-    \ + 1), ret(N + 1);\n  poly[1] = 1;\n  poly = poly.exp();\n  poly[0] -= 1;\n \
-    \ poly = poly.pow(K);\n  T rev = 1, mul = 1;\n  for(int i = 2; i <= K; i++) rev\
-    \ *= i;\n  rev = T(1) / rev;\n  poly *= rev;\n  for(int i = 0; i <= N; i++) {\n\
-    \    ret[i] = poly[i] * mul;\n    mul *= i + 1;\n  }\n  return ret;\n}\n\ntemplate<\
-    \ typename T >\nFormalPowerSeries< T > eulerian(int N) {\n  vector< T > fact(N\
-    \ + 2), rfact(N + 2);\n  fact[0] = rfact[N + 1] = 1;\n  for(int i = 1; i <= N\
-    \ + 1; i++) fact[i] = fact[i - 1] * i;\n  rfact[N + 1] /= fact[N + 1];\n  for(int\
-    \ i = N; i >= 0; i--) rfact[i] = rfact[i + 1] * (i + 1);\n\n  FormalPowerSeries<\
-    \ T > A(N + 1), B(N + 1);\n  for(int i = 0; i <= N; i++) {\n    A[i] = fact[N\
-    \ + 1] * rfact[i] * rfact[N + 1 - i];\n    if(i & 1) A[i] *= -1;\n    B[i] = T(i\
-    \ + 1).pow(N);\n  }\n  return (A * B).pre(N + 1);\n}\n#line 10 \"test/verify/yosupo-partition-function.test.cpp\"\
-    \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
-    \  NumberTheoreticTransformFriendlyModInt< mint > ntt;\n  using FPS = FormalPowerSeries<\
-    \ mint >;\n  auto mult = [&](const FPS::P &a, const FPS::P &b) {\n    auto ret\
-    \ = ntt.multiply(a, b);\n    return FPS::P(ret.begin(), ret.end());\n  };\n  FPS::set_mult(mult);\n\
-    \  FPS::set_fft([&](FPS::P &a) { ntt.ntt(a); }, [&](FPS::P &a) { ntt.intt(a);\
-    \ });\n\n  int N;\n  cin >> N;\n  cout << partition< mint >(N) << endl;\n}\n\n"
+    #line 3 \"math/fps/inv.cpp\"\n\n/**\n * @brief Inv ($\\frac {1} {f(x)}$)\n */\n\
+    template< typename T >\ntypename FormalPowerSeries< T > FormalPowerSeries< T >::inv_fast()\
+    \ const {\n  assert(((*this)[0]) != T(0));\n\n  const int n = (int) this->size();\n\
+    \  P res{T(1) / (*this)[0]};\n\n  for(int d = 1; d < n; d <<= 1) {\n    P f(2\
+    \ * d), g(2 * d);\n    for(int j = 0; j < min(n, 2 * d); j++) f[j] = (*this)[j];\n\
+    \    for(int j = 0; j < d; j++) g[j] = res[j];\n    get_fft()(f);\n    get_fft()(g);\n\
+    \    for(int j = 0; j < 2 * d; j++) f[j] *= g[j];\n    get_ifft()(f);\n    for(int\
+    \ j = 0; j < d; j++) {\n      f[j] = 0;\n      f[j + d] = -f[j + d];\n    }\n\
+    \    get_fft()(f);\n    for(int j = 0; j < 2 * d; j++) f[j] *= g[j];\n    get_ifft()(f);\n\
+    \    for(int j = 0; j < d; j++) f[j] = res[j];\n    res = f;\n  }\n  return res.pre(n);\n\
+    }\n\ntemplate< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
+    \ T >::inv(int deg) const {\n  assert(((*this)[0]) != T(0));\n  const int n =\
+    \ (int) this->size();\n  if(deg == -1) deg = n;\n  if(get_fft() != nullptr) {\n\
+    \    P ret(*this);\n    ret.resize(deg, T(0));\n    return ret.inv_fast();\n \
+    \ }\n  P ret({T(1) / (*this)[0]});\n  for(int i = 1; i < deg; i <<= 1) {\n   \
+    \ ret = (ret + ret - ret * ret * pre(i << 1)).pre(i << 1);\n  }\n  return ret.pre(deg);\n\
+    }\n#line 4 \"math/fps/partition.cpp\"\n\ntemplate< typename T >\nFormalPowerSeries<\
+    \ T > partition(int N) {\n  FormalPowerSeries< T > poly(N + 1);\n  poly[0] = 1;\n\
+    \  for(int k = 1; k <= N; k++) {\n    if(1LL * k * (3 * k + 1) / 2 <= N) poly[k\
+    \ * (3 * k + 1) / 2] += (k % 2 ? -1 : 1);\n    if(1LL * k * (3 * k - 1) / 2 <=\
+    \ N) poly[k * (3 * k - 1) / 2] += (k % 2 ? -1 : 1);\n  }\n  return poly.inv();\n\
+    }\n#line 9 \"test/verify/yosupo-partition-function.test.cpp\"\n\nconst int MOD\
+    \ = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n  NumberTheoreticTransformFriendlyModInt<\
+    \ mint > ntt;\n  using FPS = FormalPowerSeries< mint >;\n  FPS::set_mult([&](const\
+    \ FPS& a, const FPS& b) { return ntt.multiply(a, b);});\n  FPS::set_fft([&](FPS\
+    \ &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a); });\n\n  int N;\n  cin >> N;\n\
+    \  cout << partition< mint >(N) << endl;\n}\n\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/partition_function\"\n\n\
     #include \"../../template/template.cpp\"\n\n#include \"../../math/combinatorics/mod-int.cpp\"\
     \n#include \"../../math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\n\
-    \n#include \"../../math/fps/formal-power-series.cpp\"\n#include \"../../math/fps/formal-power-series-seq.cpp\"\
-    \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
-    \  NumberTheoreticTransformFriendlyModInt< mint > ntt;\n  using FPS = FormalPowerSeries<\
-    \ mint >;\n  auto mult = [&](const FPS::P &a, const FPS::P &b) {\n    auto ret\
-    \ = ntt.multiply(a, b);\n    return FPS::P(ret.begin(), ret.end());\n  };\n  FPS::set_mult(mult);\n\
-    \  FPS::set_fft([&](FPS::P &a) { ntt.ntt(a); }, [&](FPS::P &a) { ntt.intt(a);\
-    \ });\n\n  int N;\n  cin >> N;\n  cout << partition< mint >(N) << endl;\n}\n\n"
+    \n#include \"../../math/fps/partition.cpp\"\n\nconst int MOD = 998244353;\nusing\
+    \ mint = ModInt< MOD >;\n\nint main() {\n  NumberTheoreticTransformFriendlyModInt<\
+    \ mint > ntt;\n  using FPS = FormalPowerSeries< mint >;\n  FPS::set_mult([&](const\
+    \ FPS& a, const FPS& b) { return ntt.multiply(a, b);});\n  FPS::set_fft([&](FPS\
+    \ &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a); });\n\n  int N;\n  cin >> N;\n\
+    \  cout << partition< mint >(N) << endl;\n}\n\n"
   dependsOn:
   - template/template.cpp
   - math/combinatorics/mod-int.cpp
   - math/fft/number-theoretic-transform-friendly-mod-int.cpp
+  - math/fps/partition.cpp
   - math/fps/formal-power-series.cpp
-  - math/fps/formal-power-series-seq.cpp
+  - math/fps/inv.cpp
   isVerificationFile: true
   path: test/verify/yosupo-partition-function.test.cpp
   requiredBy: []
-  timestamp: '2020-10-21 02:08:50+09:00'
+  timestamp: '2020-10-21 02:38:15+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-partition-function.test.cpp

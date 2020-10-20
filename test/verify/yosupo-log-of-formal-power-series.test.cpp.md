@@ -4,31 +4,31 @@ data:
   - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/fps/diff.cpp
-    title: Diff $f'(x)$
+    title: Diff ($f'(x)$)
   - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/fps/integral.cpp
-    title: Integral $\int f(x) dx$
-  - icon: ':heavy_check_mark:'
+    title: Integral ($\int f(x) dx$)
+  - icon: ':x:'
     path: math/fps/inv.cpp
-    title: Inv $\frac {1} {f(x)}$
-  - icon: ':heavy_check_mark:'
+    title: Inv ($\frac {1} {f(x)}$)
+  - icon: ':x:'
     path: math/fps/log.cpp
-    title: Log $\log {f(x)}$
+    title: Log ($\log {f(x)}$)
   - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/log_of_formal_power_series
@@ -177,12 +177,12 @@ data:
     \    };\n    P x(*this), ret{1};\n    while(n > 0) {\n      if(n & 1) {\n    \
     \    ret *= x;\n        ret -= get_div(ret) * mod;\n      }\n      x *= x;\n \
     \     x -= get_div(x) * mod;\n      n >>= 1;\n    }\n    return ret;\n  }\n};\n\
-    #line 3 \"math/fps/diff.cpp\"\n\n/**\n * @brief Diff $f'(x)$\n */\ntemplate< typename\
-    \ T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries< T >::diff() const\
-    \ {\n  const int n = (int) this->size();\n  P ret(max(0, n - 1));\n  for(int i\
-    \ = 1; i < n; i++) ret[i - 1] = (*this)[i] * T(i);\n  return ret;\n}\n#line 3\
-    \ \"math/fps/inv.cpp\"\n\n/**\n * @brief Inv $\\frac {1} {f(x)}$\n */\ntemplate<\
-    \ typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries< T >::inv_fast()\
+    #line 3 \"math/fps/diff.cpp\"\n\n/**\n * @brief Diff ($f'(x)$)\n */\ntemplate<\
+    \ typename T >\ntypename FormalPowerSeries< T > FormalPowerSeries< T >::diff()\
+    \ const {\n  const int n = (int) this->size();\n  P ret(max(0, n - 1));\n  for(int\
+    \ i = 1; i < n; i++) ret[i - 1] = (*this)[i] * T(i);\n  return ret;\n}\n#line\
+    \ 3 \"math/fps/inv.cpp\"\n\n/**\n * @brief Inv ($\\frac {1} {f(x)}$)\n */\ntemplate<\
+    \ typename T >\ntypename FormalPowerSeries< T > FormalPowerSeries< T >::inv_fast()\
     \ const {\n  assert(((*this)[0]) != T(0));\n\n  const int n = (int) this->size();\n\
     \  P res{T(1) / (*this)[0]};\n\n  for(int d = 1; d < n; d <<= 1) {\n    P f(2\
     \ * d), g(2 * d);\n    for(int j = 0; j < min(n, 2 * d); j++) f[j] = (*this)[j];\n\
@@ -197,14 +197,14 @@ data:
     \    P ret(*this);\n    ret.resize(deg, T(0));\n    return ret.inv_fast();\n \
     \ }\n  P ret({T(1) / (*this)[0]});\n  for(int i = 1; i < deg; i <<= 1) {\n   \
     \ ret = (ret + ret - ret * ret * pre(i << 1)).pre(i << 1);\n  }\n  return ret.pre(deg);\n\
-    }\n#line 3 \"math/fps/integral.cpp\"\n\n/**\n * @brief Integral $\\int f(x) dx$\n\
-    \ */\ntemplate< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
+    }\n#line 3 \"math/fps/integral.cpp\"\n\n/**\n * @brief Integral ($\\int f(x) dx$)\n\
+    \ */\ntemplate< typename T >\ntypename FormalPowerSeries< T > FormalPowerSeries<\
     \ T >::integral() const {\n  const int n = (int) this->size();\n  P ret(n + 1);\n\
     \  ret[0] = T(0);\n  for(int i = 0; i < n; i++) ret[i + 1] = (*this)[i] / T(i\
     \ + 1);\n  return ret;\n}\n#line 6 \"math/fps/log.cpp\"\n\n/**\n * @brief Log\
-    \ $\\log {f(x)}$\n */\ntemplate< typename T >\ntypename FormalPowerSeries< T >::P\
-    \ FormalPowerSeries< T >::log(int deg) const {\n  assert((*this)[0] == 1);\n \
-    \ const int n = (int) this->size();\n  if(deg == -1) deg = n;\n  return (this->diff()\
+    \ ($\\log {f(x)}$)\n */\ntemplate< typename T >\ntypename FormalPowerSeries< T\
+    \ > FormalPowerSeries< T >::log(int deg) const {\n  assert((*this)[0] == 1);\n\
+    \  const int n = (int) this->size();\n  if(deg == -1) deg = n;\n  return (this->diff()\
     \ * this->inv(deg)).pre(deg - 1).integral();\n}\n#line 9 \"test/verify/yosupo-log-of-formal-power-series.test.cpp\"\
     \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
     \  NumberTheoreticTransformFriendlyModInt< mint > ntt;\n  using FPS = FormalPowerSeries<\
@@ -233,8 +233,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-log-of-formal-power-series.test.cpp
   requiredBy: []
-  timestamp: '2020-10-21 02:08:50+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2020-10-21 02:38:15+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-log-of-formal-power-series.test.cpp
 layout: document

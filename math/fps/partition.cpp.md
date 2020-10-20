@@ -4,60 +4,17 @@ data:
   - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: math/fps/bell.cpp
-    title: math/fps/bell.cpp
   - icon: ':x:'
-    path: math/fps/bellnoulli.cpp
-    title: math/fps/bellnoulli.cpp
-  - icon: ':x:'
-    path: math/fps/exp.cpp
-    title: Exp ($e^{f(x)}$)
-  - icon: ':x:'
-    path: math/fps/log.cpp
-    title: Log ($\log {f(x)}$)
-  - icon: ':x:'
-    path: math/fps/multipoint-evaluation.cpp
-    title: math/fps/multipoint-evaluation.cpp
-  - icon: ':x:'
-    path: math/fps/partition.cpp
-    title: math/fps/partition.cpp
-  - icon: ':x:'
-    path: math/fps/polynomial-interpolation.cpp
-    title: math/fps/polynomial-interpolation.cpp
-  - icon: ':x:'
-    path: math/fps/sqrt.cpp
-    title: Sqrt ($\sqrt {f(x)}$)
+    path: math/fps/inv.cpp
+    title: Inv ($\frac {1} {f(x)}$)
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/verify/yosupo-bellnoulli-number.test.cpp
-    title: test/verify/yosupo-bellnoulli-number.test.cpp
-  - icon: ':x:'
-    path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - icon: ':x:'
-    path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
-  - icon: ':x:'
-    path: test/verify/yosupo-log-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-log-of-formal-power-series.test.cpp
-  - icon: ':x:'
-    path: test/verify/yosupo-multipoint-evaluation.test.cpp
-    title: test/verify/yosupo-multipoint-evaluation.test.cpp
   - icon: ':x:'
     path: test/verify/yosupo-partition-function.test.cpp
     title: test/verify/yosupo-partition-function.test.cpp
-  - icon: ':x:'
-    path: test/verify/yosupo-polynomial-interpolation.test.cpp
-    title: test/verify/yosupo-polynomial-interpolation.test.cpp
-  - icon: ':x:'
-    path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':x:'
   attributes:
-    document_title: Inv ($\frac {1} {f(x)}$)
     links: []
   bundledCode: "#line 2 \"math/fps/formal-power-series.cpp\"\n\n/**\n * @brief Formal-Power-Series(\u5F62\
     \u5F0F\u7684\u51AA\u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeries\
@@ -139,52 +96,32 @@ data:
     \    P ret(*this);\n    ret.resize(deg, T(0));\n    return ret.inv_fast();\n \
     \ }\n  P ret({T(1) / (*this)[0]});\n  for(int i = 1; i < deg; i <<= 1) {\n   \
     \ ret = (ret + ret - ret * ret * pre(i << 1)).pre(i << 1);\n  }\n  return ret.pre(deg);\n\
+    }\n#line 4 \"math/fps/partition.cpp\"\n\ntemplate< typename T >\nFormalPowerSeries<\
+    \ T > partition(int N) {\n  FormalPowerSeries< T > poly(N + 1);\n  poly[0] = 1;\n\
+    \  for(int k = 1; k <= N; k++) {\n    if(1LL * k * (3 * k + 1) / 2 <= N) poly[k\
+    \ * (3 * k + 1) / 2] += (k % 2 ? -1 : 1);\n    if(1LL * k * (3 * k - 1) / 2 <=\
+    \ N) poly[k * (3 * k - 1) / 2] += (k % 2 ? -1 : 1);\n  }\n  return poly.inv();\n\
     }\n"
-  code: "#pragma once\n#include \"formal-power-series.cpp\"\n\n/**\n * @brief Inv\
-    \ ($\\frac {1} {f(x)}$)\n */\ntemplate< typename T >\ntypename FormalPowerSeries<\
-    \ T > FormalPowerSeries< T >::inv_fast() const {\n  assert(((*this)[0]) != T(0));\n\
-    \n  const int n = (int) this->size();\n  P res{T(1) / (*this)[0]};\n\n  for(int\
-    \ d = 1; d < n; d <<= 1) {\n    P f(2 * d), g(2 * d);\n    for(int j = 0; j <\
-    \ min(n, 2 * d); j++) f[j] = (*this)[j];\n    for(int j = 0; j < d; j++) g[j]\
-    \ = res[j];\n    get_fft()(f);\n    get_fft()(g);\n    for(int j = 0; j < 2 *\
-    \ d; j++) f[j] *= g[j];\n    get_ifft()(f);\n    for(int j = 0; j < d; j++) {\n\
-    \      f[j] = 0;\n      f[j + d] = -f[j + d];\n    }\n    get_fft()(f);\n    for(int\
-    \ j = 0; j < 2 * d; j++) f[j] *= g[j];\n    get_ifft()(f);\n    for(int j = 0;\
-    \ j < d; j++) f[j] = res[j];\n    res = f;\n  }\n  return res.pre(n);\n}\n\ntemplate<\
-    \ typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries< T >::inv(int\
-    \ deg) const {\n  assert(((*this)[0]) != T(0));\n  const int n = (int) this->size();\n\
-    \  if(deg == -1) deg = n;\n  if(get_fft() != nullptr) {\n    P ret(*this);\n \
-    \   ret.resize(deg, T(0));\n    return ret.inv_fast();\n  }\n  P ret({T(1) / (*this)[0]});\n\
-    \  for(int i = 1; i < deg; i <<= 1) {\n    ret = (ret + ret - ret * ret * pre(i\
-    \ << 1)).pre(i << 1);\n  }\n  return ret.pre(deg);\n}\n"
+  code: "#pragma once\n#include \"formal-power-series.cpp\"\n#include \"inv.cpp\"\n\
+    \ntemplate< typename T >\nFormalPowerSeries< T > partition(int N) {\n  FormalPowerSeries<\
+    \ T > poly(N + 1);\n  poly[0] = 1;\n  for(int k = 1; k <= N; k++) {\n    if(1LL\
+    \ * k * (3 * k + 1) / 2 <= N) poly[k * (3 * k + 1) / 2] += (k % 2 ? -1 : 1);\n\
+    \    if(1LL * k * (3 * k - 1) / 2 <= N) poly[k * (3 * k - 1) / 2] += (k % 2 ?\
+    \ -1 : 1);\n  }\n  return poly.inv();\n}\n"
   dependsOn:
   - math/fps/formal-power-series.cpp
+  - math/fps/inv.cpp
   isVerificationFile: false
-  path: math/fps/inv.cpp
-  requiredBy:
-  - math/fps/bell.cpp
-  - math/fps/log.cpp
-  - math/fps/exp.cpp
-  - math/fps/partition.cpp
-  - math/fps/sqrt.cpp
-  - math/fps/multipoint-evaluation.cpp
-  - math/fps/bellnoulli.cpp
-  - math/fps/polynomial-interpolation.cpp
+  path: math/fps/partition.cpp
+  requiredBy: []
   timestamp: '2020-10-21 02:38:15+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - test/verify/yosupo-polynomial-interpolation.test.cpp
-  - test/verify/yosupo-log-of-formal-power-series.test.cpp
   - test/verify/yosupo-partition-function.test.cpp
-  - test/verify/yosupo-bellnoulli-number.test.cpp
-  - test/verify/yosupo-multipoint-evaluation.test.cpp
-  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
-documentation_of: math/fps/inv.cpp
+documentation_of: math/fps/partition.cpp
 layout: document
 redirect_from:
-- /library/math/fps/inv.cpp
-- /library/math/fps/inv.cpp.html
-title: Inv ($\frac {1} {f(x)}$)
+- /library/math/fps/partition.cpp
+- /library/math/fps/partition.cpp.html
+title: math/fps/partition.cpp
 ---

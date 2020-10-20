@@ -5,23 +5,32 @@ data:
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
+    path: math/fps/bell.cpp
+    title: math/fps/bell.cpp
+  - icon: ':x:'
     path: math/fps/exp.cpp
-    title: Exp $e^{f(x)}$
-  - icon: ':heavy_check_mark:'
+    title: Exp ($e^{f(x)}$)
+  - icon: ':x:'
     path: math/fps/log.cpp
-    title: Log $\log {f(x)}$
+    title: Log ($\log {f(x)}$)
+  - icon: ':x:'
+    path: math/fps/polynomial-interpolation.cpp
+    title: math/fps/polynomial-interpolation.cpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
     title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-log-of-formal-power-series.test.cpp
     title: test/verify/yosupo-log-of-formal-power-series.test.cpp
+  - icon: ':x:'
+    path: test/verify/yosupo-polynomial-interpolation.test.cpp
+    title: test/verify/yosupo-polynomial-interpolation.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    document_title: Diff $f'(x)$
+    document_title: Diff ($f'(x)$)
     links: []
   bundledCode: "#line 2 \"math/fps/formal-power-series.cpp\"\n\n/**\n * @brief Formal-Power-Series(\u5F62\
     \u5F0F\u7684\u51AA\u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeries\
@@ -87,12 +96,12 @@ data:
     \    };\n    P x(*this), ret{1};\n    while(n > 0) {\n      if(n & 1) {\n    \
     \    ret *= x;\n        ret -= get_div(ret) * mod;\n      }\n      x *= x;\n \
     \     x -= get_div(x) * mod;\n      n >>= 1;\n    }\n    return ret;\n  }\n};\n\
-    #line 3 \"math/fps/diff.cpp\"\n\n/**\n * @brief Diff $f'(x)$\n */\ntemplate< typename\
-    \ T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries< T >::diff() const\
-    \ {\n  const int n = (int) this->size();\n  P ret(max(0, n - 1));\n  for(int i\
-    \ = 1; i < n; i++) ret[i - 1] = (*this)[i] * T(i);\n  return ret;\n}\n"
+    #line 3 \"math/fps/diff.cpp\"\n\n/**\n * @brief Diff ($f'(x)$)\n */\ntemplate<\
+    \ typename T >\ntypename FormalPowerSeries< T > FormalPowerSeries< T >::diff()\
+    \ const {\n  const int n = (int) this->size();\n  P ret(max(0, n - 1));\n  for(int\
+    \ i = 1; i < n; i++) ret[i - 1] = (*this)[i] * T(i);\n  return ret;\n}\n"
   code: "#pragma once\n#include \"formal-power-series.cpp\"\n\n/**\n * @brief Diff\
-    \ $f'(x)$\n */\ntemplate< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
+    \ ($f'(x)$)\n */\ntemplate< typename T >\ntypename FormalPowerSeries< T > FormalPowerSeries<\
     \ T >::diff() const {\n  const int n = (int) this->size();\n  P ret(max(0, n -\
     \ 1));\n  for(int i = 1; i < n; i++) ret[i - 1] = (*this)[i] * T(i);\n  return\
     \ ret;\n}\n"
@@ -101,17 +110,20 @@ data:
   isVerificationFile: false
   path: math/fps/diff.cpp
   requiredBy:
+  - math/fps/bell.cpp
   - math/fps/log.cpp
   - math/fps/exp.cpp
-  timestamp: '2020-10-21 02:08:50+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  - math/fps/polynomial-interpolation.cpp
+  timestamp: '2020-10-21 02:38:15+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp
+  - test/verify/yosupo-polynomial-interpolation.test.cpp
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
 documentation_of: math/fps/diff.cpp
 layout: document
 redirect_from:
 - /library/math/fps/diff.cpp
 - /library/math/fps/diff.cpp.html
-title: Diff $f'(x)$
+title: Diff ($f'(x)$)
 ---

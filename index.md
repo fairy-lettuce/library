@@ -286,10 +286,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-log.cpp
       title: "Mod-Log(\u96E2\u6563\u5BFE\u6570\u554F\u984C)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/combinatorics/mod-pow.cpp
       title: "Mod-Pow(\u3079\u304D\u4E57)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/combinatorics/mod-sqrt.cpp
       title: math/combinatorics/mod-sqrt.cpp
     - icon: ':heavy_check_mark:'
@@ -315,7 +315,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fft/fast-fourier-transform.cpp
       title: math/fft/fast-fourier-transform.cpp
-    - icon: ':question:'
+    - icon: ':x:'
       path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
       title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     - icon: ':heavy_check_mark:'
@@ -323,45 +323,63 @@ data:
       title: math/fft/number-theoretic-transform.cpp
   - name: math/fps
     pages:
+    - icon: ':warning:'
+      path: math/fps/bell.cpp
+      title: math/fps/bell.cpp
+    - icon: ':x:'
+      path: math/fps/bellnoulli.cpp
+      title: math/fps/bellnoulli.cpp
     - icon: ':heavy_check_mark:'
       path: math/fps/berlekamp-massey.cpp
       title: math/fps/berlekamp-massey.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: math/fps/diff.cpp
-      title: Diff $f'(x)$
-    - icon: ':heavy_check_mark:'
+      title: Diff ($f'(x)$)
+    - icon: ':warning:'
+      path: math/fps/eulerian.cpp
+      title: math/fps/eulerian.cpp
+    - icon: ':x:'
       path: math/fps/exp.cpp
-      title: Exp $e^{f(x)}$
+      title: Exp ($e^{f(x)}$)
     - icon: ':warning:'
       path: math/fps/factorial.cpp
       title: math/fps/factorial.cpp
-    - icon: ':x:'
-      path: math/fps/formal-power-series-seq.cpp
-      title: math/fps/formal-power-series-seq.cpp
     - icon: ':question:'
       path: math/fps/formal-power-series.cpp
       title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: math/fps/integral.cpp
-      title: Integral $\int f(x) dx$
-    - icon: ':heavy_check_mark:'
+      title: Integral ($\int f(x) dx$)
+    - icon: ':x:'
       path: math/fps/inv.cpp
-      title: Inv $\frac {1} {f(x)}$
-    - icon: ':heavy_check_mark:'
+      title: Inv ($\frac {1} {f(x)}$)
+    - icon: ':x:'
       path: math/fps/log.cpp
-      title: Log $\log {f(x)}$
+      title: Log ($\log {f(x)}$)
     - icon: ':x:'
       path: math/fps/multipoint-evaluation.cpp
       title: math/fps/multipoint-evaluation.cpp
+    - icon: ':x:'
+      path: math/fps/partition.cpp
+      title: math/fps/partition.cpp
     - icon: ':x:'
       path: math/fps/polynomial-interpolation.cpp
       title: math/fps/polynomial-interpolation.cpp
     - icon: ':heavy_check_mark:'
       path: math/fps/sparse-matrix.cpp
       title: math/fps/sparse-matrix.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: math/fps/sqrt.cpp
-      title: Sqrt $\sqrt {f(x)}$
+      title: Sqrt ($\sqrt {f(x)}$)
+    - icon: ':warning:'
+      path: math/fps/stirling-first.cpp
+      title: math/fps/stirling-first.cpp
+    - icon: ':warning:'
+      path: math/fps/stirling-second-kth-column.cpp
+      title: math/fps/stirling-second-kth-column.cpp
+    - icon: ':warning:'
+      path: math/fps/stirling-second.cpp
+      title: math/fps/stirling-second.cpp
   - name: math/matrix
     pages:
     - icon: ':heavy_check_mark:'
@@ -1087,7 +1105,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-enumerate-triangles.test.cpp
       title: test/verify/yosupo-enumerate-triangles.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
       title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1102,7 +1120,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-general-matching.test.cpp
       title: test/verify/yosupo-general-matching.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
       title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1114,7 +1132,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-line-add-get-min.test.cpp
       title: test/verify/yosupo-line-add-get-min.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-log-of-formal-power-series.test.cpp
       title: test/verify/yosupo-log-of-formal-power-series.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1192,7 +1210,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-sqrt-mod.test.cpp
       title: test/verify/yosupo-sqrt-mod.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
       title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     - icon: ':heavy_check_mark:'

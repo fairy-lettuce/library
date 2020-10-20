@@ -4,60 +4,11 @@ data:
   - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: math/fps/bell.cpp
-    title: math/fps/bell.cpp
-  - icon: ':x:'
-    path: math/fps/bellnoulli.cpp
-    title: math/fps/bellnoulli.cpp
-  - icon: ':x:'
-    path: math/fps/exp.cpp
-    title: Exp ($e^{f(x)}$)
-  - icon: ':x:'
-    path: math/fps/log.cpp
-    title: Log ($\log {f(x)}$)
-  - icon: ':x:'
-    path: math/fps/multipoint-evaluation.cpp
-    title: math/fps/multipoint-evaluation.cpp
-  - icon: ':x:'
-    path: math/fps/partition.cpp
-    title: math/fps/partition.cpp
-  - icon: ':x:'
-    path: math/fps/polynomial-interpolation.cpp
-    title: math/fps/polynomial-interpolation.cpp
-  - icon: ':x:'
-    path: math/fps/sqrt.cpp
-    title: Sqrt ($\sqrt {f(x)}$)
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/verify/yosupo-bellnoulli-number.test.cpp
-    title: test/verify/yosupo-bellnoulli-number.test.cpp
-  - icon: ':x:'
-    path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - icon: ':x:'
-    path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
-  - icon: ':x:'
-    path: test/verify/yosupo-log-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-log-of-formal-power-series.test.cpp
-  - icon: ':x:'
-    path: test/verify/yosupo-multipoint-evaluation.test.cpp
-    title: test/verify/yosupo-multipoint-evaluation.test.cpp
-  - icon: ':x:'
-    path: test/verify/yosupo-partition-function.test.cpp
-    title: test/verify/yosupo-partition-function.test.cpp
-  - icon: ':x:'
-    path: test/verify/yosupo-polynomial-interpolation.test.cpp
-    title: test/verify/yosupo-polynomial-interpolation.test.cpp
-  - icon: ':x:'
-    path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    document_title: Inv ($\frac {1} {f(x)}$)
     links: []
   bundledCode: "#line 2 \"math/fps/formal-power-series.cpp\"\n\n/**\n * @brief Formal-Power-Series(\u5F62\
     \u5F0F\u7684\u51AA\u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeries\
@@ -123,68 +74,34 @@ data:
     \    };\n    P x(*this), ret{1};\n    while(n > 0) {\n      if(n & 1) {\n    \
     \    ret *= x;\n        ret -= get_div(ret) * mod;\n      }\n      x *= x;\n \
     \     x -= get_div(x) * mod;\n      n >>= 1;\n    }\n    return ret;\n  }\n};\n\
-    #line 3 \"math/fps/inv.cpp\"\n\n/**\n * @brief Inv ($\\frac {1} {f(x)}$)\n */\n\
-    template< typename T >\ntypename FormalPowerSeries< T > FormalPowerSeries< T >::inv_fast()\
-    \ const {\n  assert(((*this)[0]) != T(0));\n\n  const int n = (int) this->size();\n\
-    \  P res{T(1) / (*this)[0]};\n\n  for(int d = 1; d < n; d <<= 1) {\n    P f(2\
-    \ * d), g(2 * d);\n    for(int j = 0; j < min(n, 2 * d); j++) f[j] = (*this)[j];\n\
-    \    for(int j = 0; j < d; j++) g[j] = res[j];\n    get_fft()(f);\n    get_fft()(g);\n\
-    \    for(int j = 0; j < 2 * d; j++) f[j] *= g[j];\n    get_ifft()(f);\n    for(int\
-    \ j = 0; j < d; j++) {\n      f[j] = 0;\n      f[j + d] = -f[j + d];\n    }\n\
-    \    get_fft()(f);\n    for(int j = 0; j < 2 * d; j++) f[j] *= g[j];\n    get_ifft()(f);\n\
-    \    for(int j = 0; j < d; j++) f[j] = res[j];\n    res = f;\n  }\n  return res.pre(n);\n\
-    }\n\ntemplate< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
-    \ T >::inv(int deg) const {\n  assert(((*this)[0]) != T(0));\n  const int n =\
-    \ (int) this->size();\n  if(deg == -1) deg = n;\n  if(get_fft() != nullptr) {\n\
-    \    P ret(*this);\n    ret.resize(deg, T(0));\n    return ret.inv_fast();\n \
-    \ }\n  P ret({T(1) / (*this)[0]});\n  for(int i = 1; i < deg; i <<= 1) {\n   \
-    \ ret = (ret + ret - ret * ret * pre(i << 1)).pre(i << 1);\n  }\n  return ret.pre(deg);\n\
-    }\n"
-  code: "#pragma once\n#include \"formal-power-series.cpp\"\n\n/**\n * @brief Inv\
-    \ ($\\frac {1} {f(x)}$)\n */\ntemplate< typename T >\ntypename FormalPowerSeries<\
-    \ T > FormalPowerSeries< T >::inv_fast() const {\n  assert(((*this)[0]) != T(0));\n\
-    \n  const int n = (int) this->size();\n  P res{T(1) / (*this)[0]};\n\n  for(int\
-    \ d = 1; d < n; d <<= 1) {\n    P f(2 * d), g(2 * d);\n    for(int j = 0; j <\
-    \ min(n, 2 * d); j++) f[j] = (*this)[j];\n    for(int j = 0; j < d; j++) g[j]\
-    \ = res[j];\n    get_fft()(f);\n    get_fft()(g);\n    for(int j = 0; j < 2 *\
-    \ d; j++) f[j] *= g[j];\n    get_ifft()(f);\n    for(int j = 0; j < d; j++) {\n\
-    \      f[j] = 0;\n      f[j + d] = -f[j + d];\n    }\n    get_fft()(f);\n    for(int\
-    \ j = 0; j < 2 * d; j++) f[j] *= g[j];\n    get_ifft()(f);\n    for(int j = 0;\
-    \ j < d; j++) f[j] = res[j];\n    res = f;\n  }\n  return res.pre(n);\n}\n\ntemplate<\
-    \ typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries< T >::inv(int\
-    \ deg) const {\n  assert(((*this)[0]) != T(0));\n  const int n = (int) this->size();\n\
-    \  if(deg == -1) deg = n;\n  if(get_fft() != nullptr) {\n    P ret(*this);\n \
-    \   ret.resize(deg, T(0));\n    return ret.inv_fast();\n  }\n  P ret({T(1) / (*this)[0]});\n\
-    \  for(int i = 1; i < deg; i <<= 1) {\n    ret = (ret + ret - ret * ret * pre(i\
-    \ << 1)).pre(i << 1);\n  }\n  return ret.pre(deg);\n}\n"
+    #line 3 \"math/fps/eulerian.cpp\"\n\ntemplate< typename T >\nFormalPowerSeries<\
+    \ T > eulerian(int N) {\n  vector< T > fact(N + 2), rfact(N + 2);\n  fact[0] =\
+    \ rfact[N + 1] = 1;\n  for(int i = 1; i <= N + 1; i++) fact[i] = fact[i - 1] *\
+    \ i;\n  rfact[N + 1] /= fact[N + 1];\n  for(int i = N; i >= 0; i--) rfact[i] =\
+    \ rfact[i + 1] * (i + 1);\n\n  FormalPowerSeries< T > A(N + 1), B(N + 1);\n  for(int\
+    \ i = 0; i <= N; i++) {\n    A[i] = fact[N + 1] * rfact[i] * rfact[N + 1 - i];\n\
+    \    if(i & 1) A[i] *= -1;\n    B[i] = T(i + 1).pow(N);\n  }\n  return (A * B).pre(N\
+    \ + 1);\n}\n"
+  code: "#pragma once\n#include \"formal-power-series.cpp\"\n\ntemplate< typename\
+    \ T >\nFormalPowerSeries< T > eulerian(int N) {\n  vector< T > fact(N + 2), rfact(N\
+    \ + 2);\n  fact[0] = rfact[N + 1] = 1;\n  for(int i = 1; i <= N + 1; i++) fact[i]\
+    \ = fact[i - 1] * i;\n  rfact[N + 1] /= fact[N + 1];\n  for(int i = N; i >= 0;\
+    \ i--) rfact[i] = rfact[i + 1] * (i + 1);\n\n  FormalPowerSeries< T > A(N + 1),\
+    \ B(N + 1);\n  for(int i = 0; i <= N; i++) {\n    A[i] = fact[N + 1] * rfact[i]\
+    \ * rfact[N + 1 - i];\n    if(i & 1) A[i] *= -1;\n    B[i] = T(i + 1).pow(N);\n\
+    \  }\n  return (A * B).pre(N + 1);\n}\n"
   dependsOn:
   - math/fps/formal-power-series.cpp
   isVerificationFile: false
-  path: math/fps/inv.cpp
-  requiredBy:
-  - math/fps/bell.cpp
-  - math/fps/log.cpp
-  - math/fps/exp.cpp
-  - math/fps/partition.cpp
-  - math/fps/sqrt.cpp
-  - math/fps/multipoint-evaluation.cpp
-  - math/fps/bellnoulli.cpp
-  - math/fps/polynomial-interpolation.cpp
+  path: math/fps/eulerian.cpp
+  requiredBy: []
   timestamp: '2020-10-21 02:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - test/verify/yosupo-polynomial-interpolation.test.cpp
-  - test/verify/yosupo-log-of-formal-power-series.test.cpp
-  - test/verify/yosupo-partition-function.test.cpp
-  - test/verify/yosupo-bellnoulli-number.test.cpp
-  - test/verify/yosupo-multipoint-evaluation.test.cpp
-  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
-documentation_of: math/fps/inv.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: math/fps/eulerian.cpp
 layout: document
 redirect_from:
-- /library/math/fps/inv.cpp
-- /library/math/fps/inv.cpp.html
-title: Inv ($\frac {1} {f(x)}$)
+- /library/math/fps/eulerian.cpp
+- /library/math/fps/eulerian.cpp.html
+title: math/fps/eulerian.cpp
 ---
