@@ -3,32 +3,32 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bellnoulli-number.test.cpp
     title: test/verify/yosupo-bellnoulli-number.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
     title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
     title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-log-of-formal-power-series.test.cpp
     title: test/verify/yosupo-log-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-multipoint-evaluation.test.cpp
     title: test/verify/yosupo-multipoint-evaluation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-partition-function.test.cpp
     title: test/verify/yosupo-partition-function.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\
@@ -91,7 +91,7 @@ data:
   path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
   requiredBy: []
   timestamp: '2020-02-24 19:19:55+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp

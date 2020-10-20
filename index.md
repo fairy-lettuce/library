@@ -280,16 +280,16 @@ data:
     - icon: ':warning:'
       path: math/combinatorics/mod-int-2.cpp
       title: math/combinatorics/mod-int-2.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-int.cpp
       title: math/combinatorics/mod-int.cpp
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-log.cpp
       title: "Mod-Log(\u96E2\u6563\u5BFE\u6570\u554F\u984C)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-pow.cpp
       title: "Mod-Pow(\u3079\u304D\u4E57)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-sqrt.cpp
       title: math/combinatorics/mod-sqrt.cpp
     - icon: ':heavy_check_mark:'
@@ -315,7 +315,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fft/fast-fourier-transform.cpp
       title: math/fft/fast-fourier-transform.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
       title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     - icon: ':heavy_check_mark:'
@@ -326,49 +326,49 @@ data:
     - icon: ':warning:'
       path: math/fps/bell.cpp
       title: math/fps/bell.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/bellnoulli.cpp
       title: math/fps/bellnoulli.cpp
     - icon: ':heavy_check_mark:'
       path: math/fps/berlekamp-massey.cpp
       title: math/fps/berlekamp-massey.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/diff.cpp
       title: Diff ($f'(x)$)
     - icon: ':warning:'
       path: math/fps/eulerian.cpp
       title: math/fps/eulerian.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/exp.cpp
       title: Exp ($e^{f(x)}$)
     - icon: ':warning:'
       path: math/fps/factorial.cpp
       title: math/fps/factorial.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/formal-power-series.cpp
       title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/integral.cpp
       title: Integral ($\int f(x) dx$)
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/inv.cpp
       title: Inv ($\frac {1} {f(x)}$)
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/log.cpp
       title: Log ($\log {f(x)}$)
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/multipoint-evaluation.cpp
       title: math/fps/multipoint-evaluation.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/partition.cpp
       title: math/fps/partition.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/polynomial-interpolation.cpp
       title: math/fps/polynomial-interpolation.cpp
     - icon: ':heavy_check_mark:'
       path: math/fps/sparse-matrix.cpp
       title: math/fps/sparse-matrix.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/sqrt.cpp
       title: Sqrt ($\sqrt {f(x)}$)
     - icon: ':warning:'
@@ -704,7 +704,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -1057,7 +1057,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-ntl-1-e.test.cpp
       title: test/verify/aoj-ntl-1-e.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-bellnoulli-number.test.cpp
       title: test/verify/yosupo-bellnoulli-number.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1105,7 +1105,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-enumerate-triangles.test.cpp
       title: test/verify/yosupo-enumerate-triangles.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
       title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1120,7 +1120,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-general-matching.test.cpp
       title: test/verify/yosupo-general-matching.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
       title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1132,7 +1132,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-line-add-get-min.test.cpp
       title: test/verify/yosupo-line-add-get-min.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-log-of-formal-power-series.test.cpp
       title: test/verify/yosupo-log-of-formal-power-series.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1147,10 +1147,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-montmort-number-mod.test.cpp
       title: test/verify/yosupo-montmort-number-mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-multipoint-evaluation.test.cpp
       title: test/verify/yosupo-multipoint-evaluation.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-partition-function.test.cpp
       title: test/verify/yosupo-partition-function.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1168,7 +1168,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-point-set-range-composite.test.cpp
       title: test/verify/yosupo-point-set-range-composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-polynomial-interpolation.test.cpp
       title: test/verify/yosupo-polynomial-interpolation.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1210,7 +1210,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-sqrt-mod.test.cpp
       title: test/verify/yosupo-sqrt-mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
       title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     - icon: ':heavy_check_mark:'

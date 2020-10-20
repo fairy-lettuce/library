@@ -1,28 +1,28 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy:
   - icon: ':warning:'
     path: math/fps/bell.cpp
     title: math/fps/bell.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/exp.cpp
     title: Exp ($e^{f(x)}$)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/log.cpp
     title: Log ($\log {f(x)}$)
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
     title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-log-of-formal-power-series.test.cpp
     title: test/verify/yosupo-log-of-formal-power-series.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Integral ($\int f(x) dx$)
     links: []
@@ -91,13 +91,13 @@ data:
     \    ret *= x;\n        ret -= get_div(ret) * mod;\n      }\n      x *= x;\n \
     \     x -= get_div(x) * mod;\n      n >>= 1;\n    }\n    return ret;\n  }\n};\n\
     #line 3 \"math/fps/integral.cpp\"\n\n/**\n * @brief Integral ($\\int f(x) dx$)\n\
-    \ */\ntemplate< typename T >\ntypename FormalPowerSeries< T > FormalPowerSeries<\
+    \ */\ntemplate< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
     \ T >::integral() const {\n  const int n = (int) this->size();\n  P ret(n + 1);\n\
     \  ret[0] = T(0);\n  for(int i = 0; i < n; i++) ret[i + 1] = (*this)[i] / T(i\
     \ + 1);\n  return ret;\n}\n"
   code: "#pragma once\n#include \"formal-power-series.cpp\"\n\n/**\n * @brief Integral\
     \ ($\\int f(x) dx$)\n */\ntemplate< typename T >\ntypename FormalPowerSeries<\
-    \ T > FormalPowerSeries< T >::integral() const {\n  const int n = (int) this->size();\n\
+    \ T >::P FormalPowerSeries< T >::integral() const {\n  const int n = (int) this->size();\n\
     \  P ret(n + 1);\n  ret[0] = T(0);\n  for(int i = 0; i < n; i++) ret[i + 1] =\
     \ (*this)[i] / T(i + 1);\n  return ret;\n}\n"
   dependsOn:
@@ -108,8 +108,8 @@ data:
   - math/fps/bell.cpp
   - math/fps/log.cpp
   - math/fps/exp.cpp
-  timestamp: '2020-10-21 02:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2020-10-21 02:45:34+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp
   - test/verify/yosupo-log-of-formal-power-series.test.cpp

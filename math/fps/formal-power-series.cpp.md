@@ -5,37 +5,37 @@ data:
   - icon: ':warning:'
     path: math/fps/bell.cpp
     title: math/fps/bell.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/bellnoulli.cpp
     title: math/fps/bellnoulli.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/diff.cpp
     title: Diff ($f'(x)$)
   - icon: ':warning:'
     path: math/fps/eulerian.cpp
     title: math/fps/eulerian.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/exp.cpp
     title: Exp ($e^{f(x)}$)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/integral.cpp
     title: Integral ($\int f(x) dx$)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/inv.cpp
     title: Inv ($\frac {1} {f(x)}$)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/log.cpp
     title: Log ($\log {f(x)}$)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/multipoint-evaluation.cpp
     title: math/fps/multipoint-evaluation.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/partition.cpp
     title: math/fps/partition.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/polynomial-interpolation.cpp
     title: math/fps/polynomial-interpolation.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/sqrt.cpp
     title: Sqrt ($\sqrt {f(x)}$)
   - icon: ':warning:'
@@ -48,38 +48,38 @@ data:
     path: math/fps/stirling-second.cpp
     title: math/fps/stirling-second.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bellnoulli-number.test.cpp
     title: test/verify/yosupo-bellnoulli-number.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
     title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-find-linear-recurrence.test.cpp
     title: test/verify/yosupo-find-linear-recurrence.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
     title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-log-of-formal-power-series.test.cpp
     title: test/verify/yosupo-log-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-multipoint-evaluation.test.cpp
     title: test/verify/yosupo-multipoint-evaluation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-partition-function.test.cpp
     title: test/verify/yosupo-partition-function.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sparse-matrix-det.test.cpp
     title: test/verify/yosupo-sparse-matrix-det.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links: []
@@ -231,7 +231,7 @@ data:
   - math/fps/polynomial-interpolation.cpp
   - math/fps/diff.cpp
   timestamp: '2020-10-21 02:08:50+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp

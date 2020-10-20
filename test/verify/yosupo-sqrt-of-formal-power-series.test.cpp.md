@@ -1,34 +1,34 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-pow.cpp
     title: "Mod-Pow(\u3079\u304D\u4E57)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-sqrt.cpp
     title: math/combinatorics/mod-sqrt.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/inv.cpp
     title: Inv ($\frac {1} {f(x)}$)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/sqrt.cpp
     title: Sqrt ($\sqrt {f(x)}$)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sqrt_of_formal_power_series
@@ -191,34 +191,35 @@ data:
     \    ret *= x;\n        ret -= get_div(ret) * mod;\n      }\n      x *= x;\n \
     \     x -= get_div(x) * mod;\n      n >>= 1;\n    }\n    return ret;\n  }\n};\n\
     #line 3 \"math/fps/inv.cpp\"\n\n/**\n * @brief Inv ($\\frac {1} {f(x)}$)\n */\n\
-    template< typename T >\ntypename FormalPowerSeries< T > FormalPowerSeries< T >::inv_fast()\
-    \ const {\n  assert(((*this)[0]) != T(0));\n\n  const int n = (int) this->size();\n\
-    \  P res{T(1) / (*this)[0]};\n\n  for(int d = 1; d < n; d <<= 1) {\n    P f(2\
-    \ * d), g(2 * d);\n    for(int j = 0; j < min(n, 2 * d); j++) f[j] = (*this)[j];\n\
-    \    for(int j = 0; j < d; j++) g[j] = res[j];\n    get_fft()(f);\n    get_fft()(g);\n\
-    \    for(int j = 0; j < 2 * d; j++) f[j] *= g[j];\n    get_ifft()(f);\n    for(int\
-    \ j = 0; j < d; j++) {\n      f[j] = 0;\n      f[j + d] = -f[j + d];\n    }\n\
-    \    get_fft()(f);\n    for(int j = 0; j < 2 * d; j++) f[j] *= g[j];\n    get_ifft()(f);\n\
-    \    for(int j = 0; j < d; j++) f[j] = res[j];\n    res = f;\n  }\n  return res.pre(n);\n\
-    }\n\ntemplate< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
-    \ T >::inv(int deg) const {\n  assert(((*this)[0]) != T(0));\n  const int n =\
-    \ (int) this->size();\n  if(deg == -1) deg = n;\n  if(get_fft() != nullptr) {\n\
-    \    P ret(*this);\n    ret.resize(deg, T(0));\n    return ret.inv_fast();\n \
-    \ }\n  P ret({T(1) / (*this)[0]});\n  for(int i = 1; i < deg; i <<= 1) {\n   \
-    \ ret = (ret + ret - ret * ret * pre(i << 1)).pre(i << 1);\n  }\n  return ret.pre(deg);\n\
-    }\n#line 4 \"math/fps/sqrt.cpp\"\n\n/**\n * @brief Sqrt ($\\sqrt {f(x)}$)\n */\n\
-    template< typename T >\ntypename FormalPowerSeries< T > FormalPowerSeries< T >::sqrt(int\
-    \ deg) const {\n  const int n = (int) this->size();\n  if(deg == -1) deg = n;\n\
-    \  if((*this)[0] == T(0)) {\n    for(int i = 1; i < n; i++) {\n      if((*this)[i]\
-    \ != T(0)) {\n        if(i & 1) return {};\n        if(deg - i / 2 <= 0) break;\n\
-    \        auto ret = (*this >> i).sqrt(deg - i / 2);\n        if(ret.empty()) return\
-    \ {};\n        ret = ret << (i / 2);\n        if(ret.size() < deg) ret.resize(deg,\
-    \ T(0));\n        return ret;\n      }\n    }\n    return P(deg, 0);\n  }\n\n\
-    \  P ret;\n  if(get_sqrt() == nullptr) {\n    assert((*this)[0] == T(1));\n  \
-    \  ret = {T(1)};\n  } else {\n    auto sqr = get_sqrt()((*this)[0]);\n    if(sqr\
-    \ * sqr != (*this)[0]) return {};\n    ret = {T(sqr)};\n  }\n\n  T inv2 = T(1)\
-    \ / T(2);\n  for(int i = 1; i < deg; i <<= 1) {\n    ret = (ret + pre(i << 1)\
-    \ * ret.inv(i << 1)) * inv2;\n  }\n  return ret.pre(deg);\n}\n#line 12 \"test/verify/yosupo-sqrt-of-formal-power-series.test.cpp\"\
+    template< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
+    \ T >::inv_fast() const {\n  assert(((*this)[0]) != T(0));\n\n  const int n =\
+    \ (int) this->size();\n  P res{T(1) / (*this)[0]};\n\n  for(int d = 1; d < n;\
+    \ d <<= 1) {\n    P f(2 * d), g(2 * d);\n    for(int j = 0; j < min(n, 2 * d);\
+    \ j++) f[j] = (*this)[j];\n    for(int j = 0; j < d; j++) g[j] = res[j];\n   \
+    \ get_fft()(f);\n    get_fft()(g);\n    for(int j = 0; j < 2 * d; j++) f[j] *=\
+    \ g[j];\n    get_ifft()(f);\n    for(int j = 0; j < d; j++) {\n      f[j] = 0;\n\
+    \      f[j + d] = -f[j + d];\n    }\n    get_fft()(f);\n    for(int j = 0; j <\
+    \ 2 * d; j++) f[j] *= g[j];\n    get_ifft()(f);\n    for(int j = 0; j < d; j++)\
+    \ f[j] = res[j];\n    res = f;\n  }\n  return res.pre(n);\n}\n\ntemplate< typename\
+    \ T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries< T >::inv(int deg)\
+    \ const {\n  assert(((*this)[0]) != T(0));\n  const int n = (int) this->size();\n\
+    \  if(deg == -1) deg = n;\n  if(get_fft() != nullptr) {\n    P ret(*this);\n \
+    \   ret.resize(deg, T(0));\n    return ret.inv_fast();\n  }\n  P ret({T(1) / (*this)[0]});\n\
+    \  for(int i = 1; i < deg; i <<= 1) {\n    ret = (ret + ret - ret * ret * pre(i\
+    \ << 1)).pre(i << 1);\n  }\n  return ret.pre(deg);\n}\n#line 4 \"math/fps/sqrt.cpp\"\
+    \n\n/**\n * @brief Sqrt ($\\sqrt {f(x)}$)\n */\ntemplate< typename T >\ntypename\
+    \ FormalPowerSeries< T >::P FormalPowerSeries< T >::sqrt(int deg) const {\n  const\
+    \ int n = (int) this->size();\n  if(deg == -1) deg = n;\n  if((*this)[0] == T(0))\
+    \ {\n    for(int i = 1; i < n; i++) {\n      if((*this)[i] != T(0)) {\n      \
+    \  if(i & 1) return {};\n        if(deg - i / 2 <= 0) break;\n        auto ret\
+    \ = (*this >> i).sqrt(deg - i / 2);\n        if(ret.empty()) return {};\n    \
+    \    ret = ret << (i / 2);\n        if(ret.size() < deg) ret.resize(deg, T(0));\n\
+    \        return ret;\n      }\n    }\n    return P(deg, 0);\n  }\n\n  P ret;\n\
+    \  if(get_sqrt() == nullptr) {\n    assert((*this)[0] == T(1));\n    ret = {T(1)};\n\
+    \  } else {\n    auto sqr = get_sqrt()((*this)[0]);\n    if(sqr * sqr != (*this)[0])\
+    \ return {};\n    ret = {T(sqr)};\n  }\n\n  T inv2 = T(1) / T(2);\n  for(int i\
+    \ = 1; i < deg; i <<= 1) {\n    ret = (ret + pre(i << 1) * ret.inv(i << 1)) *\
+    \ inv2;\n  }\n  return ret.pre(deg);\n}\n#line 12 \"test/verify/yosupo-sqrt-of-formal-power-series.test.cpp\"\
     \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
     \  NumberTheoreticTransformFriendlyModInt< mint > ntt;\n  using FPS = FormalPowerSeries<\
     \ mint >;\n  FPS::set_mult([&](const FPS& a, const FPS& b) { return ntt.multiply(a,\
@@ -250,8 +251,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   requiredBy: []
-  timestamp: '2020-10-21 02:38:15+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2020-10-21 02:45:34+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
 layout: document

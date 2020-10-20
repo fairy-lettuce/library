@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/diff.cpp
     title: Diff ($f'(x)$)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/integral.cpp
     title: Integral ($\int f(x) dx$)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/inv.cpp
     title: Inv ($\frac {1} {f(x)}$)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/log.cpp
     title: Log ($\log {f(x)}$)
   _extendedRequiredBy:
@@ -21,11 +21,11 @@ data:
     path: math/fps/bell.cpp
     title: math/fps/bell.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
     title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Exp ($e^{f(x)}$)
     links: []
@@ -94,11 +94,11 @@ data:
     \    ret *= x;\n        ret -= get_div(ret) * mod;\n      }\n      x *= x;\n \
     \     x -= get_div(x) * mod;\n      n >>= 1;\n    }\n    return ret;\n  }\n};\n\
     #line 3 \"math/fps/diff.cpp\"\n\n/**\n * @brief Diff ($f'(x)$)\n */\ntemplate<\
-    \ typename T >\ntypename FormalPowerSeries< T > FormalPowerSeries< T >::diff()\
+    \ typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries< T >::diff()\
     \ const {\n  const int n = (int) this->size();\n  P ret(max(0, n - 1));\n  for(int\
     \ i = 1; i < n; i++) ret[i - 1] = (*this)[i] * T(i);\n  return ret;\n}\n#line\
     \ 3 \"math/fps/inv.cpp\"\n\n/**\n * @brief Inv ($\\frac {1} {f(x)}$)\n */\ntemplate<\
-    \ typename T >\ntypename FormalPowerSeries< T > FormalPowerSeries< T >::inv_fast()\
+    \ typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries< T >::inv_fast()\
     \ const {\n  assert(((*this)[0]) != T(0));\n\n  const int n = (int) this->size();\n\
     \  P res{T(1) / (*this)[0]};\n\n  for(int d = 1; d < n; d <<= 1) {\n    P f(2\
     \ * d), g(2 * d);\n    for(int j = 0; j < min(n, 2 * d); j++) f[j] = (*this)[j];\n\
@@ -114,17 +114,17 @@ data:
     \ }\n  P ret({T(1) / (*this)[0]});\n  for(int i = 1; i < deg; i <<= 1) {\n   \
     \ ret = (ret + ret - ret * ret * pre(i << 1)).pre(i << 1);\n  }\n  return ret.pre(deg);\n\
     }\n#line 3 \"math/fps/integral.cpp\"\n\n/**\n * @brief Integral ($\\int f(x) dx$)\n\
-    \ */\ntemplate< typename T >\ntypename FormalPowerSeries< T > FormalPowerSeries<\
+    \ */\ntemplate< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
     \ T >::integral() const {\n  const int n = (int) this->size();\n  P ret(n + 1);\n\
     \  ret[0] = T(0);\n  for(int i = 0; i < n; i++) ret[i + 1] = (*this)[i] / T(i\
     \ + 1);\n  return ret;\n}\n#line 6 \"math/fps/log.cpp\"\n\n/**\n * @brief Log\
     \ ($\\log {f(x)}$)\n */\ntemplate< typename T >\ntypename FormalPowerSeries< T\
-    \ > FormalPowerSeries< T >::log(int deg) const {\n  assert((*this)[0] == 1);\n\
+    \ >::P FormalPowerSeries< T >::log(int deg) const {\n  assert((*this)[0] == 1);\n\
     \  const int n = (int) this->size();\n  if(deg == -1) deg = n;\n  return (this->diff()\
     \ * this->inv(deg)).pre(deg - 1).integral();\n}\n#line 5 \"math/fps/exp.cpp\"\n\
     \n/**\n * @brief Exp ($e^{f(x)}$)\n */\ntemplate< typename T >\ntypename FormalPowerSeries<\
-    \ T > FormalPowerSeries< T >::exp_fast(int deg) const {\n  if(deg == -1) deg =\
-    \ this->size();\n  assert((*this)[0] == T(0));\n\n  P inv;\n  inv.reserve(deg\
+    \ T >::P FormalPowerSeries< T >::exp_fast(int deg) const {\n  if(deg == -1) deg\
+    \ = this->size();\n  assert((*this)[0] == T(0));\n\n  P inv;\n  inv.reserve(deg\
     \ + 1);\n  inv.push_back(T(0));\n  inv.push_back(T(1));\n\n  auto inplace_integral\
     \ = [&](P &F) -> void {\n    const int n = (int) F.size();\n    auto mod = T::get_mod();\n\
     \    while((int) inv.size() <= n) {\n      int i = inv.size();\n      inv.push_back((-inv[mod\
@@ -156,8 +156,8 @@ data:
     \ ret.log(i << 1))).pre(i << 1);\n  }\n  return ret.pre(deg);\n}\n"
   code: "#pragma once\n#include \"formal-power-series.cpp\"\n#include \"diff.cpp\"\
     \n#include \"log.cpp\"\n\n/**\n * @brief Exp ($e^{f(x)}$)\n */\ntemplate< typename\
-    \ T >\ntypename FormalPowerSeries< T > FormalPowerSeries< T >::exp_fast(int deg)\
-    \ const {\n  if(deg == -1) deg = this->size();\n  assert((*this)[0] == T(0));\n\
+    \ T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries< T >::exp_fast(int\
+    \ deg) const {\n  if(deg == -1) deg = this->size();\n  assert((*this)[0] == T(0));\n\
     \n  P inv;\n  inv.reserve(deg + 1);\n  inv.push_back(T(0));\n  inv.push_back(T(1));\n\
     \n  auto inplace_integral = [&](P &F) -> void {\n    const int n = (int) F.size();\n\
     \    auto mod = T::get_mod();\n    while((int) inv.size() <= n) {\n      int i\
@@ -197,8 +197,8 @@ data:
   path: math/fps/exp.cpp
   requiredBy:
   - math/fps/bell.cpp
-  timestamp: '2020-10-21 02:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2020-10-21 02:45:34+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp
 documentation_of: math/fps/exp.cpp

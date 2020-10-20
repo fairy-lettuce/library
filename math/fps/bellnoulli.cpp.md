@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/inv.cpp
     title: Inv ($\frac {1} {f(x)}$)
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bellnoulli-number.test.cpp
     title: test/verify/yosupo-bellnoulli-number.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/fps/formal-power-series.cpp\"\n\n/**\n * @brief Formal-Power-Series(\u5F62\
@@ -81,26 +81,27 @@ data:
     \    ret *= x;\n        ret -= get_div(ret) * mod;\n      }\n      x *= x;\n \
     \     x -= get_div(x) * mod;\n      n >>= 1;\n    }\n    return ret;\n  }\n};\n\
     #line 3 \"math/fps/inv.cpp\"\n\n/**\n * @brief Inv ($\\frac {1} {f(x)}$)\n */\n\
-    template< typename T >\ntypename FormalPowerSeries< T > FormalPowerSeries< T >::inv_fast()\
-    \ const {\n  assert(((*this)[0]) != T(0));\n\n  const int n = (int) this->size();\n\
-    \  P res{T(1) / (*this)[0]};\n\n  for(int d = 1; d < n; d <<= 1) {\n    P f(2\
-    \ * d), g(2 * d);\n    for(int j = 0; j < min(n, 2 * d); j++) f[j] = (*this)[j];\n\
-    \    for(int j = 0; j < d; j++) g[j] = res[j];\n    get_fft()(f);\n    get_fft()(g);\n\
-    \    for(int j = 0; j < 2 * d; j++) f[j] *= g[j];\n    get_ifft()(f);\n    for(int\
-    \ j = 0; j < d; j++) {\n      f[j] = 0;\n      f[j + d] = -f[j + d];\n    }\n\
-    \    get_fft()(f);\n    for(int j = 0; j < 2 * d; j++) f[j] *= g[j];\n    get_ifft()(f);\n\
-    \    for(int j = 0; j < d; j++) f[j] = res[j];\n    res = f;\n  }\n  return res.pre(n);\n\
-    }\n\ntemplate< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
-    \ T >::inv(int deg) const {\n  assert(((*this)[0]) != T(0));\n  const int n =\
-    \ (int) this->size();\n  if(deg == -1) deg = n;\n  if(get_fft() != nullptr) {\n\
-    \    P ret(*this);\n    ret.resize(deg, T(0));\n    return ret.inv_fast();\n \
-    \ }\n  P ret({T(1) / (*this)[0]});\n  for(int i = 1; i < deg; i <<= 1) {\n   \
-    \ ret = (ret + ret - ret * ret * pre(i << 1)).pre(i << 1);\n  }\n  return ret.pre(deg);\n\
-    }\n#line 4 \"math/fps/bellnoulli.cpp\"\n\ntemplate< typename T >\nFormalPowerSeries<\
-    \ T > bellnoulli(int N) {\n  FormalPowerSeries< T > poly(N + 1);\n  poly[0] =\
-    \ T(1);\n  for(int i = 1; i <= N; i++) {\n    poly[i] = poly[i - 1] / T(i + 1);\n\
-    \  }\n  poly = poly.inv();\n  T tmp(1);\n  for(int i = 1; i <= N; i++) {\n   \
-    \ tmp *= T(i);\n    poly[i] *= tmp;\n  }\n  return poly;\n}\n"
+    template< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
+    \ T >::inv_fast() const {\n  assert(((*this)[0]) != T(0));\n\n  const int n =\
+    \ (int) this->size();\n  P res{T(1) / (*this)[0]};\n\n  for(int d = 1; d < n;\
+    \ d <<= 1) {\n    P f(2 * d), g(2 * d);\n    for(int j = 0; j < min(n, 2 * d);\
+    \ j++) f[j] = (*this)[j];\n    for(int j = 0; j < d; j++) g[j] = res[j];\n   \
+    \ get_fft()(f);\n    get_fft()(g);\n    for(int j = 0; j < 2 * d; j++) f[j] *=\
+    \ g[j];\n    get_ifft()(f);\n    for(int j = 0; j < d; j++) {\n      f[j] = 0;\n\
+    \      f[j + d] = -f[j + d];\n    }\n    get_fft()(f);\n    for(int j = 0; j <\
+    \ 2 * d; j++) f[j] *= g[j];\n    get_ifft()(f);\n    for(int j = 0; j < d; j++)\
+    \ f[j] = res[j];\n    res = f;\n  }\n  return res.pre(n);\n}\n\ntemplate< typename\
+    \ T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries< T >::inv(int deg)\
+    \ const {\n  assert(((*this)[0]) != T(0));\n  const int n = (int) this->size();\n\
+    \  if(deg == -1) deg = n;\n  if(get_fft() != nullptr) {\n    P ret(*this);\n \
+    \   ret.resize(deg, T(0));\n    return ret.inv_fast();\n  }\n  P ret({T(1) / (*this)[0]});\n\
+    \  for(int i = 1; i < deg; i <<= 1) {\n    ret = (ret + ret - ret * ret * pre(i\
+    \ << 1)).pre(i << 1);\n  }\n  return ret.pre(deg);\n}\n#line 4 \"math/fps/bellnoulli.cpp\"\
+    \n\ntemplate< typename T >\nFormalPowerSeries< T > bellnoulli(int N) {\n  FormalPowerSeries<\
+    \ T > poly(N + 1);\n  poly[0] = T(1);\n  for(int i = 1; i <= N; i++) {\n    poly[i]\
+    \ = poly[i - 1] / T(i + 1);\n  }\n  poly = poly.inv();\n  T tmp(1);\n  for(int\
+    \ i = 1; i <= N; i++) {\n    tmp *= T(i);\n    poly[i] *= tmp;\n  }\n  return\
+    \ poly;\n}\n"
   code: "#pragma once\n#include \"formal-power-series.cpp\"\n#include \"inv.cpp\"\n\
     \ntemplate< typename T >\nFormalPowerSeries< T > bellnoulli(int N) {\n  FormalPowerSeries<\
     \ T > poly(N + 1);\n  poly[0] = T(1);\n  for(int i = 1; i <= N; i++) {\n    poly[i]\
@@ -113,8 +114,8 @@ data:
   isVerificationFile: false
   path: math/fps/bellnoulli.cpp
   requiredBy: []
-  timestamp: '2020-10-21 02:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2020-10-21 02:45:34+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-bellnoulli-number.test.cpp
 documentation_of: math/fps/bellnoulli.cpp
