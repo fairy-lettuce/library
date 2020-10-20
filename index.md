@@ -280,7 +280,7 @@ data:
     - icon: ':warning:'
       path: math/combinatorics/mod-int-2.cpp
       title: math/combinatorics/mod-int-2.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/combinatorics/mod-int.cpp
       title: math/combinatorics/mod-int.cpp
     - icon: ':heavy_check_mark:'
@@ -315,7 +315,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fft/fast-fourier-transform.cpp
       title: math/fft/fast-fourier-transform.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
       title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     - icon: ':heavy_check_mark:'
@@ -326,24 +326,42 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/berlekamp-massey.cpp
       title: math/fps/berlekamp-massey.cpp
+    - icon: ':heavy_check_mark:'
+      path: math/fps/diff.cpp
+      title: Diff $f'(x)$
+    - icon: ':heavy_check_mark:'
+      path: math/fps/exp.cpp
+      title: Exp $e^{f(x)}$
     - icon: ':warning:'
       path: math/fps/factorial.cpp
       title: math/fps/factorial.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: math/fps/formal-power-series-seq.cpp
       title: math/fps/formal-power-series-seq.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/fps/formal-power-series.cpp
       title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     - icon: ':heavy_check_mark:'
+      path: math/fps/integral.cpp
+      title: Integral $\int f(x) dx$
+    - icon: ':heavy_check_mark:'
+      path: math/fps/inv.cpp
+      title: Inv $\frac {1} {f(x)}$
+    - icon: ':heavy_check_mark:'
+      path: math/fps/log.cpp
+      title: Log $\log {f(x)}$
+    - icon: ':x:'
       path: math/fps/multipoint-evaluation.cpp
       title: math/fps/multipoint-evaluation.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: math/fps/polynomial-interpolation.cpp
       title: math/fps/polynomial-interpolation.cpp
     - icon: ':heavy_check_mark:'
       path: math/fps/sparse-matrix.cpp
       title: math/fps/sparse-matrix.cpp
+    - icon: ':heavy_check_mark:'
+      path: math/fps/sqrt.cpp
+      title: Sqrt $\sqrt {f(x)}$
   - name: math/matrix
     pages:
     - icon: ':heavy_check_mark:'
@@ -668,7 +686,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -1021,7 +1039,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-ntl-1-e.test.cpp
       title: test/verify/aoj-ntl-1-e.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-bellnoulli-number.test.cpp
       title: test/verify/yosupo-bellnoulli-number.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1111,10 +1129,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-montmort-number-mod.test.cpp
       title: test/verify/yosupo-montmort-number-mod.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-multipoint-evaluation.test.cpp
       title: test/verify/yosupo-multipoint-evaluation.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-partition-function.test.cpp
       title: test/verify/yosupo-partition-function.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1132,7 +1150,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-point-set-range-composite.test.cpp
       title: test/verify/yosupo-point-set-range-composite.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-polynomial-interpolation.test.cpp
       title: test/verify/yosupo-polynomial-interpolation.test.cpp
     - icon: ':heavy_check_mark:'
