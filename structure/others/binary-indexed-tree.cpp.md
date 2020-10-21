@@ -60,8 +60,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-static-range-inversions-query.test.cpp
-  - test/verify/aoj-dsl-2-b.test.cpp
   - test/verify/yosupo-point-add-rectangle-sum.test.cpp
+  - test/verify/aoj-dsl-2-b.test.cpp
 documentation_of: structure/others/binary-indexed-tree.cpp
 layout: document
 redirect_from:

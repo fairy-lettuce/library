@@ -74,22 +74,10 @@ data:
     \ must not be 0\n  P inv_fast() const;\n\n  P inv(int deg = -1) const;\n\n  //\
     \ F(0) must be 1\n  P log(int deg = -1) const;\n\n  P sqrt(int deg = -1) const;\n\
     \  \n  // F(0) must be 0\n  P exp_fast(int deg = -1) const;\n\n  P exp(int deg\
-    \ = -1) const;\n\n  P pow(int64_t k, int deg = -1) const {\n    const int n =\
-    \ (int) this->size();\n    if(deg == -1) deg = n;\n    for(int i = 0; i < n; i++)\
-    \ {\n      if((*this)[i] != T(0)) {\n        T rev = T(1) / (*this)[i];\n    \
-    \    P ret = (((*this * rev) >> i).log() * k).exp() * ((*this)[i].pow(k));\n \
-    \       if(i * k > deg) return P(deg, T(0));\n        ret = (ret << (i * k)).pre(deg);\n\
-    \        if(ret.size() < deg) ret.resize(deg, T(0));\n        return ret;\n  \
-    \    }\n    }\n    return *this;\n  }\n\n  T eval(T x) const {\n    T r = 0, w\
-    \ = 1;\n    for(auto &v : *this) {\n      r += w * v;\n      w *= x;\n    }\n\
-    \    return r;\n  }\n\n  P pow_mod(int64_t n, P mod) const {\n    P modinv = mod.rev().inv();\n\
-    \    auto get_div = [&](P base) {\n      if(base.size() < mod.size()) {\n    \
-    \    base.clear();\n        return base;\n      }\n      int n = base.size() -\
-    \ mod.size() + 1;\n      return (base.rev().pre(n) * modinv.pre(n)).pre(n).rev(n);\n\
-    \    };\n    P x(*this), ret{1};\n    while(n > 0) {\n      if(n & 1) {\n    \
-    \    ret *= x;\n        ret -= get_div(ret) * mod;\n      }\n      x *= x;\n \
-    \     x -= get_div(x) * mod;\n      n >>= 1;\n    }\n    return ret;\n  }\n};\n\
-    #line 3 \"math/fps/diff.cpp\"\n\n/**\n * @brief Diff ($f'(x)$)\n */\ntemplate<\
+    \ = -1) const;\n\n  P pow(int64_t k, int deg = -1) const;\n\n  T eval(T x) const\
+    \ {\n    T r = 0, w = 1;\n    for(auto &v : *this) {\n      r += w * v;\n    \
+    \  w *= x;\n    }\n    return r;\n  }\n  \n  P mod_pow(int64_t k, P g) const;\n\
+    };\n#line 3 \"math/fps/diff.cpp\"\n\n/**\n * @brief Diff ($f'(x)$)\n */\ntemplate<\
     \ typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries< T >::diff()\
     \ const {\n  const int n = (int) this->size();\n  P ret(max(0, n - 1));\n  for(int\
     \ i = 1; i < n; i++) ret[i - 1] = (*this)[i] * T(i);\n  return ret;\n}\n#line\
@@ -169,7 +157,7 @@ data:
   isVerificationFile: false
   path: math/fps/bell.cpp
   requiredBy: []
-  timestamp: '2020-10-21 02:45:34+09:00'
+  timestamp: '2020-10-21 13:35:10+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/fps/bell.cpp

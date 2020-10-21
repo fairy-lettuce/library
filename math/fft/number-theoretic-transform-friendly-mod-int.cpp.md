@@ -93,14 +93,14 @@ data:
   timestamp: '2020-02-24 19:19:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+  - test/verify/yosupo-multipoint-evaluation.test.cpp
   - test/verify/yosupo-polynomial-interpolation.test.cpp
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
+  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
+  - test/verify/yosupo-exp-of-formal-power-series.test.cpp
   - test/verify/yosupo-partition-function.test.cpp
   - test/verify/yosupo-bellnoulli-number.test.cpp
-  - test/verify/yosupo-multipoint-evaluation.test.cpp
-  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
+  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
 documentation_of: math/fft/number-theoretic-transform-friendly-mod-int.cpp
 layout: document
 redirect_from:

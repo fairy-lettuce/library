@@ -82,8 +82,8 @@ data:
   timestamp: '2020-09-15 01:41:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-two-edge-connected-components-2.test.cpp
   - test/verify/yosupo-three-edge-connected-components.test.cpp
+  - test/verify/yosupo-two-edge-connected-components-2.test.cpp
 documentation_of: graph/connected-components/incremental-bridge-connectivity.cpp
 layout: document
 redirect_from:

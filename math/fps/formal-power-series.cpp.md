@@ -26,6 +26,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/log.cpp
     title: Log ($\log {f(x)}$)
+  - icon: ':warning:'
+    path: math/fps/mod-pow.cpp
+    title: Mod-Pow ($f(x)^k \bmod g$)
   - icon: ':heavy_check_mark:'
     path: math/fps/multipoint-evaluation.cpp
     title: math/fps/multipoint-evaluation.cpp
@@ -35,6 +38,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/polynomial-interpolation.cpp
     title: math/fps/polynomial-interpolation.cpp
+  - icon: ':warning:'
+    path: math/fps/pow.cpp
+    title: Pow ($f(x)^k$)
   - icon: ':heavy_check_mark:'
     path: math/fps/sqrt.cpp
     title: Sqrt ($\sqrt {f(x)}$)
@@ -132,21 +138,10 @@ data:
     \ must not be 0\n  P inv_fast() const;\n\n  P inv(int deg = -1) const;\n\n  //\
     \ F(0) must be 1\n  P log(int deg = -1) const;\n\n  P sqrt(int deg = -1) const;\n\
     \  \n  // F(0) must be 0\n  P exp_fast(int deg = -1) const;\n\n  P exp(int deg\
-    \ = -1) const;\n\n  P pow(int64_t k, int deg = -1) const {\n    const int n =\
-    \ (int) this->size();\n    if(deg == -1) deg = n;\n    for(int i = 0; i < n; i++)\
-    \ {\n      if((*this)[i] != T(0)) {\n        T rev = T(1) / (*this)[i];\n    \
-    \    P ret = (((*this * rev) >> i).log() * k).exp() * ((*this)[i].pow(k));\n \
-    \       if(i * k > deg) return P(deg, T(0));\n        ret = (ret << (i * k)).pre(deg);\n\
-    \        if(ret.size() < deg) ret.resize(deg, T(0));\n        return ret;\n  \
-    \    }\n    }\n    return *this;\n  }\n\n  T eval(T x) const {\n    T r = 0, w\
-    \ = 1;\n    for(auto &v : *this) {\n      r += w * v;\n      w *= x;\n    }\n\
-    \    return r;\n  }\n\n  P pow_mod(int64_t n, P mod) const {\n    P modinv = mod.rev().inv();\n\
-    \    auto get_div = [&](P base) {\n      if(base.size() < mod.size()) {\n    \
-    \    base.clear();\n        return base;\n      }\n      int n = base.size() -\
-    \ mod.size() + 1;\n      return (base.rev().pre(n) * modinv.pre(n)).pre(n).rev(n);\n\
-    \    };\n    P x(*this), ret{1};\n    while(n > 0) {\n      if(n & 1) {\n    \
-    \    ret *= x;\n        ret -= get_div(ret) * mod;\n      }\n      x *= x;\n \
-    \     x -= get_div(x) * mod;\n      n >>= 1;\n    }\n    return ret;\n  }\n};\n"
+    \ = -1) const;\n\n  P pow(int64_t k, int deg = -1) const;\n\n  T eval(T x) const\
+    \ {\n    T r = 0, w = 1;\n    for(auto &v : *this) {\n      r += w * v;\n    \
+    \  w *= x;\n    }\n    return r;\n  }\n  \n  P mod_pow(int64_t k, P g) const;\n\
+    };\n"
   code: "#pragma once\n\n/**\n * @brief Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\
     \u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeries : vector<\
     \ T > {\n  using vector< T >::vector;\n  using P = FormalPowerSeries;\n\n  using\
@@ -196,53 +191,44 @@ data:
     \ must not be 0\n  P inv_fast() const;\n\n  P inv(int deg = -1) const;\n\n  //\
     \ F(0) must be 1\n  P log(int deg = -1) const;\n\n  P sqrt(int deg = -1) const;\n\
     \  \n  // F(0) must be 0\n  P exp_fast(int deg = -1) const;\n\n  P exp(int deg\
-    \ = -1) const;\n\n  P pow(int64_t k, int deg = -1) const {\n    const int n =\
-    \ (int) this->size();\n    if(deg == -1) deg = n;\n    for(int i = 0; i < n; i++)\
-    \ {\n      if((*this)[i] != T(0)) {\n        T rev = T(1) / (*this)[i];\n    \
-    \    P ret = (((*this * rev) >> i).log() * k).exp() * ((*this)[i].pow(k));\n \
-    \       if(i * k > deg) return P(deg, T(0));\n        ret = (ret << (i * k)).pre(deg);\n\
-    \        if(ret.size() < deg) ret.resize(deg, T(0));\n        return ret;\n  \
-    \    }\n    }\n    return *this;\n  }\n\n  T eval(T x) const {\n    T r = 0, w\
-    \ = 1;\n    for(auto &v : *this) {\n      r += w * v;\n      w *= x;\n    }\n\
-    \    return r;\n  }\n\n  P pow_mod(int64_t n, P mod) const {\n    P modinv = mod.rev().inv();\n\
-    \    auto get_div = [&](P base) {\n      if(base.size() < mod.size()) {\n    \
-    \    base.clear();\n        return base;\n      }\n      int n = base.size() -\
-    \ mod.size() + 1;\n      return (base.rev().pre(n) * modinv.pre(n)).pre(n).rev(n);\n\
-    \    };\n    P x(*this), ret{1};\n    while(n > 0) {\n      if(n & 1) {\n    \
-    \    ret *= x;\n        ret -= get_div(ret) * mod;\n      }\n      x *= x;\n \
-    \     x -= get_div(x) * mod;\n      n >>= 1;\n    }\n    return ret;\n  }\n};\n"
+    \ = -1) const;\n\n  P pow(int64_t k, int deg = -1) const;\n\n  T eval(T x) const\
+    \ {\n    T r = 0, w = 1;\n    for(auto &v : *this) {\n      r += w * v;\n    \
+    \  w *= x;\n    }\n    return r;\n  }\n  \n  P mod_pow(int64_t k, P g) const;\n\
+    };\n"
   dependsOn: []
   isVerificationFile: false
   path: math/fps/formal-power-series.cpp
   requiredBy:
-  - math/fps/bell.cpp
+  - math/fps/integral.cpp
+  - math/fps/bellnoulli.cpp
+  - math/fps/mod-pow.cpp
+  - math/fps/sqrt.cpp
+  - math/fps/diff.cpp
+  - math/fps/stirling-second-kth-column.cpp
   - math/fps/log.cpp
+  - math/fps/eulerian.cpp
   - math/fps/exp.cpp
+  - math/fps/inv.cpp
   - math/fps/partition.cpp
   - math/fps/stirling-second.cpp
-  - math/fps/stirling-second-kth-column.cpp
-  - math/fps/integral.cpp
-  - math/fps/inv.cpp
-  - math/fps/sqrt.cpp
-  - math/fps/multipoint-evaluation.cpp
   - math/fps/stirling-first.cpp
-  - math/fps/eulerian.cpp
-  - math/fps/bellnoulli.cpp
+  - math/fps/multipoint-evaluation.cpp
+  - math/fps/bell.cpp
   - math/fps/polynomial-interpolation.cpp
-  - math/fps/diff.cpp
-  timestamp: '2020-10-21 02:08:50+09:00'
+  - math/fps/pow.cpp
+  timestamp: '2020-10-21 13:35:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - test/verify/yosupo-find-linear-recurrence.test.cpp
+  - test/verify/yosupo-multipoint-evaluation.test.cpp
   - test/verify/yosupo-polynomial-interpolation.test.cpp
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
+  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
+  - test/verify/yosupo-sparse-matrix-det.test.cpp
+  - test/verify/yosupo-exp-of-formal-power-series.test.cpp
   - test/verify/yosupo-partition-function.test.cpp
   - test/verify/yosupo-bellnoulli-number.test.cpp
-  - test/verify/yosupo-multipoint-evaluation.test.cpp
-  - test/verify/yosupo-sparse-matrix-det.test.cpp
-  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
+  - test/verify/yosupo-find-linear-recurrence.test.cpp
+  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
 documentation_of: math/fps/formal-power-series.cpp
 layout: document
 redirect_from:

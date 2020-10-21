@@ -179,8 +179,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
-  - test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
   - test/verify/yosupo-point-set-range-composite.test.cpp
+  - test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
 documentation_of: structure/bbst/reversible-splay-tree.cpp
 layout: document
 redirect_from:

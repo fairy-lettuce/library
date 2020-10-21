@@ -197,8 +197,8 @@ data:
   verifiedWith:
   - test/verify/yosupo-bipartite-edge-coloring.test.cpp
   - test/verify/yosupo-bipartitematching.test.cpp
-  - test/verify/aoj-0334.test.cpp
   - test/verify/aoj-3198.test.cpp
+  - test/verify/aoj-0334.test.cpp
 documentation_of: graph/flow/bipartite-flow.cpp
 layout: document
 redirect_from:

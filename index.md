@@ -356,6 +356,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/log.cpp
       title: Log ($\log {f(x)}$)
+    - icon: ':warning:'
+      path: math/fps/mod-pow.cpp
+      title: Mod-Pow ($f(x)^k \bmod g$)
     - icon: ':heavy_check_mark:'
       path: math/fps/multipoint-evaluation.cpp
       title: math/fps/multipoint-evaluation.cpp
@@ -365,6 +368,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/polynomial-interpolation.cpp
       title: math/fps/polynomial-interpolation.cpp
+    - icon: ':warning:'
+      path: math/fps/pow.cpp
+      title: Pow ($f(x)^k$)
     - icon: ':heavy_check_mark:'
       path: math/fps/sparse-matrix.cpp
       title: math/fps/sparse-matrix.cpp
