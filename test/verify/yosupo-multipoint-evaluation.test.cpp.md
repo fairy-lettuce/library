@@ -1,28 +1,28 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/inv.cpp
     title: Inv ($\frac {1} {f(x)}$)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/multipoint-evaluation.cpp
     title: math/fps/multipoint-evaluation.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/multipoint_evaluation
@@ -192,7 +192,7 @@ data:
     \ T > &xs, PolyBuf< T > &buf) {\n  using FPS = FormalPowerSeries< T >;\n  FPS\
     \ ret;\n  const int B = 64;\n  function< void(FPS, int, int) > rec = [&](FPS a,\
     \ int l, int r) -> void {\n    a %= buf.query(l, r);\n    if(a.size() <= B) {\n\
-    \      for(int i = l; i < r; i++) ret.emplace_back(a.eval(xs[i]));\n      return;\n\
+    \      for(int i = l; i < r; i++) ret.emplace_back(a(xs[i]));\n      return;\n\
     \    }\n    rec(a, l, (l + r) >> 1);\n    rec(a, (l + r) >> 1, r);\n  };\n  rec(as,\
     \ 0, xs.size());\n  return ret;\n};\n\ntemplate< typename T >\nFormalPowerSeries<\
     \ T > multipoint_evaluation(const FormalPowerSeries< T > &as, const FormalPowerSeries<\
@@ -222,8 +222,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-multipoint-evaluation.test.cpp
   requiredBy: []
-  timestamp: '2020-10-21 14:13:55+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2020-10-21 14:27:11+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-multipoint-evaluation.test.cpp
 layout: document

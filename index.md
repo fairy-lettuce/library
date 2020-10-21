@@ -280,7 +280,7 @@ data:
     - icon: ':warning:'
       path: math/combinatorics/mod-int-2.cpp
       title: math/combinatorics/mod-int-2.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-int.cpp
       title: math/combinatorics/mod-int.cpp
     - icon: ':heavy_check_mark:'
@@ -315,7 +315,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fft/fast-fourier-transform.cpp
       title: math/fft/fast-fourier-transform.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
       title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     - icon: ':heavy_check_mark:'
@@ -332,7 +332,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/berlekamp-massey.cpp
       title: math/fps/berlekamp-massey.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/diff.cpp
       title: Diff ($f'(x)$)
     - icon: ':warning:'
@@ -344,13 +344,13 @@ data:
     - icon: ':warning:'
       path: math/fps/factorial.cpp
       title: math/fps/factorial.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/formal-power-series.cpp
       title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     - icon: ':heavy_check_mark:'
       path: math/fps/integral.cpp
       title: Integral ($\int f(x) dx$)
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/inv.cpp
       title: Inv ($\frac {1} {f(x)}$)
     - icon: ':heavy_check_mark:'
@@ -359,13 +359,13 @@ data:
     - icon: ':warning:'
       path: math/fps/mod-pow.cpp
       title: Mod-Pow ($f(x)^k \bmod g(x)$)
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/multipoint-evaluation.cpp
       title: math/fps/multipoint-evaluation.cpp
     - icon: ':heavy_check_mark:'
       path: math/fps/partition.cpp
       title: math/fps/partition.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/polynomial-interpolation.cpp
       title: math/fps/polynomial-interpolation.cpp
     - icon: ':heavy_check_mark:'
@@ -711,7 +711,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -1154,7 +1154,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-montmort-number-mod.test.cpp
       title: test/verify/yosupo-montmort-number-mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-multipoint-evaluation.test.cpp
       title: test/verify/yosupo-multipoint-evaluation.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1175,7 +1175,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-point-set-range-composite.test.cpp
       title: test/verify/yosupo-point-set-range-composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-polynomial-interpolation.test.cpp
       title: test/verify/yosupo-polynomial-interpolation.test.cpp
     - icon: ':heavy_check_mark:'

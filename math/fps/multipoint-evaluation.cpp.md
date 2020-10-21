@@ -1,25 +1,25 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/inv.cpp
     title: Inv ($\frac {1} {f(x)}$)
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/polynomial-interpolation.cpp
     title: math/fps/polynomial-interpolation.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-multipoint-evaluation.test.cpp
     title: test/verify/yosupo-multipoint-evaluation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/fps/formal-power-series.cpp\"\n\n/**\n * @brief Formal-Power-Series(\u5F62\
@@ -107,7 +107,7 @@ data:
     \ T > &xs, PolyBuf< T > &buf) {\n  using FPS = FormalPowerSeries< T >;\n  FPS\
     \ ret;\n  const int B = 64;\n  function< void(FPS, int, int) > rec = [&](FPS a,\
     \ int l, int r) -> void {\n    a %= buf.query(l, r);\n    if(a.size() <= B) {\n\
-    \      for(int i = l; i < r; i++) ret.emplace_back(a.eval(xs[i]));\n      return;\n\
+    \      for(int i = l; i < r; i++) ret.emplace_back(a(xs[i]));\n      return;\n\
     \    }\n    rec(a, l, (l + r) >> 1);\n    rec(a, (l + r) >> 1, r);\n  };\n  rec(as,\
     \ 0, xs.size());\n  return ret;\n};\n\ntemplate< typename T >\nFormalPowerSeries<\
     \ T > multipoint_evaluation(const FormalPowerSeries< T > &as, const FormalPowerSeries<\
@@ -124,8 +124,8 @@ data:
     \ {\n  using FPS = FormalPowerSeries< T >;\n  FPS ret;\n  const int B = 64;\n\
     \  function< void(FPS, int, int) > rec = [&](FPS a, int l, int r) -> void {\n\
     \    a %= buf.query(l, r);\n    if(a.size() <= B) {\n      for(int i = l; i <\
-    \ r; i++) ret.emplace_back(a.eval(xs[i]));\n      return;\n    }\n    rec(a, l,\
-    \ (l + r) >> 1);\n    rec(a, (l + r) >> 1, r);\n  };\n  rec(as, 0, xs.size());\n\
+    \ r; i++) ret.emplace_back(a(xs[i]));\n      return;\n    }\n    rec(a, l, (l\
+    \ + r) >> 1);\n    rec(a, (l + r) >> 1, r);\n  };\n  rec(as, 0, xs.size());\n\
     \  return ret;\n};\n\ntemplate< typename T >\nFormalPowerSeries< T > multipoint_evaluation(const\
     \ FormalPowerSeries< T > &as, const FormalPowerSeries< T > &xs) {\n  PolyBuf<\
     \ T > buff(xs);\n  return multipoint_evaluation(as, xs, buff);\n}\n\n"
@@ -136,8 +136,8 @@ data:
   path: math/fps/multipoint-evaluation.cpp
   requiredBy:
   - math/fps/polynomial-interpolation.cpp
-  timestamp: '2020-10-21 14:13:55+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2020-10-21 14:27:11+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-multipoint-evaluation.test.cpp
   - test/verify/yosupo-polynomial-interpolation.test.cpp
