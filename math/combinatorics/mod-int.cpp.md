@@ -39,7 +39,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-matrix-det.test.cpp
     title: test/verify/yosupo-matrix-det.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-multipoint-evaluation.test.cpp
     title: test/verify/yosupo-multipoint-evaluation.test.cpp
   - icon: ':heavy_check_mark:'
@@ -54,9 +54,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-point-set-range-composite.test.cpp
     title: test/verify/yosupo-point-set-range-composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
+    title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-queue-operate-all-composite.test.cpp
     title: test/verify/yosupo-queue-operate-all-composite.test.cpp
@@ -76,10 +79,16 @@ data:
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
+    title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
+    title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"math/combinatorics/mod-int.cpp\"\ntemplate< int mod >\n\
@@ -133,7 +142,7 @@ data:
   path: math/combinatorics/mod-int.cpp
   requiredBy: []
   timestamp: '2019-11-30 23:36:31+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-dpl-5-j.test.cpp
   - test/verify/aoj-dpl-5-g.test.cpp
@@ -147,13 +156,16 @@ data:
   - test/verify/yosupo-point-set-range-composite-2.test.cpp
   - test/verify/yosupo-sparse-matrix-det.test.cpp
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp
+  - test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   - test/verify/yukicoder-650.test.cpp
   - test/verify/yosupo-range-affine-range-sum-2.test.cpp
   - test/verify/yosupo-point-set-range-composite.test.cpp
   - test/verify/yosupo-range-affine-range-sum-3.test.cpp
+  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
   - test/verify/yosupo-point-set-range-composite-3.test.cpp
   - test/verify/yosupo-range-affine-range-sum.test.cpp
   - test/verify/yosupo-partition-function.test.cpp
+  - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
   - test/verify/yosupo-bellnoulli-number.test.cpp
   - test/verify/aoj-dpl-5-i.test.cpp
   - test/verify/yosupo-find-linear-recurrence.test.cpp

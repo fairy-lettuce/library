@@ -333,7 +333,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-montmort-number-mod.test.cpp
     title: test/verify/yosupo-montmort-number-mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-multipoint-evaluation.test.cpp
     title: test/verify/yosupo-multipoint-evaluation.test.cpp
   - icon: ':heavy_check_mark:'
@@ -354,9 +354,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-point-set-range-composite.test.cpp
     title: test/verify/yosupo-point-set-range-composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
+    title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-queue-operate-all-composite.test.cpp
     title: test/verify/yosupo-queue-operate-all-composite.test.cpp
@@ -415,6 +418,12 @@ data:
     path: test/verify/yosupo-staticrmq.test.cpp
     title: test/verify/yosupo-staticrmq.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
+    title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
+    title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sum-of-floor-of-linear.test.cpp
     title: test/verify/yosupo-sum-of-floor-of-linear.test.cpp
   - icon: ':heavy_check_mark:'
@@ -469,7 +478,7 @@ data:
     path: test/verify/yukicoder-952.test.cpp
     title: test/verify/yukicoder-952.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing\
@@ -532,7 +541,7 @@ data:
   path: template/template.cpp
   requiredBy: []
   timestamp: '2019-08-13 21:45:04+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-rectangle-sum.test.cpp
   - test/verify/yosupo-montmort-number-mod.test.cpp
@@ -619,6 +628,7 @@ data:
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp
   - test/verify/aoj-2306.test.cpp
   - test/verify/aoj-2674-2.test.cpp
+  - test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   - test/verify/aoj-2450.test.cpp
   - test/verify/aoj-grl-2-a.test.cpp
   - test/verify/yukicoder-650.test.cpp
@@ -634,6 +644,7 @@ data:
   - test/verify/yosupo-tetration-mod.test.cpp
   - test/verify/yosupo-range-affine-range-sum-3.test.cpp
   - test/verify/yosupo-enumerate-primes.test.cpp
+  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
   - test/verify/yosupo-factorize.test.cpp
   - test/verify/aoj-1508-2.test.cpp
   - test/verify/aoj-grl-1-b-2.test.cpp
@@ -659,6 +670,7 @@ data:
   - test/verify/aoj-dpl-1-d.test.cpp
   - test/verify/aoj-ntl-1-e.test.cpp
   - test/verify/aoj-grl-5-c-2.test.cpp
+  - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
   - test/verify/yosupo-bellnoulli-number.test.cpp
   - test/verify/aoj-dpl-5-i.test.cpp
   - test/verify/yosupo-two-edge-connected-components-2.test.cpp

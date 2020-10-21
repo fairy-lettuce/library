@@ -280,7 +280,7 @@ data:
     - icon: ':warning:'
       path: math/combinatorics/mod-int-2.cpp
       title: math/combinatorics/mod-int-2.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/combinatorics/mod-int.cpp
       title: math/combinatorics/mod-int.cpp
     - icon: ':heavy_check_mark:'
@@ -315,7 +315,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fft/fast-fourier-transform.cpp
       title: math/fft/fast-fourier-transform.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
       title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     - icon: ':heavy_check_mark:'
@@ -332,7 +332,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/berlekamp-massey.cpp
       title: math/fps/berlekamp-massey.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/fps/diff.cpp
       title: Diff ($f'(x)$)
     - icon: ':warning:'
@@ -344,13 +344,13 @@ data:
     - icon: ':warning:'
       path: math/fps/factorial.cpp
       title: math/fps/factorial.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/fps/formal-power-series.cpp
       title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     - icon: ':heavy_check_mark:'
       path: math/fps/integral.cpp
       title: Integral ($\int f(x) dx$)
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/fps/inv.cpp
       title: Inv ($\frac {1} {f(x)}$)
     - icon: ':heavy_check_mark:'
@@ -358,17 +358,17 @@ data:
       title: Log ($\log {f(x)}$)
     - icon: ':warning:'
       path: math/fps/mod-pow.cpp
-      title: Mod-Pow ($f(x)^k \bmod g$)
-    - icon: ':heavy_check_mark:'
+      title: Mod-Pow ($f(x)^k \bmod g(x)$)
+    - icon: ':x:'
       path: math/fps/multipoint-evaluation.cpp
       title: math/fps/multipoint-evaluation.cpp
     - icon: ':heavy_check_mark:'
       path: math/fps/partition.cpp
       title: math/fps/partition.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: math/fps/polynomial-interpolation.cpp
       title: math/fps/polynomial-interpolation.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/pow.cpp
       title: Pow ($f(x)^k$)
     - icon: ':heavy_check_mark:'
@@ -377,13 +377,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/sqrt.cpp
       title: Sqrt ($\sqrt {f(x)}$)
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/stirling-first.cpp
-      title: math/fps/stirling-first.cpp
+      title: "Stirling-First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
+        \u6570)"
     - icon: ':warning:'
       path: math/fps/stirling-second-kth-column.cpp
       title: math/fps/stirling-second-kth-column.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/stirling-second.cpp
       title: math/fps/stirling-second.cpp
   - name: math/matrix
@@ -710,7 +711,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -1153,7 +1154,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-montmort-number-mod.test.cpp
       title: test/verify/yosupo-montmort-number-mod.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-multipoint-evaluation.test.cpp
       title: test/verify/yosupo-multipoint-evaluation.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1174,9 +1175,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-point-set-range-composite.test.cpp
       title: test/verify/yosupo-point-set-range-composite.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-polynomial-interpolation.test.cpp
       title: test/verify/yosupo-polynomial-interpolation.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
+      title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-queue-operate-all-composite.test.cpp
       title: test/verify/yosupo-queue-operate-all-composite.test.cpp
@@ -1234,6 +1238,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-staticrmq.test.cpp
       title: test/verify/yosupo-staticrmq.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
+      title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
+      title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-sum-of-floor-of-linear.test.cpp
       title: test/verify/yosupo-sum-of-floor-of-linear.test.cpp

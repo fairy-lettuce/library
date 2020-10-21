@@ -4,15 +4,15 @@ data:
   - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':heavy_check_mark:'
-    path: math/fps/berlekamp-massey.cpp
-    title: math/fps/berlekamp-massey.cpp
+  - icon: ':question:'
+    path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
+    title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
   - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':heavy_check_mark:'
-    path: math/fps/sparse-matrix.cpp
-    title: math/fps/sparse-matrix.cpp
+    path: math/fps/stirling-second.cpp
+    title: math/fps/stirling-second.cpp
   - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
@@ -22,16 +22,16 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/sparse_matrix_det
+    PROBLEM: https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind
     links:
-    - https://judge.yosupo.jp/problem/sparse_matrix_det
-  bundledCode: "#line 1 \"test/verify/yosupo-sparse-matrix-det.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/sparse_matrix_det\"\n\n#line 1 \"\
-    template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing namespace std;\n\nusing\
-    \ int64 = long long;\nconst int mod = 1e9 + 7;\n\nconst int64 infll = (1LL <<\
-    \ 62) - 1;\nconst int inf = (1 << 30) - 1;\n\nstruct IoSetup {\n  IoSetup() {\n\
-    \    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n    cout << fixed <<\
-    \ setprecision(10);\n    cerr << fixed << setprecision(10);\n  }\n} iosetup;\n\
+    - https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind
+  bundledCode: "#line 1 \"test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind\"\
+    \n\n#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing namespace\
+    \ std;\n\nusing int64 = long long;\nconst int mod = 1e9 + 7;\n\nconst int64 infll\
+    \ = (1LL << 62) - 1;\nconst int inf = (1 << 30) - 1;\n\nstruct IoSetup {\n  IoSetup()\
+    \ {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n    cout << fixed\
+    \ << setprecision(10);\n    cerr << fixed << setprecision(10);\n  }\n} iosetup;\n\
     \n\ntemplate< typename T1, typename T2 >\nostream &operator<<(ostream &os, const\
     \ pair< T1, T2 >& p) {\n  os << p.first << \" \" << p.second;\n  return os;\n\
     }\n\ntemplate< typename T1, typename T2 >\nistream &operator>>(istream &is, pair<\
@@ -53,7 +53,7 @@ data:
     \  FixPoint(F &&f) : F(forward< F >(f)) {}\n \n  template< typename... Args >\n\
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
-    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-sparse-matrix-det.test.cpp\"\
+    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp\"\
     \n\n#line 1 \"math/combinatorics/mod-int.cpp\"\ntemplate< int mod >\nstruct ModInt\
     \ {\n  int x;\n\n  ModInt() : x(0) {}\n\n  ModInt(int64_t y) : x(y >= 0 ? y %\
     \ mod : (mod - (-y) % mod) % mod) {}\n\n  ModInt &operator+=(const ModInt &p)\
@@ -76,7 +76,34 @@ data:
     \ &operator<<(ostream &os, const ModInt &p) {\n    return os << p.x;\n  }\n\n\
     \  friend istream &operator>>(istream &is, ModInt &a) {\n    int64_t t;\n    is\
     \ >> t;\n    a = ModInt< mod >(t);\n    return (is);\n  }\n\n  static int get_mod()\
-    \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 6 \"test/verify/yosupo-sparse-matrix-det.test.cpp\"\
+    \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 1 \"math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\
+    \ntemplate< typename Mint >\nstruct NumberTheoreticTransformFriendlyModInt {\n\
+    \n  vector< Mint > dw, idw;\n  int max_base;\n  Mint root;\n\n  NumberTheoreticTransformFriendlyModInt()\
+    \ {\n    const unsigned mod = Mint::get_mod();\n    assert(mod >= 3 && mod % 2\
+    \ == 1);\n    auto tmp = mod - 1;\n    max_base = 0;\n    while(tmp % 2 == 0)\
+    \ tmp >>= 1, max_base++;\n    root = 2;\n    while(root.pow((mod - 1) >> 1) ==\
+    \ 1) root += 1;\n    assert(root.pow(mod - 1) == 1);\n    dw.resize(max_base);\n\
+    \    idw.resize(max_base);\n    for(int i = 0; i < max_base; i++) {\n      dw[i]\
+    \ = -root.pow((mod - 1) >> (i + 2));\n      idw[i] = Mint(1) / dw[i];\n    }\n\
+    \  }\n\n  void ntt(vector< Mint > &a) {\n    const int n = (int) a.size();\n \
+    \   assert((n & (n - 1)) == 0);\n    assert(__builtin_ctz(n) <= max_base);\n \
+    \   for(int m = n; m >>= 1;) {\n      Mint w = 1;\n      for(int s = 0, k = 0;\
+    \ s < n; s += 2 * m) {\n        for(int i = s, j = s + m; i < s + m; ++i, ++j)\
+    \ {\n          auto x = a[i], y = a[j] * w;\n          a[i] = x + y, a[j] = x\
+    \ - y;\n        }\n        w *= dw[__builtin_ctz(++k)];\n      }\n    }\n  }\n\
+    \n  void intt(vector< Mint > &a, bool f = true) {\n    const int n = (int) a.size();\n\
+    \    assert((n & (n - 1)) == 0);\n    assert(__builtin_ctz(n) <= max_base);\n\
+    \    for(int m = 1; m < n; m *= 2) {\n      Mint w = 1;\n      for(int s = 0,\
+    \ k = 0; s < n; s += 2 * m) {\n        for(int i = s, j = s + m; i < s + m; ++i,\
+    \ ++j) {\n          auto x = a[i], y = a[j];\n          a[i] = x + y, a[j] = (x\
+    \ - y) * w;\n        }\n        w *= idw[__builtin_ctz(++k)];\n      }\n    }\n\
+    \    if(f) {\n      Mint inv_sz = Mint(1) / n;\n      for(int i = 0; i < n; i++)\
+    \ a[i] *= inv_sz;\n    }\n  }\n\n  vector< Mint > multiply(vector< Mint > a, vector<\
+    \ Mint > b) {\n    int need = a.size() + b.size() - 1;\n    int nbase = 1;\n \
+    \   while((1 << nbase) < need) nbase++;\n    int sz = 1 << nbase;\n    a.resize(sz,\
+    \ 0);\n    b.resize(sz, 0);\n    ntt(a);\n    ntt(b);\n    Mint inv_sz = Mint(1)\
+    \ / sz;\n    for(int i = 0; i < sz; i++) a[i] *= b[i] * inv_sz;\n    intt(a, false);\n\
+    \    a.resize(need);\n    return a;\n  }\n};\n#line 7 \"test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp\"\
     \n\n#line 2 \"math/fps/formal-power-series.cpp\"\n\n/**\n * @brief Formal-Power-Series(\u5F62\
     \u5F0F\u7684\u51AA\u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeries\
     \ : vector< T > {\n  using vector< T >::vector;\n  using P = FormalPowerSeries;\n\
@@ -135,69 +162,40 @@ data:
     \ be 1\n  P log(int deg = -1) const;\n\n  P sqrt(int deg = -1) const;\n\n  //\
     \ F(0) must be 0\n  P exp_fast(int deg = -1) const;\n\n  P exp(int deg = -1) const;\n\
     \n  P pow(int64_t k, int deg = -1) const;\n\n  P mod_pow(int64_t k, P g) const;\n\
-    };\n#line 8 \"test/verify/yosupo-sparse-matrix-det.test.cpp\"\n\n#line 1 \"math/fps/berlekamp-massey.cpp\"\
-    \ntemplate< class T >\nFormalPowerSeries< T > berlekamp_massey(const FormalPowerSeries<\
-    \ T > &s) {\n  const int N = (int) s.size();\n  FormalPowerSeries< T > b = {T(-1)},\
-    \ c = {T(-1)};\n  T y = T(1);\n  for(int ed = 1; ed <= N; ed++) {\n    int l =\
-    \ int(c.size()), m = int(b.size());\n    T x = 0;\n    for(int i = 0; i < l; i++)\
-    \ x += c[i] * s[ed - l + i];\n    b.emplace_back(0);\n    m++;\n    if(x == T(0))\
-    \ continue;\n    T freq = x / y;\n    if(l < m) {\n      auto tmp = c;\n     \
-    \ c.insert(begin(c), m - l, T(0));\n      for(int i = 0; i < m; i++) c[m - 1 -\
-    \ i] -= freq * b[m - 1 - i];\n      b = tmp;\n      y = x;\n    } else {\n   \
-    \   for(int i = 0; i < m; i++) c[l - 1 - i] -= freq * b[m - 1 - i];\n    }\n \
-    \ }\n  return c;\n}\n#line 1 \"math/fps/sparse-matrix.cpp\"\ntemplate< typename\
-    \ T >\nusing FPSGraph = vector< vector< pair< int, T > > >;\n\ntemplate< typename\
-    \ T >\nFormalPowerSeries< T > random_poly(int n) {\n  mt19937 mt(1333333);\n \
-    \ FormalPowerSeries< T > res(n);\n  uniform_int_distribution< int > rand(0, T::get_mod()\
-    \ - 1);\n  for(int i = 0; i < n; i++) res[i] = rand(mt);\n  return res;\n}\n\n\
-    template< typename T >\nFormalPowerSeries< T > next_poly(const FormalPowerSeries<\
-    \ T > &dp, const FPSGraph< T > &g) {\n  const int N = (int) dp.size();\n  FormalPowerSeries<\
-    \ T > nxt(N);\n  for(int i = 0; i < N; i++) {\n    for(auto &p : g[i]) nxt[p.first]\
-    \ += p.second * dp[i];\n  }\n  return nxt;\n}\n\ntemplate< typename T >\nFormalPowerSeries<\
-    \ T > minimum_poly(const FPSGraph< T > &g) {\n  const int N = (int) g.size();\n\
-    \  auto dp = random_poly< T >(N), u = random_poly< T >(N);\n  FormalPowerSeries<\
-    \ T > f(2 * N);\n  for(int i = 0; i < 2 * N; i++) {\n    for(auto &p : u.dot(dp))\
-    \ f[i] += p;\n    dp = next_poly(dp, g);\n  }\n  return berlekamp_massey(f);\n\
-    }\n\n/* O(N(N+S) + N log N log Q) (O(S): time complexity of nex) */\ntemplate<\
-    \ typename T >\nFormalPowerSeries< T > sparse_pow(int64_t Q, FormalPowerSeries<\
-    \ T > dp, const FPSGraph< T > &g) {\n  const int N = (int) dp.size();\n  auto\
-    \ A = FormalPowerSeries< T >({0, 1}).pow_mod(Q, minimum_poly(g));\n  FormalPowerSeries<\
-    \ T > res(N);\n  for(int i = 0; i < A.size(); i++) {\n    res += dp * A[i];\n\
-    \    dp = next_poly(dp, g);\n  }\n  return res;\n}\n\n/* O(N(N+S)) (S: none-zero\
-    \ elements)*/\ntemplate< typename T >\nT sparse_determinant(FPSGraph< T > g) {\n\
-    \  using FPS = FormalPowerSeries< T >;\n  int N = (int) g.size();\n  auto C =\
-    \ random_poly< T >(N);\n  for(int i = 0; i < N; i++) for(auto &p : g[i]) p.second\
-    \ *= C[i];\n  auto u = minimum_poly(g);\n  T acdet = u[0];\n  if(N % 2 == 0) acdet\
-    \ *= -1;\n  T cdet = 1;\n  for(int i = 0; i < N; i++) cdet *= C[i];\n  return\
-    \ acdet / cdet;\n}\n#line 11 \"test/verify/yosupo-sparse-matrix-det.test.cpp\"\
+    };\n#line 3 \"math/fps/stirling-second.cpp\"\n\ntemplate< typename T >\nFormalPowerSeries<\
+    \ T > stirling_second(int N) {\n  FormalPowerSeries< T > A(N + 1), B(N + 1);\n\
+    \  T tmp = 1;\n  for(int i = 0; i <= N; i++) {\n    T rev = T(1) / tmp;\n    A[i]\
+    \ = T(i).pow(N) * rev;\n    B[i] = T(1) * rev;\n    if(i & 1) B[i] *= -1;\n  \
+    \  tmp *= i + 1;\n  }\n  return (A * B).pre(N + 1);\n}\n#line 9 \"test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp\"\
     \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
-    \  int N, K;\n  cin >> N >> K;\n  FPSGraph< mint > g(N);\n  for(int i = 0; i <\
-    \ K; i++) {\n    int a, b, c;\n    cin >> a >> b >> c;\n    g[a].emplace_back(b,\
-    \ c);\n  }\n  cout << sparse_determinant(g) << endl;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sparse_matrix_det\"\n\n\
-    #include \"../../template/template.cpp\"\n\n#include \"../../math/combinatorics/mod-int.cpp\"\
-    \n\n#include \"../../math/fps/formal-power-series.cpp\"\n\n#include \"../../math/fps/berlekamp-massey.cpp\"\
-    \n#include \"../../math/fps/sparse-matrix.cpp\"\n\nconst int MOD = 998244353;\n\
-    using mint = ModInt< MOD >;\n\nint main() {\n  int N, K;\n  cin >> N >> K;\n \
-    \ FPSGraph< mint > g(N);\n  for(int i = 0; i < K; i++) {\n    int a, b, c;\n \
-    \   cin >> a >> b >> c;\n    g[a].emplace_back(b, c);\n  }\n  cout << sparse_determinant(g)\
-    \ << endl;\n}\n"
+    \  NumberTheoreticTransformFriendlyModInt< mint > ntt;\n  using FPS = FormalPowerSeries<\
+    \ mint >;\n  FPS::set_fft([&](FPS &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a);\
+    \ });\n\n  int N;\n  cin >> N;\n  cout << stirling_second< mint >(N) << endl;\n\
+    }\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind\"\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../math/combinatorics/mod-int.cpp\"\
+    \n#include \"../../math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\n\
+    \n#include \"../../math/fps/stirling-second.cpp\"\n\nconst int MOD = 998244353;\n\
+    using mint = ModInt< MOD >;\n\nint main() {\n  NumberTheoreticTransformFriendlyModInt<\
+    \ mint > ntt;\n  using FPS = FormalPowerSeries< mint >;\n  FPS::set_fft([&](FPS\
+    \ &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a); });\n\n  int N;\n  cin >> N;\n\
+    \  cout << stirling_second< mint >(N) << endl;\n}\n"
   dependsOn:
   - template/template.cpp
   - math/combinatorics/mod-int.cpp
+  - math/fft/number-theoretic-transform-friendly-mod-int.cpp
+  - math/fps/stirling-second.cpp
   - math/fps/formal-power-series.cpp
-  - math/fps/berlekamp-massey.cpp
-  - math/fps/sparse-matrix.cpp
   isVerificationFile: true
-  path: test/verify/yosupo-sparse-matrix-det.test.cpp
+  path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   requiredBy: []
   timestamp: '2020-10-21 14:13:55+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/verify/yosupo-sparse-matrix-det.test.cpp
+documentation_of: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
 layout: document
 redirect_from:
-- /verify/test/verify/yosupo-sparse-matrix-det.test.cpp
-- /verify/test/verify/yosupo-sparse-matrix-det.test.cpp.html
-title: test/verify/yosupo-sparse-matrix-det.test.cpp
+- /verify/test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
+- /verify/test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp.html
+title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
 ---
