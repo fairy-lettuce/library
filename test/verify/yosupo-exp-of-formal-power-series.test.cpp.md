@@ -204,34 +204,34 @@ data:
     \ FormalPowerSeries< T >::P FormalPowerSeries< T >::log(int deg) const {\n  assert((*this)[0]\
     \ == 1);\n  const int n = (int) this->size();\n  if(deg == -1) deg = n;\n  return\
     \ (this->diff() * this->inv(deg)).pre(deg - 1).integral();\n}\n#line 5 \"math/fps/exp.cpp\"\
-    \n\n/**\n * @brief Exp ($e^{f(x)}$)\n */\ntemplate< typename T >\ntypename FormalPowerSeries<\
-    \ T >::P FormalPowerSeries< T >::exp_fast(int deg) const {\n  if(deg == -1) deg\
-    \ = this->size();\n  assert((*this)[0] == T(0));\n\n  P inv;\n  inv.reserve(deg\
-    \ + 1);\n  inv.push_back(T(0));\n  inv.push_back(T(1));\n\n  auto inplace_integral\
-    \ = [&](P &F) -> void {\n    const int n = (int) F.size();\n    auto mod = T::get_mod();\n\
-    \    while((int) inv.size() <= n) {\n      int i = inv.size();\n      inv.push_back((-inv[mod\
-    \ % i]) * (mod / i));\n    }\n    F.insert(begin(F), T(0));\n    for(int i = 1;\
-    \ i <= n; i++) F[i] *= inv[i];\n  };\n\n  auto inplace_diff = [](P &F) -> void\
-    \ {\n    if(F.empty()) return;\n    F.erase(begin(F));\n    T coeff = 1, one =\
-    \ 1;\n    for(int i = 0; i < (int) F.size(); i++) {\n      F[i] *= coeff;\n  \
-    \    coeff += one;\n    }\n  };\n\n  P b{1, 1 < (int) this->size() ? (*this)[1]\
-    \ : 0}, c{1}, z1, z2{1, 1};\n  for(int m = 2; m < deg; m *= 2) {\n    auto y =\
-    \ b;\n    y.resize(2 * m);\n    get_fft()(y);\n    z1 = z2;\n    P z(m);\n   \
-    \ for(int i = 0; i < m; ++i) z[i] = y[i] * z1[i];\n    get_ifft()(z);\n    fill(begin(z),\
-    \ begin(z) + m / 2, T(0));\n    get_fft()(z);\n    for(int i = 0; i < m; ++i)\
-    \ z[i] *= -z1[i];\n    get_ifft()(z);\n    c.insert(end(c), begin(z) + m / 2,\
-    \ end(z));\n    z2 = c;\n    z2.resize(2 * m);\n    get_fft()(z2);\n    P x(begin(*this),\
-    \ begin(*this) + min< int >(this->size(), m));\n    inplace_diff(x);\n    x.push_back(T(0));\n\
-    \    get_fft()(x);\n    for(int i = 0; i < m; ++i) x[i] *= y[i];\n    get_ifft()(x);\n\
-    \    x -= b.diff();\n    x.resize(2 * m);\n    for(int i = 0; i < m - 1; ++i)\
-    \ x[m + i] = x[i], x[i] = T(0);\n    get_fft()(x);\n    for(int i = 0; i < 2 *\
-    \ m; ++i) x[i] *= z2[i];\n    get_ifft()(x);\n    x.pop_back();\n    inplace_integral(x);\n\
-    \    for(int i = m; i < min< int >(this->size(), 2 * m); ++i) x[i] += (*this)[i];\n\
-    \    fill(begin(x), begin(x) + m, T(0));\n    get_fft()(x);\n    for(int i = 0;\
-    \ i < 2 * m; ++i) x[i] *= y[i];\n    get_ifft()(x);\n    b.insert(end(b), begin(x)\
-    \ + m, end(x));\n  }\n  return P{begin(b), begin(b) + deg};\n}\n\ntemplate< typename\
-    \ T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries< T >::exp(int deg)\
-    \ const {\n  assert((*this)[0] == T(0));\n  const int n = (int) this->size();\n\
+    \n\n/**\n * @brief Exp ($e^{f(x)}$)\n * @docs docs/exp.md\n */\ntemplate< typename\
+    \ T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries< T >::exp_fast(int\
+    \ deg) const {\n  if(deg == -1) deg = this->size();\n  assert((*this)[0] == T(0));\n\
+    \n  P inv;\n  inv.reserve(deg + 1);\n  inv.push_back(T(0));\n  inv.push_back(T(1));\n\
+    \n  auto inplace_integral = [&](P &F) -> void {\n    const int n = (int) F.size();\n\
+    \    auto mod = T::get_mod();\n    while((int) inv.size() <= n) {\n      int i\
+    \ = inv.size();\n      inv.push_back((-inv[mod % i]) * (mod / i));\n    }\n  \
+    \  F.insert(begin(F), T(0));\n    for(int i = 1; i <= n; i++) F[i] *= inv[i];\n\
+    \  };\n\n  auto inplace_diff = [](P &F) -> void {\n    if(F.empty()) return;\n\
+    \    F.erase(begin(F));\n    T coeff = 1, one = 1;\n    for(int i = 0; i < (int)\
+    \ F.size(); i++) {\n      F[i] *= coeff;\n      coeff += one;\n    }\n  };\n\n\
+    \  P b{1, 1 < (int) this->size() ? (*this)[1] : 0}, c{1}, z1, z2{1, 1};\n  for(int\
+    \ m = 2; m < deg; m *= 2) {\n    auto y = b;\n    y.resize(2 * m);\n    get_fft()(y);\n\
+    \    z1 = z2;\n    P z(m);\n    for(int i = 0; i < m; ++i) z[i] = y[i] * z1[i];\n\
+    \    get_ifft()(z);\n    fill(begin(z), begin(z) + m / 2, T(0));\n    get_fft()(z);\n\
+    \    for(int i = 0; i < m; ++i) z[i] *= -z1[i];\n    get_ifft()(z);\n    c.insert(end(c),\
+    \ begin(z) + m / 2, end(z));\n    z2 = c;\n    z2.resize(2 * m);\n    get_fft()(z2);\n\
+    \    P x(begin(*this), begin(*this) + min< int >(this->size(), m));\n    inplace_diff(x);\n\
+    \    x.push_back(T(0));\n    get_fft()(x);\n    for(int i = 0; i < m; ++i) x[i]\
+    \ *= y[i];\n    get_ifft()(x);\n    x -= b.diff();\n    x.resize(2 * m);\n   \
+    \ for(int i = 0; i < m - 1; ++i) x[m + i] = x[i], x[i] = T(0);\n    get_fft()(x);\n\
+    \    for(int i = 0; i < 2 * m; ++i) x[i] *= z2[i];\n    get_ifft()(x);\n    x.pop_back();\n\
+    \    inplace_integral(x);\n    for(int i = m; i < min< int >(this->size(), 2 *\
+    \ m); ++i) x[i] += (*this)[i];\n    fill(begin(x), begin(x) + m, T(0));\n    get_fft()(x);\n\
+    \    for(int i = 0; i < 2 * m; ++i) x[i] *= y[i];\n    get_ifft()(x);\n    b.insert(end(b),\
+    \ begin(x) + m, end(x));\n  }\n  return P{begin(b), begin(b) + deg};\n}\n\ntemplate<\
+    \ typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries< T >::exp(int\
+    \ deg) const {\n  assert((*this)[0] == T(0));\n  const int n = (int) this->size();\n\
     \  if(deg == -1) deg = n;\n  if(get_fft() != nullptr) {\n    P ret(*this);\n \
     \   ret.resize(deg, T(0));\n    return ret.exp_fast(deg);\n  }\n  P ret({T(1)});\n\
     \  for(int i = 1; i < deg; i <<= 1) {\n    ret = (ret * (pre(i << 1) + T(1) -\
@@ -262,7 +262,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
   requiredBy: []
-  timestamp: '2020-10-23 01:56:33+09:00'
+  timestamp: '2020-10-23 02:36:30+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-exp-of-formal-power-series.test.cpp
