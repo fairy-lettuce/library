@@ -51,7 +51,7 @@ data:
   - icon: ':warning:'
     path: math/fps/stirling-second-kth-column.cpp
     title: math/fps/stirling-second-kth-column.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/stirling-second.cpp
     title: math/fps/stirling-second.cpp
   - icon: ':x:'
@@ -97,7 +97,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   _pathExtension: cpp
