@@ -36,6 +36,7 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    _deprecated_at_docs: docs/log.md
     document_title: Log ($\log {f(x)}$)
     links: []
   bundledCode: "#line 2 \"math/fps/formal-power-series.cpp\"\n\n/**\n * @brief Formal-Power-Series(\u5F62\
@@ -122,16 +123,16 @@ data:
     \ T >::integral() const {\n  const int n = (int) this->size();\n  P ret(n + 1);\n\
     \  ret[0] = T(0);\n  for(int i = 0; i < n; i++) ret[i + 1] = (*this)[i] / T(i\
     \ + 1);\n  return ret;\n}\n#line 6 \"math/fps/log.cpp\"\n\n/**\n * @brief Log\
-    \ ($\\log {f(x)}$)\n */\ntemplate< typename T >\ntypename FormalPowerSeries< T\
-    \ >::P FormalPowerSeries< T >::log(int deg) const {\n  assert((*this)[0] == 1);\n\
-    \  const int n = (int) this->size();\n  if(deg == -1) deg = n;\n  return (this->diff()\
-    \ * this->inv(deg)).pre(deg - 1).integral();\n}\n"
+    \ ($\\log {f(x)}$)\n * @docs docs/log.md\n */\ntemplate< typename T >\ntypename\
+    \ FormalPowerSeries< T >::P FormalPowerSeries< T >::log(int deg) const {\n  assert((*this)[0]\
+    \ == 1);\n  const int n = (int) this->size();\n  if(deg == -1) deg = n;\n  return\
+    \ (this->diff() * this->inv(deg)).pre(deg - 1).integral();\n}\n"
   code: "#pragma once\n#include \"formal-power-series.cpp\"\n#include \"diff.cpp\"\
     \n#include \"inv.cpp\"\n#include \"integral.cpp\"\n\n/**\n * @brief Log ($\\log\
-    \ {f(x)}$)\n */\ntemplate< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
-    \ T >::log(int deg) const {\n  assert((*this)[0] == 1);\n  const int n = (int)\
-    \ this->size();\n  if(deg == -1) deg = n;\n  return (this->diff() * this->inv(deg)).pre(deg\
-    \ - 1).integral();\n}\n"
+    \ {f(x)}$)\n * @docs docs/log.md\n */\ntemplate< typename T >\ntypename FormalPowerSeries<\
+    \ T >::P FormalPowerSeries< T >::log(int deg) const {\n  assert((*this)[0] ==\
+    \ 1);\n  const int n = (int) this->size();\n  if(deg == -1) deg = n;\n  return\
+    \ (this->diff() * this->inv(deg)).pre(deg - 1).integral();\n}\n"
   dependsOn:
   - math/fps/formal-power-series.cpp
   - math/fps/diff.cpp
@@ -143,7 +144,7 @@ data:
   - math/fps/exp.cpp
   - math/fps/bell.cpp
   - math/fps/pow.cpp
-  timestamp: '2020-10-22 20:11:13+09:00'
+  timestamp: '2020-10-23 01:56:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
@@ -156,3 +157,18 @@ redirect_from:
 - /library/math/fps/log.cpp.html
 title: Log ($\log {f(x)}$)
 ---
+## 概要
+
+対数 $\log f(x)$ を求める. つまり $\displaystyle f(x) = e ^ {g(x)} = \sum_{k=0}^{\infty} \frac {g(x)^k} {k!}$ を満たす $g(x)$ を求める. 
+
+$[x^0] f(x) = 1$ のときのみ定義される.
+
+$\log f(x) = \int \frac {f'(x)} {f(x)} dx$ に基づいて計算する.
+
+## 使い方
+
+* `log(deg)`: $\log f(x)$ の先頭 `deg` 項を返す. ただし $[x^0] f(x) = 1$.
+ 
+## 計算量
+
+* $O(N \log N)$

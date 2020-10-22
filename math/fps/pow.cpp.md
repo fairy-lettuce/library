@@ -113,11 +113,11 @@ data:
     \ T >::integral() const {\n  const int n = (int) this->size();\n  P ret(n + 1);\n\
     \  ret[0] = T(0);\n  for(int i = 0; i < n; i++) ret[i + 1] = (*this)[i] / T(i\
     \ + 1);\n  return ret;\n}\n#line 6 \"math/fps/log.cpp\"\n\n/**\n * @brief Log\
-    \ ($\\log {f(x)}$)\n */\ntemplate< typename T >\ntypename FormalPowerSeries< T\
-    \ >::P FormalPowerSeries< T >::log(int deg) const {\n  assert((*this)[0] == 1);\n\
-    \  const int n = (int) this->size();\n  if(deg == -1) deg = n;\n  return (this->diff()\
-    \ * this->inv(deg)).pre(deg - 1).integral();\n}\n#line 5 \"math/fps/exp.cpp\"\n\
-    \n/**\n * @brief Exp ($e^{f(x)}$)\n */\ntemplate< typename T >\ntypename FormalPowerSeries<\
+    \ ($\\log {f(x)}$)\n * @docs docs/log.md\n */\ntemplate< typename T >\ntypename\
+    \ FormalPowerSeries< T >::P FormalPowerSeries< T >::log(int deg) const {\n  assert((*this)[0]\
+    \ == 1);\n  const int n = (int) this->size();\n  if(deg == -1) deg = n;\n  return\
+    \ (this->diff() * this->inv(deg)).pre(deg - 1).integral();\n}\n#line 5 \"math/fps/exp.cpp\"\
+    \n\n/**\n * @brief Exp ($e^{f(x)}$)\n */\ntemplate< typename T >\ntypename FormalPowerSeries<\
     \ T >::P FormalPowerSeries< T >::exp_fast(int deg) const {\n  if(deg == -1) deg\
     \ = this->size();\n  assert((*this)[0] == T(0));\n\n  P inv;\n  inv.reserve(deg\
     \ + 1);\n  inv.push_back(T(0));\n  inv.push_back(T(1));\n\n  auto inplace_integral\
@@ -176,7 +176,7 @@ data:
   isVerificationFile: false
   path: math/fps/pow.cpp
   requiredBy: []
-  timestamp: '2020-10-22 20:11:13+09:00'
+  timestamp: '2020-10-23 01:56:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-pow-of-formal-power-series.test.cpp

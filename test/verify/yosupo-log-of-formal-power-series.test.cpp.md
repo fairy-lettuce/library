@@ -197,10 +197,10 @@ data:
     \ T >::integral() const {\n  const int n = (int) this->size();\n  P ret(n + 1);\n\
     \  ret[0] = T(0);\n  for(int i = 0; i < n; i++) ret[i + 1] = (*this)[i] / T(i\
     \ + 1);\n  return ret;\n}\n#line 6 \"math/fps/log.cpp\"\n\n/**\n * @brief Log\
-    \ ($\\log {f(x)}$)\n */\ntemplate< typename T >\ntypename FormalPowerSeries< T\
-    \ >::P FormalPowerSeries< T >::log(int deg) const {\n  assert((*this)[0] == 1);\n\
-    \  const int n = (int) this->size();\n  if(deg == -1) deg = n;\n  return (this->diff()\
-    \ * this->inv(deg)).pre(deg - 1).integral();\n}\n#line 9 \"test/verify/yosupo-log-of-formal-power-series.test.cpp\"\
+    \ ($\\log {f(x)}$)\n * @docs docs/log.md\n */\ntemplate< typename T >\ntypename\
+    \ FormalPowerSeries< T >::P FormalPowerSeries< T >::log(int deg) const {\n  assert((*this)[0]\
+    \ == 1);\n  const int n = (int) this->size();\n  if(deg == -1) deg = n;\n  return\
+    \ (this->diff() * this->inv(deg)).pre(deg - 1).integral();\n}\n#line 9 \"test/verify/yosupo-log-of-formal-power-series.test.cpp\"\
     \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
     \  NumberTheoreticTransformFriendlyModInt< mint > ntt;\n  using FPS = FormalPowerSeries<\
     \ mint >;\n  FPS::set_fft([&](FPS &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a);\
@@ -226,7 +226,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-log-of-formal-power-series.test.cpp
   requiredBy: []
-  timestamp: '2020-10-22 20:11:13+09:00'
+  timestamp: '2020-10-23 01:56:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-log-of-formal-power-series.test.cpp
