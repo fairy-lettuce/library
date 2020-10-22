@@ -113,17 +113,18 @@ data:
     \ T > multipoint_evaluation(const FormalPowerSeries< T > &as, const FormalPowerSeries<\
     \ T > &xs) {\n  PolyBuf< T > buff(xs);\n  return multipoint_evaluation(as, xs,\
     \ buff);\n}\n\n#line 3 \"math/fps/diff.cpp\"\n\n/**\n * @brief Diff ($f'(x)$)\n\
-    \ */\ntemplate< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
-    \ T >::diff() const {\n  const int n = (int) this->size();\n  P ret(max(0, n -\
-    \ 1));\n  for(int i = 1; i < n; i++) ret[i - 1] = (*this)[i] * T(i);\n  return\
-    \ ret;\n}\n#line 3 \"math/fps/polynomial-interpolation.cpp\"\n\ntemplate< class\
-    \ T >\nFormalPowerSeries< T > polynomial_interpolation(const FormalPowerSeries<\
-    \ T > &xs, const vector< T > &ys) {\n  assert(xs.size() == ys.size());\n  using\
-    \ FPS = FormalPowerSeries< T >;\n  PolyBuf< T > buf(xs);\n  FPS w = buf.query(0,\
-    \ xs.size()).diff();\n  auto vs = multipoint_evaluation(w, xs, buf);\n  function<\
-    \ FPS(int, int) > rec = [&](int l, int r) -> FPS {\n    if(r - l == 1) return\
-    \ {ys[l] / vs[l]};\n    int m = (l + r) >> 1;\n    return rec(l, m) * buf.query(m,\
-    \ r) + rec(m, r) * buf.query(l, m);\n  };\n  return rec(0, xs.size());\n}\n"
+    \ * @docs docs/diff.md\n */\ntemplate< typename T >\ntypename FormalPowerSeries<\
+    \ T >::P FormalPowerSeries< T >::diff() const {\n  const int n = (int) this->size();\n\
+    \  P ret(max(0, n - 1));\n  for(int i = 1; i < n; i++) ret[i - 1] = (*this)[i]\
+    \ * T(i);\n  return ret;\n}\n#line 3 \"math/fps/polynomial-interpolation.cpp\"\
+    \n\ntemplate< class T >\nFormalPowerSeries< T > polynomial_interpolation(const\
+    \ FormalPowerSeries< T > &xs, const vector< T > &ys) {\n  assert(xs.size() ==\
+    \ ys.size());\n  using FPS = FormalPowerSeries< T >;\n  PolyBuf< T > buf(xs);\n\
+    \  FPS w = buf.query(0, xs.size()).diff();\n  auto vs = multipoint_evaluation(w,\
+    \ xs, buf);\n  function< FPS(int, int) > rec = [&](int l, int r) -> FPS {\n  \
+    \  if(r - l == 1) return {ys[l] / vs[l]};\n    int m = (l + r) >> 1;\n    return\
+    \ rec(l, m) * buf.query(m, r) + rec(m, r) * buf.query(l, m);\n  };\n  return rec(0,\
+    \ xs.size());\n}\n"
   code: "#include \"multipoint-evaluation.cpp\"\n#include \"diff.cpp\"\n\ntemplate<\
     \ class T >\nFormalPowerSeries< T > polynomial_interpolation(const FormalPowerSeries<\
     \ T > &xs, const vector< T > &ys) {\n  assert(xs.size() == ys.size());\n  using\
@@ -140,7 +141,7 @@ data:
   isVerificationFile: false
   path: math/fps/polynomial-interpolation.cpp
   requiredBy: []
-  timestamp: '2020-10-21 14:27:11+09:00'
+  timestamp: '2020-10-22 19:58:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-polynomial-interpolation.test.cpp
