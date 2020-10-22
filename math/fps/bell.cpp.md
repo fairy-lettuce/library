@@ -104,7 +104,7 @@ data:
     \   ret.resize(deg, T(0));\n    return ret.inv_fast();\n  }\n  P ret({T(1) / (*this)[0]});\n\
     \  for(int i = 1; i < deg; i <<= 1) {\n    ret = (ret + ret - ret * ret * pre(i\
     \ << 1)).pre(i << 1);\n  }\n  return ret.pre(deg);\n}\n#line 3 \"math/fps/integral.cpp\"\
-    \n\n/**\n * @brief Integral ($\\int f(x) dx$)\n * @docs md/integral.md\n */\n\
+    \n\n/**\n * @brief Integral ($\\int f(x) dx$)\n * @docs docs/integral.md\n */\n\
     template< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
     \ T >::integral() const {\n  const int n = (int) this->size();\n  P ret(n + 1);\n\
     \  ret[0] = T(0);\n  for(int i = 0; i < n; i++) ret[i + 1] = (*this)[i] / T(i\
@@ -164,7 +164,7 @@ data:
   isVerificationFile: false
   path: math/fps/bell.cpp
   requiredBy: []
-  timestamp: '2020-10-22 19:58:45+09:00'
+  timestamp: '2020-10-22 20:11:13+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/fps/bell.cpp

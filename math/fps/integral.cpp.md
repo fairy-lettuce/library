@@ -30,7 +30,7 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: md/integral.md
+    _deprecated_at_docs: docs/integral.md
     document_title: Integral ($\int f(x) dx$)
     links: []
   bundledCode: "#line 2 \"math/fps/formal-power-series.cpp\"\n\n/**\n * @brief Formal-Power-Series(\u5F62\
@@ -92,15 +92,15 @@ data:
     \ F(0) must be 0\n  P exp_fast(int deg = -1) const;\n\n  P exp(int deg = -1) const;\n\
     \n  P pow(int64_t k, int deg = -1) const;\n\n  P mod_pow(int64_t k, P g) const;\n\
     };\n#line 3 \"math/fps/integral.cpp\"\n\n/**\n * @brief Integral ($\\int f(x)\
-    \ dx$)\n * @docs md/integral.md\n */\ntemplate< typename T >\ntypename FormalPowerSeries<\
+    \ dx$)\n * @docs docs/integral.md\n */\ntemplate< typename T >\ntypename FormalPowerSeries<\
     \ T >::P FormalPowerSeries< T >::integral() const {\n  const int n = (int) this->size();\n\
     \  P ret(n + 1);\n  ret[0] = T(0);\n  for(int i = 0; i < n; i++) ret[i + 1] =\
     \ (*this)[i] / T(i + 1);\n  return ret;\n}\n"
   code: "#pragma once\n#include \"formal-power-series.cpp\"\n\n/**\n * @brief Integral\
-    \ ($\\int f(x) dx$)\n * @docs md/integral.md\n */\ntemplate< typename T >\ntypename\
-    \ FormalPowerSeries< T >::P FormalPowerSeries< T >::integral() const {\n  const\
-    \ int n = (int) this->size();\n  P ret(n + 1);\n  ret[0] = T(0);\n  for(int i\
-    \ = 0; i < n; i++) ret[i + 1] = (*this)[i] / T(i + 1);\n  return ret;\n}\n"
+    \ ($\\int f(x) dx$)\n * @docs docs/integral.md\n */\ntemplate< typename T >\n\
+    typename FormalPowerSeries< T >::P FormalPowerSeries< T >::integral() const {\n\
+    \  const int n = (int) this->size();\n  P ret(n + 1);\n  ret[0] = T(0);\n  for(int\
+    \ i = 0; i < n; i++) ret[i + 1] = (*this)[i] / T(i + 1);\n  return ret;\n}\n"
   dependsOn:
   - math/fps/formal-power-series.cpp
   isVerificationFile: false
@@ -110,7 +110,7 @@ data:
   - math/fps/exp.cpp
   - math/fps/bell.cpp
   - math/fps/pow.cpp
-  timestamp: '2020-10-22 19:58:45+09:00'
+  timestamp: '2020-10-22 20:11:13+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
@@ -123,3 +123,16 @@ redirect_from:
 - /library/math/fps/integral.cpp.html
 title: Integral ($\int f(x) dx$)
 ---
+## 概要
+
+積分 $\int f(x) dx$ を求める.
+
+積分の定義 $\displaystyle \int \( \sum_{k=0}^{\infty} a_k x^k \) dx = \sum_{k=0}^{\infty} \frac {a_k x^{k+1}} {k+1}$ に基づいて計算する.
+
+## 使い方
+
+* `integral()`: $\int f(x) dx$ を返す.
+
+## 計算量
+
+* $O(N)$
