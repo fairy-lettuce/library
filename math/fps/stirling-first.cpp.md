@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy: []
@@ -73,22 +73,23 @@ data:
     \ be 1\n  P log(int deg = -1) const;\n\n  P sqrt(int deg = -1) const;\n\n  //\
     \ F(0) must be 0\n  P exp_fast(int deg = -1) const;\n\n  P exp(int deg = -1) const;\n\
     \n  P pow(int64_t k, int deg = -1) const;\n\n  P mod_pow(int64_t k, P g) const;\n\
-    };\n#line 2 \"math/fps/stirling-first.cpp\"\n\n/**\n * @brief Stirling-First(\u7B2C\
-    \u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570)\n */\ntemplate< typename\
-    \ T >\nFormalPowerSeries< T > stirling_first(int N) {\n  if(N == 0) return {1};\n\
-    \  int M = 1;\n  vector< T > fact(N + 1), rfact(N + 1);\n  fact[0] = rfact[N]\
-    \ = T(1);\n  for(int i = 1; i <= N; i++) fact[i] = fact[i - 1] * i;\n  rfact[N]\
-    \ /= fact[N];\n  for(int i = N - 1; i >= 0; i--) rfact[i] = rfact[i + 1] * (i\
-    \ + 1);\n  FormalPowerSeries< T > ret({T(0), T(1)});\n  for(int k = 30 - __builtin_clz(N);\
-    \ k >= 0; k--) {\n    FormalPowerSeries< T > as(M + 1), bs(M + 1);\n    for(int\
-    \ i = 0; i <= M; i++) as[i] = ret[i] * fact[i];\n    bs[M] = T(1);\n    for(int\
-    \ i = 1; i <= M; i++) bs[M - i] = bs[M - (i - 1)] * -T(M);\n    for(int i = 0;\
-    \ i <= M; i++) bs[M - i] *= rfact[i];\n    auto cs = as * bs;\n    FormalPowerSeries<\
-    \ T > ds(M + 1);\n    for(int i = 0; i <= M; i++) ds[i] = rfact[i] * cs[M + i];\n\
-    \    ret *= ds;\n    M <<= 1;\n    if((N >> k) & 1) {\n      FormalPowerSeries<\
-    \ T > ts(M + 1 + 1, T(0));\n      for(int i = 0; i <= M; i++) {\n        ts[i\
-    \ + 0] += ret[i] * -T(M);\n        ts[i + 1] += ret[i];\n      }\n      ret =\
-    \ ts;\n      M |= 1;\n    }\n  }\n  return ret;\n}\n"
+    \n  P taylor_shift(T c) const;\n};\n#line 2 \"math/fps/stirling-first.cpp\"\n\n\
+    /**\n * @brief Stirling-First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\
+    \u30B0\u6570)\n */\ntemplate< typename T >\nFormalPowerSeries< T > stirling_first(int\
+    \ N) {\n  if(N == 0) return {1};\n  int M = 1;\n  vector< T > fact(N + 1), rfact(N\
+    \ + 1);\n  fact[0] = rfact[N] = T(1);\n  for(int i = 1; i <= N; i++) fact[i] =\
+    \ fact[i - 1] * i;\n  rfact[N] /= fact[N];\n  for(int i = N - 1; i >= 0; i--)\
+    \ rfact[i] = rfact[i + 1] * (i + 1);\n  FormalPowerSeries< T > ret({T(0), T(1)});\n\
+    \  for(int k = 30 - __builtin_clz(N); k >= 0; k--) {\n    FormalPowerSeries< T\
+    \ > as(M + 1), bs(M + 1);\n    for(int i = 0; i <= M; i++) as[i] = ret[i] * fact[i];\n\
+    \    bs[M] = T(1);\n    for(int i = 1; i <= M; i++) bs[M - i] = bs[M - (i - 1)]\
+    \ * -T(M);\n    for(int i = 0; i <= M; i++) bs[M - i] *= rfact[i];\n    auto cs\
+    \ = as * bs;\n    FormalPowerSeries< T > ds(M + 1);\n    for(int i = 0; i <= M;\
+    \ i++) ds[i] = rfact[i] * cs[M + i];\n    ret *= ds;\n    M <<= 1;\n    if((N\
+    \ >> k) & 1) {\n      FormalPowerSeries< T > ts(M + 1 + 1, T(0));\n      for(int\
+    \ i = 0; i <= M; i++) {\n        ts[i + 0] += ret[i] * -T(M);\n        ts[i +\
+    \ 1] += ret[i];\n      }\n      ret = ts;\n      M |= 1;\n    }\n  }\n  return\
+    \ ret;\n}\n"
   code: "#include \"formal-power-series.cpp\"\n\n/**\n * @brief Stirling-First(\u7B2C\
     \u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570)\n */\ntemplate< typename\
     \ T >\nFormalPowerSeries< T > stirling_first(int N) {\n  if(N == 0) return {1};\n\
@@ -110,7 +111,7 @@ data:
   isVerificationFile: false
   path: math/fps/stirling-first.cpp
   requiredBy: []
-  timestamp: '2020-10-21 14:13:55+09:00'
+  timestamp: '2020-10-23 03:48:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp

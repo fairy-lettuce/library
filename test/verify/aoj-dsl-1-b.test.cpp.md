@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: structure/union-find/weighted-union-find.cpp
     title: structure/union-find/weighted-union-find.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

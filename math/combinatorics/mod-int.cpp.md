@@ -57,6 +57,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
+  - icon: ':x:'
+    path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
+    title: test/verify/yosupo-polynomial-taylor-shift.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
     title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
@@ -81,14 +84,14 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"math/combinatorics/mod-int.cpp\"\ntemplate< int mod >\n\
@@ -142,7 +145,7 @@ data:
   path: math/combinatorics/mod-int.cpp
   requiredBy: []
   timestamp: '2019-11-30 23:36:31+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-dpl-5-j.test.cpp
   - test/verify/aoj-dpl-5-g.test.cpp
@@ -172,6 +175,7 @@ data:
   - test/verify/yosupo-matrix-det.test.cpp
   - test/verify/yosupo-queue-operate-all-composite.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+  - test/verify/yosupo-polynomial-taylor-shift.test.cpp
 documentation_of: math/combinatorics/mod-int.cpp
 layout: document
 redirect_from:

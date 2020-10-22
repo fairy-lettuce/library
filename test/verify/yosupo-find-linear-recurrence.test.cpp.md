@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
   - icon: ':heavy_check_mark:'
     path: math/fps/berlekamp-massey.cpp
     title: math/fps/berlekamp-massey.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -132,9 +132,9 @@ data:
     \ be 1\n  P log(int deg = -1) const;\n\n  P sqrt(int deg = -1) const;\n\n  //\
     \ F(0) must be 0\n  P exp_fast(int deg = -1) const;\n\n  P exp(int deg = -1) const;\n\
     \n  P pow(int64_t k, int deg = -1) const;\n\n  P mod_pow(int64_t k, P g) const;\n\
-    };\n#line 8 \"test/verify/yosupo-find-linear-recurrence.test.cpp\"\n\n#line 1\
-    \ \"math/fps/berlekamp-massey.cpp\"\ntemplate< class T >\nFormalPowerSeries< T\
-    \ > berlekamp_massey(const FormalPowerSeries< T > &s) {\n  const int N = (int)\
+    \n  P taylor_shift(T c) const;\n};\n#line 8 \"test/verify/yosupo-find-linear-recurrence.test.cpp\"\
+    \n\n#line 1 \"math/fps/berlekamp-massey.cpp\"\ntemplate< class T >\nFormalPowerSeries<\
+    \ T > berlekamp_massey(const FormalPowerSeries< T > &s) {\n  const int N = (int)\
     \ s.size();\n  FormalPowerSeries< T > b = {T(-1)}, c = {T(-1)};\n  T y = T(1);\n\
     \  for(int ed = 1; ed <= N; ed++) {\n    int l = int(c.size()), m = int(b.size());\n\
     \    T x = 0;\n    for(int i = 0; i < l; i++) x += c[i] * s[ed - l + i];\n   \
@@ -164,7 +164,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-find-linear-recurrence.test.cpp
   requiredBy: []
-  timestamp: '2020-10-21 14:13:55+09:00'
+  timestamp: '2020-10-23 03:48:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-find-linear-recurrence.test.cpp

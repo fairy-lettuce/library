@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':heavy_check_mark:'
@@ -72,28 +72,28 @@ data:
     \ be 1\n  P log(int deg = -1) const;\n\n  P sqrt(int deg = -1) const;\n\n  //\
     \ F(0) must be 0\n  P exp_fast(int deg = -1) const;\n\n  P exp(int deg = -1) const;\n\
     \n  P pow(int64_t k, int deg = -1) const;\n\n  P mod_pow(int64_t k, P g) const;\n\
-    };\n#line 3 \"math/fps/inv.cpp\"\n\n/**\n * @brief Inv ($\\frac {1} {f(x)}$)\n\
-    \ */\ntemplate< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
-    \ T >::inv_fast() const {\n  assert(((*this)[0]) != T(0));\n\n  const int n =\
-    \ (int) this->size();\n  P res{T(1) / (*this)[0]};\n\n  for(int d = 1; d < n;\
-    \ d <<= 1) {\n    P f(2 * d), g(2 * d);\n    for(int j = 0; j < min(n, 2 * d);\
-    \ j++) f[j] = (*this)[j];\n    for(int j = 0; j < d; j++) g[j] = res[j];\n   \
-    \ get_fft()(f);\n    get_fft()(g);\n    for(int j = 0; j < 2 * d; j++) f[j] *=\
-    \ g[j];\n    get_ifft()(f);\n    for(int j = 0; j < d; j++) {\n      f[j] = 0;\n\
-    \      f[j + d] = -f[j + d];\n    }\n    get_fft()(f);\n    for(int j = 0; j <\
+    \n  P taylor_shift(T c) const;\n};\n#line 3 \"math/fps/inv.cpp\"\n\n/**\n * @brief\
+    \ Inv ($\\frac {1} {f(x)}$)\n */\ntemplate< typename T >\ntypename FormalPowerSeries<\
+    \ T >::P FormalPowerSeries< T >::inv_fast() const {\n  assert(((*this)[0]) !=\
+    \ T(0));\n\n  const int n = (int) this->size();\n  P res{T(1) / (*this)[0]};\n\
+    \n  for(int d = 1; d < n; d <<= 1) {\n    P f(2 * d), g(2 * d);\n    for(int j\
+    \ = 0; j < min(n, 2 * d); j++) f[j] = (*this)[j];\n    for(int j = 0; j < d; j++)\
+    \ g[j] = res[j];\n    get_fft()(f);\n    get_fft()(g);\n    for(int j = 0; j <\
     \ 2 * d; j++) f[j] *= g[j];\n    get_ifft()(f);\n    for(int j = 0; j < d; j++)\
-    \ f[j] = res[j];\n    res = f;\n  }\n  return res.pre(n);\n}\n\ntemplate< typename\
-    \ T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries< T >::inv(int deg)\
-    \ const {\n  assert(((*this)[0]) != T(0));\n  const int n = (int) this->size();\n\
-    \  if(deg == -1) deg = n;\n  if(get_fft() != nullptr) {\n    P ret(*this);\n \
-    \   ret.resize(deg, T(0));\n    return ret.inv_fast();\n  }\n  P ret({T(1) / (*this)[0]});\n\
-    \  for(int i = 1; i < deg; i <<= 1) {\n    ret = (ret + ret - ret * ret * pre(i\
-    \ << 1)).pre(i << 1);\n  }\n  return ret.pre(deg);\n}\n#line 4 \"math/fps/mod-pow.cpp\"\
-    \n\n/**\n * @brief Mod-Pow ($f(x)^k \\bmod g(x)$)\n */\ntemplate< typename T >\n\
-    typename FormalPowerSeries< T >::P FormalPowerSeries< T >::mod_pow(int64_t k,\
-    \ P g) const {\n  P modinv = g.rev().inv();\n  auto get_div = [&](P base) {\n\
-    \    if(base.size() < g.size()) {\n      base.clear();\n      return base;\n \
-    \   }\n    int n = base.size() - g.size() + 1;\n    return (base.rev().pre(n)\
+    \ {\n      f[j] = 0;\n      f[j + d] = -f[j + d];\n    }\n    get_fft()(f);\n\
+    \    for(int j = 0; j < 2 * d; j++) f[j] *= g[j];\n    get_ifft()(f);\n    for(int\
+    \ j = 0; j < d; j++) f[j] = res[j];\n    res = f;\n  }\n  return res.pre(n);\n\
+    }\n\ntemplate< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
+    \ T >::inv(int deg) const {\n  assert(((*this)[0]) != T(0));\n  const int n =\
+    \ (int) this->size();\n  if(deg == -1) deg = n;\n  if(get_fft() != nullptr) {\n\
+    \    P ret(*this);\n    ret.resize(deg, T(0));\n    return ret.inv_fast();\n \
+    \ }\n  P ret({T(1) / (*this)[0]});\n  for(int i = 1; i < deg; i <<= 1) {\n   \
+    \ ret = (ret + ret - ret * ret * pre(i << 1)).pre(i << 1);\n  }\n  return ret.pre(deg);\n\
+    }\n#line 4 \"math/fps/mod-pow.cpp\"\n\n/**\n * @brief Mod-Pow ($f(x)^k \\bmod\
+    \ g(x)$)\n */\ntemplate< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
+    \ T >::mod_pow(int64_t k, P g) const {\n  P modinv = g.rev().inv();\n  auto get_div\
+    \ = [&](P base) {\n    if(base.size() < g.size()) {\n      base.clear();\n   \
+    \   return base;\n    }\n    int n = base.size() - g.size() + 1;\n    return (base.rev().pre(n)\
     \ * modinv.pre(n)).pre(n).rev(n);\n  };\n  P x(*this), ret{1};\n  while(k > 0)\
     \ {\n    if(k & 1) {\n      ret *= x;\n      ret -= get_div(ret) * g;\n    }\n\
     \    x *= x;\n    x -= get_div(x) * g;\n    k >>= 1;\n  }\n  return ret;\n}\n"
@@ -112,7 +112,7 @@ data:
   isVerificationFile: false
   path: math/fps/mod-pow.cpp
   requiredBy: []
-  timestamp: '2020-10-21 14:13:55+09:00'
+  timestamp: '2020-10-23 03:48:43+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/fps/mod-pow.cpp

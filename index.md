@@ -280,7 +280,7 @@ data:
     - icon: ':warning:'
       path: math/combinatorics/mod-int-2.cpp
       title: math/combinatorics/mod-int-2.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/combinatorics/mod-int.cpp
       title: math/combinatorics/mod-int.cpp
     - icon: ':heavy_check_mark:'
@@ -315,7 +315,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fft/fast-fourier-transform.cpp
       title: math/fft/fast-fourier-transform.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
       title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     - icon: ':heavy_check_mark:'
@@ -344,7 +344,7 @@ data:
     - icon: ':warning:'
       path: math/fps/factorial.cpp
       title: math/fps/factorial.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/fps/formal-power-series.cpp
       title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     - icon: ':heavy_check_mark:'
@@ -384,9 +384,12 @@ data:
     - icon: ':warning:'
       path: math/fps/stirling-second-kth-column.cpp
       title: math/fps/stirling-second-kth-column.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: math/fps/stirling-second.cpp
       title: math/fps/stirling-second.cpp
+    - icon: ':x:'
+      path: math/fps/taylor-shift.cpp
+      title: Taylor-Shift ($f(x) \Rightarrow f(x + c)$)
   - name: math/matrix
     pages:
     - icon: ':heavy_check_mark:'
@@ -711,7 +714,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -1178,6 +1181,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-polynomial-interpolation.test.cpp
       title: test/verify/yosupo-polynomial-interpolation.test.cpp
+    - icon: ':x:'
+      path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
+      title: test/verify/yosupo-polynomial-taylor-shift.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
       title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
@@ -1241,7 +1247,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
       title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
       title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     - icon: ':heavy_check_mark:'

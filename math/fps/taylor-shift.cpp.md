@@ -7,11 +7,12 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
-    path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
-    title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
+    path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
+    title: test/verify/yosupo-polynomial-taylor-shift.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':x:'
   attributes:
+    document_title: Taylor-Shift ($f(x) \Rightarrow f(x + c)$)
     links: []
   bundledCode: "#line 2 \"math/fps/formal-power-series.cpp\"\n\n/**\n * @brief Formal-Power-Series(\u5F62\
     \u5F0F\u7684\u51AA\u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeries\
@@ -71,31 +72,40 @@ data:
     \ be 1\n  P log(int deg = -1) const;\n\n  P sqrt(int deg = -1) const;\n\n  //\
     \ F(0) must be 0\n  P exp_fast(int deg = -1) const;\n\n  P exp(int deg = -1) const;\n\
     \n  P pow(int64_t k, int deg = -1) const;\n\n  P mod_pow(int64_t k, P g) const;\n\
-    \n  P taylor_shift(T c) const;\n};\n#line 3 \"math/fps/stirling-second.cpp\"\n\
-    \ntemplate< typename T >\nFormalPowerSeries< T > stirling_second(int N) {\n  FormalPowerSeries<\
-    \ T > A(N + 1), B(N + 1);\n  T tmp = 1;\n  for(int i = 0; i <= N; i++) {\n   \
-    \ T rev = T(1) / tmp;\n    A[i] = T(i).pow(N) * rev;\n    B[i] = T(1) * rev;\n\
-    \    if(i & 1) B[i] *= -1;\n    tmp *= i + 1;\n  }\n  return (A * B).pre(N + 1);\n\
+    \n  P taylor_shift(T c) const;\n};\n#line 2 \"math/fps/taylor-shift.cpp\"\n\n\
+    /**\n * @brief Taylor-Shift ($f(x) \\Rightarrow f(x + c)$)\n */\ntemplate< typename\
+    \ T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries< T >::taylor_shift(T\
+    \ c) const {\n  int n = (int) this->size();\n  vector< T > fact(n), rfact(n);\n\
+    \  fact[0] = rfact[0] = T(1);\n  for(int i = 1; i < n; i++) fact[i] = fact[i -\
+    \ 1] * T(i);\n  rfact[n - 1] = T(1) / fact[n - 1];\n  for(int i = n - 1; i > 1;\
+    \ i--) rfact[i - 1] = rfact[i] * T(i);\n  P p(*this);\n  for(int i = 0; i < n;\
+    \ i++) p[i] *= fact[i];\n  p = p.rev();\n  P bs(n, T(1));\n  for(int i = 1; i\
+    \ < n; i++) bs[i] = bs[i - 1] * c * rfact[i] * fact[i - 1];\n  p = (p * bs).pre(n);\n\
+    \  p = p.rev();\n  for(int i = 0; i < n; i++) p[i] *= rfact[i];\n  return p;\n\
     }\n"
-  code: "#pragma once\n#include \"formal-power-series.cpp\"\n\ntemplate< typename\
-    \ T >\nFormalPowerSeries< T > stirling_second(int N) {\n  FormalPowerSeries< T\
-    \ > A(N + 1), B(N + 1);\n  T tmp = 1;\n  for(int i = 0; i <= N; i++) {\n    T\
-    \ rev = T(1) / tmp;\n    A[i] = T(i).pow(N) * rev;\n    B[i] = T(1) * rev;\n \
-    \   if(i & 1) B[i] *= -1;\n    tmp *= i + 1;\n  }\n  return (A * B).pre(N + 1);\n\
-    }\n"
+  code: "#include \"formal-power-series.cpp\"\n\n/**\n * @brief Taylor-Shift ($f(x)\
+    \ \\Rightarrow f(x + c)$)\n */\ntemplate< typename T >\ntypename FormalPowerSeries<\
+    \ T >::P FormalPowerSeries< T >::taylor_shift(T c) const {\n  int n = (int) this->size();\n\
+    \  vector< T > fact(n), rfact(n);\n  fact[0] = rfact[0] = T(1);\n  for(int i =\
+    \ 1; i < n; i++) fact[i] = fact[i - 1] * T(i);\n  rfact[n - 1] = T(1) / fact[n\
+    \ - 1];\n  for(int i = n - 1; i > 1; i--) rfact[i - 1] = rfact[i] * T(i);\n  P\
+    \ p(*this);\n  for(int i = 0; i < n; i++) p[i] *= fact[i];\n  p = p.rev();\n \
+    \ P bs(n, T(1));\n  for(int i = 1; i < n; i++) bs[i] = bs[i - 1] * c * rfact[i]\
+    \ * fact[i - 1];\n  p = (p * bs).pre(n);\n  p = p.rev();\n  for(int i = 0; i <\
+    \ n; i++) p[i] *= rfact[i];\n  return p;\n}\n"
   dependsOn:
   - math/fps/formal-power-series.cpp
   isVerificationFile: false
-  path: math/fps/stirling-second.cpp
+  path: math/fps/taylor-shift.cpp
   requiredBy: []
   timestamp: '2020-10-23 03:48:43+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
-documentation_of: math/fps/stirling-second.cpp
+  - test/verify/yosupo-polynomial-taylor-shift.test.cpp
+documentation_of: math/fps/taylor-shift.cpp
 layout: document
 redirect_from:
-- /library/math/fps/stirling-second.cpp
-- /library/math/fps/stirling-second.cpp.html
-title: math/fps/stirling-second.cpp
+- /library/math/fps/taylor-shift.cpp
+- /library/math/fps/taylor-shift.cpp.html
+title: Taylor-Shift ($f(x) \Rightarrow f(x + c)$)
 ---

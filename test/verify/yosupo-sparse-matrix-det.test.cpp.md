@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
   - icon: ':heavy_check_mark:'
     path: math/fps/berlekamp-massey.cpp
     title: math/fps/berlekamp-massey.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':heavy_check_mark:'
     path: math/fps/sparse-matrix.cpp
     title: math/fps/sparse-matrix.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -135,41 +135,41 @@ data:
     \ be 1\n  P log(int deg = -1) const;\n\n  P sqrt(int deg = -1) const;\n\n  //\
     \ F(0) must be 0\n  P exp_fast(int deg = -1) const;\n\n  P exp(int deg = -1) const;\n\
     \n  P pow(int64_t k, int deg = -1) const;\n\n  P mod_pow(int64_t k, P g) const;\n\
-    };\n#line 8 \"test/verify/yosupo-sparse-matrix-det.test.cpp\"\n\n#line 1 \"math/fps/berlekamp-massey.cpp\"\
-    \ntemplate< class T >\nFormalPowerSeries< T > berlekamp_massey(const FormalPowerSeries<\
-    \ T > &s) {\n  const int N = (int) s.size();\n  FormalPowerSeries< T > b = {T(-1)},\
-    \ c = {T(-1)};\n  T y = T(1);\n  for(int ed = 1; ed <= N; ed++) {\n    int l =\
-    \ int(c.size()), m = int(b.size());\n    T x = 0;\n    for(int i = 0; i < l; i++)\
-    \ x += c[i] * s[ed - l + i];\n    b.emplace_back(0);\n    m++;\n    if(x == T(0))\
-    \ continue;\n    T freq = x / y;\n    if(l < m) {\n      auto tmp = c;\n     \
-    \ c.insert(begin(c), m - l, T(0));\n      for(int i = 0; i < m; i++) c[m - 1 -\
-    \ i] -= freq * b[m - 1 - i];\n      b = tmp;\n      y = x;\n    } else {\n   \
-    \   for(int i = 0; i < m; i++) c[l - 1 - i] -= freq * b[m - 1 - i];\n    }\n \
-    \ }\n  return c;\n}\n#line 1 \"math/fps/sparse-matrix.cpp\"\ntemplate< typename\
-    \ T >\nusing FPSGraph = vector< vector< pair< int, T > > >;\n\ntemplate< typename\
-    \ T >\nFormalPowerSeries< T > random_poly(int n) {\n  mt19937 mt(1333333);\n \
-    \ FormalPowerSeries< T > res(n);\n  uniform_int_distribution< int > rand(0, T::get_mod()\
-    \ - 1);\n  for(int i = 0; i < n; i++) res[i] = rand(mt);\n  return res;\n}\n\n\
-    template< typename T >\nFormalPowerSeries< T > next_poly(const FormalPowerSeries<\
-    \ T > &dp, const FPSGraph< T > &g) {\n  const int N = (int) dp.size();\n  FormalPowerSeries<\
-    \ T > nxt(N);\n  for(int i = 0; i < N; i++) {\n    for(auto &p : g[i]) nxt[p.first]\
-    \ += p.second * dp[i];\n  }\n  return nxt;\n}\n\ntemplate< typename T >\nFormalPowerSeries<\
-    \ T > minimum_poly(const FPSGraph< T > &g) {\n  const int N = (int) g.size();\n\
-    \  auto dp = random_poly< T >(N), u = random_poly< T >(N);\n  FormalPowerSeries<\
-    \ T > f(2 * N);\n  for(int i = 0; i < 2 * N; i++) {\n    for(auto &p : u.dot(dp))\
-    \ f[i] += p;\n    dp = next_poly(dp, g);\n  }\n  return berlekamp_massey(f);\n\
-    }\n\n/* O(N(N+S) + N log N log Q) (O(S): time complexity of nex) */\ntemplate<\
-    \ typename T >\nFormalPowerSeries< T > sparse_pow(int64_t Q, FormalPowerSeries<\
-    \ T > dp, const FPSGraph< T > &g) {\n  const int N = (int) dp.size();\n  auto\
-    \ A = FormalPowerSeries< T >({0, 1}).pow_mod(Q, minimum_poly(g));\n  FormalPowerSeries<\
-    \ T > res(N);\n  for(int i = 0; i < A.size(); i++) {\n    res += dp * A[i];\n\
-    \    dp = next_poly(dp, g);\n  }\n  return res;\n}\n\n/* O(N(N+S)) (S: none-zero\
-    \ elements)*/\ntemplate< typename T >\nT sparse_determinant(FPSGraph< T > g) {\n\
-    \  using FPS = FormalPowerSeries< T >;\n  int N = (int) g.size();\n  auto C =\
-    \ random_poly< T >(N);\n  for(int i = 0; i < N; i++) for(auto &p : g[i]) p.second\
-    \ *= C[i];\n  auto u = minimum_poly(g);\n  T acdet = u[0];\n  if(N % 2 == 0) acdet\
-    \ *= -1;\n  T cdet = 1;\n  for(int i = 0; i < N; i++) cdet *= C[i];\n  return\
-    \ acdet / cdet;\n}\n#line 11 \"test/verify/yosupo-sparse-matrix-det.test.cpp\"\
+    \n  P taylor_shift(T c) const;\n};\n#line 8 \"test/verify/yosupo-sparse-matrix-det.test.cpp\"\
+    \n\n#line 1 \"math/fps/berlekamp-massey.cpp\"\ntemplate< class T >\nFormalPowerSeries<\
+    \ T > berlekamp_massey(const FormalPowerSeries< T > &s) {\n  const int N = (int)\
+    \ s.size();\n  FormalPowerSeries< T > b = {T(-1)}, c = {T(-1)};\n  T y = T(1);\n\
+    \  for(int ed = 1; ed <= N; ed++) {\n    int l = int(c.size()), m = int(b.size());\n\
+    \    T x = 0;\n    for(int i = 0; i < l; i++) x += c[i] * s[ed - l + i];\n   \
+    \ b.emplace_back(0);\n    m++;\n    if(x == T(0)) continue;\n    T freq = x /\
+    \ y;\n    if(l < m) {\n      auto tmp = c;\n      c.insert(begin(c), m - l, T(0));\n\
+    \      for(int i = 0; i < m; i++) c[m - 1 - i] -= freq * b[m - 1 - i];\n     \
+    \ b = tmp;\n      y = x;\n    } else {\n      for(int i = 0; i < m; i++) c[l -\
+    \ 1 - i] -= freq * b[m - 1 - i];\n    }\n  }\n  return c;\n}\n#line 1 \"math/fps/sparse-matrix.cpp\"\
+    \ntemplate< typename T >\nusing FPSGraph = vector< vector< pair< int, T > > >;\n\
+    \ntemplate< typename T >\nFormalPowerSeries< T > random_poly(int n) {\n  mt19937\
+    \ mt(1333333);\n  FormalPowerSeries< T > res(n);\n  uniform_int_distribution<\
+    \ int > rand(0, T::get_mod() - 1);\n  for(int i = 0; i < n; i++) res[i] = rand(mt);\n\
+    \  return res;\n}\n\ntemplate< typename T >\nFormalPowerSeries< T > next_poly(const\
+    \ FormalPowerSeries< T > &dp, const FPSGraph< T > &g) {\n  const int N = (int)\
+    \ dp.size();\n  FormalPowerSeries< T > nxt(N);\n  for(int i = 0; i < N; i++) {\n\
+    \    for(auto &p : g[i]) nxt[p.first] += p.second * dp[i];\n  }\n  return nxt;\n\
+    }\n\ntemplate< typename T >\nFormalPowerSeries< T > minimum_poly(const FPSGraph<\
+    \ T > &g) {\n  const int N = (int) g.size();\n  auto dp = random_poly< T >(N),\
+    \ u = random_poly< T >(N);\n  FormalPowerSeries< T > f(2 * N);\n  for(int i =\
+    \ 0; i < 2 * N; i++) {\n    for(auto &p : u.dot(dp)) f[i] += p;\n    dp = next_poly(dp,\
+    \ g);\n  }\n  return berlekamp_massey(f);\n}\n\n/* O(N(N+S) + N log N log Q) (O(S):\
+    \ time complexity of nex) */\ntemplate< typename T >\nFormalPowerSeries< T > sparse_pow(int64_t\
+    \ Q, FormalPowerSeries< T > dp, const FPSGraph< T > &g) {\n  const int N = (int)\
+    \ dp.size();\n  auto A = FormalPowerSeries< T >({0, 1}).pow_mod(Q, minimum_poly(g));\n\
+    \  FormalPowerSeries< T > res(N);\n  for(int i = 0; i < A.size(); i++) {\n   \
+    \ res += dp * A[i];\n    dp = next_poly(dp, g);\n  }\n  return res;\n}\n\n/* O(N(N+S))\
+    \ (S: none-zero elements)*/\ntemplate< typename T >\nT sparse_determinant(FPSGraph<\
+    \ T > g) {\n  using FPS = FormalPowerSeries< T >;\n  int N = (int) g.size();\n\
+    \  auto C = random_poly< T >(N);\n  for(int i = 0; i < N; i++) for(auto &p : g[i])\
+    \ p.second *= C[i];\n  auto u = minimum_poly(g);\n  T acdet = u[0];\n  if(N %\
+    \ 2 == 0) acdet *= -1;\n  T cdet = 1;\n  for(int i = 0; i < N; i++) cdet *= C[i];\n\
+    \  return acdet / cdet;\n}\n#line 11 \"test/verify/yosupo-sparse-matrix-det.test.cpp\"\
     \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
     \  int N, K;\n  cin >> N >> K;\n  FPSGraph< mint > g(N);\n  for(int i = 0; i <\
     \ K; i++) {\n    int a, b, c;\n    cin >> a >> b >> c;\n    g[a].emplace_back(b,\
@@ -191,7 +191,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-sparse-matrix-det.test.cpp
   requiredBy: []
-  timestamp: '2020-10-21 14:13:55+09:00'
+  timestamp: '2020-10-23 03:48:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-sparse-matrix-det.test.cpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy: []
@@ -68,13 +68,13 @@ data:
     \ be 1\n  P log(int deg = -1) const;\n\n  P sqrt(int deg = -1) const;\n\n  //\
     \ F(0) must be 0\n  P exp_fast(int deg = -1) const;\n\n  P exp(int deg = -1) const;\n\
     \n  P pow(int64_t k, int deg = -1) const;\n\n  P mod_pow(int64_t k, P g) const;\n\
-    };\n#line 3 \"math/fps/stirling-second-kth-column.cpp\"\n\ntemplate< typename\
-    \ T >\nFormalPowerSeries< T > stirling_second_kth_column(int N, int K) {\n  FormalPowerSeries<\
-    \ T > poly(N + 1), ret(N + 1);\n  poly[1] = 1;\n  poly = poly.exp();\n  poly[0]\
-    \ -= 1;\n  poly = poly.pow(K);\n  T rev = 1, mul = 1;\n  for(int i = 2; i <= K;\
-    \ i++) rev *= i;\n  rev = T(1) / rev;\n  poly *= rev;\n  for(int i = 0; i <= N;\
-    \ i++) {\n    ret[i] = poly[i] * mul;\n    mul *= i + 1;\n  }\n  return ret;\n\
-    }\n"
+    \n  P taylor_shift(T c) const;\n};\n#line 3 \"math/fps/stirling-second-kth-column.cpp\"\
+    \n\ntemplate< typename T >\nFormalPowerSeries< T > stirling_second_kth_column(int\
+    \ N, int K) {\n  FormalPowerSeries< T > poly(N + 1), ret(N + 1);\n  poly[1] =\
+    \ 1;\n  poly = poly.exp();\n  poly[0] -= 1;\n  poly = poly.pow(K);\n  T rev =\
+    \ 1, mul = 1;\n  for(int i = 2; i <= K; i++) rev *= i;\n  rev = T(1) / rev;\n\
+    \  poly *= rev;\n  for(int i = 0; i <= N; i++) {\n    ret[i] = poly[i] * mul;\n\
+    \    mul *= i + 1;\n  }\n  return ret;\n}\n"
   code: "#pragma once\n#include \"formal-power-series.cpp\"\n\ntemplate< typename\
     \ T >\nFormalPowerSeries< T > stirling_second_kth_column(int N, int K) {\n  FormalPowerSeries<\
     \ T > poly(N + 1), ret(N + 1);\n  poly[1] = 1;\n  poly = poly.exp();\n  poly[0]\
@@ -87,7 +87,7 @@ data:
   isVerificationFile: false
   path: math/fps/stirling-second-kth-column.cpp
   requiredBy: []
-  timestamp: '2020-10-21 14:13:55+09:00'
+  timestamp: '2020-10-23 03:48:43+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/fps/stirling-second-kth-column.cpp

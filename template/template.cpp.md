@@ -357,6 +357,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
+  - icon: ':x:'
+    path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
+    title: test/verify/yosupo-polynomial-taylor-shift.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
     title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
@@ -420,7 +423,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   - icon: ':heavy_check_mark:'
@@ -478,7 +481,7 @@ data:
     path: test/verify/yukicoder-952.test.cpp
     title: test/verify/yukicoder-952.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing\
@@ -541,7 +544,7 @@ data:
   path: template/template.cpp
   requiredBy: []
   timestamp: '2019-08-13 21:45:04+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-rectangle-sum.test.cpp
   - test/verify/yosupo-montmort-number-mod.test.cpp
@@ -700,6 +703,7 @@ data:
   - test/verify/aoj-dsl-1-a.test.cpp
   - test/verify/aoj-grl-6-b.test.cpp
   - test/verify/aoj-dpl-3-c.test.cpp
+  - test/verify/yosupo-polynomial-taylor-shift.test.cpp
   - test/verify/aoj-alds-1-14-b.test.cpp
 documentation_of: template/template.cpp
 layout: document

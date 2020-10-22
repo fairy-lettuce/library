@@ -51,9 +51,12 @@ data:
   - icon: ':warning:'
     path: math/fps/stirling-second-kth-column.cpp
     title: math/fps/stirling-second-kth-column.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/fps/stirling-second.cpp
     title: math/fps/stirling-second.cpp
+  - icon: ':x:'
+    path: math/fps/taylor-shift.cpp
+    title: Taylor-Shift ($f(x) \Rightarrow f(x + c)$)
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bellnoulli-number.test.cpp
@@ -79,6 +82,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
+  - icon: ':x:'
+    path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
+    title: test/verify/yosupo-polynomial-taylor-shift.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
     title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
@@ -91,11 +97,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links: []
@@ -157,7 +163,7 @@ data:
     \ be 1\n  P log(int deg = -1) const;\n\n  P sqrt(int deg = -1) const;\n\n  //\
     \ F(0) must be 0\n  P exp_fast(int deg = -1) const;\n\n  P exp(int deg = -1) const;\n\
     \n  P pow(int64_t k, int deg = -1) const;\n\n  P mod_pow(int64_t k, P g) const;\n\
-    };\n"
+    \n  P taylor_shift(T c) const;\n};\n"
   code: "#pragma once\n\n/**\n * @brief Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\
     \u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeries : vector<\
     \ T > {\n  using vector< T >::vector;\n  using P = FormalPowerSeries;\n\n  using\
@@ -216,13 +222,14 @@ data:
     \ be 1\n  P log(int deg = -1) const;\n\n  P sqrt(int deg = -1) const;\n\n  //\
     \ F(0) must be 0\n  P exp_fast(int deg = -1) const;\n\n  P exp(int deg = -1) const;\n\
     \n  P pow(int64_t k, int deg = -1) const;\n\n  P mod_pow(int64_t k, P g) const;\n\
-    };\n"
+    \n  P taylor_shift(T c) const;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: math/fps/formal-power-series.cpp
   requiredBy:
   - math/fps/integral.cpp
   - math/fps/bellnoulli.cpp
+  - math/fps/taylor-shift.cpp
   - math/fps/mod-pow.cpp
   - math/fps/sqrt.cpp
   - math/fps/diff.cpp
@@ -238,8 +245,8 @@ data:
   - math/fps/bell.cpp
   - math/fps/polynomial-interpolation.cpp
   - math/fps/pow.cpp
-  timestamp: '2020-10-21 14:13:55+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2020-10-23 03:48:43+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-multipoint-evaluation.test.cpp
   - test/verify/yosupo-polynomial-interpolation.test.cpp
@@ -254,6 +261,7 @@ data:
   - test/verify/yosupo-bellnoulli-number.test.cpp
   - test/verify/yosupo-find-linear-recurrence.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+  - test/verify/yosupo-polynomial-taylor-shift.test.cpp
 documentation_of: math/fps/formal-power-series.cpp
 layout: document
 redirect_from:

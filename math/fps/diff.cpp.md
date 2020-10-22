@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy:
@@ -97,11 +97,11 @@ data:
     \ be 1\n  P log(int deg = -1) const;\n\n  P sqrt(int deg = -1) const;\n\n  //\
     \ F(0) must be 0\n  P exp_fast(int deg = -1) const;\n\n  P exp(int deg = -1) const;\n\
     \n  P pow(int64_t k, int deg = -1) const;\n\n  P mod_pow(int64_t k, P g) const;\n\
-    };\n#line 3 \"math/fps/diff.cpp\"\n\n/**\n * @brief Diff ($f'(x)$)\n * @docs docs/diff.md\n\
-    \ */\ntemplate< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
-    \ T >::diff() const {\n  const int n = (int) this->size();\n  P ret(max(0, n -\
-    \ 1));\n  for(int i = 1; i < n; i++) ret[i - 1] = (*this)[i] * T(i);\n  return\
-    \ ret;\n}\n"
+    \n  P taylor_shift(T c) const;\n};\n#line 3 \"math/fps/diff.cpp\"\n\n/**\n * @brief\
+    \ Diff ($f'(x)$)\n * @docs docs/diff.md\n */\ntemplate< typename T >\ntypename\
+    \ FormalPowerSeries< T >::P FormalPowerSeries< T >::diff() const {\n  const int\
+    \ n = (int) this->size();\n  P ret(max(0, n - 1));\n  for(int i = 1; i < n; i++)\
+    \ ret[i - 1] = (*this)[i] * T(i);\n  return ret;\n}\n"
   code: "#pragma once\n#include \"formal-power-series.cpp\"\n\n/**\n * @brief Diff\
     \ ($f'(x)$)\n * @docs docs/diff.md\n */\ntemplate< typename T >\ntypename FormalPowerSeries<\
     \ T >::P FormalPowerSeries< T >::diff() const {\n  const int n = (int) this->size();\n\
@@ -117,7 +117,7 @@ data:
   - math/fps/bell.cpp
   - math/fps/polynomial-interpolation.cpp
   - math/fps/pow.cpp
-  timestamp: '2020-10-22 19:58:45+09:00'
+  timestamp: '2020-10-23 03:48:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-polynomial-interpolation.test.cpp

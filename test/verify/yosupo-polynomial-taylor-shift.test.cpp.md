@@ -4,39 +4,27 @@ data:
   - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':heavy_check_mark:'
-    path: math/combinatorics/mod-pow.cpp
-    title: "Mod-Pow(\u3079\u304D\u4E57)"
-  - icon: ':heavy_check_mark:'
-    path: math/combinatorics/mod-sqrt.cpp
-    title: math/combinatorics/mod-sqrt.cpp
-  - icon: ':question:'
-    path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
-    title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
   - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
-    path: math/fps/inv.cpp
-    title: Inv ($\frac {1} {f(x)}$)
-  - icon: ':heavy_check_mark:'
-    path: math/fps/sqrt.cpp
-    title: Sqrt ($\sqrt {f(x)}$)
+  - icon: ':x:'
+    path: math/fps/taylor-shift.cpp
+    title: Taylor-Shift ($f(x) \Rightarrow f(x + c)$)
   - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/sqrt_of_formal_power_series
+    PROBLEM: https://judge.yosupo.jp/problem/polynomial_taylor_shift
     links:
-    - https://judge.yosupo.jp/problem/sqrt_of_formal_power_series
-  bundledCode: "#line 1 \"test/verify/yosupo-sqrt-of-formal-power-series.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/sqrt_of_formal_power_series\"\
-    \n\n#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing namespace\
+    - https://judge.yosupo.jp/problem/polynomial_taylor_shift
+  bundledCode: "#line 1 \"test/verify/yosupo-polynomial-taylor-shift.test.cpp\"\n\
+    #define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\n\n\
+    #line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing namespace\
     \ std;\n\nusing int64 = long long;\nconst int mod = 1e9 + 7;\n\nconst int64 infll\
     \ = (1LL << 62) - 1;\nconst int inf = (1 << 30) - 1;\n\nstruct IoSetup {\n  IoSetup()\
     \ {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n    cout << fixed\
@@ -62,7 +50,7 @@ data:
     \  FixPoint(F &&f) : F(forward< F >(f)) {}\n \n  template< typename... Args >\n\
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
-    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-sqrt-of-formal-power-series.test.cpp\"\
+    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-polynomial-taylor-shift.test.cpp\"\
     \n\n#line 1 \"math/combinatorics/mod-int.cpp\"\ntemplate< int mod >\nstruct ModInt\
     \ {\n  int x;\n\n  ModInt() : x(0) {}\n\n  ModInt(int64_t y) : x(y >= 0 ? y %\
     \ mod : (mod - (-y) % mod) % mod) {}\n\n  ModInt &operator+=(const ModInt &p)\
@@ -85,47 +73,7 @@ data:
     \ &operator<<(ostream &os, const ModInt &p) {\n    return os << p.x;\n  }\n\n\
     \  friend istream &operator>>(istream &is, ModInt &a) {\n    int64_t t;\n    is\
     \ >> t;\n    a = ModInt< mod >(t);\n    return (is);\n  }\n\n  static int get_mod()\
-    \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 1 \"math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\
-    \ntemplate< typename Mint >\nstruct NumberTheoreticTransformFriendlyModInt {\n\
-    \n  vector< Mint > dw, idw;\n  int max_base;\n  Mint root;\n\n  NumberTheoreticTransformFriendlyModInt()\
-    \ {\n    const unsigned mod = Mint::get_mod();\n    assert(mod >= 3 && mod % 2\
-    \ == 1);\n    auto tmp = mod - 1;\n    max_base = 0;\n    while(tmp % 2 == 0)\
-    \ tmp >>= 1, max_base++;\n    root = 2;\n    while(root.pow((mod - 1) >> 1) ==\
-    \ 1) root += 1;\n    assert(root.pow(mod - 1) == 1);\n    dw.resize(max_base);\n\
-    \    idw.resize(max_base);\n    for(int i = 0; i < max_base; i++) {\n      dw[i]\
-    \ = -root.pow((mod - 1) >> (i + 2));\n      idw[i] = Mint(1) / dw[i];\n    }\n\
-    \  }\n\n  void ntt(vector< Mint > &a) {\n    const int n = (int) a.size();\n \
-    \   assert((n & (n - 1)) == 0);\n    assert(__builtin_ctz(n) <= max_base);\n \
-    \   for(int m = n; m >>= 1;) {\n      Mint w = 1;\n      for(int s = 0, k = 0;\
-    \ s < n; s += 2 * m) {\n        for(int i = s, j = s + m; i < s + m; ++i, ++j)\
-    \ {\n          auto x = a[i], y = a[j] * w;\n          a[i] = x + y, a[j] = x\
-    \ - y;\n        }\n        w *= dw[__builtin_ctz(++k)];\n      }\n    }\n  }\n\
-    \n  void intt(vector< Mint > &a, bool f = true) {\n    const int n = (int) a.size();\n\
-    \    assert((n & (n - 1)) == 0);\n    assert(__builtin_ctz(n) <= max_base);\n\
-    \    for(int m = 1; m < n; m *= 2) {\n      Mint w = 1;\n      for(int s = 0,\
-    \ k = 0; s < n; s += 2 * m) {\n        for(int i = s, j = s + m; i < s + m; ++i,\
-    \ ++j) {\n          auto x = a[i], y = a[j];\n          a[i] = x + y, a[j] = (x\
-    \ - y) * w;\n        }\n        w *= idw[__builtin_ctz(++k)];\n      }\n    }\n\
-    \    if(f) {\n      Mint inv_sz = Mint(1) / n;\n      for(int i = 0; i < n; i++)\
-    \ a[i] *= inv_sz;\n    }\n  }\n\n  vector< Mint > multiply(vector< Mint > a, vector<\
-    \ Mint > b) {\n    int need = a.size() + b.size() - 1;\n    int nbase = 1;\n \
-    \   while((1 << nbase) < need) nbase++;\n    int sz = 1 << nbase;\n    a.resize(sz,\
-    \ 0);\n    b.resize(sz, 0);\n    ntt(a);\n    ntt(b);\n    Mint inv_sz = Mint(1)\
-    \ / sz;\n    for(int i = 0; i < sz; i++) a[i] *= b[i] * inv_sz;\n    intt(a, false);\n\
-    \    a.resize(need);\n    return a;\n  }\n};\n#line 7 \"test/verify/yosupo-sqrt-of-formal-power-series.test.cpp\"\
-    \n\n#line 1 \"math/combinatorics/mod-pow.cpp\"\n/**\n * @brief Mod-Pow(\u3079\u304D\
-    \u4E57)\n * @docs docs/mod-pow.md\n */\ntemplate< typename T >\nT mod_pow(T x,\
-    \ int64_t n, const T &p) {\n  T ret = 1;\n  while(n > 0) {\n    if(n & 1) (ret\
-    \ *= x) %= p;\n    (x *= x) %= p;\n    n >>= 1;\n  }\n  return ret % p;\n}\n#line\
-    \ 1 \"math/combinatorics/mod-sqrt.cpp\"\ntemplate< typename T >\nT mod_sqrt(const\
-    \ T &a, const T &p) {\n  if(a == 0) return 0;\n  if(p == 2) return a;\n  if(mod_pow(a,\
-    \ (p - 1) >> 1, p) != 1) return -1;\n  T b = 1;\n  while(mod_pow(b, (p - 1) >>\
-    \ 1, p) == 1) ++b;\n  T e = 0, m = p - 1;\n  while(m % 2 == 0) m >>= 1, ++e;\n\
-    \  T x = mod_pow(a, (m - 1) >> 1, p);\n  T y = a * (x * x % p) % p;\n  (x *= a)\
-    \ %= p;\n  T z = mod_pow(b, m, p);\n  while(y != 1) {\n    T j = 0, t = y;\n \
-    \   while(t != 1) {\n      j += 1;\n      (t *= t) %= p;\n    }\n    z = mod_pow(z,\
-    \ T(1) << (e - j - 1), p);\n    (x *= z) %= p;\n    (z *= z) %= p;\n    (y *=\
-    \ z) %= p;\n    e = j;\n  }\n  return x;\n}\n#line 10 \"test/verify/yosupo-sqrt-of-formal-power-series.test.cpp\"\
+    \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 6 \"test/verify/yosupo-polynomial-taylor-shift.test.cpp\"\
     \n\n#line 2 \"math/fps/formal-power-series.cpp\"\n\n/**\n * @brief Formal-Power-Series(\u5F62\
     \u5F0F\u7684\u51AA\u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeries\
     \ : vector< T > {\n  using vector< T >::vector;\n  using P = FormalPowerSeries;\n\
@@ -184,73 +132,41 @@ data:
     \ be 1\n  P log(int deg = -1) const;\n\n  P sqrt(int deg = -1) const;\n\n  //\
     \ F(0) must be 0\n  P exp_fast(int deg = -1) const;\n\n  P exp(int deg = -1) const;\n\
     \n  P pow(int64_t k, int deg = -1) const;\n\n  P mod_pow(int64_t k, P g) const;\n\
-    \n  P taylor_shift(T c) const;\n};\n#line 3 \"math/fps/inv.cpp\"\n\n/**\n * @brief\
-    \ Inv ($\\frac {1} {f(x)}$)\n */\ntemplate< typename T >\ntypename FormalPowerSeries<\
-    \ T >::P FormalPowerSeries< T >::inv_fast() const {\n  assert(((*this)[0]) !=\
-    \ T(0));\n\n  const int n = (int) this->size();\n  P res{T(1) / (*this)[0]};\n\
-    \n  for(int d = 1; d < n; d <<= 1) {\n    P f(2 * d), g(2 * d);\n    for(int j\
-    \ = 0; j < min(n, 2 * d); j++) f[j] = (*this)[j];\n    for(int j = 0; j < d; j++)\
-    \ g[j] = res[j];\n    get_fft()(f);\n    get_fft()(g);\n    for(int j = 0; j <\
-    \ 2 * d; j++) f[j] *= g[j];\n    get_ifft()(f);\n    for(int j = 0; j < d; j++)\
-    \ {\n      f[j] = 0;\n      f[j + d] = -f[j + d];\n    }\n    get_fft()(f);\n\
-    \    for(int j = 0; j < 2 * d; j++) f[j] *= g[j];\n    get_ifft()(f);\n    for(int\
-    \ j = 0; j < d; j++) f[j] = res[j];\n    res = f;\n  }\n  return res.pre(n);\n\
-    }\n\ntemplate< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
-    \ T >::inv(int deg) const {\n  assert(((*this)[0]) != T(0));\n  const int n =\
-    \ (int) this->size();\n  if(deg == -1) deg = n;\n  if(get_fft() != nullptr) {\n\
-    \    P ret(*this);\n    ret.resize(deg, T(0));\n    return ret.inv_fast();\n \
-    \ }\n  P ret({T(1) / (*this)[0]});\n  for(int i = 1; i < deg; i <<= 1) {\n   \
-    \ ret = (ret + ret - ret * ret * pre(i << 1)).pre(i << 1);\n  }\n  return ret.pre(deg);\n\
-    }\n#line 4 \"math/fps/sqrt.cpp\"\n\n/**\n * @brief Sqrt ($\\sqrt {f(x)}$)\n */\n\
-    template< typename T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries<\
-    \ T >::sqrt(int deg) const {\n  const int n = (int) this->size();\n  if(deg ==\
-    \ -1) deg = n;\n  if((*this)[0] == T(0)) {\n    for(int i = 1; i < n; i++) {\n\
-    \      if((*this)[i] != T(0)) {\n        if(i & 1) return {};\n        if(deg\
-    \ - i / 2 <= 0) break;\n        auto ret = (*this >> i).sqrt(deg - i / 2);\n \
-    \       if(ret.empty()) return {};\n        ret = ret << (i / 2);\n        if(ret.size()\
-    \ < deg) ret.resize(deg, T(0));\n        return ret;\n      }\n    }\n    return\
-    \ P(deg, 0);\n  }\n\n  P ret;\n  if(get_sqrt() == nullptr) {\n    assert((*this)[0]\
-    \ == T(1));\n    ret = {T(1)};\n  } else {\n    auto sqr = get_sqrt()((*this)[0]);\n\
-    \    if(sqr * sqr != (*this)[0]) return {};\n    ret = {T(sqr)};\n  }\n\n  T inv2\
-    \ = T(1) / T(2);\n  for(int i = 1; i < deg; i <<= 1) {\n    ret = (ret + pre(i\
-    \ << 1) * ret.inv(i << 1)) * inv2;\n  }\n  return ret.pre(deg);\n}\n#line 12 \"\
-    test/verify/yosupo-sqrt-of-formal-power-series.test.cpp\"\n\nconst int MOD = 998244353;\n\
-    using mint = ModInt< MOD >;\n\nint main() {\n  NumberTheoreticTransformFriendlyModInt<\
-    \ mint > ntt;\n  using FPS = FormalPowerSeries< mint >;\n  FPS::set_fft([&](FPS\
-    \ &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a); });\n  FPS::set_sqrt([](mint\
-    \ a) { return mod_sqrt< int64_t >(a.x, MOD); });\n  int N;\n  cin >> N;\n  FPS\
-    \ F(N);\n  cin >> F;\n  auto ret = F.sqrt();\n  if(ret.empty()) cout << -1 <<\
-    \ endl;\n  else cout << ret << endl;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sqrt_of_formal_power_series\"\
+    \n  P taylor_shift(T c) const;\n};\n#line 2 \"math/fps/taylor-shift.cpp\"\n\n\
+    /**\n * @brief Taylor-Shift ($f(x) \\Rightarrow f(x + c)$)\n */\ntemplate< typename\
+    \ T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries< T >::taylor_shift(T\
+    \ c) const {\n  int n = (int) this->size();\n  vector< T > fact(n), rfact(n);\n\
+    \  fact[0] = rfact[0] = T(1);\n  for(int i = 1; i < n; i++) fact[i] = fact[i -\
+    \ 1] * T(i);\n  rfact[n - 1] = T(1) / fact[n - 1];\n  for(int i = n - 1; i > 1;\
+    \ i--) rfact[i - 1] = rfact[i] * T(i);\n  P p(*this);\n  for(int i = 0; i < n;\
+    \ i++) p[i] *= fact[i];\n  p = p.rev();\n  P bs(n, T(1));\n  for(int i = 1; i\
+    \ < n; i++) bs[i] = bs[i - 1] * c * rfact[i] * fact[i - 1];\n  p = (p * bs).pre(n);\n\
+    \  p = p.rev();\n  for(int i = 0; i < n; i++) p[i] *= rfact[i];\n  return p;\n\
+    }\n#line 8 \"test/verify/yosupo-polynomial-taylor-shift.test.cpp\"\n\nconst int\
+    \ MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n  using FPS =\
+    \ FormalPowerSeries< mint >;\n\n  int N, C;\n  cin >> N >> C;\n  FPS F(N);\n \
+    \ cin >> F;\n  cout << F.taylor_shift(mint(C)) << \"\\n\";\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../math/combinatorics/mod-int.cpp\"\
-    \n#include \"../../math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\n\
-    \n#include \"../../math/combinatorics/mod-pow.cpp\"\n#include \"../../math/combinatorics/mod-sqrt.cpp\"\
-    \n\n#include \"../../math/fps/sqrt.cpp\"\n\nconst int MOD = 998244353;\nusing\
-    \ mint = ModInt< MOD >;\n\nint main() {\n  NumberTheoreticTransformFriendlyModInt<\
-    \ mint > ntt;\n  using FPS = FormalPowerSeries< mint >;\n  FPS::set_fft([&](FPS\
-    \ &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a); });\n  FPS::set_sqrt([](mint\
-    \ a) { return mod_sqrt< int64_t >(a.x, MOD); });\n  int N;\n  cin >> N;\n  FPS\
-    \ F(N);\n  cin >> F;\n  auto ret = F.sqrt();\n  if(ret.empty()) cout << -1 <<\
-    \ endl;\n  else cout << ret << endl;\n}\n"
+    \n\n#include \"../../math/fps/taylor-shift.cpp\"\n\nconst int MOD = 998244353;\n\
+    using mint = ModInt< MOD >;\n\nint main() {\n  using FPS = FormalPowerSeries<\
+    \ mint >;\n\n  int N, C;\n  cin >> N >> C;\n  FPS F(N);\n  cin >> F;\n  cout <<\
+    \ F.taylor_shift(mint(C)) << \"\\n\";\n}\n"
   dependsOn:
   - template/template.cpp
   - math/combinatorics/mod-int.cpp
-  - math/fft/number-theoretic-transform-friendly-mod-int.cpp
-  - math/combinatorics/mod-pow.cpp
-  - math/combinatorics/mod-sqrt.cpp
-  - math/fps/sqrt.cpp
+  - math/fps/taylor-shift.cpp
   - math/fps/formal-power-series.cpp
-  - math/fps/inv.cpp
   isVerificationFile: true
-  path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+  path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
   requiredBy: []
   timestamp: '2020-10-23 03:48:43+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+documentation_of: test/verify/yosupo-polynomial-taylor-shift.test.cpp
 layout: document
 redirect_from:
-- /verify/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-- /verify/test/verify/yosupo-sqrt-of-formal-power-series.test.cpp.html
-title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+- /verify/test/verify/yosupo-polynomial-taylor-shift.test.cpp
+- /verify/test/verify/yosupo-polynomial-taylor-shift.test.cpp.html
+title: test/verify/yosupo-polynomial-taylor-shift.test.cpp
 ---

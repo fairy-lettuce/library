@@ -1,25 +1,25 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/fps/stirling-second.cpp
     title: math/fps/stirling-second.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind
@@ -162,16 +162,16 @@ data:
     \ be 1\n  P log(int deg = -1) const;\n\n  P sqrt(int deg = -1) const;\n\n  //\
     \ F(0) must be 0\n  P exp_fast(int deg = -1) const;\n\n  P exp(int deg = -1) const;\n\
     \n  P pow(int64_t k, int deg = -1) const;\n\n  P mod_pow(int64_t k, P g) const;\n\
-    };\n#line 3 \"math/fps/stirling-second.cpp\"\n\ntemplate< typename T >\nFormalPowerSeries<\
-    \ T > stirling_second(int N) {\n  FormalPowerSeries< T > A(N + 1), B(N + 1);\n\
-    \  T tmp = 1;\n  for(int i = 0; i <= N; i++) {\n    T rev = T(1) / tmp;\n    A[i]\
-    \ = T(i).pow(N) * rev;\n    B[i] = T(1) * rev;\n    if(i & 1) B[i] *= -1;\n  \
-    \  tmp *= i + 1;\n  }\n  return (A * B).pre(N + 1);\n}\n#line 9 \"test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp\"\
-    \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
-    \  NumberTheoreticTransformFriendlyModInt< mint > ntt;\n  using FPS = FormalPowerSeries<\
-    \ mint >;\n  FPS::set_fft([&](FPS &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a);\
-    \ });\n\n  int N;\n  cin >> N;\n  cout << stirling_second< mint >(N) << endl;\n\
-    }\n"
+    \n  P taylor_shift(T c) const;\n};\n#line 3 \"math/fps/stirling-second.cpp\"\n\
+    \ntemplate< typename T >\nFormalPowerSeries< T > stirling_second(int N) {\n  FormalPowerSeries<\
+    \ T > A(N + 1), B(N + 1);\n  T tmp = 1;\n  for(int i = 0; i <= N; i++) {\n   \
+    \ T rev = T(1) / tmp;\n    A[i] = T(i).pow(N) * rev;\n    B[i] = T(1) * rev;\n\
+    \    if(i & 1) B[i] *= -1;\n    tmp *= i + 1;\n  }\n  return (A * B).pre(N + 1);\n\
+    }\n#line 9 \"test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp\"\n\
+    \nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n  NumberTheoreticTransformFriendlyModInt<\
+    \ mint > ntt;\n  using FPS = FormalPowerSeries< mint >;\n  FPS::set_fft([&](FPS\
+    \ &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a); });\n\n  int N;\n  cin >> N;\n\
+    \  cout << stirling_second< mint >(N) << endl;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../math/combinatorics/mod-int.cpp\"\
     \n#include \"../../math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\n\
@@ -189,8 +189,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   requiredBy: []
-  timestamp: '2020-10-21 14:13:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2020-10-23 03:48:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
 layout: document

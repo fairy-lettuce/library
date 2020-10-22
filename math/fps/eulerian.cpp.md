@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy: []
@@ -68,14 +68,14 @@ data:
     \ be 1\n  P log(int deg = -1) const;\n\n  P sqrt(int deg = -1) const;\n\n  //\
     \ F(0) must be 0\n  P exp_fast(int deg = -1) const;\n\n  P exp(int deg = -1) const;\n\
     \n  P pow(int64_t k, int deg = -1) const;\n\n  P mod_pow(int64_t k, P g) const;\n\
-    };\n#line 3 \"math/fps/eulerian.cpp\"\n\ntemplate< typename T >\nFormalPowerSeries<\
-    \ T > eulerian(int N) {\n  vector< T > fact(N + 2), rfact(N + 2);\n  fact[0] =\
-    \ rfact[N + 1] = 1;\n  for(int i = 1; i <= N + 1; i++) fact[i] = fact[i - 1] *\
-    \ i;\n  rfact[N + 1] /= fact[N + 1];\n  for(int i = N; i >= 0; i--) rfact[i] =\
-    \ rfact[i + 1] * (i + 1);\n\n  FormalPowerSeries< T > A(N + 1), B(N + 1);\n  for(int\
-    \ i = 0; i <= N; i++) {\n    A[i] = fact[N + 1] * rfact[i] * rfact[N + 1 - i];\n\
-    \    if(i & 1) A[i] *= -1;\n    B[i] = T(i + 1).pow(N);\n  }\n  return (A * B).pre(N\
-    \ + 1);\n}\n"
+    \n  P taylor_shift(T c) const;\n};\n#line 3 \"math/fps/eulerian.cpp\"\n\ntemplate<\
+    \ typename T >\nFormalPowerSeries< T > eulerian(int N) {\n  vector< T > fact(N\
+    \ + 2), rfact(N + 2);\n  fact[0] = rfact[N + 1] = 1;\n  for(int i = 1; i <= N\
+    \ + 1; i++) fact[i] = fact[i - 1] * i;\n  rfact[N + 1] /= fact[N + 1];\n  for(int\
+    \ i = N; i >= 0; i--) rfact[i] = rfact[i + 1] * (i + 1);\n\n  FormalPowerSeries<\
+    \ T > A(N + 1), B(N + 1);\n  for(int i = 0; i <= N; i++) {\n    A[i] = fact[N\
+    \ + 1] * rfact[i] * rfact[N + 1 - i];\n    if(i & 1) A[i] *= -1;\n    B[i] = T(i\
+    \ + 1).pow(N);\n  }\n  return (A * B).pre(N + 1);\n}\n"
   code: "#pragma once\n#include \"formal-power-series.cpp\"\n\ntemplate< typename\
     \ T >\nFormalPowerSeries< T > eulerian(int N) {\n  vector< T > fact(N + 2), rfact(N\
     \ + 2);\n  fact[0] = rfact[N + 1] = 1;\n  for(int i = 1; i <= N + 1; i++) fact[i]\
@@ -89,7 +89,7 @@ data:
   isVerificationFile: false
   path: math/fps/eulerian.cpp
   requiredBy: []
-  timestamp: '2020-10-21 14:13:55+09:00'
+  timestamp: '2020-10-23 03:48:43+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/fps/eulerian.cpp
