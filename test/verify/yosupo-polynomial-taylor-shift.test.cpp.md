@@ -1,22 +1,25 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
+    path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
+    title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
+  - icon: ':heavy_check_mark:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/taylor-shift.cpp
     title: Taylor-Shift ($f(x) \Rightarrow f(x + c)$)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/polynomial_taylor_shift
@@ -74,6 +77,34 @@ data:
     \  friend istream &operator>>(istream &is, ModInt &a) {\n    int64_t t;\n    is\
     \ >> t;\n    a = ModInt< mod >(t);\n    return (is);\n  }\n\n  static int get_mod()\
     \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 6 \"test/verify/yosupo-polynomial-taylor-shift.test.cpp\"\
+    \n\n#line 1 \"math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\ntemplate<\
+    \ typename Mint >\nstruct NumberTheoreticTransformFriendlyModInt {\n\n  vector<\
+    \ Mint > dw, idw;\n  int max_base;\n  Mint root;\n\n  NumberTheoreticTransformFriendlyModInt()\
+    \ {\n    const unsigned mod = Mint::get_mod();\n    assert(mod >= 3 && mod % 2\
+    \ == 1);\n    auto tmp = mod - 1;\n    max_base = 0;\n    while(tmp % 2 == 0)\
+    \ tmp >>= 1, max_base++;\n    root = 2;\n    while(root.pow((mod - 1) >> 1) ==\
+    \ 1) root += 1;\n    assert(root.pow(mod - 1) == 1);\n    dw.resize(max_base);\n\
+    \    idw.resize(max_base);\n    for(int i = 0; i < max_base; i++) {\n      dw[i]\
+    \ = -root.pow((mod - 1) >> (i + 2));\n      idw[i] = Mint(1) / dw[i];\n    }\n\
+    \  }\n\n  void ntt(vector< Mint > &a) {\n    const int n = (int) a.size();\n \
+    \   assert((n & (n - 1)) == 0);\n    assert(__builtin_ctz(n) <= max_base);\n \
+    \   for(int m = n; m >>= 1;) {\n      Mint w = 1;\n      for(int s = 0, k = 0;\
+    \ s < n; s += 2 * m) {\n        for(int i = s, j = s + m; i < s + m; ++i, ++j)\
+    \ {\n          auto x = a[i], y = a[j] * w;\n          a[i] = x + y, a[j] = x\
+    \ - y;\n        }\n        w *= dw[__builtin_ctz(++k)];\n      }\n    }\n  }\n\
+    \n  void intt(vector< Mint > &a, bool f = true) {\n    const int n = (int) a.size();\n\
+    \    assert((n & (n - 1)) == 0);\n    assert(__builtin_ctz(n) <= max_base);\n\
+    \    for(int m = 1; m < n; m *= 2) {\n      Mint w = 1;\n      for(int s = 0,\
+    \ k = 0; s < n; s += 2 * m) {\n        for(int i = s, j = s + m; i < s + m; ++i,\
+    \ ++j) {\n          auto x = a[i], y = a[j];\n          a[i] = x + y, a[j] = (x\
+    \ - y) * w;\n        }\n        w *= idw[__builtin_ctz(++k)];\n      }\n    }\n\
+    \    if(f) {\n      Mint inv_sz = Mint(1) / n;\n      for(int i = 0; i < n; i++)\
+    \ a[i] *= inv_sz;\n    }\n  }\n\n  vector< Mint > multiply(vector< Mint > a, vector<\
+    \ Mint > b) {\n    int need = a.size() + b.size() - 1;\n    int nbase = 1;\n \
+    \   while((1 << nbase) < need) nbase++;\n    int sz = 1 << nbase;\n    a.resize(sz,\
+    \ 0);\n    b.resize(sz, 0);\n    ntt(a);\n    ntt(b);\n    Mint inv_sz = Mint(1)\
+    \ / sz;\n    for(int i = 0; i < sz; i++) a[i] *= b[i] * inv_sz;\n    intt(a, false);\n\
+    \    a.resize(need);\n    return a;\n  }\n};\n#line 8 \"test/verify/yosupo-polynomial-taylor-shift.test.cpp\"\
     \n\n#line 2 \"math/fps/formal-power-series.cpp\"\n\n/**\n * @brief Formal-Power-Series(\u5F62\
     \u5F0F\u7684\u51AA\u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeries\
     \ : vector< T > {\n  using vector< T >::vector;\n  using P = FormalPowerSeries;\n\
@@ -142,26 +173,32 @@ data:
     \ i++) p[i] *= fact[i];\n  p = p.rev();\n  P bs(n, T(1));\n  for(int i = 1; i\
     \ < n; i++) bs[i] = bs[i - 1] * c * rfact[i] * fact[i - 1];\n  p = (p * bs).pre(n);\n\
     \  p = p.rev();\n  for(int i = 0; i < n; i++) p[i] *= rfact[i];\n  return p;\n\
-    }\n#line 8 \"test/verify/yosupo-polynomial-taylor-shift.test.cpp\"\n\nconst int\
-    \ MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n  using FPS =\
-    \ FormalPowerSeries< mint >;\n\n  int N, C;\n  cin >> N >> C;\n  FPS F(N);\n \
-    \ cin >> F;\n  cout << F.taylor_shift(mint(C)) << \"\\n\";\n}\n"
+    }\n#line 10 \"test/verify/yosupo-polynomial-taylor-shift.test.cpp\"\n\nconst int\
+    \ MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n  NumberTheoreticTransformFriendlyModInt<\
+    \ mint > ntt;\n  using FPS = FormalPowerSeries< mint >;\n  FPS::set_fft([&](FPS\
+    \ &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a); });\n  int N, C;\n  cin >> N\
+    \ >> C;\n  FPS F(N);\n  cin >> F;\n  cout << F.taylor_shift(mint(C)) << \"\\n\"\
+    ;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../math/combinatorics/mod-int.cpp\"\
+    \n\n#include \"../../math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\
     \n\n#include \"../../math/fps/taylor-shift.cpp\"\n\nconst int MOD = 998244353;\n\
-    using mint = ModInt< MOD >;\n\nint main() {\n  using FPS = FormalPowerSeries<\
-    \ mint >;\n\n  int N, C;\n  cin >> N >> C;\n  FPS F(N);\n  cin >> F;\n  cout <<\
-    \ F.taylor_shift(mint(C)) << \"\\n\";\n}\n"
+    using mint = ModInt< MOD >;\n\nint main() {\n  NumberTheoreticTransformFriendlyModInt<\
+    \ mint > ntt;\n  using FPS = FormalPowerSeries< mint >;\n  FPS::set_fft([&](FPS\
+    \ &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a); });\n  int N, C;\n  cin >> N\
+    \ >> C;\n  FPS F(N);\n  cin >> F;\n  cout << F.taylor_shift(mint(C)) << \"\\n\"\
+    ;\n}\n"
   dependsOn:
   - template/template.cpp
   - math/combinatorics/mod-int.cpp
+  - math/fft/number-theoretic-transform-friendly-mod-int.cpp
   - math/fps/taylor-shift.cpp
   - math/fps/formal-power-series.cpp
   isVerificationFile: true
   path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
   requiredBy: []
-  timestamp: '2020-10-23 03:48:43+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2020-10-26 17:23:30+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-polynomial-taylor-shift.test.cpp
 layout: document

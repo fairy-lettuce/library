@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
     title: test/verify/yosupo-polynomial-taylor-shift.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Taylor-Shift ($f(x) \Rightarrow f(x + c)$)
     links: []
@@ -99,7 +99,7 @@ data:
   path: math/fps/taylor-shift.cpp
   requiredBy: []
   timestamp: '2020-10-23 03:48:43+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-polynomial-taylor-shift.test.cpp
 documentation_of: math/fps/taylor-shift.cpp

@@ -54,7 +54,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/stirling-second.cpp
     title: math/fps/stirling-second.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/taylor-shift.cpp
     title: Taylor-Shift ($f(x) \Rightarrow f(x + c)$)
   _extendedVerifiedWith:
@@ -82,7 +82,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
     title: test/verify/yosupo-polynomial-taylor-shift.test.cpp
   - icon: ':heavy_check_mark:'
@@ -101,7 +101,7 @@ data:
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links: []
@@ -246,7 +246,7 @@ data:
   - math/fps/polynomial-interpolation.cpp
   - math/fps/pow.cpp
   timestamp: '2020-10-23 03:48:43+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-multipoint-evaluation.test.cpp
   - test/verify/yosupo-polynomial-interpolation.test.cpp

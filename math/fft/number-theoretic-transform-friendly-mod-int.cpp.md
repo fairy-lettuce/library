@@ -25,6 +25,9 @@ data:
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
+    title: test/verify/yosupo-polynomial-taylor-shift.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
     title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -113,6 +116,7 @@ data:
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
   - test/verify/yosupo-bellnoulli-number.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+  - test/verify/yosupo-polynomial-taylor-shift.test.cpp
 documentation_of: math/fft/number-theoretic-transform-friendly-mod-int.cpp
 layout: document
 redirect_from:
