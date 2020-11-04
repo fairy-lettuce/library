@@ -572,14 +572,17 @@ data:
       title: structure/convex-hull-trick/persistent-dynamic-li-chao-tree.cpp
   - name: structure/develop
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
+      path: structure/develop/array-pool.cpp
+      title: structure/develop/array-pool.cpp
+    - icon: ':heavy_check_mark:'
       path: structure/develop/diameter.cpp
       title: structure/develop/diameter.cpp
     - icon: ':heavy_check_mark:'
       path: structure/develop/lazy-reversible-splay-tree.cpp
       title: "Lazy-Reversible-Splay-Tree(\u9045\u5EF6\u4F1D\u642C\u53CD\u8EE2\u53EF\
         \u80FDSplay\u6728)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: structure/develop/link-cut-tree-subtree.cpp
       title: structure/develop/link-cut-tree-subtree.cpp
     - icon: ':heavy_check_mark:'
@@ -591,7 +594,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/develop/splay-tree-base.cpp
       title: "Splay-Tree-Base(Splay\u6728)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: structure/develop/splay-tree.cpp
       title: structure/develop/splay-tree.cpp
   - name: structure/heap
@@ -1037,6 +1040,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-3-c.test.cpp
       title: test/verify/aoj-grl-3-c.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-grl-5-a-2.test.cpp
+      title: test/verify/aoj-grl-5-a-2.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-5-a.test.cpp
       title: test/verify/aoj-grl-5-a.test.cpp

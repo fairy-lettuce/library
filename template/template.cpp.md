@@ -205,6 +205,9 @@ data:
     path: test/verify/aoj-grl-3-c.test.cpp
     title: test/verify/aoj-grl-3-c.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-grl-5-a-2.test.cpp
+    title: test/verify/aoj-grl-5-a-2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-a.test.cpp
     title: test/verify/aoj-grl-5-a.test.cpp
   - icon: ':heavy_check_mark:'
@@ -642,6 +645,7 @@ data:
   - test/verify/aoj-2415.test.cpp
   - test/verify/aoj-grl-5-a.test.cpp
   - test/verify/yosupo-point-set-range-composite.test.cpp
+  - test/verify/aoj-grl-5-a-2.test.cpp
   - test/verify/aoj-2450-3.test.cpp
   - test/verify/yosupo-line-add-get-min.test.cpp
   - test/verify/yosupo-tetration-mod.test.cpp

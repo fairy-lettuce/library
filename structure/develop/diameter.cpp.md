@@ -2,9 +2,12 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-grl-5-a-2.test.cpp
+    title: test/verify/aoj-grl-5-a-2.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"structure/develop/diameter.cpp\"\ntemplate< typename T >\n\
@@ -65,8 +68,9 @@ data:
   path: structure/develop/diameter.cpp
   requiredBy: []
   timestamp: '2020-11-02 16:10:08+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/verify/aoj-grl-5-a-2.test.cpp
 documentation_of: structure/develop/diameter.cpp
 layout: document
 redirect_from:
