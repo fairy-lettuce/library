@@ -214,6 +214,9 @@ data:
     path: test/verify/aoj-grl-5-c-2.test.cpp
     title: test/verify/aoj-grl-5-c-2.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-grl-5-c-3.test.cpp
+    title: test/verify/aoj-grl-5-c-3.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c.test.cpp
     title: test/verify/aoj-grl-5-c.test.cpp
   - icon: ':heavy_check_mark:'
@@ -695,6 +698,7 @@ data:
   - test/verify/yukicoder-705.test.cpp
   - test/verify/yosupo-queue-operate-all-composite.test.cpp
   - test/verify/aoj-grl-1-c.test.cpp
+  - test/verify/aoj-grl-5-c-3.test.cpp
   - test/verify/yosupo-set-xor-min.test.cpp
   - test/verify/aoj-3198.test.cpp
   - test/verify/aoj-0334.test.cpp
