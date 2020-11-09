@@ -1,19 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/rmq-lowest-common-ancestor.cpp
     title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
+    path: structure/others/sparse-table.cpp
+    title: "Sparse-Table(\u30B9\u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB)"
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
@@ -63,10 +66,25 @@ data:
     \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
     \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
     using Edges = vector< Edge< T > >;\n#line 5 \"test/verify/aoj-grl-5-c-3.test.cpp\"\
-    \n\n#line 1 \"graph/tree/rmq-lowest-common-ancestor.cpp\"\n/**\n * @brief RMQ-Lowest-Common-Ancestor(\u6700\
-    \u5C0F\u5171\u901A\u7956\u5148)\n */\ntemplate< typename T = int >\nstruct RMQLowestCommonAncestor\
-    \ : Graph< T > {\npublic:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n\
-    \  using F = function< int(int, int) >;\n\n  void build(int root = 0) {\n    ord.reserve(g.size()\
+    \n\n#line 1 \"structure/others/sparse-table.cpp\"\n/**\n * @brief Sparse-Table(\u30B9\
+    \u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB)\n * @docs docs/sparse-table.md\n */\n\
+    template< typename T, typename F >\nstruct SparseTable {\n  F f;\n  vector< vector<\
+    \ T > > st;\n  vector< int > lookup;\n\n  SparseTable() = default;\n\n  explicit\
+    \ SparseTable(const vector< T > &v, const F &f) : f(f) {\n    const int n = (int)\
+    \ v.size();\n    const int b = 32 - __builtin_clz(n);\n    st.assign(b, vector<\
+    \ T >(n));\n    for(int i = 0; i < v.size(); i++) {\n      st[0][i] = v[i];\n\
+    \    }\n    for(int i = 1; i < b; i++) {\n      for(int j = 0; j + (1 << i) <=\
+    \ n; j++) {\n        st[i][j] = f(st[i - 1][j], st[i - 1][j + (1 << (i - 1))]);\n\
+    \      }\n    }\n    lookup.resize(v.size() + 1);\n    for(int i = 2; i < lookup.size();\
+    \ i++) {\n      lookup[i] = lookup[i >> 1] + 1;\n    }\n  }\n\n  inline T fold(int\
+    \ l, int r) const {\n    int b = lookup[r - l];\n    return f(st[b][l], st[b][r\
+    \ - (1 << b)]);\n  }\n};\n\ntemplate< typename T, typename F >\nSparseTable< T,\
+    \ F > get_sparse_table(const vector< T > &v, const F &f) {\n  return SparseTable<\
+    \ T, F >(v, f);\n}\n#line 2 \"graph/tree/rmq-lowest-common-ancestor.cpp\"\n\n\
+    /**\n * @brief RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
+    )\n */\ntemplate< typename T = int >\nstruct RMQLowestCommonAncestor : Graph<\
+    \ T > {\npublic:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n  using\
+    \ F = function< int(int, int) >;\n\n  void build(int root = 0) {\n    ord.reserve(g.size()\
     \ * 2 - 1);\n    dep.reserve(g.size() * 2 - 1);\n    in.resize(g.size());\n  \
     \  dfs(root, -1, 0);\n    vector< int > vs(g.size() * 2 - 1);\n    iota(begin(vs),\
     \ end(vs), 0);\n    F f = [&](int a, int b) { return dep[a] < dep[b] ? a : b;\
@@ -94,11 +112,12 @@ data:
   - template/template.cpp
   - graph/graph-template.cpp
   - graph/tree/rmq-lowest-common-ancestor.cpp
+  - structure/others/sparse-table.cpp
   isVerificationFile: true
   path: test/verify/aoj-grl-5-c-3.test.cpp
   requiredBy: []
-  timestamp: '2020-11-09 17:59:38+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2020-11-09 18:10:19+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-5-c-3.test.cpp
 layout: document

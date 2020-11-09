@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/connected-components/incremental-bridge-connectivity.cpp
     title: Incremental-Bridge-Connectivity
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
   - icon: ':heavy_check_mark:'
