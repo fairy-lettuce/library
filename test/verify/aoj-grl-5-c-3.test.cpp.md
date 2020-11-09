@@ -6,7 +6,8 @@ data:
     title: graph/graph-template.cpp
   - icon: ':heavy_check_mark:'
     path: graph/tree/rmq-lowest-common-ancestor.cpp
-    title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
+    title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148) <$O(n\
+      \ \\log n)$, $O(1)$>"
   - icon: ':heavy_check_mark:'
     path: structure/others/sparse-table.cpp
     title: "Sparse-Table(\u30B9\u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB)"
@@ -82,9 +83,9 @@ data:
     \ F > get_sparse_table(const vector< T > &v, const F &f) {\n  return SparseTable<\
     \ T, F >(v, f);\n}\n#line 2 \"graph/tree/rmq-lowest-common-ancestor.cpp\"\n\n\
     /**\n * @brief RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
-    )\n */\ntemplate< typename T = int >\nstruct RMQLowestCommonAncestor : Graph<\
-    \ T > {\npublic:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n  using\
-    \ F = function< int(int, int) >;\n\n  void build(int root = 0) {\n    ord.reserve(g.size()\
+    ) <$O(n \\log n)$, $O(1)$>\n */\ntemplate< typename T = int >\nstruct RMQLowestCommonAncestor\
+    \ : Graph< T > {\npublic:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n\
+    \  using F = function< int(int, int) >;\n\n  void build(int root = 0) {\n    ord.reserve(g.size()\
     \ * 2 - 1);\n    dep.reserve(g.size() * 2 - 1);\n    in.resize(g.size());\n  \
     \  dfs(root, -1, 0);\n    vector< int > vs(g.size() * 2 - 1);\n    iota(begin(vs),\
     \ end(vs), 0);\n    F f = [&](int a, int b) { return dep[a] < dep[b] ? a : b;\
@@ -116,7 +117,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-grl-5-c-3.test.cpp
   requiredBy: []
-  timestamp: '2020-11-09 18:10:19+09:00'
+  timestamp: '2020-11-09 18:26:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-5-c-3.test.cpp

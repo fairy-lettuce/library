@@ -6,7 +6,8 @@ data:
     title: graph/graph-template.cpp
   - icon: ':heavy_check_mark:'
     path: graph/tree/doubling-lowest-common-ancestor.cpp
-    title: "Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
+    title: "Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)\
+      \ <$O(n \\log n)$, $O(\\log n)$>"
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -63,10 +64,10 @@ data:
     \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
     using Edges = vector< Edge< T > >;\n#line 5 \"test/verify/aoj-grl-5-c.test.cpp\"\
     \n\n#line 1 \"graph/tree/doubling-lowest-common-ancestor.cpp\"\n/**\n * @brief\
-    \ Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)\n */\n\
-    template< typename T >\nstruct DoublingLowestCommonAncestor : Graph< T > {\npublic:\n\
-    \  using Graph< T >::g;\n  vector< int > dep;\n  vector< T > sum;\n  vector< vector<\
-    \ int > > table;\n  const int LOG;\n\n  explicit DoublingLowestCommonAncestor(int\
+    \ Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148) <$O(n\
+    \ \\log n)$, $O(\\log n)$>\n */\ntemplate< typename T >\nstruct DoublingLowestCommonAncestor\
+    \ : Graph< T > {\npublic:\n  using Graph< T >::g;\n  vector< int > dep;\n  vector<\
+    \ T > sum;\n  vector< vector< int > > table;\n  const int LOG;\n\n  explicit DoublingLowestCommonAncestor(int\
     \ n)\n      : LOG(32 - __builtin_clz(g.size())), Graph< T >(n) {}\n\n  explicit\
     \ DoublingLowestCommonAncestor(const Graph< T > &g)\n      : LOG(32 - __builtin_clz(g.size())),\
     \ Graph< T >(g) {}\n\n  void build() {\n    dep.assign(g.size(), 0);\n    sum.assign(g.size(),\
@@ -105,7 +106,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-grl-5-c.test.cpp
   requiredBy: []
-  timestamp: '2020-09-15 01:04:53+09:00'
+  timestamp: '2020-11-09 18:26:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-5-c.test.cpp

@@ -239,7 +239,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/tree/doubling-lowest-common-ancestor.cpp
       title: "Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
-        )"
+        ) <$O(n \\log n)$, $O(\\log n)$>"
     - icon: ':heavy_check_mark:'
       path: graph/tree/heavy-light-decomposition.cpp
       title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
@@ -248,7 +248,8 @@ data:
       title: graph/tree/rerooting.cpp
     - icon: ':heavy_check_mark:'
       path: graph/tree/rmq-lowest-common-ancestor.cpp
-      title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
+      title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148) <$O(n\
+        \ \\log n)$, $O(1)$>"
     - icon: ':heavy_check_mark:'
       path: graph/tree/tree-diameter.cpp
       title: "Tree-Diameter(\u6728\u306E\u76F4\u5F84)"

@@ -10,13 +10,13 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\
-      \u5148)"
+      \u5148) <$O(n \\log n)$, $O(\\log n)$>"
     links: []
   bundledCode: "#line 1 \"graph/tree/doubling-lowest-common-ancestor.cpp\"\n/**\n\
     \ * @brief Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
-    )\n */\ntemplate< typename T >\nstruct DoublingLowestCommonAncestor : Graph< T\
-    \ > {\npublic:\n  using Graph< T >::g;\n  vector< int > dep;\n  vector< T > sum;\n\
-    \  vector< vector< int > > table;\n  const int LOG;\n\n  explicit DoublingLowestCommonAncestor(int\
+    ) <$O(n \\log n)$, $O(\\log n)$>\n */\ntemplate< typename T >\nstruct DoublingLowestCommonAncestor\
+    \ : Graph< T > {\npublic:\n  using Graph< T >::g;\n  vector< int > dep;\n  vector<\
+    \ T > sum;\n  vector< vector< int > > table;\n  const int LOG;\n\n  explicit DoublingLowestCommonAncestor(int\
     \ n)\n      : LOG(32 - __builtin_clz(g.size())), Graph< T >(n) {}\n\n  explicit\
     \ DoublingLowestCommonAncestor(const Graph< T > &g)\n      : LOG(32 - __builtin_clz(g.size())),\
     \ Graph< T >(g) {}\n\n  void build() {\n    dep.assign(g.size(), 0);\n    sum.assign(g.size(),\
@@ -34,9 +34,9 @@ data:
     \ &to : g[idx]) {\n      if(to != par) {\n        sum[to] = sum[idx] + to.cost;\n\
     \        dfs(to, idx, d + 1);\n      }\n    }\n  }\n};\n"
   code: "/**\n * @brief Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\
-    \u5148)\n */\ntemplate< typename T >\nstruct DoublingLowestCommonAncestor : Graph<\
-    \ T > {\npublic:\n  using Graph< T >::g;\n  vector< int > dep;\n  vector< T >\
-    \ sum;\n  vector< vector< int > > table;\n  const int LOG;\n\n  explicit DoublingLowestCommonAncestor(int\
+    \u5148) <$O(n \\log n)$, $O(\\log n)$>\n */\ntemplate< typename T >\nstruct DoublingLowestCommonAncestor\
+    \ : Graph< T > {\npublic:\n  using Graph< T >::g;\n  vector< int > dep;\n  vector<\
+    \ T > sum;\n  vector< vector< int > > table;\n  const int LOG;\n\n  explicit DoublingLowestCommonAncestor(int\
     \ n)\n      : LOG(32 - __builtin_clz(g.size())), Graph< T >(n) {}\n\n  explicit\
     \ DoublingLowestCommonAncestor(const Graph< T > &g)\n      : LOG(32 - __builtin_clz(g.size())),\
     \ Graph< T >(g) {}\n\n  void build() {\n    dep.assign(g.size(), 0);\n    sum.assign(g.size(),\
@@ -57,7 +57,7 @@ data:
   isVerificationFile: false
   path: graph/tree/doubling-lowest-common-ancestor.cpp
   requiredBy: []
-  timestamp: '2020-03-26 01:02:16+09:00'
+  timestamp: '2020-11-09 18:26:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-5-c.test.cpp
@@ -66,5 +66,6 @@ layout: document
 redirect_from:
 - /library/graph/tree/doubling-lowest-common-ancestor.cpp
 - /library/graph/tree/doubling-lowest-common-ancestor.cpp.html
-title: "Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
+title: "Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148) <$O(n\
+  \ \\log n)$, $O(\\log n)$>"
 ---
