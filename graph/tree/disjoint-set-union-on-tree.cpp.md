@@ -8,7 +8,7 @@ data:
   attributes:
     document_title: Disjoint-Set-Union-On-Tree
     links: []
-  bundledCode: "#line 1 \"graph/tree/disjoint_set_union_on_tree.cpp\"\n/**\n * @brief\
+  bundledCode: "#line 1 \"graph/tree/disjoint-set-union-on-tree.cpp\"\n/**\n * @brief\
     \ Disjoint-Set-Union-On-Tree\n */\ntemplate< typename T >\nstruct DisjointSetUnionOnTree\
     \ : Graph< T > {\n  using F = function< void(int) >;\n  using Graph< T >::g;\n\
     \  vector< int > heavy, sz, in, out, ord;\n  const F expand, shrink, query;\n\
@@ -49,15 +49,15 @@ data:
     \    build_subtree(root);\n    dfs(root, false);\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: graph/tree/disjoint_set_union_on_tree.cpp
+  path: graph/tree/disjoint-set-union-on-tree.cpp
   requiredBy: []
-  timestamp: '2020-09-08 23:29:00+09:00'
+  timestamp: '2020-11-09 22:18:25+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: graph/tree/disjoint_set_union_on_tree.cpp
+documentation_of: graph/tree/disjoint-set-union-on-tree.cpp
 layout: document
 redirect_from:
-- /library/graph/tree/disjoint_set_union_on_tree.cpp
-- /library/graph/tree/disjoint_set_union_on_tree.cpp.html
+- /library/graph/tree/disjoint-set-union-on-tree.cpp
+- /library/graph/tree/disjoint-set-union-on-tree.cpp.html
 title: Disjoint-Set-Union-On-Tree
 ---

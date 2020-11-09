@@ -9,19 +9,21 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    _deprecated_at_docs: docs/doubling-lowest-common-ancestor.md
     document_title: "Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\
-      \u5148) <$O(n \\log n)$, $O(\\log n)$>"
+      \u5148)"
     links: []
   bundledCode: "#line 1 \"graph/tree/doubling-lowest-common-ancestor.cpp\"\n/**\n\
     \ * @brief Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
-    ) <$O(n \\log n)$, $O(\\log n)$>\n */\ntemplate< typename T >\nstruct DoublingLowestCommonAncestor\
-    \ : Graph< T > {\npublic:\n  using Graph< T >::g;\n  vector< int > dep;\n  vector<\
-    \ T > sum;\n  vector< vector< int > > table;\n  const int LOG;\n\n  explicit DoublingLowestCommonAncestor(int\
-    \ n)\n      : LOG(32 - __builtin_clz(g.size())), Graph< T >(n) {}\n\n  explicit\
-    \ DoublingLowestCommonAncestor(const Graph< T > &g)\n      : LOG(32 - __builtin_clz(g.size())),\
-    \ Graph< T >(g) {}\n\n  void build() {\n    dep.assign(g.size(), 0);\n    sum.assign(g.size(),\
-    \ 0);\n    table.assign(LOG, vector< int >(g.size(), -1));\n    dfs(0, -1, 0);\n\
-    \    for(int k = 0; k + 1 < LOG; k++) {\n      for(int i = 0; i < table[k].size();\
+    )\n * @docs docs/doubling-lowest-common-ancestor.md\n */\ntemplate< typename T\
+    \ >\nstruct DoublingLowestCommonAncestor : Graph< T > {\npublic:\n  using Graph<\
+    \ T >::g;\n  vector< int > dep;\n  vector< T > sum;\n  vector< vector< int > >\
+    \ table;\n  const int LOG;\n\n  explicit DoublingLowestCommonAncestor(int n)\n\
+    \      : LOG(32 - __builtin_clz(g.size())), Graph< T >(n) {}\n\n  explicit DoublingLowestCommonAncestor(const\
+    \ Graph< T > &g)\n      : LOG(32 - __builtin_clz(g.size())), Graph< T >(g) {}\n\
+    \n  void build() {\n    dep.assign(g.size(), 0);\n    sum.assign(g.size(), 0);\n\
+    \    table.assign(LOG, vector< int >(g.size(), -1));\n    dfs(0, -1, 0);\n   \
+    \ for(int k = 0; k + 1 < LOG; k++) {\n      for(int i = 0; i < table[k].size();\
     \ i++) {\n        if(table[k][i] == -1) table[k + 1][i] = -1;\n        else table[k\
     \ + 1][i] = table[k][table[k][i]];\n      }\n    }\n  }\n\n  int lca(int u, int\
     \ v) {\n    if(dep[u] > dep[v]) swap(u, v);\n    for(int i = LOG - 1; i >= 0;\
@@ -34,14 +36,15 @@ data:
     \ &to : g[idx]) {\n      if(to != par) {\n        sum[to] = sum[idx] + to.cost;\n\
     \        dfs(to, idx, d + 1);\n      }\n    }\n  }\n};\n"
   code: "/**\n * @brief Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\
-    \u5148) <$O(n \\log n)$, $O(\\log n)$>\n */\ntemplate< typename T >\nstruct DoublingLowestCommonAncestor\
-    \ : Graph< T > {\npublic:\n  using Graph< T >::g;\n  vector< int > dep;\n  vector<\
-    \ T > sum;\n  vector< vector< int > > table;\n  const int LOG;\n\n  explicit DoublingLowestCommonAncestor(int\
-    \ n)\n      : LOG(32 - __builtin_clz(g.size())), Graph< T >(n) {}\n\n  explicit\
-    \ DoublingLowestCommonAncestor(const Graph< T > &g)\n      : LOG(32 - __builtin_clz(g.size())),\
-    \ Graph< T >(g) {}\n\n  void build() {\n    dep.assign(g.size(), 0);\n    sum.assign(g.size(),\
-    \ 0);\n    table.assign(LOG, vector< int >(g.size(), -1));\n    dfs(0, -1, 0);\n\
-    \    for(int k = 0; k + 1 < LOG; k++) {\n      for(int i = 0; i < table[k].size();\
+    \u5148)\n * @docs docs/doubling-lowest-common-ancestor.md\n */\ntemplate< typename\
+    \ T >\nstruct DoublingLowestCommonAncestor : Graph< T > {\npublic:\n  using Graph<\
+    \ T >::g;\n  vector< int > dep;\n  vector< T > sum;\n  vector< vector< int > >\
+    \ table;\n  const int LOG;\n\n  explicit DoublingLowestCommonAncestor(int n)\n\
+    \      : LOG(32 - __builtin_clz(g.size())), Graph< T >(n) {}\n\n  explicit DoublingLowestCommonAncestor(const\
+    \ Graph< T > &g)\n      : LOG(32 - __builtin_clz(g.size())), Graph< T >(g) {}\n\
+    \n  void build() {\n    dep.assign(g.size(), 0);\n    sum.assign(g.size(), 0);\n\
+    \    table.assign(LOG, vector< int >(g.size(), -1));\n    dfs(0, -1, 0);\n   \
+    \ for(int k = 0; k + 1 < LOG; k++) {\n      for(int i = 0; i < table[k].size();\
     \ i++) {\n        if(table[k][i] == -1) table[k + 1][i] = -1;\n        else table[k\
     \ + 1][i] = table[k][table[k][i]];\n      }\n    }\n  }\n\n  int lca(int u, int\
     \ v) {\n    if(dep[u] > dep[v]) swap(u, v);\n    for(int i = LOG - 1; i >= 0;\
@@ -57,7 +60,7 @@ data:
   isVerificationFile: false
   path: graph/tree/doubling-lowest-common-ancestor.cpp
   requiredBy: []
-  timestamp: '2020-11-09 18:26:22+09:00'
+  timestamp: '2020-11-09 22:18:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-5-c.test.cpp
@@ -66,6 +69,20 @@ layout: document
 redirect_from:
 - /library/graph/tree/doubling-lowest-common-ancestor.cpp
 - /library/graph/tree/doubling-lowest-common-ancestor.cpp.html
-title: "Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148) <$O(n\
-  \ \\log n)$, $O(\\log n)$>"
+title: "Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
 ---
+## 概要
+ダブリングによって最小共通祖先を求める.
+
+頂点 $u$, $v$ の最小共通祖先を求めたいとする. $dep[i]$ をある頂点を根とする根付き木としてみたときの深さとし, $dep[u] \leq dep[v]$ を仮定する. まず $dep[v] - dep[u]$ 個だけ頂点 $v$ を親に遡らせて, 頂点 $u, v$ の深さを揃える. このとき深さが一致したらそれが最小共通祖先. それ以外のとき, 上位 bit から頂点 $u, v$ 双方の $2^k$ 個先の親を見て, 異なれば遡ることを繰り返し, 双方の親ではない直前の頂点を求める. するとその親が最小共通祖先であることがわかる.
+
+## 使い方
+
+* `build()`: 構築する.
+* `lca(u, v)`: 頂点 `u`, `v` の最小共通祖先(LCA)を返す.
+* `dist(u, v)`: 頂点 `u`, `v` 間のパスの辺の本数を返す.
+
+## 計算量
+
+* `build()`: $O(V)$
+* `lca()`, `dist()`: $O(\log V)$

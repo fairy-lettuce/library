@@ -13,7 +13,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
-      ) <$O(n \\log n)$, $O(1)$>"
+      )"
     links: []
   bundledCode: "#line 1 \"structure/others/sparse-table.cpp\"\n/**\n * @brief Sparse-Table(\u30B9\
     \u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB)\n * @docs docs/sparse-table.md\n */\n\
@@ -31,7 +31,21 @@ data:
     \ F > get_sparse_table(const vector< T > &v, const F &f) {\n  return SparseTable<\
     \ T, F >(v, f);\n}\n#line 2 \"graph/tree/rmq-lowest-common-ancestor.cpp\"\n\n\
     /**\n * @brief RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
-    ) <$O(n \\log n)$, $O(1)$>\n */\ntemplate< typename T = int >\nstruct RMQLowestCommonAncestor\
+    )\n **/\ntemplate< typename T = int >\nstruct RMQLowestCommonAncestor : Graph<\
+    \ T > {\npublic:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n  using\
+    \ F = function< int(int, int) >;\n\n  void build(int root = 0) {\n    ord.reserve(g.size()\
+    \ * 2 - 1);\n    dep.reserve(g.size() * 2 - 1);\n    in.resize(g.size());\n  \
+    \  dfs(root, -1, 0);\n    vector< int > vs(g.size() * 2 - 1);\n    iota(begin(vs),\
+    \ end(vs), 0);\n    F f = [&](int a, int b) { return dep[a] < dep[b] ? a : b;\
+    \ };\n    st = get_sparse_table(vs, f);\n  }\n\n  int lca(int x, int y) const\
+    \ {\n    if(in[x] > in[y]) swap(x, y);\n    return x == y ? x : ord[st.fold(in[x],\
+    \ in[y])];\n  }\n\nprivate:\n  vector< int > ord, dep, in;\n  SparseTable< int,\
+    \ F > st;\n\n  void dfs(int idx, int par, int d) {\n    in[idx] = (int) ord.size();\n\
+    \    ord.emplace_back(idx);\n    dep.emplace_back(d);\n    for(auto &to : g[idx])\
+    \ {\n      if(to != par) {\n        dfs(to, idx, d + 1);\n        ord.emplace_back(idx);\n\
+    \        dep.emplace_back(d);\n      }\n    }\n  }\n};\n"
+  code: "#include \"../../structure/others/sparse-table.cpp\"\n\n/**\n * @brief RMQ-Lowest-Common-Ancestor(\u6700\
+    \u5C0F\u5171\u901A\u7956\u5148)\n **/\ntemplate< typename T = int >\nstruct RMQLowestCommonAncestor\
     \ : Graph< T > {\npublic:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n\
     \  using F = function< int(int, int) >;\n\n  void build(int root = 0) {\n    ord.reserve(g.size()\
     \ * 2 - 1);\n    dep.reserve(g.size() * 2 - 1);\n    in.resize(g.size());\n  \
@@ -44,27 +58,12 @@ data:
     \    ord.emplace_back(idx);\n    dep.emplace_back(d);\n    for(auto &to : g[idx])\
     \ {\n      if(to != par) {\n        dfs(to, idx, d + 1);\n        ord.emplace_back(idx);\n\
     \        dep.emplace_back(d);\n      }\n    }\n  }\n};\n"
-  code: "#include \"../../structure/others/sparse-table.cpp\"\n\n/**\n * @brief RMQ-Lowest-Common-Ancestor(\u6700\
-    \u5C0F\u5171\u901A\u7956\u5148) <$O(n \\log n)$, $O(1)$>\n */\ntemplate< typename\
-    \ T = int >\nstruct RMQLowestCommonAncestor : Graph< T > {\npublic:\n  using Graph<\
-    \ T >::Graph;\n  using Graph< T >::g;\n  using F = function< int(int, int) >;\n\
-    \n  void build(int root = 0) {\n    ord.reserve(g.size() * 2 - 1);\n    dep.reserve(g.size()\
-    \ * 2 - 1);\n    in.resize(g.size());\n    dfs(root, -1, 0);\n    vector< int\
-    \ > vs(g.size() * 2 - 1);\n    iota(begin(vs), end(vs), 0);\n    F f = [&](int\
-    \ a, int b) { return dep[a] < dep[b] ? a : b; };\n    st = get_sparse_table(vs,\
-    \ f);\n  }\n\n  int lca(int x, int y) const {\n    if(in[x] > in[y]) swap(x, y);\n\
-    \    return x == y ? x : ord[st.fold(in[x], in[y])];\n  }\n\nprivate:\n  vector<\
-    \ int > ord, dep, in;\n  SparseTable< int, F > st;\n\n  void dfs(int idx, int\
-    \ par, int d) {\n    in[idx] = (int) ord.size();\n    ord.emplace_back(idx);\n\
-    \    dep.emplace_back(d);\n    for(auto &to : g[idx]) {\n      if(to != par) {\n\
-    \        dfs(to, idx, d + 1);\n        ord.emplace_back(idx);\n        dep.emplace_back(d);\n\
-    \      }\n    }\n  }\n};\n"
   dependsOn:
   - structure/others/sparse-table.cpp
   isVerificationFile: false
   path: graph/tree/rmq-lowest-common-ancestor.cpp
   requiredBy: []
-  timestamp: '2020-11-09 18:26:22+09:00'
+  timestamp: '2020-11-09 22:18:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-5-c-3.test.cpp
@@ -73,6 +72,5 @@ layout: document
 redirect_from:
 - /library/graph/tree/rmq-lowest-common-ancestor.cpp
 - /library/graph/tree/rmq-lowest-common-ancestor.cpp.html
-title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148) <$O(n \\\
-  log n)$, $O(1)$>"
+title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
 ---

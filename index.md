@@ -234,12 +234,12 @@ data:
       path: graph/tree/convert-rooted-tree.cpp
       title: "Convert-Rooted-Tree(\u6839\u4ED8\u304D\u6728\u306B\u5909\u63DB)"
     - icon: ':warning:'
-      path: graph/tree/disjoint_set_union_on_tree.cpp
+      path: graph/tree/disjoint-set-union-on-tree.cpp
       title: Disjoint-Set-Union-On-Tree
     - icon: ':heavy_check_mark:'
       path: graph/tree/doubling-lowest-common-ancestor.cpp
       title: "Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
-        ) <$O(n \\log n)$, $O(\\log n)$>"
+        )"
     - icon: ':heavy_check_mark:'
       path: graph/tree/heavy-light-decomposition.cpp
       title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
@@ -248,8 +248,7 @@ data:
       title: graph/tree/rerooting.cpp
     - icon: ':heavy_check_mark:'
       path: graph/tree/rmq-lowest-common-ancestor.cpp
-      title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148) <$O(n\
-        \ \\log n)$, $O(1)$>"
+      title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
     - icon: ':heavy_check_mark:'
       path: graph/tree/tree-diameter.cpp
       title: "Tree-Diameter(\u6728\u306E\u76F4\u5F84)"
