@@ -47,31 +47,35 @@ data:
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-staticrmq.test.cpp\"\
     \n\n#line 1 \"structure/others/sparse-table.cpp\"\n/**\n * @brief Sparse-Table(\u30B9\
     \u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB)\n * @docs docs/sparse-table.md\n */\n\
-    template< typename T >\nstruct SparseTable {\n  vector< vector< T > > st;\n  vector<\
-    \ int > lookup;\n\n  explicit SparseTable(const vector< T > &v) {\n    int b =\
-    \ 0;\n    while((1 << b) <= v.size()) ++b;\n    st.assign(b, vector< T >(1 <<\
-    \ b));\n    for(int i = 0; i < v.size(); i++) {\n      st[0][i] = v[i];\n    }\n\
-    \    for(int i = 1; i < b; i++) {\n      for(int j = 0; j + (1 << i) <= (1 <<\
-    \ b); j++) {\n        st[i][j] = min(st[i - 1][j], st[i - 1][j + (1 << (i - 1))]);\n\
-    \      }\n    }\n    lookup.resize(v.size() + 1);\n    for(int i = 2; i < lookup.size();\
-    \ i++) {\n      lookup[i] = lookup[i >> 1] + 1;\n    }\n  }\n\n  inline T query(int\
-    \ l, int r) const {\n    int b = lookup[r - l];\n    return min(st[b][l], st[b][r\
-    \ - (1 << b)]);\n  }\n};\n#line 6 \"test/verify/yosupo-staticrmq.test.cpp\"\n\n\
-    int main() {\n  int N, Q;\n  cin >> N >> Q;\n  vector< int > A(N);\n  cin >> A;\n\
-    \  SparseTable< int > st(A);\n  while(Q--) {\n    int l, r;\n    cin >> l >> r;\n\
-    \    cout << st.query(l, r) << \"\\n\";\n  }\n}\n"
+    template< typename T, typename F >\nstruct SparseTable {\n  const F f;\n  vector<\
+    \ vector< T > > st;\n  vector< int > lookup;\n\n  explicit SparseTable(const vector<\
+    \ T > &v, const F &f) : f(f) {\n    const int n = (int) v.size();\n    const int\
+    \ b = 32 - __builtin_clz(n);\n    st.assign(b, vector< T >(n));\n    for(int i\
+    \ = 0; i < v.size(); i++) {\n      st[0][i] = v[i];\n    }\n    for(int i = 1;\
+    \ i < b; i++) {\n      for(int j = 0; j + (1 << i) <= n; j++) {\n        st[i][j]\
+    \ = f(st[i - 1][j], st[i - 1][j + (1 << (i - 1))]);\n      }\n    }\n    lookup.resize(v.size()\
+    \ + 1);\n    for(int i = 2; i < lookup.size(); i++) {\n      lookup[i] = lookup[i\
+    \ >> 1] + 1;\n    }\n  }\n\n  inline T fold(int l, int r) const {\n    int b =\
+    \ lookup[r - l];\n    return f(st[b][l], st[b][r - (1 << b)]);\n  }\n};\n\ntemplate<\
+    \ typename T, typename F >\nSparseTable< T, F > get_sparse_table(const vector<\
+    \ T > &v, const F &f) {\n  return SparseTable< T, F >(v, f);\n}\n#line 6 \"test/verify/yosupo-staticrmq.test.cpp\"\
+    \n\nint main() {\n  int N, Q;\n  cin >> N >> Q;\n  vector< int > A(N);\n  cin\
+    \ >> A;\n  auto st = get_sparse_table(A, [](int a, int b) { return min(a, b);\
+    \ });\n  while(Q--) {\n    int l, r;\n    cin >> l >> r;\n    cout << st.fold(l,\
+    \ r) << \"\\n\";\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n\n#include\
     \ \"../../template/template.cpp\"\n\n#include \"../../structure/others/sparse-table.cpp\"\
     \n\nint main() {\n  int N, Q;\n  cin >> N >> Q;\n  vector< int > A(N);\n  cin\
-    \ >> A;\n  SparseTable< int > st(A);\n  while(Q--) {\n    int l, r;\n    cin >>\
-    \ l >> r;\n    cout << st.query(l, r) << \"\\n\";\n  }\n}\n"
+    \ >> A;\n  auto st = get_sparse_table(A, [](int a, int b) { return min(a, b);\
+    \ });\n  while(Q--) {\n    int l, r;\n    cin >> l >> r;\n    cout << st.fold(l,\
+    \ r) << \"\\n\";\n  }\n}\n"
   dependsOn:
   - template/template.cpp
   - structure/others/sparse-table.cpp
   isVerificationFile: true
   path: test/verify/yosupo-staticrmq.test.cpp
   requiredBy: []
-  timestamp: '2020-02-20 22:23:04+09:00'
+  timestamp: '2020-11-09 17:20:02+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-staticrmq.test.cpp
