@@ -125,6 +125,9 @@ data:
     path: test/verify/aoj-grl-5-c-3.test.cpp
     title: test/verify/aoj-grl-5-c-3.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-grl-5-c-4.test.cpp
+    title: test/verify/aoj-grl-5-c-4.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c.test.cpp
     title: test/verify/aoj-grl-5-c.test.cpp
   - icon: ':heavy_check_mark:'
@@ -243,6 +246,7 @@ data:
   - test/verify/yosupo-two-sat.test.cpp
   - test/verify/aoj-3139.test.cpp
   - test/verify/aoj-0275.test.cpp
+  - test/verify/aoj-grl-5-c-4.test.cpp
   - test/verify/aoj-grl-2-a-4.test.cpp
   - test/verify/aoj-grl-1-b.test.cpp
   - test/verify/yosupo-frequency-table-of-tree-distance.test.cpp

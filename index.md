@@ -244,6 +244,9 @@ data:
       path: graph/tree/heavy-light-decomposition.cpp
       title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
     - icon: ':heavy_check_mark:'
+      path: graph/tree/pmormq-lowest-common-ancestor.cpp
+      title: "PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
+    - icon: ':heavy_check_mark:'
       path: graph/tree/rerooting.cpp
       title: graph/tree/rerooting.cpp
     - icon: ':heavy_check_mark:'
@@ -635,6 +638,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/others/persistent-array.cpp
       title: structure/others/persistent-array.cpp
+    - icon: ':heavy_check_mark:'
+      path: structure/others/plus-minus-one-rmq.cpp
+      title: Plus-Minus-One-RMQ
     - icon: ':warning:'
       path: structure/others/priority-sum-structure.cpp
       title: structure/others/priority-sum-structure.cpp
@@ -1055,6 +1061,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-5-c-3.test.cpp
       title: test/verify/aoj-grl-5-c-3.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-grl-5-c-4.test.cpp
+      title: test/verify/aoj-grl-5-c-4.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-5-c.test.cpp
       title: test/verify/aoj-grl-5-c.test.cpp

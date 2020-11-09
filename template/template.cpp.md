@@ -217,6 +217,9 @@ data:
     path: test/verify/aoj-grl-5-c-3.test.cpp
     title: test/verify/aoj-grl-5-c-3.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-grl-5-c-4.test.cpp
+    title: test/verify/aoj-grl-5-c-4.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c.test.cpp
     title: test/verify/aoj-grl-5-c.test.cpp
   - icon: ':heavy_check_mark:'
@@ -619,6 +622,7 @@ data:
   - test/verify/aoj-dpl-1-i.test.cpp
   - test/verify/aoj-dsl-1-b.test.cpp
   - test/verify/yosupo-sum-of-floor-of-linear.test.cpp
+  - test/verify/aoj-grl-5-c-4.test.cpp
   - test/verify/yosupo-inv-of-formal-power-series.test.cpp
   - test/verify/yosupo-kth-root-integer.test.cpp
   - test/verify/aoj-grl-2-a-4.test.cpp
