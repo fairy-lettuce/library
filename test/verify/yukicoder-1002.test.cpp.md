@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
   - icon: ':heavy_check_mark:'
     path: graph/tree/centroid-decomposition.cpp
     title: "Centroid-Decomosition(\u91CD\u5FC3\u5206\u89E3)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
   - icon: ':heavy_check_mark:'
     path: graph/others/dominator-tree.cpp
     title: Dominator-Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

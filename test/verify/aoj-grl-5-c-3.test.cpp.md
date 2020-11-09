@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/tree/rmq-lowest-common-ancestor.cpp
     title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
@@ -66,25 +66,18 @@ data:
     \n\n#line 1 \"graph/tree/rmq-lowest-common-ancestor.cpp\"\n/**\n * @brief RMQ-Lowest-Common-Ancestor(\u6700\
     \u5C0F\u5171\u901A\u7956\u5148)\n */\ntemplate< typename T = int >\nstruct RMQLowestCommonAncestor\
     \ : Graph< T > {\npublic:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n\
-    \n  void build(int root = 0) {\n    ord.reserve(g.size() * 2 - 1);\n    dep.reserve(g.size()\
-    \ * 2 - 1);\n    in.resize(g.size());\n    dfs(root, -1, 0);\n    build_sparse_table();\n\
-    \  }\n\n  int lca(int x, int y) const {\n    if(in[x] > in[y]) swap(x, y);\n \
-    \   return x == y ? x : ord[rmq(in[x], in[y])];\n  }\n\nprivate:\n  vector< int\
-    \ > ord, dep, in;\n  vector< vector< int > > st;\n  vector< char > lg;\n\n  inline\
-    \ int chmin(int x, int y) const { return dep[x] < dep[y] ? x : y; }\n\n  void\
-    \ build_sparse_table() {\n    int b = 0;\n    while((1 << b) <= dep.size()) ++b;\n\
-    \    st.assign(b, vector< T >(1 << b));\n    lg.resize(dep.size() + 1);\n    for(int\
-    \ i = 0; i <= dep.size(); i++) {\n      lg[i] = 31 - __builtin_clz(i);\n    }\n\
-    \    for(int i = 0; i < dep.size(); i++) {\n      st[0][i] = i;\n    }\n    for(int\
-    \ i = 1; i < b; i++) {\n      for(int j = 0; j + (1 << i) <= (1 << b); j++) {\n\
-    \        st[i][j] = chmin(st[i - 1][j], st[i - 1][j + (1 << (i - 1))]);\n    \
-    \  }\n    }\n  }\n\n  inline T rmq(int l, int r) const // [l, r)\n  {\n    auto\
-    \ b = lg[r - l];\n    return chmin(st[b][l], st[b][r - (1 << b)]);\n  }\n\n  void\
-    \ dfs(int idx, int par, int d) {\n    in[idx] = (int) ord.size();\n    ord.emplace_back(idx);\n\
-    \    dep.emplace_back(d);\n    for(auto &to : g[idx]) {\n      if(to != par) {\n\
-    \        dfs(to, idx, d + 1);\n        ord.emplace_back(idx);\n        dep.emplace_back(d);\n\
-    \      }\n    }\n  }\n};\n#line 7 \"test/verify/aoj-grl-5-c-3.test.cpp\"\n\nint\
-    \ main() {\n  int N, Q;\n  cin >> N;\n  RMQLowestCommonAncestor< int > lca(N);\n\
+    \  using F = function< int(int, int) >;\n\n  void build(int root = 0) {\n    ord.reserve(g.size()\
+    \ * 2 - 1);\n    dep.reserve(g.size() * 2 - 1);\n    in.resize(g.size());\n  \
+    \  dfs(root, -1, 0);\n    vector< int > vs(g.size() * 2 - 1);\n    iota(begin(vs),\
+    \ end(vs), 0);\n    F f = [&](int a, int b) { return dep[a] < dep[b] ? a : b;\
+    \ };\n    st = get_sparse_table(vs, f);\n  }\n\n  int lca(int x, int y) const\
+    \ {\n    if(in[x] > in[y]) swap(x, y);\n    return x == y ? x : ord[st.fold(in[x],\
+    \ in[y])];\n  }\n\nprivate:\n  vector< int > ord, dep, in;\n  SparseTable< int,\
+    \ F > st;\n\n  void dfs(int idx, int par, int d) {\n    in[idx] = (int) ord.size();\n\
+    \    ord.emplace_back(idx);\n    dep.emplace_back(d);\n    for(auto &to : g[idx])\
+    \ {\n      if(to != par) {\n        dfs(to, idx, d + 1);\n        ord.emplace_back(idx);\n\
+    \        dep.emplace_back(d);\n      }\n    }\n  }\n};\n#line 7 \"test/verify/aoj-grl-5-c-3.test.cpp\"\
+    \n\nint main() {\n  int N, Q;\n  cin >> N;\n  RMQLowestCommonAncestor< int > lca(N);\n\
     \  for(int i = 0; i < N; i++) {\n    int k;\n    cin >> k;\n    for(int j = 0;\
     \ j < k; j++) {\n      int c;\n      cin >> c;\n      lca.add_edge(i, c);\n  \
     \  }\n  }\n  lca.build();\n  cin >> Q;\n  for(int i = 0; i < Q; i++) {\n    int\
@@ -104,8 +97,8 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-grl-5-c-3.test.cpp
   requiredBy: []
-  timestamp: '2020-11-05 21:58:50+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2020-11-09 17:59:38+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-5-c-3.test.cpp
 layout: document

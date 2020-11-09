@@ -113,7 +113,7 @@ data:
       title: graph/flow/push-relabel.cpp
   - name: graph
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: graph/graph-template.cpp
       title: graph/graph-template.cpp
     - icon: ':heavy_check_mark:'
@@ -246,7 +246,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/tree/rerooting.cpp
       title: graph/tree/rerooting.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: graph/tree/rmq-lowest-common-ancestor.cpp
       title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
     - icon: ':heavy_check_mark:'
@@ -729,7 +729,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -1052,7 +1052,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-5-c-2.test.cpp
       title: test/verify/aoj-grl-5-c-2.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/aoj-grl-5-c-3.test.cpp
       title: test/verify/aoj-grl-5-c-3.test.cpp
     - icon: ':heavy_check_mark:'

@@ -25,7 +25,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/log.cpp
     title: Log ($\log {f(x)}$)
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

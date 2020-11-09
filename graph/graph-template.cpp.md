@@ -121,7 +121,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c-2.test.cpp
     title: test/verify/aoj-grl-5-c-2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-grl-5-c-3.test.cpp
     title: test/verify/aoj-grl-5-c-3.test.cpp
   - icon: ':heavy_check_mark:'
@@ -170,7 +170,7 @@ data:
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/graph-template.cpp\"\n\ntemplate< typename T = int\
@@ -225,7 +225,7 @@ data:
   - graph/tree/heavy-light-decomposition.cpp
   - graph/tree/centroid-decomposition.cpp
   timestamp: '2020-09-15 01:04:53+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-three-edge-connected-components.test.cpp
   - test/verify/aoj-alds-1-11-c.test.cpp
