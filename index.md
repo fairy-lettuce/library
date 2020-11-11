@@ -1272,6 +1272,9 @@ data:
       path: test/verify/yosupo-staticrmq-3.test.cpp
       title: test/verify/yosupo-staticrmq-3.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-staticrmq-4.test.cpp
+      title: test/verify/yosupo-staticrmq-4.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-staticrmq.test.cpp
       title: test/verify/yosupo-staticrmq.test.cpp
     - icon: ':heavy_check_mark:'

@@ -12,6 +12,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c-4.test.cpp
     title: test/verify/aoj-grl-5-c-4.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-staticrmq-4.test.cpp
+    title: test/verify/yosupo-staticrmq-4.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -96,6 +99,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-5-c-4.test.cpp
+  - test/verify/yosupo-staticrmq-4.test.cpp
 documentation_of: graph/tree/pmormq-lowest-common-ancestor.cpp
 layout: document
 redirect_from:

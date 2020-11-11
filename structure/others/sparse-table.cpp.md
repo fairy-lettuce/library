@@ -19,6 +19,9 @@ data:
     path: test/verify/aoj-grl-5-c-4.test.cpp
     title: test/verify/aoj-grl-5-c-4.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-staticrmq-4.test.cpp
+    title: test/verify/yosupo-staticrmq-4.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-staticrmq.test.cpp
     title: test/verify/yosupo-staticrmq.test.cpp
   _pathExtension: cpp
@@ -69,6 +72,7 @@ data:
   verifiedWith:
   - test/verify/aoj-grl-5-c-4.test.cpp
   - test/verify/yosupo-staticrmq.test.cpp
+  - test/verify/yosupo-staticrmq-4.test.cpp
   - test/verify/aoj-grl-5-c-3.test.cpp
 documentation_of: structure/others/sparse-table.cpp
 layout: document

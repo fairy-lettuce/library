@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-cartesian-tree.test.cpp
     title: test/verify/yosupo-cartesian-tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-staticrmq-4.test.cpp
+    title: test/verify/yosupo-staticrmq-4.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -36,6 +39,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-cartesian-tree.test.cpp
+  - test/verify/yosupo-staticrmq-4.test.cpp
 documentation_of: graph/others/cartesian-tree.cpp
 layout: document
 redirect_from:

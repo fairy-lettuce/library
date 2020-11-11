@@ -427,6 +427,9 @@ data:
     path: test/verify/yosupo-staticrmq-3.test.cpp
     title: test/verify/yosupo-staticrmq-3.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-staticrmq-4.test.cpp
+    title: test/verify/yosupo-staticrmq-4.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-staticrmq.test.cpp
     title: test/verify/yosupo-staticrmq.test.cpp
   - icon: ':heavy_check_mark:'
@@ -683,6 +686,7 @@ data:
   - test/verify/aoj-grl-1-a.test.cpp
   - test/verify/aoj-dpl-1-d.test.cpp
   - test/verify/aoj-ntl-1-e.test.cpp
+  - test/verify/yosupo-staticrmq-4.test.cpp
   - test/verify/aoj-grl-5-c-2.test.cpp
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
   - test/verify/yosupo-bellnoulli-number.test.cpp

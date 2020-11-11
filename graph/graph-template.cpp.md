@@ -152,6 +152,9 @@ data:
     path: test/verify/yosupo-shortest-path.test.cpp
     title: test/verify/yosupo-shortest-path.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-staticrmq-4.test.cpp
+    title: test/verify/yosupo-staticrmq-4.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-three-edge-connected-components.test.cpp
     title: test/verify/yosupo-three-edge-connected-components.test.cpp
   - icon: ':heavy_check_mark:'
@@ -264,6 +267,7 @@ data:
   - test/verify/aoj-0294.test.cpp
   - test/verify/aoj-2821.test.cpp
   - test/verify/aoj-grl-1-a.test.cpp
+  - test/verify/yosupo-staticrmq-4.test.cpp
   - test/verify/aoj-grl-5-c-2.test.cpp
   - test/verify/yosupo-tree-diameter.test.cpp
   - test/verify/yosupo-k-shortest-walk.test.cpp
