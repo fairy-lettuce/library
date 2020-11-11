@@ -630,6 +630,9 @@ data:
       path: structure/others/disjoint-sparse-table.cpp
       title: Disjoint-Sparse-Table
     - icon: ':heavy_check_mark:'
+      path: structure/others/linear-rmq.cpp
+      title: Linear-RMQ
+    - icon: ':heavy_check_mark:'
       path: structure/others/link-cut-tree-subtree.cpp
       title: structure/others/link-cut-tree-subtree.cpp
     - icon: ':heavy_check_mark:'
@@ -1283,6 +1286,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-staticrmq-4.test.cpp
       title: test/verify/yosupo-staticrmq-4.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-staticrmq-5.test.cpp
+      title: test/verify/yosupo-staticrmq-5.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-staticrmq.test.cpp
       title: test/verify/yosupo-staticrmq.test.cpp

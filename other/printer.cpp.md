@@ -16,6 +16,9 @@ data:
     path: test/verify/yosupo-point-add-rectangle-sum.test.cpp
     title: test/verify/yosupo-point-add-rectangle-sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-staticrmq-5.test.cpp
+    title: test/verify/yosupo-staticrmq-5.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-tree-decomposition-width-2.test.cpp
     title: test/verify/yosupo-tree-decomposition-width-2.test.cpp
   - icon: ':heavy_check_mark:'
@@ -82,6 +85,7 @@ data:
   - test/verify/yosupo-lca.test.cpp
   - test/verify/yosupo-tree-decomposition-width-2.test.cpp
   - test/verify/yosupo-two-sat.test.cpp
+  - test/verify/yosupo-staticrmq-5.test.cpp
   - test/verify/yosupo-point-add-rectangle-sum.test.cpp
   - test/verify/yosupo-lca-2.test.cpp
   - test/verify/yosupo-lca-3.test.cpp

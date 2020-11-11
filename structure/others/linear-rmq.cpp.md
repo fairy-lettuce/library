@@ -1,0 +1,87 @@
+---
+data:
+  _extendedDependsOn: []
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-staticrmq-5.test.cpp
+    title: test/verify/yosupo-staticrmq-5.test.cpp
+  _pathExtension: cpp
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    document_title: Linear-RMQ
+    links: []
+  bundledCode: "#line 1 \"structure/others/linear-rmq.cpp\"\n/**\n * @brief Linear-RMQ\n\
+    \ **/\ntemplate< typename Comp >\nstruct LinearRMQ {\n  static constexpr int BLOCKSIZE\
+    \ = 16;\n  using block_type = uint_least16_t;\n\n  vector< block_type > small;\n\
+    \  vector< vector< int > > large;\n\n  LinearRMQ() = default;\n\n  Comp comp;\n\
+    \n  static inline int msb(int c) {\n    return 31 - __builtin_clz(c);\n  }\n\n\
+    \  static inline int ctz(int c) {\n    return __builtin_ctz(c);\n  }\n\n  inline\
+    \ int get_min(int l, int r) const {\n    return comp(l, r) ? l : r;\n  }\n\n \
+    \ explicit LinearRMQ(size_t n, const Comp &comp) : comp(comp) {\n    vector< int\
+    \ > st;\n    st.reserve(BLOCKSIZE);\n    large.emplace_back();\n    large.front().reserve(n\
+    \ / BLOCKSIZE);\n    small.reserve(n);\n    for(int i = 0; i < n; i++) {\n   \
+    \   while(!st.empty() && !comp(st.back(), i)) {\n        st.pop_back();\n    \
+    \  }\n      small.emplace_back(st.empty() ? 0 : small[st.back()]);\n      small.back()\
+    \ |= static_cast< block_type  >(1) << (i % BLOCKSIZE);\n      st.emplace_back(i);\n\
+    \      if((i + 1) % BLOCKSIZE == 0) {\n        large.front().emplace_back(st.front());\n\
+    \        st.clear();\n      }\n    }\n    for(int i = 1; (i << 1) <= n / BLOCKSIZE;\
+    \ i <<= 1) {\n      vector< int > v;\n      int csz = n / BLOCKSIZE + 1 - (i <<\
+    \ 1);\n      v.reserve(csz);\n      for(int k = 0; k < csz; k++) {\n        v.emplace_back(get_min(large.back()[k],\
+    \ large.back()[k + i]));\n      }\n      large.emplace_back(move(v));\n    }\n\
+    \  }\n\n  int fold(int l, int r) const {\n    --r;\n    int left = l / BLOCKSIZE\
+    \ + 1;\n    int right = r / BLOCKSIZE;\n    if(left < right) {\n      auto p =\
+    \ msb(right - left);\n      return get_min(\n          get_min((left - 1) * BLOCKSIZE\
+    \ + ctz(small[left * BLOCKSIZE - 1] & ~static_cast<block_type>(0) << l % BLOCKSIZE),\
+    \ large[p][left]),\n          get_min(large[p][right - (1 << p)], right * BLOCKSIZE\
+    \ + ctz(small[r])));\n    } else if(left == right) {\n      return get_min((left\
+    \ - 1) * BLOCKSIZE + ctz(small[left * BLOCKSIZE - 1] & ~static_cast<block_type>(0)\
+    \ << l % BLOCKSIZE),\n                     left * BLOCKSIZE + ctz(small[r]));\n\
+    \    } else {\n      return right * BLOCKSIZE + ctz(small[r] & ~static_cast<block_type>(0)\
+    \ << l % BLOCKSIZE);\n    }\n  }\n};\n\ntemplate< typename Comp >\nLinearRMQ<\
+    \ Comp > get_linear_rmq(int n, const Comp &comp) {\n  return LinearRMQ< Comp >(n,\
+    \ comp);\n}\n"
+  code: "/**\n * @brief Linear-RMQ\n **/\ntemplate< typename Comp >\nstruct LinearRMQ\
+    \ {\n  static constexpr int BLOCKSIZE = 16;\n  using block_type = uint_least16_t;\n\
+    \n  vector< block_type > small;\n  vector< vector< int > > large;\n\n  LinearRMQ()\
+    \ = default;\n\n  Comp comp;\n\n  static inline int msb(int c) {\n    return 31\
+    \ - __builtin_clz(c);\n  }\n\n  static inline int ctz(int c) {\n    return __builtin_ctz(c);\n\
+    \  }\n\n  inline int get_min(int l, int r) const {\n    return comp(l, r) ? l\
+    \ : r;\n  }\n\n  explicit LinearRMQ(size_t n, const Comp &comp) : comp(comp) {\n\
+    \    vector< int > st;\n    st.reserve(BLOCKSIZE);\n    large.emplace_back();\n\
+    \    large.front().reserve(n / BLOCKSIZE);\n    small.reserve(n);\n    for(int\
+    \ i = 0; i < n; i++) {\n      while(!st.empty() && !comp(st.back(), i)) {\n  \
+    \      st.pop_back();\n      }\n      small.emplace_back(st.empty() ? 0 : small[st.back()]);\n\
+    \      small.back() |= static_cast< block_type  >(1) << (i % BLOCKSIZE);\n   \
+    \   st.emplace_back(i);\n      if((i + 1) % BLOCKSIZE == 0) {\n        large.front().emplace_back(st.front());\n\
+    \        st.clear();\n      }\n    }\n    for(int i = 1; (i << 1) <= n / BLOCKSIZE;\
+    \ i <<= 1) {\n      vector< int > v;\n      int csz = n / BLOCKSIZE + 1 - (i <<\
+    \ 1);\n      v.reserve(csz);\n      for(int k = 0; k < csz; k++) {\n        v.emplace_back(get_min(large.back()[k],\
+    \ large.back()[k + i]));\n      }\n      large.emplace_back(move(v));\n    }\n\
+    \  }\n\n  int fold(int l, int r) const {\n    --r;\n    int left = l / BLOCKSIZE\
+    \ + 1;\n    int right = r / BLOCKSIZE;\n    if(left < right) {\n      auto p =\
+    \ msb(right - left);\n      return get_min(\n          get_min((left - 1) * BLOCKSIZE\
+    \ + ctz(small[left * BLOCKSIZE - 1] & ~static_cast<block_type>(0) << l % BLOCKSIZE),\
+    \ large[p][left]),\n          get_min(large[p][right - (1 << p)], right * BLOCKSIZE\
+    \ + ctz(small[r])));\n    } else if(left == right) {\n      return get_min((left\
+    \ - 1) * BLOCKSIZE + ctz(small[left * BLOCKSIZE - 1] & ~static_cast<block_type>(0)\
+    \ << l % BLOCKSIZE),\n                     left * BLOCKSIZE + ctz(small[r]));\n\
+    \    } else {\n      return right * BLOCKSIZE + ctz(small[r] & ~static_cast<block_type>(0)\
+    \ << l % BLOCKSIZE);\n    }\n  }\n};\n\ntemplate< typename Comp >\nLinearRMQ<\
+    \ Comp > get_linear_rmq(int n, const Comp &comp) {\n  return LinearRMQ< Comp >(n,\
+    \ comp);\n}\n"
+  dependsOn: []
+  isVerificationFile: false
+  path: structure/others/linear-rmq.cpp
+  requiredBy: []
+  timestamp: '2020-11-12 00:34:11+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/verify/yosupo-staticrmq-5.test.cpp
+documentation_of: structure/others/linear-rmq.cpp
+layout: document
+redirect_from:
+- /library/structure/others/linear-rmq.cpp
+- /library/structure/others/linear-rmq.cpp.html
+title: Linear-RMQ
+---

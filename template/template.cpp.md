@@ -439,6 +439,9 @@ data:
     path: test/verify/yosupo-staticrmq-4.test.cpp
     title: test/verify/yosupo-staticrmq-4.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-staticrmq-5.test.cpp
+    title: test/verify/yosupo-staticrmq-5.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-staticrmq.test.cpp
     title: test/verify/yosupo-staticrmq.test.cpp
   - icon: ':heavy_check_mark:'
@@ -675,6 +678,7 @@ data:
   - test/verify/yosupo-factorize.test.cpp
   - test/verify/aoj-1508-2.test.cpp
   - test/verify/aoj-grl-1-b-2.test.cpp
+  - test/verify/yosupo-staticrmq-5.test.cpp
   - test/verify/yosupo-staticrmq.test.cpp
   - test/verify/yosupo-point-set-range-composite-3.test.cpp
   - test/verify/yosupo-range-kth-smallest.test.cpp
