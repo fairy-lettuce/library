@@ -13,11 +13,15 @@ data:
     path: test/verify/aoj-grl-5-c-4.test.cpp
     title: test/verify/aoj-grl-5-c-4.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-lca.test.cpp
+    title: test/verify/yosupo-lca.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-staticrmq-4.test.cpp
     title: test/verify/yosupo-staticrmq-4.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    _deprecated_at_docs: docs/pmormq-lowest-common-ancestor.md
     document_title: "PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
       )"
     links: []
@@ -63,9 +67,10 @@ data:
     \ pos};\n    } else {\n      int sub = st.fold(lb + 1, rb);\n      if(vs[sub]\
     \ < vs[pos]) pos = sub;\n      return {vs[pos], pos};\n    }\n  }\n};\n#line 2\
     \ \"graph/tree/pmormq-lowest-common-ancestor.cpp\"\n\n/**\n * @brief PMORMQ-Lowest-Common-Ancestor(\u6700\
-    \u5C0F\u5171\u901A\u7956\u5148)\n **/\ntemplate< typename T = int >\nstruct PMORMQLowestCommonAncestor\
-    \ : Graph< T > {\npublic:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n\
-    \  using F = function< int(int, int) >;\n\n  void build(int root = 0) {\n    ord.reserve(g.size()\
+    \u5C0F\u5171\u901A\u7956\u5148)\n * @docs docs/pmormq-lowest-common-ancestor.md\n\
+    \ **/\ntemplate< typename T = int >\nstruct PMORMQLowestCommonAncestor : Graph<\
+    \ T > {\npublic:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n  using\
+    \ F = function< int(int, int) >;\n\n  void build(int root = 0) {\n    ord.reserve(g.size()\
     \ * 2 - 1);\n    dep.reserve(g.size() * 2 - 1);\n    in.resize(g.size());\n  \
     \  dfs(root, -1, 0);\n    vector< int > vs(g.size() * 2 - 1);\n    iota(begin(vs),\
     \ end(vs), 0);\n    st = PlusMinusOneRMQ< int >(dep);\n  }\n\n  int lca(int x,\
@@ -76,28 +81,30 @@ data:
     \ {\n      if(to != par) {\n        dfs(to, idx, d + 1);\n        ord.emplace_back(idx);\n\
     \        dep.emplace_back(d);\n      }\n    }\n  }\n};\n"
   code: "#include \"../../structure/others/plus-minus-one-rmq.cpp\"\n\n/**\n * @brief\
-    \ PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)\n **/\n\
-    template< typename T = int >\nstruct PMORMQLowestCommonAncestor : Graph< T > {\n\
-    public:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n  using F = function<\
-    \ int(int, int) >;\n\n  void build(int root = 0) {\n    ord.reserve(g.size() *\
-    \ 2 - 1);\n    dep.reserve(g.size() * 2 - 1);\n    in.resize(g.size());\n    dfs(root,\
-    \ -1, 0);\n    vector< int > vs(g.size() * 2 - 1);\n    iota(begin(vs), end(vs),\
-    \ 0);\n    st = PlusMinusOneRMQ< int >(dep);\n  }\n\n  int lca(int x, int y) const\
-    \ {\n    if(in[x] > in[y]) swap(x, y);\n    return ord[st.fold(in[x], in[y] +\
-    \ 1).second];\n  }\n\nprivate:\n  vector< int > ord, dep, in;\n  PlusMinusOneRMQ<\
-    \ int > st;\n\n  void dfs(int idx, int par, int d) {\n    in[idx] = (int) ord.size();\n\
-    \    ord.emplace_back(idx);\n    dep.emplace_back(d);\n    for(auto &to : g[idx])\
-    \ {\n      if(to != par) {\n        dfs(to, idx, d + 1);\n        ord.emplace_back(idx);\n\
-    \        dep.emplace_back(d);\n      }\n    }\n  }\n};\n"
+    \ PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)\n * @docs\
+    \ docs/pmormq-lowest-common-ancestor.md\n **/\ntemplate< typename T = int >\n\
+    struct PMORMQLowestCommonAncestor : Graph< T > {\npublic:\n  using Graph< T >::Graph;\n\
+    \  using Graph< T >::g;\n  using F = function< int(int, int) >;\n\n  void build(int\
+    \ root = 0) {\n    ord.reserve(g.size() * 2 - 1);\n    dep.reserve(g.size() *\
+    \ 2 - 1);\n    in.resize(g.size());\n    dfs(root, -1, 0);\n    vector< int >\
+    \ vs(g.size() * 2 - 1);\n    iota(begin(vs), end(vs), 0);\n    st = PlusMinusOneRMQ<\
+    \ int >(dep);\n  }\n\n  int lca(int x, int y) const {\n    if(in[x] > in[y]) swap(x,\
+    \ y);\n    return ord[st.fold(in[x], in[y] + 1).second];\n  }\n\nprivate:\n  vector<\
+    \ int > ord, dep, in;\n  PlusMinusOneRMQ< int > st;\n\n  void dfs(int idx, int\
+    \ par, int d) {\n    in[idx] = (int) ord.size();\n    ord.emplace_back(idx);\n\
+    \    dep.emplace_back(d);\n    for(auto &to : g[idx]) {\n      if(to != par) {\n\
+    \        dfs(to, idx, d + 1);\n        ord.emplace_back(idx);\n        dep.emplace_back(d);\n\
+    \      }\n    }\n  }\n};\n"
   dependsOn:
   - structure/others/plus-minus-one-rmq.cpp
   - structure/others/sparse-table.cpp
   isVerificationFile: false
   path: graph/tree/pmormq-lowest-common-ancestor.cpp
   requiredBy: []
-  timestamp: '2020-11-10 01:30:09+09:00'
+  timestamp: '2020-11-11 23:28:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/verify/yosupo-lca.test.cpp
   - test/verify/aoj-grl-5-c-4.test.cpp
   - test/verify/yosupo-staticrmq-4.test.cpp
 documentation_of: graph/tree/pmormq-lowest-common-ancestor.cpp
@@ -107,3 +114,19 @@ redirect_from:
 - /library/graph/tree/pmormq-lowest-common-ancestor.cpp.html
 title: "PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
 ---
+## 概要
+オイラーツアーと±1RMQ によって最小共通祖先を求める.
+
+辺属性のオイラーツアーをする. すべての頂点について, その頂点 $k$ に最初に到達した時刻 $in[k]$ と深さ $dep[k]$ を求めておく. 頂点 $u, v$ の最小共通祖先は区間 $[in[u], in[v]]$ の要素のうち深さが最小となる頂点である.
+
+スパーステーブルを用いると前計算 $O(V \log V)$, クエリ $O(1)$ となるが, $dep[k]$ 隣接する要素の差がちょうど $1$ であることを利用した ±1RMQ を用いると前計算 $O(V)$, クエリ $O(1)$ となる.
+
+## 使い方
+
+* `build()`: 構築する.
+* `lca(u, v)`: 頂点 `u`, `v` の最小共通祖先(LCA)を返す.
+
+## 計算量
+
+* `build()`: $O(V)$
+* `lca()`: $O(1)$

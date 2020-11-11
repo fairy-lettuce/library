@@ -146,6 +146,15 @@ data:
     path: test/verify/yosupo-k-shortest-walk.test.cpp
     title: test/verify/yosupo-k-shortest-walk.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-lca-2.test.cpp
+    title: test/verify/yosupo-lca-2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-lca-3.test.cpp
+    title: test/verify/yosupo-lca-3.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-lca.test.cpp
+    title: test/verify/yosupo-lca.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-scc.test.cpp
     title: test/verify/yosupo-scc.test.cpp
   - icon: ':heavy_check_mark:'
@@ -239,6 +248,7 @@ data:
   - test/verify/aoj-grl-3-c.test.cpp
   - test/verify/aoj-grl-3-a.test.cpp
   - test/verify/yosupo-dominatortree.test.cpp
+  - test/verify/yosupo-lca.test.cpp
   - test/verify/yosupo-enumerate-triangles.test.cpp
   - test/verify/yosupo-two-edge-connected-components.test.cpp
   - test/verify/yosupo-shortest-path.test.cpp
@@ -264,9 +274,11 @@ data:
   - test/verify/yukicoder-1002.test.cpp
   - test/verify/yosupo-scc.test.cpp
   - test/verify/aoj-grl-5-c.test.cpp
+  - test/verify/yosupo-lca-2.test.cpp
   - test/verify/aoj-0294.test.cpp
   - test/verify/aoj-2821.test.cpp
   - test/verify/aoj-grl-1-a.test.cpp
+  - test/verify/yosupo-lca-3.test.cpp
   - test/verify/yosupo-staticrmq-4.test.cpp
   - test/verify/aoj-grl-5-c-2.test.cpp
   - test/verify/yosupo-tree-diameter.test.cpp

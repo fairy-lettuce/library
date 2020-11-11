@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c.test.cpp
     title: test/verify/aoj-grl-5-c.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-lca-3.test.cpp
+    title: test/verify/yosupo-lca-3.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -68,6 +71,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-5-c.test.cpp
+  - test/verify/yosupo-lca-3.test.cpp
 documentation_of: graph/tree/doubling-lowest-common-ancestor.cpp
 layout: document
 redirect_from:

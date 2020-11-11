@@ -82,20 +82,21 @@ data:
     \ F > get_sparse_table(const vector< T > &v, const F &f) {\n  return SparseTable<\
     \ T, F >(v, f);\n}\n#line 2 \"graph/tree/rmq-lowest-common-ancestor.cpp\"\n\n\
     /**\n * @brief RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
-    )\n **/\ntemplate< typename T = int >\nstruct RMQLowestCommonAncestor : Graph<\
-    \ T > {\npublic:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n  using\
-    \ F = function< int(int, int) >;\n\n  void build(int root = 0) {\n    ord.reserve(g.size()\
-    \ * 2 - 1);\n    dep.reserve(g.size() * 2 - 1);\n    in.resize(g.size());\n  \
-    \  dfs(root, -1, 0);\n    vector< int > vs(g.size() * 2 - 1);\n    iota(begin(vs),\
-    \ end(vs), 0);\n    F f = [&](int a, int b) { return dep[a] < dep[b] ? a : b;\
-    \ };\n    st = get_sparse_table(vs, f);\n  }\n\n  int lca(int x, int y) const\
-    \ {\n    if(in[x] > in[y]) swap(x, y);\n    return x == y ? x : ord[st.fold(in[x],\
-    \ in[y])];\n  }\n\nprivate:\n  vector< int > ord, dep, in;\n  SparseTable< int,\
-    \ F > st;\n\n  void dfs(int idx, int par, int d) {\n    in[idx] = (int) ord.size();\n\
-    \    ord.emplace_back(idx);\n    dep.emplace_back(d);\n    for(auto &to : g[idx])\
-    \ {\n      if(to != par) {\n        dfs(to, idx, d + 1);\n        ord.emplace_back(idx);\n\
-    \        dep.emplace_back(d);\n      }\n    }\n  }\n};\n#line 7 \"test/verify/aoj-grl-5-c-3.test.cpp\"\
-    \n\nint main() {\n  int N, Q;\n  cin >> N;\n  RMQLowestCommonAncestor< int > lca(N);\n\
+    )\n * @docs docs/rmq-lowest-common-ancestor.md\n **/\ntemplate< typename T = int\
+    \ >\nstruct RMQLowestCommonAncestor : Graph< T > {\npublic:\n  using Graph< T\
+    \ >::Graph;\n  using Graph< T >::g;\n  using F = function< int(int, int) >;\n\n\
+    \  void build(int root = 0) {\n    ord.reserve(g.size() * 2 - 1);\n    dep.reserve(g.size()\
+    \ * 2 - 1);\n    in.resize(g.size());\n    dfs(root, -1, 0);\n    vector< int\
+    \ > vs(g.size() * 2 - 1);\n    iota(begin(vs), end(vs), 0);\n    F f = [&](int\
+    \ a, int b) { return dep[a] < dep[b] ? a : b; };\n    st = get_sparse_table(vs,\
+    \ f);\n  }\n\n  int lca(int x, int y) const {\n    if(in[x] > in[y]) swap(x, y);\n\
+    \    return x == y ? x : ord[st.fold(in[x], in[y])];\n  }\n\nprivate:\n  vector<\
+    \ int > ord, dep, in;\n  SparseTable< int, F > st;\n\n  void dfs(int idx, int\
+    \ par, int d) {\n    in[idx] = (int) ord.size();\n    ord.emplace_back(idx);\n\
+    \    dep.emplace_back(d);\n    for(auto &to : g[idx]) {\n      if(to != par) {\n\
+    \        dfs(to, idx, d + 1);\n        ord.emplace_back(idx);\n        dep.emplace_back(d);\n\
+    \      }\n    }\n  }\n};\n#line 7 \"test/verify/aoj-grl-5-c-3.test.cpp\"\n\nint\
+    \ main() {\n  int N, Q;\n  cin >> N;\n  RMQLowestCommonAncestor< int > lca(N);\n\
     \  for(int i = 0; i < N; i++) {\n    int k;\n    cin >> k;\n    for(int j = 0;\
     \ j < k; j++) {\n      int c;\n      cin >> c;\n      lca.add_edge(i, c);\n  \
     \  }\n  }\n  lca.build();\n  cin >> Q;\n  for(int i = 0; i < Q; i++) {\n    int\
@@ -116,7 +117,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-grl-5-c-3.test.cpp
   requiredBy: []
-  timestamp: '2020-11-09 22:18:25+09:00'
+  timestamp: '2020-11-11 23:28:00+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-5-c-3.test.cpp

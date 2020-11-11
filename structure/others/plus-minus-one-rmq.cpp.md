@@ -13,6 +13,9 @@ data:
     path: test/verify/aoj-grl-5-c-4.test.cpp
     title: test/verify/aoj-grl-5-c-4.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-lca.test.cpp
+    title: test/verify/yosupo-lca.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-staticrmq-4.test.cpp
     title: test/verify/yosupo-staticrmq-4.test.cpp
   _pathExtension: cpp
@@ -97,6 +100,7 @@ data:
   timestamp: '2020-11-10 01:30:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/verify/yosupo-lca.test.cpp
   - test/verify/aoj-grl-5-c-4.test.cpp
   - test/verify/yosupo-staticrmq-4.test.cpp
 documentation_of: structure/others/plus-minus-one-rmq.cpp

@@ -114,9 +114,10 @@ data:
     \ pos};\n    } else {\n      int sub = st.fold(lb + 1, rb);\n      if(vs[sub]\
     \ < vs[pos]) pos = sub;\n      return {vs[pos], pos};\n    }\n  }\n};\n#line 2\
     \ \"graph/tree/pmormq-lowest-common-ancestor.cpp\"\n\n/**\n * @brief PMORMQ-Lowest-Common-Ancestor(\u6700\
-    \u5C0F\u5171\u901A\u7956\u5148)\n **/\ntemplate< typename T = int >\nstruct PMORMQLowestCommonAncestor\
-    \ : Graph< T > {\npublic:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n\
-    \  using F = function< int(int, int) >;\n\n  void build(int root = 0) {\n    ord.reserve(g.size()\
+    \u5C0F\u5171\u901A\u7956\u5148)\n * @docs docs/pmormq-lowest-common-ancestor.md\n\
+    \ **/\ntemplate< typename T = int >\nstruct PMORMQLowestCommonAncestor : Graph<\
+    \ T > {\npublic:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n  using\
+    \ F = function< int(int, int) >;\n\n  void build(int root = 0) {\n    ord.reserve(g.size()\
     \ * 2 - 1);\n    dep.reserve(g.size() * 2 - 1);\n    in.resize(g.size());\n  \
     \  dfs(root, -1, 0);\n    vector< int > vs(g.size() * 2 - 1);\n    iota(begin(vs),\
     \ end(vs), 0);\n    st = PlusMinusOneRMQ< int >(dep);\n  }\n\n  int lca(int x,\
@@ -160,7 +161,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-staticrmq-4.test.cpp
   requiredBy: []
-  timestamp: '2020-11-11 14:31:17+09:00'
+  timestamp: '2020-11-11 23:28:00+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-staticrmq-4.test.cpp

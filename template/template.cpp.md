@@ -325,6 +325,15 @@ data:
     path: test/verify/yosupo-kth-root-integer.test.cpp
     title: test/verify/yosupo-kth-root-integer.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-lca-2.test.cpp
+    title: test/verify/yosupo-lca-2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-lca-3.test.cpp
+    title: test/verify/yosupo-lca-3.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-lca.test.cpp
+    title: test/verify/yosupo-lca.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-line-add-get-min.test.cpp
     title: test/verify/yosupo-line-add-get-min.test.cpp
   - icon: ':heavy_check_mark:'
@@ -591,6 +600,7 @@ data:
   - test/verify/yosupo-polynomial-interpolation.test.cpp
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
   - test/verify/aoj-dpl-1-c.test.cpp
+  - test/verify/yosupo-lca.test.cpp
   - test/verify/yosupo-enumerate-triangles.test.cpp
   - test/verify/aoj-dsl-2-a.test.cpp
   - test/verify/yosupo-two-edge-connected-components.test.cpp
@@ -680,10 +690,12 @@ data:
   - test/verify/aoj-1549-2.test.cpp
   - test/verify/aoj-grl-5-c.test.cpp
   - test/verify/yosupo-partition-function.test.cpp
+  - test/verify/yosupo-lca-2.test.cpp
   - test/verify/aoj-grl-7-a.test.cpp
   - test/verify/aoj-0294.test.cpp
   - test/verify/aoj-2821.test.cpp
   - test/verify/aoj-grl-1-a.test.cpp
+  - test/verify/yosupo-lca-3.test.cpp
   - test/verify/aoj-dpl-1-d.test.cpp
   - test/verify/aoj-ntl-1-e.test.cpp
   - test/verify/yosupo-staticrmq-4.test.cpp
