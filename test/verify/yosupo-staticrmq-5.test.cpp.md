@@ -52,47 +52,43 @@ data:
     \ Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-staticrmq-5.test.cpp\"\
     \n\n#line 1 \"structure/others/linear-rmq.cpp\"\n/**\n * @brief Linear-RMQ\n **/\n\
-    template< typename Comp >\nstruct LinearRMQ {\n  static constexpr int BLOCKSIZE\
-    \ = 16;\n  using block_type = uint_least16_t;\n\n  vector< block_type > small;\n\
-    \  vector< vector< int > > large;\n\n  LinearRMQ() = default;\n\n  Comp comp;\n\
-    \n  static inline int msb(int c) {\n    return 31 - __builtin_clz(c);\n  }\n\n\
-    \  static inline int ctz(int c) {\n    return __builtin_ctz(c);\n  }\n\n  inline\
-    \ int get_min(int l, int r) const {\n    return comp(l, r) ? l : r;\n  }\n\n \
-    \ explicit LinearRMQ(size_t n, const Comp &comp) : comp(comp) {\n    vector< int\
-    \ > st;\n    st.reserve(BLOCKSIZE);\n    large.emplace_back();\n    large.front().reserve(n\
-    \ / BLOCKSIZE);\n    small.reserve(n);\n    for(int i = 0; i < n; i++) {\n   \
-    \   while(!st.empty() && !comp(st.back(), i)) {\n        st.pop_back();\n    \
-    \  }\n      small.emplace_back(st.empty() ? 0 : small[st.back()]);\n      small.back()\
-    \ |= static_cast< block_type  >(1) << (i % BLOCKSIZE);\n      st.emplace_back(i);\n\
-    \      if((i + 1) % BLOCKSIZE == 0) {\n        large.front().emplace_back(st.front());\n\
-    \        st.clear();\n      }\n    }\n    for(int i = 1; (i << 1) <= n / BLOCKSIZE;\
-    \ i <<= 1) {\n      vector< int > v;\n      int csz = n / BLOCKSIZE + 1 - (i <<\
-    \ 1);\n      v.reserve(csz);\n      for(int k = 0; k < csz; k++) {\n        v.emplace_back(get_min(large.back()[k],\
+    template< typename Comp >\nstruct LinearRMQ {\n\n  vector< int > small;\n  vector<\
+    \ vector< int > > large;\n\n  LinearRMQ() = default;\n\n  Comp comp;\n\n  static\
+    \ inline int msb(int c) {\n    return 31 - __builtin_clz(c);\n  }\n\n  static\
+    \ inline int ctz(int c) {\n    return __builtin_ctz(c);\n  }\n\n  inline int get_min(int\
+    \ l, int r) const {\n    return comp(l, r) ? l : r;\n  }\n\n  explicit LinearRMQ(size_t\
+    \ n, const Comp &comp) : comp(comp) {\n    vector< int > st;\n    st.reserve(32);\n\
+    \    large.emplace_back();\n    large.front().reserve(n / 32);\n    small.reserve(n);\n\
+    \    for(int i = 0; i < n; i++) {\n      while(!st.empty() && !comp(st.back(),\
+    \ i)) {\n        st.pop_back();\n      }\n      small.emplace_back(st.empty()\
+    \ ? 0 : small[st.back()]);\n      small.back() |= 1 << (i % 32);\n      st.emplace_back(i);\n\
+    \      if((i + 1) % 32 == 0) {\n        large.front().emplace_back(st.front());\n\
+    \        st.clear();\n      }\n    }\n    for(int i = 1; (i << 1) <= n / 32; i\
+    \ <<= 1) {\n      vector< int > v;\n      int csz = n / 32 + 1 - (i << 1);\n \
+    \     v.reserve(csz);\n      for(int k = 0; k < csz; k++) {\n        v.emplace_back(get_min(large.back()[k],\
     \ large.back()[k + i]));\n      }\n      large.emplace_back(move(v));\n    }\n\
-    \  }\n\n  int fold(int l, int r) const {\n    --r;\n    int left = l / BLOCKSIZE\
-    \ + 1;\n    int right = r / BLOCKSIZE;\n    if(left < right) {\n      auto p =\
-    \ msb(right - left);\n      return get_min(\n          get_min((left - 1) * BLOCKSIZE\
-    \ + ctz(small[left * BLOCKSIZE - 1] & ~static_cast<block_type>(0) << l % BLOCKSIZE),\
-    \ large[p][left]),\n          get_min(large[p][right - (1 << p)], right * BLOCKSIZE\
-    \ + ctz(small[r])));\n    } else if(left == right) {\n      return get_min((left\
-    \ - 1) * BLOCKSIZE + ctz(small[left * BLOCKSIZE - 1] & ~static_cast<block_type>(0)\
-    \ << l % BLOCKSIZE),\n                     left * BLOCKSIZE + ctz(small[r]));\n\
-    \    } else {\n      return right * BLOCKSIZE + ctz(small[r] & ~static_cast<block_type>(0)\
-    \ << l % BLOCKSIZE);\n    }\n  }\n};\n\ntemplate< typename Comp >\nLinearRMQ<\
-    \ Comp > get_linear_rmq(int n, const Comp &comp) {\n  return LinearRMQ< Comp >(n,\
-    \ comp);\n}\n#line 6 \"test/verify/yosupo-staticrmq-5.test.cpp\"\n\n#line 1 \"\
-    other/scanner.cpp\"\n/**\n * @brief Scanner(\u9AD8\u901F\u5165\u529B)\n */\nstruct\
-    \ Scanner {\npublic:\n\n  explicit Scanner(FILE *fp) : fp(fp) {}\n\n  template<\
-    \ typename T, typename... E >\n  void read(T &t, E &... e) {\n    read_single(t);\n\
-    \    read(e...);\n  }\n\nprivate:\n  static constexpr size_t line_size = 1 <<\
-    \ 16;\n  static constexpr size_t int_digits = 20;\n  char line[line_size + 1]\
-    \ = {};\n  FILE *fp = nullptr;\n  char *st = line;\n  char *ed = line;\n\n  void\
-    \ read() {}\n\n  static inline bool is_space(char c) {\n    return c <= ' ';\n\
-    \  }\n\n  void reread() {\n    ptrdiff_t len = ed - st;\n    memmove(line, st,\
-    \ len);\n    char *tmp = line + len;\n    ed = tmp + fread(tmp, 1, line_size -\
-    \ len, fp);\n    *ed = 0;\n    st = line;\n  }\n\n  void skip_space() {\n    while(true)\
-    \ {\n      if(st == ed) reread();\n      while(*st && is_space(*st)) ++st;\n \
-    \     if(st != ed) return;\n    }\n  }\n\n  template< typename T, enable_if_t<\
+    \  }\n\n  int fold(int l, int r) const {\n    --r;\n    int left = l / 32 + 1;\n\
+    \    int right = r / 32;\n    if(left < right) {\n      auto p = msb(right - left);\n\
+    \      return get_min(\n          get_min((left - 1) * 32 + ctz(small[left * 32\
+    \ - 1] & ~0 << l % 32), large[p][left]),\n          get_min(large[p][right - (1\
+    \ << p)], right * 32 + ctz(small[r])));\n    } else if(left == right) {\n    \
+    \  return get_min((left - 1) * 32 + ctz(small[left * 32 - 1] & ~0 << l % 32),\n\
+    \                     left * 32 + ctz(small[r]));\n    } else {\n      return\
+    \ right * 32 + ctz(small[r] & ~0 << l % 32);\n    }\n  }\n};\n\ntemplate< typename\
+    \ Comp >\nLinearRMQ< Comp > get_linear_rmq(int n, const Comp &comp) {\n  return\
+    \ LinearRMQ< Comp >(n, comp);\n}\n#line 6 \"test/verify/yosupo-staticrmq-5.test.cpp\"\
+    \n\n#line 1 \"other/scanner.cpp\"\n/**\n * @brief Scanner(\u9AD8\u901F\u5165\u529B\
+    )\n */\nstruct Scanner {\npublic:\n\n  explicit Scanner(FILE *fp) : fp(fp) {}\n\
+    \n  template< typename T, typename... E >\n  void read(T &t, E &... e) {\n   \
+    \ read_single(t);\n    read(e...);\n  }\n\nprivate:\n  static constexpr size_t\
+    \ line_size = 1 << 16;\n  static constexpr size_t int_digits = 20;\n  char line[line_size\
+    \ + 1] = {};\n  FILE *fp = nullptr;\n  char *st = line;\n  char *ed = line;\n\n\
+    \  void read() {}\n\n  static inline bool is_space(char c) {\n    return c <=\
+    \ ' ';\n  }\n\n  void reread() {\n    ptrdiff_t len = ed - st;\n    memmove(line,\
+    \ st, len);\n    char *tmp = line + len;\n    ed = tmp + fread(tmp, 1, line_size\
+    \ - len, fp);\n    *ed = 0;\n    st = line;\n  }\n\n  void skip_space() {\n  \
+    \  while(true) {\n      if(st == ed) reread();\n      while(*st && is_space(*st))\
+    \ ++st;\n      if(st != ed) return;\n    }\n  }\n\n  template< typename T, enable_if_t<\
     \ is_integral< T >::value, int > = 0 >\n  void read_single(T &s) {\n    skip_space();\n\
     \    if(st + int_digits >= ed) reread();\n    bool neg = false;\n    if(is_signed<\
     \ T >::value && *st == '-') {\n      neg = true;\n      ++st;\n    }\n    typename\
@@ -147,7 +143,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-staticrmq-5.test.cpp
   requiredBy: []
-  timestamp: '2020-11-12 00:34:11+09:00'
+  timestamp: '2020-11-12 00:49:42+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-staticrmq-5.test.cpp
