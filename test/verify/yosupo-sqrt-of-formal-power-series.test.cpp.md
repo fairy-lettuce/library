@@ -22,7 +22,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/sqrt.cpp
     title: Sqrt ($\sqrt {f(x)}$)
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

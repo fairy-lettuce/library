@@ -2,11 +2,15 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/verify/aoj-0412.test.cpp
+    title: test/verify/aoj-0412.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links:
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0412
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1033
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B
@@ -149,17 +153,25 @@ data:
     \ in = false;\n  for(int i = 0; i < Q.size(); i++) {\n    Point a = Q[i] - p,\
     \ b = Q[(i + 1) % Q.size()] - p;\n    if(a.imag() > b.imag()) swap(a, b);\n  \
     \  if(a.imag() <= 0 && 0 < b.imag() && cross(a, b) < 0) in = !in;\n    if(cross(a,\
-    \ b) == 0 && dot(a, b) <= 0) return ON;\n  }\n  return in ? IN : OUT;\n}\n\n\n\
-    // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1033\n// deduplication\
-    \ of line segments\nvoid merge_segments(vector< Segment > &segs) {\n\n  auto merge_if_able\
-    \ = [](Segment &s1, const Segment &s2) {\n    if(abs(cross(s1.b - s1.a, s2.b -\
-    \ s2.a)) > EPS) return false;\n    if(ccw(s1.a, s2.a, s1.b) == 1 || ccw(s1.a,\
-    \ s2.a, s1.b) == -1) return false;\n    if(ccw(s1.a, s1.b, s2.a) == -2 || ccw(s2.a,\
-    \ s2.b, s1.a) == -2) return false;\n    s1 = Segment(min(s1.a, s2.a), max(s1.b,\
-    \ s2.b));\n    return true;\n  };\n\n  for(int i = 0; i < segs.size(); i++) {\n\
-    \    if(segs[i].b < segs[i].a) swap(segs[i].a, segs[i].b);\n  }\n  for(int i =\
-    \ 0; i < segs.size(); i++) {\n    for(int j = i + 1; j < segs.size(); j++) {\n\
-    \      if(merge_if_able(segs[i], segs[j])) {\n        segs[j--] = segs.back(),\
+    \ b) == 0 && dot(a, b) <= 0) return ON;\n  }\n  return in ? IN : OUT;\n}\n\n//\
+    \ http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0412\nint convex_contains(const\
+    \ Polygon &Q, const Point &p) {\n  int N = (int) Q.size();\n  Point g = (Q[0]\
+    \ + Q[N / 3] + Q[N * 2 / 3]) / 3.0;\n  if(g == p) return IN;\n  Point gp = p -\
+    \ g;\n  int l = 0, r = N;\n  while(r - l > 1) {\n    int mid = (l + r) / 2;\n\
+    \    Point gl = Q[l] - g;\n    Point gm = Q[mid] - g;\n    if(cross(gl, gm) >\
+    \ 0) {\n      if(cross(gl, gp) >= 0 && cross(gm, gp) <= 0) r = mid;\n      else\
+    \ l = mid;\n    } else {\n      if(cross(gl, gp) <= 0 && cross(gm, gp) >= 0) l\
+    \ = mid;\n      else r = mid;\n    }\n  }\n  r %= N;\n  Real v = cross(Q[l] -\
+    \ p, Q[r] - p);\n  return eq(v, 0.0) ? ON : v < 0.0 ? OUT : IN;\n}\n\n// http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1033\n\
+    // deduplication of line segments\nvoid merge_segments(vector< Segment > &segs)\
+    \ {\n\n  auto merge_if_able = [](Segment &s1, const Segment &s2) {\n    if(abs(cross(s1.b\
+    \ - s1.a, s2.b - s2.a)) > EPS) return false;\n    if(ccw(s1.a, s2.a, s1.b) ==\
+    \ 1 || ccw(s1.a, s2.a, s1.b) == -1) return false;\n    if(ccw(s1.a, s1.b, s2.a)\
+    \ == -2 || ccw(s2.a, s2.b, s1.a) == -2) return false;\n    s1 = Segment(min(s1.a,\
+    \ s2.a), max(s1.b, s2.b));\n    return true;\n  };\n\n  for(int i = 0; i < segs.size();\
+    \ i++) {\n    if(segs[i].b < segs[i].a) swap(segs[i].a, segs[i].b);\n  }\n  for(int\
+    \ i = 0; i < segs.size(); i++) {\n    for(int j = i + 1; j < segs.size(); j++)\
+    \ {\n      if(merge_if_able(segs[i], segs[j])) {\n        segs[j--] = segs.back(),\
     \ segs.pop_back();\n      }\n    }\n  }\n}\n\n// http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1033\n\
     // construct a graph with the vertex of the intersection of any two line segments\n\
     vector< vector< int > > segment_arrangement(vector< Segment > &segs, vector< Point\
@@ -334,17 +346,25 @@ data:
     \ in = false;\n  for(int i = 0; i < Q.size(); i++) {\n    Point a = Q[i] - p,\
     \ b = Q[(i + 1) % Q.size()] - p;\n    if(a.imag() > b.imag()) swap(a, b);\n  \
     \  if(a.imag() <= 0 && 0 < b.imag() && cross(a, b) < 0) in = !in;\n    if(cross(a,\
-    \ b) == 0 && dot(a, b) <= 0) return ON;\n  }\n  return in ? IN : OUT;\n}\n\n\n\
-    // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1033\n// deduplication\
-    \ of line segments\nvoid merge_segments(vector< Segment > &segs) {\n\n  auto merge_if_able\
-    \ = [](Segment &s1, const Segment &s2) {\n    if(abs(cross(s1.b - s1.a, s2.b -\
-    \ s2.a)) > EPS) return false;\n    if(ccw(s1.a, s2.a, s1.b) == 1 || ccw(s1.a,\
-    \ s2.a, s1.b) == -1) return false;\n    if(ccw(s1.a, s1.b, s2.a) == -2 || ccw(s2.a,\
-    \ s2.b, s1.a) == -2) return false;\n    s1 = Segment(min(s1.a, s2.a), max(s1.b,\
-    \ s2.b));\n    return true;\n  };\n\n  for(int i = 0; i < segs.size(); i++) {\n\
-    \    if(segs[i].b < segs[i].a) swap(segs[i].a, segs[i].b);\n  }\n  for(int i =\
-    \ 0; i < segs.size(); i++) {\n    for(int j = i + 1; j < segs.size(); j++) {\n\
-    \      if(merge_if_able(segs[i], segs[j])) {\n        segs[j--] = segs.back(),\
+    \ b) == 0 && dot(a, b) <= 0) return ON;\n  }\n  return in ? IN : OUT;\n}\n\n//\
+    \ http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0412\nint convex_contains(const\
+    \ Polygon &Q, const Point &p) {\n  int N = (int) Q.size();\n  Point g = (Q[0]\
+    \ + Q[N / 3] + Q[N * 2 / 3]) / 3.0;\n  if(g == p) return IN;\n  Point gp = p -\
+    \ g;\n  int l = 0, r = N;\n  while(r - l > 1) {\n    int mid = (l + r) / 2;\n\
+    \    Point gl = Q[l] - g;\n    Point gm = Q[mid] - g;\n    if(cross(gl, gm) >\
+    \ 0) {\n      if(cross(gl, gp) >= 0 && cross(gm, gp) <= 0) r = mid;\n      else\
+    \ l = mid;\n    } else {\n      if(cross(gl, gp) <= 0 && cross(gm, gp) >= 0) l\
+    \ = mid;\n      else r = mid;\n    }\n  }\n  r %= N;\n  Real v = cross(Q[l] -\
+    \ p, Q[r] - p);\n  return eq(v, 0.0) ? ON : v < 0.0 ? OUT : IN;\n}\n\n// http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1033\n\
+    // deduplication of line segments\nvoid merge_segments(vector< Segment > &segs)\
+    \ {\n\n  auto merge_if_able = [](Segment &s1, const Segment &s2) {\n    if(abs(cross(s1.b\
+    \ - s1.a, s2.b - s2.a)) > EPS) return false;\n    if(ccw(s1.a, s2.a, s1.b) ==\
+    \ 1 || ccw(s1.a, s2.a, s1.b) == -1) return false;\n    if(ccw(s1.a, s1.b, s2.a)\
+    \ == -2 || ccw(s2.a, s2.b, s1.a) == -2) return false;\n    s1 = Segment(min(s1.a,\
+    \ s2.a), max(s1.b, s2.b));\n    return true;\n  };\n\n  for(int i = 0; i < segs.size();\
+    \ i++) {\n    if(segs[i].b < segs[i].a) swap(segs[i].a, segs[i].b);\n  }\n  for(int\
+    \ i = 0; i < segs.size(); i++) {\n    for(int j = i + 1; j < segs.size(); j++)\
+    \ {\n      if(merge_if_able(segs[i], segs[j])) {\n        segs[j--] = segs.back(),\
     \ segs.pop_back();\n      }\n    }\n  }\n}\n\n// http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1033\n\
     // construct a graph with the vertex of the intersection of any two line segments\n\
     vector< vector< int > > segment_arrangement(vector< Segment > &segs, vector< Point\
@@ -403,9 +423,10 @@ data:
   isVerificationFile: false
   path: geometry/template.cpp
   requiredBy: []
-  timestamp: '2019-11-14 16:01:02+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2020-11-23 01:09:07+09:00'
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/verify/aoj-0412.test.cpp
 documentation_of: geometry/template.cpp
 layout: document
 redirect_from:

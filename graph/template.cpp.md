@@ -46,10 +46,10 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-2306.test.cpp
-  - test/verify/aoj-grl-2-b.test.cpp
+  - test/verify/aoj-1163.test.cpp
   - test/verify/yosupo-maximum-independent-set.test.cpp
   - test/verify/aoj-grl-1-c.test.cpp
-  - test/verify/aoj-1163.test.cpp
+  - test/verify/aoj-grl-2-b.test.cpp
 documentation_of: graph/template.cpp
 layout: document
 redirect_from:

@@ -13,7 +13,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: structure/develop/splay-tree.cpp
     title: structure/develop/splay-tree.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

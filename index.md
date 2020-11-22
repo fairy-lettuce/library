@@ -53,7 +53,7 @@ data:
         \u30A4\u30F3\u5909\u63DB)"
   - name: geometry
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: geometry/template.cpp
       title: geometry/template.cpp
   - name: graph/connected-components
@@ -738,7 +738,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -866,6 +866,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-0334.test.cpp
       title: test/verify/aoj-0334.test.cpp
+    - icon: ':x:'
+      path: test/verify/aoj-0412.test.cpp
+      title: test/verify/aoj-0412.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-0560.test.cpp
       title: test/verify/aoj-0560.test.cpp
