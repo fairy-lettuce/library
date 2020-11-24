@@ -5,21 +5,15 @@ data:
     path: geometry/base.cpp
     title: geometry/base.cpp
   - icon: ':heavy_check_mark:'
+    path: geometry/is_parallel.cpp
+    title: geometry/is_parallel.cpp
+  - icon: ':heavy_check_mark:'
     path: geometry/line.cpp
     title: geometry/line.cpp
   - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: geometry/is_intersect_ls.cpp
-    title: geometry/is_intersect_ls.cpp
-  - icon: ':warning:'
-    path: geometry/is_intersect_sp.cpp
-    title: geometry/is_intersect_sp.cpp
-  - icon: ':warning:'
-    path: geometry/is_intersect_ss.cpp
-    title: geometry/is_intersect_ss.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
@@ -51,29 +45,30 @@ data:
     \   friend ostream &operator<<(ostream &os, Line &l) {\n      return os << l.a\
     \ << \" to \" << l.b;\n    }\n\n    friend istream &operator>>(istream &is, Line\
     \ &l) {\n      return is >> l.a >> l.b;\n    }\n  };\n\n  using Lines = vector<\
-    \ Line >;\n}\n#line 3 \"geometry/segment.cpp\"\n\nnamespace geometry {\n  struct\
-    \ Segment : Line {\n    Segment() = default;\n\n    using Line::Line;\n  };\n\n\
-    \  using Segments = vector< Segment >;\n}\n"
-  code: "#pragma once\n#include \"line.cpp\"\n\nnamespace geometry {\n  struct Segment\
-    \ : Line {\n    Segment() = default;\n\n    using Line::Line;\n  };\n\n  using\
-    \ Segments = vector< Segment >;\n}\n"
+    \ Line >;\n}\n#line 3 \"geometry/is_parallel.cpp\"\n\nnamespace geometry {\n \
+    \ // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_A\n  bool\
+    \ is_parallel(const Line &a, const Line &b) {\n    return equals(cross(a.b - a.a,\
+    \ b.b - b.a), 0.0);\n  }\n}\n#line 3 \"geometry/is_intersect_lm.cpp\"\n\nnamespace\
+    \ geometry {\n  bool is_intersect(const Line &l, const Line &m) {\n    return\
+    \ !is_parallel(l, m);\n  }\n}\n"
+  code: "#include \"line.cpp\"\n#include \"is_parallel.cpp\"\n\nnamespace geometry\
+    \ {\n  bool is_intersect(const Line &l, const Line &m) {\n    return !is_parallel(l,\
+    \ m);\n  }\n}\n"
   dependsOn:
   - geometry/line.cpp
   - geometry/point.cpp
   - geometry/base.cpp
+  - geometry/is_parallel.cpp
   isVerificationFile: false
-  path: geometry/segment.cpp
-  requiredBy:
-  - geometry/is_intersect_sp.cpp
-  - geometry/is_intersect_ls.cpp
-  - geometry/is_intersect_ss.cpp
-  timestamp: '2020-11-24 18:23:37+09:00'
+  path: geometry/is_intersect_lm.cpp
+  requiredBy: []
+  timestamp: '2020-11-24 22:27:51+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: geometry/segment.cpp
+documentation_of: geometry/is_intersect_lm.cpp
 layout: document
 redirect_from:
-- /library/geometry/segment.cpp
-- /library/geometry/segment.cpp.html
-title: geometry/segment.cpp
+- /library/geometry/is_intersect_lm.cpp
+- /library/geometry/is_intersect_lm.cpp.html
+title: geometry/is_intersect_lm.cpp
 ---

@@ -66,6 +66,24 @@ data:
       path: geometry/circle.cpp
       title: geometry/circle.cpp
     - icon: ':heavy_check_mark:'
+      path: geometry/is_convex_polygon.cpp
+      title: geometry/is_convex_polygon.cpp
+    - icon: ':warning:'
+      path: geometry/is_intersect_lm.cpp
+      title: geometry/is_intersect_lm.cpp
+    - icon: ':warning:'
+      path: geometry/is_intersect_lp.cpp
+      title: geometry/is_intersect_lp.cpp
+    - icon: ':warning:'
+      path: geometry/is_intersect_ls.cpp
+      title: geometry/is_intersect_ls.cpp
+    - icon: ':warning:'
+      path: geometry/is_intersect_sp.cpp
+      title: geometry/is_intersect_sp.cpp
+    - icon: ':warning:'
+      path: geometry/is_intersect_ss.cpp
+      title: geometry/is_intersect_ss.cpp
+    - icon: ':heavy_check_mark:'
       path: geometry/is_orthogonal.cpp
       title: geometry/is_orthogonal.cpp
     - icon: ':heavy_check_mark:'
@@ -77,6 +95,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: geometry/point.cpp
       title: geometry/point.cpp
+    - icon: ':heavy_check_mark:'
+      path: geometry/polygon.cpp
+      title: geometry/polygon.cpp
     - icon: ':heavy_check_mark:'
       path: geometry/projection.cpp
       title: geometry/projection.cpp
@@ -1007,6 +1028,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-cgl-2-a.test.cpp
       title: test/verify/aoj-cgl-2-a.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-cgl-3-b.test.cpp
+      title: test/verify/aoj-cgl-3-b.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-1-b.test.cpp
       title: test/verify/aoj-dpl-1-b.test.cpp

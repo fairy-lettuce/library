@@ -5,33 +5,23 @@ data:
     path: geometry/base.cpp
     title: geometry/base.cpp
   - icon: ':heavy_check_mark:'
+    path: geometry/ccw.cpp
+    title: geometry/ccw.cpp
+  - icon: ':heavy_check_mark:'
+    path: geometry/line.cpp
+    title: geometry/line.cpp
+  - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: geometry/is_convex_polygon.cpp
-    title: geometry/is_convex_polygon.cpp
   - icon: ':warning:'
-    path: geometry/is_intersect_lp.cpp
-    title: geometry/is_intersect_lp.cpp
-  - icon: ':warning:'
-    path: geometry/is_intersect_sp.cpp
-    title: geometry/is_intersect_sp.cpp
-  - icon: ':warning:'
-    path: geometry/is_intersect_ss.cpp
-    title: geometry/is_intersect_ss.cpp
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-cgl-1-c.test.cpp
-    title: test/verify/aoj-cgl-1-c.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-cgl-3-b.test.cpp
-    title: test/verify/aoj-cgl-3-b.test.cpp
+    path: geometry/segment.cpp
+    title: geometry/segment.cpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C
+    links: []
   bundledCode: "#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real\
     \ = double;\n  const Real EPS = 1e-8;\n  const Real PI = acos(static_cast< Real\
     \ >(-1));\n\n  inline int sign(const Real &r) {\n    return r <= -EPS ? -1 : r\
@@ -55,34 +45,42 @@ data:
     \ Point c) {\n    b = b - a, c = c - a;\n    if(sign(cross(b, c)) == +1) return\
     \ COUNTER_CLOCKWISE;\n    if(sign(cross(b, c)) == -1) return CLOCKWISE;\n    if(sign(dot(b,\
     \ c)) == -1) return ONLINE_BACK;\n    if(norm(b) < norm(c)) return ONLINE_FRONT;\n\
-    \    return ON_SEGMENT;\n  }\n}\n"
-  code: "#include \"point.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\n\
-    \  constexpr int COUNTER_CLOCKWISE = +1;\n  constexpr int CLOCKWISE = -1;\n  constexpr\
-    \ int ONLINE_BACK = +2; // c-a-b\n  constexpr int ONLINE_FRONT = -2; // a-b-c\n\
-    \  constexpr int ON_SEGMENT = 0; // a-c-b\n  int ccw(const Point &a, Point b,\
-    \ Point c) {\n    b = b - a, c = c - a;\n    if(sign(cross(b, c)) == +1) return\
-    \ COUNTER_CLOCKWISE;\n    if(sign(cross(b, c)) == -1) return CLOCKWISE;\n    if(sign(dot(b,\
-    \ c)) == -1) return ONLINE_BACK;\n    if(norm(b) < norm(c)) return ONLINE_FRONT;\n\
-    \    return ON_SEGMENT;\n  }\n}\n"
+    \    return ON_SEGMENT;\n  }\n}\n#line 3 \"geometry/line.cpp\"\n\nnamespace geometry\
+    \ {\n  struct Line {\n    Point a, b;\n\n    Line() = default;\n\n    Line(const\
+    \ Point &a, const Point &b) : a(a), b(b) {}\n\n    Line(const Real &A, const Real\
+    \ &B, const Real &C) { // Ax+By=C\n      if(equals(A, 0)) {\n        assert(!equals(B,\
+    \ 0));\n        a = Point(0, C / B);\n        b = Point(1, C / B);\n      } else\
+    \ if(equals(B, 0)) {\n        a = Point(C / A, 0);\n        b = Point(C / A, 1);\n\
+    \      } else {\n        a = Point(0, C / B);\n        b = Point(C / A, 0);\n\
+    \      }\n    }\n\n    friend ostream &operator<<(ostream &os, Line &l) {\n  \
+    \    return os << l.a << \" to \" << l.b;\n    }\n\n    friend istream &operator>>(istream\
+    \ &is, Line &l) {\n      return is >> l.a >> l.b;\n    }\n  };\n\n  using Lines\
+    \ = vector< Line >;\n}\n#line 3 \"geometry/segment.cpp\"\n\nnamespace geometry\
+    \ {\n  struct Segment : Line {\n    Segment() = default;\n\n    using Line::Line;\n\
+    \  };\n\n  using Segments = vector< Segment >;\n}\n#line 4 \"geometry/is_intersect_ss.cpp\"\
+    \n\n\nnamespace geometry {\n  bool is_intersect(const Segment &s, const Segment\
+    \ &t) {\n    return ccw(s.a, s.b, t.a) * ccw(s.a, s.b, t.b) <= 0 &&\n        \
+    \   ccw(t.a, t.b, s.a) * ccw(t.a, t.b, s.b) <= 0;\n  }\n}\n"
+  code: "#include \"point.cpp\"\n#include \"ccw.cpp\"\n#include \"segment.cpp\"\n\n\
+    \nnamespace geometry {\n  bool is_intersect(const Segment &s, const Segment &t)\
+    \ {\n    return ccw(s.a, s.b, t.a) * ccw(s.a, s.b, t.b) <= 0 &&\n           ccw(t.a,\
+    \ t.b, s.a) * ccw(t.a, t.b, s.b) <= 0;\n  }\n}\n"
   dependsOn:
   - geometry/point.cpp
   - geometry/base.cpp
+  - geometry/ccw.cpp
+  - geometry/segment.cpp
+  - geometry/line.cpp
   isVerificationFile: false
-  path: geometry/ccw.cpp
-  requiredBy:
-  - geometry/is_intersect_sp.cpp
-  - geometry/is_convex_polygon.cpp
-  - geometry/is_intersect_lp.cpp
-  - geometry/is_intersect_ss.cpp
+  path: geometry/is_intersect_ss.cpp
+  requiredBy: []
   timestamp: '2020-11-24 22:27:51+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/verify/aoj-cgl-1-c.test.cpp
-  - test/verify/aoj-cgl-3-b.test.cpp
-documentation_of: geometry/ccw.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: geometry/is_intersect_ss.cpp
 layout: document
 redirect_from:
-- /library/geometry/ccw.cpp
-- /library/geometry/ccw.cpp.html
-title: geometry/ccw.cpp
+- /library/geometry/is_intersect_ss.cpp
+- /library/geometry/is_intersect_ss.cpp.html
+title: geometry/is_intersect_ss.cpp
 ---

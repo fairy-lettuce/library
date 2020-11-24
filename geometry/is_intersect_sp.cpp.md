@@ -5,21 +5,18 @@ data:
     path: geometry/base.cpp
     title: geometry/base.cpp
   - icon: ':heavy_check_mark:'
+    path: geometry/ccw.cpp
+    title: geometry/ccw.cpp
+  - icon: ':heavy_check_mark:'
     path: geometry/line.cpp
     title: geometry/line.cpp
   - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  _extendedRequiredBy:
   - icon: ':warning:'
-    path: geometry/is_intersect_ls.cpp
-    title: geometry/is_intersect_ls.cpp
-  - icon: ':warning:'
-    path: geometry/is_intersect_sp.cpp
-    title: geometry/is_intersect_sp.cpp
-  - icon: ':warning:'
-    path: geometry/is_intersect_ss.cpp
-    title: geometry/is_intersect_ss.cpp
+    path: geometry/segment.cpp
+    title: geometry/segment.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
@@ -53,27 +50,36 @@ data:
     \ &l) {\n      return is >> l.a >> l.b;\n    }\n  };\n\n  using Lines = vector<\
     \ Line >;\n}\n#line 3 \"geometry/segment.cpp\"\n\nnamespace geometry {\n  struct\
     \ Segment : Line {\n    Segment() = default;\n\n    using Line::Line;\n  };\n\n\
-    \  using Segments = vector< Segment >;\n}\n"
-  code: "#pragma once\n#include \"line.cpp\"\n\nnamespace geometry {\n  struct Segment\
-    \ : Line {\n    Segment() = default;\n\n    using Line::Line;\n  };\n\n  using\
-    \ Segments = vector< Segment >;\n}\n"
+    \  using Segments = vector< Segment >;\n}\n#line 2 \"geometry/ccw.cpp\"\n\nnamespace\
+    \ geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\n\
+    \  constexpr int COUNTER_CLOCKWISE = +1;\n  constexpr int CLOCKWISE = -1;\n  constexpr\
+    \ int ONLINE_BACK = +2; // c-a-b\n  constexpr int ONLINE_FRONT = -2; // a-b-c\n\
+    \  constexpr int ON_SEGMENT = 0; // a-c-b\n  int ccw(const Point &a, Point b,\
+    \ Point c) {\n    b = b - a, c = c - a;\n    if(sign(cross(b, c)) == +1) return\
+    \ COUNTER_CLOCKWISE;\n    if(sign(cross(b, c)) == -1) return CLOCKWISE;\n    if(sign(dot(b,\
+    \ c)) == -1) return ONLINE_BACK;\n    if(norm(b) < norm(c)) return ONLINE_FRONT;\n\
+    \    return ON_SEGMENT;\n  }\n}\n#line 4 \"geometry/is_intersect_sp.cpp\"\n\n\
+    namespace geometry {\n  bool is_intersect(const Segment &s, const Point &p) {\n\
+    \    return ccw(s.a, s.b, p) == ON_SEGMENT;\n  }\n}\n"
+  code: "#include \"point.cpp\"\n#include \"segment.cpp\"\n#include \"ccw.cpp\"\n\n\
+    namespace geometry {\n  bool is_intersect(const Segment &s, const Point &p) {\n\
+    \    return ccw(s.a, s.b, p) == ON_SEGMENT;\n  }\n}\n"
   dependsOn:
-  - geometry/line.cpp
   - geometry/point.cpp
   - geometry/base.cpp
+  - geometry/segment.cpp
+  - geometry/line.cpp
+  - geometry/ccw.cpp
   isVerificationFile: false
-  path: geometry/segment.cpp
-  requiredBy:
-  - geometry/is_intersect_sp.cpp
-  - geometry/is_intersect_ls.cpp
-  - geometry/is_intersect_ss.cpp
-  timestamp: '2020-11-24 18:23:37+09:00'
+  path: geometry/is_intersect_sp.cpp
+  requiredBy: []
+  timestamp: '2020-11-24 22:27:51+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: geometry/segment.cpp
+documentation_of: geometry/is_intersect_sp.cpp
 layout: document
 redirect_from:
-- /library/geometry/segment.cpp
-- /library/geometry/segment.cpp.html
-title: geometry/segment.cpp
+- /library/geometry/is_intersect_sp.cpp
+- /library/geometry/is_intersect_sp.cpp.html
+title: geometry/is_intersect_sp.cpp
 ---

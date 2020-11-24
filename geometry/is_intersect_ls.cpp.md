@@ -10,16 +10,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  _extendedRequiredBy:
   - icon: ':warning:'
-    path: geometry/is_intersect_ls.cpp
-    title: geometry/is_intersect_ls.cpp
-  - icon: ':warning:'
-    path: geometry/is_intersect_sp.cpp
-    title: geometry/is_intersect_sp.cpp
-  - icon: ':warning:'
-    path: geometry/is_intersect_ss.cpp
-    title: geometry/is_intersect_ss.cpp
+    path: geometry/segment.cpp
+    title: geometry/segment.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
@@ -53,27 +47,29 @@ data:
     \ &l) {\n      return is >> l.a >> l.b;\n    }\n  };\n\n  using Lines = vector<\
     \ Line >;\n}\n#line 3 \"geometry/segment.cpp\"\n\nnamespace geometry {\n  struct\
     \ Segment : Line {\n    Segment() = default;\n\n    using Line::Line;\n  };\n\n\
-    \  using Segments = vector< Segment >;\n}\n"
-  code: "#pragma once\n#include \"line.cpp\"\n\nnamespace geometry {\n  struct Segment\
-    \ : Line {\n    Segment() = default;\n\n    using Line::Line;\n  };\n\n  using\
-    \ Segments = vector< Segment >;\n}\n"
+    \  using Segments = vector< Segment >;\n}\n#line 5 \"geometry/is_intersect_ls.cpp\"\
+    \n\nnamespace geometry {\n  bool is_intersect(const Line &l, const Segment &s)\
+    \ {\n    return sign(cross(l.b - l.a, s.a - l.a)) * sign(cross(l.b - l.a, s.b\
+    \ - l.a)) <= 0;\n  }\n}\n"
+  code: "#include \"base.cpp\"\n#include \"point.cpp\"\n#include \"line.cpp\"\n#include\
+    \ \"segment.cpp\"\n\nnamespace geometry {\n  bool is_intersect(const Line &l,\
+    \ const Segment &s) {\n    return sign(cross(l.b - l.a, s.a - l.a)) * sign(cross(l.b\
+    \ - l.a, s.b - l.a)) <= 0;\n  }\n}\n"
   dependsOn:
-  - geometry/line.cpp
-  - geometry/point.cpp
   - geometry/base.cpp
+  - geometry/point.cpp
+  - geometry/line.cpp
+  - geometry/segment.cpp
   isVerificationFile: false
-  path: geometry/segment.cpp
-  requiredBy:
-  - geometry/is_intersect_sp.cpp
-  - geometry/is_intersect_ls.cpp
-  - geometry/is_intersect_ss.cpp
-  timestamp: '2020-11-24 18:23:37+09:00'
+  path: geometry/is_intersect_ls.cpp
+  requiredBy: []
+  timestamp: '2020-11-24 22:27:51+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: geometry/segment.cpp
+documentation_of: geometry/is_intersect_ls.cpp
 layout: document
 redirect_from:
-- /library/geometry/segment.cpp
-- /library/geometry/segment.cpp.html
-title: geometry/segment.cpp
+- /library/geometry/is_intersect_ls.cpp
+- /library/geometry/is_intersect_ls.cpp.html
+title: geometry/is_intersect_ls.cpp
 ---

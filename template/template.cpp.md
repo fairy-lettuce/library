@@ -127,6 +127,9 @@ data:
     path: test/verify/aoj-cgl-2-a.test.cpp
     title: test/verify/aoj-cgl-2-a.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-3-b.test.cpp
+    title: test/verify/aoj-cgl-3-b.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-1-b.test.cpp
     title: test/verify/aoj-dpl-1-b.test.cpp
   - icon: ':heavy_check_mark:'
@@ -717,6 +720,7 @@ data:
   - test/verify/yosupo-two-edge-connected-components.test.cpp
   - test/verify/yosupo-maximum-independent-set-2.test.cpp
   - test/verify/aoj-grl-6-a-3.test.cpp
+  - test/verify/aoj-cgl-3-b.test.cpp
   - test/verify/yosupo-range-kth-smallest-2.test.cpp
   - test/verify/aoj-dsl-2-a.test.cpp
   - test/verify/aoj-grl-2-a-4.test.cpp

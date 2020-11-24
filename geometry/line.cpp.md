@@ -8,6 +8,21 @@ data:
     path: geometry/point.cpp
     title: geometry/point.cpp
   _extendedRequiredBy:
+  - icon: ':warning:'
+    path: geometry/is_intersect_lm.cpp
+    title: geometry/is_intersect_lm.cpp
+  - icon: ':warning:'
+    path: geometry/is_intersect_lp.cpp
+    title: geometry/is_intersect_lp.cpp
+  - icon: ':warning:'
+    path: geometry/is_intersect_ls.cpp
+    title: geometry/is_intersect_ls.cpp
+  - icon: ':warning:'
+    path: geometry/is_intersect_sp.cpp
+    title: geometry/is_intersect_sp.cpp
+  - icon: ':warning:'
+    path: geometry/is_intersect_ss.cpp
+    title: geometry/is_intersect_ss.cpp
   - icon: ':heavy_check_mark:'
     path: geometry/is_orthogonal.cpp
     title: geometry/is_orthogonal.cpp
@@ -82,8 +97,13 @@ data:
   path: geometry/line.cpp
   requiredBy:
   - geometry/reflection.cpp
+  - geometry/is_intersect_sp.cpp
   - geometry/is_orthogonal.cpp
+  - geometry/is_intersect_lm.cpp
+  - geometry/is_intersect_lp.cpp
   - geometry/projection.cpp
+  - geometry/is_intersect_ls.cpp
+  - geometry/is_intersect_ss.cpp
   - geometry/is_parallel.cpp
   - geometry/segment.cpp
   timestamp: '2020-11-24 18:23:37+09:00'

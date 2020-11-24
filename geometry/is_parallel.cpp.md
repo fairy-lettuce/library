@@ -10,7 +10,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: geometry/is_intersect_lm.cpp
+    title: geometry/is_intersect_lm.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-2-a.test.cpp
@@ -60,7 +63,8 @@ data:
   - geometry/line.cpp
   isVerificationFile: false
   path: geometry/is_parallel.cpp
-  requiredBy: []
+  requiredBy:
+  - geometry/is_intersect_lm.cpp
   timestamp: '2020-11-24 18:23:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
