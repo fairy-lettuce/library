@@ -9,8 +9,8 @@ data:
     title: geometry/point.cpp
   _extendedRequiredBy:
   - icon: ':warning:'
-    path: geometry/is_intersect_lm.cpp
-    title: geometry/is_intersect_lm.cpp
+    path: geometry/is_intersect_ll.cpp
+    title: geometry/is_intersect_ll.cpp
   - icon: ':warning:'
     path: geometry/is_intersect_lp.cpp
     title: geometry/is_intersect_lp.cpp
@@ -101,8 +101,8 @@ data:
   requiredBy:
   - geometry/reflection.cpp
   - geometry/is_intersect_sp.cpp
+  - geometry/is_intersect_ll.cpp
   - geometry/is_orthogonal.cpp
-  - geometry/is_intersect_lm.cpp
   - geometry/is_intersect_lp.cpp
   - geometry/projection.cpp
   - geometry/is_intersect_ls.cpp

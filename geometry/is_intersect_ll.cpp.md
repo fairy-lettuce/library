@@ -51,7 +51,7 @@ data:
     \ = vector< Line >;\n}\n#line 3 \"geometry/is_parallel.cpp\"\n\nnamespace geometry\
     \ {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_A\n \
     \ bool is_parallel(const Line &a, const Line &b) {\n    return equals(cross(a.b\
-    \ - a.a, b.b - b.a), 0.0);\n  }\n}\n#line 3 \"geometry/is_intersect_lm.cpp\"\n\
+    \ - a.a, b.b - b.a), 0.0);\n  }\n}\n#line 3 \"geometry/is_intersect_ll.cpp\"\n\
     \nnamespace geometry {\n  bool is_intersect(const Line &l, const Line &m) {\n\
     \    return !is_parallel(l, m);\n  }\n}\n"
   code: "#include \"line.cpp\"\n#include \"is_parallel.cpp\"\n\nnamespace geometry\
@@ -63,15 +63,15 @@ data:
   - geometry/base.cpp
   - geometry/is_parallel.cpp
   isVerificationFile: false
-  path: geometry/is_intersect_lm.cpp
+  path: geometry/is_intersect_ll.cpp
   requiredBy: []
-  timestamp: '2020-11-25 02:17:17+09:00'
+  timestamp: '2020-11-25 02:23:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: geometry/is_intersect_lm.cpp
+documentation_of: geometry/is_intersect_ll.cpp
 layout: document
 redirect_from:
-- /library/geometry/is_intersect_lm.cpp
-- /library/geometry/is_intersect_lm.cpp.html
-title: geometry/is_intersect_lm.cpp
+- /library/geometry/is_intersect_ll.cpp
+- /library/geometry/is_intersect_ll.cpp.html
+title: geometry/is_intersect_ll.cpp
 ---
