@@ -1,19 +1,25 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/base.cpp
     title: geometry/base.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/line.cpp
     title: geometry/line.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
+  - icon: ':heavy_check_mark:'
+    path: geometry/projection.cpp
+    title: geometry/projection.cpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-1-b.test.cpp
+    title: test/verify/aoj-cgl-1-b.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B
@@ -43,24 +49,29 @@ data:
     \   friend ostream &operator<<(ostream &os, Line &l) {\n      return os << l.a\
     \ << \" to \" << l.b;\n    }\n\n    friend istream &operator>>(istream &is, Line\
     \ &l) {\n      return is >> l.a >> l.b;\n    }\n  };\n\n  using Lines = vector<\
-    \ Line >;\n}\n#line 3 \"geometry/reflection.cpp\"\n\nnamespace geometry {\n  //\
-    \ http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B\n  Point reflection(const\
-    \ Line &l, const Point &p) {\n    return p + (projection(l, p) - p) * 2;\n  }\n\
-    }\n"
-  code: "#include \"point.cpp\"\n#include \"line.cpp\"\n\nnamespace geometry {\n \
-    \ // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B\n  Point\
-    \ reflection(const Line &l, const Point &p) {\n    return p + (projection(l, p)\
-    \ - p) * 2;\n  }\n}\n"
+    \ Line >;\n}\n#line 3 \"geometry/projection.cpp\"\n\nnamespace geometry {\n  //\
+    \ http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n  Point projection(const\
+    \ Line &l, const Point &p) {\n    auto t = dot(p - l.a, l.a - l.b) / norm(l.a\
+    \ - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n#line 4 \"geometry/reflection.cpp\"\
+    \n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B\n\
+    \  Point reflection(const Line &l, const Point &p) {\n    return p + (projection(l,\
+    \ p) - p) * 2;\n  }\n}\n"
+  code: "#include \"point.cpp\"\n#include \"line.cpp\"\n#include \"projection.cpp\"\
+    \n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B\n\
+    \  Point reflection(const Line &l, const Point &p) {\n    return p + (projection(l,\
+    \ p) - p) * 2;\n  }\n}\n"
   dependsOn:
   - geometry/point.cpp
   - geometry/base.cpp
   - geometry/line.cpp
+  - geometry/projection.cpp
   isVerificationFile: false
   path: geometry/reflection.cpp
   requiredBy: []
-  timestamp: '2020-11-24 18:23:37+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2020-11-24 18:33:37+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/verify/aoj-cgl-1-b.test.cpp
 documentation_of: geometry/reflection.cpp
 layout: document
 redirect_from:

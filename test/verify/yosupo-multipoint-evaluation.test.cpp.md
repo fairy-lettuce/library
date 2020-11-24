@@ -16,7 +16,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/multipoint-evaluation.cpp
     title: math/fps/multipoint-evaluation.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

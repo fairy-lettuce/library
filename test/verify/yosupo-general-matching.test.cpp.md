@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/flow/gabow-edmonds.cpp
     title: graph/flow/gabow-edmonds.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

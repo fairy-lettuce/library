@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/base.cpp
     title: geometry/base.cpp
   _extendedRequiredBy:
@@ -20,22 +20,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: geometry/is_parallel.cpp
     title: geometry/is_parallel.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/line.cpp
     title: geometry/line.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/projection.cpp
     title: geometry/projection.cpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: geometry/reflection.cpp
     title: geometry/reflection.cpp
   - icon: ':warning:'
     path: geometry/segment.cpp
     title: geometry/segment.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-1-a.test.cpp
     title: test/verify/aoj-cgl-1-a.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-1-b.test.cpp
+    title: test/verify/aoj-cgl-1-b.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-1-c.test.cpp
     title: test/verify/aoj-cgl-1-c.test.cpp
@@ -43,7 +46,7 @@ data:
     path: test/verify/aoj-cgl-2-a.test.cpp
     title: test/verify/aoj-cgl-2-a.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real\
@@ -89,11 +92,12 @@ data:
   - geometry/is_parallel.cpp
   - geometry/segment.cpp
   timestamp: '2020-11-24 18:23:37+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-cgl-2-a.test.cpp
   - test/verify/aoj-cgl-1-c.test.cpp
   - test/verify/aoj-cgl-1-a.test.cpp
+  - test/verify/aoj-cgl-1-b.test.cpp
 documentation_of: geometry/point.cpp
 layout: document
 redirect_from:

@@ -14,6 +14,9 @@ data:
     path: geometry/projection.cpp
     title: geometry/projection.cpp
   - icon: ':heavy_check_mark:'
+    path: geometry/reflection.cpp
+    title: geometry/reflection.cpp
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -23,10 +26,10 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     ERROR: '0.00000001'
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A
-  bundledCode: "#line 1 \"test/verify/aoj-cgl-1-a.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\"\
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B
+  bundledCode: "#line 1 \"test/verify/aoj-cgl-1-b.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B\"\
     \n#define ERROR 0.00000001\n\n#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\
     \nusing namespace std;\n\nusing int64 = long long;\nconst int mod = 1e9 + 7;\n\
     \nconst int64 infll = (1LL << 62) - 1;\nconst int inf = (1 << 30) - 1;\n\nstruct\
@@ -54,7 +57,7 @@ data:
     \ template< typename... Args >\n  decltype(auto) operator()(Args &&... args) const\
     \ {\n    return F::operator()(*this, forward< Args >(args)...);\n  }\n};\n \n\
     template< typename F >\ninline decltype(auto) MFP(F &&f) {\n  return FixPoint<\
-    \ F >{forward< F >(f)};\n}\n#line 5 \"test/verify/aoj-cgl-1-a.test.cpp\"\n\n#line\
+    \ F >{forward< F >(f)};\n}\n#line 5 \"test/verify/aoj-cgl-1-b.test.cpp\"\n\n#line\
     \ 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real = double;\n  const\
     \ Real EPS = 1e-8;\n  const Real PI = acos(static_cast< Real >(-1));\n\n  inline\
     \ int sign(const Real &r) {\n    return r <= -EPS ? -1 : r >= EPS ? 1 : 0;\n \
@@ -84,30 +87,34 @@ data:
     \n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
     \  Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
     \ l.a - l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n#line\
-    \ 7 \"test/verify/aoj-cgl-1-a.test.cpp\"\n\nusing namespace geometry;\n\nint main()\
-    \ {\n  Line l;\n  cin >> l;\n  int Q;\n  cin >> Q;\n  while(Q--) {\n    Point\
-    \ p;\n    cin >> p;\n    cout << projection(l, p) << \"\\n\";\n  }\n}\n"
-  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\"\
+    \ 4 \"geometry/reflection.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B\n\
+    \  Point reflection(const Line &l, const Point &p) {\n    return p + (projection(l,\
+    \ p) - p) * 2;\n  }\n}\n#line 7 \"test/verify/aoj-cgl-1-b.test.cpp\"\n\nusing\
+    \ namespace geometry;\n\nint main() {\n  Line l;\n  cin >> l;\n  int Q;\n  cin\
+    \ >> Q;\n  while(Q--) {\n    Point p;\n    cin >> p;\n    cout << reflection(l,\
+    \ p) << \"\\n\";\n  }\n}\n"
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B\"\
     \n#define ERROR 0.00000001\n\n#include \"../../template/template.cpp\"\n\n#include\
-    \ \"../../geometry/projection.cpp\"\n\nusing namespace geometry;\n\nint main()\
+    \ \"../../geometry/reflection.cpp\"\n\nusing namespace geometry;\n\nint main()\
     \ {\n  Line l;\n  cin >> l;\n  int Q;\n  cin >> Q;\n  while(Q--) {\n    Point\
-    \ p;\n    cin >> p;\n    cout << projection(l, p) << \"\\n\";\n  }\n}\n"
+    \ p;\n    cin >> p;\n    cout << reflection(l, p) << \"\\n\";\n  }\n}\n"
   dependsOn:
   - template/template.cpp
-  - geometry/projection.cpp
+  - geometry/reflection.cpp
   - geometry/point.cpp
   - geometry/base.cpp
   - geometry/line.cpp
+  - geometry/projection.cpp
   isVerificationFile: true
-  path: test/verify/aoj-cgl-1-a.test.cpp
+  path: test/verify/aoj-cgl-1-b.test.cpp
   requiredBy: []
   timestamp: '2020-11-24 18:33:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/verify/aoj-cgl-1-a.test.cpp
+documentation_of: test/verify/aoj-cgl-1-b.test.cpp
 layout: document
 redirect_from:
-- /verify/test/verify/aoj-cgl-1-a.test.cpp
-- /verify/test/verify/aoj-cgl-1-a.test.cpp.html
-title: test/verify/aoj-cgl-1-a.test.cpp
+- /verify/test/verify/aoj-cgl-1-b.test.cpp
+- /verify/test/verify/aoj-cgl-1-b.test.cpp.html
+title: test/verify/aoj-cgl-1-b.test.cpp
 ---

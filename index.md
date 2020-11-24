@@ -56,7 +56,7 @@ data:
     - icon: ':warning:'
       path: geometry/angle.cpp
       title: geometry/angle.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: geometry/base.cpp
       title: geometry/base.cpp
     - icon: ':heavy_check_mark:'
@@ -71,16 +71,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: geometry/is_parallel.cpp
       title: geometry/is_parallel.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: geometry/line.cpp
       title: geometry/line.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: geometry/point.cpp
       title: geometry/point.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: geometry/projection.cpp
       title: geometry/projection.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: geometry/reflection.cpp
       title: geometry/reflection.cpp
     - icon: ':warning:'
@@ -771,7 +771,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -995,9 +995,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-alds-1-9-c.test.cpp
       title: test/verify/aoj-alds-1-9-c.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-cgl-1-a.test.cpp
       title: test/verify/aoj-cgl-1-a.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-cgl-1-b.test.cpp
+      title: test/verify/aoj-cgl-1-b.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-cgl-1-c.test.cpp
       title: test/verify/aoj-cgl-1-c.test.cpp
