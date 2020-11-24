@@ -114,6 +114,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-alds-1-9-c.test.cpp
     title: test/verify/aoj-alds-1-9-c.test.cpp
+  - icon: ':x:'
+    path: test/verify/aoj-cgl-1-a.test.cpp
+    title: test/verify/aoj-cgl-1-a.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-1-c.test.cpp
+    title: test/verify/aoj-cgl-1-c.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-2-a.test.cpp
+    title: test/verify/aoj-cgl-2-a.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-1-b.test.cpp
     title: test/verify/aoj-dpl-1-b.test.cpp
@@ -508,7 +517,7 @@ data:
     path: test/verify/yukicoder-952.test.cpp
     title: test/verify/yukicoder-952.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing\
@@ -571,7 +580,7 @@ data:
   path: template/template.cpp
   requiredBy: []
   timestamp: '2019-08-13 21:45:04+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-grl-5-a.test.cpp
   - test/verify/aoj-1549.test.cpp
@@ -654,6 +663,7 @@ data:
   - test/verify/aoj-grl-2-a-2.test.cpp
   - test/verify/aoj-grl-3-c.test.cpp
   - test/verify/yukicoder-430.test.cpp
+  - test/verify/aoj-cgl-2-a.test.cpp
   - test/verify/aoj-grl-1-c.test.cpp
   - test/verify/aoj-1254.test.cpp
   - test/verify/aoj-alds-1-14-d.test.cpp
@@ -666,6 +676,7 @@ data:
   - test/verify/aoj-2450-3.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
   - test/verify/aoj-grl-6-b.test.cpp
+  - test/verify/aoj-cgl-1-c.test.cpp
   - test/verify/yosupo-static-range-inversions-query.test.cpp
   - test/verify/aoj-grl-1-b-2.test.cpp
   - test/verify/yukicoder-583.test.cpp
@@ -687,6 +698,7 @@ data:
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
   - test/verify/yosupo-montmort-number-mod.test.cpp
   - test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
+  - test/verify/aoj-cgl-1-a.test.cpp
   - test/verify/aoj-grl-1-a-2.test.cpp
   - test/verify/aoj-alds-1-1-c.test.cpp
   - test/verify/yosupo-range-affine-range-sum-3.test.cpp

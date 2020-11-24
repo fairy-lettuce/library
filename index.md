@@ -53,6 +53,39 @@ data:
         \u30A4\u30F3\u5909\u63DB)"
   - name: geometry
     pages:
+    - icon: ':warning:'
+      path: geometry/angle.cpp
+      title: geometry/angle.cpp
+    - icon: ':question:'
+      path: geometry/base.cpp
+      title: geometry/base.cpp
+    - icon: ':heavy_check_mark:'
+      path: geometry/ccw.cpp
+      title: geometry/ccw.cpp
+    - icon: ':warning:'
+      path: geometry/circle.cpp
+      title: geometry/circle.cpp
+    - icon: ':heavy_check_mark:'
+      path: geometry/is_orthogonal.cpp
+      title: geometry/is_orthogonal.cpp
+    - icon: ':heavy_check_mark:'
+      path: geometry/is_parallel.cpp
+      title: geometry/is_parallel.cpp
+    - icon: ':question:'
+      path: geometry/line.cpp
+      title: geometry/line.cpp
+    - icon: ':question:'
+      path: geometry/point.cpp
+      title: geometry/point.cpp
+    - icon: ':x:'
+      path: geometry/projection.cpp
+      title: geometry/projection.cpp
+    - icon: ':warning:'
+      path: geometry/reflection.cpp
+      title: geometry/reflection.cpp
+    - icon: ':warning:'
+      path: geometry/segment.cpp
+      title: geometry/segment.cpp
     - icon: ':heavy_check_mark:'
       path: geometry/template.cpp
       title: geometry/template.cpp
@@ -738,7 +771,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -962,6 +995,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-alds-1-9-c.test.cpp
       title: test/verify/aoj-alds-1-9-c.test.cpp
+    - icon: ':x:'
+      path: test/verify/aoj-cgl-1-a.test.cpp
+      title: test/verify/aoj-cgl-1-a.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-cgl-1-c.test.cpp
+      title: test/verify/aoj-cgl-1-c.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-cgl-2-a.test.cpp
+      title: test/verify/aoj-cgl-2-a.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-1-b.test.cpp
       title: test/verify/aoj-dpl-1-b.test.cpp
