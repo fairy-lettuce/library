@@ -336,7 +336,7 @@ data:
       title: "Binomial-Table(\u4E8C\u9805\u4FC2\u6570\u30C6\u30FC\u30D6\u30EB)"
     - icon: ':warning:'
       path: math/combinatorics/binomial.cpp
-      title: math/combinatorics/binomial.cpp
+      title: "Binomial(\u4E8C\u9805\u4FC2\u6570)"
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/combination.cpp
       title: math/combinatorics/combination.cpp
@@ -369,7 +369,8 @@ data:
       title: "Partition-Table(\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB)"
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/stirling-number-second.cpp
-      title: math/combinatorics/stirling-number-second.cpp
+      title: "Stirling-Number-Second(\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
+        \u6570)"
   - name: math/fft
     pages:
     - icon: ':warning:'

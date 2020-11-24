@@ -9,7 +9,8 @@ data:
     title: math/combinatorics/mod-int.cpp
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/stirling-number-second.cpp
-    title: math/combinatorics/stirling-number-second.cpp
+    title: "Stirling-Number-Second(\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
+      \u6570)"
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -85,13 +86,15 @@ data:
     \ q) const {\n    if(q < 0 || p < q) return 0;\n    return fact(p) * rfact(q)\
     \ * rfact(p - q);\n  }\n\n  T H(int n, int r) const {\n    if(n < 0 || r < 0)\
     \ return (0);\n    return r == 0 ? 1 : C(n + r - 1, r);\n  }\n};\n#line 7 \"test/verify/aoj-dpl-5-i.test.cpp\"\
-    \n\n#line 1 \"math/combinatorics/stirling-number-second.cpp\"\ntemplate< typename\
-    \ T >\nT stirling_number_second(int n, int k) {\n  Combination< T > table(k);\n\
-    \  T ret = 0;\n  for(int i = 0; i <= k; i++) {\n    auto add = T(i).pow(n) * table.C(k,\
-    \ i);\n    if((k - i) & 1) ret -= add;\n    else ret += add;\n  }\n  return ret\
-    \ * table.rfact(k);\n}\n\n#line 9 \"test/verify/aoj-dpl-5-i.test.cpp\"\n\nint\
-    \ main() {\n  int N, K;\n  cin >> N >> K;\n  cout << stirling_number_second< modint\
-    \ >(N, K) << endl;\n}\n\n"
+    \n\n#line 1 \"math/combinatorics/stirling-number-second.cpp\"\n/**\n * @brief\
+    \ Stirling-Number-Second(\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\
+    )\n * @docs docs/stirling-number-second.md\n */\ntemplate< typename T >\nT stirling_number_second(int\
+    \ n, int k) {\n  Combination< T > table(k);\n  T ret = 0;\n  for(int i = 0; i\
+    \ <= k; i++) {\n    auto add = T(i).pow(n) * table.C(k, i);\n    if((k - i) &\
+    \ 1) ret -= add;\n    else ret += add;\n  }\n  return ret * table.rfact(k);\n\
+    }\n\n#line 9 \"test/verify/aoj-dpl-5-i.test.cpp\"\n\nint main() {\n  int N, K;\n\
+    \  cin >> N >> K;\n  cout << stirling_number_second< modint >(N, K) << endl;\n\
+    }\n\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../math/combinatorics/mod-int.cpp\"\
     \n#include \"../../math/combinatorics/combination.cpp\"\n\n#include \"../../math/combinatorics/stirling-number-second.cpp\"\
@@ -105,7 +108,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-dpl-5-i.test.cpp
   requiredBy: []
-  timestamp: '2019-11-30 23:36:31+09:00'
+  timestamp: '2020-11-25 02:37:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dpl-5-i.test.cpp
