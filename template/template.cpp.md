@@ -127,8 +127,14 @@ data:
     path: test/verify/aoj-cgl-2-a.test.cpp
     title: test/verify/aoj-cgl-2-a.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-3-a.test.cpp
+    title: test/verify/aoj-cgl-3-a.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-3-b.test.cpp
     title: test/verify/aoj-cgl-3-b.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-4-a.test.cpp
+    title: test/verify/aoj-cgl-4-a.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-1-b.test.cpp
     title: test/verify/aoj-dpl-1-b.test.cpp
@@ -691,6 +697,7 @@ data:
   - test/verify/aoj-grl-3-b.test.cpp
   - test/verify/aoj-3022.test.cpp
   - test/verify/yosupo-multipoint-evaluation.test.cpp
+  - test/verify/aoj-cgl-4-a.test.cpp
   - test/verify/yosupo-static-range-sum.test.cpp
   - test/verify/yosupo-point-set-range-composite-2.test.cpp
   - test/verify/yosupo-polynomial-interpolation.test.cpp
@@ -728,6 +735,7 @@ data:
   - test/verify/yosupo-lca.test.cpp
   - test/verify/yosupo-cartesian-tree.test.cpp
   - test/verify/aoj-dpl-1-i.test.cpp
+  - test/verify/aoj-cgl-3-a.test.cpp
   - test/verify/aoj-grl-1-a.test.cpp
   - test/verify/aoj-ntl-1-e.test.cpp
   - test/verify/yosupo-range-affine-range-sum.test.cpp

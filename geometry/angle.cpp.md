@@ -28,15 +28,18 @@ data:
     \ sin(theta) * real(p) + cos(theta) * imag(p));\n  }\n\n  Real cross(const Point\
     \ &a, const Point &b) {\n    return real(a) * imag(b) - imag(a) * real(b);\n \
     \ }\n\n  Real dot(const Point &a, const Point &b) {\n    return real(a) * real(b)\
-    \ + imag(a) * imag(b);\n  }\n\n  using Points = vector< Point >;\n}\n#line 2 \"\
-    geometry/angle.cpp\"\n\nnamespace geometry {\n  Real radian_to_degree(const Real\
-    \ &theta) {\n    return theta * 180.0 / PI;\n  }\n\n  Real degree_to_radian(const\
-    \ Real &deg) {\n    return deg * PI / 180.0;\n  }\n\n  // smaller angle of the\
-    \ a-b-c\n  Real get_smaller_angle(const Point &a, const Point &b, const Point\
-    \ &c) {\n    const Point v(b - a), w(c - b);\n    auto alpha = atan2(imag(v),\
-    \ real(v));\n    auto beta = atan2(imag(w), real(w));\n    if(alpha > beta) swap(alpha,\
-    \ beta);\n    Real theta = (beta - alpha);\n    return min(theta, 2 * PI - theta);\n\
-    \  }\n}\n"
+    \ + imag(a) * imag(b);\n  }\n\n  bool compare_x(const Point &a, const Point &b)\
+    \ {\n    return equals(real(a), real(b)) ? imag(a) < imag(b) : real(a) < real(b);\n\
+    \  }\n\n  bool compare_y(const Point &a, const Point &b) {\n    return equals(imag(a),\
+    \ imag(b)) ? real(a) < real(b) : imag(a) < imag(b);\n  }\n\n  using Points = vector<\
+    \ Point >;\n}\n#line 2 \"geometry/angle.cpp\"\n\nnamespace geometry {\n  Real\
+    \ radian_to_degree(const Real &theta) {\n    return theta * 180.0 / PI;\n  }\n\
+    \n  Real degree_to_radian(const Real &deg) {\n    return deg * PI / 180.0;\n \
+    \ }\n\n  // smaller angle of the a-b-c\n  Real get_smaller_angle(const Point &a,\
+    \ const Point &b, const Point &c) {\n    const Point v(b - a), w(c - b);\n   \
+    \ auto alpha = atan2(imag(v), real(v));\n    auto beta = atan2(imag(w), real(w));\n\
+    \    if(alpha > beta) swap(alpha, beta);\n    Real theta = (beta - alpha);\n \
+    \   return min(theta, 2 * PI - theta);\n  }\n}\n"
   code: "#include \"point.cpp\"\n\nnamespace geometry {\n  Real radian_to_degree(const\
     \ Real &theta) {\n    return theta * 180.0 / PI;\n  }\n\n  Real degree_to_radian(const\
     \ Real &deg) {\n    return deg * PI / 180.0;\n  }\n\n  // smaller angle of the\
@@ -51,7 +54,7 @@ data:
   isVerificationFile: false
   path: geometry/angle.cpp
   requiredBy: []
-  timestamp: '2020-11-24 18:23:37+09:00'
+  timestamp: '2020-11-25 02:17:17+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: geometry/angle.cpp

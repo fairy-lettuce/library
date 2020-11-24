@@ -9,12 +9,24 @@ data:
     title: geometry/point.cpp
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: geometry/area.cpp
+    title: geometry/area.cpp
+  - icon: ':heavy_check_mark:'
+    path: geometry/convex_hull.cpp
+    title: geometry/convex_hull.cpp
+  - icon: ':heavy_check_mark:'
     path: geometry/is_convex_polygon.cpp
     title: geometry/is_convex_polygon.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-3-a.test.cpp
+    title: test/verify/aoj-cgl-3-a.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-3-b.test.cpp
     title: test/verify/aoj-cgl-3-b.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-4-a.test.cpp
+    title: test/verify/aoj-cgl-4-a.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -34,9 +46,13 @@ data:
     \ - sin(theta) * imag(p), sin(theta) * real(p) + cos(theta) * imag(p));\n  }\n\
     \n  Real cross(const Point &a, const Point &b) {\n    return real(a) * imag(b)\
     \ - imag(a) * real(b);\n  }\n\n  Real dot(const Point &a, const Point &b) {\n\
-    \    return real(a) * real(b) + imag(a) * imag(b);\n  }\n\n  using Points = vector<\
-    \ Point >;\n}\n#line 4 \"geometry/polygon.cpp\"\n\nnamespace geometry {\n  using\
-    \ Polygon = vector< Point >;\n  using Polygons = vector< Polygon >;\n}\n"
+    \    return real(a) * real(b) + imag(a) * imag(b);\n  }\n\n  bool compare_x(const\
+    \ Point &a, const Point &b) {\n    return equals(real(a), real(b)) ? imag(a) <\
+    \ imag(b) : real(a) < real(b);\n  }\n\n  bool compare_y(const Point &a, const\
+    \ Point &b) {\n    return equals(imag(a), imag(b)) ? real(a) < real(b) : imag(a)\
+    \ < imag(b);\n  }\n\n  using Points = vector< Point >;\n}\n#line 4 \"geometry/polygon.cpp\"\
+    \n\nnamespace geometry {\n  using Polygon = vector< Point >;\n  using Polygons\
+    \ = vector< Polygon >;\n}\n"
   code: "#pragma once\n\n#include \"point.cpp\"\n\nnamespace geometry {\n  using Polygon\
     \ = vector< Point >;\n  using Polygons = vector< Polygon >;\n}\n"
   dependsOn:
@@ -46,10 +62,14 @@ data:
   path: geometry/polygon.cpp
   requiredBy:
   - geometry/is_convex_polygon.cpp
-  timestamp: '2020-11-24 22:27:51+09:00'
+  - geometry/convex_hull.cpp
+  - geometry/area.cpp
+  timestamp: '2020-11-25 02:17:17+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/verify/aoj-cgl-4-a.test.cpp
   - test/verify/aoj-cgl-3-b.test.cpp
+  - test/verify/aoj-cgl-3-a.test.cpp
 documentation_of: geometry/polygon.cpp
 layout: document
 redirect_from:

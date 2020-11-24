@@ -65,8 +65,11 @@ data:
     \ * real(p) + cos(theta) * imag(p));\n  }\n\n  Real cross(const Point &a, const\
     \ Point &b) {\n    return real(a) * imag(b) - imag(a) * real(b);\n  }\n\n  Real\
     \ dot(const Point &a, const Point &b) {\n    return real(a) * real(b) + imag(a)\
-    \ * imag(b);\n  }\n\n  using Points = vector< Point >;\n}\n#line 2 \"geometry/ccw.cpp\"\
-    \n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\n\
+    \ * imag(b);\n  }\n\n  bool compare_x(const Point &a, const Point &b) {\n    return\
+    \ equals(real(a), real(b)) ? imag(a) < imag(b) : real(a) < real(b);\n  }\n\n \
+    \ bool compare_y(const Point &a, const Point &b) {\n    return equals(imag(a),\
+    \ imag(b)) ? real(a) < real(b) : imag(a) < imag(b);\n  }\n\n  using Points = vector<\
+    \ Point >;\n}\n#line 2 \"geometry/ccw.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\n\
     \  constexpr int COUNTER_CLOCKWISE = +1;\n  constexpr int CLOCKWISE = -1;\n  constexpr\
     \ int ONLINE_BACK = +2; // c-a-b\n  constexpr int ONLINE_FRONT = -2; // a-b-c\n\
     \  constexpr int ON_SEGMENT = 0; // a-c-b\n  int ccw(const Point &a, Point b,\
@@ -96,7 +99,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-cgl-1-c.test.cpp
   requiredBy: []
-  timestamp: '2020-11-24 22:27:51+09:00'
+  timestamp: '2020-11-25 02:17:17+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-cgl-1-c.test.cpp

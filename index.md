@@ -57,6 +57,9 @@ data:
       path: geometry/angle.cpp
       title: geometry/angle.cpp
     - icon: ':heavy_check_mark:'
+      path: geometry/area.cpp
+      title: geometry/area.cpp
+    - icon: ':heavy_check_mark:'
       path: geometry/base.cpp
       title: geometry/base.cpp
     - icon: ':heavy_check_mark:'
@@ -65,6 +68,9 @@ data:
     - icon: ':warning:'
       path: geometry/circle.cpp
       title: geometry/circle.cpp
+    - icon: ':heavy_check_mark:'
+      path: geometry/convex_hull.cpp
+      title: geometry/convex_hull.cpp
     - icon: ':heavy_check_mark:'
       path: geometry/is_convex_polygon.cpp
       title: geometry/is_convex_polygon.cpp
@@ -1029,8 +1035,14 @@ data:
       path: test/verify/aoj-cgl-2-a.test.cpp
       title: test/verify/aoj-cgl-2-a.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-cgl-3-a.test.cpp
+      title: test/verify/aoj-cgl-3-a.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-cgl-3-b.test.cpp
       title: test/verify/aoj-cgl-3-b.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-cgl-4-a.test.cpp
+      title: test/verify/aoj-cgl-4-a.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-1-b.test.cpp
       title: test/verify/aoj-dpl-1-b.test.cpp

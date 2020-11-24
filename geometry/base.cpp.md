@@ -6,11 +6,17 @@ data:
     path: geometry/angle.cpp
     title: geometry/angle.cpp
   - icon: ':heavy_check_mark:'
+    path: geometry/area.cpp
+    title: geometry/area.cpp
+  - icon: ':heavy_check_mark:'
     path: geometry/ccw.cpp
     title: geometry/ccw.cpp
   - icon: ':warning:'
     path: geometry/circle.cpp
     title: geometry/circle.cpp
+  - icon: ':heavy_check_mark:'
+    path: geometry/convex_hull.cpp
+    title: geometry/convex_hull.cpp
   - icon: ':heavy_check_mark:'
     path: geometry/is_convex_polygon.cpp
     title: geometry/is_convex_polygon.cpp
@@ -67,8 +73,14 @@ data:
     path: test/verify/aoj-cgl-2-a.test.cpp
     title: test/verify/aoj-cgl-2-a.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-3-a.test.cpp
+    title: test/verify/aoj-cgl-3-a.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-3-b.test.cpp
     title: test/verify/aoj-cgl-3-b.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-4-a.test.cpp
+    title: test/verify/aoj-cgl-4-a.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -91,9 +103,11 @@ data:
   - geometry/is_intersect_sp.cpp
   - geometry/line.cpp
   - geometry/is_convex_polygon.cpp
+  - geometry/convex_hull.cpp
   - geometry/circle.cpp
   - geometry/is_orthogonal.cpp
   - geometry/is_intersect_lm.cpp
+  - geometry/area.cpp
   - geometry/angle.cpp
   - geometry/is_intersect_lp.cpp
   - geometry/projection.cpp
@@ -109,8 +123,10 @@ data:
   verifiedWith:
   - test/verify/aoj-cgl-2-a.test.cpp
   - test/verify/aoj-cgl-1-c.test.cpp
+  - test/verify/aoj-cgl-4-a.test.cpp
   - test/verify/aoj-cgl-1-a.test.cpp
   - test/verify/aoj-cgl-3-b.test.cpp
+  - test/verify/aoj-cgl-3-a.test.cpp
   - test/verify/aoj-cgl-1-b.test.cpp
 documentation_of: geometry/base.cpp
 layout: document

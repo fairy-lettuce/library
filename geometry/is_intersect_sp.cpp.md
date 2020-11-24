@@ -37,21 +37,24 @@ data:
     \ sin(theta) * real(p) + cos(theta) * imag(p));\n  }\n\n  Real cross(const Point\
     \ &a, const Point &b) {\n    return real(a) * imag(b) - imag(a) * real(b);\n \
     \ }\n\n  Real dot(const Point &a, const Point &b) {\n    return real(a) * real(b)\
-    \ + imag(a) * imag(b);\n  }\n\n  using Points = vector< Point >;\n}\n#line 3 \"\
-    geometry/line.cpp\"\n\nnamespace geometry {\n  struct Line {\n    Point a, b;\n\
-    \n    Line() = default;\n\n    Line(const Point &a, const Point &b) : a(a), b(b)\
-    \ {}\n\n    Line(const Real &A, const Real &B, const Real &C) { // Ax+By=C\n \
-    \     if(equals(A, 0)) {\n        assert(!equals(B, 0));\n        a = Point(0,\
-    \ C / B);\n        b = Point(1, C / B);\n      } else if(equals(B, 0)) {\n   \
-    \     a = Point(C / A, 0);\n        b = Point(C / A, 1);\n      } else {\n   \
-    \     a = Point(0, C / B);\n        b = Point(C / A, 0);\n      }\n    }\n\n \
-    \   friend ostream &operator<<(ostream &os, Line &l) {\n      return os << l.a\
-    \ << \" to \" << l.b;\n    }\n\n    friend istream &operator>>(istream &is, Line\
-    \ &l) {\n      return is >> l.a >> l.b;\n    }\n  };\n\n  using Lines = vector<\
-    \ Line >;\n}\n#line 3 \"geometry/segment.cpp\"\n\nnamespace geometry {\n  struct\
-    \ Segment : Line {\n    Segment() = default;\n\n    using Line::Line;\n  };\n\n\
-    \  using Segments = vector< Segment >;\n}\n#line 2 \"geometry/ccw.cpp\"\n\nnamespace\
-    \ geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\n\
+    \ + imag(a) * imag(b);\n  }\n\n  bool compare_x(const Point &a, const Point &b)\
+    \ {\n    return equals(real(a), real(b)) ? imag(a) < imag(b) : real(a) < real(b);\n\
+    \  }\n\n  bool compare_y(const Point &a, const Point &b) {\n    return equals(imag(a),\
+    \ imag(b)) ? real(a) < real(b) : imag(a) < imag(b);\n  }\n\n  using Points = vector<\
+    \ Point >;\n}\n#line 3 \"geometry/line.cpp\"\n\nnamespace geometry {\n  struct\
+    \ Line {\n    Point a, b;\n\n    Line() = default;\n\n    Line(const Point &a,\
+    \ const Point &b) : a(a), b(b) {}\n\n    Line(const Real &A, const Real &B, const\
+    \ Real &C) { // Ax+By=C\n      if(equals(A, 0)) {\n        assert(!equals(B, 0));\n\
+    \        a = Point(0, C / B);\n        b = Point(1, C / B);\n      } else if(equals(B,\
+    \ 0)) {\n        a = Point(C / A, 0);\n        b = Point(C / A, 1);\n      } else\
+    \ {\n        a = Point(0, C / B);\n        b = Point(C / A, 0);\n      }\n   \
+    \ }\n\n    friend ostream &operator<<(ostream &os, Line &l) {\n      return os\
+    \ << l.a << \" to \" << l.b;\n    }\n\n    friend istream &operator>>(istream\
+    \ &is, Line &l) {\n      return is >> l.a >> l.b;\n    }\n  };\n\n  using Lines\
+    \ = vector< Line >;\n}\n#line 3 \"geometry/segment.cpp\"\n\nnamespace geometry\
+    \ {\n  struct Segment : Line {\n    Segment() = default;\n\n    using Line::Line;\n\
+    \  };\n\n  using Segments = vector< Segment >;\n}\n#line 2 \"geometry/ccw.cpp\"\
+    \n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\n\
     \  constexpr int COUNTER_CLOCKWISE = +1;\n  constexpr int CLOCKWISE = -1;\n  constexpr\
     \ int ONLINE_BACK = +2; // c-a-b\n  constexpr int ONLINE_FRONT = -2; // a-b-c\n\
     \  constexpr int ON_SEGMENT = 0; // a-c-b\n  int ccw(const Point &a, Point b,\
@@ -73,7 +76,7 @@ data:
   isVerificationFile: false
   path: geometry/is_intersect_sp.cpp
   requiredBy: []
-  timestamp: '2020-11-24 22:27:51+09:00'
+  timestamp: '2020-11-25 02:17:17+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: geometry/is_intersect_sp.cpp

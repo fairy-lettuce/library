@@ -7,12 +7,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
+  - icon: ':heavy_check_mark:'
+    path: geometry/polygon.cpp
+    title: geometry/polygon.cpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-3-a.test.cpp
+    title: test/verify/aoj-cgl-3-a.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
+    links:
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A
   bundledCode: "#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real\
     \ = double;\n  const Real EPS = 1e-8;\n  const Real PI = acos(static_cast< Real\
     \ >(-1));\n\n  inline int sign(const Real &r) {\n    return r <= -EPS ? -1 : r\
@@ -32,27 +39,33 @@ data:
     \ {\n    return equals(real(a), real(b)) ? imag(a) < imag(b) : real(a) < real(b);\n\
     \  }\n\n  bool compare_y(const Point &a, const Point &b) {\n    return equals(imag(a),\
     \ imag(b)) ? real(a) < real(b) : imag(a) < imag(b);\n  }\n\n  using Points = vector<\
-    \ Point >;\n}\n#line 3 \"geometry/circle.cpp\"\n\nnamespace geometry {\n  struct\
-    \ Circle {\n    Point p;\n    Real r{};\n\n    Circle() = default;\n\n    Circle(const\
-    \ Point &p, const Real &r) : p(p), r(r) {}\n  };\n\n  using Circles = vector<\
-    \ Segment >;\n}\n"
-  code: "#pragma once\n#include \"point.cpp\"\n\nnamespace geometry {\n  struct Circle\
-    \ {\n    Point p;\n    Real r{};\n\n    Circle() = default;\n\n    Circle(const\
-    \ Point &p, const Real &r) : p(p), r(r) {}\n  };\n\n  using Circles = vector<\
-    \ Segment >;\n}\n"
+    \ Point >;\n}\n#line 2 \"geometry/polygon.cpp\"\n\n#line 4 \"geometry/polygon.cpp\"\
+    \n\nnamespace geometry {\n  using Polygon = vector< Point >;\n  using Polygons\
+    \ = vector< Polygon >;\n}\n#line 3 \"geometry/area.cpp\"\n\nnamespace geometry\
+    \ {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A\n \
+    \ Real area(const Polygon &p) {\n    int n = (int) p.size();\n    Real A = 0;\n\
+    \    for(int i = 0; i < n; ++i) {\n      A += cross(p[i], p[(i + 1) % n]);\n \
+    \   }\n    return A * 0.5;\n  }\n}\n"
+  code: "#include \"point.cpp\"\n#include \"polygon.cpp\"\n\nnamespace geometry {\n\
+    \  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A\n  Real\
+    \ area(const Polygon &p) {\n    int n = (int) p.size();\n    Real A = 0;\n   \
+    \ for(int i = 0; i < n; ++i) {\n      A += cross(p[i], p[(i + 1) % n]);\n    }\n\
+    \    return A * 0.5;\n  }\n}\n"
   dependsOn:
   - geometry/point.cpp
   - geometry/base.cpp
+  - geometry/polygon.cpp
   isVerificationFile: false
-  path: geometry/circle.cpp
+  path: geometry/area.cpp
   requiredBy: []
   timestamp: '2020-11-25 02:17:17+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
-documentation_of: geometry/circle.cpp
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/verify/aoj-cgl-3-a.test.cpp
+documentation_of: geometry/area.cpp
 layout: document
 redirect_from:
-- /library/geometry/circle.cpp
-- /library/geometry/circle.cpp.html
-title: geometry/circle.cpp
+- /library/geometry/area.cpp
+- /library/geometry/area.cpp.html
+title: geometry/area.cpp
 ---

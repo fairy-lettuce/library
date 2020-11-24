@@ -5,11 +5,8 @@ data:
     path: geometry/base.cpp
     title: geometry/base.cpp
   - icon: ':heavy_check_mark:'
-    path: geometry/ccw.cpp
-    title: geometry/ccw.cpp
-  - icon: ':heavy_check_mark:'
-    path: geometry/is_convex_polygon.cpp
-    title: geometry/is_convex_polygon.cpp
+    path: geometry/convex_hull.cpp
+    title: geometry/convex_hull.cpp
   - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
@@ -25,10 +22,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_B
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_A
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_B
-  bundledCode: "#line 1 \"test/verify/aoj-cgl-3-b.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_B\"\
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_A
+  bundledCode: "#line 1 \"test/verify/aoj-cgl-4-a.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_A\"\
     \n\n#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing namespace\
     \ std;\n\nusing int64 = long long;\nconst int mod = 1e9 + 7;\n\nconst int64 infll\
     \ = (1LL << 62) - 1;\nconst int inf = (1 << 30) - 1;\n\nstruct IoSetup {\n  IoSetup()\
@@ -55,7 +52,7 @@ data:
     \  FixPoint(F &&f) : F(forward< F >(f)) {}\n \n  template< typename... Args >\n\
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
-    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-cgl-3-b.test.cpp\"\
+    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-cgl-4-a.test.cpp\"\
     \n\n#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real = double;\n\
     \  const Real EPS = 1e-8;\n  const Real PI = acos(static_cast< Real >(-1));\n\n\
     \  inline int sign(const Real &r) {\n    return r <= -EPS ? -1 : r >= EPS ? 1\
@@ -75,45 +72,47 @@ data:
     \ equals(real(a), real(b)) ? imag(a) < imag(b) : real(a) < real(b);\n  }\n\n \
     \ bool compare_y(const Point &a, const Point &b) {\n    return equals(imag(a),\
     \ imag(b)) ? real(a) < real(b) : imag(a) < imag(b);\n  }\n\n  using Points = vector<\
-    \ Point >;\n}\n#line 2 \"geometry/ccw.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\n\
-    \  constexpr int COUNTER_CLOCKWISE = +1;\n  constexpr int CLOCKWISE = -1;\n  constexpr\
-    \ int ONLINE_BACK = +2; // c-a-b\n  constexpr int ONLINE_FRONT = -2; // a-b-c\n\
-    \  constexpr int ON_SEGMENT = 0; // a-c-b\n  int ccw(const Point &a, Point b,\
-    \ Point c) {\n    b = b - a, c = c - a;\n    if(sign(cross(b, c)) == +1) return\
-    \ COUNTER_CLOCKWISE;\n    if(sign(cross(b, c)) == -1) return CLOCKWISE;\n    if(sign(dot(b,\
-    \ c)) == -1) return ONLINE_BACK;\n    if(norm(b) < norm(c)) return ONLINE_FRONT;\n\
-    \    return ON_SEGMENT;\n  }\n}\n#line 2 \"geometry/polygon.cpp\"\n\n#line 4 \"\
-    geometry/polygon.cpp\"\n\nnamespace geometry {\n  using Polygon = vector< Point\
-    \ >;\n  using Polygons = vector< Polygon >;\n}\n#line 4 \"geometry/is_convex_polygon.cpp\"\
-    \n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_B\n\
-    \  bool is_convex_polygon(const Polygon &p) {\n    int n = (int) p.size();\n \
-    \   for(int i = 0; i < n; i++) {\n      if(ccw(p[(i + n - 1) % n], p[i], p[(i\
-    \ + 1) % n]) == CLOCKWISE) return false;\n    }\n    return true;\n  }\n}\n#line\
-    \ 6 \"test/verify/aoj-cgl-3-b.test.cpp\"\n\nusing namespace geometry;\n\nint main()\
-    \ {\n  int N;\n  cin >> N;\n  Polygon p(N);\n  for(auto &s : p) cin >> s;\n  cout\
-    \ << is_convex_polygon(p) << endl;\n}\n"
-  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_B\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../geometry/is_convex_polygon.cpp\"\
+    \ Point >;\n}\n#line 2 \"geometry/polygon.cpp\"\n\n#line 4 \"geometry/polygon.cpp\"\
+    \n\nnamespace geometry {\n  using Polygon = vector< Point >;\n  using Polygons\
+    \ = vector< Polygon >;\n}\n#line 4 \"geometry/convex_hull.cpp\"\n\nnamespace geometry\
+    \ {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_A\n \
+    \ Polygon convex_hull(Polygon &p, bool strict = true) {\n    int n = (int) p.size(),\
+    \ k = 0;\n    if(n <= 2) return p;\n    sort(begin(p), end(p), compare_x);\n \
+    \   vector< Point > ch(2 * n);\n    auto check = [&](int i) {\n      return sign(cross(ch[k\
+    \ - 1] - ch[k - 2], p[i] - ch[k - 1])) <= -1 + strict;\n    };\n    for(int i\
+    \ = 0; i < n; ch[k++] = p[i++]) {\n      while(k >= 2 && check(i)) --k;\n    }\n\
+    \    for(int i = n - 2, t = k + 1; i >= 0; ch[k++] = p[i--]) {\n      while(k\
+    \ >= t && check(i)) --k;\n    }\n    ch.resize(k - 1);\n    return ch;\n  }\n\
+    }\n#line 6 \"test/verify/aoj-cgl-4-a.test.cpp\"\n\nusing namespace geometry;\n\
+    \nint main() {\n  int N;\n  cin >> N;\n  Polygon p(N);\n  for(auto &s : p) cin\
+    \ >> s;\n  p = convex_hull(p, false);\n  N = (int) p.size();\n  cout << N << \"\
+    \\n\";\n  int idx = 0;\n  for(int i = 1; i < N; i++) {\n    if(compare_y(p[i],\
+    \ p[idx])) {\n      idx = i;\n    }\n  }\n  for(int i = 0; i < N; i++) {\n   \
+    \ cout << fixed << setprecision(0) << p[(idx + i) % N] << \"\\n\";\n  }\n}\n"
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_A\"\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../geometry/convex_hull.cpp\"\
     \n\nusing namespace geometry;\n\nint main() {\n  int N;\n  cin >> N;\n  Polygon\
-    \ p(N);\n  for(auto &s : p) cin >> s;\n  cout << is_convex_polygon(p) << endl;\n\
-    }\n"
+    \ p(N);\n  for(auto &s : p) cin >> s;\n  p = convex_hull(p, false);\n  N = (int)\
+    \ p.size();\n  cout << N << \"\\n\";\n  int idx = 0;\n  for(int i = 1; i < N;\
+    \ i++) {\n    if(compare_y(p[i], p[idx])) {\n      idx = i;\n    }\n  }\n  for(int\
+    \ i = 0; i < N; i++) {\n    cout << fixed << setprecision(0) << p[(idx + i) %\
+    \ N] << \"\\n\";\n  }\n}\n"
   dependsOn:
   - template/template.cpp
-  - geometry/is_convex_polygon.cpp
-  - geometry/point.cpp
+  - geometry/convex_hull.cpp
   - geometry/base.cpp
-  - geometry/ccw.cpp
+  - geometry/point.cpp
   - geometry/polygon.cpp
   isVerificationFile: true
-  path: test/verify/aoj-cgl-3-b.test.cpp
+  path: test/verify/aoj-cgl-4-a.test.cpp
   requiredBy: []
   timestamp: '2020-11-25 02:17:17+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/verify/aoj-cgl-3-b.test.cpp
+documentation_of: test/verify/aoj-cgl-4-a.test.cpp
 layout: document
 redirect_from:
-- /verify/test/verify/aoj-cgl-3-b.test.cpp
-- /verify/test/verify/aoj-cgl-3-b.test.cpp.html
-title: test/verify/aoj-cgl-3-b.test.cpp
+- /verify/test/verify/aoj-cgl-4-a.test.cpp
+- /verify/test/verify/aoj-cgl-4-a.test.cpp.html
+title: test/verify/aoj-cgl-4-a.test.cpp
 ---
