@@ -12,6 +12,9 @@ data:
     path: geometry/area.cpp
     title: geometry/area.cpp
   - icon: ':heavy_check_mark:'
+    path: geometry/contains.cpp
+    title: geometry/contains.cpp
+  - icon: ':heavy_check_mark:'
     path: geometry/convex_hull.cpp
     title: geometry/convex_hull.cpp
   - icon: ':heavy_check_mark:'
@@ -24,6 +27,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-3-b.test.cpp
     title: test/verify/aoj-cgl-3-b.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-3-c.test.cpp
+    title: test/verify/aoj-cgl-3-c.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-4-a.test.cpp
     title: test/verify/aoj-cgl-4-a.test.cpp
@@ -64,10 +70,12 @@ data:
   - geometry/is_convex_polygon.cpp
   - geometry/convex_hull.cpp
   - geometry/area.cpp
+  - geometry/contains.cpp
   timestamp: '2020-11-25 02:17:17+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-cgl-4-a.test.cpp
+  - test/verify/aoj-cgl-3-c.test.cpp
   - test/verify/aoj-cgl-3-b.test.cpp
   - test/verify/aoj-cgl-3-a.test.cpp
 documentation_of: geometry/polygon.cpp

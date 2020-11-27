@@ -5,42 +5,35 @@ data:
     path: geometry/base.cpp
     title: geometry/base.cpp
   - icon: ':heavy_check_mark:'
+    path: geometry/ccw.cpp
+    title: geometry/ccw.cpp
+  - icon: ':heavy_check_mark:'
+    path: geometry/is_intersect_sp.cpp
+    title: geometry/is_intersect_sp.cpp
+  - icon: ':heavy_check_mark:'
     path: geometry/line.cpp
     title: geometry/line.cpp
   - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: geometry/distance_ll.cpp
-    title: geometry/distance_ll.cpp
-  - icon: ':warning:'
-    path: geometry/distance_lp.cpp
-    title: geometry/distance_lp.cpp
   - icon: ':heavy_check_mark:'
-    path: geometry/distance_sp.cpp
-    title: geometry/distance_sp.cpp
+    path: geometry/projection.cpp
+    title: geometry/projection.cpp
+  - icon: ':heavy_check_mark:'
+    path: geometry/segment.cpp
+    title: geometry/segment.cpp
+  _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: geometry/distance_ss.cpp
     title: geometry/distance_ss.cpp
-  - icon: ':heavy_check_mark:'
-    path: geometry/reflection.cpp
-    title: geometry/reflection.cpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-cgl-1-a.test.cpp
-    title: test/verify/aoj-cgl-1-a.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-cgl-1-b.test.cpp
-    title: test/verify/aoj-cgl-1-b.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-2-d.test.cpp
     title: test/verify/aoj-cgl-2-d.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A
+    links: []
   bundledCode: "#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real\
     \ = double;\n  const Real EPS = 1e-8;\n  const Real PI = acos(static_cast< Real\
     \ >(-1));\n\n  inline int sign(const Real &r) {\n    return r <= -EPS ? -1 : r\
@@ -70,36 +63,49 @@ data:
     \ }\n\n    friend ostream &operator<<(ostream &os, Line &l) {\n      return os\
     \ << l.a << \" to \" << l.b;\n    }\n\n    friend istream &operator>>(istream\
     \ &is, Line &l) {\n      return is >> l.a >> l.b;\n    }\n  };\n\n  using Lines\
-    \ = vector< Line >;\n}\n#line 3 \"geometry/projection.cpp\"\n\nnamespace geometry\
-    \ {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n \
-    \ Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
-    \ l.a - l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n"
-  code: "#include \"point.cpp\"\n#include \"line.cpp\"\n\nnamespace geometry {\n \
-    \ // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n  Point\
-    \ projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a, l.a -\
-    \ l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n"
+    \ = vector< Line >;\n}\n#line 3 \"geometry/segment.cpp\"\n\nnamespace geometry\
+    \ {\n  struct Segment : Line {\n    Segment() = default;\n\n    using Line::Line;\n\
+    \  };\n\n  using Segments = vector< Segment >;\n}\n#line 3 \"geometry/projection.cpp\"\
+    \n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
+    \  Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
+    \ l.a - l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n#line\
+    \ 3 \"geometry/ccw.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\n\
+    \  constexpr int COUNTER_CLOCKWISE = +1;\n  constexpr int CLOCKWISE = -1;\n  constexpr\
+    \ int ONLINE_BACK = +2; // c-a-b\n  constexpr int ONLINE_FRONT = -2; // a-b-c\n\
+    \  constexpr int ON_SEGMENT = 0; // a-c-b\n  int ccw(const Point &a, Point b,\
+    \ Point c) {\n    b = b - a, c = c - a;\n    if(sign(cross(b, c)) == +1) return\
+    \ COUNTER_CLOCKWISE;\n    if(sign(cross(b, c)) == -1) return CLOCKWISE;\n    if(sign(dot(b,\
+    \ c)) == -1) return ONLINE_BACK;\n    if(norm(b) < norm(c)) return ONLINE_FRONT;\n\
+    \    return ON_SEGMENT;\n  }\n}\n#line 4 \"geometry/is_intersect_sp.cpp\"\n\n\
+    namespace geometry {\n  bool is_intersect_sp(const Segment &s, const Point &p)\
+    \ {\n    return ccw(s.a, s.b, p) == ON_SEGMENT;\n  }\n}\n#line 5 \"geometry/distance_sp.cpp\"\
+    \n\nnamespace geometry {\n  Real distance_sp(const Segment &s, const Point &p)\
+    \ {\n    Point r = projection(s, p);\n    if(is_intersect_sp(s, r)) return abs(r\
+    \ - p);\n    return min(abs(s.a - p), abs(s.b - p));\n  }\n}\n"
+  code: "#include \"point.cpp\"\n#include \"segment.cpp\"\n#include \"projection.cpp\"\
+    \n#include \"is_intersect_sp.cpp\"\n\nnamespace geometry {\n  Real distance_sp(const\
+    \ Segment &s, const Point &p) {\n    Point r = projection(s, p);\n    if(is_intersect_sp(s,\
+    \ r)) return abs(r - p);\n    return min(abs(s.a - p), abs(s.b - p));\n  }\n}\n"
   dependsOn:
   - geometry/point.cpp
   - geometry/base.cpp
+  - geometry/segment.cpp
   - geometry/line.cpp
+  - geometry/projection.cpp
+  - geometry/is_intersect_sp.cpp
+  - geometry/ccw.cpp
   isVerificationFile: false
-  path: geometry/projection.cpp
+  path: geometry/distance_sp.cpp
   requiredBy:
-  - geometry/distance_ll.cpp
-  - geometry/reflection.cpp
   - geometry/distance_ss.cpp
-  - geometry/distance_sp.cpp
-  - geometry/distance_lp.cpp
-  timestamp: '2020-11-25 02:17:17+09:00'
+  timestamp: '2020-11-28 02:11:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-cgl-2-d.test.cpp
-  - test/verify/aoj-cgl-1-a.test.cpp
-  - test/verify/aoj-cgl-1-b.test.cpp
-documentation_of: geometry/projection.cpp
+documentation_of: geometry/distance_sp.cpp
 layout: document
 redirect_from:
-- /library/geometry/projection.cpp
-- /library/geometry/projection.cpp.html
-title: geometry/projection.cpp
+- /library/geometry/distance_sp.cpp
+- /library/geometry/distance_sp.cpp.html
+title: geometry/distance_sp.cpp
 ---

@@ -11,18 +11,30 @@ data:
     path: geometry/point.cpp
     title: geometry/point.cpp
   _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: geometry/distance_sp.cpp
+    title: geometry/distance_sp.cpp
+  - icon: ':heavy_check_mark:'
+    path: geometry/distance_ss.cpp
+    title: geometry/distance_ss.cpp
   - icon: ':warning:'
     path: geometry/is_intersect_ls.cpp
     title: geometry/is_intersect_ls.cpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: geometry/is_intersect_sp.cpp
     title: geometry/is_intersect_sp.cpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: geometry/is_intersect_ss.cpp
     title: geometry/is_intersect_ss.cpp
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-2-b.test.cpp
+    title: test/verify/aoj-cgl-2-b.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-2-d.test.cpp
+    title: test/verify/aoj-cgl-2-d.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real\
@@ -68,11 +80,15 @@ data:
   path: geometry/segment.cpp
   requiredBy:
   - geometry/is_intersect_sp.cpp
+  - geometry/distance_ss.cpp
+  - geometry/distance_sp.cpp
   - geometry/is_intersect_ls.cpp
   - geometry/is_intersect_ss.cpp
   timestamp: '2020-11-25 02:17:17+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/verify/aoj-cgl-2-b.test.cpp
+  - test/verify/aoj-cgl-2-d.test.cpp
 documentation_of: geometry/segment.cpp
 layout: document
 redirect_from:

@@ -5,14 +5,8 @@ data:
     path: geometry/base.cpp
     title: geometry/base.cpp
   - icon: ':heavy_check_mark:'
-    path: geometry/line.cpp
-    title: geometry/line.cpp
-  - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  - icon: ':heavy_check_mark:'
-    path: geometry/segment.cpp
-    title: geometry/segment.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
@@ -38,41 +32,24 @@ data:
     \ {\n    return equals(real(a), real(b)) ? imag(a) < imag(b) : real(a) < real(b);\n\
     \  }\n\n  bool compare_y(const Point &a, const Point &b) {\n    return equals(imag(a),\
     \ imag(b)) ? real(a) < real(b) : imag(a) < imag(b);\n  }\n\n  using Points = vector<\
-    \ Point >;\n}\n#line 3 \"geometry/line.cpp\"\n\nnamespace geometry {\n  struct\
-    \ Line {\n    Point a, b;\n\n    Line() = default;\n\n    Line(const Point &a,\
-    \ const Point &b) : a(a), b(b) {}\n\n    Line(const Real &A, const Real &B, const\
-    \ Real &C) { // Ax+By=C\n      if(equals(A, 0)) {\n        assert(!equals(B, 0));\n\
-    \        a = Point(0, C / B);\n        b = Point(1, C / B);\n      } else if(equals(B,\
-    \ 0)) {\n        a = Point(C / A, 0);\n        b = Point(C / A, 1);\n      } else\
-    \ {\n        a = Point(0, C / B);\n        b = Point(C / A, 0);\n      }\n   \
-    \ }\n\n    friend ostream &operator<<(ostream &os, Line &l) {\n      return os\
-    \ << l.a << \" to \" << l.b;\n    }\n\n    friend istream &operator>>(istream\
-    \ &is, Line &l) {\n      return is >> l.a >> l.b;\n    }\n  };\n\n  using Lines\
-    \ = vector< Line >;\n}\n#line 3 \"geometry/segment.cpp\"\n\nnamespace geometry\
-    \ {\n  struct Segment : Line {\n    Segment() = default;\n\n    using Line::Line;\n\
-    \  };\n\n  using Segments = vector< Segment >;\n}\n#line 5 \"geometry/is_intersect_ls.cpp\"\
-    \n\nnamespace geometry {\n  bool is_intersect_ls(const Line &l, const Segment\
-    \ &s) {\n    return sign(cross(l.b - l.a, s.a - l.a)) * sign(cross(l.b - l.a,\
-    \ s.b - l.a)) <= 0;\n  }\n}\n"
-  code: "#include \"base.cpp\"\n#include \"point.cpp\"\n#include \"line.cpp\"\n#include\
-    \ \"segment.cpp\"\n\nnamespace geometry {\n  bool is_intersect_ls(const Line &l,\
-    \ const Segment &s) {\n    return sign(cross(l.b - l.a, s.a - l.a)) * sign(cross(l.b\
-    \ - l.a, s.b - l.a)) <= 0;\n  }\n}\n"
+    \ Point >;\n}\n#line 2 \"geometry/distance_pp.cpp\"\n\nnamespace geometry {\n\
+    \  Real distance(const Point &a, const Point &b) {\n    return abs(a - b);\n \
+    \ }\n}\n"
+  code: "#include \"point.cpp\"\n\nnamespace geometry {\n  Real distance(const Point\
+    \ &a, const Point &b) {\n    return abs(a - b);\n  }\n}\n"
   dependsOn:
-  - geometry/base.cpp
   - geometry/point.cpp
-  - geometry/line.cpp
-  - geometry/segment.cpp
+  - geometry/base.cpp
   isVerificationFile: false
-  path: geometry/is_intersect_ls.cpp
+  path: geometry/distance_pp.cpp
   requiredBy: []
   timestamp: '2020-11-28 02:11:11+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: geometry/is_intersect_ls.cpp
+documentation_of: geometry/distance_pp.cpp
 layout: document
 redirect_from:
-- /library/geometry/is_intersect_ls.cpp
-- /library/geometry/is_intersect_ls.cpp.html
-title: geometry/is_intersect_ls.cpp
+- /library/geometry/distance_pp.cpp
+- /library/geometry/distance_pp.cpp.html
+title: geometry/distance_pp.cpp
 ---

@@ -8,8 +8,17 @@ data:
     path: geometry/ccw.cpp
     title: geometry/ccw.cpp
   - icon: ':heavy_check_mark:'
+    path: geometry/is_intersect_ss.cpp
+    title: geometry/is_intersect_ss.cpp
+  - icon: ':heavy_check_mark:'
+    path: geometry/line.cpp
+    title: geometry/line.cpp
+  - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
+  - icon: ':heavy_check_mark:'
+    path: geometry/segment.cpp
+    title: geometry/segment.cpp
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -19,10 +28,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_B
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C
-  bundledCode: "#line 1 \"test/verify/aoj-cgl-1-c.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\"\
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_B
+  bundledCode: "#line 1 \"test/verify/aoj-cgl-2-b.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_B\"\
     \n\n#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing namespace\
     \ std;\n\nusing int64 = long long;\nconst int mod = 1e9 + 7;\n\nconst int64 infll\
     \ = (1LL << 62) - 1;\nconst int inf = (1 << 30) - 1;\n\nstruct IoSetup {\n  IoSetup()\
@@ -49,7 +58,7 @@ data:
     \  FixPoint(F &&f) : F(forward< F >(f)) {}\n \n  template< typename... Args >\n\
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
-    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-cgl-1-c.test.cpp\"\
+    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-cgl-2-b.test.cpp\"\
     \n\n#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real = double;\n\
     \  const Real EPS = 1e-8;\n  const Real PI = acos(static_cast< Real >(-1));\n\n\
     \  inline int sign(const Real &r) {\n    return r <= -EPS ? -1 : r >= EPS ? 1\
@@ -76,36 +85,48 @@ data:
     \ Point c) {\n    b = b - a, c = c - a;\n    if(sign(cross(b, c)) == +1) return\
     \ COUNTER_CLOCKWISE;\n    if(sign(cross(b, c)) == -1) return CLOCKWISE;\n    if(sign(dot(b,\
     \ c)) == -1) return ONLINE_BACK;\n    if(norm(b) < norm(c)) return ONLINE_FRONT;\n\
-    \    return ON_SEGMENT;\n  }\n}\n#line 6 \"test/verify/aoj-cgl-1-c.test.cpp\"\n\
-    \nusing namespace geometry;\n\nint main() {\n  Point p1, p2;\n  cin >> p1 >> p2;\n\
-    \  int Q;\n  cin >> Q;\n  while(Q--) {\n    Point p3;\n    cin >> p3;\n    auto\
-    \ t = ccw(p1, p2, p3);\n    if(t == 1) cout << \"COUNTER_CLOCKWISE\\n\";\n   \
-    \ else if(t == -1) cout << \"CLOCKWISE\\n\";\n    else if(t == 2) cout << \"ONLINE_BACK\\\
-    n\";\n    else if(t == -2) cout << \"ONLINE_FRONT\\n\";\n    else cout << \"ON_SEGMENT\\\
-    n\";\n  }\n}\n"
-  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../geometry/ccw.cpp\"\
-    \n\nusing namespace geometry;\n\nint main() {\n  Point p1, p2;\n  cin >> p1 >>\
-    \ p2;\n  int Q;\n  cin >> Q;\n  while(Q--) {\n    Point p3;\n    cin >> p3;\n\
-    \    auto t = ccw(p1, p2, p3);\n    if(t == 1) cout << \"COUNTER_CLOCKWISE\\n\"\
-    ;\n    else if(t == -1) cout << \"CLOCKWISE\\n\";\n    else if(t == 2) cout <<\
-    \ \"ONLINE_BACK\\n\";\n    else if(t == -2) cout << \"ONLINE_FRONT\\n\";\n   \
-    \ else cout << \"ON_SEGMENT\\n\";\n  }\n}\n"
+    \    return ON_SEGMENT;\n  }\n}\n#line 3 \"geometry/line.cpp\"\n\nnamespace geometry\
+    \ {\n  struct Line {\n    Point a, b;\n\n    Line() = default;\n\n    Line(const\
+    \ Point &a, const Point &b) : a(a), b(b) {}\n\n    Line(const Real &A, const Real\
+    \ &B, const Real &C) { // Ax+By=C\n      if(equals(A, 0)) {\n        assert(!equals(B,\
+    \ 0));\n        a = Point(0, C / B);\n        b = Point(1, C / B);\n      } else\
+    \ if(equals(B, 0)) {\n        a = Point(C / A, 0);\n        b = Point(C / A, 1);\n\
+    \      } else {\n        a = Point(0, C / B);\n        b = Point(C / A, 0);\n\
+    \      }\n    }\n\n    friend ostream &operator<<(ostream &os, Line &l) {\n  \
+    \    return os << l.a << \" to \" << l.b;\n    }\n\n    friend istream &operator>>(istream\
+    \ &is, Line &l) {\n      return is >> l.a >> l.b;\n    }\n  };\n\n  using Lines\
+    \ = vector< Line >;\n}\n#line 3 \"geometry/segment.cpp\"\n\nnamespace geometry\
+    \ {\n  struct Segment : Line {\n    Segment() = default;\n\n    using Line::Line;\n\
+    \  };\n\n  using Segments = vector< Segment >;\n}\n#line 4 \"geometry/is_intersect_ss.cpp\"\
+    \n\n\nnamespace geometry {\n  bool is_intersect_ss(const Segment &s, const Segment\
+    \ &t) {\n    return ccw(s.a, s.b, t.a) * ccw(s.a, s.b, t.b) <= 0 &&\n        \
+    \   ccw(t.a, t.b, s.a) * ccw(t.a, t.b, s.b) <= 0;\n  }\n}\n#line 6 \"test/verify/aoj-cgl-2-b.test.cpp\"\
+    \n\nusing namespace geometry;\n\nint main() {\n  int T;\n  cin >> T;\n  while(T--)\
+    \ {\n    Segment a, b;\n    cin >> a >> b;\n    cout << is_intersect_ss(a, b)\
+    \ << \"\\n\";\n  }\n}\n"
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_B\"\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../geometry/is_intersect_ss.cpp\"\
+    \n\nusing namespace geometry;\n\nint main() {\n  int T;\n  cin >> T;\n  while(T--)\
+    \ {\n    Segment a, b;\n    cin >> a >> b;\n    cout << is_intersect_ss(a, b)\
+    \ << \"\\n\";\n  }\n}\n"
   dependsOn:
   - template/template.cpp
-  - geometry/ccw.cpp
+  - geometry/is_intersect_ss.cpp
   - geometry/point.cpp
   - geometry/base.cpp
+  - geometry/ccw.cpp
+  - geometry/segment.cpp
+  - geometry/line.cpp
   isVerificationFile: true
-  path: test/verify/aoj-cgl-1-c.test.cpp
+  path: test/verify/aoj-cgl-2-b.test.cpp
   requiredBy: []
   timestamp: '2020-11-28 02:11:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/verify/aoj-cgl-1-c.test.cpp
+documentation_of: test/verify/aoj-cgl-2-b.test.cpp
 layout: document
 redirect_from:
-- /verify/test/verify/aoj-cgl-1-c.test.cpp
-- /verify/test/verify/aoj-cgl-1-c.test.cpp.html
-title: test/verify/aoj-cgl-1-c.test.cpp
+- /verify/test/verify/aoj-cgl-2-b.test.cpp
+- /verify/test/verify/aoj-cgl-2-b.test.cpp.html
+title: test/verify/aoj-cgl-2-b.test.cpp
 ---

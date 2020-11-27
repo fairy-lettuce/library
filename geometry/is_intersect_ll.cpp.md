@@ -13,7 +13,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: geometry/distance_ll.cpp
+    title: geometry/distance_ll.cpp
   _extendedVerifiedWith: []
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
@@ -52,11 +55,15 @@ data:
     \ {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_A\n \
     \ bool is_parallel(const Line &a, const Line &b) {\n    return equals(cross(a.b\
     \ - a.a, b.b - b.a), 0.0);\n  }\n}\n#line 3 \"geometry/is_intersect_ll.cpp\"\n\
-    \nnamespace geometry {\n  bool is_intersect(const Line &l, const Line &m) {\n\
-    \    return !is_parallel(l, m);\n  }\n}\n"
+    \nnamespace geometry {\n  bool is_intersect_ll(const Line &l, const Line &m) {\n\
+    \    Real A = cross(l.b - l.a, m.b - m.a);\n    Real B = cross(l.b - l.a, l.b\
+    \ - m.a);\n    if(equals(abs(A), 0) && equals(abs(B), 0)) return true;\n    return\
+    \ !is_parallel(l, m);\n  }\n}\n"
   code: "#include \"line.cpp\"\n#include \"is_parallel.cpp\"\n\nnamespace geometry\
-    \ {\n  bool is_intersect(const Line &l, const Line &m) {\n    return !is_parallel(l,\
-    \ m);\n  }\n}\n"
+    \ {\n  bool is_intersect_ll(const Line &l, const Line &m) {\n    Real A = cross(l.b\
+    \ - l.a, m.b - m.a);\n    Real B = cross(l.b - l.a, l.b - m.a);\n    if(equals(abs(A),\
+    \ 0) && equals(abs(B), 0)) return true;\n    return !is_parallel(l, m);\n  }\n\
+    }\n"
   dependsOn:
   - geometry/line.cpp
   - geometry/point.cpp
@@ -64,8 +71,9 @@ data:
   - geometry/is_parallel.cpp
   isVerificationFile: false
   path: geometry/is_intersect_ll.cpp
-  requiredBy: []
-  timestamp: '2020-11-25 02:23:24+09:00'
+  requiredBy:
+  - geometry/distance_ll.cpp
+  timestamp: '2020-11-28 02:11:11+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: geometry/is_intersect_ll.cpp

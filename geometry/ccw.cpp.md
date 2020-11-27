@@ -9,21 +9,33 @@ data:
     title: geometry/point.cpp
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: geometry/distance_sp.cpp
+    title: geometry/distance_sp.cpp
+  - icon: ':heavy_check_mark:'
+    path: geometry/distance_ss.cpp
+    title: geometry/distance_ss.cpp
+  - icon: ':heavy_check_mark:'
     path: geometry/is_convex_polygon.cpp
     title: geometry/is_convex_polygon.cpp
   - icon: ':warning:'
     path: geometry/is_intersect_lp.cpp
     title: geometry/is_intersect_lp.cpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: geometry/is_intersect_sp.cpp
     title: geometry/is_intersect_sp.cpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: geometry/is_intersect_ss.cpp
     title: geometry/is_intersect_ss.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-1-c.test.cpp
     title: test/verify/aoj-cgl-1-c.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-2-b.test.cpp
+    title: test/verify/aoj-cgl-2-b.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-2-d.test.cpp
+    title: test/verify/aoj-cgl-2-d.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-3-b.test.cpp
     title: test/verify/aoj-cgl-3-b.test.cpp
@@ -51,7 +63,7 @@ data:
     \ {\n    return equals(real(a), real(b)) ? imag(a) < imag(b) : real(a) < real(b);\n\
     \  }\n\n  bool compare_y(const Point &a, const Point &b) {\n    return equals(imag(a),\
     \ imag(b)) ? real(a) < real(b) : imag(a) < imag(b);\n  }\n\n  using Points = vector<\
-    \ Point >;\n}\n#line 2 \"geometry/ccw.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\n\
+    \ Point >;\n}\n#line 3 \"geometry/ccw.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\n\
     \  constexpr int COUNTER_CLOCKWISE = +1;\n  constexpr int CLOCKWISE = -1;\n  constexpr\
     \ int ONLINE_BACK = +2; // c-a-b\n  constexpr int ONLINE_FRONT = -2; // a-b-c\n\
     \  constexpr int ON_SEGMENT = 0; // a-c-b\n  int ccw(const Point &a, Point b,\
@@ -59,7 +71,7 @@ data:
     \ COUNTER_CLOCKWISE;\n    if(sign(cross(b, c)) == -1) return CLOCKWISE;\n    if(sign(dot(b,\
     \ c)) == -1) return ONLINE_BACK;\n    if(norm(b) < norm(c)) return ONLINE_FRONT;\n\
     \    return ON_SEGMENT;\n  }\n}\n"
-  code: "#include \"point.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\n\
+  code: "#pragma once\n#include \"point.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\n\
     \  constexpr int COUNTER_CLOCKWISE = +1;\n  constexpr int CLOCKWISE = -1;\n  constexpr\
     \ int ONLINE_BACK = +2; // c-a-b\n  constexpr int ONLINE_FRONT = -2; // a-b-c\n\
     \  constexpr int ON_SEGMENT = 0; // a-c-b\n  int ccw(const Point &a, Point b,\
@@ -75,12 +87,16 @@ data:
   requiredBy:
   - geometry/is_intersect_sp.cpp
   - geometry/is_convex_polygon.cpp
+  - geometry/distance_ss.cpp
+  - geometry/distance_sp.cpp
   - geometry/is_intersect_lp.cpp
   - geometry/is_intersect_ss.cpp
-  timestamp: '2020-11-25 02:17:17+09:00'
+  timestamp: '2020-11-28 02:11:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/verify/aoj-cgl-2-b.test.cpp
   - test/verify/aoj-cgl-1-c.test.cpp
+  - test/verify/aoj-cgl-2-d.test.cpp
   - test/verify/aoj-cgl-3-b.test.cpp
 documentation_of: geometry/ccw.cpp
 layout: document

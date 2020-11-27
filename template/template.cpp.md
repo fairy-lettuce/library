@@ -127,11 +127,23 @@ data:
     path: test/verify/aoj-cgl-2-a.test.cpp
     title: test/verify/aoj-cgl-2-a.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-2-b.test.cpp
+    title: test/verify/aoj-cgl-2-b.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-2-c.test.cpp
+    title: test/verify/aoj-cgl-2-c.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-2-d.test.cpp
+    title: test/verify/aoj-cgl-2-d.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-3-a.test.cpp
     title: test/verify/aoj-cgl-3-a.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-3-b.test.cpp
     title: test/verify/aoj-cgl-3-b.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-3-c.test.cpp
+    title: test/verify/aoj-cgl-3-c.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-4-a.test.cpp
     title: test/verify/aoj-cgl-4-a.test.cpp
@@ -669,6 +681,7 @@ data:
   - test/verify/aoj-grl-5-c.test.cpp
   - test/verify/yukicoder-704.test.cpp
   - test/verify/aoj-1508-2.test.cpp
+  - test/verify/aoj-cgl-2-b.test.cpp
   - test/verify/yosupo-inv-of-formal-power-series.test.cpp
   - test/verify/yosupo-set-xor-min.test.cpp
   - test/verify/yukicoder-703.test.cpp
@@ -691,6 +704,7 @@ data:
   - test/verify/aoj-cgl-1-c.test.cpp
   - test/verify/yosupo-static-range-inversions-query.test.cpp
   - test/verify/aoj-grl-1-b-2.test.cpp
+  - test/verify/aoj-cgl-2-d.test.cpp
   - test/verify/yukicoder-583.test.cpp
   - test/verify/aoj-grl-1-a-3.test.cpp
   - test/verify/aoj-dpl-1-f.test.cpp
@@ -709,6 +723,7 @@ data:
   - test/verify/yosupo-kth-root-integer.test.cpp
   - test/verify/yukicoder-650.test.cpp
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
+  - test/verify/aoj-cgl-3-c.test.cpp
   - test/verify/yosupo-montmort-number-mod.test.cpp
   - test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
   - test/verify/aoj-cgl-1-a.test.cpp
@@ -735,6 +750,7 @@ data:
   - test/verify/yosupo-lca.test.cpp
   - test/verify/yosupo-cartesian-tree.test.cpp
   - test/verify/aoj-dpl-1-i.test.cpp
+  - test/verify/aoj-cgl-2-c.test.cpp
   - test/verify/aoj-cgl-3-a.test.cpp
   - test/verify/aoj-grl-1-a.test.cpp
   - test/verify/aoj-ntl-1-e.test.cpp

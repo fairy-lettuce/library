@@ -5,9 +5,6 @@ data:
     path: geometry/base.cpp
     title: geometry/base.cpp
   - icon: ':heavy_check_mark:'
-    path: geometry/ccw.cpp
-    title: geometry/ccw.cpp
-  - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
   - icon: ':heavy_check_mark:'
@@ -16,13 +13,13 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-cgl-3-b.test.cpp
-    title: test/verify/aoj-cgl-3-b.test.cpp
+    path: test/verify/aoj-cgl-3-c.test.cpp
+    title: test/verify/aoj-cgl-3-c.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_B
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_C
   bundledCode: "#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real\
     \ = double;\n  const Real EPS = 1e-8;\n  const Real PI = acos(static_cast< Real\
     \ >(-1));\n\n  inline int sign(const Real &r) {\n    return r <= -EPS ? -1 : r\
@@ -42,41 +39,39 @@ data:
     \ {\n    return equals(real(a), real(b)) ? imag(a) < imag(b) : real(a) < real(b);\n\
     \  }\n\n  bool compare_y(const Point &a, const Point &b) {\n    return equals(imag(a),\
     \ imag(b)) ? real(a) < real(b) : imag(a) < imag(b);\n  }\n\n  using Points = vector<\
-    \ Point >;\n}\n#line 3 \"geometry/ccw.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\n\
-    \  constexpr int COUNTER_CLOCKWISE = +1;\n  constexpr int CLOCKWISE = -1;\n  constexpr\
-    \ int ONLINE_BACK = +2; // c-a-b\n  constexpr int ONLINE_FRONT = -2; // a-b-c\n\
-    \  constexpr int ON_SEGMENT = 0; // a-c-b\n  int ccw(const Point &a, Point b,\
-    \ Point c) {\n    b = b - a, c = c - a;\n    if(sign(cross(b, c)) == +1) return\
-    \ COUNTER_CLOCKWISE;\n    if(sign(cross(b, c)) == -1) return CLOCKWISE;\n    if(sign(dot(b,\
-    \ c)) == -1) return ONLINE_BACK;\n    if(norm(b) < norm(c)) return ONLINE_FRONT;\n\
-    \    return ON_SEGMENT;\n  }\n}\n#line 2 \"geometry/polygon.cpp\"\n\n#line 4 \"\
-    geometry/polygon.cpp\"\n\nnamespace geometry {\n  using Polygon = vector< Point\
-    \ >;\n  using Polygons = vector< Polygon >;\n}\n#line 4 \"geometry/is_convex_polygon.cpp\"\
-    \n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_B\n\
-    \  bool is_convex_polygon(const Polygon &p) {\n    int n = (int) p.size();\n \
-    \   for(int i = 0; i < n; i++) {\n      if(ccw(p[(i + n - 1) % n], p[i], p[(i\
-    \ + 1) % n]) == CLOCKWISE) return false;\n    }\n    return true;\n  }\n}\n"
-  code: "#include \"point.cpp\"\n#include \"ccw.cpp\"\n#include \"polygon.cpp\"\n\n\
-    namespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_B\n\
-    \  bool is_convex_polygon(const Polygon &p) {\n    int n = (int) p.size();\n \
-    \   for(int i = 0; i < n; i++) {\n      if(ccw(p[(i + n - 1) % n], p[i], p[(i\
-    \ + 1) % n]) == CLOCKWISE) return false;\n    }\n    return true;\n  }\n}\n"
+    \ Point >;\n}\n#line 2 \"geometry/polygon.cpp\"\n\n#line 4 \"geometry/polygon.cpp\"\
+    \n\nnamespace geometry {\n  using Polygon = vector< Point >;\n  using Polygons\
+    \ = vector< Polygon >;\n}\n#line 4 \"geometry/contains.cpp\"\n\nnamespace geometry\
+    \ {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_C\n \
+    \ enum {\n    OUT, ON, IN\n  };\n\n  int contains(const Polygon &Q, const Point\
+    \ &p) {\n    bool in = false;\n    for(int i = 0; i < Q.size(); i++) {\n     \
+    \ Point a = Q[i] - p, b = Q[(i + 1) % Q.size()] - p;\n      if(imag(a) > imag(b))\
+    \ swap(a, b);\n      if(sign(imag(a)) <= 0 && 0 < sign(imag(b)) && sign(cross(a,\
+    \ b)) < 0) in = !in;\n      if(equals(cross(a, b), 0) && sign(dot(a, b)) <= 0)\
+    \ return ON;\n    }\n    return in ? IN : OUT;\n  }\n}\n"
+  code: "#include \"base.cpp\"\n#include \"point.cpp\"\n#include \"polygon.cpp\"\n\
+    \nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_C\n\
+    \  enum {\n    OUT, ON, IN\n  };\n\n  int contains(const Polygon &Q, const Point\
+    \ &p) {\n    bool in = false;\n    for(int i = 0; i < Q.size(); i++) {\n     \
+    \ Point a = Q[i] - p, b = Q[(i + 1) % Q.size()] - p;\n      if(imag(a) > imag(b))\
+    \ swap(a, b);\n      if(sign(imag(a)) <= 0 && 0 < sign(imag(b)) && sign(cross(a,\
+    \ b)) < 0) in = !in;\n      if(equals(cross(a, b), 0) && sign(dot(a, b)) <= 0)\
+    \ return ON;\n    }\n    return in ? IN : OUT;\n  }\n}\n"
   dependsOn:
-  - geometry/point.cpp
   - geometry/base.cpp
-  - geometry/ccw.cpp
+  - geometry/point.cpp
   - geometry/polygon.cpp
   isVerificationFile: false
-  path: geometry/is_convex_polygon.cpp
+  path: geometry/contains.cpp
   requiredBy: []
   timestamp: '2020-11-28 02:11:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-cgl-3-b.test.cpp
-documentation_of: geometry/is_convex_polygon.cpp
+  - test/verify/aoj-cgl-3-c.test.cpp
+documentation_of: geometry/contains.cpp
 layout: document
 redirect_from:
-- /library/geometry/is_convex_polygon.cpp
-- /library/geometry/is_convex_polygon.cpp.html
-title: geometry/is_convex_polygon.cpp
+- /library/geometry/contains.cpp
+- /library/geometry/contains.cpp.html
+title: geometry/contains.cpp
 ---

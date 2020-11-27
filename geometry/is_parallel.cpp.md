@@ -12,6 +12,9 @@ data:
     title: geometry/point.cpp
   _extendedRequiredBy:
   - icon: ':warning:'
+    path: geometry/distance_ll.cpp
+    title: geometry/distance_ll.cpp
+  - icon: ':warning:'
     path: geometry/is_intersect_ll.cpp
     title: geometry/is_intersect_ll.cpp
   _extendedVerifiedWith:
@@ -67,6 +70,7 @@ data:
   isVerificationFile: false
   path: geometry/is_parallel.cpp
   requiredBy:
+  - geometry/distance_ll.cpp
   - geometry/is_intersect_ll.cpp
   timestamp: '2020-11-25 02:17:17+09:00'
   verificationStatus: LIBRARY_ALL_AC

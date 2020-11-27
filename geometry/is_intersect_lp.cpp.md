@@ -48,7 +48,7 @@ data:
     \ }\n\n    friend ostream &operator<<(ostream &os, Line &l) {\n      return os\
     \ << l.a << \" to \" << l.b;\n    }\n\n    friend istream &operator>>(istream\
     \ &is, Line &l) {\n      return is >> l.a >> l.b;\n    }\n  };\n\n  using Lines\
-    \ = vector< Line >;\n}\n#line 2 \"geometry/ccw.cpp\"\n\nnamespace geometry {\n\
+    \ = vector< Line >;\n}\n#line 3 \"geometry/ccw.cpp\"\n\nnamespace geometry {\n\
     \  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\n  constexpr\
     \ int COUNTER_CLOCKWISE = +1;\n  constexpr int CLOCKWISE = -1;\n  constexpr int\
     \ ONLINE_BACK = +2; // c-a-b\n  constexpr int ONLINE_FRONT = -2; // a-b-c\n  constexpr\
@@ -57,10 +57,10 @@ data:
     \    if(sign(cross(b, c)) == -1) return CLOCKWISE;\n    if(sign(dot(b, c)) ==\
     \ -1) return ONLINE_BACK;\n    if(norm(b) < norm(c)) return ONLINE_FRONT;\n  \
     \  return ON_SEGMENT;\n  }\n}\n#line 4 \"geometry/is_intersect_lp.cpp\"\n\nnamespace\
-    \ geometry {\n  bool is_intersect(const Line &l, const Point &p) {\n    return\
+    \ geometry {\n  bool is_intersect_lp(const Line &l, const Point &p) {\n    return\
     \ abs(ccw(l.a, l.b, p)) != 1;\n  }\n}\n"
   code: "#include \"point.cpp\"\n#include \"line.cpp\"\n#include \"ccw.cpp\"\n\nnamespace\
-    \ geometry {\n  bool is_intersect(const Line &l, const Point &p) {\n    return\
+    \ geometry {\n  bool is_intersect_lp(const Line &l, const Point &p) {\n    return\
     \ abs(ccw(l.a, l.b, p)) != 1;\n  }\n}\n"
   dependsOn:
   - geometry/point.cpp
@@ -70,7 +70,7 @@ data:
   isVerificationFile: false
   path: geometry/is_intersect_lp.cpp
   requiredBy: []
-  timestamp: '2020-11-25 02:17:17+09:00'
+  timestamp: '2020-11-28 02:11:11+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: geometry/is_intersect_lp.cpp

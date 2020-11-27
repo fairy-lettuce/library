@@ -4,43 +4,30 @@ data:
   - icon: ':heavy_check_mark:'
     path: geometry/base.cpp
     title: geometry/base.cpp
+  - icon: ':warning:'
+    path: geometry/distance_lp.cpp
+    title: geometry/distance_lp.cpp
+  - icon: ':warning:'
+    path: geometry/is_intersect_ll.cpp
+    title: geometry/is_intersect_ll.cpp
+  - icon: ':heavy_check_mark:'
+    path: geometry/is_parallel.cpp
+    title: geometry/is_parallel.cpp
   - icon: ':heavy_check_mark:'
     path: geometry/line.cpp
     title: geometry/line.cpp
   - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: geometry/distance_ll.cpp
-    title: geometry/distance_ll.cpp
-  - icon: ':warning:'
-    path: geometry/distance_lp.cpp
-    title: geometry/distance_lp.cpp
   - icon: ':heavy_check_mark:'
-    path: geometry/distance_sp.cpp
-    title: geometry/distance_sp.cpp
-  - icon: ':heavy_check_mark:'
-    path: geometry/distance_ss.cpp
-    title: geometry/distance_ss.cpp
-  - icon: ':heavy_check_mark:'
-    path: geometry/reflection.cpp
-    title: geometry/reflection.cpp
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-cgl-1-a.test.cpp
-    title: test/verify/aoj-cgl-1-a.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-cgl-1-b.test.cpp
-    title: test/verify/aoj-cgl-1-b.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-cgl-2-d.test.cpp
-    title: test/verify/aoj-cgl-2-d.test.cpp
+    path: geometry/projection.cpp
+    title: geometry/projection.cpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A
+    links: []
   bundledCode: "#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real\
     \ = double;\n  const Real EPS = 1e-8;\n  const Real PI = acos(static_cast< Real\
     \ >(-1));\n\n  inline int sign(const Real &r) {\n    return r <= -EPS ? -1 : r\
@@ -70,36 +57,43 @@ data:
     \ }\n\n    friend ostream &operator<<(ostream &os, Line &l) {\n      return os\
     \ << l.a << \" to \" << l.b;\n    }\n\n    friend istream &operator>>(istream\
     \ &is, Line &l) {\n      return is >> l.a >> l.b;\n    }\n  };\n\n  using Lines\
-    \ = vector< Line >;\n}\n#line 3 \"geometry/projection.cpp\"\n\nnamespace geometry\
-    \ {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n \
-    \ Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
-    \ l.a - l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n"
-  code: "#include \"point.cpp\"\n#include \"line.cpp\"\n\nnamespace geometry {\n \
-    \ // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n  Point\
-    \ projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a, l.a -\
-    \ l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n"
+    \ = vector< Line >;\n}\n#line 3 \"geometry/is_parallel.cpp\"\n\nnamespace geometry\
+    \ {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_A\n \
+    \ bool is_parallel(const Line &a, const Line &b) {\n    return equals(cross(a.b\
+    \ - a.a, b.b - b.a), 0.0);\n  }\n}\n#line 3 \"geometry/is_intersect_ll.cpp\"\n\
+    \nnamespace geometry {\n  bool is_intersect_ll(const Line &l, const Line &m) {\n\
+    \    Real A = cross(l.b - l.a, m.b - m.a);\n    Real B = cross(l.b - l.a, l.b\
+    \ - m.a);\n    if(equals(abs(A), 0) && equals(abs(B), 0)) return true;\n    return\
+    \ !is_parallel(l, m);\n  }\n}\n#line 3 \"geometry/projection.cpp\"\n\nnamespace\
+    \ geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
+    \  Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
+    \ l.a - l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n#line\
+    \ 3 \"geometry/distance_lp.cpp\"\n\nnamespace geometry {\n  Real distance_lp(const\
+    \ Line &l, const Point &p) {\n    return abs(p - projection(l, p));\n  }\n}\n\
+    #line 4 \"geometry/distance_ll.cpp\"\n\nnamespace geometry {\n  Real distance_ll(const\
+    \ Line &l, const Line &m) {\n    return is_intersect_ll(l, m) ? 0 : distance_lp(l,\
+    \ m.a);\n  }\n}\n"
+  code: "#include \"line.cpp\"\n#include \"is_intersect_ll.cpp\"\n#include \"distance_lp.cpp\"\
+    \n\nnamespace geometry {\n  Real distance_ll(const Line &l, const Line &m) {\n\
+    \    return is_intersect_ll(l, m) ? 0 : distance_lp(l, m.a);\n  }\n}\n"
   dependsOn:
+  - geometry/line.cpp
   - geometry/point.cpp
   - geometry/base.cpp
-  - geometry/line.cpp
-  isVerificationFile: false
-  path: geometry/projection.cpp
-  requiredBy:
-  - geometry/distance_ll.cpp
-  - geometry/reflection.cpp
-  - geometry/distance_ss.cpp
-  - geometry/distance_sp.cpp
+  - geometry/is_intersect_ll.cpp
+  - geometry/is_parallel.cpp
   - geometry/distance_lp.cpp
-  timestamp: '2020-11-25 02:17:17+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/verify/aoj-cgl-2-d.test.cpp
-  - test/verify/aoj-cgl-1-a.test.cpp
-  - test/verify/aoj-cgl-1-b.test.cpp
-documentation_of: geometry/projection.cpp
+  - geometry/projection.cpp
+  isVerificationFile: false
+  path: geometry/distance_ll.cpp
+  requiredBy: []
+  timestamp: '2020-11-28 02:11:11+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: geometry/distance_ll.cpp
 layout: document
 redirect_from:
-- /library/geometry/projection.cpp
-- /library/geometry/projection.cpp.html
-title: geometry/projection.cpp
+- /library/geometry/distance_ll.cpp
+- /library/geometry/distance_ll.cpp.html
+title: geometry/distance_ll.cpp
 ---
