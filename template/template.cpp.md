@@ -148,6 +148,15 @@ data:
     path: test/verify/aoj-cgl-4-a.test.cpp
     title: test/verify/aoj-cgl-4-a.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-4-b.test.cpp
+    title: test/verify/aoj-cgl-4-b.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-7-d.test.cpp
+    title: test/verify/aoj-cgl-7-d.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-7-e.test.cpp
+    title: test/verify/aoj-cgl-7-e.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-1-b.test.cpp
     title: test/verify/aoj-dpl-1-b.test.cpp
   - icon: ':heavy_check_mark:'
@@ -632,6 +641,7 @@ data:
   - test/verify/aoj-2603.test.cpp
   - test/verify/aoj-ntl-1-b.test.cpp
   - test/verify/aoj-2450-2.test.cpp
+  - test/verify/aoj-cgl-4-b.test.cpp
   - test/verify/aoj-1595.test.cpp
   - test/verify/yosupo-matrix-det.test.cpp
   - test/verify/yosupo-bipartite-edge-coloring.test.cpp
@@ -691,6 +701,7 @@ data:
   - test/verify/aoj-cgl-2-a.test.cpp
   - test/verify/aoj-grl-1-c.test.cpp
   - test/verify/aoj-1254.test.cpp
+  - test/verify/aoj-cgl-7-e.test.cpp
   - test/verify/aoj-alds-1-14-d.test.cpp
   - test/verify/yosupo-point-add-rectangle-sum.test.cpp
   - test/verify/yukicoder-952.test.cpp
@@ -733,6 +744,7 @@ data:
   - test/verify/yosupo-counting-primes.test.cpp
   - test/verify/yosupo-sum-of-floor-of-linear.test.cpp
   - test/verify/yosupo-sqrt-mod.test.cpp
+  - test/verify/aoj-cgl-7-d.test.cpp
   - test/verify/yosupo-three-edge-connected-components.test.cpp
   - test/verify/aoj-dpl-1-g.test.cpp
   - test/verify/yosupo-polynomial-taylor-shift.test.cpp

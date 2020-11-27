@@ -18,6 +18,9 @@ data:
     path: geometry/convex_hull.cpp
     title: geometry/convex_hull.cpp
   - icon: ':heavy_check_mark:'
+    path: geometry/convex_polygon_diameter.cpp
+    title: geometry/convex_polygon_diameter.cpp
+  - icon: ':heavy_check_mark:'
     path: geometry/is_convex_polygon.cpp
     title: geometry/is_convex_polygon.cpp
   _extendedVerifiedWith:
@@ -33,6 +36,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-4-a.test.cpp
     title: test/verify/aoj-cgl-4-a.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-4-b.test.cpp
+    title: test/verify/aoj-cgl-4-b.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -70,10 +76,12 @@ data:
   - geometry/is_convex_polygon.cpp
   - geometry/convex_hull.cpp
   - geometry/area.cpp
+  - geometry/convex_polygon_diameter.cpp
   - geometry/contains.cpp
   timestamp: '2020-11-25 02:17:17+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/verify/aoj-cgl-4-b.test.cpp
   - test/verify/aoj-cgl-4-a.test.cpp
   - test/verify/aoj-cgl-3-c.test.cpp
   - test/verify/aoj-cgl-3-b.test.cpp

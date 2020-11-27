@@ -17,6 +17,9 @@ data:
   - icon: ':warning:'
     path: geometry/distance_ll.cpp
     title: geometry/distance_ll.cpp
+  - icon: ':warning:'
+    path: geometry/is_intersect_cl.cpp
+    title: geometry/is_intersect_cl.cpp
   _extendedVerifiedWith: []
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
@@ -69,6 +72,7 @@ data:
   path: geometry/distance_lp.cpp
   requiredBy:
   - geometry/distance_ll.cpp
+  - geometry/is_intersect_cl.cpp
   timestamp: '2020-11-28 02:11:11+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

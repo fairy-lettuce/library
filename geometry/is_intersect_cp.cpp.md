@@ -5,33 +5,15 @@ data:
     path: geometry/base.cpp
     title: geometry/base.cpp
   - icon: ':heavy_check_mark:'
+    path: geometry/circle.cpp
+    title: geometry/circle.cpp
+  - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: geometry/cross_point_cc.cpp
-    title: geometry/cross_point_cc.cpp
-  - icon: ':heavy_check_mark:'
-    path: geometry/cross_point_cl.cpp
-    title: geometry/cross_point_cl.cpp
-  - icon: ':warning:'
-    path: geometry/is_intersect_cl.cpp
-    title: geometry/is_intersect_cl.cpp
-  - icon: ':warning:'
-    path: geometry/is_intersect_cp.cpp
-    title: geometry/is_intersect_cp.cpp
-  - icon: ':warning:'
-    path: geometry/is_intersect_cs.cpp
-    title: geometry/is_intersect_cs.cpp
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-cgl-7-d.test.cpp
-    title: test/verify/aoj-cgl-7-d.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-cgl-7-e.test.cpp
-    title: test/verify/aoj-cgl-7-e.test.cpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real\
@@ -56,31 +38,26 @@ data:
     \ Point >;\n}\n#line 3 \"geometry/circle.cpp\"\n\nnamespace geometry {\n  struct\
     \ Circle {\n    Point p;\n    Real r{};\n\n    Circle() = default;\n\n    Circle(const\
     \ Point &p, const Real &r) : p(p), r(r) {}\n  };\n\n  using Circles = vector<\
-    \ Circle >;\n}\n"
-  code: "#pragma once\n#include \"point.cpp\"\n\nnamespace geometry {\n  struct Circle\
-    \ {\n    Point p;\n    Real r{};\n\n    Circle() = default;\n\n    Circle(const\
-    \ Point &p, const Real &r) : p(p), r(r) {}\n  };\n\n  using Circles = vector<\
-    \ Circle >;\n}\n"
+    \ Circle >;\n}\n#line 4 \"geometry/is_intersect_cp.cpp\"\n\nnamespace geometry\
+    \ {\n  bool is_intersect_cp(const Circle &c, const Point &p) {\n    return equals(abs(p\
+    \ - c.p) - c.r, 0);\n  }\n}\n"
+  code: "#include \"base.cpp\"\n#include \"point.cpp\"\n#include \"circle.cpp\"\n\n\
+    namespace geometry {\n  bool is_intersect_cp(const Circle &c, const Point &p)\
+    \ {\n    return equals(abs(p - c.p) - c.r, 0);\n  }\n}\n"
   dependsOn:
-  - geometry/point.cpp
   - geometry/base.cpp
+  - geometry/point.cpp
+  - geometry/circle.cpp
   isVerificationFile: false
-  path: geometry/circle.cpp
-  requiredBy:
-  - geometry/cross_point_cl.cpp
-  - geometry/is_intersect_cs.cpp
-  - geometry/is_intersect_cl.cpp
-  - geometry/cross_point_cc.cpp
-  - geometry/is_intersect_cp.cpp
+  path: geometry/is_intersect_cp.cpp
+  requiredBy: []
   timestamp: '2020-11-28 02:48:52+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/verify/aoj-cgl-7-e.test.cpp
-  - test/verify/aoj-cgl-7-d.test.cpp
-documentation_of: geometry/circle.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: geometry/is_intersect_cp.cpp
 layout: document
 redirect_from:
-- /library/geometry/circle.cpp
-- /library/geometry/circle.cpp.html
-title: geometry/circle.cpp
+- /library/geometry/is_intersect_cp.cpp
+- /library/geometry/is_intersect_cp.cpp.html
+title: geometry/is_intersect_cp.cpp
 ---

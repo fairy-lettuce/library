@@ -65,7 +65,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: geometry/ccw.cpp
       title: geometry/ccw.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: geometry/circle.cpp
       title: geometry/circle.cpp
     - icon: ':heavy_check_mark:'
@@ -74,6 +74,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: geometry/convex_hull.cpp
       title: geometry/convex_hull.cpp
+    - icon: ':heavy_check_mark:'
+      path: geometry/convex_polygon_diameter.cpp
+      title: geometry/convex_polygon_diameter.cpp
+    - icon: ':heavy_check_mark:'
+      path: geometry/cross_point_cc.cpp
+      title: geometry/cross_point_cc.cpp
+    - icon: ':heavy_check_mark:'
+      path: geometry/cross_point_cl.cpp
+      title: geometry/cross_point_cl.cpp
     - icon: ':heavy_check_mark:'
       path: geometry/cross_point_ll.cpp
       title: geometry/cross_point_ll.cpp
@@ -95,6 +104,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: geometry/is_convex_polygon.cpp
       title: geometry/is_convex_polygon.cpp
+    - icon: ':warning:'
+      path: geometry/is_intersect_cl.cpp
+      title: geometry/is_intersect_cl.cpp
+    - icon: ':warning:'
+      path: geometry/is_intersect_cp.cpp
+      title: geometry/is_intersect_cp.cpp
+    - icon: ':warning:'
+      path: geometry/is_intersect_cs.cpp
+      title: geometry/is_intersect_cs.cpp
     - icon: ':warning:'
       path: geometry/is_intersect_ll.cpp
       title: geometry/is_intersect_ll.cpp
@@ -1077,6 +1095,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-cgl-4-a.test.cpp
       title: test/verify/aoj-cgl-4-a.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-cgl-4-b.test.cpp
+      title: test/verify/aoj-cgl-4-b.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-cgl-7-d.test.cpp
+      title: test/verify/aoj-cgl-7-d.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-cgl-7-e.test.cpp
+      title: test/verify/aoj-cgl-7-e.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-1-b.test.cpp
       title: test/verify/aoj-dpl-1-b.test.cpp

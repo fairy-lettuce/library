@@ -18,6 +18,9 @@ data:
     path: geometry/distance_ss.cpp
     title: geometry/distance_ss.cpp
   - icon: ':warning:'
+    path: geometry/is_intersect_cs.cpp
+    title: geometry/is_intersect_cs.cpp
+  - icon: ':warning:'
     path: geometry/is_intersect_ls.cpp
     title: geometry/is_intersect_ls.cpp
   - icon: ':heavy_check_mark:'
@@ -80,6 +83,7 @@ data:
   path: geometry/segment.cpp
   requiredBy:
   - geometry/is_intersect_sp.cpp
+  - geometry/is_intersect_cs.cpp
   - geometry/distance_ss.cpp
   - geometry/distance_sp.cpp
   - geometry/is_intersect_ls.cpp

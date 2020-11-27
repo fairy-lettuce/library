@@ -5,54 +5,26 @@ data:
     path: geometry/base.cpp
     title: geometry/base.cpp
   - icon: ':heavy_check_mark:'
+    path: geometry/circle.cpp
+    title: geometry/circle.cpp
+  - icon: ':heavy_check_mark:'
     path: geometry/line.cpp
     title: geometry/line.cpp
   - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: geometry/cross_point_cl.cpp
-    title: geometry/cross_point_cl.cpp
-  - icon: ':warning:'
-    path: geometry/distance_ll.cpp
-    title: geometry/distance_ll.cpp
-  - icon: ':warning:'
-    path: geometry/distance_lp.cpp
-    title: geometry/distance_lp.cpp
+    path: geometry/projection.cpp
+    title: geometry/projection.cpp
   - icon: ':heavy_check_mark:'
-    path: geometry/distance_sp.cpp
-    title: geometry/distance_sp.cpp
-  - icon: ':heavy_check_mark:'
-    path: geometry/distance_ss.cpp
-    title: geometry/distance_ss.cpp
-  - icon: ':warning:'
-    path: geometry/is_intersect_cl.cpp
-    title: geometry/is_intersect_cl.cpp
-  - icon: ':warning:'
-    path: geometry/is_intersect_cs.cpp
-    title: geometry/is_intersect_cs.cpp
-  - icon: ':heavy_check_mark:'
-    path: geometry/reflection.cpp
-    title: geometry/reflection.cpp
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-cgl-1-a.test.cpp
-    title: test/verify/aoj-cgl-1-a.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-cgl-1-b.test.cpp
-    title: test/verify/aoj-cgl-1-b.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-cgl-2-d.test.cpp
-    title: test/verify/aoj-cgl-2-d.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-cgl-7-d.test.cpp
-    title: test/verify/aoj-cgl-7-d.test.cpp
+    path: geometry/segment.cpp
+    title: geometry/segment.cpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A
+    links: []
   bundledCode: "#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real\
     \ = double;\n  const Real EPS = 1e-8;\n  const Real PI = acos(static_cast< Real\
     \ >(-1));\n\n  inline int sign(const Real &r) {\n    return r <= -EPS ? -1 : r\
@@ -82,40 +54,47 @@ data:
     \ }\n\n    friend ostream &operator<<(ostream &os, Line &l) {\n      return os\
     \ << l.a << \" to \" << l.b;\n    }\n\n    friend istream &operator>>(istream\
     \ &is, Line &l) {\n      return is >> l.a >> l.b;\n    }\n  };\n\n  using Lines\
-    \ = vector< Line >;\n}\n#line 3 \"geometry/projection.cpp\"\n\nnamespace geometry\
-    \ {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n \
-    \ Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
-    \ l.a - l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n"
-  code: "#include \"point.cpp\"\n#include \"line.cpp\"\n\nnamespace geometry {\n \
-    \ // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n  Point\
-    \ projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a, l.a -\
-    \ l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n"
+    \ = vector< Line >;\n}\n#line 3 \"geometry/segment.cpp\"\n\nnamespace geometry\
+    \ {\n  struct Segment : Line {\n    Segment() = default;\n\n    using Line::Line;\n\
+    \  };\n\n  using Segments = vector< Segment >;\n}\n#line 3 \"geometry/circle.cpp\"\
+    \n\nnamespace geometry {\n  struct Circle {\n    Point p;\n    Real r{};\n\n \
+    \   Circle() = default;\n\n    Circle(const Point &p, const Real &r) : p(p), r(r)\
+    \ {}\n  };\n\n  using Circles = vector< Circle >;\n}\n#line 3 \"geometry/projection.cpp\"\
+    \n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
+    \  Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
+    \ l.a - l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n#line\
+    \ 6 \"geometry/is_intersect_cs.cpp\"\n\nnamespace geometry {\n  int is_intersect_cs(const\
+    \ Circle &c, const Segment &l) {\n    Point h = projection(l, c.p);\n    if(sign(norm(h\
+    \ - c.p) - norm(c.r)) > 0) return 0;\n    auto d1 = abs(c.p - l.a), d2 = abs(c.p\
+    \ - l.b);\n    if(sign(c.r - d1) >= 0 && sign(c.r - d2) >= 0) return 0;\n    if(sign(c.r\
+    \ - d1) < 0 && sign(d2 - c.r) > 0 || sign(d1 - c.r) > 0 && sign(c.r - d2) < 0)\
+    \ return 1;\n    if(sign(dot(l.a - h, l.b - h)) < 0) return 2;\n    return 0;\n\
+    \  }\n}\n"
+  code: "#include \"base.cpp\"\n#include \"point.cpp\"\n#include \"segment.cpp\"\n\
+    #include \"circle.cpp\"\n#include \"projection.cpp\"\n\nnamespace geometry {\n\
+    \  int is_intersect_cs(const Circle &c, const Segment &l) {\n    Point h = projection(l,\
+    \ c.p);\n    if(sign(norm(h - c.p) - norm(c.r)) > 0) return 0;\n    auto d1 =\
+    \ abs(c.p - l.a), d2 = abs(c.p - l.b);\n    if(sign(c.r - d1) >= 0 && sign(c.r\
+    \ - d2) >= 0) return 0;\n    if(sign(c.r - d1) < 0 && sign(d2 - c.r) > 0 || sign(d1\
+    \ - c.r) > 0 && sign(c.r - d2) < 0) return 1;\n    if(sign(dot(l.a - h, l.b -\
+    \ h)) < 0) return 2;\n    return 0;\n  }\n}\n"
   dependsOn:
-  - geometry/point.cpp
   - geometry/base.cpp
+  - geometry/point.cpp
+  - geometry/segment.cpp
   - geometry/line.cpp
+  - geometry/circle.cpp
+  - geometry/projection.cpp
   isVerificationFile: false
-  path: geometry/projection.cpp
-  requiredBy:
-  - geometry/distance_ll.cpp
-  - geometry/reflection.cpp
-  - geometry/cross_point_cl.cpp
-  - geometry/is_intersect_cs.cpp
-  - geometry/distance_ss.cpp
-  - geometry/is_intersect_cl.cpp
-  - geometry/distance_sp.cpp
-  - geometry/distance_lp.cpp
-  timestamp: '2020-11-25 02:17:17+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/verify/aoj-cgl-2-d.test.cpp
-  - test/verify/aoj-cgl-1-a.test.cpp
-  - test/verify/aoj-cgl-7-d.test.cpp
-  - test/verify/aoj-cgl-1-b.test.cpp
-documentation_of: geometry/projection.cpp
+  path: geometry/is_intersect_cs.cpp
+  requiredBy: []
+  timestamp: '2020-11-28 02:48:52+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: geometry/is_intersect_cs.cpp
 layout: document
 redirect_from:
-- /library/geometry/projection.cpp
-- /library/geometry/projection.cpp.html
-title: geometry/projection.cpp
+- /library/geometry/is_intersect_cs.cpp
+- /library/geometry/is_intersect_cs.cpp.html
+title: geometry/is_intersect_cs.cpp
 ---
