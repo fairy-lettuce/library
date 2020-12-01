@@ -9,6 +9,9 @@ data:
     title: geometry/point.cpp
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: geometry/common_area_cp.cpp
+    title: geometry/common_area_cp.cpp
+  - icon: ':heavy_check_mark:'
     path: geometry/convex_polygon_cut.cpp
     title: geometry/convex_polygon_cut.cpp
   - icon: ':heavy_check_mark:'
@@ -35,7 +38,7 @@ data:
   - icon: ':warning:'
     path: geometry/is_intersect_cl.cpp
     title: geometry/is_intersect_cl.cpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: geometry/is_intersect_cs.cpp
     title: geometry/is_intersect_cs.cpp
   - icon: ':warning:'
@@ -93,6 +96,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-7-d.test.cpp
     title: test/verify/aoj-cgl-7-d.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-7-h.test.cpp
+    title: test/verify/aoj-cgl-7-h.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -156,6 +162,7 @@ data:
   - geometry/cross_point_cs.cpp
   - geometry/is_orthogonal.cpp
   - geometry/convex_polygon_cut.cpp
+  - geometry/common_area_cp.cpp
   - geometry/distance_sp.cpp
   - geometry/is_intersect_lp.cpp
   - geometry/projection.cpp
@@ -174,6 +181,7 @@ data:
   - test/verify/aoj-cgl-7-d.test.cpp
   - test/verify/aoj-cgl-4-c.test.cpp
   - test/verify/aoj-cgl-2-c.test.cpp
+  - test/verify/aoj-cgl-7-h.test.cpp
   - test/verify/aoj-cgl-1-b.test.cpp
 documentation_of: geometry/line.cpp
 layout: document

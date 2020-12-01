@@ -9,6 +9,9 @@ data:
     title: geometry/point.cpp
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: geometry/common_area_cp.cpp
+    title: geometry/common_area_cp.cpp
+  - icon: ':heavy_check_mark:'
     path: geometry/distance_sp.cpp
     title: geometry/distance_sp.cpp
   - icon: ':heavy_check_mark:'
@@ -39,6 +42,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-3-b.test.cpp
     title: test/verify/aoj-cgl-3-b.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-7-h.test.cpp
+    title: test/verify/aoj-cgl-7-h.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -89,6 +95,7 @@ data:
   - geometry/is_intersect_sp.cpp
   - geometry/is_convex_polygon.cpp
   - geometry/distance_ss.cpp
+  - geometry/common_area_cp.cpp
   - geometry/distance_sp.cpp
   - geometry/is_intersect_lp.cpp
   - geometry/is_intersect_ss.cpp
@@ -99,6 +106,7 @@ data:
   - test/verify/aoj-cgl-1-c.test.cpp
   - test/verify/aoj-cgl-2-d.test.cpp
   - test/verify/aoj-cgl-3-b.test.cpp
+  - test/verify/aoj-cgl-7-h.test.cpp
 documentation_of: geometry/ccw.cpp
 layout: document
 redirect_from:

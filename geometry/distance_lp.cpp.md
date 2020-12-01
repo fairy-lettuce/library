@@ -54,8 +54,8 @@ data:
     \     b = Point(C / A, 0);\n      }\n    }\n\n    friend ostream &operator<<(ostream\
     \ &os, Line &l) {\n      return os << l.a << \" to \" << l.b;\n    }\n\n    friend\
     \ istream &operator>>(istream &is, Line &l) {\n      return is >> l.a >> l.b;\n\
-    \    }\n  };\n\n  using Lines = vector< Line >;\n}\n#line 3 \"geometry/projection.cpp\"\
-    \n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
+    \    }\n  };\n\n  using Lines = vector< Line >;\n}\n#line 2 \"geometry/projection.cpp\"\
+    \n\n#line 5 \"geometry/projection.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
     \  Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
     \ l.a - l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n#line\
     \ 3 \"geometry/distance_lp.cpp\"\n\nnamespace geometry {\n  Real distance_lp(const\
@@ -73,7 +73,7 @@ data:
   requiredBy:
   - geometry/distance_ll.cpp
   - geometry/is_intersect_cl.cpp
-  timestamp: '2020-12-01 17:38:42+09:00'
+  timestamp: '2020-12-01 18:35:30+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: geometry/distance_lp.cpp

@@ -18,6 +18,9 @@ data:
     path: geometry/circle.cpp
     title: geometry/circle.cpp
   - icon: ':heavy_check_mark:'
+    path: geometry/common_area_cp.cpp
+    title: geometry/common_area_cp.cpp
+  - icon: ':heavy_check_mark:'
     path: geometry/contains.cpp
     title: geometry/contains.cpp
   - icon: ':heavy_check_mark:'
@@ -68,7 +71,7 @@ data:
   - icon: ':warning:'
     path: geometry/is_intersect_cp.cpp
     title: geometry/is_intersect_cp.cpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: geometry/is_intersect_cs.cpp
     title: geometry/is_intersect_cs.cpp
   - icon: ':warning:'
@@ -156,6 +159,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-7-e.test.cpp
     title: test/verify/aoj-cgl-7-e.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-7-h.test.cpp
+    title: test/verify/aoj-cgl-7-h.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -216,6 +222,7 @@ data:
   - geometry/circle.cpp
   - geometry/is_orthogonal.cpp
   - geometry/convex_polygon_cut.cpp
+  - geometry/common_area_cp.cpp
   - geometry/cross_point_cc.cpp
   - geometry/distance_sp.cpp
   - geometry/is_intersect_cp.cpp
@@ -252,6 +259,7 @@ data:
   - test/verify/aoj-cgl-4-c.test.cpp
   - test/verify/aoj-cgl-2-c.test.cpp
   - test/verify/aoj-cgl-3-a.test.cpp
+  - test/verify/aoj-cgl-7-h.test.cpp
   - test/verify/aoj-cgl-1-b.test.cpp
 documentation_of: geometry/point.cpp
 layout: document

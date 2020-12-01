@@ -57,8 +57,8 @@ data:
     \    }\n  };\n\n  using Lines = vector< Line >;\n}\n#line 3 \"geometry/circle.cpp\"\
     \n\nnamespace geometry {\n  struct Circle {\n    Point p;\n    Real r{};\n\n \
     \   Circle() = default;\n\n    Circle(const Point &p, const Real &r) : p(p), r(r)\
-    \ {}\n  };\n\n  using Circles = vector< Circle >;\n}\n#line 3 \"geometry/projection.cpp\"\
-    \n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
+    \ {}\n  };\n\n  using Circles = vector< Circle >;\n}\n#line 2 \"geometry/projection.cpp\"\
+    \n\n#line 5 \"geometry/projection.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
     \  Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
     \ l.a - l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n#line\
     \ 3 \"geometry/distance_lp.cpp\"\n\nnamespace geometry {\n  Real distance_lp(const\
@@ -80,7 +80,7 @@ data:
   isVerificationFile: false
   path: geometry/is_intersect_cl.cpp
   requiredBy: []
-  timestamp: '2020-12-01 17:38:42+09:00'
+  timestamp: '2020-12-01 18:35:30+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: geometry/is_intersect_cl.cpp

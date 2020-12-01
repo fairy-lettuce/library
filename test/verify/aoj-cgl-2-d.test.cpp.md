@@ -115,8 +115,8 @@ data:
     \    return ON_SEGMENT;\n  }\n}\n#line 4 \"geometry/is_intersect_ss.cpp\"\n\n\n\
     namespace geometry {\n  bool is_intersect_ss(const Segment &s, const Segment &t)\
     \ {\n    return ccw(s.a, s.b, t.a) * ccw(s.a, s.b, t.b) <= 0 &&\n           ccw(t.a,\
-    \ t.b, s.a) * ccw(t.a, t.b, s.b) <= 0;\n  }\n}\n#line 3 \"geometry/projection.cpp\"\
-    \n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
+    \ t.b, s.a) * ccw(t.a, t.b, s.b) <= 0;\n  }\n}\n#line 2 \"geometry/projection.cpp\"\
+    \n\n#line 5 \"geometry/projection.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
     \  Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
     \ l.a - l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n#line\
     \ 4 \"geometry/is_intersect_sp.cpp\"\n\nnamespace geometry {\n  bool is_intersect_sp(const\
@@ -152,7 +152,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-cgl-2-d.test.cpp
   requiredBy: []
-  timestamp: '2020-12-01 17:38:42+09:00'
+  timestamp: '2020-12-01 18:35:30+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-cgl-2-d.test.cpp

@@ -20,12 +20,18 @@ data:
     path: geometry/segment.cpp
     title: geometry/segment.cpp
   _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: geometry/common_area_cp.cpp
+    title: geometry/common_area_cp.cpp
   - icon: ':warning:'
     path: geometry/cross_point_cs.cpp
     title: geometry/cross_point_cs.cpp
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-7-h.test.cpp
+    title: test/verify/aoj-cgl-7-h.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real\
@@ -63,7 +69,8 @@ data:
     \ 3 \"geometry/circle.cpp\"\n\nnamespace geometry {\n  struct Circle {\n    Point\
     \ p;\n    Real r{};\n\n    Circle() = default;\n\n    Circle(const Point &p, const\
     \ Real &r) : p(p), r(r) {}\n  };\n\n  using Circles = vector< Circle >;\n}\n#line\
-    \ 3 \"geometry/projection.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
+    \ 2 \"geometry/projection.cpp\"\n\n#line 5 \"geometry/projection.cpp\"\n\nnamespace\
+    \ geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
     \  Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
     \ l.a - l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n#line\
     \ 6 \"geometry/is_intersect_cs.cpp\"\n\nnamespace geometry {\n  int is_intersect_cs(const\
@@ -92,9 +99,11 @@ data:
   path: geometry/is_intersect_cs.cpp
   requiredBy:
   - geometry/cross_point_cs.cpp
-  timestamp: '2020-12-01 17:38:42+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  - geometry/common_area_cp.cpp
+  timestamp: '2020-12-01 18:35:30+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/verify/aoj-cgl-7-h.test.cpp
 documentation_of: geometry/is_intersect_cs.cpp
 layout: document
 redirect_from:

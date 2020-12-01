@@ -160,6 +160,9 @@ data:
     path: test/verify/aoj-cgl-7-e.test.cpp
     title: test/verify/aoj-cgl-7-e.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-7-h.test.cpp
+    title: test/verify/aoj-cgl-7-h.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-1-b.test.cpp
     title: test/verify/aoj-dpl-1-b.test.cpp
   - icon: ':heavy_check_mark:'
@@ -784,6 +787,7 @@ data:
   - test/verify/aoj-dpl-1-c.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
   - test/verify/yosupo-cycle-detection.test.cpp
+  - test/verify/aoj-cgl-7-h.test.cpp
   - test/verify/aoj-grl-2-a.test.cpp
   - test/verify/yosupo-range-kth-smallest.test.cpp
   - test/verify/aoj-grl-5-a-2.test.cpp

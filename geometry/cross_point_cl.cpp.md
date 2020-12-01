@@ -17,6 +17,9 @@ data:
     path: geometry/projection.cpp
     title: geometry/projection.cpp
   _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: geometry/common_area_cp.cpp
+    title: geometry/common_area_cp.cpp
   - icon: ':warning:'
     path: geometry/cross_point_cs.cpp
     title: geometry/cross_point_cs.cpp
@@ -24,6 +27,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-7-d.test.cpp
     title: test/verify/aoj-cgl-7-d.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-7-h.test.cpp
+    title: test/verify/aoj-cgl-7-h.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -61,8 +67,8 @@ data:
     \    }\n  };\n\n  using Lines = vector< Line >;\n}\n#line 3 \"geometry/circle.cpp\"\
     \n\nnamespace geometry {\n  struct Circle {\n    Point p;\n    Real r{};\n\n \
     \   Circle() = default;\n\n    Circle(const Point &p, const Real &r) : p(p), r(r)\
-    \ {}\n  };\n\n  using Circles = vector< Circle >;\n}\n#line 3 \"geometry/projection.cpp\"\
-    \n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
+    \ {}\n  };\n\n  using Circles = vector< Circle >;\n}\n#line 2 \"geometry/projection.cpp\"\
+    \n\n#line 5 \"geometry/projection.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
     \  Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
     \ l.a - l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n#line\
     \ 6 \"geometry/cross_point_cl.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D\n\
@@ -86,10 +92,12 @@ data:
   path: geometry/cross_point_cl.cpp
   requiredBy:
   - geometry/cross_point_cs.cpp
-  timestamp: '2020-12-01 17:38:42+09:00'
+  - geometry/common_area_cp.cpp
+  timestamp: '2020-12-01 18:35:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-cgl-7-d.test.cpp
+  - test/verify/aoj-cgl-7-h.test.cpp
 documentation_of: geometry/cross_point_cl.cpp
 layout: document
 redirect_from:

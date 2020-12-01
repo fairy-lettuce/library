@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: geometry/cross_point_cl.cpp
     title: geometry/cross_point_cl.cpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: geometry/is_intersect_cs.cpp
     title: geometry/is_intersect_cs.cpp
   - icon: ':heavy_check_mark:'
@@ -66,7 +66,8 @@ data:
     \ 3 \"geometry/circle.cpp\"\n\nnamespace geometry {\n  struct Circle {\n    Point\
     \ p;\n    Real r{};\n\n    Circle() = default;\n\n    Circle(const Point &p, const\
     \ Real &r) : p(p), r(r) {}\n  };\n\n  using Circles = vector< Circle >;\n}\n#line\
-    \ 3 \"geometry/projection.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
+    \ 2 \"geometry/projection.cpp\"\n\n#line 5 \"geometry/projection.cpp\"\n\nnamespace\
+    \ geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
     \  Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
     \ l.a - l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n#line\
     \ 6 \"geometry/is_intersect_cs.cpp\"\n\nnamespace geometry {\n  int is_intersect_cs(const\
@@ -75,19 +76,17 @@ data:
     \ - l.b);\n    if(sign(c.r - d1) >= 0 && sign(c.r - d2) >= 0) return 0;\n    if(sign(c.r\
     \ - d1) < 0 && sign(d2 - c.r) > 0 || sign(d1 - c.r) > 0 && sign(c.r - d2) < 0)\
     \ return 1;\n    if(sign(dot(l.a - h, l.b - h)) < 0) return 2;\n    return 0;\n\
-    \  }\n}\n#line 3 \"geometry/projection.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
-    \  Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
-    \ l.a - l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n#line\
-    \ 6 \"geometry/cross_point_cl.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D\n\
-    \  Points cross_point_cl(const Circle &c, const Line &l) {\n    Point pr = projection(l,\
-    \ c.p);\n    if(equals(abs(pr - c.p), c.r)) return {pr};\n    Point e = (l.b -\
-    \ l.a) / abs(l.b - l.a);\n    auto k = sqrt(norm(c.r) - norm(pr - c.p));\n   \
-    \ return {pr - e * k, pr + e * k};\n  }\n}\n#line 6 \"geometry/cross_point_cs.cpp\"\
-    \n\nnamespace geometry {\n  Points cross_point_cs(const Circle &c, const Segment\
-    \ &s) {\n    int num = is_intersect_cs(c, s);\n    if(num == 0) return {};\n \
-    \   if(num == 2) return cross_point_cl(c, s);\n    auto ret = cross_point_cl(c,\
-    \ s);\n    if(dot(s.a - ret[0], s.b - ret[0]) > 0) swap(ret[0], ret[1]);\n   \
-    \ return {ret[0]};\n  }\n}\n"
+    \  }\n}\n#line 6 \"geometry/cross_point_cl.cpp\"\n\nnamespace geometry {\n  //\
+    \ http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D\n  Points cross_point_cl(const\
+    \ Circle &c, const Line &l) {\n    Point pr = projection(l, c.p);\n    if(equals(abs(pr\
+    \ - c.p), c.r)) return {pr};\n    Point e = (l.b - l.a) / abs(l.b - l.a);\n  \
+    \  auto k = sqrt(norm(c.r) - norm(pr - c.p));\n    return {pr - e * k, pr + e\
+    \ * k};\n  }\n}\n#line 6 \"geometry/cross_point_cs.cpp\"\n\nnamespace geometry\
+    \ {\n  Points cross_point_cs(const Circle &c, const Segment &s) {\n    int num\
+    \ = is_intersect_cs(c, s);\n    if(num == 0) return {};\n    if(num == 2) return\
+    \ cross_point_cl(c, s);\n    auto ret = cross_point_cl(c, s);\n    if(dot(s.a\
+    \ - ret[0], s.b - ret[0]) > 0) swap(ret[0], ret[1]);\n    return {ret[0]};\n \
+    \ }\n}\n"
   code: "#include \"point.cpp\"\n#include \"segment.cpp\"\n#include \"circle.cpp\"\
     \n#include \"is_intersect_cs.cpp\"\n#include \"cross_point_cl.cpp\"\n\nnamespace\
     \ geometry {\n  Points cross_point_cs(const Circle &c, const Segment &s) {\n \
@@ -107,7 +106,7 @@ data:
   isVerificationFile: false
   path: geometry/cross_point_cs.cpp
   requiredBy: []
-  timestamp: '2020-12-01 17:38:42+09:00'
+  timestamp: '2020-12-01 18:35:30+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: geometry/cross_point_cs.cpp

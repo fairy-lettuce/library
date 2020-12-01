@@ -87,9 +87,9 @@ data:
     \ }\n\n    friend ostream &operator<<(ostream &os, Line &l) {\n      return os\
     \ << l.a << \" to \" << l.b;\n    }\n\n    friend istream &operator>>(istream\
     \ &is, Line &l) {\n      return is >> l.a >> l.b;\n    }\n  };\n\n  using Lines\
-    \ = vector< Line >;\n}\n#line 3 \"geometry/projection.cpp\"\n\nnamespace geometry\
-    \ {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n \
-    \ Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
+    \ = vector< Line >;\n}\n#line 2 \"geometry/projection.cpp\"\n\n#line 5 \"geometry/projection.cpp\"\
+    \n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
+    \  Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
     \ l.a - l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n#line\
     \ 4 \"geometry/reflection.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B\n\
     \  Point reflection(const Line &l, const Point &p) {\n    return p + (projection(l,\
@@ -112,7 +112,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-cgl-1-b.test.cpp
   requiredBy: []
-  timestamp: '2020-12-01 17:38:42+09:00'
+  timestamp: '2020-12-01 18:35:30+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-cgl-1-b.test.cpp

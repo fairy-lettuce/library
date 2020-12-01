@@ -9,6 +9,9 @@ data:
     title: geometry/point.cpp
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: geometry/common_area_cp.cpp
+    title: geometry/common_area_cp.cpp
+  - icon: ':heavy_check_mark:'
     path: geometry/cross_point_cc.cpp
     title: geometry/cross_point_cc.cpp
   - icon: ':heavy_check_mark:'
@@ -23,7 +26,7 @@ data:
   - icon: ':warning:'
     path: geometry/is_intersect_cp.cpp
     title: geometry/is_intersect_cp.cpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: geometry/is_intersect_cs.cpp
     title: geometry/is_intersect_cs.cpp
   _extendedVerifiedWith:
@@ -33,6 +36,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-7-e.test.cpp
     title: test/verify/aoj-cgl-7-e.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-7-h.test.cpp
+    title: test/verify/aoj-cgl-7-h.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -74,6 +80,7 @@ data:
   - geometry/is_intersect_cs.cpp
   - geometry/is_intersect_cl.cpp
   - geometry/cross_point_cs.cpp
+  - geometry/common_area_cp.cpp
   - geometry/cross_point_cc.cpp
   - geometry/is_intersect_cp.cpp
   timestamp: '2020-12-01 17:38:42+09:00'
@@ -81,6 +88,7 @@ data:
   verifiedWith:
   - test/verify/aoj-cgl-7-e.test.cpp
   - test/verify/aoj-cgl-7-d.test.cpp
+  - test/verify/aoj-cgl-7-h.test.cpp
 documentation_of: geometry/circle.cpp
 layout: document
 redirect_from:

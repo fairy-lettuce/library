@@ -64,8 +64,8 @@ data:
     \nnamespace geometry {\n  bool is_intersect_ll(const Line &l, const Line &m) {\n\
     \    Real A = cross(l.b - l.a, m.b - m.a);\n    Real B = cross(l.b - l.a, l.b\
     \ - m.a);\n    if(equals(abs(A), 0) && equals(abs(B), 0)) return true;\n    return\
-    \ !is_parallel(l, m);\n  }\n}\n#line 3 \"geometry/projection.cpp\"\n\nnamespace\
-    \ geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
+    \ !is_parallel(l, m);\n  }\n}\n#line 2 \"geometry/projection.cpp\"\n\n#line 5\
+    \ \"geometry/projection.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
     \  Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
     \ l.a - l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n#line\
     \ 3 \"geometry/distance_lp.cpp\"\n\nnamespace geometry {\n  Real distance_lp(const\
@@ -87,7 +87,7 @@ data:
   isVerificationFile: false
   path: geometry/distance_ll.cpp
   requiredBy: []
-  timestamp: '2020-12-01 17:38:42+09:00'
+  timestamp: '2020-12-01 18:35:30+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: geometry/distance_ll.cpp

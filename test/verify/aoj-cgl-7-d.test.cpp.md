@@ -93,9 +93,9 @@ data:
     \ = vector< Line >;\n}\n#line 3 \"geometry/circle.cpp\"\n\nnamespace geometry\
     \ {\n  struct Circle {\n    Point p;\n    Real r{};\n\n    Circle() = default;\n\
     \n    Circle(const Point &p, const Real &r) : p(p), r(r) {}\n  };\n\n  using Circles\
-    \ = vector< Circle >;\n}\n#line 3 \"geometry/projection.cpp\"\n\nnamespace geometry\
-    \ {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n \
-    \ Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
+    \ = vector< Circle >;\n}\n#line 2 \"geometry/projection.cpp\"\n\n#line 5 \"geometry/projection.cpp\"\
+    \n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
+    \  Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
     \ l.a - l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n#line\
     \ 6 \"geometry/cross_point_cl.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D\n\
     \  Points cross_point_cl(const Circle &c, const Line &l) {\n    Point pr = projection(l,\
@@ -125,7 +125,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-cgl-7-d.test.cpp
   requiredBy: []
-  timestamp: '2020-12-01 17:38:42+09:00'
+  timestamp: '2020-12-01 18:35:30+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-cgl-7-d.test.cpp

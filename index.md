@@ -69,6 +69,9 @@ data:
       path: geometry/circle.cpp
       title: geometry/circle.cpp
     - icon: ':heavy_check_mark:'
+      path: geometry/common_area_cp.cpp
+      title: geometry/common_area_cp.cpp
+    - icon: ':heavy_check_mark:'
       path: geometry/contains.cpp
       title: geometry/contains.cpp
     - icon: ':heavy_check_mark:'
@@ -119,7 +122,7 @@ data:
     - icon: ':warning:'
       path: geometry/is_intersect_cp.cpp
       title: geometry/is_intersect_cp.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: geometry/is_intersect_cs.cpp
       title: geometry/is_intersect_cs.cpp
     - icon: ':warning:'
@@ -1116,6 +1119,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-cgl-7-e.test.cpp
       title: test/verify/aoj-cgl-7-e.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-cgl-7-h.test.cpp
+      title: test/verify/aoj-cgl-7-h.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-1-b.test.cpp
       title: test/verify/aoj-dpl-1-b.test.cpp
