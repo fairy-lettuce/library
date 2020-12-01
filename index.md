@@ -75,6 +75,12 @@ data:
       path: geometry/convex_hull.cpp
       title: geometry/convex_hull.cpp
     - icon: ':heavy_check_mark:'
+      path: geometry/convex_polygon_contains.cpp
+      title: geometry/convex_polygon_contains.cpp
+    - icon: ':heavy_check_mark:'
+      path: geometry/convex_polygon_cut.cpp
+      title: geometry/convex_polygon_cut.cpp
+    - icon: ':heavy_check_mark:'
       path: geometry/convex_polygon_diameter.cpp
       title: geometry/convex_polygon_diameter.cpp
     - icon: ':heavy_check_mark:'
@@ -83,6 +89,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: geometry/cross_point_cl.cpp
       title: geometry/cross_point_cl.cpp
+    - icon: ':warning:'
+      path: geometry/cross_point_cs.cpp
+      title: geometry/cross_point_cs.cpp
     - icon: ':heavy_check_mark:'
       path: geometry/cross_point_ll.cpp
       title: geometry/cross_point_ll.cpp
@@ -152,7 +161,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: geometry/segment.cpp
       title: geometry/segment.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: geometry/template.cpp
       title: geometry/template.cpp
   - name: graph/connected-components
@@ -1098,6 +1107,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-cgl-4-b.test.cpp
       title: test/verify/aoj-cgl-4-b.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-cgl-4-c.test.cpp
+      title: test/verify/aoj-cgl-4-c.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-cgl-7-d.test.cpp
       title: test/verify/aoj-cgl-7-d.test.cpp

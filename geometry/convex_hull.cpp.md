@@ -22,28 +22,28 @@ data:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_A
   bundledCode: "#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real\
     \ = double;\n  const Real EPS = 1e-8;\n  const Real PI = acos(static_cast< Real\
-    \ >(-1));\n\n  inline int sign(const Real &r) {\n    return r <= -EPS ? -1 : r\
-    \ >= EPS ? 1 : 0;\n  }\n\n  inline bool equals(const Real &a, const Real &b) {\n\
-    \    return sign(a - b) == 0;\n  }\n}\n#line 3 \"geometry/point.cpp\"\n\nnamespace\
-    \ geometry {\n  using Point = complex< Real >;\n\n  istream &operator>>(istream\
-    \ &is, Point &p) {\n    Real a, b;\n    is >> a >> b;\n    p = Point(a, b);\n\
-    \    return is;\n  }\n\n  ostream &operator<<(ostream &os, const Point &p) {\n\
-    \    return os << real(p) << \" \" << imag(p);\n  }\n\n  Point operator*(const\
-    \ Point &p, const Real &d) {\n    return Point(real(p) * d, imag(p) * d);\n  }\n\
-    \n  // rotate point p counterclockwise by theta rad\n  Point rotate(Real theta,\
-    \ const Point &p) {\n    return Point(cos(theta) * real(p) - sin(theta) * imag(p),\
-    \ sin(theta) * real(p) + cos(theta) * imag(p));\n  }\n\n  Real cross(const Point\
-    \ &a, const Point &b) {\n    return real(a) * imag(b) - imag(a) * real(b);\n \
-    \ }\n\n  Real dot(const Point &a, const Point &b) {\n    return real(a) * real(b)\
-    \ + imag(a) * imag(b);\n  }\n\n  bool compare_x(const Point &a, const Point &b)\
-    \ {\n    return equals(real(a), real(b)) ? imag(a) < imag(b) : real(a) < real(b);\n\
-    \  }\n\n  bool compare_y(const Point &a, const Point &b) {\n    return equals(imag(a),\
-    \ imag(b)) ? real(a) < real(b) : imag(a) < imag(b);\n  }\n\n  using Points = vector<\
-    \ Point >;\n}\n#line 2 \"geometry/polygon.cpp\"\n\n#line 4 \"geometry/polygon.cpp\"\
-    \n\nnamespace geometry {\n  using Polygon = vector< Point >;\n  using Polygons\
-    \ = vector< Polygon >;\n}\n#line 4 \"geometry/convex_hull.cpp\"\n\nnamespace geometry\
-    \ {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_A\n \
-    \ Polygon convex_hull(Polygon &p, bool strict = true) {\n    int n = (int) p.size(),\
+    \ >(-1));\n\n  enum {\n    OUT, ON, IN\n  };\n\n  inline int sign(const Real &r)\
+    \ {\n    return r <= -EPS ? -1 : r >= EPS ? 1 : 0;\n  }\n\n  inline bool equals(const\
+    \ Real &a, const Real &b) {\n    return sign(a - b) == 0;\n  }\n}\n#line 3 \"\
+    geometry/point.cpp\"\n\nnamespace geometry {\n  using Point = complex< Real >;\n\
+    \n  istream &operator>>(istream &is, Point &p) {\n    Real a, b;\n    is >> a\
+    \ >> b;\n    p = Point(a, b);\n    return is;\n  }\n\n  ostream &operator<<(ostream\
+    \ &os, const Point &p) {\n    return os << real(p) << \" \" << imag(p);\n  }\n\
+    \n  Point operator*(const Point &p, const Real &d) {\n    return Point(real(p)\
+    \ * d, imag(p) * d);\n  }\n\n  // rotate point p counterclockwise by theta rad\n\
+    \  Point rotate(Real theta, const Point &p) {\n    return Point(cos(theta) * real(p)\
+    \ - sin(theta) * imag(p), sin(theta) * real(p) + cos(theta) * imag(p));\n  }\n\
+    \n  Real cross(const Point &a, const Point &b) {\n    return real(a) * imag(b)\
+    \ - imag(a) * real(b);\n  }\n\n  Real dot(const Point &a, const Point &b) {\n\
+    \    return real(a) * real(b) + imag(a) * imag(b);\n  }\n\n  bool compare_x(const\
+    \ Point &a, const Point &b) {\n    return equals(real(a), real(b)) ? imag(a) <\
+    \ imag(b) : real(a) < real(b);\n  }\n\n  bool compare_y(const Point &a, const\
+    \ Point &b) {\n    return equals(imag(a), imag(b)) ? real(a) < real(b) : imag(a)\
+    \ < imag(b);\n  }\n\n  using Points = vector< Point >;\n}\n#line 2 \"geometry/polygon.cpp\"\
+    \n\n#line 4 \"geometry/polygon.cpp\"\n\nnamespace geometry {\n  using Polygon\
+    \ = vector< Point >;\n  using Polygons = vector< Polygon >;\n}\n#line 4 \"geometry/convex_hull.cpp\"\
+    \n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_A\n\
+    \  Polygon convex_hull(Polygon &p, bool strict = true) {\n    int n = (int) p.size(),\
     \ k = 0;\n    if(n <= 2) return p;\n    sort(begin(p), end(p), compare_x);\n \
     \   vector< Point > ch(2 * n);\n    auto check = [&](int i) {\n      return sign(cross(ch[k\
     \ - 1] - ch[k - 2], p[i] - ch[k - 1])) <= -1 + strict;\n    };\n    for(int i\
@@ -68,7 +68,7 @@ data:
   isVerificationFile: false
   path: geometry/convex_hull.cpp
   requiredBy: []
-  timestamp: '2020-11-25 02:17:17+09:00'
+  timestamp: '2020-12-01 17:38:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-cgl-4-a.test.cpp

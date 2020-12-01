@@ -21,6 +21,12 @@ data:
     path: geometry/convex_hull.cpp
     title: geometry/convex_hull.cpp
   - icon: ':heavy_check_mark:'
+    path: geometry/convex_polygon_contains.cpp
+    title: geometry/convex_polygon_contains.cpp
+  - icon: ':heavy_check_mark:'
+    path: geometry/convex_polygon_cut.cpp
+    title: geometry/convex_polygon_cut.cpp
+  - icon: ':heavy_check_mark:'
     path: geometry/convex_polygon_diameter.cpp
     title: geometry/convex_polygon_diameter.cpp
   - icon: ':heavy_check_mark:'
@@ -29,6 +35,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: geometry/cross_point_cl.cpp
     title: geometry/cross_point_cl.cpp
+  - icon: ':warning:'
+    path: geometry/cross_point_cs.cpp
+    title: geometry/cross_point_cs.cpp
   - icon: ':heavy_check_mark:'
     path: geometry/cross_point_ll.cpp
     title: geometry/cross_point_ll.cpp
@@ -100,6 +109,9 @@ data:
     title: geometry/segment.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-0412.test.cpp
+    title: test/verify/aoj-0412.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-1-a.test.cpp
     title: test/verify/aoj-cgl-1-a.test.cpp
   - icon: ':heavy_check_mark:'
@@ -136,6 +148,9 @@ data:
     path: test/verify/aoj-cgl-4-b.test.cpp
     title: test/verify/aoj-cgl-4-b.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-4-c.test.cpp
+    title: test/verify/aoj-cgl-4-c.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-7-d.test.cpp
     title: test/verify/aoj-cgl-7-d.test.cpp
   - icon: ':heavy_check_mark:'
@@ -147,14 +162,14 @@ data:
     links: []
   bundledCode: "#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real\
     \ = double;\n  const Real EPS = 1e-8;\n  const Real PI = acos(static_cast< Real\
-    \ >(-1));\n\n  inline int sign(const Real &r) {\n    return r <= -EPS ? -1 : r\
-    \ >= EPS ? 1 : 0;\n  }\n\n  inline bool equals(const Real &a, const Real &b) {\n\
-    \    return sign(a - b) == 0;\n  }\n}\n"
+    \ >(-1));\n\n  enum {\n    OUT, ON, IN\n  };\n\n  inline int sign(const Real &r)\
+    \ {\n    return r <= -EPS ? -1 : r >= EPS ? 1 : 0;\n  }\n\n  inline bool equals(const\
+    \ Real &a, const Real &b) {\n    return sign(a - b) == 0;\n  }\n}\n"
   code: "#pragma once\n\nnamespace geometry {\n  using Real = double;\n  const Real\
-    \ EPS = 1e-8;\n  const Real PI = acos(static_cast< Real >(-1));\n\n  inline int\
-    \ sign(const Real &r) {\n    return r <= -EPS ? -1 : r >= EPS ? 1 : 0;\n  }\n\n\
-    \  inline bool equals(const Real &a, const Real &b) {\n    return sign(a - b)\
-    \ == 0;\n  }\n}\n"
+    \ EPS = 1e-8;\n  const Real PI = acos(static_cast< Real >(-1));\n\n  enum {\n\
+    \    OUT, ON, IN\n  };\n\n  inline int sign(const Real &r) {\n    return r <=\
+    \ -EPS ? -1 : r >= EPS ? 1 : 0;\n  }\n\n  inline bool equals(const Real &a, const\
+    \ Real &b) {\n    return sign(a - b) == 0;\n  }\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: geometry/base.cpp
@@ -171,8 +186,10 @@ data:
   - geometry/is_intersect_cs.cpp
   - geometry/distance_ss.cpp
   - geometry/is_intersect_cl.cpp
+  - geometry/cross_point_cs.cpp
   - geometry/circle.cpp
   - geometry/is_orthogonal.cpp
+  - geometry/convex_polygon_cut.cpp
   - geometry/cross_point_cc.cpp
   - geometry/distance_sp.cpp
   - geometry/is_intersect_cp.cpp
@@ -188,13 +205,15 @@ data:
   - geometry/ccw.cpp
   - geometry/is_parallel.cpp
   - geometry/segment.cpp
+  - geometry/convex_polygon_contains.cpp
   - geometry/distance_pp.cpp
   - geometry/point.cpp
   - geometry/distance_lp.cpp
-  timestamp: '2020-11-24 18:23:37+09:00'
+  timestamp: '2020-12-01 17:38:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-cgl-4-b.test.cpp
+  - test/verify/aoj-0412.test.cpp
   - test/verify/aoj-cgl-2-b.test.cpp
   - test/verify/aoj-cgl-2-a.test.cpp
   - test/verify/aoj-cgl-7-e.test.cpp
@@ -205,6 +224,7 @@ data:
   - test/verify/aoj-cgl-1-a.test.cpp
   - test/verify/aoj-cgl-7-d.test.cpp
   - test/verify/aoj-cgl-3-b.test.cpp
+  - test/verify/aoj-cgl-4-c.test.cpp
   - test/verify/aoj-cgl-2-c.test.cpp
   - test/verify/aoj-cgl-3-a.test.cpp
   - test/verify/aoj-cgl-1-b.test.cpp

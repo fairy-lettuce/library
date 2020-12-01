@@ -151,6 +151,9 @@ data:
     path: test/verify/aoj-cgl-4-b.test.cpp
     title: test/verify/aoj-cgl-4-b.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-cgl-4-c.test.cpp
+    title: test/verify/aoj-cgl-4-c.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-7-d.test.cpp
     title: test/verify/aoj-cgl-7-d.test.cpp
   - icon: ':heavy_check_mark:'
@@ -760,6 +763,7 @@ data:
   - test/verify/aoj-grl-2-a-4.test.cpp
   - test/verify/aoj-2821.test.cpp
   - test/verify/yosupo-lca.test.cpp
+  - test/verify/aoj-cgl-4-c.test.cpp
   - test/verify/yosupo-cartesian-tree.test.cpp
   - test/verify/aoj-dpl-1-i.test.cpp
   - test/verify/aoj-cgl-2-c.test.cpp

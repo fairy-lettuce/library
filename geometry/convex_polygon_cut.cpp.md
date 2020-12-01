@@ -5,8 +5,8 @@ data:
     path: geometry/base.cpp
     title: geometry/base.cpp
   - icon: ':heavy_check_mark:'
-    path: geometry/circle.cpp
-    title: geometry/circle.cpp
+    path: geometry/cross_point_ll.cpp
+    title: geometry/cross_point_ll.cpp
   - icon: ':heavy_check_mark:'
     path: geometry/line.cpp
     title: geometry/line.cpp
@@ -14,21 +14,18 @@ data:
     path: geometry/point.cpp
     title: geometry/point.cpp
   - icon: ':heavy_check_mark:'
-    path: geometry/projection.cpp
-    title: geometry/projection.cpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: geometry/cross_point_cs.cpp
-    title: geometry/cross_point_cs.cpp
+    path: geometry/polygon.cpp
+    title: geometry/polygon.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-cgl-7-d.test.cpp
-    title: test/verify/aoj-cgl-7-d.test.cpp
+    path: test/verify/aoj-cgl-4-c.test.cpp
+    title: test/verify/aoj-cgl-4-c.test.cpp
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_C
   bundledCode: "#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real\
     \ = double;\n  const Real EPS = 1e-8;\n  const Real PI = acos(static_cast< Real\
     \ >(-1));\n\n  enum {\n    OUT, ON, IN\n  };\n\n  inline int sign(const Real &r)\
@@ -58,42 +55,49 @@ data:
     \     b = Point(C / A, 0);\n      }\n    }\n\n    friend ostream &operator<<(ostream\
     \ &os, Line &l) {\n      return os << l.a << \" to \" << l.b;\n    }\n\n    friend\
     \ istream &operator>>(istream &is, Line &l) {\n      return is >> l.a >> l.b;\n\
-    \    }\n  };\n\n  using Lines = vector< Line >;\n}\n#line 3 \"geometry/circle.cpp\"\
-    \n\nnamespace geometry {\n  struct Circle {\n    Point p;\n    Real r{};\n\n \
-    \   Circle() = default;\n\n    Circle(const Point &p, const Real &r) : p(p), r(r)\
-    \ {}\n  };\n\n  using Circles = vector< Circle >;\n}\n#line 3 \"geometry/projection.cpp\"\
-    \n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A\n\
-    \  Point projection(const Line &l, const Point &p) {\n    auto t = dot(p - l.a,\
-    \ l.a - l.b) / norm(l.a - l.b);\n    return l.a + (l.a - l.b) * t;\n  }\n}\n#line\
-    \ 6 \"geometry/cross_point_cl.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D\n\
-    \  Points cross_point_cl(const Circle &c, const Line &l) {\n    Point pr = projection(l,\
-    \ c.p);\n    if(equals(abs(pr - c.p), c.r)) return {pr};\n    Point e = (l.b -\
-    \ l.a) / abs(l.b - l.a);\n    auto k = sqrt(norm(c.r) - norm(pr - c.p));\n   \
-    \ return {pr - e * k, pr + e * k};\n  }\n}\n"
+    \    }\n  };\n\n  using Lines = vector< Line >;\n}\n#line 2 \"geometry/polygon.cpp\"\
+    \n\n#line 4 \"geometry/polygon.cpp\"\n\nnamespace geometry {\n  using Polygon\
+    \ = vector< Point >;\n  using Polygons = vector< Polygon >;\n}\n#line 3 \"geometry/cross_point_ll.cpp\"\
+    \n\nnamespace geometry {\n  Point cross_point_ll(const Line &l, const Line &m)\
+    \ {\n    Real A = cross(l.b - l.a, m.b - m.a);\n    Real B = cross(l.b - l.a,\
+    \ l.b - m.a);\n    if(equals(abs(A), 0) && equals(abs(B), 0)) return m.a;\n  \
+    \  return m.a + (m.b - m.a) * B / A;\n  }\n}\n#line 6 \"geometry/convex_polygon_cut.cpp\"\
+    \n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_C\n\
+    \  // cut with a straight line l and return a convex polygon on the left\n  Polygon\
+    \ convex_polygon_cut(const Polygon &U, const Line &l) {\n    Polygon ret;\n  \
+    \  for(int i = 0; i < U.size(); i++) {\n      const Point &now = U[i];\n     \
+    \ const Point &nxt = U[(i + 1) % U.size()];\n      auto cf = cross(l.a - now,\
+    \ l.b - now);\n      auto cs = cross(l.a - nxt, l.b - nxt);\n      if(sign(cf)\
+    \ >= 0) {\n        ret.emplace_back(now);\n      }\n      if(sign(cf) * sign(cs)\
+    \ < 0) {\n        ret.emplace_back(cross_point_ll(Line(now, nxt), l));\n     \
+    \ }\n    }\n    return ret;\n  }\n}\n"
   code: "#include \"base.cpp\"\n#include \"point.cpp\"\n#include \"line.cpp\"\n#include\
-    \ \"circle.cpp\"\n#include \"projection.cpp\"\n\nnamespace geometry {\n  // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D\n\
-    \  Points cross_point_cl(const Circle &c, const Line &l) {\n    Point pr = projection(l,\
-    \ c.p);\n    if(equals(abs(pr - c.p), c.r)) return {pr};\n    Point e = (l.b -\
-    \ l.a) / abs(l.b - l.a);\n    auto k = sqrt(norm(c.r) - norm(pr - c.p));\n   \
-    \ return {pr - e * k, pr + e * k};\n  }\n}\n"
+    \ \"polygon.cpp\"\n#include \"cross_point_ll.cpp\"\n\nnamespace geometry {\n \
+    \ // http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_C\n  // cut\
+    \ with a straight line l and return a convex polygon on the left\n  Polygon convex_polygon_cut(const\
+    \ Polygon &U, const Line &l) {\n    Polygon ret;\n    for(int i = 0; i < U.size();\
+    \ i++) {\n      const Point &now = U[i];\n      const Point &nxt = U[(i + 1) %\
+    \ U.size()];\n      auto cf = cross(l.a - now, l.b - now);\n      auto cs = cross(l.a\
+    \ - nxt, l.b - nxt);\n      if(sign(cf) >= 0) {\n        ret.emplace_back(now);\n\
+    \      }\n      if(sign(cf) * sign(cs) < 0) {\n        ret.emplace_back(cross_point_ll(Line(now,\
+    \ nxt), l));\n      }\n    }\n    return ret;\n  }\n}\n"
   dependsOn:
   - geometry/base.cpp
   - geometry/point.cpp
   - geometry/line.cpp
-  - geometry/circle.cpp
-  - geometry/projection.cpp
+  - geometry/polygon.cpp
+  - geometry/cross_point_ll.cpp
   isVerificationFile: false
-  path: geometry/cross_point_cl.cpp
-  requiredBy:
-  - geometry/cross_point_cs.cpp
+  path: geometry/convex_polygon_cut.cpp
+  requiredBy: []
   timestamp: '2020-12-01 17:38:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-cgl-7-d.test.cpp
-documentation_of: geometry/cross_point_cl.cpp
+  - test/verify/aoj-cgl-4-c.test.cpp
+documentation_of: geometry/convex_polygon_cut.cpp
 layout: document
 redirect_from:
-- /library/geometry/cross_point_cl.cpp
-- /library/geometry/cross_point_cl.cpp.html
-title: geometry/cross_point_cl.cpp
+- /library/geometry/convex_polygon_cut.cpp
+- /library/geometry/convex_polygon_cut.cpp.html
+title: geometry/convex_polygon_cut.cpp
 ---
