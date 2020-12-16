@@ -5,8 +5,8 @@ data:
     path: math/combinatorics/bell-number.cpp
     title: "Bell-Number(\u30D9\u30EB\u6570)"
   - icon: ':heavy_check_mark:'
-    path: math/combinatorics/combination.cpp
-    title: math/combinatorics/combination.cpp
+    path: math/combinatorics/enumerate.cpp
+    title: math/combinatorics/enumerate.cpp
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
@@ -72,42 +72,46 @@ data:
     \ &operator<<(ostream &os, const ModInt &p) {\n    return os << p.x;\n  }\n\n\
     \  friend istream &operator>>(istream &is, ModInt &a) {\n    int64_t t;\n    is\
     \ >> t;\n    a = ModInt< mod >(t);\n    return (is);\n  }\n\n  static int get_mod()\
-    \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 1 \"math/combinatorics/combination.cpp\"\
-    \ntemplate< typename T >\nstruct Combination {\n  vector< T > _fact, _rfact, _inv;\n\
-    \n  Combination(int sz) : _fact(sz + 1), _rfact(sz + 1), _inv(sz + 1) {\n    _fact[0]\
-    \ = _rfact[sz] = _inv[0] = 1;\n    for(int i = 1; i <= sz; i++) _fact[i] = _fact[i\
-    \ - 1] * i;\n    _rfact[sz] /= _fact[sz];\n    for(int i = sz - 1; i >= 0; i--)\
-    \ _rfact[i] = _rfact[i + 1] * (i + 1);\n    for(int i = 1; i <= sz; i++) _inv[i]\
-    \ = _rfact[i] * _fact[i - 1];\n  }\n\n  inline T fact(int k) const { return _fact[k];\
-    \ }\n\n  inline T rfact(int k) const { return _rfact[k]; }\n\n  inline T inv(int\
-    \ k) const { return _inv[k]; }\n\n  T P(int n, int r) const {\n    if(r < 0 ||\
-    \ n < r) return 0;\n    return fact(n) * rfact(n - r);\n  }\n\n  T C(int p, int\
-    \ q) const {\n    if(q < 0 || p < q) return 0;\n    return fact(p) * rfact(q)\
-    \ * rfact(p - q);\n  }\n\n  T H(int n, int r) const {\n    if(n < 0 || r < 0)\
-    \ return (0);\n    return r == 0 ? 1 : C(n + r - 1, r);\n  }\n};\n#line 7 \"test/verify/aoj-dpl-5-g.test.cpp\"\
-    \n\n#line 1 \"math/combinatorics/bell-number.cpp\"\n/**\n * @brief Bell-Number(\u30D9\
-    \u30EB\u6570)\n * @docs docs/bell-number.md\n */\ntemplate< typename T >\nT bell_number(int\
-    \ n, int k) {\n  if(n == 0) return 1;\n  k = min(k, n);\n  Combination< T > uku(k);\n\
+    \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 6 \"test/verify/aoj-dpl-5-g.test.cpp\"\
+    \n\n#line 1 \"math/combinatorics/enumerate.cpp\"\ntemplate< typename T >\nstruct\
+    \ Enumerate {\nprivate:\n  vector< T > _fact, _rfact, _inv;\n\n  inline void expand(size_t\
+    \ sz) {\n    if(_fact.size() < sz + 1) {\n      int pre_sz = (int) _fact.size();\n\
+    \      _fact.resize(sz + 1);\n      _rfact.resize(sz + 1);\n      _inv.resize(sz\
+    \ + 1);\n      for(int i = pre_sz; i <= sz; i++) {\n        _fact[i] = _fact[i\
+    \ - 1] * T(i);\n      }\n      _rfact[sz] = T(1) / _fact[sz];\n      for(int i\
+    \ = (int) sz - 1; i >= pre_sz; i--) {\n        _rfact[i] = _rfact[i + 1] * T(i\
+    \ + 1);\n      }\n      for(int i = pre_sz; i <= sz; i++) {\n        _inv[i] =\
+    \ _rfact[i] * _fact[i - 1];\n      }\n    }\n  }\n\npublic:\n  explicit Enumerate(size_t\
+    \ sz = 0) : _fact{T(1)}, _rfact{T(1)}, _inv{T(1)} {\n    expand(sz);\n  }\n\n\
+    \  inline T fact(int k) {\n    expand(k);\n    return _fact[k];\n  }\n\n  inline\
+    \ T rfact(int k) {\n    expand(k);\n    return _rfact[k];\n  }\n\n  inline T inv(int\
+    \ k) {\n    expand(k);\n    return _inv[k];\n  }\n\n  T P(int n, int r) {\n  \
+    \  if(r < 0 || n < r) return 0;\n    return fact(n) * rfact(n - r);\n  }\n\n \
+    \ T C(int p, int q) {\n    if(q < 0 || p < q) return 0;\n    return fact(p) *\
+    \ rfact(q) * rfact(p - q);\n  }\n\n  T H(int n, int r) {\n    if(n < 0 || r <\
+    \ 0) return 0;\n    return r == 0 ? 1 : C(n + r - 1, r);\n  }\n};\n#line 2 \"\
+    math/combinatorics/bell-number.cpp\"\n\n/**\n * @brief Bell-Number(\u30D9\u30EB\
+    \u6570)\n * @docs docs/bell-number.md\n */\ntemplate< typename T >\nT bell_number(int\
+    \ n, int k) {\n  if(n == 0) return 1;\n  k = min(k, n);\n  Enumerate< T > uku(k);\n\
     \  T ret = 0;\n  vector< T > pref(k + 1);\n  pref[0] = 1;\n  for(int i = 1; i\
     \ <= k; i++) {\n    if(i & 1) pref[i] = pref[i - 1] - uku.rfact(i);\n    else\
     \ pref[i] = pref[i - 1] + uku.rfact(i);\n  }\n  for(int i = 1; i <= k; i++) {\n\
     \    ret += T(i).pow(n) * uku.rfact(i) * pref[k - i];\n  }\n  return ret;\n}\n\
-    #line 9 \"test/verify/aoj-dpl-5-g.test.cpp\"\n\nint main() {\n  int N, K;\n  cin\
+    #line 8 \"test/verify/aoj-dpl-5-g.test.cpp\"\n\nint main() {\n  int N, K;\n  cin\
     \ >> N >> K;\n  cout << bell_number< modint >(N, K) << endl;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_G\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../math/combinatorics/mod-int.cpp\"\
-    \n#include \"../../math/combinatorics/combination.cpp\"\n\n#include \"../../math/combinatorics/bell-number.cpp\"\
-    \n\nint main() {\n  int N, K;\n  cin >> N >> K;\n  cout << bell_number< modint\
-    \ >(N, K) << endl;\n}\n"
+    \n\n#include \"../../math/combinatorics/bell-number.cpp\"\n\nint main() {\n  int\
+    \ N, K;\n  cin >> N >> K;\n  cout << bell_number< modint >(N, K) << endl;\n}\n"
   dependsOn:
   - template/template.cpp
   - math/combinatorics/mod-int.cpp
-  - math/combinatorics/combination.cpp
   - math/combinatorics/bell-number.cpp
+  - math/combinatorics/enumerate.cpp
   isVerificationFile: true
   path: test/verify/aoj-dpl-5-g.test.cpp
   requiredBy: []
-  timestamp: '2020-02-24 19:08:02+09:00'
+  timestamp: '2020-12-16 21:47:02+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dpl-5-g.test.cpp

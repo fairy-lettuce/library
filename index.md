@@ -390,8 +390,8 @@ data:
       path: math/combinatorics/binomial.cpp
       title: "Binomial(\u4E8C\u9805\u4FC2\u6570)"
     - icon: ':heavy_check_mark:'
-      path: math/combinatorics/combination.cpp
-      title: math/combinatorics/combination.cpp
+      path: math/combinatorics/enumerate.cpp
+      title: math/combinatorics/enumerate.cpp
     - icon: ':warning:'
       path: math/combinatorics/lagrange-polynomial.cpp
       title: math/combinatorics/lagrange-polynomial.cpp
