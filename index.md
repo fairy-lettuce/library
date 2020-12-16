@@ -210,7 +210,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/flow/gabow-edmonds.cpp
       title: graph/flow/gabow-edmonds.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/flow/hungarian.cpp
       title: "Hungarian(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5C0F\u91CD\u307F\
         \u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0)"
@@ -228,7 +228,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/graph-template.cpp
       title: graph/graph-template.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/template.cpp
       title: graph/template.cpp
   - name: graph/mst
@@ -514,7 +514,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/matrix/binary-basis.cpp
       title: math/matrix/binary-basis.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/matrix/matrix.cpp
       title: math/matrix/matrix.cpp
     - icon: ':heavy_check_mark:'
@@ -851,7 +851,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -985,7 +985,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-0560.test.cpp
       title: test/verify/aoj-0560.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-1163.test.cpp
       title: test/verify/aoj-1163.test.cpp
     - icon: ':heavy_check_mark:'

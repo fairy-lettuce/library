@@ -2,12 +2,12 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/flow/hungarian.cpp
     title: "Hungarian(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5C0F\u91CD\u307F\
       \u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1163.test.cpp
     title: test/verify/aoj-1163.test.cpp
   - icon: ':heavy_check_mark:'
@@ -17,7 +17,7 @@ data:
     path: test/verify/yosupo-matrix-det.test.cpp
     title: test/verify/yosupo-matrix-det.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"math/matrix/matrix.cpp\"\ntemplate< class T >\nstruct Matrix\
@@ -103,7 +103,7 @@ data:
   requiredBy:
   - graph/flow/hungarian.cpp
   timestamp: '2019-11-30 23:36:31+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-1163.test.cpp
   - test/verify/yosupo-assignment.test.cpp
