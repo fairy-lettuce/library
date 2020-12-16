@@ -7,12 +7,6 @@ data:
     path: test/verify/aoj-2405.test.cpp
     title: test/verify/aoj-2405.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-dpl-5-g.test.cpp
-    title: test/verify/aoj-dpl-5-g.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-dpl-5-i.test.cpp
-    title: test/verify/aoj-dpl-5-i.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-5-j.test.cpp
     title: test/verify/aoj-dpl-5-j.test.cpp
   - icon: ':heavy_check_mark:'
@@ -166,14 +160,12 @@ data:
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
   - test/verify/aoj-dpl-5-j.test.cpp
   - test/verify/yosupo-queue-operate-all-composite.test.cpp
-  - test/verify/aoj-dpl-5-g.test.cpp
   - test/verify/yosupo-sparse-matrix-det.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - test/verify/yosupo-matrix-det.test.cpp
   - test/verify/yosupo-range-affine-range-sum-3.test.cpp
   - test/verify/yosupo-multipoint-evaluation.test.cpp
-  - test/verify/aoj-dpl-5-i.test.cpp
   - test/verify/yukicoder-650.test.cpp
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
 documentation_of: math/combinatorics/mod-int.cpp

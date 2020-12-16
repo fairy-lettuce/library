@@ -187,12 +187,6 @@ data:
     path: test/verify/aoj-dpl-3-c.test.cpp
     title: test/verify/aoj-dpl-3-c.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-dpl-5-g.test.cpp
-    title: test/verify/aoj-dpl-5-g.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-dpl-5-i.test.cpp
-    title: test/verify/aoj-dpl-5-i.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-5-j.test.cpp
     title: test/verify/aoj-dpl-5-j.test.cpp
   - icon: ':heavy_check_mark:'
@@ -764,7 +758,6 @@ data:
   - test/verify/aoj-grl-1-b-2.test.cpp
   - test/verify/aoj-2450.test.cpp
   - test/verify/aoj-1508-2.test.cpp
-  - test/verify/aoj-dpl-5-g.test.cpp
   - test/verify/aoj-dpl-1-f.test.cpp
   - test/verify/yukicoder-583.test.cpp
   - test/verify/yukicoder-430.test.cpp
@@ -801,7 +794,6 @@ data:
   - test/verify/yosupo-rectangle-sum.test.cpp
   - test/verify/yosupo-point-add-rectangle-sum.test.cpp
   - test/verify/aoj-dsl-2-b.test.cpp
-  - test/verify/aoj-dpl-5-i.test.cpp
   - test/verify/yukicoder-650.test.cpp
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
   - test/verify/yosupo-tetration-mod.test.cpp
