@@ -186,6 +186,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-3-c.test.cpp
     title: test/verify/aoj-dpl-3-c.test.cpp
+  - icon: ':x:'
+    path: test/verify/aoj-dpl-5-g.test.cpp
+    title: test/verify/aoj-dpl-5-g.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-dpl-5-i.test.cpp
+    title: test/verify/aoj-dpl-5-i.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-5-j.test.cpp
     title: test/verify/aoj-dpl-5-j.test.cpp
@@ -553,7 +559,7 @@ data:
     path: test/verify/yukicoder-952.test.cpp
     title: test/verify/yukicoder-952.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing\
@@ -616,7 +622,7 @@ data:
   path: template/template.cpp
   requiredBy: []
   timestamp: '2019-08-13 21:45:04+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-cartesian-tree.test.cpp
   - test/verify/yosupo-two-edge-connected-components-2.test.cpp
@@ -758,6 +764,7 @@ data:
   - test/verify/aoj-grl-1-b-2.test.cpp
   - test/verify/aoj-2450.test.cpp
   - test/verify/aoj-1508-2.test.cpp
+  - test/verify/aoj-dpl-5-g.test.cpp
   - test/verify/aoj-dpl-1-f.test.cpp
   - test/verify/yukicoder-583.test.cpp
   - test/verify/yukicoder-430.test.cpp
@@ -794,6 +801,7 @@ data:
   - test/verify/yosupo-rectangle-sum.test.cpp
   - test/verify/yosupo-point-add-rectangle-sum.test.cpp
   - test/verify/aoj-dsl-2-b.test.cpp
+  - test/verify/aoj-dpl-5-i.test.cpp
   - test/verify/yukicoder-650.test.cpp
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
   - test/verify/yosupo-tetration-mod.test.cpp

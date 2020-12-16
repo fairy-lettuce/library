@@ -380,7 +380,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/arbitrary-mod-int.cpp
       title: math/combinatorics/arbitrary-mod-int.cpp
-    - icon: ':warning:'
+    - icon: ':x:'
       path: math/combinatorics/bell-number.cpp
       title: "Bell-Number(\u30D9\u30EB\u6570)"
     - icon: ':warning:'
@@ -389,7 +389,7 @@ data:
     - icon: ':warning:'
       path: math/combinatorics/binomial.cpp
       title: "Binomial(\u4E8C\u9805\u4FC2\u6570)"
-    - icon: ':warning:'
+    - icon: ':question:'
       path: math/combinatorics/enumeration.cpp
       title: math/combinatorics/enumeration.cpp
     - icon: ':warning:'
@@ -398,7 +398,7 @@ data:
     - icon: ':warning:'
       path: math/combinatorics/mod-int-2.cpp
       title: math/combinatorics/mod-int-2.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/combinatorics/mod-int.cpp
       title: math/combinatorics/mod-int.cpp
     - icon: ':heavy_check_mark:'
@@ -419,7 +419,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/partition-table.cpp
       title: "Partition-Table(\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/stirling-number-second.cpp
       title: "Stirling-Number-Second(\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
         \u6570)"
@@ -851,7 +851,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -1150,7 +1150,7 @@ data:
     - icon: ':x:'
       path: test/verify/aoj-dpl-5-g.test.cpp
       title: test/verify/aoj-dpl-5-g.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-5-i.test.cpp
       title: test/verify/aoj-dpl-5-i.test.cpp
     - icon: ':heavy_check_mark:'

@@ -1,37 +1,63 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: math/combinatorics/enumeration.cpp
+    title: math/combinatorics/enumeration.cpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-dpl-5-i.test.cpp
+    title: test/verify/aoj-dpl-5-i.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/stirling-number-second.md
     document_title: "Stirling-Number-Second(\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\
       \u30B0\u6570)"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.0/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.0/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.0/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 399, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.9.0/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 258, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: enumerate.cpp:\
-    \ line -1: no such header\n"
-  code: "#include \"enumerate.cpp\"\n\n/**\n * @brief Stirling-Number-Second(\u7B2C\
+  bundledCode: "#line 1 \"math/combinatorics/enumeration.cpp\"\ntemplate< typename\
+    \ T >\nstruct Enumeration {\nprivate:\n  static vector< T > _fact, _finv, _inv;\n\
+    \n  inline static void expand(size_t sz) {\n    if(_fact.size() < sz + 1) {\n\
+    \      int pre_sz = max(1, (int) _fact.size());\n      _fact.resize(sz + 1, T(1));\n\
+    \      _finv.resize(sz + 1, T(1));\n      _inv.resize(sz + 1, T(1));\n      for(int\
+    \ i = pre_sz; i <= sz; i++) {\n        _fact[i] = _fact[i - 1] * T(i);\n     \
+    \ }\n      _finv[sz] = T(1) / _fact[sz];\n      for(int i = (int) sz - 1; i >=\
+    \ pre_sz; i--) {\n        _finv[i] = _finv[i + 1] * T(i + 1);\n      }\n     \
+    \ for(int i = pre_sz; i <= sz; i++) {\n        _inv[i] = _finv[i] * _fact[i -\
+    \ 1];\n      }\n    }\n  }\n\npublic:\n  explicit Enumeration(size_t sz = 0) {\
+    \ expand(sz); }\n\n  static inline T fact(int k) {\n    expand(k);\n    return\
+    \ _fact[k];\n  }\n\n  static inline T finv(int k) {\n    expand(k);\n    return\
+    \ _finv[k];\n  }\n\n  static inline T inv(int k) {\n    expand(k);\n    return\
+    \ _inv[k];\n  }\n\n  static T P(int n, int r) {\n    if(r < 0 || n < r) return\
+    \ 0;\n    return fact(n) * finv(n - r);\n  }\n\n  static T C(int p, int q) {\n\
+    \    if(q < 0 || p < q) return 0;\n    return fact(p) * finv(q) * finv(p - q);\n\
+    \  }\n\n  static T H(int n, int r) {\n    if(n < 0 || r < 0) return 0;\n    return\
+    \ r == 0 ? 1 : C(n + r - 1, r);\n  }\n};\n\ntemplate< typename M >\nvector< M\
+    \ > Enumeration< M >::_fact = vector< M >();\ntemplate< typename M >\nvector<\
+    \ M > Enumeration< M >::_finv = vector< M >();\ntemplate< typename M >\nvector<\
+    \ M > Enumeration< M >::_inv = vector< M >();\n#line 2 \"math/combinatorics/stirling-number-second.cpp\"\
+    \n\n/**\n * @brief Stirling-Number-Second(\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\
+    \u30F3\u30B0\u6570)\n * @docs docs/stirling-number-second.md\n */\ntemplate< typename\
+    \ T >\nT stirling_number_second(int n, int k) {\n  Enumeration< T > table(k);\n\
+    \  T ret = 0;\n  for(int i = 0; i <= k; i++) {\n    auto add = T(i).pow(n) * table.C(k,\
+    \ i);\n    if((k - i) & 1) ret -= add;\n    else ret += add;\n  }\n  return ret\
+    \ * table.finv(k);\n}\n"
+  code: "#include \"enumeration.cpp\"\n\n/**\n * @brief Stirling-Number-Second(\u7B2C\
     2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570)\n * @docs docs/stirling-number-second.md\n\
     \ */\ntemplate< typename T >\nT stirling_number_second(int n, int k) {\n  Enumeration<\
     \ T > table(k);\n  T ret = 0;\n  for(int i = 0; i <= k; i++) {\n    auto add =\
     \ T(i).pow(n) * table.C(k, i);\n    if((k - i) & 1) ret -= add;\n    else ret\
-    \ += add;\n  }\n  return ret * table.rfact(k);\n}\n\n"
-  dependsOn: []
+    \ += add;\n  }\n  return ret * table.finv(k);\n}\n"
+  dependsOn:
+  - math/combinatorics/enumeration.cpp
   isVerificationFile: false
   path: math/combinatorics/stirling-number-second.cpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2020-12-16 22:24:03+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/verify/aoj-dpl-5-i.test.cpp
 documentation_of: math/combinatorics/stirling-number-second.cpp
 layout: document
 redirect_from:
