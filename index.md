@@ -380,7 +380,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/arbitrary-mod-int.cpp
       title: math/combinatorics/arbitrary-mod-int.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/bell-number.cpp
       title: "Bell-Number(\u30D9\u30EB\u6570)"
     - icon: ':warning:'
@@ -389,7 +389,7 @@ data:
     - icon: ':warning:'
       path: math/combinatorics/binomial.cpp
       title: "Binomial(\u4E8C\u9805\u4FC2\u6570)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/enumeration.cpp
       title: math/combinatorics/enumeration.cpp
     - icon: ':warning:'
@@ -398,7 +398,7 @@ data:
     - icon: ':warning:'
       path: math/combinatorics/mod-int-2.cpp
       title: math/combinatorics/mod-int-2.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-int.cpp
       title: math/combinatorics/mod-int.cpp
     - icon: ':heavy_check_mark:'
@@ -851,7 +851,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -1147,7 +1147,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-3-c.test.cpp
       title: test/verify/aoj-dpl-3-c.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-5-g.test.cpp
       title: test/verify/aoj-dpl-5-g.test.cpp
     - icon: ':heavy_check_mark:'

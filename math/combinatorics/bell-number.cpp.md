@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/enumeration.cpp
     title: math/combinatorics/enumeration.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-5-g.test.cpp
     title: test/verify/aoj-dpl-5-g.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/bell-number.md
     document_title: "Bell-Number(\u30D9\u30EB\u6570)"
@@ -40,23 +40,23 @@ data:
     \ */\ntemplate< typename T >\nT bell_number(int n, int k) {\n  if(n == 0) return\
     \ 1;\n  k = min(k, n);\n  Enumeration< T > uku(k);\n  T ret = 0;\n  vector< T\
     \ > pref(k + 1);\n  pref[0] = 1;\n  for(int i = 1; i <= k; i++) {\n    if(i &\
-    \ 1) pref[i] = pref[i - 1] - uku.rfact(i);\n    else pref[i] = pref[i - 1] + uku.rfact(i);\n\
+    \ 1) pref[i] = pref[i - 1] - uku.finv(i);\n    else pref[i] = pref[i - 1] + uku.finv(i);\n\
     \  }\n  for(int i = 1; i <= k; i++) {\n    ret += T(i).pow(n) * uku.finv(i) *\
     \ pref[k - i];\n  }\n  return ret;\n}\n"
   code: "#include \"enumeration.cpp\"\n\n/**\n * @brief Bell-Number(\u30D9\u30EB\u6570\
     )\n * @docs docs/bell-number.md\n */\ntemplate< typename T >\nT bell_number(int\
     \ n, int k) {\n  if(n == 0) return 1;\n  k = min(k, n);\n  Enumeration< T > uku(k);\n\
     \  T ret = 0;\n  vector< T > pref(k + 1);\n  pref[0] = 1;\n  for(int i = 1; i\
-    \ <= k; i++) {\n    if(i & 1) pref[i] = pref[i - 1] - uku.rfact(i);\n    else\
-    \ pref[i] = pref[i - 1] + uku.rfact(i);\n  }\n  for(int i = 1; i <= k; i++) {\n\
-    \    ret += T(i).pow(n) * uku.finv(i) * pref[k - i];\n  }\n  return ret;\n}\n"
+    \ <= k; i++) {\n    if(i & 1) pref[i] = pref[i - 1] - uku.finv(i);\n    else pref[i]\
+    \ = pref[i - 1] + uku.finv(i);\n  }\n  for(int i = 1; i <= k; i++) {\n    ret\
+    \ += T(i).pow(n) * uku.finv(i) * pref[k - i];\n  }\n  return ret;\n}\n"
   dependsOn:
   - math/combinatorics/enumeration.cpp
   isVerificationFile: false
   path: math/combinatorics/bell-number.cpp
   requiredBy: []
-  timestamp: '2020-12-16 22:24:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2020-12-16 22:30:24+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-dpl-5-g.test.cpp
 documentation_of: math/combinatorics/bell-number.cpp

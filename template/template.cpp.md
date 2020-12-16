@@ -186,7 +186,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-3-c.test.cpp
     title: test/verify/aoj-dpl-3-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-5-g.test.cpp
     title: test/verify/aoj-dpl-5-g.test.cpp
   - icon: ':heavy_check_mark:'
@@ -559,7 +559,7 @@ data:
     path: test/verify/yukicoder-952.test.cpp
     title: test/verify/yukicoder-952.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing\
@@ -622,7 +622,7 @@ data:
   path: template/template.cpp
   requiredBy: []
   timestamp: '2019-08-13 21:45:04+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-cartesian-tree.test.cpp
   - test/verify/yosupo-two-edge-connected-components-2.test.cpp

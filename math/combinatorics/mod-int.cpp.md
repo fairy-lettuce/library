@@ -6,7 +6,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2405.test.cpp
     title: test/verify/aoj-2405.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-5-g.test.cpp
     title: test/verify/aoj-dpl-5-g.test.cpp
   - icon: ':heavy_check_mark:'
@@ -91,7 +91,7 @@ data:
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"math/combinatorics/mod-int.cpp\"\ntemplate< int mod >\n\
@@ -145,7 +145,7 @@ data:
   path: math/combinatorics/mod-int.cpp
   requiredBy: []
   timestamp: '2019-11-30 23:36:31+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-point-set-range-composite.test.cpp
   - test/verify/yosupo-log-of-formal-power-series.test.cpp

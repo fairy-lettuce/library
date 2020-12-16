@@ -1,22 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/bell-number.cpp
     title: "Bell-Number(\u30D9\u30EB\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/enumeration.cpp
     title: math/combinatorics/enumeration.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_G
@@ -98,7 +98,7 @@ data:
     \ */\ntemplate< typename T >\nT bell_number(int n, int k) {\n  if(n == 0) return\
     \ 1;\n  k = min(k, n);\n  Enumeration< T > uku(k);\n  T ret = 0;\n  vector< T\
     \ > pref(k + 1);\n  pref[0] = 1;\n  for(int i = 1; i <= k; i++) {\n    if(i &\
-    \ 1) pref[i] = pref[i - 1] - uku.rfact(i);\n    else pref[i] = pref[i - 1] + uku.rfact(i);\n\
+    \ 1) pref[i] = pref[i - 1] - uku.finv(i);\n    else pref[i] = pref[i - 1] + uku.finv(i);\n\
     \  }\n  for(int i = 1; i <= k; i++) {\n    ret += T(i).pow(n) * uku.finv(i) *\
     \ pref[k - i];\n  }\n  return ret;\n}\n#line 8 \"test/verify/aoj-dpl-5-g.test.cpp\"\
     \n\nint main() {\n  int N, K;\n  cin >> N >> K;\n  cout << bell_number< modint\
@@ -115,8 +115,8 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-dpl-5-g.test.cpp
   requiredBy: []
-  timestamp: '2020-12-16 22:24:03+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2020-12-16 22:30:24+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dpl-5-g.test.cpp
 layout: document

@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/bell-number.cpp
     title: "Bell-Number(\u30D9\u30EB\u6570)"
   - icon: ':heavy_check_mark:'
@@ -10,14 +10,14 @@ data:
     title: "Stirling-Number-Second(\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-5-g.test.cpp
     title: test/verify/aoj-dpl-5-g.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-5-i.test.cpp
     title: test/verify/aoj-dpl-5-i.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"math/combinatorics/enumeration.cpp\"\ntemplate< typename\
@@ -68,7 +68,7 @@ data:
   - math/combinatorics/stirling-number-second.cpp
   - math/combinatorics/bell-number.cpp
   timestamp: '2020-12-16 22:07:07+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-dpl-5-g.test.cpp
   - test/verify/aoj-dpl-5-i.test.cpp
