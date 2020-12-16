@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: structure/others/linear-rmq.cpp
     title: Linear-RMQ
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

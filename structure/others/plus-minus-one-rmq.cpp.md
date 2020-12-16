@@ -100,8 +100,8 @@ data:
   timestamp: '2020-11-10 01:30:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-grl-5-c-4.test.cpp
   - test/verify/yosupo-staticrmq-4.test.cpp
+  - test/verify/aoj-grl-5-c-4.test.cpp
   - test/verify/yosupo-lca.test.cpp
 documentation_of: structure/others/plus-minus-one-rmq.cpp
 layout: document

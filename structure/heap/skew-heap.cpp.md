@@ -61,8 +61,8 @@ data:
   timestamp: '2019-11-30 22:41:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-2415.test.cpp
   - test/verify/aoj-grl-2-b.test.cpp
+  - test/verify/aoj-2415.test.cpp
 documentation_of: structure/heap/skew-heap.cpp
 layout: document
 redirect_from:

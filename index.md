@@ -210,9 +210,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/flow/gabow-edmonds.cpp
       title: graph/flow/gabow-edmonds.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: graph/flow/hungarian.cpp
-      title: graph/flow/hungarian.cpp
+      title: "Hungarian(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5C0F\u91CD\u307F\
+        \u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0)"
     - icon: ':heavy_check_mark:'
       path: graph/flow/maxflow-lower-bound.cpp
       title: graph/flow/maxflow-lower-bound.cpp
@@ -227,7 +228,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/graph-template.cpp
       title: graph/graph-template.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: graph/template.cpp
       title: graph/template.cpp
   - name: graph/mst
@@ -513,7 +514,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/matrix/binary-basis.cpp
       title: math/matrix/binary-basis.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/matrix/matrix.cpp
       title: math/matrix/matrix.cpp
     - icon: ':heavy_check_mark:'
@@ -850,7 +851,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -984,7 +985,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-0560.test.cpp
       title: test/verify/aoj-0560.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/aoj-1163.test.cpp
       title: test/verify/aoj-1163.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1263,6 +1264,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-ntl-1-e.test.cpp
       title: test/verify/aoj-ntl-1-e.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-assignment.test.cpp
+      title: test/verify/yosupo-assignment.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-bellnoulli-number.test.cpp
       title: test/verify/yosupo-bellnoulli-number.test.cpp

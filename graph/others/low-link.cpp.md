@@ -101,11 +101,11 @@ data:
   timestamp: '2020-09-15 01:04:53+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-3139.test.cpp
   - test/verify/aoj-grl-3-a.test.cpp
-  - test/verify/aoj-grl-3-b.test.cpp
-  - test/verify/aoj-3022.test.cpp
+  - test/verify/aoj-3139.test.cpp
   - test/verify/yosupo-two-edge-connected-components.test.cpp
+  - test/verify/aoj-3022.test.cpp
+  - test/verify/aoj-grl-3-b.test.cpp
 documentation_of: graph/others/low-link.cpp
 layout: document
 redirect_from:

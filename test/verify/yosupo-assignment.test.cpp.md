@@ -1,9 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: math/combinatorics/mod-int.cpp
-    title: math/combinatorics/mod-int.cpp
+  - icon: ':question:'
+    path: graph/flow/hungarian.cpp
+    title: "Hungarian(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5C0F\u91CD\u307F\
+      \u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0)"
   - icon: ':question:'
     path: math/matrix/matrix.cpp
     title: math/matrix/matrix.cpp
@@ -16,11 +17,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/matrix_det
+    PROBLEM: https://judge.yosupo.jp/problem/assignment
     links:
-    - https://judge.yosupo.jp/problem/matrix_det
-  bundledCode: "#line 1 \"test/verify/yosupo-matrix-det.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/matrix_det\"\n\n#line 1 \"template/template.cpp\"\
+    - https://judge.yosupo.jp/problem/assignment
+  bundledCode: "#line 1 \"test/verify/yosupo-assignment.test.cpp\"\n#define PROBLEM\
+    \ \"https://judge.yosupo.jp/problem/assignment\"\n\n#line 1 \"template/template.cpp\"\
     \n#include<bits/stdc++.h>\n\nusing namespace std;\n\nusing int64 = long long;\n\
     const int mod = 1e9 + 7;\n\nconst int64 infll = (1LL << 62) - 1;\nconst int inf\
     \ = (1 << 30) - 1;\n\nstruct IoSetup {\n  IoSetup() {\n    cin.tie(nullptr);\n\
@@ -47,30 +48,7 @@ data:
     \ &&f) : F(forward< F >(f)) {}\n \n  template< typename... Args >\n  decltype(auto)\
     \ operator()(Args &&... args) const {\n    return F::operator()(*this, forward<\
     \ Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
-    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-matrix-det.test.cpp\"\
-    \n\n#line 1 \"math/combinatorics/mod-int.cpp\"\ntemplate< int mod >\nstruct ModInt\
-    \ {\n  int x;\n\n  ModInt() : x(0) {}\n\n  ModInt(int64_t y) : x(y >= 0 ? y %\
-    \ mod : (mod - (-y) % mod) % mod) {}\n\n  ModInt &operator+=(const ModInt &p)\
-    \ {\n    if((x += p.x) >= mod) x -= mod;\n    return *this;\n  }\n\n  ModInt &operator-=(const\
-    \ ModInt &p) {\n    if((x += mod - p.x) >= mod) x -= mod;\n    return *this;\n\
-    \  }\n\n  ModInt &operator*=(const ModInt &p) {\n    x = (int) (1LL * x * p.x\
-    \ % mod);\n    return *this;\n  }\n\n  ModInt &operator/=(const ModInt &p) {\n\
-    \    *this *= p.inverse();\n    return *this;\n  }\n\n  ModInt operator-() const\
-    \ { return ModInt(-x); }\n\n  ModInt operator+(const ModInt &p) const { return\
-    \ ModInt(*this) += p; }\n\n  ModInt operator-(const ModInt &p) const { return\
-    \ ModInt(*this) -= p; }\n\n  ModInt operator*(const ModInt &p) const { return\
-    \ ModInt(*this) *= p; }\n\n  ModInt operator/(const ModInt &p) const { return\
-    \ ModInt(*this) /= p; }\n\n  bool operator==(const ModInt &p) const { return x\
-    \ == p.x; }\n\n  bool operator!=(const ModInt &p) const { return x != p.x; }\n\
-    \n  ModInt inverse() const {\n    int a = x, b = mod, u = 1, v = 0, t;\n    while(b\
-    \ > 0) {\n      t = a / b;\n      swap(a -= t * b, b);\n      swap(u -= t * v,\
-    \ v);\n    }\n    return ModInt(u);\n  }\n\n  ModInt pow(int64_t n) const {\n\
-    \    ModInt ret(1), mul(x);\n    while(n > 0) {\n      if(n & 1) ret *= mul;\n\
-    \      mul *= mul;\n      n >>= 1;\n    }\n    return ret;\n  }\n\n  friend ostream\
-    \ &operator<<(ostream &os, const ModInt &p) {\n    return os << p.x;\n  }\n\n\
-    \  friend istream &operator>>(istream &is, ModInt &a) {\n    int64_t t;\n    is\
-    \ >> t;\n    a = ModInt< mod >(t);\n    return (is);\n  }\n\n  static int get_mod()\
-    \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 6 \"test/verify/yosupo-matrix-det.test.cpp\"\
+    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-assignment.test.cpp\"\
     \n\n#line 1 \"math/matrix/matrix.cpp\"\ntemplate< class T >\nstruct Matrix {\n\
     \  vector< vector< T > > A;\n\n  Matrix() {}\n\n  Matrix(size_t n, size_t m) :\
     \ A(n, vector< T >(m, 0)) {}\n\n  Matrix(size_t n) : A(n, vector< T >(n, 0)) {};\n\
@@ -109,30 +87,48 @@ data:
     \      for(int j = 0; j < width(); j++) {\n        B[i][j] /= vv;\n      }\n \
     \     for(int j = i + 1; j < width(); j++) {\n        T a = B[j][i];\n       \
     \ for(int k = 0; k < width(); k++) {\n          B[j][k] -= B[i][k] * a;\n    \
-    \    }\n      }\n    }\n    return (ret);\n  }\n};\n#line 8 \"test/verify/yosupo-matrix-det.test.cpp\"\
-    \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
-    \  int N;\n  cin >> N;\n  Matrix< mint > mat(N);\n  for(int i = 0; i < N; i++)\
-    \ cin >> mat[i];\n  cout << mat.determinant() << endl;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_det\"\n\n#include\
-    \ \"../../template/template.cpp\"\n\n#include \"../../math/combinatorics/mod-int.cpp\"\
-    \n\n#include \"../../math/matrix/matrix.cpp\"\n\nconst int MOD = 998244353;\n\
-    using mint = ModInt< MOD >;\n\nint main() {\n  int N;\n  cin >> N;\n  Matrix<\
-    \ mint > mat(N);\n  for(int i = 0; i < N; i++) cin >> mat[i];\n  cout << mat.determinant()\
-    \ << endl;\n}\n"
+    \    }\n      }\n    }\n    return (ret);\n  }\n};\n#line 2 \"graph/flow/hungarian.cpp\"\
+    \n\n/**\n * @brief Hungarian(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5C0F\u91CD\
+    \u307F\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0)\n */\ntemplate< typename T >\n\
+    pair< T, vector< int > > hungarian(Matrix< T > &A) {\n  const T infty = numeric_limits<\
+    \ T >::max();\n  const int N = (int) A.height();\n  const int M = (int) A.width();\n\
+    \  vector< int > P(M), way(M);\n  vector< T > U(N, 0), V(M, 0), minV;\n  vector<\
+    \ bool > used;\n\n  for(int i = 1; i < N; i++) {\n    P[0] = i;\n    minV.assign(M,\
+    \ infty);\n    used.assign(M, false);\n    int j0 = 0;\n    while(P[j0] != 0)\
+    \ {\n      int i0 = P[j0], j1 = 0;\n      used[j0] = true;\n      T delta = infty;\n\
+    \      for(int j = 1; j < M; j++) {\n        if(used[j]) continue;\n        T\
+    \ curr = A[i0][j] - U[i0] - V[j];\n        if(curr < minV[j]) minV[j] = curr,\
+    \ way[j] = j0;\n        if(minV[j] < delta) delta = minV[j], j1 = j;\n      }\n\
+    \      for(int j = 0; j < M; j++) {\n        if(used[j]) U[P[j]] += delta, V[j]\
+    \ -= delta;\n        else minV[j] -= delta;\n      }\n      j0 = j1;\n    }\n\
+    \    do {\n      P[j0] = P[way[j0]];\n      j0 = way[j0];\n    } while(j0 != 0);\n\
+    \  }\n  return {-V[0], P};\n}\n#line 6 \"test/verify/yosupo-assignment.test.cpp\"\
+    \n\nint main() {\n  int N;\n  cin >> N;\n  Matrix< int64_t > X(N + 1, N + 1);\n\
+    \  for(int i = 1; i <= N; i++) {\n    for(int j = 1; j <= N; j++) {\n      cin\
+    \ >> X[j][i];\n    }\n  }\n  auto ret = hungarian(X);\n  cout << ret.first <<\
+    \ \"\\n\";\n  ret.second.erase(begin(ret.second));\n  for(auto& p : ret.second)\
+    \ --p;\n  cout << ret.second << \"\\n\";\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/assignment\"\n\n#include\
+    \ \"../../template/template.cpp\"\n\n#include \"../../graph/flow/hungarian.cpp\"\
+    \n\nint main() {\n  int N;\n  cin >> N;\n  Matrix< int64_t > X(N + 1, N + 1);\n\
+    \  for(int i = 1; i <= N; i++) {\n    for(int j = 1; j <= N; j++) {\n      cin\
+    \ >> X[j][i];\n    }\n  }\n  auto ret = hungarian(X);\n  cout << ret.first <<\
+    \ \"\\n\";\n  ret.second.erase(begin(ret.second));\n  for(auto& p : ret.second)\
+    \ --p;\n  cout << ret.second << \"\\n\";\n}\n"
   dependsOn:
   - template/template.cpp
-  - math/combinatorics/mod-int.cpp
+  - graph/flow/hungarian.cpp
   - math/matrix/matrix.cpp
   isVerificationFile: true
-  path: test/verify/yosupo-matrix-det.test.cpp
+  path: test/verify/yosupo-assignment.test.cpp
   requiredBy: []
-  timestamp: '2019-12-12 22:16:00+09:00'
+  timestamp: '2020-12-16 21:17:47+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/verify/yosupo-matrix-det.test.cpp
+documentation_of: test/verify/yosupo-assignment.test.cpp
 layout: document
 redirect_from:
-- /verify/test/verify/yosupo-matrix-det.test.cpp
-- /verify/test/verify/yosupo-matrix-det.test.cpp.html
-title: test/verify/yosupo-matrix-det.test.cpp
+- /verify/test/verify/yosupo-assignment.test.cpp
+- /verify/test/verify/yosupo-assignment.test.cpp.html
+title: test/verify/yosupo-assignment.test.cpp
 ---

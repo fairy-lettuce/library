@@ -100,8 +100,8 @@ data:
   timestamp: '2020-09-30 18:06:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-dominatortree.test.cpp
   - test/verify/aoj-0294.test.cpp
+  - test/verify/yosupo-dominatortree.test.cpp
 documentation_of: graph/others/dominator-tree.cpp
 layout: document
 redirect_from:

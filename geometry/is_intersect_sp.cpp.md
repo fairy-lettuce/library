@@ -91,14 +91,14 @@ data:
   isVerificationFile: false
   path: geometry/is_intersect_sp.cpp
   requiredBy:
+  - geometry/distance_sp.cpp
   - geometry/distance_ss.cpp
   - geometry/common_area_cp.cpp
-  - geometry/distance_sp.cpp
   timestamp: '2020-12-01 17:38:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-cgl-2-d.test.cpp
   - test/verify/aoj-cgl-7-h.test.cpp
+  - test/verify/aoj-cgl-2-d.test.cpp
 documentation_of: geometry/is_intersect_sp.cpp
 layout: document
 redirect_from:

@@ -41,11 +41,11 @@ data:
   timestamp: '2020-04-26 00:10:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/verify/yosupo-range-affine-range-sum-2.test.cpp
   - test/verify/aoj-1508-3.test.cpp
   - test/verify/aoj-1508-2.test.cpp
-  - test/verify/yosupo-range-affine-range-sum-2.test.cpp
-  - test/verify/yosupo-range-affine-range-sum-3.test.cpp
   - test/verify/yosupo-staticrmq-3.test.cpp
+  - test/verify/yosupo-range-affine-range-sum-3.test.cpp
 documentation_of: other/vector-pool.cpp
 layout: document
 redirect_from:
