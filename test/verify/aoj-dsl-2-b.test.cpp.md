@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/others/binary-indexed-tree.cpp
     title: Binary-Indexed-Tree(BIT)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B
@@ -64,22 +64,20 @@ data:
     \ i;\n  }\n};\n#line 6 \"test/verify/aoj-dsl-2-b.test.cpp\"\n\nint main() {\n\
     \  int N, Q;\n  cin >> N >> Q;\n  BinaryIndexedTree< int > bit(N);\n  while(Q--)\
     \ {\n    int T, X, Y;\n    cin >> T >> X >> Y;\n    if(T == 0) bit.add(X - 1,\
-    \ Y);\n    else cout << bit.query(Y - 1) - bit.query(X - 2) << \"\\n\";\n  }\n\
-    }\n"
+    \ Y);\n    else cout << bit.sum(X - 1, Y) << \"\\n\";\n  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../structure/others/binary-indexed-tree.cpp\"\
     \n\nint main() {\n  int N, Q;\n  cin >> N >> Q;\n  BinaryIndexedTree< int > bit(N);\n\
     \  while(Q--) {\n    int T, X, Y;\n    cin >> T >> X >> Y;\n    if(T == 0) bit.add(X\
-    \ - 1, Y);\n    else cout << bit.query(Y - 1) - bit.query(X - 2) << \"\\n\";\n\
-    \  }\n}\n"
+    \ - 1, Y);\n    else cout << bit.sum(X - 1, Y) << \"\\n\";\n  }\n}\n"
   dependsOn:
   - template/template.cpp
   - structure/others/binary-indexed-tree.cpp
   isVerificationFile: true
   path: test/verify/aoj-dsl-2-b.test.cpp
   requiredBy: []
-  timestamp: '2020-12-18 20:33:07+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2020-12-18 20:39:52+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dsl-2-b.test.cpp
 layout: document

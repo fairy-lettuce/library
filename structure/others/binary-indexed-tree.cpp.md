@@ -6,7 +6,7 @@ data:
     path: structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
     title: Wavelet-Matrix-Point-Add-Rectangle-Sum
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dsl-2-b.test.cpp
     title: test/verify/aoj-dsl-2-b.test.cpp
   - icon: ':heavy_check_mark:'
@@ -16,7 +16,7 @@ data:
     path: test/verify/yosupo-static-range-inversions-query.test.cpp
     title: test/verify/yosupo-static-range-inversions-query.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/binary-indexed-tree.md
     document_title: Binary-Indexed-Tree(BIT)
@@ -64,7 +64,7 @@ data:
   requiredBy:
   - structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
   timestamp: '2020-12-18 20:33:07+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-point-add-rectangle-sum.test.cpp
   - test/verify/aoj-dsl-2-b.test.cpp

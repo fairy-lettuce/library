@@ -736,7 +736,7 @@ data:
       title: structure/heap/skew-heap.cpp
   - name: structure/others
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/others/binary-indexed-tree.cpp
       title: Binary-Indexed-Tree(BIT)
     - icon: ':heavy_check_mark:'
@@ -851,7 +851,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -1168,7 +1168,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dsl-2-b-2.test.cpp
       title: test/verify/aoj-dsl-2-b-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dsl-2-b.test.cpp
       title: test/verify/aoj-dsl-2-b.test.cpp
     - icon: ':heavy_check_mark:'
