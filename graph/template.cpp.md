@@ -10,9 +10,6 @@ data:
     path: test/verify/aoj-grl-1-c.test.cpp
     title: test/verify/aoj-grl-1-c.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-grl-2-b.test.cpp
-    title: test/verify/aoj-grl-2-b.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-maximum-independent-set.test.cpp
     title: test/verify/yosupo-maximum-independent-set.test.cpp
   _pathExtension: cpp
@@ -44,7 +41,6 @@ data:
   verifiedWith:
   - test/verify/aoj-grl-1-c.test.cpp
   - test/verify/aoj-2306.test.cpp
-  - test/verify/aoj-grl-2-b.test.cpp
   - test/verify/yosupo-maximum-independent-set.test.cpp
 documentation_of: graph/template.cpp
 layout: document

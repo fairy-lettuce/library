@@ -57,7 +57,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2405.test.cpp
     title: test/verify/aoj-2405.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-2415.test.cpp
     title: test/verify/aoj-2415.test.cpp
   - icon: ':heavy_check_mark:'
@@ -328,6 +328,9 @@ data:
     path: test/verify/yosupo-cycle-detection.test.cpp
     title: test/verify/yosupo-cycle-detection.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-directedmst.test.cpp
+    title: test/verify/yosupo-directedmst.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-discrete-logarithm-mod.test.cpp
     title: test/verify/yosupo-discrete-logarithm-mod.test.cpp
   - icon: ':heavy_check_mark:'
@@ -559,7 +562,7 @@ data:
     path: test/verify/yukicoder-952.test.cpp
     title: test/verify/yukicoder-952.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing\
@@ -622,7 +625,7 @@ data:
   path: template/template.cpp
   requiredBy: []
   timestamp: '2019-08-13 21:45:04+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yukicoder-703.test.cpp
   - test/verify/aoj-grl-2-a-2.test.cpp
@@ -768,6 +771,7 @@ data:
   - test/verify/yosupo-point-set-range-composite.test.cpp
   - test/verify/yosupo-segment-add-get-min.test.cpp
   - test/verify/yosupo-tree-decomposition-width-2.test.cpp
+  - test/verify/yosupo-directedmst.test.cpp
   - test/verify/aoj-cgl-3-b.test.cpp
   - test/verify/yosupo-scc.test.cpp
   - test/verify/aoj-grl-5-c-3.test.cpp

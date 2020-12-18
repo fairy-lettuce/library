@@ -3,11 +3,11 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-2415.test.cpp
     title: test/verify/aoj-2415.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"dp/hu-tucker.cpp\"\ntemplate< typename Heap, typename T\
@@ -62,7 +62,7 @@ data:
   path: dp/hu-tucker.cpp
   requiredBy: []
   timestamp: '2019-12-20 16:29:52+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/aoj-2415.test.cpp
 documentation_of: dp/hu-tucker.cpp

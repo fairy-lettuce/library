@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fft/number-theoretic-transform.cpp
     title: math/fft/number-theoretic-transform.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

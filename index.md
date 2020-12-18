@@ -15,7 +15,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: dp/edit-distance.cpp
       title: "Edit-Distance(\u7DE8\u96C6\u8DDD\u96E2)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: dp/hu-tucker.cpp
       title: dp/hu-tucker.cpp
     - icon: ':heavy_check_mark:'
@@ -237,8 +237,9 @@ data:
       path: graph/mst/boruvka.cpp
       title: "Boruvka(\u6700\u5C0F\u5168\u57DF\u6728)"
     - icon: ':heavy_check_mark:'
-      path: graph/mst/chu-liu-edmond.cpp
-      title: graph/mst/chu-liu-edmond.cpp
+      path: graph/mst/directed-minimum-spanning-tree.cpp
+      title: "Directed-Minimum-Spanning-Tree(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728\
+        )"
     - icon: ':heavy_check_mark:'
       path: graph/mst/kruskal.cpp
       title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
@@ -731,9 +732,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/heap/radix-heap.cpp
       title: structure/heap/radix-heap.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: structure/heap/skew-heap.cpp
-      title: structure/heap/skew-heap.cpp
+      title: Skew-Heap
   - name: structure/others
     pages:
     - icon: ':heavy_check_mark:'
@@ -851,7 +852,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -1018,7 +1019,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-2405.test.cpp
       title: test/verify/aoj-2405.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/aoj-2415.test.cpp
       title: test/verify/aoj-2415.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1288,6 +1289,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-cycle-detection.test.cpp
       title: test/verify/yosupo-cycle-detection.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-directedmst.test.cpp
+      title: test/verify/yosupo-directedmst.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-discrete-logarithm-mod.test.cpp
       title: test/verify/yosupo-discrete-logarithm-mod.test.cpp

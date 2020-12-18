@@ -32,9 +32,6 @@ data:
     path: test/verify/aoj-grl-2-a-3.test.cpp
     title: test/verify/aoj-grl-2-a-3.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-grl-2-b.test.cpp
-    title: test/verify/aoj-grl-2-b.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bipartite-edge-coloring.test.cpp
     title: test/verify/yosupo-bipartite-edge-coloring.test.cpp
   - icon: ':heavy_check_mark:'
@@ -89,7 +86,6 @@ data:
   - test/verify/yukicoder-583.test.cpp
   - test/verify/yosupo-bipartite-edge-coloring.test.cpp
   - test/verify/yosupo-three-edge-connected-components.test.cpp
-  - test/verify/aoj-grl-2-b.test.cpp
   - test/verify/aoj-3139.test.cpp
   - test/verify/yosupo-tree-decomposition-width-2.test.cpp
   - test/verify/aoj-2821.test.cpp
