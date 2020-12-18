@@ -397,6 +397,9 @@ data:
     path: test/verify/yosupo-log-of-formal-power-series.test.cpp
     title: test/verify/yosupo-log-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-manhattanmst.test.cpp
+    title: test/verify/yosupo-manhattanmst.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-matrix-det.test.cpp
     title: test/verify/yosupo-matrix-det.test.cpp
   - icon: ':heavy_check_mark:'
@@ -646,6 +649,7 @@ data:
   - test/verify/aoj-cgl-7-h.test.cpp
   - test/verify/aoj-0560.test.cpp
   - test/verify/aoj-grl-5-c-2.test.cpp
+  - test/verify/yosupo-manhattanmst.test.cpp
   - test/verify/aoj-1254.test.cpp
   - test/verify/yosupo-range-affine-range-sum-2.test.cpp
   - test/verify/aoj-grl-6-a-4.test.cpp

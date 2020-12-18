@@ -5,9 +5,8 @@ data:
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
   - icon: ':heavy_check_mark:'
-    path: graph/mst/directed-minimum-spanning-tree.cpp
-    title: "Directed-Minimum-Spanning-Tree(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728\
-      )"
+    path: graph/mst/directed-mst.cpp
+    title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
   - icon: ':question:'
     path: structure/heap/skew-heap.cpp
     title: Skew-Heap
@@ -81,48 +80,47 @@ data:
     \n  Node *pop(Node *t) {\n    assert(t != nullptr);\n    return meld(t->l, t->r);\n\
     \  }\n\n  Node *add(Node *t, const T &lazy) {\n    if(t) {\n      t->lazy += lazy;\n\
     \      propagate(t);\n    }\n    return t;\n  }\n\n  Node *make_root() {\n   \
-    \ return nullptr;\n  }\n};\n#line 3 \"graph/mst/directed-minimum-spanning-tree.cpp\"\
-    \n\n/**\n * @brief Directed-Minimum-Spanning-Tree(\u6700\u5C0F\u6709\u5411\u5168\
-    \u57DF\u6728)\n */\ntemplate< typename T >\nstruct MinimumSpanningTree {\n  T\
-    \ cost;\n  Edges< T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree<\
-    \ T > directed_minimum_spanning_tree(int V, int root, Edges< T > edges) {\n  for(int\
-    \ i = 0; i < V; ++i) {\n    if(i != root) edges.emplace_back(i, root, 0);\n  }\n\
-    \n  int x = 0;\n  vector< int > par(2 * V, -1), vis(par), link(par);\n\n  using\
-    \ Heap = SkewHeap< T, true >;\n  using Node = typename Heap::Node;\n\n  Heap heap;\n\
-    \  vector< Node * > ins(2 * V, heap.make_root());\n\n  for(int i = 0; i < (int)\
-    \ edges.size(); i++) {\n    auto &e = edges[i];\n    ins[e.to] = heap.push(ins[e.to],\
-    \ e.cost, i);\n  }\n  vector< int > st;\n  auto go = [&](int x) {\n    x = edges[ins[x]->idx].from;\n\
-    \    while(link[x] != -1) {\n      st.emplace_back(x);\n      x = link[x];\n \
-    \   }\n    for(auto &p : st) {\n      link[p] = x;\n    }\n    st.clear();\n \
-    \   return x;\n  };\n  for(int i = V; ins[x]; i++) {\n    for(; vis[x] == -1;\
-    \ x = go(x)) vis[x] = 0;\n    for(; x != i; x = go(x)) {\n      auto w = ins[x]->key;\n\
-    \      auto v = heap.pop(ins[x]);\n      v = heap.add(v, -w);\n      ins[i] =\
-    \ heap.meld(ins[i], v);\n      par[x] = i;\n      link[x] = i;\n    }\n    for(;\
-    \ ins[x] && go(x) == x; ins[x] = heap.pop(ins[x]));\n  }\n  T cost = 0;\n  Edges<\
-    \ T > ans;\n  for(int i = root; i != -1; i = par[i]) {\n    vis[i] = 1;\n  }\n\
-    \  for(int i = x; i >= 0; i--) {\n    if(vis[i] == 1) continue;\n    cost += edges[ins[i]->idx].cost;\n\
+    \ return nullptr;\n  }\n};\n#line 3 \"graph/mst/directed-mst.cpp\"\n\n/**\n *\
+    \ @brief Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)\n */\ntemplate<\
+    \ typename T >\nstruct MinimumSpanningTree {\n  T cost;\n  Edges< T > edges;\n\
+    };\n\ntemplate< typename T >\nMinimumSpanningTree< T > directed_mst(int V, int\
+    \ root, Edges< T > edges) {\n  for(int i = 0; i < V; ++i) {\n    if(i != root)\
+    \ edges.emplace_back(i, root, 0);\n  }\n\n  int x = 0;\n  vector< int > par(2\
+    \ * V, -1), vis(par), link(par);\n\n  using Heap = SkewHeap< T, true >;\n  using\
+    \ Node = typename Heap::Node;\n\n  Heap heap;\n  vector< Node * > ins(2 * V, heap.make_root());\n\
+    \n  for(int i = 0; i < (int) edges.size(); i++) {\n    auto &e = edges[i];\n \
+    \   ins[e.to] = heap.push(ins[e.to], e.cost, i);\n  }\n  vector< int > st;\n \
+    \ auto go = [&](int x) {\n    x = edges[ins[x]->idx].from;\n    while(link[x]\
+    \ != -1) {\n      st.emplace_back(x);\n      x = link[x];\n    }\n    for(auto\
+    \ &p : st) {\n      link[p] = x;\n    }\n    st.clear();\n    return x;\n  };\n\
+    \  for(int i = V; ins[x]; i++) {\n    for(; vis[x] == -1; x = go(x)) vis[x] =\
+    \ 0;\n    for(; x != i; x = go(x)) {\n      auto w = ins[x]->key;\n      auto\
+    \ v = heap.pop(ins[x]);\n      v = heap.add(v, -w);\n      ins[i] = heap.meld(ins[i],\
+    \ v);\n      par[x] = i;\n      link[x] = i;\n    }\n    for(; ins[x] && go(x)\
+    \ == x; ins[x] = heap.pop(ins[x]));\n  }\n  T cost = 0;\n  Edges< T > ans;\n \
+    \ for(int i = root; i != -1; i = par[i]) {\n    vis[i] = 1;\n  }\n  for(int i\
+    \ = x; i >= 0; i--) {\n    if(vis[i] == 1) continue;\n    cost += edges[ins[i]->idx].cost;\n\
     \    ans.emplace_back(edges[ins[i]->idx]);\n    for(int j = edges[ins[i]->idx].to;\
     \ j != -1 && vis[j] == 0; j = par[j]) {\n      vis[j] = 1;\n    }\n  }\n  return\
     \ {cost, ans};\n}\n#line 6 \"test/verify/aoj-grl-2-b.test.cpp\"\n\nint main()\
     \ {\n  int V, E, R;\n  cin >> V >> E >> R;\n  Edges< int > edges;\n  for(int i\
     \ = 0; i < E; i++) {\n    int a, b, c;\n    cin >> a >> b >> c;\n    edges.emplace_back(a,\
-    \ b, c);\n  }\n  cout << directed_minimum_spanning_tree(V, R, edges).cost << \"\
-    \\n\";\n}\n"
+    \ b, c);\n  }\n  cout << directed_mst(V, R, edges).cost << \"\\n\";\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_B\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/mst/directed-minimum-spanning-tree.cpp\"\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/mst/directed-mst.cpp\"\
     \n\nint main() {\n  int V, E, R;\n  cin >> V >> E >> R;\n  Edges< int > edges;\n\
     \  for(int i = 0; i < E; i++) {\n    int a, b, c;\n    cin >> a >> b >> c;\n \
-    \   edges.emplace_back(a, b, c);\n  }\n  cout << directed_minimum_spanning_tree(V,\
-    \ R, edges).cost << \"\\n\";\n}\n"
+    \   edges.emplace_back(a, b, c);\n  }\n  cout << directed_mst(V, R, edges).cost\
+    \ << \"\\n\";\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/mst/directed-minimum-spanning-tree.cpp
+  - graph/mst/directed-mst.cpp
   - graph/graph-template.cpp
   - structure/heap/skew-heap.cpp
   isVerificationFile: true
   path: test/verify/aoj-grl-2-b.test.cpp
   requiredBy: []
-  timestamp: '2020-12-18 21:55:51+09:00'
+  timestamp: '2020-12-18 22:15:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-2-b.test.cpp

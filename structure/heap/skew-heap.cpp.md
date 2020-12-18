@@ -3,9 +3,8 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: graph/mst/directed-minimum-spanning-tree.cpp
-    title: "Directed-Minimum-Spanning-Tree(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728\
-      )"
+    path: graph/mst/directed-mst.cpp
+    title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
   _extendedVerifiedWith:
   - icon: ':x:'
     path: test/verify/aoj-2415.test.cpp
@@ -56,7 +55,7 @@ data:
   isVerificationFile: false
   path: structure/heap/skew-heap.cpp
   requiredBy:
-  - graph/mst/directed-minimum-spanning-tree.cpp
+  - graph/mst/directed-mst.cpp
   timestamp: '2020-12-18 21:55:51+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:

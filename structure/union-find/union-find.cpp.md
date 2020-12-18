@@ -35,6 +35,9 @@ data:
     path: test/verify/yosupo-bipartite-edge-coloring.test.cpp
     title: test/verify/yosupo-bipartite-edge-coloring.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-manhattanmst.test.cpp
+    title: test/verify/yosupo-manhattanmst.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-three-edge-connected-components.test.cpp
     title: test/verify/yosupo-three-edge-connected-components.test.cpp
   - icon: ':heavy_check_mark:'
@@ -81,6 +84,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-2-a-2.test.cpp
+  - test/verify/yosupo-manhattanmst.test.cpp
   - test/verify/yosupo-two-edge-connected-components-2.test.cpp
   - test/verify/aoj-dsl-1-a.test.cpp
   - test/verify/yukicoder-583.test.cpp

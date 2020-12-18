@@ -237,12 +237,14 @@ data:
       path: graph/mst/boruvka.cpp
       title: "Boruvka(\u6700\u5C0F\u5168\u57DF\u6728)"
     - icon: ':heavy_check_mark:'
-      path: graph/mst/directed-minimum-spanning-tree.cpp
-      title: "Directed-Minimum-Spanning-Tree(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728\
-        )"
+      path: graph/mst/directed-mst.cpp
+      title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
     - icon: ':heavy_check_mark:'
       path: graph/mst/kruskal.cpp
       title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
+    - icon: ':heavy_check_mark:'
+      path: graph/mst/manhattan-mst.cpp
+      title: Manhattan-MST
     - icon: ':heavy_check_mark:'
       path: graph/mst/prim-fibonacchi-heap.cpp
       title: "Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
@@ -1358,6 +1360,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-log-of-formal-power-series.test.cpp
       title: test/verify/yosupo-log-of-formal-power-series.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-manhattanmst.test.cpp
+      title: test/verify/yosupo-manhattanmst.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-matrix-det.test.cpp
       title: test/verify/yosupo-matrix-det.test.cpp

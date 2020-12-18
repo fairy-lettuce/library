@@ -19,12 +19,14 @@ data:
     title: "Two-Edge-Connected-Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
   - icon: ':heavy_check_mark:'
-    path: graph/mst/directed-minimum-spanning-tree.cpp
-    title: "Directed-Minimum-Spanning-Tree(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728\
-      )"
+    path: graph/mst/directed-mst.cpp
+    title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
   - icon: ':heavy_check_mark:'
     path: graph/mst/kruskal.cpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
+  - icon: ':heavy_check_mark:'
+    path: graph/mst/manhattan-mst.cpp
+    title: Manhattan-MST
   - icon: ':heavy_check_mark:'
     path: graph/mst/prim-fibonacchi-heap.cpp
     title: "Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
@@ -165,6 +167,9 @@ data:
     path: test/verify/yosupo-lca.test.cpp
     title: test/verify/yosupo-lca.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-manhattanmst.test.cpp
+    title: test/verify/yosupo-manhattanmst.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-scc.test.cpp
     title: test/verify/yosupo-scc.test.cpp
   - icon: ':heavy_check_mark:'
@@ -235,7 +240,8 @@ data:
   requiredBy:
   - graph/mst/prim-fibonacchi-heap.cpp
   - graph/mst/prim.cpp
-  - graph/mst/directed-minimum-spanning-tree.cpp
+  - graph/mst/directed-mst.cpp
+  - graph/mst/manhattan-mst.cpp
   - graph/mst/kruskal.cpp
   - graph/others/block-cut-tree.cpp
   - graph/others/dominator-tree.cpp
@@ -261,6 +267,7 @@ data:
   - test/verify/aoj-grl-1-b-2.test.cpp
   - test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
   - test/verify/aoj-grl-5-c-2.test.cpp
+  - test/verify/yosupo-manhattanmst.test.cpp
   - test/verify/yosupo-two-sat.test.cpp
   - test/verify/yosupo-lca-2.test.cpp
   - test/verify/yukicoder-650.test.cpp

@@ -18,8 +18,7 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: "Directed-Minimum-Spanning-Tree(\u6700\u5C0F\u6709\u5411\u5168\
-      \u57DF\u6728)"
+    document_title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
     links: []
   bundledCode: "#line 2 \"graph/graph-template.cpp\"\n\ntemplate< typename T = int\
     \ >\nstruct Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\
@@ -51,17 +50,17 @@ data:
     \ idx));\n  }\n\n  Node *pop(Node *t) {\n    assert(t != nullptr);\n    return\
     \ meld(t->l, t->r);\n  }\n\n  Node *add(Node *t, const T &lazy) {\n    if(t) {\n\
     \      t->lazy += lazy;\n      propagate(t);\n    }\n    return t;\n  }\n\n  Node\
-    \ *make_root() {\n    return nullptr;\n  }\n};\n#line 3 \"graph/mst/directed-minimum-spanning-tree.cpp\"\
-    \n\n/**\n * @brief Directed-Minimum-Spanning-Tree(\u6700\u5C0F\u6709\u5411\u5168\
-    \u57DF\u6728)\n */\ntemplate< typename T >\nstruct MinimumSpanningTree {\n  T\
-    \ cost;\n  Edges< T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree<\
-    \ T > directed_minimum_spanning_tree(int V, int root, Edges< T > edges) {\n  for(int\
-    \ i = 0; i < V; ++i) {\n    if(i != root) edges.emplace_back(i, root, 0);\n  }\n\
-    \n  int x = 0;\n  vector< int > par(2 * V, -1), vis(par), link(par);\n\n  using\
-    \ Heap = SkewHeap< T, true >;\n  using Node = typename Heap::Node;\n\n  Heap heap;\n\
-    \  vector< Node * > ins(2 * V, heap.make_root());\n\n  for(int i = 0; i < (int)\
-    \ edges.size(); i++) {\n    auto &e = edges[i];\n    ins[e.to] = heap.push(ins[e.to],\
-    \ e.cost, i);\n  }\n  vector< int > st;\n  auto go = [&](int x) {\n    x = edges[ins[x]->idx].from;\n\
+    \ *make_root() {\n    return nullptr;\n  }\n};\n#line 3 \"graph/mst/directed-mst.cpp\"\
+    \n\n/**\n * @brief Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)\n\
+    \ */\ntemplate< typename T >\nstruct MinimumSpanningTree {\n  T cost;\n  Edges<\
+    \ T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree< T > directed_mst(int\
+    \ V, int root, Edges< T > edges) {\n  for(int i = 0; i < V; ++i) {\n    if(i !=\
+    \ root) edges.emplace_back(i, root, 0);\n  }\n\n  int x = 0;\n  vector< int >\
+    \ par(2 * V, -1), vis(par), link(par);\n\n  using Heap = SkewHeap< T, true >;\n\
+    \  using Node = typename Heap::Node;\n\n  Heap heap;\n  vector< Node * > ins(2\
+    \ * V, heap.make_root());\n\n  for(int i = 0; i < (int) edges.size(); i++) {\n\
+    \    auto &e = edges[i];\n    ins[e.to] = heap.push(ins[e.to], e.cost, i);\n \
+    \ }\n  vector< int > st;\n  auto go = [&](int x) {\n    x = edges[ins[x]->idx].from;\n\
     \    while(link[x] != -1) {\n      st.emplace_back(x);\n      x = link[x];\n \
     \   }\n    for(auto &p : st) {\n      link[p] = x;\n    }\n    st.clear();\n \
     \   return x;\n  };\n  for(int i = V; ins[x]; i++) {\n    for(; vis[x] == -1;\
@@ -75,16 +74,16 @@ data:
     \ j != -1 && vis[j] == 0; j = par[j]) {\n      vis[j] = 1;\n    }\n  }\n  return\
     \ {cost, ans};\n}\n"
   code: "#include \"../graph-template.cpp\"\n#include \"../../structure/heap/skew-heap.cpp\"\
-    \n\n/**\n * @brief Directed-Minimum-Spanning-Tree(\u6700\u5C0F\u6709\u5411\u5168\
-    \u57DF\u6728)\n */\ntemplate< typename T >\nstruct MinimumSpanningTree {\n  T\
-    \ cost;\n  Edges< T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree<\
-    \ T > directed_minimum_spanning_tree(int V, int root, Edges< T > edges) {\n  for(int\
-    \ i = 0; i < V; ++i) {\n    if(i != root) edges.emplace_back(i, root, 0);\n  }\n\
-    \n  int x = 0;\n  vector< int > par(2 * V, -1), vis(par), link(par);\n\n  using\
-    \ Heap = SkewHeap< T, true >;\n  using Node = typename Heap::Node;\n\n  Heap heap;\n\
-    \  vector< Node * > ins(2 * V, heap.make_root());\n\n  for(int i = 0; i < (int)\
-    \ edges.size(); i++) {\n    auto &e = edges[i];\n    ins[e.to] = heap.push(ins[e.to],\
-    \ e.cost, i);\n  }\n  vector< int > st;\n  auto go = [&](int x) {\n    x = edges[ins[x]->idx].from;\n\
+    \n\n/**\n * @brief Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)\n\
+    \ */\ntemplate< typename T >\nstruct MinimumSpanningTree {\n  T cost;\n  Edges<\
+    \ T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree< T > directed_mst(int\
+    \ V, int root, Edges< T > edges) {\n  for(int i = 0; i < V; ++i) {\n    if(i !=\
+    \ root) edges.emplace_back(i, root, 0);\n  }\n\n  int x = 0;\n  vector< int >\
+    \ par(2 * V, -1), vis(par), link(par);\n\n  using Heap = SkewHeap< T, true >;\n\
+    \  using Node = typename Heap::Node;\n\n  Heap heap;\n  vector< Node * > ins(2\
+    \ * V, heap.make_root());\n\n  for(int i = 0; i < (int) edges.size(); i++) {\n\
+    \    auto &e = edges[i];\n    ins[e.to] = heap.push(ins[e.to], e.cost, i);\n \
+    \ }\n  vector< int > st;\n  auto go = [&](int x) {\n    x = edges[ins[x]->idx].from;\n\
     \    while(link[x] != -1) {\n      st.emplace_back(x);\n      x = link[x];\n \
     \   }\n    for(auto &p : st) {\n      link[p] = x;\n    }\n    st.clear();\n \
     \   return x;\n  };\n  for(int i = V; ins[x]; i++) {\n    for(; vis[x] == -1;\
@@ -101,17 +100,17 @@ data:
   - graph/graph-template.cpp
   - structure/heap/skew-heap.cpp
   isVerificationFile: false
-  path: graph/mst/directed-minimum-spanning-tree.cpp
+  path: graph/mst/directed-mst.cpp
   requiredBy: []
-  timestamp: '2020-12-18 21:55:51+09:00'
+  timestamp: '2020-12-18 22:15:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-2-b.test.cpp
   - test/verify/yosupo-directedmst.test.cpp
-documentation_of: graph/mst/directed-minimum-spanning-tree.cpp
+documentation_of: graph/mst/directed-mst.cpp
 layout: document
 redirect_from:
-- /library/graph/mst/directed-minimum-spanning-tree.cpp
-- /library/graph/mst/directed-minimum-spanning-tree.cpp.html
-title: "Directed-Minimum-Spanning-Tree(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
+- /library/graph/mst/directed-mst.cpp
+- /library/graph/mst/directed-mst.cpp.html
+title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
 ---
