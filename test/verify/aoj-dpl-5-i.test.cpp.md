@@ -91,10 +91,10 @@ data:
     \ 0;\n    return fact(n) * finv(n - r);\n  }\n\n  static T C(int p, int q) {\n\
     \    if(q < 0 || p < q) return 0;\n    return fact(p) * finv(q) * finv(p - q);\n\
     \  }\n\n  static T H(int n, int r) {\n    if(n < 0 || r < 0) return 0;\n    return\
-    \ r == 0 ? 1 : C(n + r - 1, r);\n  }\n};\n\ntemplate< typename M >\nvector< M\
-    \ > Enumeration< M >::_fact = vector< M >();\ntemplate< typename M >\nvector<\
-    \ M > Enumeration< M >::_finv = vector< M >();\ntemplate< typename M >\nvector<\
-    \ M > Enumeration< M >::_inv = vector< M >();\n#line 2 \"math/combinatorics/stirling-number-second.cpp\"\
+    \ r == 0 ? 1 : C(n + r - 1, r);\n  }\n};\n\ntemplate< typename T >\nvector< T\
+    \ > Enumeration< T >::_fact = vector< T >();\ntemplate< typename T >\nvector<\
+    \ T > Enumeration< T >::_finv = vector< T >();\ntemplate< typename T >\nvector<\
+    \ T > Enumeration< T >::_inv = vector< T >();\n#line 2 \"math/combinatorics/stirling-number-second.cpp\"\
     \n\n/**\n * @brief Stirling-Number-Second(\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\
     \u30F3\u30B0\u6570)\n * @docs docs/stirling-number-second.md\n */\ntemplate< typename\
     \ T >\nT stirling_number_second(int n, int k) {\n  Enumeration< T > table(k);\n\
@@ -116,7 +116,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-dpl-5-i.test.cpp
   requiredBy: []
-  timestamp: '2020-12-16 22:24:03+09:00'
+  timestamp: '2020-12-18 20:17:06+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dpl-5-i.test.cpp

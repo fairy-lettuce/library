@@ -37,10 +37,10 @@ data:
     \ 0;\n    return fact(n) * finv(n - r);\n  }\n\n  static T C(int p, int q) {\n\
     \    if(q < 0 || p < q) return 0;\n    return fact(p) * finv(q) * finv(p - q);\n\
     \  }\n\n  static T H(int n, int r) {\n    if(n < 0 || r < 0) return 0;\n    return\
-    \ r == 0 ? 1 : C(n + r - 1, r);\n  }\n};\n\ntemplate< typename M >\nvector< M\
-    \ > Enumeration< M >::_fact = vector< M >();\ntemplate< typename M >\nvector<\
-    \ M > Enumeration< M >::_finv = vector< M >();\ntemplate< typename M >\nvector<\
-    \ M > Enumeration< M >::_inv = vector< M >();\n"
+    \ r == 0 ? 1 : C(n + r - 1, r);\n  }\n};\n\ntemplate< typename T >\nvector< T\
+    \ > Enumeration< T >::_fact = vector< T >();\ntemplate< typename T >\nvector<\
+    \ T > Enumeration< T >::_finv = vector< T >();\ntemplate< typename T >\nvector<\
+    \ T > Enumeration< T >::_inv = vector< T >();\n"
   code: "template< typename T >\nstruct Enumeration {\nprivate:\n  static vector<\
     \ T > _fact, _finv, _inv;\n\n  inline static void expand(size_t sz) {\n    if(_fact.size()\
     \ < sz + 1) {\n      int pre_sz = max(1, (int) _fact.size());\n      _fact.resize(sz\
@@ -57,21 +57,21 @@ data:
     \ r) return 0;\n    return fact(n) * finv(n - r);\n  }\n\n  static T C(int p,\
     \ int q) {\n    if(q < 0 || p < q) return 0;\n    return fact(p) * finv(q) * finv(p\
     \ - q);\n  }\n\n  static T H(int n, int r) {\n    if(n < 0 || r < 0) return 0;\n\
-    \    return r == 0 ? 1 : C(n + r - 1, r);\n  }\n};\n\ntemplate< typename M >\n\
-    vector< M > Enumeration< M >::_fact = vector< M >();\ntemplate< typename M >\n\
-    vector< M > Enumeration< M >::_finv = vector< M >();\ntemplate< typename M >\n\
-    vector< M > Enumeration< M >::_inv = vector< M >();\n"
+    \    return r == 0 ? 1 : C(n + r - 1, r);\n  }\n};\n\ntemplate< typename T >\n\
+    vector< T > Enumeration< T >::_fact = vector< T >();\ntemplate< typename T >\n\
+    vector< T > Enumeration< T >::_finv = vector< T >();\ntemplate< typename T >\n\
+    vector< T > Enumeration< T >::_inv = vector< T >();\n"
   dependsOn: []
   isVerificationFile: false
   path: math/combinatorics/enumeration.cpp
   requiredBy:
   - math/combinatorics/stirling-number-second.cpp
   - math/combinatorics/bell-number.cpp
-  timestamp: '2020-12-16 22:07:07+09:00'
+  timestamp: '2020-12-18 20:17:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-dpl-5-g.test.cpp
   - test/verify/aoj-dpl-5-i.test.cpp
+  - test/verify/aoj-dpl-5-g.test.cpp
 documentation_of: math/combinatorics/enumeration.cpp
 layout: document
 redirect_from:
