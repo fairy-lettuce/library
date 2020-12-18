@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
+    title: Wavelet-Matrix-Point-Add-Rectangle-Sum
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1549-2.test.cpp
@@ -56,7 +59,8 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: structure/wavelet/succinct-indexable-dictionary.cpp
-  requiredBy: []
+  requiredBy:
+  - structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
   timestamp: '2019-12-31 16:31:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

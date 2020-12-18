@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: other/mo.cpp
     title: Mo's Algorithm
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: structure/others/binary-indexed-tree.cpp
     title: Binary-Indexed-Tree(BIT)
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -66,36 +66,37 @@ data:
     \ &add, const E &erase, const O &out) {\n    build(add, add, erase, erase, out);\n\
     \  }\n};\n#line 1 \"structure/others/binary-indexed-tree.cpp\"\n/**\n * @brief\
     \ Binary-Indexed-Tree(BIT)\n * @docs docs/binary-indexed-tree.md\n */\ntemplate<\
-    \ typename T >\nstruct BinaryIndexedTree {\n  vector< T > data;\n\n  BinaryIndexedTree()\
-    \ = default;\n\n  explicit BinaryIndexedTree(size_t sz) : data(sz + 1, 0) {}\n\
-    \n  explicit BinaryIndexedTree(const vector< T > &vs) : data(vs.size() + 1, 0)\
-    \ {\n    for(size_t i = 0; i < vs.size(); i++) data[i + 1] = vs[i];\n    for(size_t\
-    \ i = 1; i < data.size(); i++) {\n      size_t j = i + (i & -i);\n      if(j <\
-    \ data.size()) data[j] += data[i];\n    }\n  }\n\n  void add(int k, const T &x)\
-    \ {\n    for(++k; k < (int) data.size(); k += k & -k) data[k] += x;\n  }\n\n \
-    \ T query(int k) const {\n    T ret = T();\n    for(++k; k > 0; k -= k & -k) ret\
-    \ += data[k];\n    return ret;\n  }\n\n  int lower_bound(T x) const {\n    int\
-    \ i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1); k > 0; k >>= 1) {\n\
-    \      if(i + k < data.size() && data[i + k] < x) {\n        x -= data[i + k];\n\
-    \        i += k;\n      }\n    }\n    return i;\n  }\n\n  int upper_bound(T x)\
-    \ const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1); k\
-    \ > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <= x) {\n     \
-    \   x -= data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n};\n\
-    #line 7 \"test/verify/yosupo-static-range-inversions-query.test.cpp\"\n\nint main()\
-    \ {\n  int N, Q;\n  cin >> N >> Q;\n  vector< int > A(N);\n  for(auto &a : A)\
-    \ cin >> a;\n  Mo mo(N);\n  for(int i = 0; i < Q; i++) {\n    int l, r;\n    cin\
-    \ >> l >> r;\n    mo.add(l, r);\n  }\n  vector< int > xs{A};\n  sort(begin(xs),\
+    \ typename T >\nstruct BinaryIndexedTree {\nprivate:\n  vector< T > data;\n\n\
+    public:\n  BinaryIndexedTree() = default;\n\n  explicit BinaryIndexedTree(size_t\
+    \ sz) : data(sz + 1, 0) {}\n\n  explicit BinaryIndexedTree(const vector< T > &vs)\
+    \ : data(vs.size() + 1, 0) {\n    for(size_t i = 0; i < vs.size(); i++) data[i\
+    \ + 1] = vs[i];\n    for(size_t i = 1; i < data.size(); i++) {\n      size_t j\
+    \ = i + (i & -i);\n      if(j < data.size()) data[j] += data[i];\n    }\n  }\n\
+    \n  void add(int k, const T &x) {\n    for(++k; k < (int) data.size(); k += k\
+    \ & -k) data[k] += x;\n  }\n\n  T sum(int r) const {\n    T ret = T();\n    for(;\
+    \ r > 0; r -= r & -r) ret += data[r];\n    return ret;\n  }\n\n  T sum(int l,\
+    \ int r) const {\n    return sum(r) - sum(l);\n  }\n\n  int lower_bound(T x) const\
+    \ {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1); k > 0;\
+    \ k >>= 1) {\n      if(i + k < data.size() && data[i + k] < x) {\n        x -=\
+    \ data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\n  int upper_bound(T\
+    \ x) const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1);\
+    \ k > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <= x) {\n   \
+    \     x -= data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\
+    };\n#line 7 \"test/verify/yosupo-static-range-inversions-query.test.cpp\"\n\n\
+    int main() {\n  int N, Q;\n  cin >> N >> Q;\n  vector< int > A(N);\n  for(auto\
+    \ &a : A) cin >> a;\n  Mo mo(N);\n  for(int i = 0; i < Q; i++) {\n    int l, r;\n\
+    \    cin >> l >> r;\n    mo.add(l, r);\n  }\n  vector< int > xs{A};\n  sort(begin(xs),\
     \ end(xs));\n  xs.erase(unique(begin(xs), end(xs)), end(xs));\n  for(auto &a :\
     \ A) a = lower_bound(begin(xs), end(xs), a) - begin(xs);\n  BinaryIndexedTree<\
     \ int > bit(xs.size());\n  int64_t inv = 0, all = 0;\n  vector< int64_t > ans(Q);\n\
-    \  auto add_left = [&](int idx) {\n    inv += bit.query(A[idx] - 1);\n    bit.add(A[idx],\
-    \ 1);\n    all++;\n  };\n  auto add_right = [&](int idx) {\n    inv += all - bit.query(A[idx]);\n\
-    \    bit.add(A[idx], 1);\n    ++all;\n  };\n  auto erase_left = [&](int idx) {\n\
-    \    inv -= bit.query(A[idx] - 1);\n    bit.add(A[idx], -1);\n    --all;\n  };\n\
-    \  auto erase_right = [&](int idx) {\n    inv -= all - bit.query(A[idx]);\n  \
-    \  bit.add(A[idx], -1);\n    --all;\n  };\n  auto out = [&](int idx) {\n    ans[idx]\
-    \ = inv;\n  };\n  mo.build(add_left, add_right, erase_left, erase_right, out);\n\
-    \  for(auto &p : ans) cout << p << \"\\n\";\n}\n"
+    \  auto add_left = [&](int idx) {\n    inv += bit.sum(A[idx]);\n    bit.add(A[idx],\
+    \ 1);\n    all++;\n  };\n  auto add_right = [&](int idx) {\n    inv += all - bit.sum(A[idx]\
+    \ + 1);\n    bit.add(A[idx], 1);\n    ++all;\n  };\n  auto erase_left = [&](int\
+    \ idx) {\n    inv -= bit.sum(A[idx]);\n    bit.add(A[idx], -1);\n    --all;\n\
+    \  };\n  auto erase_right = [&](int idx) {\n    inv -= all - bit.sum(A[idx] +\
+    \ 1);\n    bit.add(A[idx], -1);\n    --all;\n  };\n  auto out = [&](int idx) {\n\
+    \    ans[idx] = inv;\n  };\n  mo.build(add_left, add_right, erase_left, erase_right,\
+    \ out);\n  for(auto &p : ans) cout << p << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_inversions_query\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../other/mo.cpp\"\
     \n#include \"../../structure/others/binary-indexed-tree.cpp\"\n\nint main() {\n\
@@ -105,14 +106,14 @@ data:
     \  xs.erase(unique(begin(xs), end(xs)), end(xs));\n  for(auto &a : A) a = lower_bound(begin(xs),\
     \ end(xs), a) - begin(xs);\n  BinaryIndexedTree< int > bit(xs.size());\n  int64_t\
     \ inv = 0, all = 0;\n  vector< int64_t > ans(Q);\n  auto add_left = [&](int idx)\
-    \ {\n    inv += bit.query(A[idx] - 1);\n    bit.add(A[idx], 1);\n    all++;\n\
-    \  };\n  auto add_right = [&](int idx) {\n    inv += all - bit.query(A[idx]);\n\
-    \    bit.add(A[idx], 1);\n    ++all;\n  };\n  auto erase_left = [&](int idx) {\n\
-    \    inv -= bit.query(A[idx] - 1);\n    bit.add(A[idx], -1);\n    --all;\n  };\n\
-    \  auto erase_right = [&](int idx) {\n    inv -= all - bit.query(A[idx]);\n  \
-    \  bit.add(A[idx], -1);\n    --all;\n  };\n  auto out = [&](int idx) {\n    ans[idx]\
-    \ = inv;\n  };\n  mo.build(add_left, add_right, erase_left, erase_right, out);\n\
-    \  for(auto &p : ans) cout << p << \"\\n\";\n}\n"
+    \ {\n    inv += bit.sum(A[idx]);\n    bit.add(A[idx], 1);\n    all++;\n  };\n\
+    \  auto add_right = [&](int idx) {\n    inv += all - bit.sum(A[idx] + 1);\n  \
+    \  bit.add(A[idx], 1);\n    ++all;\n  };\n  auto erase_left = [&](int idx) {\n\
+    \    inv -= bit.sum(A[idx]);\n    bit.add(A[idx], -1);\n    --all;\n  };\n  auto\
+    \ erase_right = [&](int idx) {\n    inv -= all - bit.sum(A[idx] + 1);\n    bit.add(A[idx],\
+    \ -1);\n    --all;\n  };\n  auto out = [&](int idx) {\n    ans[idx] = inv;\n \
+    \ };\n  mo.build(add_left, add_right, erase_left, erase_right, out);\n  for(auto\
+    \ &p : ans) cout << p << \"\\n\";\n}\n"
   dependsOn:
   - template/template.cpp
   - other/mo.cpp
@@ -120,7 +121,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-static-range-inversions-query.test.cpp
   requiredBy: []
-  timestamp: '2020-08-12 02:55:35+09:00'
+  timestamp: '2020-12-18 20:33:07+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-static-range-inversions-query.test.cpp

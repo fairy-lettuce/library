@@ -1,9 +1,12 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
-  _extendedVerifiedWith:
+  _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
+    title: Wavelet-Matrix-Point-Add-Rectangle-Sum
+  _extendedVerifiedWith:
+  - icon: ':x:'
     path: test/verify/aoj-dsl-2-b.test.cpp
     title: test/verify/aoj-dsl-2-b.test.cpp
   - icon: ':heavy_check_mark:'
@@ -13,51 +16,55 @@ data:
     path: test/verify/yosupo-static-range-inversions-query.test.cpp
     title: test/verify/yosupo-static-range-inversions-query.test.cpp
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/binary-indexed-tree.md
     document_title: Binary-Indexed-Tree(BIT)
     links: []
   bundledCode: "#line 1 \"structure/others/binary-indexed-tree.cpp\"\n/**\n * @brief\
     \ Binary-Indexed-Tree(BIT)\n * @docs docs/binary-indexed-tree.md\n */\ntemplate<\
-    \ typename T >\nstruct BinaryIndexedTree {\n  vector< T > data;\n\n  BinaryIndexedTree()\
-    \ = default;\n\n  explicit BinaryIndexedTree(size_t sz) : data(sz + 1, 0) {}\n\
-    \n  explicit BinaryIndexedTree(const vector< T > &vs) : data(vs.size() + 1, 0)\
-    \ {\n    for(size_t i = 0; i < vs.size(); i++) data[i + 1] = vs[i];\n    for(size_t\
-    \ i = 1; i < data.size(); i++) {\n      size_t j = i + (i & -i);\n      if(j <\
-    \ data.size()) data[j] += data[i];\n    }\n  }\n\n  void add(int k, const T &x)\
-    \ {\n    for(++k; k < (int) data.size(); k += k & -k) data[k] += x;\n  }\n\n \
-    \ T query(int k) const {\n    T ret = T();\n    for(++k; k > 0; k -= k & -k) ret\
-    \ += data[k];\n    return ret;\n  }\n\n  int lower_bound(T x) const {\n    int\
-    \ i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1); k > 0; k >>= 1) {\n\
-    \      if(i + k < data.size() && data[i + k] < x) {\n        x -= data[i + k];\n\
-    \        i += k;\n      }\n    }\n    return i;\n  }\n\n  int upper_bound(T x)\
-    \ const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1); k\
-    \ > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <= x) {\n     \
-    \   x -= data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n};\n"
-  code: "/**\n * @brief Binary-Indexed-Tree(BIT)\n * @docs docs/binary-indexed-tree.md\n\
-    \ */\ntemplate< typename T >\nstruct BinaryIndexedTree {\n  vector< T > data;\n\
-    \n  BinaryIndexedTree() = default;\n\n  explicit BinaryIndexedTree(size_t sz)\
-    \ : data(sz + 1, 0) {}\n\n  explicit BinaryIndexedTree(const vector< T > &vs)\
+    \ typename T >\nstruct BinaryIndexedTree {\nprivate:\n  vector< T > data;\n\n\
+    public:\n  BinaryIndexedTree() = default;\n\n  explicit BinaryIndexedTree(size_t\
+    \ sz) : data(sz + 1, 0) {}\n\n  explicit BinaryIndexedTree(const vector< T > &vs)\
     \ : data(vs.size() + 1, 0) {\n    for(size_t i = 0; i < vs.size(); i++) data[i\
     \ + 1] = vs[i];\n    for(size_t i = 1; i < data.size(); i++) {\n      size_t j\
     \ = i + (i & -i);\n      if(j < data.size()) data[j] += data[i];\n    }\n  }\n\
     \n  void add(int k, const T &x) {\n    for(++k; k < (int) data.size(); k += k\
-    \ & -k) data[k] += x;\n  }\n\n  T query(int k) const {\n    T ret = T();\n   \
-    \ for(++k; k > 0; k -= k & -k) ret += data[k];\n    return ret;\n  }\n\n  int\
-    \ lower_bound(T x) const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size()\
-    \ - 1) + 1); k > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <\
-    \ x) {\n        x -= data[i + k];\n        i += k;\n      }\n    }\n    return\
-    \ i;\n  }\n\n  int upper_bound(T x) const {\n    int i = 0;\n    for(int k = 1\
-    \ << (__lg(data.size() - 1) + 1); k > 0; k >>= 1) {\n      if(i + k < data.size()\
-    \ && data[i + k] <= x) {\n        x -= data[i + k];\n        i += k;\n      }\n\
-    \    }\n    return i;\n  }\n};\n"
+    \ & -k) data[k] += x;\n  }\n\n  T sum(int r) const {\n    T ret = T();\n    for(;\
+    \ r > 0; r -= r & -r) ret += data[r];\n    return ret;\n  }\n\n  T sum(int l,\
+    \ int r) const {\n    return sum(r) - sum(l);\n  }\n\n  int lower_bound(T x) const\
+    \ {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1); k > 0;\
+    \ k >>= 1) {\n      if(i + k < data.size() && data[i + k] < x) {\n        x -=\
+    \ data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\n  int upper_bound(T\
+    \ x) const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1);\
+    \ k > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <= x) {\n   \
+    \     x -= data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\
+    };\n"
+  code: "/**\n * @brief Binary-Indexed-Tree(BIT)\n * @docs docs/binary-indexed-tree.md\n\
+    \ */\ntemplate< typename T >\nstruct BinaryIndexedTree {\nprivate:\n  vector<\
+    \ T > data;\n\npublic:\n  BinaryIndexedTree() = default;\n\n  explicit BinaryIndexedTree(size_t\
+    \ sz) : data(sz + 1, 0) {}\n\n  explicit BinaryIndexedTree(const vector< T > &vs)\
+    \ : data(vs.size() + 1, 0) {\n    for(size_t i = 0; i < vs.size(); i++) data[i\
+    \ + 1] = vs[i];\n    for(size_t i = 1; i < data.size(); i++) {\n      size_t j\
+    \ = i + (i & -i);\n      if(j < data.size()) data[j] += data[i];\n    }\n  }\n\
+    \n  void add(int k, const T &x) {\n    for(++k; k < (int) data.size(); k += k\
+    \ & -k) data[k] += x;\n  }\n\n  T sum(int r) const {\n    T ret = T();\n    for(;\
+    \ r > 0; r -= r & -r) ret += data[r];\n    return ret;\n  }\n\n  T sum(int l,\
+    \ int r) const {\n    return sum(r) - sum(l);\n  }\n\n  int lower_bound(T x) const\
+    \ {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1); k > 0;\
+    \ k >>= 1) {\n      if(i + k < data.size() && data[i + k] < x) {\n        x -=\
+    \ data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\n  int upper_bound(T\
+    \ x) const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1);\
+    \ k > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <= x) {\n   \
+    \     x -= data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\
+    };\n"
   dependsOn: []
   isVerificationFile: false
   path: structure/others/binary-indexed-tree.cpp
-  requiredBy: []
-  timestamp: '2020-06-17 14:51:53+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  requiredBy:
+  - structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
+  timestamp: '2020-12-18 20:33:07+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-point-add-rectangle-sum.test.cpp
   - test/verify/aoj-dsl-2-b.test.cpp
@@ -77,7 +84,8 @@ Fenwick Tree とも呼ばれる. 数列に対し, ある要素に値を加える
 * `BinaryIndexedTree(sz)`: 長さ `sz` の $0$ で初期化された配列で構築する.
 * `BinaryIndexedTree(vs)`: 配列 `vs` で構築する.
 * `add(k, x)`: 要素 `k` に値 `x` を加える.
-* `query(k)`: 区間 $[0,k]$ の総和を求める(閉区間なので注意すること).
+* `sum(r)`: 区間 $[0,r)$ の総和を求める.
+* `sum(l, r)`: 区間 $[l, r)$ の総和を求める.
 * `lower_bound(x)`: 区間 $[0,k]$ の総和が `x` 以上となる最小の $k$ を返す.
 * `upper_bound(x)`: 区間 $[0,k]$ の総和が `x` を上回る最小の $k$ を返す.
 

@@ -1,6 +1,12 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: structure/others/binary-indexed-tree.cpp
+    title: Binary-Indexed-Tree(BIT)
+  - icon: ':heavy_check_mark:'
+    path: structure/wavelet/succinct-indexable-dictionary.cpp
+    title: structure/wavelet/succinct-indexable-dictionary.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -12,8 +18,36 @@ data:
     _deprecated_at_docs: docs/wavelet-matrix-point-add-rectangle-sum.md
     document_title: Wavelet-Matrix-Point-Add-Rectangle-Sum
     links: []
-  bundledCode: "#line 1 \"structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp\"\
-    \n/*\n * @brief Wavelet-Matrix-Point-Add-Rectangle-Sum\n * @docs docs/wavelet-matrix-point-add-rectangle-sum.md\n\
+  bundledCode: "#line 1 \"structure/wavelet/succinct-indexable-dictionary.cpp\"\n\
+    struct SuccinctIndexableDictionary {\n  size_t length;\n  size_t blocks;\n  vector<\
+    \ unsigned > bit, sum;\n\n  SuccinctIndexableDictionary() = default;\n\n  SuccinctIndexableDictionary(size_t\
+    \ length) : length(length), blocks((length + 31) >> 5) {\n    bit.assign(blocks,\
+    \ 0U);\n    sum.assign(blocks, 0U);\n  }\n\n  void set(int k) {\n    bit[k >>\
+    \ 5] |= 1U << (k & 31);\n  }\n\n  void build() {\n    sum[0] = 0U;\n    for(int\
+    \ i = 1; i < blocks; i++) {\n      sum[i] = sum[i - 1] + __builtin_popcount(bit[i\
+    \ - 1]);\n    }\n  }\n\n  bool operator[](int k) {\n    return (bool((bit[k >>\
+    \ 5] >> (k & 31)) & 1));\n  }\n\n  int rank(int k) {\n    return (sum[k >> 5]\
+    \ + __builtin_popcount(bit[k >> 5] & ((1U << (k & 31)) - 1)));\n  }\n\n  int rank(bool\
+    \ val, int k) {\n    return (val ? rank(k) : k - rank(k));\n  }\n};\n#line 1 \"\
+    structure/others/binary-indexed-tree.cpp\"\n/**\n * @brief Binary-Indexed-Tree(BIT)\n\
+    \ * @docs docs/binary-indexed-tree.md\n */\ntemplate< typename T >\nstruct BinaryIndexedTree\
+    \ {\nprivate:\n  vector< T > data;\n\npublic:\n  BinaryIndexedTree() = default;\n\
+    \n  explicit BinaryIndexedTree(size_t sz) : data(sz + 1, 0) {}\n\n  explicit BinaryIndexedTree(const\
+    \ vector< T > &vs) : data(vs.size() + 1, 0) {\n    for(size_t i = 0; i < vs.size();\
+    \ i++) data[i + 1] = vs[i];\n    for(size_t i = 1; i < data.size(); i++) {\n \
+    \     size_t j = i + (i & -i);\n      if(j < data.size()) data[j] += data[i];\n\
+    \    }\n  }\n\n  void add(int k, const T &x) {\n    for(++k; k < (int) data.size();\
+    \ k += k & -k) data[k] += x;\n  }\n\n  T sum(int r) const {\n    T ret = T();\n\
+    \    for(; r > 0; r -= r & -r) ret += data[r];\n    return ret;\n  }\n\n  T sum(int\
+    \ l, int r) const {\n    return sum(r) - sum(l);\n  }\n\n  int lower_bound(T x)\
+    \ const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1); k\
+    \ > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] < x) {\n      \
+    \  x -= data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\n\
+    \  int upper_bound(T x) const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size()\
+    \ - 1) + 1); k > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <=\
+    \ x) {\n        x -= data[i + k];\n        i += k;\n      }\n    }\n    return\
+    \ i;\n  }\n};\n#line 3 \"structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp\"\
+    \n\n/*\n * @brief Wavelet-Matrix-Point-Add-Rectangle-Sum\n * @docs docs/wavelet-matrix-point-add-rectangle-sum.md\n\
     \ */\ntemplate< typename T, int MAXLOG, typename D >\nstruct WaveletMatrixPointAddRectangleSum\
     \ {\n  size_t length;\n  SuccinctIndexableDictionary matrix[MAXLOG];\n  BinaryIndexedTree<\
     \ D > ds[MAXLOG];\n  vector< T > v;\n  int mid[MAXLOG];\n\n  WaveletMatrixPointAddRectangleSum()\
@@ -34,15 +68,15 @@ data:
     \ * f};\n  }\n\n  // count d[i] s.t. (l <= i < r) && (v[i] < upper)\n  D rect_sum(int\
     \ l, int r, T upper) {\n    D ret = 0;\n    for(int level = MAXLOG - 1; level\
     \ >= 0; level--) {\n      if(((upper >> level) & 1)) {\n        auto nxt = succ(false,\
-    \ l, r, level);\n        ret += ds[level].query(nxt.second - 1) - ds[level].query(nxt.first\
-    \ - 1);\n        l = l - nxt.first + mid[level];\n        r = r - nxt.second +\
-    \ mid[level];\n      } else {\n        tie(l, r) = succ(false, l, r, level);\n\
-    \      }\n    }\n    return ret;\n  }\n\n  D rect_sum(int l, int r, T lower, T\
-    \ upper) {\n    return rect_sum(l, r, upper) - rect_sum(l, r, lower);\n  }\n\n\
-    \  void point_add(int k, const D &x) {\n    auto &y = v[k];\n    for(int level\
-    \ = MAXLOG - 1; level >= 0; level--) {\n      bool f = ((y >> level) & 1);\n \
-    \     k = matrix[level].rank(f, k) + mid[level] * f;\n      ds[level].add(k, x);\n\
-    \    }\n  }\n};\n\ntemplate< typename T, int MAXLOG, typename D >\nstruct CompressedWaveletMatrixPointAddRectangleSum\
+    \ l, r, level);\n        ret += ds[level].sum(nxt.first, nxt.second);\n      \
+    \  l = l - nxt.first + mid[level];\n        r = r - nxt.second + mid[level];\n\
+    \      } else {\n        tie(l, r) = succ(false, l, r, level);\n      }\n    }\n\
+    \    return ret;\n  }\n\n  D rect_sum(int l, int r, T lower, T upper) {\n    return\
+    \ rect_sum(l, r, upper) - rect_sum(l, r, lower);\n  }\n\n  void point_add(int\
+    \ k, const D &x) {\n    auto &y = v[k];\n    for(int level = MAXLOG - 1; level\
+    \ >= 0; level--) {\n      bool f = ((y >> level) & 1);\n      k = matrix[level].rank(f,\
+    \ k) + mid[level] * f;\n      ds[level].add(k, x);\n    }\n  }\n};\n\ntemplate<\
+    \ typename T, int MAXLOG, typename D >\nstruct CompressedWaveletMatrixPointAddRectangleSum\
     \ {\n  WaveletMatrixPointAddRectangleSum< int, MAXLOG, D > mat;\n  vector< T >\
     \ ys;\n\n  CompressedWaveletMatrixPointAddRectangleSum(const vector< T > &v, const\
     \ vector< D > &d) : ys(v) {\n    sort(begin(ys), end(ys));\n    ys.erase(unique(begin(ys),\
@@ -54,7 +88,8 @@ data:
     \ lower, T upper) {\n    return mat.rect_sum(l, r, get(lower), get(upper));\n\
     \  }\n\n  void point_add(int k, const D &x) {\n    mat.point_add(k, x);\n  }\n\
     };\n"
-  code: "/*\n * @brief Wavelet-Matrix-Point-Add-Rectangle-Sum\n * @docs docs/wavelet-matrix-point-add-rectangle-sum.md\n\
+  code: "#include \"succinct-indexable-dictionary.cpp\"\n#include \"../others/binary-indexed-tree.cpp\"\
+    \n\n/*\n * @brief Wavelet-Matrix-Point-Add-Rectangle-Sum\n * @docs docs/wavelet-matrix-point-add-rectangle-sum.md\n\
     \ */\ntemplate< typename T, int MAXLOG, typename D >\nstruct WaveletMatrixPointAddRectangleSum\
     \ {\n  size_t length;\n  SuccinctIndexableDictionary matrix[MAXLOG];\n  BinaryIndexedTree<\
     \ D > ds[MAXLOG];\n  vector< T > v;\n  int mid[MAXLOG];\n\n  WaveletMatrixPointAddRectangleSum()\
@@ -75,15 +110,15 @@ data:
     \ * f};\n  }\n\n  // count d[i] s.t. (l <= i < r) && (v[i] < upper)\n  D rect_sum(int\
     \ l, int r, T upper) {\n    D ret = 0;\n    for(int level = MAXLOG - 1; level\
     \ >= 0; level--) {\n      if(((upper >> level) & 1)) {\n        auto nxt = succ(false,\
-    \ l, r, level);\n        ret += ds[level].query(nxt.second - 1) - ds[level].query(nxt.first\
-    \ - 1);\n        l = l - nxt.first + mid[level];\n        r = r - nxt.second +\
-    \ mid[level];\n      } else {\n        tie(l, r) = succ(false, l, r, level);\n\
-    \      }\n    }\n    return ret;\n  }\n\n  D rect_sum(int l, int r, T lower, T\
-    \ upper) {\n    return rect_sum(l, r, upper) - rect_sum(l, r, lower);\n  }\n\n\
-    \  void point_add(int k, const D &x) {\n    auto &y = v[k];\n    for(int level\
-    \ = MAXLOG - 1; level >= 0; level--) {\n      bool f = ((y >> level) & 1);\n \
-    \     k = matrix[level].rank(f, k) + mid[level] * f;\n      ds[level].add(k, x);\n\
-    \    }\n  }\n};\n\ntemplate< typename T, int MAXLOG, typename D >\nstruct CompressedWaveletMatrixPointAddRectangleSum\
+    \ l, r, level);\n        ret += ds[level].sum(nxt.first, nxt.second);\n      \
+    \  l = l - nxt.first + mid[level];\n        r = r - nxt.second + mid[level];\n\
+    \      } else {\n        tie(l, r) = succ(false, l, r, level);\n      }\n    }\n\
+    \    return ret;\n  }\n\n  D rect_sum(int l, int r, T lower, T upper) {\n    return\
+    \ rect_sum(l, r, upper) - rect_sum(l, r, lower);\n  }\n\n  void point_add(int\
+    \ k, const D &x) {\n    auto &y = v[k];\n    for(int level = MAXLOG - 1; level\
+    \ >= 0; level--) {\n      bool f = ((y >> level) & 1);\n      k = matrix[level].rank(f,\
+    \ k) + mid[level] * f;\n      ds[level].add(k, x);\n    }\n  }\n};\n\ntemplate<\
+    \ typename T, int MAXLOG, typename D >\nstruct CompressedWaveletMatrixPointAddRectangleSum\
     \ {\n  WaveletMatrixPointAddRectangleSum< int, MAXLOG, D > mat;\n  vector< T >\
     \ ys;\n\n  CompressedWaveletMatrixPointAddRectangleSum(const vector< T > &v, const\
     \ vector< D > &d) : ys(v) {\n    sort(begin(ys), end(ys));\n    ys.erase(unique(begin(ys),\
@@ -95,11 +130,13 @@ data:
     \ lower, T upper) {\n    return mat.rect_sum(l, r, get(lower), get(upper));\n\
     \  }\n\n  void point_add(int k, const D &x) {\n    mat.point_add(k, x);\n  }\n\
     };\n"
-  dependsOn: []
+  dependsOn:
+  - structure/wavelet/succinct-indexable-dictionary.cpp
+  - structure/others/binary-indexed-tree.cpp
   isVerificationFile: false
   path: structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
   requiredBy: []
-  timestamp: '2020-08-20 02:05:47+09:00'
+  timestamp: '2020-12-18 20:33:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-point-add-rectangle-sum.test.cpp

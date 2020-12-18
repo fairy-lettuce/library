@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: structure/others/binary-indexed-tree.cpp
     title: Binary-Indexed-Tree(BIT)
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B
@@ -46,25 +46,26 @@ data:
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-dsl-2-b.test.cpp\"\
     \n\n#line 1 \"structure/others/binary-indexed-tree.cpp\"\n/**\n * @brief Binary-Indexed-Tree(BIT)\n\
     \ * @docs docs/binary-indexed-tree.md\n */\ntemplate< typename T >\nstruct BinaryIndexedTree\
-    \ {\n  vector< T > data;\n\n  BinaryIndexedTree() = default;\n\n  explicit BinaryIndexedTree(size_t\
-    \ sz) : data(sz + 1, 0) {}\n\n  explicit BinaryIndexedTree(const vector< T > &vs)\
-    \ : data(vs.size() + 1, 0) {\n    for(size_t i = 0; i < vs.size(); i++) data[i\
-    \ + 1] = vs[i];\n    for(size_t i = 1; i < data.size(); i++) {\n      size_t j\
-    \ = i + (i & -i);\n      if(j < data.size()) data[j] += data[i];\n    }\n  }\n\
-    \n  void add(int k, const T &x) {\n    for(++k; k < (int) data.size(); k += k\
-    \ & -k) data[k] += x;\n  }\n\n  T query(int k) const {\n    T ret = T();\n   \
-    \ for(++k; k > 0; k -= k & -k) ret += data[k];\n    return ret;\n  }\n\n  int\
-    \ lower_bound(T x) const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size()\
-    \ - 1) + 1); k > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <\
+    \ {\nprivate:\n  vector< T > data;\n\npublic:\n  BinaryIndexedTree() = default;\n\
+    \n  explicit BinaryIndexedTree(size_t sz) : data(sz + 1, 0) {}\n\n  explicit BinaryIndexedTree(const\
+    \ vector< T > &vs) : data(vs.size() + 1, 0) {\n    for(size_t i = 0; i < vs.size();\
+    \ i++) data[i + 1] = vs[i];\n    for(size_t i = 1; i < data.size(); i++) {\n \
+    \     size_t j = i + (i & -i);\n      if(j < data.size()) data[j] += data[i];\n\
+    \    }\n  }\n\n  void add(int k, const T &x) {\n    for(++k; k < (int) data.size();\
+    \ k += k & -k) data[k] += x;\n  }\n\n  T sum(int r) const {\n    T ret = T();\n\
+    \    for(; r > 0; r -= r & -r) ret += data[r];\n    return ret;\n  }\n\n  T sum(int\
+    \ l, int r) const {\n    return sum(r) - sum(l);\n  }\n\n  int lower_bound(T x)\
+    \ const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1); k\
+    \ > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] < x) {\n      \
+    \  x -= data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\n\
+    \  int upper_bound(T x) const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size()\
+    \ - 1) + 1); k > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <=\
     \ x) {\n        x -= data[i + k];\n        i += k;\n      }\n    }\n    return\
-    \ i;\n  }\n\n  int upper_bound(T x) const {\n    int i = 0;\n    for(int k = 1\
-    \ << (__lg(data.size() - 1) + 1); k > 0; k >>= 1) {\n      if(i + k < data.size()\
-    \ && data[i + k] <= x) {\n        x -= data[i + k];\n        i += k;\n      }\n\
-    \    }\n    return i;\n  }\n};\n#line 6 \"test/verify/aoj-dsl-2-b.test.cpp\"\n\
-    \nint main() {\n  int N, Q;\n  cin >> N >> Q;\n  BinaryIndexedTree< int > bit(N);\n\
-    \  while(Q--) {\n    int T, X, Y;\n    cin >> T >> X >> Y;\n    if(T == 0) bit.add(X\
-    \ - 1, Y);\n    else cout << bit.query(Y - 1) - bit.query(X - 2) << \"\\n\";\n\
-    \  }\n}\n"
+    \ i;\n  }\n};\n#line 6 \"test/verify/aoj-dsl-2-b.test.cpp\"\n\nint main() {\n\
+    \  int N, Q;\n  cin >> N >> Q;\n  BinaryIndexedTree< int > bit(N);\n  while(Q--)\
+    \ {\n    int T, X, Y;\n    cin >> T >> X >> Y;\n    if(T == 0) bit.add(X - 1,\
+    \ Y);\n    else cout << bit.query(Y - 1) - bit.query(X - 2) << \"\\n\";\n  }\n\
+    }\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../structure/others/binary-indexed-tree.cpp\"\
     \n\nint main() {\n  int N, Q;\n  cin >> N >> Q;\n  BinaryIndexedTree< int > bit(N);\n\
@@ -77,8 +78,8 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-dsl-2-b.test.cpp
   requiredBy: []
-  timestamp: '2020-06-17 14:51:53+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2020-12-18 20:33:07+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/aoj-dsl-2-b.test.cpp
 layout: document
