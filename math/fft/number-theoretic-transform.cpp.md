@@ -6,6 +6,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-convolution-mod.test.cpp
     title: test/verify/yosupo-convolution-mod.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:

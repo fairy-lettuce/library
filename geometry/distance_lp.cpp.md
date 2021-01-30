@@ -21,6 +21,7 @@ data:
     path: geometry/is_intersect_cl.cpp
     title: geometry/is_intersect_cl.cpp
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:

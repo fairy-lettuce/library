@@ -15,6 +15,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-directedmst.test.cpp
     title: test/verify/yosupo-directedmst.test.cpp
+  _isVerificationFailed: true
   _pathExtension: cpp
   _verificationStatusIcon: ':question:'
   attributes:

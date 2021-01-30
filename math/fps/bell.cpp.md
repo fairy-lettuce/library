@@ -21,6 +21,7 @@ data:
     title: Log ($\log {f(x)}$)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:

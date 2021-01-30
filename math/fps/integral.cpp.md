@@ -27,6 +27,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
     title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -108,8 +109,8 @@ data:
   path: math/fps/integral.cpp
   requiredBy:
   - math/fps/pow.cpp
-  - math/fps/bell.cpp
   - math/fps/log.cpp
+  - math/fps/bell.cpp
   - math/fps/exp.cpp
   timestamp: '2020-10-23 03:48:43+09:00'
   verificationStatus: LIBRARY_ALL_AC

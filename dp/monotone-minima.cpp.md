@@ -22,6 +22,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-705.test.cpp
     title: test/verify/yukicoder-705.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -54,14 +55,14 @@ data:
   isVerificationFile: false
   path: dp/monotone-minima.cpp
   requiredBy:
-  - dp/online-offline-dp.cpp
   - dp/divide-and-conquer-optimization.cpp
+  - dp/online-offline-dp.cpp
   timestamp: '2020-02-24 21:29:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yukicoder-703.test.cpp
-  - test/verify/aoj-2603.test.cpp
   - test/verify/yukicoder-704.test.cpp
+  - test/verify/aoj-2603.test.cpp
   - test/verify/yukicoder-705.test.cpp
 documentation_of: dp/monotone-minima.cpp
 layout: document

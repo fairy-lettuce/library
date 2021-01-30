@@ -6,6 +6,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-montmort-number-mod.test.cpp
     title: test/verify/yosupo-montmort-number-mod.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:

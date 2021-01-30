@@ -9,6 +9,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-staticrmq-3.test.cpp
     title: test/verify/yosupo-staticrmq-3.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:

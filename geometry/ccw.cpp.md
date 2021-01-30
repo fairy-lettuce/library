@@ -45,6 +45,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-7-h.test.cpp
     title: test/verify/aoj-cgl-7-h.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -93,20 +94,20 @@ data:
   path: geometry/ccw.cpp
   requiredBy:
   - geometry/distance_sp.cpp
-  - geometry/is_intersect_lp.cpp
-  - geometry/common_area_cp.cpp
   - geometry/is_intersect_sp.cpp
-  - geometry/is_intersect_ss.cpp
-  - geometry/is_convex_polygon.cpp
+  - geometry/is_intersect_lp.cpp
   - geometry/distance_ss.cpp
+  - geometry/is_intersect_ss.cpp
+  - geometry/common_area_cp.cpp
+  - geometry/is_convex_polygon.cpp
   timestamp: '2020-12-01 17:38:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-cgl-7-h.test.cpp
-  - test/verify/aoj-cgl-2-d.test.cpp
-  - test/verify/aoj-cgl-2-b.test.cpp
-  - test/verify/aoj-cgl-3-b.test.cpp
   - test/verify/aoj-cgl-1-c.test.cpp
+  - test/verify/aoj-cgl-2-d.test.cpp
+  - test/verify/aoj-cgl-3-b.test.cpp
+  - test/verify/aoj-cgl-2-b.test.cpp
+  - test/verify/aoj-cgl-7-h.test.cpp
 documentation_of: geometry/ccw.cpp
 layout: document
 redirect_from:

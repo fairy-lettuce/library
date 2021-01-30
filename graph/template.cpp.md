@@ -12,6 +12,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-maximum-independent-set.test.cpp
     title: test/verify/yosupo-maximum-independent-set.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -39,9 +40,9 @@ data:
   timestamp: '2019-07-20 01:29:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-grl-1-c.test.cpp
-  - test/verify/aoj-2306.test.cpp
   - test/verify/yosupo-maximum-independent-set.test.cpp
+  - test/verify/aoj-2306.test.cpp
+  - test/verify/aoj-grl-1-c.test.cpp
 documentation_of: graph/template.cpp
 layout: document
 redirect_from:

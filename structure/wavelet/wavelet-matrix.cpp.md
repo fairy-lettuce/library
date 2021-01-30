@@ -12,6 +12,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-range-kth-smallest.test.cpp
     title: test/verify/yosupo-range-kth-smallest.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -142,9 +143,9 @@ data:
   timestamp: '2020-08-20 02:29:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-1549.test.cpp
-  - test/verify/yosupo-range-kth-smallest.test.cpp
   - test/verify/aoj-2674.test.cpp
+  - test/verify/yosupo-range-kth-smallest.test.cpp
+  - test/verify/aoj-1549.test.cpp
 documentation_of: structure/wavelet/wavelet-matrix.cpp
 layout: document
 redirect_from:

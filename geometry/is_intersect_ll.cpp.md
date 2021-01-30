@@ -18,6 +18,7 @@ data:
     path: geometry/distance_ll.cpp
     title: geometry/distance_ll.cpp
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:

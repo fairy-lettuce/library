@@ -6,6 +6,7 @@ data:
   - icon: ':x:'
     path: test/verify/aoj-2415.test.cpp
     title: test/verify/aoj-2415.test.cpp
+  _isVerificationFailed: true
   _pathExtension: cpp
   _verificationStatusIcon: ':x:'
   attributes:

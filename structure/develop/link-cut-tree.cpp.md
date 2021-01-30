@@ -12,6 +12,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -62,8 +63,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
-  - test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp
   - test/verify/aoj-2450-3.test.cpp
+  - test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp
 documentation_of: structure/develop/link-cut-tree.cpp
 layout: document
 redirect_from:

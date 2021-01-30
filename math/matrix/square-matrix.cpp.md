@@ -9,6 +9,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -78,8 +79,8 @@ data:
   timestamp: '2020-06-11 22:00:32+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-1254.test.cpp
   - test/verify/yukicoder-650.test.cpp
+  - test/verify/aoj-1254.test.cpp
 documentation_of: math/matrix/square-matrix.cpp
 layout: document
 redirect_from:

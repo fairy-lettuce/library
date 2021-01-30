@@ -15,6 +15,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-static-range-inversions-query.test.cpp
     title: test/verify/yosupo-static-range-inversions-query.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -66,9 +67,9 @@ data:
   timestamp: '2020-12-18 20:33:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/verify/yosupo-static-range-inversions-query.test.cpp
   - test/verify/yosupo-point-add-rectangle-sum.test.cpp
   - test/verify/aoj-dsl-2-b.test.cpp
-  - test/verify/yosupo-static-range-inversions-query.test.cpp
 documentation_of: structure/others/binary-indexed-tree.cpp
 layout: document
 redirect_from:

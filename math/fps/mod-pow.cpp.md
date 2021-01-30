@@ -9,6 +9,7 @@ data:
     title: Inv ($\frac {1} {f(x)}$)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:

@@ -312,6 +312,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/shortest-path/bfs.cpp
       title: "BFS(\u5E45\u512A\u5148\u63A2\u7D22)"
+    - icon: ':warning:'
+      path: graph/shortest-path/complement-shotest-path.cpp
+      title: "Complement-Shortest-Path(\u88DC\u30B0\u30E9\u30D5\u6700\u77ED\u8DEF)"
     - icon: ':heavy_check_mark:'
       path: graph/shortest-path/dijkstra-fibonacchi-heap.cpp
       title: "Dijkstra-Fibonacchi-Heap(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"

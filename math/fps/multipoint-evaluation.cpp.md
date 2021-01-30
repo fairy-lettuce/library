@@ -18,6 +18,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -139,8 +140,8 @@ data:
   timestamp: '2020-10-23 03:48:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-multipoint-evaluation.test.cpp
   - test/verify/yosupo-polynomial-interpolation.test.cpp
+  - test/verify/yosupo-multipoint-evaluation.test.cpp
 documentation_of: math/fps/multipoint-evaluation.cpp
 layout: document
 redirect_from:

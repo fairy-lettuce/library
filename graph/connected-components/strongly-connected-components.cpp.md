@@ -18,6 +18,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-two-sat.test.cpp
     title: test/verify/yosupo-two-sat.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -91,8 +92,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-two-sat.test.cpp
-  - test/verify/aoj-grl-3-c.test.cpp
   - test/verify/yosupo-scc.test.cpp
+  - test/verify/aoj-grl-3-c.test.cpp
 documentation_of: graph/connected-components/strongly-connected-components.cpp
 layout: document
 redirect_from:

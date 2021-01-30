@@ -18,6 +18,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-staticrmq-3.test.cpp
     title: test/verify/yosupo-staticrmq-3.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -42,10 +43,10 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-range-affine-range-sum-3.test.cpp
-  - test/verify/yosupo-staticrmq-3.test.cpp
-  - test/verify/yosupo-range-affine-range-sum-2.test.cpp
   - test/verify/aoj-1508-3.test.cpp
+  - test/verify/yosupo-staticrmq-3.test.cpp
   - test/verify/aoj-1508-2.test.cpp
+  - test/verify/yosupo-range-affine-range-sum-2.test.cpp
 documentation_of: other/vector-pool.cpp
 layout: document
 redirect_from:

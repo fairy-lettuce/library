@@ -15,6 +15,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-shortest-path.test.cpp
     title: test/verify/yosupo-shortest-path.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -55,10 +56,10 @@ data:
   timestamp: '2020-08-21 01:30:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-grl-1-a.test.cpp
-  - test/verify/aoj-0275.test.cpp
-  - test/verify/yosupo-shortest-path.test.cpp
   - test/verify/yosupo-k-shortest-walk.test.cpp
+  - test/verify/yosupo-shortest-path.test.cpp
+  - test/verify/aoj-0275.test.cpp
+  - test/verify/aoj-grl-1-a.test.cpp
 documentation_of: graph/shortest-path/dijkstra.cpp
 layout: document
 redirect_from:

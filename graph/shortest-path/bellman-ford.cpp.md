@@ -9,6 +9,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-b.test.cpp
     title: test/verify/aoj-grl-1-b.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -39,8 +40,8 @@ data:
   timestamp: '2020-10-07 14:06:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-0304.test.cpp
   - test/verify/aoj-grl-1-b.test.cpp
+  - test/verify/aoj-0304.test.cpp
 documentation_of: graph/shortest-path/bellman-ford.cpp
 layout: document
 redirect_from:

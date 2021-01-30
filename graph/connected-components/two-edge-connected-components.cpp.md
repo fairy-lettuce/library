@@ -12,6 +12,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-two-edge-connected-components.test.cpp
     title: test/verify/yosupo-two-edge-connected-components.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:

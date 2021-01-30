@@ -9,6 +9,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-cycle-detection.test.cpp
     title: test/verify/yosupo-cycle-detection.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
