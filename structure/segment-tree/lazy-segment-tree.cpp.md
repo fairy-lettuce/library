@@ -121,8 +121,8 @@ data:
   timestamp: '2020-09-08 00:34:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-2450.test.cpp
   - test/verify/yosupo-range-affine-range-sum.test.cpp
+  - test/verify/aoj-2450.test.cpp
 documentation_of: structure/segment-tree/lazy-segment-tree.cpp
 layout: document
 redirect_from:

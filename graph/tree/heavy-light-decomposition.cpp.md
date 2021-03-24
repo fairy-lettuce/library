@@ -134,10 +134,10 @@ data:
   timestamp: '2020-09-15 01:41:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-2450.test.cpp
   - test/verify/yukicoder-650.test.cpp
   - test/verify/aoj-2667.test.cpp
   - test/verify/aoj-grl-5-c-2.test.cpp
+  - test/verify/aoj-2450.test.cpp
 documentation_of: graph/tree/heavy-light-decomposition.cpp
 layout: document
 redirect_from:

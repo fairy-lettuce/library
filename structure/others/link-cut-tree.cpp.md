@@ -69,9 +69,9 @@ data:
   timestamp: '2020-06-19 01:29:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
   - test/verify/aoj-2450-2.test.cpp
+  - test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
 documentation_of: structure/others/link-cut-tree.cpp
 layout: document
 redirect_from:

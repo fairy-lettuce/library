@@ -53,11 +53,9 @@ data:
     \       return kth_element(t->nxt[f], k, bit_index - 1, xor_val);\n      }\n \
     \   }\n  }\n\n  D count_less(Node *t, const T &bit, int bit_index, T xor_val)\
     \ {\n    if(bit_index == -1) return 0;\n    D ret = 0;\n    bool f = (xor_val\
-    \ >> bit_index) & 1;\n    if(f ^ ((bit >> bit_index) & 1)) {\n      if(t->nxt[f])\
-    \ ret += t->nxt[f]->exist;\n      if(t->nxt[1 ^ f]) ret += count_less(t->nxt[1\
-    \ ^ f], bit, bit_index - 1, xor_val);\n    } else {\n      if(t->nxt[f]) ret +=\
-    \ count_less(t->nxt[f], bit, bit_index - 1, xor_val);\n    }\n    return ret;\n\
-    \  }\n};\n"
+    \ >> bit_index) & 1;\n    if((bit >> bit_index & 1) and t->nxt[f]) ret += t->nxt[f]->exist;\n\
+    \    if(t->nxt[f ^ (bit >> bit_index & 1)]) ret += count_less(t->nxt[f ^ (bit\
+    \ >> bit_index & 1)], bit, bit_index - 1, xor_val);\n    return ret;\n  }\n};\n"
   code: "/**\n * @brief Binary-Trie\n * @docs docs/binary-trie.md\n */\ntemplate<\
     \ typename T, int MAX_LOG, typename D = int >\nstruct BinaryTrie {\npublic:\n\
     \  struct Node {\n    Node *nxt[2];\n    D exist;\n    vector< int > accept;\n\
@@ -94,20 +92,18 @@ data:
     \       return kth_element(t->nxt[f], k, bit_index - 1, xor_val);\n      }\n \
     \   }\n  }\n\n  D count_less(Node *t, const T &bit, int bit_index, T xor_val)\
     \ {\n    if(bit_index == -1) return 0;\n    D ret = 0;\n    bool f = (xor_val\
-    \ >> bit_index) & 1;\n    if(f ^ ((bit >> bit_index) & 1)) {\n      if(t->nxt[f])\
-    \ ret += t->nxt[f]->exist;\n      if(t->nxt[1 ^ f]) ret += count_less(t->nxt[1\
-    \ ^ f], bit, bit_index - 1, xor_val);\n    } else {\n      if(t->nxt[f]) ret +=\
-    \ count_less(t->nxt[f], bit, bit_index - 1, xor_val);\n    }\n    return ret;\n\
-    \  }\n};\n"
+    \ >> bit_index) & 1;\n    if((bit >> bit_index & 1) and t->nxt[f]) ret += t->nxt[f]->exist;\n\
+    \    if(t->nxt[f ^ (bit >> bit_index & 1)]) ret += count_less(t->nxt[f ^ (bit\
+    \ >> bit_index & 1)], bit, bit_index - 1, xor_val);\n    return ret;\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: structure/trie/binary-trie.cpp
   requiredBy: []
-  timestamp: '2020-08-14 17:23:13+09:00'
+  timestamp: '2021-03-20 15:01:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-set-xor-min.test.cpp
   - test/verify/aoj-dsl-2-b-2.test.cpp
+  - test/verify/yosupo-set-xor-min.test.cpp
 documentation_of: structure/trie/binary-trie.cpp
 layout: document
 redirect_from:

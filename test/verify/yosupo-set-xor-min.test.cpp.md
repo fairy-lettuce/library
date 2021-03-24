@@ -83,14 +83,13 @@ data:
     \       return kth_element(t->nxt[f], k, bit_index - 1, xor_val);\n      }\n \
     \   }\n  }\n\n  D count_less(Node *t, const T &bit, int bit_index, T xor_val)\
     \ {\n    if(bit_index == -1) return 0;\n    D ret = 0;\n    bool f = (xor_val\
-    \ >> bit_index) & 1;\n    if(f ^ ((bit >> bit_index) & 1)) {\n      if(t->nxt[f])\
-    \ ret += t->nxt[f]->exist;\n      if(t->nxt[1 ^ f]) ret += count_less(t->nxt[1\
-    \ ^ f], bit, bit_index - 1, xor_val);\n    } else {\n      if(t->nxt[f]) ret +=\
-    \ count_less(t->nxt[f], bit, bit_index - 1, xor_val);\n    }\n    return ret;\n\
-    \  }\n};\n#line 6 \"test/verify/yosupo-set-xor-min.test.cpp\"\n\nint main() {\n\
-    \  int Q;\n  cin >> Q;\n  BinaryTrie< int, 29 > trie;\n  for(int i = 0; i < Q;\
-    \ i++) {\n    int t, x;\n    cin >> t >> x;\n    if(t == 0) {\n      if(trie.count(x)\
-    \ == 0) trie.add(x);\n    } else if(t == 1) {\n      if(trie.count(x) != 0) trie.erase(x);\n\
+    \ >> bit_index) & 1;\n    if((bit >> bit_index & 1) and t->nxt[f]) ret += t->nxt[f]->exist;\n\
+    \    if(t->nxt[f ^ (bit >> bit_index & 1)]) ret += count_less(t->nxt[f ^ (bit\
+    \ >> bit_index & 1)], bit, bit_index - 1, xor_val);\n    return ret;\n  }\n};\n\
+    #line 6 \"test/verify/yosupo-set-xor-min.test.cpp\"\n\nint main() {\n  int Q;\n\
+    \  cin >> Q;\n  BinaryTrie< int, 29 > trie;\n  for(int i = 0; i < Q; i++) {\n\
+    \    int t, x;\n    cin >> t >> x;\n    if(t == 0) {\n      if(trie.count(x) ==\
+    \ 0) trie.add(x);\n    } else if(t == 1) {\n      if(trie.count(x) != 0) trie.erase(x);\n\
     \    } else {\n      cout << trie.min_element(x).first << \"\\n\";\n    }\n  }\n\
     }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/set_xor_min\"\n\n#include\
@@ -106,7 +105,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-set-xor-min.test.cpp
   requiredBy: []
-  timestamp: '2020-08-14 17:23:13+09:00'
+  timestamp: '2021-03-20 15:01:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-set-xor-min.test.cpp

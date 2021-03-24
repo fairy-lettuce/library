@@ -199,13 +199,13 @@ data:
   isVerificationFile: false
   path: math/fps/exp.cpp
   requiredBy:
-  - math/fps/pow.cpp
   - math/fps/bell.cpp
+  - math/fps/pow.cpp
   timestamp: '2020-10-23 03:48:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp
+  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
 documentation_of: math/fps/exp.cpp
 layout: document
 redirect_from:
