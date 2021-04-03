@@ -42,9 +42,9 @@ data:
   timestamp: '2020-10-13 00:39:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-enumerate-primes.test.cpp
   - test/verify/yosupo-counting-primes.test.cpp
   - test/verify/aoj-alds-1-1-c-2.test.cpp
+  - test/verify/yosupo-enumerate-primes.test.cpp
 documentation_of: math/number-theory/prime-table.cpp
 layout: document
 redirect_from:

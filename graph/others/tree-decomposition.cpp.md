@@ -127,8 +127,8 @@ data:
   timestamp: '2020-09-30 18:06:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-2405.test.cpp
   - test/verify/yosupo-tree-decomposition-width-2.test.cpp
+  - test/verify/aoj-2405.test.cpp
 documentation_of: graph/others/tree-decomposition.cpp
 layout: document
 redirect_from:

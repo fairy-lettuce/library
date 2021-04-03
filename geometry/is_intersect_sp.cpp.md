@@ -92,9 +92,9 @@ data:
   isVerificationFile: false
   path: geometry/is_intersect_sp.cpp
   requiredBy:
+  - geometry/distance_ss.cpp
   - geometry/distance_sp.cpp
   - geometry/common_area_cp.cpp
-  - geometry/distance_ss.cpp
   timestamp: '2020-12-01 17:38:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

@@ -168,27 +168,27 @@ data:
   isVerificationFile: false
   path: math/fps/inv.cpp
   requiredBy:
+  - math/fps/sqrt.cpp
+  - math/fps/polynomial-interpolation.cpp
   - math/fps/bell.cpp
-  - math/fps/multipoint-evaluation.cpp
+  - math/fps/pow.cpp
+  - math/fps/partition.cpp
   - math/fps/log.cpp
   - math/fps/exp.cpp
-  - math/fps/partition.cpp
-  - math/fps/pow.cpp
-  - math/fps/sqrt.cpp
-  - math/fps/bellnoulli.cpp
   - math/fps/mod-pow.cpp
-  - math/fps/polynomial-interpolation.cpp
+  - math/fps/bellnoulli.cpp
+  - math/fps/multipoint-evaluation.cpp
   timestamp: '2020-10-23 03:48:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-bellnoulli-number.test.cpp
-  - test/verify/yosupo-partition-function.test.cpp
-  - test/verify/yosupo-polynomial-interpolation.test.cpp
   - test/verify/yosupo-multipoint-evaluation.test.cpp
-  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
+  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
+  - test/verify/yosupo-partition-function.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
+  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
+  - test/verify/yosupo-bellnoulli-number.test.cpp
+  - test/verify/yosupo-polynomial-interpolation.test.cpp
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
 documentation_of: math/fps/inv.cpp
 layout: document

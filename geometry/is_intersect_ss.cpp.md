@@ -92,8 +92,8 @@ data:
   timestamp: '2020-12-01 17:38:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-cgl-2-d.test.cpp
   - test/verify/aoj-cgl-2-b.test.cpp
+  - test/verify/aoj-cgl-2-d.test.cpp
 documentation_of: geometry/is_intersect_ss.cpp
 layout: document
 redirect_from:
