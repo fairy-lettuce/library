@@ -7,10 +7,10 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    document_title: Binary-Indexed-Tree(BIT)
+    document_title: Slope-Trick
     links:
     - https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8
-  bundledCode: "#line 1 \"structure/others/slope-trick.cpp\"\n/**\n * @brief Binary-Indexed-Tree(BIT)\n\
+  bundledCode: "#line 1 \"structure/others/slope-trick.cpp\"\n/**\n * @brief Slope-Trick\n\
     \ * @see https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n */\n\
     template< typename T >\nstruct SlopeTrick {\n\n  const T INF = numeric_limits<\
     \ T >::max() / 3;\n\n  T min_f;\n  priority_queue< T, vector< T >, greater<> >\
@@ -26,7 +26,7 @@ data:
     \ add_right(a);\n  }\n\n  // f(x) = min f(y) (y <= x)\n  void cumulative_min_left()\
     \ {\n    while(R.size() >= 2) R.pop();\n  }\n\n  // f(x) = min f(y) (y >= x)\n\
     \  void cumulative_min_right() {\n    while(L.size() >= 2) L.pop();\n  }\n};\n"
-  code: "/**\n * @brief Binary-Indexed-Tree(BIT)\n * @see https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n\
+  code: "/**\n * @brief Slope-Trick\n * @see https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n\
     \ */\ntemplate< typename T >\nstruct SlopeTrick {\n\n  const T INF = numeric_limits<\
     \ T >::max() / 3;\n\n  T min_f;\n  priority_queue< T, vector< T >, greater<> >\
     \ L, R;\n\n\n  SlopeTrick() : min_f(0) {\n    L.push(INF);\n    R.push(INF);\n\
@@ -45,7 +45,7 @@ data:
   isVerificationFile: false
   path: structure/others/slope-trick.cpp
   requiredBy: []
-  timestamp: '2021-04-03 21:14:02+09:00'
+  timestamp: '2021-04-03 21:36:07+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: structure/others/slope-trick.cpp
@@ -53,5 +53,5 @@ layout: document
 redirect_from:
 - /library/structure/others/slope-trick.cpp
 - /library/structure/others/slope-trick.cpp.html
-title: Binary-Indexed-Tree(BIT)
+title: Slope-Trick
 ---
