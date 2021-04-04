@@ -14,42 +14,62 @@ data:
     \ * @see https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n */\n\
     template< typename T >\nstruct SlopeTrick {\n\n  const T INF = numeric_limits<\
     \ T >::max() / 3;\n\n  T min_f;\n  priority_queue< T, vector< T >, less<> > L;\n\
-    \  priority_queue< T, vector< T >, greater<> > R;\n\n\n  SlopeTrick() : min_f(0)\
-    \ {\n    L.push(-INF);\n    R.push(INF);\n  }\n\n  struct Query {\n    T lx, rx,\
-    \ min_f;\n  };\n\n  // return min f(x)\n  Query query() const {\n    return (Query)\
-    \ {L.top(), R.top(), min_f};\n  }\n\n  // f(x) += a\n  void add_all(const T &a)\
-    \ {\n    min_f += a;\n  }\n\n  // add \\_\n  // f(x) += max(a - x, 0)\n  void\
-    \ add_a_minus_x(const T &a) {\n    min_f += max(T(0), a - R.top());\n    R.push(a);\n\
-    \    L.push(R.top());\n    R.pop();\n  }\n\n  // add _/\n  // f(x) += max(x -\
-    \ a, 0)\n  void add_x_minus_a(const T &a) {\n    min_f += max(T(0), L.top() -\
-    \ a);\n    L.push(a);\n    R.push(L.top());\n    L.pop();\n  }\n\n  // add \\\
-    /\n  // f(x) += abs(x - a)\n  void add_abs(const T &a) {\n    add_a_minus_x(a);\n\
+    \  priority_queue< T, vector< T >, greater<> > R;\n  T add_l, add_r;\n\n\nprivate:\n\
+    \  void push_R(const T &a) {\n    R.push(a - add_r);\n  }\n\n  T top_R() const\
+    \ {\n    return R.top() + add_r;\n  }\n\n  T pop_R() {\n    T val = top_R();\n\
+    \    R.pop();\n    return val;\n  }\n\n  void push_L(const T &a) {\n    L.push(a\
+    \ - add_l);\n  }\n\n  T top_L() const {\n    return L.top() + add_l;\n  }\n\n\
+    \  T pop_L() {\n    T val = top_L();\n    L.pop();\n    return val;\n  }\n\npublic:\n\
+    \  SlopeTrick() : min_f(0), add_l(0), add_r(0) {\n    L.push(-INF);\n    R.push(INF);\n\
+    \  }\n\n  struct Query {\n    T lx, rx, min_f;\n  };\n\n  // return min f(x)\n\
+    \  Query query() const {\n    return (Query) {top_L(), top_R(), min_f};\n  }\n\
+    \n  // f(x) += a\n  void add_all(const T &a) {\n    min_f += a;\n  }\n\n  // add\
+    \ \\_\n  // f(x) += max(a - x, 0)\n  void add_a_minus_x(const T &a) {\n    min_f\
+    \ += max(T(0), a - top_R());\n    push_R(a);\n    push_L(pop_R());\n  }\n\n  //\
+    \ add _/\n  // f(x) += max(x - a, 0)\n  void add_x_minus_a(const T &a) {\n   \
+    \ min_f += max(T(0), top_L() - a);\n    push_L(a);\n    push_R(pop_L());\n  }\n\
+    \n  // add \\/\n  // f(x) += abs(x - a)\n  void add_abs(const T &a) {\n    add_a_minus_x(a);\n\
     \    add_x_minus_a(a);\n  }\n\n  // \\/ -> \\_\n  // f_{new} (x) = min f(y) (y\
     \ <= x)\n  void clear_right() {\n    while(R.size() >= 2) R.pop();\n  }\n\n  //\
     \ \\/ -> _/\n  // f_{new} (x) = min f(y) (y >= x)\n  void clear_left() {\n   \
-    \ while(L.size() >= 2) L.pop();\n  }\n};\n"
+    \ while(L.size() >= 2) L.pop();\n  }\n\n  // \\/. -> .\\/\n  // f_{new} (x) =\
+    \ f(x - a)\n  void shift(const T &a) {\n    add_l += a;\n    add_r += a;\n  }\n\
+    \n  // L, R \u3092\u7834\u58CA\u3059\u308B\n  T get(const T &x) {\n    T ret =\
+    \ min_f;\n    while(!L.empty()) {\n      ret += max(T(0), pop_L() - x);\n    }\n\
+    \    while(!R.empty()) {\n      ret += max(T(0), x - pop_R());\n    }\n    return\
+    \ ret;\n  }\n};\n"
   code: "/**\n * @brief Slope-Trick\n * @see https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n\
     \ */\ntemplate< typename T >\nstruct SlopeTrick {\n\n  const T INF = numeric_limits<\
     \ T >::max() / 3;\n\n  T min_f;\n  priority_queue< T, vector< T >, less<> > L;\n\
-    \  priority_queue< T, vector< T >, greater<> > R;\n\n\n  SlopeTrick() : min_f(0)\
-    \ {\n    L.push(-INF);\n    R.push(INF);\n  }\n\n  struct Query {\n    T lx, rx,\
-    \ min_f;\n  };\n\n  // return min f(x)\n  Query query() const {\n    return (Query)\
-    \ {L.top(), R.top(), min_f};\n  }\n\n  // f(x) += a\n  void add_all(const T &a)\
-    \ {\n    min_f += a;\n  }\n\n  // add \\_\n  // f(x) += max(a - x, 0)\n  void\
-    \ add_a_minus_x(const T &a) {\n    min_f += max(T(0), a - R.top());\n    R.push(a);\n\
-    \    L.push(R.top());\n    R.pop();\n  }\n\n  // add _/\n  // f(x) += max(x -\
-    \ a, 0)\n  void add_x_minus_a(const T &a) {\n    min_f += max(T(0), L.top() -\
-    \ a);\n    L.push(a);\n    R.push(L.top());\n    L.pop();\n  }\n\n  // add \\\
-    /\n  // f(x) += abs(x - a)\n  void add_abs(const T &a) {\n    add_a_minus_x(a);\n\
+    \  priority_queue< T, vector< T >, greater<> > R;\n  T add_l, add_r;\n\n\nprivate:\n\
+    \  void push_R(const T &a) {\n    R.push(a - add_r);\n  }\n\n  T top_R() const\
+    \ {\n    return R.top() + add_r;\n  }\n\n  T pop_R() {\n    T val = top_R();\n\
+    \    R.pop();\n    return val;\n  }\n\n  void push_L(const T &a) {\n    L.push(a\
+    \ - add_l);\n  }\n\n  T top_L() const {\n    return L.top() + add_l;\n  }\n\n\
+    \  T pop_L() {\n    T val = top_L();\n    L.pop();\n    return val;\n  }\n\npublic:\n\
+    \  SlopeTrick() : min_f(0), add_l(0), add_r(0) {\n    L.push(-INF);\n    R.push(INF);\n\
+    \  }\n\n  struct Query {\n    T lx, rx, min_f;\n  };\n\n  // return min f(x)\n\
+    \  Query query() const {\n    return (Query) {top_L(), top_R(), min_f};\n  }\n\
+    \n  // f(x) += a\n  void add_all(const T &a) {\n    min_f += a;\n  }\n\n  // add\
+    \ \\_\n  // f(x) += max(a - x, 0)\n  void add_a_minus_x(const T &a) {\n    min_f\
+    \ += max(T(0), a - top_R());\n    push_R(a);\n    push_L(pop_R());\n  }\n\n  //\
+    \ add _/\n  // f(x) += max(x - a, 0)\n  void add_x_minus_a(const T &a) {\n   \
+    \ min_f += max(T(0), top_L() - a);\n    push_L(a);\n    push_R(pop_L());\n  }\n\
+    \n  // add \\/\n  // f(x) += abs(x - a)\n  void add_abs(const T &a) {\n    add_a_minus_x(a);\n\
     \    add_x_minus_a(a);\n  }\n\n  // \\/ -> \\_\n  // f_{new} (x) = min f(y) (y\
     \ <= x)\n  void clear_right() {\n    while(R.size() >= 2) R.pop();\n  }\n\n  //\
     \ \\/ -> _/\n  // f_{new} (x) = min f(y) (y >= x)\n  void clear_left() {\n   \
-    \ while(L.size() >= 2) L.pop();\n  }\n};\n"
+    \ while(L.size() >= 2) L.pop();\n  }\n\n  // \\/. -> .\\/\n  // f_{new} (x) =\
+    \ f(x - a)\n  void shift(const T &a) {\n    add_l += a;\n    add_r += a;\n  }\n\
+    \n  // L, R \u3092\u7834\u58CA\u3059\u308B\n  T get(const T &x) {\n    T ret =\
+    \ min_f;\n    while(!L.empty()) {\n      ret += max(T(0), pop_L() - x);\n    }\n\
+    \    while(!R.empty()) {\n      ret += max(T(0), x - pop_R());\n    }\n    return\
+    \ ret;\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: structure/others/slope-trick.cpp
   requiredBy: []
-  timestamp: '2021-04-05 00:26:16+09:00'
+  timestamp: '2021-04-05 00:46:21+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: structure/others/slope-trick.cpp
