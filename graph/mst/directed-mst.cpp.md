@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/heap/skew-heap.cpp
     title: Skew-Heap
   _extendedRequiredBy: []

@@ -15,9 +15,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: dp/edit-distance.cpp
       title: "Edit-Distance(\u7DE8\u96C6\u8DDD\u96E2)"
-    - icon: ':x:'
-      path: dp/hu-tucker.cpp
-      title: dp/hu-tucker.cpp
     - icon: ':heavy_check_mark:'
       path: dp/knapsack-01-2.cpp
       title: "Knapsack-01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(N\
@@ -737,7 +734,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/heap/radix-heap.cpp
       title: structure/heap/radix-heap.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/heap/skew-heap.cpp
       title: Skew-Heap
   - name: structure/others
@@ -860,7 +857,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -1027,9 +1024,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-2405.test.cpp
       title: test/verify/aoj-2405.test.cpp
-    - icon: ':x:'
-      path: test/verify/aoj-2415.test.cpp
-      title: test/verify/aoj-2415.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-2450-2.test.cpp
       title: test/verify/aoj-2450-2.test.cpp

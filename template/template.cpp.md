@@ -57,9 +57,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2405.test.cpp
     title: test/verify/aoj-2405.test.cpp
-  - icon: ':x:'
-    path: test/verify/aoj-2415.test.cpp
-    title: test/verify/aoj-2415.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2450-2.test.cpp
     title: test/verify/aoj-2450-2.test.cpp
@@ -564,9 +561,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-952.test.cpp
     title: test/verify/yukicoder-952.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing\
@@ -629,7 +626,7 @@ data:
   path: template/template.cpp
   requiredBy: []
   timestamp: '2019-08-13 21:45:04+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-3-c.test.cpp
   - test/verify/aoj-dpl-1-i.test.cpp
@@ -784,7 +781,6 @@ data:
   - test/verify/aoj-0294.test.cpp
   - test/verify/aoj-3022.test.cpp
   - test/verify/aoj-dpl-5-i.test.cpp
-  - test/verify/aoj-2415.test.cpp
   - test/verify/aoj-cgl-2-c.test.cpp
   - test/verify/aoj-1163.test.cpp
   - test/verify/yosupo-line-add-get-min.test.cpp

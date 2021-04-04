@@ -16,7 +16,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/partition.cpp
     title: math/fps/partition.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

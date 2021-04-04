@@ -11,7 +11,7 @@ data:
     path: structure/bbst/lazy-weight-balanced-tree.cpp
     title: "Lazy-Weight-Balanced-Tree(\u9045\u5EF6\u4F1D\u642C\u91CD\u307F\u5E73\u8861\
       \u6728)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/number-theory/is-prime.cpp
     title: math/number-theory/is-prime.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
