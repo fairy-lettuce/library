@@ -32,12 +32,13 @@ data:
     \    add_x_minus_a(a);\n  }\n\n  // \\/ -> \\_\n  // f_{new} (x) = min f(y) (y\
     \ <= x)\n  void clear_right() {\n    while(R.size() >= 2) R.pop();\n  }\n\n  //\
     \ \\/ -> _/\n  // f_{new} (x) = min f(y) (y >= x)\n  void clear_left() {\n   \
-    \ while(L.size() >= 2) L.pop();\n  }\n\n  // \\/. -> .\\/\n  // f_{new} (x) =\
-    \ f(x - a)\n  void shift(const T &a) {\n    add_l += a;\n    add_r += a;\n  }\n\
-    \n  // L, R \u3092\u7834\u58CA\u3059\u308B\n  T get(const T &x) {\n    T ret =\
-    \ min_f;\n    while(!L.empty()) {\n      ret += max(T(0), pop_L() - x);\n    }\n\
-    \    while(!R.empty()) {\n      ret += max(T(0), x - pop_R());\n    }\n    return\
-    \ ret;\n  }\n};\n"
+    \ while(L.size() >= 2) L.pop();\n  }\n\n  // \\/ -> \\_/\n  // f_{new} (x) = min\
+    \ f(y) (x-b <= y <= x-a)\n  void shift(const T& a, const T& b) {\n    assert(a\
+    \ <= b);\n    add_l += a;\n    add_r += b;\n  }\n  \n  // \\/. -> .\\/\n  // f_{new}\
+    \ (x) = f(x - a)\n  void shift(const T &a) {\n    shift(a, a);\n  }\n\n  // L,\
+    \ R \u3092\u7834\u58CA\u3059\u308B\n  T get(const T &x) {\n    T ret = min_f;\n\
+    \    while(!L.empty()) {\n      ret += max(T(0), pop_L() - x);\n    }\n    while(!R.empty())\
+    \ {\n      ret += max(T(0), x - pop_R());\n    }\n    return ret;\n  }\n};\n"
   code: "/**\n * @brief Slope-Trick\n * @see https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n\
     \ */\ntemplate< typename T >\nstruct SlopeTrick {\n\n  const T INF = numeric_limits<\
     \ T >::max() / 3;\n\n  T min_f;\n  priority_queue< T, vector< T >, less<> > L;\n\
@@ -59,17 +60,18 @@ data:
     \    add_x_minus_a(a);\n  }\n\n  // \\/ -> \\_\n  // f_{new} (x) = min f(y) (y\
     \ <= x)\n  void clear_right() {\n    while(R.size() >= 2) R.pop();\n  }\n\n  //\
     \ \\/ -> _/\n  // f_{new} (x) = min f(y) (y >= x)\n  void clear_left() {\n   \
-    \ while(L.size() >= 2) L.pop();\n  }\n\n  // \\/. -> .\\/\n  // f_{new} (x) =\
-    \ f(x - a)\n  void shift(const T &a) {\n    add_l += a;\n    add_r += a;\n  }\n\
-    \n  // L, R \u3092\u7834\u58CA\u3059\u308B\n  T get(const T &x) {\n    T ret =\
-    \ min_f;\n    while(!L.empty()) {\n      ret += max(T(0), pop_L() - x);\n    }\n\
-    \    while(!R.empty()) {\n      ret += max(T(0), x - pop_R());\n    }\n    return\
-    \ ret;\n  }\n};\n"
+    \ while(L.size() >= 2) L.pop();\n  }\n\n  // \\/ -> \\_/\n  // f_{new} (x) = min\
+    \ f(y) (x-b <= y <= x-a)\n  void shift(const T& a, const T& b) {\n    assert(a\
+    \ <= b);\n    add_l += a;\n    add_r += b;\n  }\n  \n  // \\/. -> .\\/\n  // f_{new}\
+    \ (x) = f(x - a)\n  void shift(const T &a) {\n    shift(a, a);\n  }\n\n  // L,\
+    \ R \u3092\u7834\u58CA\u3059\u308B\n  T get(const T &x) {\n    T ret = min_f;\n\
+    \    while(!L.empty()) {\n      ret += max(T(0), pop_L() - x);\n    }\n    while(!R.empty())\
+    \ {\n      ret += max(T(0), x - pop_R());\n    }\n    return ret;\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: structure/others/slope-trick.cpp
   requiredBy: []
-  timestamp: '2021-04-05 00:46:21+09:00'
+  timestamp: '2021-04-05 14:04:30+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: structure/others/slope-trick.cpp
