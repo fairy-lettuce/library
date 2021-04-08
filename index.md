@@ -768,7 +768,7 @@ data:
       title: structure/others/sliding-window-aggregation.cpp
     - icon: ':warning:'
       path: structure/others/slope-queue.cpp
-      title: Slope-Queue
+      title: Slope-Trick
     - icon: ':heavy_check_mark:'
       path: structure/others/sparse-table.cpp
       title: "Sparse-Table(\u30B9\u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB)"
