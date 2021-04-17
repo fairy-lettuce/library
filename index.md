@@ -287,6 +287,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/others/maximum-independent-set.cpp
       title: graph/others/maximum-independent-set.cpp
+    - icon: ':warning:'
+      path: graph/others/namori-graph.cpp
+      title: Namori-Graph
     - icon: ':heavy_check_mark:'
       path: graph/others/offline-dag-reachability.cpp
       title: "Offline-Dag-Reachability(DAG\u306E\u5230\u9054\u53EF\u80FD\u6027\u30AF\
