@@ -67,10 +67,10 @@ data:
     graph/others/namori-graph.cpp\"\n\n/**\n * @brief Namori-Graph\n * @docs docs/namori-graph.md\n\
     \ */\ntemplate< typename T = int >\nstruct NamoriGraph : Graph< T > {\npublic:\n\
     \  using Graph< T >::Graph;\n  using Graph< T >::g;\n\n  vector< Graph< T > >\
-    \ forest;\n  Edges< T > loop_edges;\n\n  struct Info {\n    int forest_id, id;\n\
+    \ forest;\n  Edges< T > loop_edges;\n\n  struct Info {\n    int tree_id, id;\n\
     \  };\n\n  Info operator[](const int &k) const {\n    return (Info) {mark_id[k],\
-    \ id[k]};\n  }\n\n  int inv(int forest_id, int k) {\n    return iv[forest_id][k];\n\
-    \  }\n  \n  void build() {\n    int n = (int) g.size();\n    vector< int > deg(n),\
+    \ id[k]};\n  }\n\n  int inv(int tree_id, int k) {\n    return iv[tree_id][k];\n\
+    \  }\n\n  void build() {\n    int n = (int) g.size();\n    vector< int > deg(n),\
     \ used(n);\n    queue< int > que;\n    for(int i = 0; i < n; i++) {\n      deg[i]\
     \ = (int) g[i].size();\n      if(deg[i] == 1) {\n        que.emplace(i);\n   \
     \     used[i] = true;\n      }\n    }\n    while(not que.empty()) {\n      int\
@@ -123,7 +123,7 @@ data:
   isVerificationFile: true
   path: test/verify/yukicoder-1254.test.cpp
   requiredBy: []
-  timestamp: '2021-04-18 02:40:36+09:00'
+  timestamp: '2021-04-18 02:46:14+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yukicoder-1254.test.cpp
