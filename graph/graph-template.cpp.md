@@ -49,6 +49,9 @@ data:
     path: graph/others/low-link.cpp
     title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
   - icon: ':heavy_check_mark:'
+    path: graph/others/namori-graph.cpp
+    title: Namori-Graph
+  - icon: ':heavy_check_mark:'
     path: graph/others/two-satisfiability.cpp
     title: 2-SAT
   - icon: ':heavy_check_mark:'
@@ -197,6 +200,9 @@ data:
     path: test/verify/yukicoder-1069.test.cpp
     title: test/verify/yukicoder-1069.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yukicoder-1254.test.cpp
+    title: test/verify/yukicoder-1254.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
   _isVerificationFailed: false
@@ -252,6 +258,7 @@ data:
   - graph/mst/prim-fibonacchi-heap.cpp
   - graph/mst/directed-mst.cpp
   - graph/others/two-satisfiability.cpp
+  - graph/others/namori-graph.cpp
   - graph/others/low-link.cpp
   - graph/others/block-cut-tree.cpp
   - graph/others/dominator-tree.cpp
@@ -295,6 +302,7 @@ data:
   - test/verify/yosupo-lca.test.cpp
   - test/verify/yosupo-directedmst.test.cpp
   - test/verify/aoj-grl-1-b.test.cpp
+  - test/verify/yukicoder-1254.test.cpp
   - test/verify/yosupo-staticrmq-4.test.cpp
   - test/verify/aoj-0294.test.cpp
   - test/verify/aoj-3022.test.cpp

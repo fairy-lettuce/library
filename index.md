@@ -287,7 +287,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/others/maximum-independent-set.cpp
       title: graph/others/maximum-independent-set.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/namori-graph.cpp
       title: Namori-Graph
     - icon: ':heavy_check_mark:'
@@ -1507,6 +1507,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-1069.test.cpp
       title: test/verify/yukicoder-1069.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yukicoder-1254.test.cpp
+      title: test/verify/yukicoder-1254.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-184.test.cpp
       title: test/verify/yukicoder-184.test.cpp
