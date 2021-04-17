@@ -83,10 +83,10 @@ data:
     \ {\n      if(!used[v]) {\n        for(bool update = true; update;) {\n      \
     \    update = false;\n          loop.emplace_back(v);\n          for(auto &e :\
     \ g[v]) {\n            if(used[e.to] or edge_used[e.idx]) {\n              continue;\n\
-    \            }\n            edge_used[e.idx] = true;\n            loop_edges.emplace_back(loop.size()\
-    \ - 1, loop.size(), e.cost, e.idx);\n            v = e.to;\n            update\
-    \ = true;\n            break;\n          }\n        }\n        break;\n      }\n\
-    \    }\n    loop.pop_back();\n    loop_edges.back().to = 0;\n    mark_id.resize(n);\n\
+    \            }\n            edge_used[e.idx] = true;\n            loop_edges.emplace_back(v,\
+    \ e.to, e.cost, e.idx);\n            v = e.to;\n            update = true;\n \
+    \           break;\n          }\n        }\n        break;\n      }\n    }\n \
+    \   loop.pop_back();\n    loop_edges.back().to = 0;\n    mark_id.resize(n);\n\
     \    id.resize(n);\n    int ptr = 0;\n    for(int i = 0; i < (int) loop.size();\
     \ i++) {\n      int pre = loop[(i + loop.size() - 1) % loop.size()];\n      int\
     \ nxt = loop[(i + 1) % loop.size()];\n      int sz = 0;\n      mark_id[loop[i]]\
@@ -123,7 +123,7 @@ data:
   isVerificationFile: true
   path: test/verify/yukicoder-1254.test.cpp
   requiredBy: []
-  timestamp: '2021-04-18 02:26:39+09:00'
+  timestamp: '2021-04-18 02:32:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yukicoder-1254.test.cpp

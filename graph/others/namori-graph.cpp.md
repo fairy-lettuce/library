@@ -51,17 +51,17 @@ data:
     \ update;) {\n          update = false;\n          loop.emplace_back(v);\n   \
     \       for(auto &e : g[v]) {\n            if(used[e.to] or edge_used[e.idx])\
     \ {\n              continue;\n            }\n            edge_used[e.idx] = true;\n\
-    \            loop_edges.emplace_back(loop.size() - 1, loop.size(), e.cost, e.idx);\n\
-    \            v = e.to;\n            update = true;\n            break;\n     \
-    \     }\n        }\n        break;\n      }\n    }\n    loop.pop_back();\n   \
-    \ loop_edges.back().to = 0;\n    mark_id.resize(n);\n    id.resize(n);\n    int\
-    \ ptr = 0;\n    for(int i = 0; i < (int) loop.size(); i++) {\n      int pre =\
-    \ loop[(i + loop.size() - 1) % loop.size()];\n      int nxt = loop[(i + 1) % loop.size()];\n\
-    \      int sz = 0;\n      mark_id[loop[i]] = ptr;\n      iv.emplace_back();\n\
-    \      id[loop[i]] = sz++;\n      iv.back().emplace_back(loop[i]);\n      for(auto\
-    \ &e : g[loop[i]]) {\n        if(e.to != pre and e.to != nxt) {\n          mark_dfs(e.to,\
-    \ loop[i], ptr, sz);\n        }\n      }\n      Graph< T > tree(sz);\n      for(auto\
-    \ &e : g[loop[i]]) {\n        if(e.to != pre and e.to != nxt) {\n          tree.g[id[loop[i]]].emplace_back(id[loop[i]],\
+    \            loop_edges.emplace_back(v, e.to, e.cost, e.idx);\n            v =\
+    \ e.to;\n            update = true;\n            break;\n          }\n       \
+    \ }\n        break;\n      }\n    }\n    loop.pop_back();\n    loop_edges.back().to\
+    \ = 0;\n    mark_id.resize(n);\n    id.resize(n);\n    int ptr = 0;\n    for(int\
+    \ i = 0; i < (int) loop.size(); i++) {\n      int pre = loop[(i + loop.size()\
+    \ - 1) % loop.size()];\n      int nxt = loop[(i + 1) % loop.size()];\n      int\
+    \ sz = 0;\n      mark_id[loop[i]] = ptr;\n      iv.emplace_back();\n      id[loop[i]]\
+    \ = sz++;\n      iv.back().emplace_back(loop[i]);\n      for(auto &e : g[loop[i]])\
+    \ {\n        if(e.to != pre and e.to != nxt) {\n          mark_dfs(e.to, loop[i],\
+    \ ptr, sz);\n        }\n      }\n      Graph< T > tree(sz);\n      for(auto &e\
+    \ : g[loop[i]]) {\n        if(e.to != pre and e.to != nxt) {\n          tree.g[id[loop[i]]].emplace_back(id[loop[i]],\
     \ id[e.to], e.cost, e.idx);\n          tree.g[id[e.to]].emplace_back(id[e.to],\
     \ id[loop[i]], e.cost, e.idx);\n          build_dfs(e.to, loop[i], tree);\n  \
     \      }\n      }\n      forest.emplace_back(tree);\n    }\n  }\n\nprivate:\n\
@@ -93,17 +93,17 @@ data:
     \ update;) {\n          update = false;\n          loop.emplace_back(v);\n   \
     \       for(auto &e : g[v]) {\n            if(used[e.to] or edge_used[e.idx])\
     \ {\n              continue;\n            }\n            edge_used[e.idx] = true;\n\
-    \            loop_edges.emplace_back(loop.size() - 1, loop.size(), e.cost, e.idx);\n\
-    \            v = e.to;\n            update = true;\n            break;\n     \
-    \     }\n        }\n        break;\n      }\n    }\n    loop.pop_back();\n   \
-    \ loop_edges.back().to = 0;\n    mark_id.resize(n);\n    id.resize(n);\n    int\
-    \ ptr = 0;\n    for(int i = 0; i < (int) loop.size(); i++) {\n      int pre =\
-    \ loop[(i + loop.size() - 1) % loop.size()];\n      int nxt = loop[(i + 1) % loop.size()];\n\
-    \      int sz = 0;\n      mark_id[loop[i]] = ptr;\n      iv.emplace_back();\n\
-    \      id[loop[i]] = sz++;\n      iv.back().emplace_back(loop[i]);\n      for(auto\
-    \ &e : g[loop[i]]) {\n        if(e.to != pre and e.to != nxt) {\n          mark_dfs(e.to,\
-    \ loop[i], ptr, sz);\n        }\n      }\n      Graph< T > tree(sz);\n      for(auto\
-    \ &e : g[loop[i]]) {\n        if(e.to != pre and e.to != nxt) {\n          tree.g[id[loop[i]]].emplace_back(id[loop[i]],\
+    \            loop_edges.emplace_back(v, e.to, e.cost, e.idx);\n            v =\
+    \ e.to;\n            update = true;\n            break;\n          }\n       \
+    \ }\n        break;\n      }\n    }\n    loop.pop_back();\n    loop_edges.back().to\
+    \ = 0;\n    mark_id.resize(n);\n    id.resize(n);\n    int ptr = 0;\n    for(int\
+    \ i = 0; i < (int) loop.size(); i++) {\n      int pre = loop[(i + loop.size()\
+    \ - 1) % loop.size()];\n      int nxt = loop[(i + 1) % loop.size()];\n      int\
+    \ sz = 0;\n      mark_id[loop[i]] = ptr;\n      iv.emplace_back();\n      id[loop[i]]\
+    \ = sz++;\n      iv.back().emplace_back(loop[i]);\n      for(auto &e : g[loop[i]])\
+    \ {\n        if(e.to != pre and e.to != nxt) {\n          mark_dfs(e.to, loop[i],\
+    \ ptr, sz);\n        }\n      }\n      Graph< T > tree(sz);\n      for(auto &e\
+    \ : g[loop[i]]) {\n        if(e.to != pre and e.to != nxt) {\n          tree.g[id[loop[i]]].emplace_back(id[loop[i]],\
     \ id[e.to], e.cost, e.idx);\n          tree.g[id[e.to]].emplace_back(id[e.to],\
     \ id[loop[i]], e.cost, e.idx);\n          build_dfs(e.to, loop[i], tree);\n  \
     \      }\n      }\n      forest.emplace_back(tree);\n    }\n  }\n\nprivate:\n\
@@ -120,7 +120,7 @@ data:
   isVerificationFile: false
   path: graph/others/namori-graph.cpp
   requiredBy: []
-  timestamp: '2021-04-18 02:26:39+09:00'
+  timestamp: '2021-04-18 02:32:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yukicoder-1254.test.cpp
@@ -145,10 +145,10 @@ $n$ 頂点 $n$ 辺からなる連結無向グラフは, サイクルが $1$ 個�
 ## 使い方
 
 * `build()`: サイクルと木に分解する。頂点数と辺の本数が同じ無向連結グラフである必要がある。
-* `forest`: 分解した無向木がサイクルの頂点の順に格納される。木の頂点番号は$0$ から振り直している。辺の `idx` はもとのグラフの辺の `idx` を保持する。
-* `loop_edges`: サイクルに含まれる辺が順に格納される。頂点番号はサイクルの頂点数を $k$ として $[0, k)$ にふりなおされている。$i$ 番目の辺は頂点 $i$ と $i+1$ を結ぶ辺である。辺の `idx` はもとのグラフの辺の `idx` を保持する。
+* `forest`: 分解した無向木がサイクルの頂点の順に格納される。木の頂点番号は$0$ から振り直している。辺の `from`, `to` は振り直し後の番号, `idx` はもとのグラフの辺の `idx` をコピーする。
+* `loop_edges`: サイクルに含まれる辺が順に格納される。頂点番号はサイクルの頂点数を $k$ として $[0, k)$ にふりなおされている。$i$ 番目の辺は頂点 $i$ と $i+1$ を結ぶ辺である。辺の `from`, `to`, `idx` はもとのグラフの辺の値をコピーする。
 * `operator[k]`: 頂点 $k$ について, それが属するサイクルの頂点番号 `forest_id`, 振り直された木の頂点番号 `id` を返す。同様に `forest_id` は $[0, k)$ に振り直されている。
-* `inv(forest_id, k)`: サイクルの頂点 `forest_id` の木の頂点 $k$ のもとの頂点番号を返す。特に `inv(forest_id, 0)` はサイクルに含まれいたもとの頂点番号を指す。
+* `inv(forest_id, k)`: サイクルの頂点 `forest_id` の木の頂点 $k$ のもとの頂点番号を返す。特に `inv(forest_id, 0)` はサイクルに含まれていたもとの頂点番号を指す。
 
 ## 計算量
 
