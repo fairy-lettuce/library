@@ -53,26 +53,26 @@ data:
     \ {\n              continue;\n            }\n            edge_used[e.idx] = true;\n\
     \            loop_edges.emplace_back(v, e.to, e.cost, e.idx);\n            v =\
     \ e.to;\n            update = true;\n            break;\n          }\n       \
-    \ }\n        break;\n      }\n    }\n    loop.pop_back();\n    loop_edges.back().to\
-    \ = 0;\n    mark_id.resize(n);\n    id.resize(n);\n    int ptr = 0;\n    for(int\
-    \ i = 0; i < (int) loop.size(); i++) {\n      int pre = loop[(i + loop.size()\
-    \ - 1) % loop.size()];\n      int nxt = loop[(i + 1) % loop.size()];\n      int\
-    \ sz = 0;\n      mark_id[loop[i]] = ptr;\n      iv.emplace_back();\n      id[loop[i]]\
-    \ = sz++;\n      iv.back().emplace_back(loop[i]);\n      for(auto &e : g[loop[i]])\
-    \ {\n        if(e.to != pre and e.to != nxt) {\n          mark_dfs(e.to, loop[i],\
-    \ ptr, sz);\n        }\n      }\n      Graph< T > tree(sz);\n      for(auto &e\
-    \ : g[loop[i]]) {\n        if(e.to != pre and e.to != nxt) {\n          tree.g[id[loop[i]]].emplace_back(id[loop[i]],\
-    \ id[e.to], e.cost, e.idx);\n          tree.g[id[e.to]].emplace_back(id[e.to],\
-    \ id[loop[i]], e.cost, e.idx);\n          build_dfs(e.to, loop[i], tree);\n  \
-    \      }\n      }\n      forest.emplace_back(tree);\n    }\n  }\n\nprivate:\n\
-    \  vector< vector< int > > iv;\n  vector< int > mark_id, id;\n\n  void mark_dfs(int\
-    \ idx, int par, int k, int &l) {\n    mark_id[idx] = k;\n    id[idx] = l++;\n\
-    \    iv.back().emplace_back(idx);\n    for(auto &e : g[idx]) {\n      if(e.to\
-    \ != par) {\n        mark_dfs(e.to, idx, k, l);\n      }\n    }\n  }\n\n  void\
-    \ build_dfs(int idx, int par, Graph< T > &tree) {\n    for(auto &e : g[idx]) {\n\
-    \      if(e.to != par) {\n        tree.g[id[idx]].emplace_back(id[idx], id[e.to],\
-    \ e.cost, e.idx);\n        tree.g[id[e.to]].emplace_back(id[e.to], id[idx], e.cost,\
-    \ e.idx);\n        build_dfs(e.to, idx, tree);\n      }\n    }\n  }\n};\n"
+    \ }\n        break;\n      }\n    }\n    loop.pop_back();\n    mark_id.resize(n);\n\
+    \    id.resize(n);\n    int ptr = 0;\n    for(int i = 0; i < (int) loop.size();\
+    \ i++) {\n      int pre = loop[(i + loop.size() - 1) % loop.size()];\n      int\
+    \ nxt = loop[(i + 1) % loop.size()];\n      int sz = 0;\n      mark_id[loop[i]]\
+    \ = ptr;\n      iv.emplace_back();\n      id[loop[i]] = sz++;\n      iv.back().emplace_back(loop[i]);\n\
+    \      for(auto &e : g[loop[i]]) {\n        if(e.to != pre and e.to != nxt) {\n\
+    \          mark_dfs(e.to, loop[i], ptr, sz);\n        }\n      }\n      Graph<\
+    \ T > tree(sz);\n      for(auto &e : g[loop[i]]) {\n        if(e.to != pre and\
+    \ e.to != nxt) {\n          tree.g[id[loop[i]]].emplace_back(id[loop[i]], id[e.to],\
+    \ e.cost, e.idx);\n          tree.g[id[e.to]].emplace_back(id[e.to], id[loop[i]],\
+    \ e.cost, e.idx);\n          build_dfs(e.to, loop[i], tree);\n        }\n    \
+    \  }\n      forest.emplace_back(tree);\n    }\n  }\n\nprivate:\n  vector< vector<\
+    \ int > > iv;\n  vector< int > mark_id, id;\n\n  void mark_dfs(int idx, int par,\
+    \ int k, int &l) {\n    mark_id[idx] = k;\n    id[idx] = l++;\n    iv.back().emplace_back(idx);\n\
+    \    for(auto &e : g[idx]) {\n      if(e.to != par) {\n        mark_dfs(e.to,\
+    \ idx, k, l);\n      }\n    }\n  }\n\n  void build_dfs(int idx, int par, Graph<\
+    \ T > &tree) {\n    for(auto &e : g[idx]) {\n      if(e.to != par) {\n       \
+    \ tree.g[id[idx]].emplace_back(id[idx], id[e.to], e.cost, e.idx);\n        tree.g[id[e.to]].emplace_back(id[e.to],\
+    \ id[idx], e.cost, e.idx);\n        build_dfs(e.to, idx, tree);\n      }\n   \
+    \ }\n  }\n};\n"
   code: "#include \"../graph-template.cpp\"\n\n/**\n * @brief Namori-Graph\n * @docs\
     \ docs/namori-graph.md\n */\ntemplate< typename T = int >\nstruct NamoriGraph\
     \ : Graph< T > {\npublic:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n\
@@ -95,32 +95,32 @@ data:
     \ {\n              continue;\n            }\n            edge_used[e.idx] = true;\n\
     \            loop_edges.emplace_back(v, e.to, e.cost, e.idx);\n            v =\
     \ e.to;\n            update = true;\n            break;\n          }\n       \
-    \ }\n        break;\n      }\n    }\n    loop.pop_back();\n    loop_edges.back().to\
-    \ = 0;\n    mark_id.resize(n);\n    id.resize(n);\n    int ptr = 0;\n    for(int\
-    \ i = 0; i < (int) loop.size(); i++) {\n      int pre = loop[(i + loop.size()\
-    \ - 1) % loop.size()];\n      int nxt = loop[(i + 1) % loop.size()];\n      int\
-    \ sz = 0;\n      mark_id[loop[i]] = ptr;\n      iv.emplace_back();\n      id[loop[i]]\
-    \ = sz++;\n      iv.back().emplace_back(loop[i]);\n      for(auto &e : g[loop[i]])\
-    \ {\n        if(e.to != pre and e.to != nxt) {\n          mark_dfs(e.to, loop[i],\
-    \ ptr, sz);\n        }\n      }\n      Graph< T > tree(sz);\n      for(auto &e\
-    \ : g[loop[i]]) {\n        if(e.to != pre and e.to != nxt) {\n          tree.g[id[loop[i]]].emplace_back(id[loop[i]],\
-    \ id[e.to], e.cost, e.idx);\n          tree.g[id[e.to]].emplace_back(id[e.to],\
-    \ id[loop[i]], e.cost, e.idx);\n          build_dfs(e.to, loop[i], tree);\n  \
-    \      }\n      }\n      forest.emplace_back(tree);\n    }\n  }\n\nprivate:\n\
-    \  vector< vector< int > > iv;\n  vector< int > mark_id, id;\n\n  void mark_dfs(int\
-    \ idx, int par, int k, int &l) {\n    mark_id[idx] = k;\n    id[idx] = l++;\n\
-    \    iv.back().emplace_back(idx);\n    for(auto &e : g[idx]) {\n      if(e.to\
-    \ != par) {\n        mark_dfs(e.to, idx, k, l);\n      }\n    }\n  }\n\n  void\
-    \ build_dfs(int idx, int par, Graph< T > &tree) {\n    for(auto &e : g[idx]) {\n\
-    \      if(e.to != par) {\n        tree.g[id[idx]].emplace_back(id[idx], id[e.to],\
-    \ e.cost, e.idx);\n        tree.g[id[e.to]].emplace_back(id[e.to], id[idx], e.cost,\
-    \ e.idx);\n        build_dfs(e.to, idx, tree);\n      }\n    }\n  }\n};\n"
+    \ }\n        break;\n      }\n    }\n    loop.pop_back();\n    mark_id.resize(n);\n\
+    \    id.resize(n);\n    int ptr = 0;\n    for(int i = 0; i < (int) loop.size();\
+    \ i++) {\n      int pre = loop[(i + loop.size() - 1) % loop.size()];\n      int\
+    \ nxt = loop[(i + 1) % loop.size()];\n      int sz = 0;\n      mark_id[loop[i]]\
+    \ = ptr;\n      iv.emplace_back();\n      id[loop[i]] = sz++;\n      iv.back().emplace_back(loop[i]);\n\
+    \      for(auto &e : g[loop[i]]) {\n        if(e.to != pre and e.to != nxt) {\n\
+    \          mark_dfs(e.to, loop[i], ptr, sz);\n        }\n      }\n      Graph<\
+    \ T > tree(sz);\n      for(auto &e : g[loop[i]]) {\n        if(e.to != pre and\
+    \ e.to != nxt) {\n          tree.g[id[loop[i]]].emplace_back(id[loop[i]], id[e.to],\
+    \ e.cost, e.idx);\n          tree.g[id[e.to]].emplace_back(id[e.to], id[loop[i]],\
+    \ e.cost, e.idx);\n          build_dfs(e.to, loop[i], tree);\n        }\n    \
+    \  }\n      forest.emplace_back(tree);\n    }\n  }\n\nprivate:\n  vector< vector<\
+    \ int > > iv;\n  vector< int > mark_id, id;\n\n  void mark_dfs(int idx, int par,\
+    \ int k, int &l) {\n    mark_id[idx] = k;\n    id[idx] = l++;\n    iv.back().emplace_back(idx);\n\
+    \    for(auto &e : g[idx]) {\n      if(e.to != par) {\n        mark_dfs(e.to,\
+    \ idx, k, l);\n      }\n    }\n  }\n\n  void build_dfs(int idx, int par, Graph<\
+    \ T > &tree) {\n    for(auto &e : g[idx]) {\n      if(e.to != par) {\n       \
+    \ tree.g[id[idx]].emplace_back(id[idx], id[e.to], e.cost, e.idx);\n        tree.g[id[e.to]].emplace_back(id[e.to],\
+    \ id[idx], e.cost, e.idx);\n        build_dfs(e.to, idx, tree);\n      }\n   \
+    \ }\n  }\n};\n"
   dependsOn:
   - graph/graph-template.cpp
   isVerificationFile: false
   path: graph/others/namori-graph.cpp
   requiredBy: []
-  timestamp: '2021-04-18 02:32:44+09:00'
+  timestamp: '2021-04-18 02:40:36+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yukicoder-1254.test.cpp
