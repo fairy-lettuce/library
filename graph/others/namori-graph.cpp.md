@@ -53,14 +53,14 @@ data:
     \            }\n            edge_used[e.idx] = true;\n            loop_edges.emplace_back(v,\
     \ e.to, e.cost, e.idx);\n            v = e.to;\n            update = true;\n \
     \           break;\n          }\n        }\n        break;\n      }\n    }\n \
-    \   loop.pop_back();\n    mark_id.resize(n);\n    id.resize(n);\n    int ptr =\
-    \ 0;\n    for(int i = 0; i < (int) loop.size(); i++) {\n      int pre = loop[(i\
-    \ + loop.size() - 1) % loop.size()];\n      int nxt = loop[(i + 1) % loop.size()];\n\
-    \      int sz = 0;\n      mark_id[loop[i]] = ptr;\n      iv.emplace_back();\n\
-    \      id[loop[i]] = sz++;\n      iv.back().emplace_back(loop[i]);\n      for(auto\
-    \ &e : g[loop[i]]) {\n        if(e.to != pre and e.to != nxt) {\n          mark_dfs(e.to,\
-    \ loop[i], ptr, sz);\n        }\n      }\n      Graph< T > tree(sz);\n      for(auto\
-    \ &e : g[loop[i]]) {\n        if(e.to != pre and e.to != nxt) {\n          tree.g[id[loop[i]]].emplace_back(id[loop[i]],\
+    \   loop.pop_back();\n    mark_id.resize(n);\n    id.resize(n);\n    for(int i\
+    \ = 0; i < (int) loop.size(); i++) {\n      int pre = loop[(i + loop.size() -\
+    \ 1) % loop.size()];\n      int nxt = loop[(i + 1) % loop.size()];\n      int\
+    \ sz = 0;\n      mark_id[loop[i]] = i;\n      iv.emplace_back();\n      id[loop[i]]\
+    \ = sz++;\n      iv.back().emplace_back(loop[i]);\n      for(auto &e : g[loop[i]])\
+    \ {\n        if(e.to != pre and e.to != nxt) {\n          mark_dfs(e.to, loop[i],\
+    \ i, sz);\n        }\n      }\n      Graph< T > tree(sz);\n      for(auto &e :\
+    \ g[loop[i]]) {\n        if(e.to != pre and e.to != nxt) {\n          tree.g[id[loop[i]]].emplace_back(id[loop[i]],\
     \ id[e.to], e.cost, e.idx);\n          tree.g[id[e.to]].emplace_back(id[e.to],\
     \ id[loop[i]], e.cost, e.idx);\n          build_dfs(e.to, loop[i], tree);\n  \
     \      }\n      }\n      forest.emplace_back(tree);\n    }\n  }\n\nprivate:\n\
@@ -94,14 +94,14 @@ data:
     \            }\n            edge_used[e.idx] = true;\n            loop_edges.emplace_back(v,\
     \ e.to, e.cost, e.idx);\n            v = e.to;\n            update = true;\n \
     \           break;\n          }\n        }\n        break;\n      }\n    }\n \
-    \   loop.pop_back();\n    mark_id.resize(n);\n    id.resize(n);\n    int ptr =\
-    \ 0;\n    for(int i = 0; i < (int) loop.size(); i++) {\n      int pre = loop[(i\
-    \ + loop.size() - 1) % loop.size()];\n      int nxt = loop[(i + 1) % loop.size()];\n\
-    \      int sz = 0;\n      mark_id[loop[i]] = ptr;\n      iv.emplace_back();\n\
-    \      id[loop[i]] = sz++;\n      iv.back().emplace_back(loop[i]);\n      for(auto\
-    \ &e : g[loop[i]]) {\n        if(e.to != pre and e.to != nxt) {\n          mark_dfs(e.to,\
-    \ loop[i], ptr, sz);\n        }\n      }\n      Graph< T > tree(sz);\n      for(auto\
-    \ &e : g[loop[i]]) {\n        if(e.to != pre and e.to != nxt) {\n          tree.g[id[loop[i]]].emplace_back(id[loop[i]],\
+    \   loop.pop_back();\n    mark_id.resize(n);\n    id.resize(n);\n    for(int i\
+    \ = 0; i < (int) loop.size(); i++) {\n      int pre = loop[(i + loop.size() -\
+    \ 1) % loop.size()];\n      int nxt = loop[(i + 1) % loop.size()];\n      int\
+    \ sz = 0;\n      mark_id[loop[i]] = i;\n      iv.emplace_back();\n      id[loop[i]]\
+    \ = sz++;\n      iv.back().emplace_back(loop[i]);\n      for(auto &e : g[loop[i]])\
+    \ {\n        if(e.to != pre and e.to != nxt) {\n          mark_dfs(e.to, loop[i],\
+    \ i, sz);\n        }\n      }\n      Graph< T > tree(sz);\n      for(auto &e :\
+    \ g[loop[i]]) {\n        if(e.to != pre and e.to != nxt) {\n          tree.g[id[loop[i]]].emplace_back(id[loop[i]],\
     \ id[e.to], e.cost, e.idx);\n          tree.g[id[e.to]].emplace_back(id[e.to],\
     \ id[loop[i]], e.cost, e.idx);\n          build_dfs(e.to, loop[i], tree);\n  \
     \      }\n      }\n      forest.emplace_back(tree);\n    }\n  }\n\nprivate:\n\
@@ -118,7 +118,7 @@ data:
   isVerificationFile: false
   path: graph/others/namori-graph.cpp
   requiredBy: []
-  timestamp: '2021-04-18 02:46:14+09:00'
+  timestamp: '2021-04-19 17:33:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yukicoder-1254.test.cpp
