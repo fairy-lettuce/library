@@ -164,8 +164,8 @@ data:
   timestamp: '2020-05-14 22:00:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-1508-2.test.cpp
   - test/verify/yosupo-staticrmq-3.test.cpp
+  - test/verify/aoj-1508-2.test.cpp
 documentation_of: structure/bbst/red-black-tree.cpp
 layout: document
 redirect_from:

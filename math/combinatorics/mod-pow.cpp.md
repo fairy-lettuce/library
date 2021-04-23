@@ -37,10 +37,10 @@ data:
   timestamp: '2020-10-07 20:31:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - test/verify/aoj-ntl-1-b.test.cpp
-  - test/verify/yosupo-sqrt-mod.test.cpp
   - test/verify/yosupo-tetration-mod.test.cpp
+  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+  - test/verify/yosupo-sqrt-mod.test.cpp
+  - test/verify/aoj-ntl-1-b.test.cpp
 documentation_of: math/combinatorics/mod-pow.cpp
 layout: document
 redirect_from:

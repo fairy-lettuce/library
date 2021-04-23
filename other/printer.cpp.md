@@ -84,12 +84,12 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-staticrmq-5.test.cpp
-  - test/verify/yosupo-point-add-rectangle-sum.test.cpp
   - test/verify/yosupo-tree-decomposition-width-2.test.cpp
-  - test/verify/yosupo-lca-2.test.cpp
-  - test/verify/yosupo-lca-3.test.cpp
-  - test/verify/yosupo-lca.test.cpp
   - test/verify/yosupo-two-sat.test.cpp
+  - test/verify/yosupo-point-add-rectangle-sum.test.cpp
+  - test/verify/yosupo-lca.test.cpp
+  - test/verify/yosupo-lca-3.test.cpp
+  - test/verify/yosupo-lca-2.test.cpp
 documentation_of: other/printer.cpp
 layout: document
 redirect_from:
