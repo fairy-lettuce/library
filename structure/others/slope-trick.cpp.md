@@ -7,27 +7,28 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
+    _deprecated_at_docs: docs/slope-trick.md
     document_title: Slope-Trick
     links:
     - https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8
   bundledCode: "#line 1 \"structure/others/slope-trick.cpp\"\n/**\n * @brief Slope-Trick\n\
-    \ * @see https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n */\n\
-    template< typename T >\nstruct LazySplayTree {\npublic:\n\n  struct Node {\n \
-    \   Node *l, *r, *p;\n    T key, sum;\n    size_t sz;\n    T add;\n\n    bool\
-    \ is_root() const {\n      return !p || (p->l != this && p->r != this);\n    }\n\
-    \n    Node(const T &key, const T &add) :\n        key(key), sum(key), sz(1), add(add),\
-    \ l(nullptr), r(nullptr), p(nullptr) {}\n  };\n\n  LazySplayTree() = default;\n\
-    \n  inline size_t count(const Node *t) { return t ? t->sz : 0; }\n\n  Node *alloc(const\
-    \ T &key, const T &add = T()) {\n    return new Node(key, add);\n  }\n\n  void\
-    \ splay(Node *t) {\n    push(t);\n    while(!t->is_root()) {\n      auto *q =\
-    \ t->p;\n      if(q->is_root()) {\n        push(q), push(t);\n        if(q->l\
-    \ == t) rotr(t);\n        else rotl(t);\n      } else {\n        auto *r = q->p;\n\
-    \        push(r), push(q), push(t);\n        if(r->l == q) {\n          if(q->l\
-    \ == t) rotr(q), rotr(t);\n          else rotl(t), rotr(t);\n        } else {\n\
-    \          if(q->r == t) rotl(q), rotl(t);\n          else rotr(t), rotl(t);\n\
-    \        }\n      }\n    }\n  }\n\n  Node *erase(Node *t) {\n    splay(t);\n \
-    \   Node *x = t->l, *y = t->r;\n    delete t;\n    if(!x) {\n      t = y;\n  \
-    \    if(t) t->p = nullptr;\n    } else if(!y) {\n      t = x;\n      t->p = nullptr;\n\
+    \ * @docs docs/slope-trick.md\n * @see https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n\
+    \ */\ntemplate< typename T >\nstruct LazySplayTree {\npublic:\n\n  struct Node\
+    \ {\n    Node *l, *r, *p;\n    T key, sum;\n    size_t sz;\n    T add;\n\n   \
+    \ bool is_root() const {\n      return !p || (p->l != this && p->r != this);\n\
+    \    }\n\n    Node(const T &key, const T &add) :\n        key(key), sum(key),\
+    \ sz(1), add(add), l(nullptr), r(nullptr), p(nullptr) {}\n  };\n\n  LazySplayTree()\
+    \ = default;\n\n  inline size_t count(const Node *t) { return t ? t->sz : 0; }\n\
+    \n  Node *alloc(const T &key, const T &add = T()) {\n    return new Node(key,\
+    \ add);\n  }\n\n  void splay(Node *t) {\n    push(t);\n    while(!t->is_root())\
+    \ {\n      auto *q = t->p;\n      if(q->is_root()) {\n        push(q), push(t);\n\
+    \        if(q->l == t) rotr(t);\n        else rotl(t);\n      } else {\n     \
+    \   auto *r = q->p;\n        push(r), push(q), push(t);\n        if(r->l == q)\
+    \ {\n          if(q->l == t) rotr(q), rotr(t);\n          else rotl(t), rotr(t);\n\
+    \        } else {\n          if(q->r == t) rotl(q), rotl(t);\n          else rotr(t),\
+    \ rotl(t);\n        }\n      }\n    }\n  }\n\n  Node *erase(Node *t) {\n    splay(t);\n\
+    \    Node *x = t->l, *y = t->r;\n    delete t;\n    if(!x) {\n      t = y;\n \
+    \     if(t) t->p = nullptr;\n    } else if(!y) {\n      t = x;\n      t->p = nullptr;\n\
     \    } else {\n      x->p = nullptr;\n      t = get_right(x);\n      splay(t);\n\
     \      t->r = y;\n      y->p = t;\n    }\n    return t;\n  }\n\n  Node *get_left(Node\
     \ *t) const {\n    while(t->l) t = t->l;\n    return t;\n  }\n\n  Node *get_right(Node\
@@ -107,7 +108,7 @@ data:
     \      }\n      R = st.merge(l, r);\n    }\n    return ret;\n  }\n\n  // f(x)\
     \ += g(x)\n  void merge(SlopeTrick &g) {\n    L = st.merge_wuh(L, g.L);\n    R\
     \ = st.merge_wuh(R, g.R);\n    min_f += g.min_f;\n  }\n};\n"
-  code: "/**\n * @brief Slope-Trick\n * @see https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n\
+  code: "/**\n * @brief Slope-Trick\n * @docs docs/slope-trick.md\n * @see https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n\
     \ */\ntemplate< typename T >\nstruct LazySplayTree {\npublic:\n\n  struct Node\
     \ {\n    Node *l, *r, *p;\n    T key, sum;\n    size_t sz;\n    T add;\n\n   \
     \ bool is_root() const {\n      return !p || (p->l != this && p->r != this);\n\
@@ -207,7 +208,7 @@ data:
   isVerificationFile: false
   path: structure/others/slope-trick.cpp
   requiredBy: []
-  timestamp: '2021-04-25 21:55:44+09:00'
+  timestamp: '2021-04-25 22:24:31+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: structure/others/slope-trick.cpp
@@ -217,3 +218,32 @@ redirect_from:
 - /library/structure/others/slope-trick.cpp.html
 title: Slope-Trick
 ---
+## 概要
+区分線形凸関数 $f(x)$ を効率的に扱うためのデータ構造。
+
+$f(x)$ の傾きが変化する点を平衡二分探索木に持つことで, 特定の操作を簡潔に行うことが可能となる。傾きを $1$ ずつ変化する場合は優先度付きキューを用いていたが, 平衡二分探索木を用いることで一般の傾きの操作ができるようになる(未実装)。
+
+平衡二分探索木には Splay Tree を用いている。
+
+主にDPの高速化に用いられることが多い。
+
+
+## 使い方
+
+* `query()`: $f(x)$ の最小値とそれを満たす $x$ の最小値および最大値を返す。
+* `add_all(a)`: $f(x)$ に $a$ を加算する。
+* `add_a_minus_x(a)`: $f(x)$ に $\max(a - x, 0)$ を加算する。
+* `add_x_minus_a(a)`: $f(x)$ に $\max(x - a, 0)$ を加算する。
+* `add_abs(a)`: $f(x)$ に$abs(x-a)$ を加算する。
+* `clear_right()`: $f(x) = \min_{y \le x} f(y)$ に置き換える。
+* `clear_left()`: $f(x) = \min_{y \ge x} f(y)$ に置き換える。
+* `shift(a, b)`: $f(x) = \min_{x-b \le y \le x-a} f(y)$ に置き換える。$a \leq b$ を満たす必要がある。
+* `shift(a)`: $f(x) = f(x - a)$ に置き換える。
+* `get(x)`: $f(x)$ を返す。ただし $f$ を破壊する。
+* `merge(g)`: $f(x)$ に $g(x)$ を加算する. ただし $g$ を破壊する。
+
+## 計算量
+
+* `query()`, `add_all()`, `clear_right()`, `clear_left()`, `shift()`: $O(1)$
+* `merge()`: $f, g$ の大きさをそれぞれ $N, M$ として $O(\min(N, M) \log \max(N, M))$
+* それ以外の操作: $O(\log Q)$

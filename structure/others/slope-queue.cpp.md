@@ -45,8 +45,8 @@ data:
     \ ret;\n  }\n \n  void merge(SlopeQueue &st) {\n    if(st.size() > size()) {\n\
     \      swap(st.L, L);\n      swap(st.R, R);\n      swap(st.add_l, add_l);\n  \
     \    swap(st.add_r, add_r);\n      swap(st.min_f, min_f);\n    }\n    while(not\
-    \ st.R.empty()) {\n      push_R(st.pop_R());\n    }\n    while(not st.L.empty())\
-    \ {\n      push_L(st.pop_L());\n    }\n    min_f += st.min_f;\n  }\n};\n"
+    \ st.R.empty()) {\n      add_x_minus_a(st.pop_R());\n    }\n    while(not st.L.empty())\
+    \ {\n      add_a_minus_x(st.pop_L());\n    }\n    min_f += st.min_f;\n  }\n};\n"
   code: "/**\n * @brief Slope-Queue\n * @docs docs/slope-queue.md\n * @see https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n\
     \ */\ntemplate< typename T >\nstruct SlopeQueue {\n \n  const T INF = numeric_limits<\
     \ T >::max() / 3;\n \n  T min_f;\n  priority_queue< T, vector< T >, less<> > L;\n\
@@ -80,13 +80,13 @@ data:
     \ ret;\n  }\n \n  void merge(SlopeQueue &st) {\n    if(st.size() > size()) {\n\
     \      swap(st.L, L);\n      swap(st.R, R);\n      swap(st.add_l, add_l);\n  \
     \    swap(st.add_r, add_r);\n      swap(st.min_f, min_f);\n    }\n    while(not\
-    \ st.R.empty()) {\n      push_R(st.pop_R());\n    }\n    while(not st.L.empty())\
-    \ {\n      push_L(st.pop_L());\n    }\n    min_f += st.min_f;\n  }\n};\n"
+    \ st.R.empty()) {\n      add_x_minus_a(st.pop_R());\n    }\n    while(not st.L.empty())\
+    \ {\n      add_a_minus_x(st.pop_L());\n    }\n    min_f += st.min_f;\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: structure/others/slope-queue.cpp
   requiredBy: []
-  timestamp: '2021-04-23 15:46:34+09:00'
+  timestamp: '2021-04-25 22:24:31+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: structure/others/slope-queue.cpp
