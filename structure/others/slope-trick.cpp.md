@@ -10,32 +10,33 @@ data:
     document_title: Slope-Trick
     links:
     - https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8
-  bundledCode: "#line 1 \"structure/others/slope-trick.cpp\"\ntemplate< typename T\
-    \ >\nstruct SplayTree {\npublic:\n\n  struct Node {\n    Node *l, *r, *p;\n  \
-    \  T key;\n    size_t sz;\n    T add;\n\n    bool is_root() const {\n      return\
-    \ !p || (p->l != this && p->r != this);\n    }\n\n    Node(const T &key, const\
-    \ T &add) :\n        key(key), sz(1), add(add), l(nullptr), r(nullptr), p(nullptr)\
-    \ {}\n  };\n\n  SplayTree() = default;\n\n  inline size_t count(const Node *t)\
-    \ { return t ? t->sz : 0; }\n\n  Node *alloc(const T &key, const T &add = T())\
-    \ {\n    return new Node(key, add);\n  }\n\n  void splay(Node *t) {\n    push(t);\n\
-    \    while(!t->is_root()) {\n      auto *q = t->p;\n      if(q->is_root()) {\n\
-    \        push(q), push(t);\n        if(q->l == t) rotr(t);\n        else rotl(t);\n\
-    \      } else {\n        auto *r = q->p;\n        push(r), push(q), push(t);\n\
-    \        if(r->l == q) {\n          if(q->l == t) rotr(q), rotr(t);\n        \
-    \  else rotl(t), rotr(t);\n        } else {\n          if(q->r == t) rotl(q),\
-    \ rotl(t);\n          else rotr(t), rotl(t);\n        }\n      }\n    }\n  }\n\
-    \n  Node *erase(Node *t) {\n    splay(t);\n    Node *x = t->l, *y = t->r;\n  \
-    \  delete t;\n    if(!x) {\n      t = y;\n      if(t) t->p = nullptr;\n    } else\
-    \ if(!y) {\n      t = x;\n      t->p = nullptr;\n    } else {\n      x->p = nullptr;\n\
-    \      t = get_right(x);\n      splay(t);\n      t->r = y;\n      y->p = t;\n\
-    \    }\n    return t;\n  }\n\n  Node *get_left(Node *t) const {\n    while(t->l)\
-    \ t = t->l;\n    return t;\n  }\n\n  Node *get_right(Node *t) const {\n    while(t->r)\
-    \ t = t->r;\n    return t;\n  }\n\n  void set_propagate(Node *t, const T &add)\
-    \ {\n    splay(t);\n    propagate(t, add);\n    push(t);\n  }\n\n  pair< Node\
-    \ *, Node * > split(Node *t, int k) {\n    if(!t) return {nullptr, nullptr};\n\
-    \    push(t);\n    if(k <= count(t->l)) {\n      auto x = split(t->l, k);\n  \
-    \    t->l = x.second;\n      t->p = nullptr;\n      if(x.second) x.second->p =\
-    \ t;\n      return {x.first, update(t)};\n    } else {\n      auto x = split(t->r,\
+  bundledCode: "#line 1 \"structure/others/slope-trick.cpp\"\n/**\n * @brief Slope-Trick\n\
+    \ * @see https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n */\n\
+    template< typename T >\nstruct LazySplayTree {\npublic:\n\n  struct Node {\n \
+    \   Node *l, *r, *p;\n    T key, sum;\n    size_t sz;\n    T add;\n\n    bool\
+    \ is_root() const {\n      return !p || (p->l != this && p->r != this);\n    }\n\
+    \n    Node(const T &key, const T &add) :\n        key(key), sum(key), sz(1), add(add),\
+    \ l(nullptr), r(nullptr), p(nullptr) {}\n  };\n\n  LazySplayTree() = default;\n\
+    \n  inline size_t count(const Node *t) { return t ? t->sz : 0; }\n\n  Node *alloc(const\
+    \ T &key, const T &add = T()) {\n    return new Node(key, add);\n  }\n\n  void\
+    \ splay(Node *t) {\n    push(t);\n    while(!t->is_root()) {\n      auto *q =\
+    \ t->p;\n      if(q->is_root()) {\n        push(q), push(t);\n        if(q->l\
+    \ == t) rotr(t);\n        else rotl(t);\n      } else {\n        auto *r = q->p;\n\
+    \        push(r), push(q), push(t);\n        if(r->l == q) {\n          if(q->l\
+    \ == t) rotr(q), rotr(t);\n          else rotl(t), rotr(t);\n        } else {\n\
+    \          if(q->r == t) rotl(q), rotl(t);\n          else rotr(t), rotl(t);\n\
+    \        }\n      }\n    }\n  }\n\n  Node *erase(Node *t) {\n    splay(t);\n \
+    \   Node *x = t->l, *y = t->r;\n    delete t;\n    if(!x) {\n      t = y;\n  \
+    \    if(t) t->p = nullptr;\n    } else if(!y) {\n      t = x;\n      t->p = nullptr;\n\
+    \    } else {\n      x->p = nullptr;\n      t = get_right(x);\n      splay(t);\n\
+    \      t->r = y;\n      y->p = t;\n    }\n    return t;\n  }\n\n  Node *get_left(Node\
+    \ *t) const {\n    while(t->l) t = t->l;\n    return t;\n  }\n\n  Node *get_right(Node\
+    \ *t) const {\n    while(t->r) t = t->r;\n    return t;\n  }\n\n  void set_propagate(Node\
+    \ *t, const T &add) {\n    splay(t);\n    propagate(t, add);\n    push(t);\n \
+    \ }\n\n  pair< Node *, Node * > split(Node *t, int k) {\n    if(!t) return {nullptr,\
+    \ nullptr};\n    push(t);\n    if(k <= count(t->l)) {\n      auto x = split(t->l,\
+    \ k);\n      t->l = x.second;\n      t->p = nullptr;\n      if(x.second) x.second->p\
+    \ = t;\n      return {x.first, update(t)};\n    } else {\n      auto x = split(t->r,\
     \ k - count(t->l) - 1);\n      t->r = x.first;\n      t->p = nullptr;\n      if(x.first)\
     \ x.first->p = t;\n      return {update(t), x.second};\n    }\n  }\n\n  tuple<\
     \ Node *, Node *, Node * > split3(Node *t, int a, int b) {\n    splay(t);\n  \
@@ -59,21 +60,22 @@ data:
     \ *t, const T &v) {\n    if(t) {\n      splay(t);\n      auto x = split_lower_bound(t,\
     \ v);\n      return merge(merge(x.first, alloc(v)), x.second);\n    } else {\n\
     \      return alloc(v);\n    }\n  }\n\n  Node *update(Node *t) {\n    t->sz =\
-    \ 1;\n    if(t->l) t->sz += t->l->sz;\n    if(t->r) t->sz += t->r->sz;\n    return\
-    \ t;\n  }\n\n  void propagate(Node *t, const T &x) {\n    t->add += x;\n    t->key\
-    \ += x;\n  }\n\n  void push(Node *t) {\n    if(t->add) {\n      if(t->l) propagate(t->l,\
-    \ t->add);\n      if(t->r) propagate(t->r, t->add);\n      t->add = 0;\n    }\n\
-    \  }\n\nprivate:\n  void rotr(Node *t) {\n    auto *x = t->p, *y = x->p;\n   \
-    \ if((x->l = t->r)) t->r->p = x;\n    t->r = x, x->p = t;\n    update(x), update(t);\n\
-    \    if((t->p = y)) {\n      if(y->l == x) y->l = t;\n      if(y->r == x) y->r\
-    \ = t;\n      update(y);\n    }\n  }\n\n  void rotl(Node *t) {\n    auto *x =\
-    \ t->p, *y = x->p;\n    if((x->r = t->l)) t->l->p = x;\n    t->l = x, x->p = t;\n\
-    \    update(x), update(t);\n    if((t->p = y)) {\n      if(y->l == x) y->l = t;\n\
-    \      if(y->r == x) y->r = t;\n      update(y);\n    }\n  }\n\n  Node *merge(Node\
-    \ *l) {\n    return l;\n  }\n};\n\n/**\n * @brief Slope-Trick\n * @see https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n\
-    \ */\ntemplate< typename T >\nstruct SlopeTrick {\n\n  const T INF = numeric_limits<\
-    \ T >::max() / 3;\n\n  T min_f;\n  SplayTree< T > st;\n  typename SplayTree< T\
-    \ >::Node *L, *R;\nprivate:\n  void push_R(const T &a) {\n    R = st.insert_lower_bound(R,\
+    \ 1;\n    t->sum = t->key;\n    if(t->l) t->sz += t->l->sz, t->sum += t->l->sum;\n\
+    \    if(t->r) t->sz += t->r->sz, t->sum += t->r->sum;\n    return t;\n  }\n\n\
+    \  void propagate(Node *t, const T &x) {\n    t->add += x;\n    t->sum += count(t)\
+    \ * x;\n    t->key += x;\n  }\n\n  void push(Node *t) {\n    if(t->add) {\n  \
+    \    if(t->l) propagate(t->l, t->add);\n      if(t->r) propagate(t->r, t->add);\n\
+    \      t->add = 0;\n    }\n  }\n\nprivate:\n  void rotr(Node *t) {\n    auto *x\
+    \ = t->p, *y = x->p;\n    if((x->l = t->r)) t->r->p = x;\n    t->r = x, x->p =\
+    \ t;\n    update(x), update(t);\n    if((t->p = y)) {\n      if(y->l == x) y->l\
+    \ = t;\n      if(y->r == x) y->r = t;\n      update(y);\n    }\n  }\n\n  void\
+    \ rotl(Node *t) {\n    auto *x = t->p, *y = x->p;\n    if((x->r = t->l)) t->l->p\
+    \ = x;\n    t->l = x, x->p = t;\n    update(x), update(t);\n    if((t->p = y))\
+    \ {\n      if(y->l == x) y->l = t;\n      if(y->r == x) y->r = t;\n      update(y);\n\
+    \    }\n  }\n\n  Node *merge(Node *l) {\n    return l;\n  }\n};\n\ntemplate< typename\
+    \ T >\nstruct SlopeTrick {\n\n  const T INF = numeric_limits< T >::max() / 3;\n\
+    \n  T min_f;\n  LazySplayTree< T > st;\n  typename LazySplayTree< T >::Node *L,\
+    \ *R;\nprivate:\n  void push_R(const T &a) {\n    R = st.insert_lower_bound(R,\
     \ a);\n  }\n\n  T top_R() {\n    if(R) {\n      st.splay(R = st.get_left(R));\n\
     \      return R->key;\n    } else {\n      return INF;\n    }\n  }\n\n  T pop_R()\
     \ {\n    T val = top_R();\n    if(R) R = st.erase(R);\n    return val;\n  }\n\n\
@@ -98,36 +100,39 @@ data:
     \ if(L) st.set_propagate(L, a);\n    if(R) st.set_propagate(R, b);\n  }\n\n  //\
     \ \\/. -> .\\/\n  // f_{new} (x) = f(x - a)\n  void shift(const T &a) {\n    shift(a,\
     \ a);\n  }\n\n  // return f(x) L, R \u3092\u7834\u58CA\u3059\u308B\n  T get(const\
-    \ T &x) {\n    T ret = min_f;\n    while(st.count(L) >= 1) {\n      ret += max(T(0),\
-    \ pop_L() - x);\n    }\n    while(st.count(R) >= 1) {\n      ret += max(T(0),\
-    \ x - pop_R());\n    }\n    return ret;\n  }\n\n  // f(x) += g(x)\n  void merge(SlopeTrick\
-    \ &g) {\n    L = st.merge_wuh(L, g.L);\n    R = st.merge_wuh(R, g.R);\n    min_f\
-    \ += g.min_f;\n  }\n};\n"
-  code: "template< typename T >\nstruct SplayTree {\npublic:\n\n  struct Node {\n\
-    \    Node *l, *r, *p;\n    T key;\n    size_t sz;\n    T add;\n\n    bool is_root()\
-    \ const {\n      return !p || (p->l != this && p->r != this);\n    }\n\n    Node(const\
-    \ T &key, const T &add) :\n        key(key), sz(1), add(add), l(nullptr), r(nullptr),\
-    \ p(nullptr) {}\n  };\n\n  SplayTree() = default;\n\n  inline size_t count(const\
-    \ Node *t) { return t ? t->sz : 0; }\n\n  Node *alloc(const T &key, const T &add\
-    \ = T()) {\n    return new Node(key, add);\n  }\n\n  void splay(Node *t) {\n \
-    \   push(t);\n    while(!t->is_root()) {\n      auto *q = t->p;\n      if(q->is_root())\
-    \ {\n        push(q), push(t);\n        if(q->l == t) rotr(t);\n        else rotl(t);\n\
-    \      } else {\n        auto *r = q->p;\n        push(r), push(q), push(t);\n\
-    \        if(r->l == q) {\n          if(q->l == t) rotr(q), rotr(t);\n        \
-    \  else rotl(t), rotr(t);\n        } else {\n          if(q->r == t) rotl(q),\
-    \ rotl(t);\n          else rotr(t), rotl(t);\n        }\n      }\n    }\n  }\n\
-    \n  Node *erase(Node *t) {\n    splay(t);\n    Node *x = t->l, *y = t->r;\n  \
-    \  delete t;\n    if(!x) {\n      t = y;\n      if(t) t->p = nullptr;\n    } else\
-    \ if(!y) {\n      t = x;\n      t->p = nullptr;\n    } else {\n      x->p = nullptr;\n\
-    \      t = get_right(x);\n      splay(t);\n      t->r = y;\n      y->p = t;\n\
-    \    }\n    return t;\n  }\n\n  Node *get_left(Node *t) const {\n    while(t->l)\
-    \ t = t->l;\n    return t;\n  }\n\n  Node *get_right(Node *t) const {\n    while(t->r)\
-    \ t = t->r;\n    return t;\n  }\n\n  void set_propagate(Node *t, const T &add)\
-    \ {\n    splay(t);\n    propagate(t, add);\n    push(t);\n  }\n\n  pair< Node\
-    \ *, Node * > split(Node *t, int k) {\n    if(!t) return {nullptr, nullptr};\n\
-    \    push(t);\n    if(k <= count(t->l)) {\n      auto x = split(t->l, k);\n  \
-    \    t->l = x.second;\n      t->p = nullptr;\n      if(x.second) x.second->p =\
-    \ t;\n      return {x.first, update(t)};\n    } else {\n      auto x = split(t->r,\
+    \ T &x) {\n    T ret = min_f;\n    {\n      auto[l, r] = st.split_lower_bound(L,\
+    \ x);\n      if(r) {\n        ret += r->sum;\n        ret -= x * (T) st.count(r);\n\
+    \      }\n      L = st.merge(l, r);\n    }\n    {\n      auto[l, r] = st.split_lower_bound(R,\
+    \ x);\n      if(l) {\n        ret += x * (T) st.count(r);\n        ret -= l->sum;\n\
+    \      }\n      R = st.merge(l, r);\n    }\n    return ret;\n  }\n\n  // f(x)\
+    \ += g(x)\n  void merge(SlopeTrick &g) {\n    L = st.merge_wuh(L, g.L);\n    R\
+    \ = st.merge_wuh(R, g.R);\n    min_f += g.min_f;\n  }\n};\n"
+  code: "/**\n * @brief Slope-Trick\n * @see https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n\
+    \ */\ntemplate< typename T >\nstruct LazySplayTree {\npublic:\n\n  struct Node\
+    \ {\n    Node *l, *r, *p;\n    T key, sum;\n    size_t sz;\n    T add;\n\n   \
+    \ bool is_root() const {\n      return !p || (p->l != this && p->r != this);\n\
+    \    }\n\n    Node(const T &key, const T &add) :\n        key(key), sum(key),\
+    \ sz(1), add(add), l(nullptr), r(nullptr), p(nullptr) {}\n  };\n\n  LazySplayTree()\
+    \ = default;\n\n  inline size_t count(const Node *t) { return t ? t->sz : 0; }\n\
+    \n  Node *alloc(const T &key, const T &add = T()) {\n    return new Node(key,\
+    \ add);\n  }\n\n  void splay(Node *t) {\n    push(t);\n    while(!t->is_root())\
+    \ {\n      auto *q = t->p;\n      if(q->is_root()) {\n        push(q), push(t);\n\
+    \        if(q->l == t) rotr(t);\n        else rotl(t);\n      } else {\n     \
+    \   auto *r = q->p;\n        push(r), push(q), push(t);\n        if(r->l == q)\
+    \ {\n          if(q->l == t) rotr(q), rotr(t);\n          else rotl(t), rotr(t);\n\
+    \        } else {\n          if(q->r == t) rotl(q), rotl(t);\n          else rotr(t),\
+    \ rotl(t);\n        }\n      }\n    }\n  }\n\n  Node *erase(Node *t) {\n    splay(t);\n\
+    \    Node *x = t->l, *y = t->r;\n    delete t;\n    if(!x) {\n      t = y;\n \
+    \     if(t) t->p = nullptr;\n    } else if(!y) {\n      t = x;\n      t->p = nullptr;\n\
+    \    } else {\n      x->p = nullptr;\n      t = get_right(x);\n      splay(t);\n\
+    \      t->r = y;\n      y->p = t;\n    }\n    return t;\n  }\n\n  Node *get_left(Node\
+    \ *t) const {\n    while(t->l) t = t->l;\n    return t;\n  }\n\n  Node *get_right(Node\
+    \ *t) const {\n    while(t->r) t = t->r;\n    return t;\n  }\n\n  void set_propagate(Node\
+    \ *t, const T &add) {\n    splay(t);\n    propagate(t, add);\n    push(t);\n \
+    \ }\n\n  pair< Node *, Node * > split(Node *t, int k) {\n    if(!t) return {nullptr,\
+    \ nullptr};\n    push(t);\n    if(k <= count(t->l)) {\n      auto x = split(t->l,\
+    \ k);\n      t->l = x.second;\n      t->p = nullptr;\n      if(x.second) x.second->p\
+    \ = t;\n      return {x.first, update(t)};\n    } else {\n      auto x = split(t->r,\
     \ k - count(t->l) - 1);\n      t->r = x.first;\n      t->p = nullptr;\n      if(x.first)\
     \ x.first->p = t;\n      return {update(t), x.second};\n    }\n  }\n\n  tuple<\
     \ Node *, Node *, Node * > split3(Node *t, int a, int b) {\n    splay(t);\n  \
@@ -151,21 +156,22 @@ data:
     \ *t, const T &v) {\n    if(t) {\n      splay(t);\n      auto x = split_lower_bound(t,\
     \ v);\n      return merge(merge(x.first, alloc(v)), x.second);\n    } else {\n\
     \      return alloc(v);\n    }\n  }\n\n  Node *update(Node *t) {\n    t->sz =\
-    \ 1;\n    if(t->l) t->sz += t->l->sz;\n    if(t->r) t->sz += t->r->sz;\n    return\
-    \ t;\n  }\n\n  void propagate(Node *t, const T &x) {\n    t->add += x;\n    t->key\
-    \ += x;\n  }\n\n  void push(Node *t) {\n    if(t->add) {\n      if(t->l) propagate(t->l,\
-    \ t->add);\n      if(t->r) propagate(t->r, t->add);\n      t->add = 0;\n    }\n\
-    \  }\n\nprivate:\n  void rotr(Node *t) {\n    auto *x = t->p, *y = x->p;\n   \
-    \ if((x->l = t->r)) t->r->p = x;\n    t->r = x, x->p = t;\n    update(x), update(t);\n\
-    \    if((t->p = y)) {\n      if(y->l == x) y->l = t;\n      if(y->r == x) y->r\
-    \ = t;\n      update(y);\n    }\n  }\n\n  void rotl(Node *t) {\n    auto *x =\
-    \ t->p, *y = x->p;\n    if((x->r = t->l)) t->l->p = x;\n    t->l = x, x->p = t;\n\
-    \    update(x), update(t);\n    if((t->p = y)) {\n      if(y->l == x) y->l = t;\n\
-    \      if(y->r == x) y->r = t;\n      update(y);\n    }\n  }\n\n  Node *merge(Node\
-    \ *l) {\n    return l;\n  }\n};\n\n/**\n * @brief Slope-Trick\n * @see https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n\
-    \ */\ntemplate< typename T >\nstruct SlopeTrick {\n\n  const T INF = numeric_limits<\
-    \ T >::max() / 3;\n\n  T min_f;\n  SplayTree< T > st;\n  typename SplayTree< T\
-    \ >::Node *L, *R;\nprivate:\n  void push_R(const T &a) {\n    R = st.insert_lower_bound(R,\
+    \ 1;\n    t->sum = t->key;\n    if(t->l) t->sz += t->l->sz, t->sum += t->l->sum;\n\
+    \    if(t->r) t->sz += t->r->sz, t->sum += t->r->sum;\n    return t;\n  }\n\n\
+    \  void propagate(Node *t, const T &x) {\n    t->add += x;\n    t->sum += count(t)\
+    \ * x;\n    t->key += x;\n  }\n\n  void push(Node *t) {\n    if(t->add) {\n  \
+    \    if(t->l) propagate(t->l, t->add);\n      if(t->r) propagate(t->r, t->add);\n\
+    \      t->add = 0;\n    }\n  }\n\nprivate:\n  void rotr(Node *t) {\n    auto *x\
+    \ = t->p, *y = x->p;\n    if((x->l = t->r)) t->r->p = x;\n    t->r = x, x->p =\
+    \ t;\n    update(x), update(t);\n    if((t->p = y)) {\n      if(y->l == x) y->l\
+    \ = t;\n      if(y->r == x) y->r = t;\n      update(y);\n    }\n  }\n\n  void\
+    \ rotl(Node *t) {\n    auto *x = t->p, *y = x->p;\n    if((x->r = t->l)) t->l->p\
+    \ = x;\n    t->l = x, x->p = t;\n    update(x), update(t);\n    if((t->p = y))\
+    \ {\n      if(y->l == x) y->l = t;\n      if(y->r == x) y->r = t;\n      update(y);\n\
+    \    }\n  }\n\n  Node *merge(Node *l) {\n    return l;\n  }\n};\n\ntemplate< typename\
+    \ T >\nstruct SlopeTrick {\n\n  const T INF = numeric_limits< T >::max() / 3;\n\
+    \n  T min_f;\n  LazySplayTree< T > st;\n  typename LazySplayTree< T >::Node *L,\
+    \ *R;\nprivate:\n  void push_R(const T &a) {\n    R = st.insert_lower_bound(R,\
     \ a);\n  }\n\n  T top_R() {\n    if(R) {\n      st.splay(R = st.get_left(R));\n\
     \      return R->key;\n    } else {\n      return INF;\n    }\n  }\n\n  T pop_R()\
     \ {\n    T val = top_R();\n    if(R) R = st.erase(R);\n    return val;\n  }\n\n\
@@ -190,16 +196,18 @@ data:
     \ if(L) st.set_propagate(L, a);\n    if(R) st.set_propagate(R, b);\n  }\n\n  //\
     \ \\/. -> .\\/\n  // f_{new} (x) = f(x - a)\n  void shift(const T &a) {\n    shift(a,\
     \ a);\n  }\n\n  // return f(x) L, R \u3092\u7834\u58CA\u3059\u308B\n  T get(const\
-    \ T &x) {\n    T ret = min_f;\n    while(st.count(L) >= 1) {\n      ret += max(T(0),\
-    \ pop_L() - x);\n    }\n    while(st.count(R) >= 1) {\n      ret += max(T(0),\
-    \ x - pop_R());\n    }\n    return ret;\n  }\n\n  // f(x) += g(x)\n  void merge(SlopeTrick\
-    \ &g) {\n    L = st.merge_wuh(L, g.L);\n    R = st.merge_wuh(R, g.R);\n    min_f\
-    \ += g.min_f;\n  }\n};\n"
+    \ T &x) {\n    T ret = min_f;\n    {\n      auto[l, r] = st.split_lower_bound(L,\
+    \ x);\n      if(r) {\n        ret += r->sum;\n        ret -= x * (T) st.count(r);\n\
+    \      }\n      L = st.merge(l, r);\n    }\n    {\n      auto[l, r] = st.split_lower_bound(R,\
+    \ x);\n      if(l) {\n        ret += x * (T) st.count(r);\n        ret -= l->sum;\n\
+    \      }\n      R = st.merge(l, r);\n    }\n    return ret;\n  }\n\n  // f(x)\
+    \ += g(x)\n  void merge(SlopeTrick &g) {\n    L = st.merge_wuh(L, g.L);\n    R\
+    \ = st.merge_wuh(R, g.R);\n    min_f += g.min_f;\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: structure/others/slope-trick.cpp
   requiredBy: []
-  timestamp: '2021-04-25 21:47:31+09:00'
+  timestamp: '2021-04-25 21:55:44+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: structure/others/slope-trick.cpp
