@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number-theory/kth-root.cpp
     title: Kth-Root
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/number-theory/prime-count.cpp
     title: "Prime-Count(\u7D20\u6570\u306E\u500B\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/number-theory/prime-table.cpp
     title: "Prime-Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
   - icon: ':question:'
@@ -15,9 +15,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/counting_primes
@@ -100,7 +100,7 @@ data:
   path: test/verify/yosupo-counting-primes.test.cpp
   requiredBy: []
   timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-counting-primes.test.cpp
 layout: document

@@ -5,7 +5,7 @@ data:
   - icon: ':warning:'
     path: math/fps/bell.cpp
     title: math/fps/bell.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/bellnoulli.cpp
     title: math/fps/bellnoulli.cpp
   - icon: ':x:'
@@ -20,7 +20,7 @@ data:
   - icon: ':x:'
     path: math/fps/integral.cpp
     title: Integral ($\int f(x) dx$)
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/inv.cpp
     title: Inv ($\frac {1} {f(x)}$)
   - icon: ':x:'
@@ -58,7 +58,7 @@ data:
     path: math/fps/taylor-shift.cpp
     title: Taylor-Shift ($f(x) \Rightarrow f(x + c)$)
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bellnoulli-number.test.cpp
     title: test/verify/yosupo-bellnoulli-number.test.cpp
   - icon: ':x:'
@@ -102,7 +102,7 @@ data:
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links: []
@@ -247,7 +247,7 @@ data:
   - math/fps/polynomial-interpolation.cpp
   - math/fps/stirling-second.cpp
   timestamp: '2020-10-23 03:48:43+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
   - test/verify/yosupo-bellnoulli-number.test.cpp

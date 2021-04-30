@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy:
   - icon: ':warning:'
     path: math/fps/bell.cpp
     title: math/fps/bell.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/bellnoulli.cpp
     title: math/fps/bellnoulli.cpp
   - icon: ':x:'
@@ -36,7 +36,7 @@ data:
     path: math/fps/sqrt.cpp
     title: Sqrt ($\sqrt {f(x)}$)
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bellnoulli-number.test.cpp
     title: test/verify/yosupo-bellnoulli-number.test.cpp
   - icon: ':x:'
@@ -65,7 +65,7 @@ data:
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: Inv ($\frac {1} {f(x)}$)
     links: []
@@ -179,7 +179,7 @@ data:
   - math/fps/exp.cpp
   - math/fps/polynomial-interpolation.cpp
   timestamp: '2020-10-23 03:48:43+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
   - test/verify/yosupo-bellnoulli-number.test.cpp

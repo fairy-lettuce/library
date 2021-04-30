@@ -3,10 +3,10 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
   - icon: ':x:'
@@ -14,7 +14,7 @@ data:
     title: test/verify/yosupo-point-set-range-composite.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Reversible-Splay-Tree(\u53CD\u8EE2\u53EF\u80FDSplay\u6728)"
     links: []
@@ -177,7 +177,7 @@ data:
   path: structure/bbst/reversible-splay-tree.cpp
   requiredBy: []
   timestamp: '2020-06-19 01:56:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-point-set-range-composite.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp

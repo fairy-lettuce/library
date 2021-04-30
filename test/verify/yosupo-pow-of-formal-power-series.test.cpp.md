@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
   - icon: ':x:'
@@ -13,13 +13,13 @@ data:
   - icon: ':x:'
     path: math/fps/exp.cpp
     title: Exp ($e^{f(x)}$)
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':x:'
     path: math/fps/integral.cpp
     title: Integral ($\int f(x) dx$)
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/inv.cpp
     title: Inv ($\frac {1} {f(x)}$)
   - icon: ':x:'

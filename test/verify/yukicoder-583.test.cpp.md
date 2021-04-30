@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/others/eulerian-trail.cpp
     title: "Eulerian-Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
   - icon: ':question:'

@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/combinatorics/mod-pow.cpp
     title: "Mod-Pow(\u3079\u304D\u4E57)"
   - icon: ':x:'
     path: math/combinatorics/mod-tetration.cpp
     title: "Mod-Tetration(\u30C6\u30C8\u30EC\u30FC\u30B7\u30E7\u30F3)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number-theory/euler-phi.cpp
     title: "Euler's-Phi-Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570)"
   - icon: ':question:'

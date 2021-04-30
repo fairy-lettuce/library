@@ -9,15 +9,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-3198.test.cpp
     title: test/verify/aoj-3198.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bipartite-edge-coloring.test.cpp
     title: test/verify/yosupo-bipartite-edge-coloring.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bipartitematching.test.cpp
     title: test/verify/yosupo-bipartitematching.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/bipartite-flow.md
     document_title: "Bipartite-Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\
@@ -194,7 +194,7 @@ data:
   path: graph/flow/bipartite-flow.cpp
   requiredBy: []
   timestamp: '2020-09-30 14:25:12+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-bipartitematching.test.cpp
   - test/verify/yosupo-bipartite-edge-coloring.test.cpp

@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/flow/hungarian.cpp
     title: "Hungarian(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5C0F\u91CD\u307F\
       \u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0)"
@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1163.test.cpp
     title: test/verify/aoj-1163.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-assignment.test.cpp
     title: test/verify/yosupo-assignment.test.cpp
   - icon: ':x:'

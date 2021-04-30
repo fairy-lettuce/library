@@ -6,12 +6,12 @@ data:
     title: graph/graph-template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-cycle-detection.test.cpp
     title: test/verify/yosupo-cycle-detection.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/cycle-detection.md
     document_title: "Cycle-Detection(\u9589\u8DEF\u691C\u51FA)"
@@ -69,7 +69,7 @@ data:
   path: graph/others/cycle-detection.cpp
   requiredBy: []
   timestamp: '2020-09-30 18:06:49+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-cycle-detection.test.cpp
 documentation_of: graph/others/cycle-detection.cpp

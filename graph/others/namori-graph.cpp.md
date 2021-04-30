@@ -129,8 +129,6 @@ redirect_from:
 - /library/graph/others/namori-graph.cpp.html
 title: Namori-Graph
 ---
-全くテストをしていないので使わないでください！(は？)
-
 ## 概要
 
 $n$ 頂点 $n$ 辺からなる連結無向グラフは, サイクルが $1$ 個だけあるグラフとなる。

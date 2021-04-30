@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bipartite-edge-coloring.test.cpp
     title: test/verify/yosupo-bipartite-edge-coloring.test.cpp
   - icon: ':x:'
@@ -11,7 +11,7 @@ data:
     title: test/verify/yukicoder-583.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/eulerian-trail.md
     document_title: "Eulerian-Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
@@ -90,7 +90,7 @@ data:
   path: graph/others/eulerian-trail.cpp
   requiredBy: []
   timestamp: '2020-09-08 21:03:17+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-bipartite-edge-coloring.test.cpp
   - test/verify/yukicoder-583.test.cpp

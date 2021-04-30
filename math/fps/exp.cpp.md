@@ -4,13 +4,13 @@ data:
   - icon: ':x:'
     path: math/fps/diff.cpp
     title: Diff ($f'(x)$)
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':x:'
     path: math/fps/integral.cpp
     title: Integral ($\int f(x) dx$)
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/inv.cpp
     title: Inv ($\frac {1} {f(x)}$)
   - icon: ':x:'

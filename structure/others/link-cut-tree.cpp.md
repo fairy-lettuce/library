@@ -6,15 +6,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2450-2.test.cpp
     title: test/verify/aoj-2450-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Link-Cut-Tree
     links: []
@@ -67,7 +67,7 @@ data:
   path: structure/others/link-cut-tree.cpp
   requiredBy: []
   timestamp: '2020-06-19 01:29:44+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
