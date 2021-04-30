@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/base.cpp
     title: geometry/base.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/circle.cpp
     title: geometry/circle.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-7-e.test.cpp
     title: test/verify/aoj-cgl-7-e.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E
@@ -67,7 +67,7 @@ data:
   path: geometry/cross_point_cc.cpp
   requiredBy: []
   timestamp: '2020-12-01 17:38:42+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-cgl-7-e.test.cpp
 documentation_of: geometry/cross_point_cc.cpp

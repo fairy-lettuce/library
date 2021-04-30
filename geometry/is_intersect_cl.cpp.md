@@ -1,22 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/base.cpp
     title: geometry/base.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/circle.cpp
     title: geometry/circle.cpp
   - icon: ':warning:'
     path: geometry/distance_lp.cpp
     title: geometry/distance_lp.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/line.cpp
     title: geometry/line.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/projection.cpp
     title: geometry/projection.cpp
   _extendedRequiredBy: []

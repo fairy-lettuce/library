@@ -7,13 +7,13 @@ data:
   - icon: ':x:'
     path: graph/others/cartesian-tree.cpp
     title: Cartesian-Tree
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/tree/pmormq-lowest-common-ancestor.cpp
     title: "PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: structure/others/plus-minus-one-rmq.cpp
     title: Plus-Minus-One-RMQ
-  - icon: ':x:'
+  - icon: ':question:'
     path: structure/others/sparse-table.cpp
     title: "Sparse-Table(\u30B9\u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB)"
   - icon: ':question:'

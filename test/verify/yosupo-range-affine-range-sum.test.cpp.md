@@ -76,12 +76,12 @@ data:
     \n\n#line 1 \"structure/segment-tree/lazy-segment-tree.cpp\"\n/**\n * @brief Lazy-Segment-Tree(\u9045\
     \u5EF6\u4F1D\u642C\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs docs/lazy-segment-tree.md\n\
     \ */\ntemplate< typename Monoid, typename OperatorMonoid, typename F, typename\
-    \ G, typename H >\nstruct LazySegmentTree {\n  int sz, height;\n  vector< Monoid\
+    \ G, typename H >\nstruct LazySegmentTree {\n  int n, sz, height;\n  vector< Monoid\
     \ > data;\n  vector< OperatorMonoid > lazy;\n  const F f;\n  const G g;\n  const\
     \ H h;\n  const Monoid M1;\n  const OperatorMonoid OM0;\n\n  LazySegmentTree(int\
     \ n, const F f, const G g, const H h,\n                  const Monoid &M1, const\
-    \ OperatorMonoid OM0)\n      : f(f), g(g), h(h), M1(M1), OM0(OM0) {\n    sz =\
-    \ 1;\n    height = 0;\n    while(sz < n) sz <<= 1, height++;\n    data.assign(2\
+    \ OperatorMonoid OM0)\n      : n(n), f(f), g(g), h(h), M1(M1), OM0(OM0) {\n  \
+    \  sz = 1;\n    height = 0;\n    while(sz < n) sz <<= 1, height++;\n    data.assign(2\
     \ * sz, M1);\n    lazy.assign(2 * sz, OM0);\n  }\n\n  void set(int k, const Monoid\
     \ &x) {\n    data[k + sz] = x;\n  }\n\n  void build() {\n    for(int k = sz -\
     \ 1; k > 0; k--) {\n      data[k] = f(data[2 * k + 0], data[2 * k + 1]);\n   \
@@ -107,11 +107,11 @@ data:
     \ + type;\n      else M = nxt, a = 2 * a + 1 - type;\n    }\n    return a - sz;\n\
     \  }\n\n  template< typename C >\n  int find_first(int a, const C &check) {\n\
     \    Monoid L = M1;\n    if(a <= 0) {\n      if(check(f(L, apply(1)))) return\
-    \ find_subtree(1, check, L, false);\n      return -1;\n    }\n    thrust(a + sz);\n\
+    \ find_subtree(1, check, L, false);\n      return n;\n    }\n    thrust(a + sz);\n\
     \    int b = sz;\n    for(a += sz, b += sz; a < b; a >>= 1, b >>= 1) {\n     \
     \ if(a & 1) {\n        Monoid nxt = f(L, apply(a));\n        if(check(nxt)) return\
     \ find_subtree(a, check, L, false);\n        L = nxt;\n        ++a;\n      }\n\
-    \    }\n    return -1;\n  }\n  \n  template< typename C >\n  int find_last(int\
+    \    }\n    return n;\n  }\n  \n  template< typename C >\n  int find_last(int\
     \ b, const C &check) {\n    Monoid R = M1;\n    if(b >= sz) {\n      if(check(f(apply(1),\
     \ R))) return find_subtree(1, check, R, true);\n      return -1;\n    }\n    thrust(b\
     \ + sz - 1);\n    int a = sz;\n    for(b += sz; a < b; a >>= 1, b >>= 1) {\n \
@@ -158,7 +158,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-range-affine-range-sum.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-05-01 00:53:32+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-range-affine-range-sum.test.cpp

@@ -6,12 +6,12 @@ data:
     title: Union-Find
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-a-3.test.cpp
     title: test/verify/aoj-grl-2-a-3.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/boruvka.md
     document_title: "Boruvka(\u6700\u5C0F\u5168\u57DF\u6728)"
@@ -52,7 +52,7 @@ data:
   path: graph/mst/boruvka.cpp
   requiredBy: []
   timestamp: '2020-09-16 23:08:58+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-2-a-3.test.cpp
 documentation_of: graph/mst/boruvka.cpp

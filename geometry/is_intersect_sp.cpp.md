@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/base.cpp
     title: geometry/base.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/ccw.cpp
     title: geometry/ccw.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/line.cpp
     title: geometry/line.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/segment.cpp
     title: geometry/segment.cpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/common_area_cp.cpp
     title: geometry/common_area_cp.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/distance_sp.cpp
     title: geometry/distance_sp.cpp
   - icon: ':heavy_check_mark:'
@@ -30,12 +30,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-2-d.test.cpp
     title: test/verify/aoj-cgl-2-d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-7-h.test.cpp
     title: test/verify/aoj-cgl-7-h.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real\
@@ -96,7 +96,7 @@ data:
   - geometry/distance_ss.cpp
   - geometry/distance_sp.cpp
   timestamp: '2020-12-01 17:38:42+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-cgl-7-h.test.cpp
   - test/verify/aoj-cgl-2-d.test.cpp

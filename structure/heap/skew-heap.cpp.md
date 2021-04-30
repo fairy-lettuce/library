@@ -2,11 +2,11 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/mst/directed-mst.cpp
     title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-b.test.cpp
     title: test/verify/aoj-grl-2-b.test.cpp
   - icon: ':x:'
@@ -14,7 +14,7 @@ data:
     title: test/verify/yosupo-directedmst.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: Skew-Heap
     links: []
@@ -55,7 +55,7 @@ data:
   requiredBy:
   - graph/mst/directed-mst.cpp
   timestamp: '2020-12-18 21:55:51+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-directedmst.test.cpp
   - test/verify/aoj-grl-2-b.test.cpp

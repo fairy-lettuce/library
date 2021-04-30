@@ -4,18 +4,18 @@ data:
   - icon: ':question:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/heap/fibonacchi-heap.cpp
     title: "Fibonacchi-Heap(\u30D5\u30A3\u30DC\u30CA\u30C3\u30C1\u30D2\u30FC\u30D7\
       )"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-a-4.test.cpp
     title: test/verify/aoj-grl-2-a-4.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/prim-fibonacchi-heap.md
     document_title: "Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
@@ -119,7 +119,7 @@ data:
   path: graph/mst/prim-fibonacchi-heap.cpp
   requiredBy: []
   timestamp: '2020-09-16 23:08:58+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-2-a-4.test.cpp
 documentation_of: graph/mst/prim-fibonacchi-heap.cpp

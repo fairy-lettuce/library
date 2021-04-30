@@ -7,7 +7,7 @@ data:
   - icon: ':x:'
     path: other/scanner.cpp
     title: "Scanner(\u9AD8\u901F\u5165\u529B)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: structure/others/binary-indexed-tree.cpp
     title: Binary-Indexed-Tree(BIT)
   - icon: ':question:'

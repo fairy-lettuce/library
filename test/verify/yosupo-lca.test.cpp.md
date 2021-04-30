@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/tree/pmormq-lowest-common-ancestor.cpp
     title: "PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':x:'
@@ -13,10 +13,10 @@ data:
   - icon: ':x:'
     path: other/scanner.cpp
     title: "Scanner(\u9AD8\u901F\u5165\u529B)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: structure/others/plus-minus-one-rmq.cpp
     title: Plus-Minus-One-RMQ
-  - icon: ':x:'
+  - icon: ':question:'
     path: structure/others/sparse-table.cpp
     title: "Sparse-Table(\u30B9\u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB)"
   - icon: ':question:'

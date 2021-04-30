@@ -12,32 +12,32 @@ data:
     - icon: ':heavy_check_mark:'
       path: dp/divide-and-conquer-optimization.cpp
       title: Divide-And-Conquer-Optimization
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: dp/edit-distance.cpp
       title: "Edit-Distance(\u7DE8\u96C6\u8DDD\u96E2)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: dp/knapsack-01-2.cpp
       title: "Knapsack-01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(N\
         \ \\sum {v_i})$"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: dp/knapsack-01.cpp
       title: "Knapsack-01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: dp/knapsack-limitations-2.cpp
       title: "Knapsack-Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\
         \u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(N^2 \\max(v_i)^2)$"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: dp/knapsack-limitations.cpp
       title: "Knapsack-Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\
         \u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: dp/knapsack.cpp
       title: "Knapsack(\u500B\u6570\u5236\u9650\u306A\u3057\u30CA\u30C3\u30D7\u30B5\
         \u30C3\u30AF\u554F\u984C)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: dp/largest-rectangle.cpp
       title: "Largest-Rectangle(\u6700\u5927\u9577\u65B9\u5F62)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: dp/longest-increasing-subsequence.cpp
       title: "Longest-Increasing-Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
         )"
@@ -56,16 +56,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: geometry/area.cpp
       title: geometry/area.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: geometry/base.cpp
       title: geometry/base.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: geometry/ccw.cpp
       title: geometry/ccw.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: geometry/circle.cpp
       title: geometry/circle.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: geometry/common_area_cp.cpp
       title: geometry/common_area_cp.cpp
     - icon: ':heavy_check_mark:'
@@ -83,10 +83,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: geometry/convex_polygon_diameter.cpp
       title: geometry/convex_polygon_diameter.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: geometry/cross_point_cc.cpp
       title: geometry/cross_point_cc.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: geometry/cross_point_cl.cpp
       title: geometry/cross_point_cl.cpp
     - icon: ':warning:'
@@ -104,7 +104,7 @@ data:
     - icon: ':warning:'
       path: geometry/distance_pp.cpp
       title: geometry/distance_pp.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: geometry/distance_sp.cpp
       title: geometry/distance_sp.cpp
     - icon: ':heavy_check_mark:'
@@ -119,7 +119,7 @@ data:
     - icon: ':warning:'
       path: geometry/is_intersect_cp.cpp
       title: geometry/is_intersect_cp.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: geometry/is_intersect_cs.cpp
       title: geometry/is_intersect_cs.cpp
     - icon: ':warning:'
@@ -131,7 +131,7 @@ data:
     - icon: ':warning:'
       path: geometry/is_intersect_ls.cpp
       title: geometry/is_intersect_ls.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: geometry/is_intersect_sp.cpp
       title: geometry/is_intersect_sp.cpp
     - icon: ':heavy_check_mark:'
@@ -143,22 +143,22 @@ data:
     - icon: ':heavy_check_mark:'
       path: geometry/is_parallel.cpp
       title: geometry/is_parallel.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: geometry/line.cpp
       title: geometry/line.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: geometry/point.cpp
       title: geometry/point.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: geometry/polygon.cpp
       title: geometry/polygon.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: geometry/projection.cpp
       title: geometry/projection.cpp
     - icon: ':heavy_check_mark:'
       path: geometry/reflection.cpp
       title: geometry/reflection.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: geometry/segment.cpp
       title: geometry/segment.cpp
     - icon: ':warning:'
@@ -173,7 +173,7 @@ data:
     - icon: ':x:'
       path: graph/connected-components/incremental-bridge-connectivity.cpp
       title: Incremental-Bridge-Connectivity
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/connected-components/strongly-connected-components.cpp
       title: "Strongly-Connected-Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
         )"
@@ -195,13 +195,13 @@ data:
       path: graph/flow/bipartite-matching.cpp
       title: "Bipartite-Matching(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\
         \u30C3\u30C1\u30F3\u30B0)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/flow/dinic-capacity-scaling.cpp
       title: "Dinic-Capacity-Scaling(\u6700\u5927\u6D41)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/flow/dinic.cpp
       title: "Dinic(\u6700\u5927\u6D41)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/flow/ford-fulkerson.cpp
       title: "Ford-Fulkerson(\u6700\u5927\u6D41)"
     - icon: ':x:'
@@ -214,10 +214,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/flow/maxflow-lower-bound.cpp
       title: graph/flow/maxflow-lower-bound.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/flow/primal-dual.cpp
       title: graph/flow/primal-dual.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/flow/push-relabel.cpp
       title: graph/flow/push-relabel.cpp
   - name: graph
@@ -230,22 +230,22 @@ data:
       title: graph/template.cpp
   - name: graph/mst
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/mst/boruvka.cpp
       title: "Boruvka(\u6700\u5C0F\u5168\u57DF\u6728)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/mst/directed-mst.cpp
       title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/mst/kruskal.cpp
       title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
     - icon: ':x:'
       path: graph/mst/manhattan-mst.cpp
       title: Manhattan-MST
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/mst/prim-fibonacchi-heap.cpp
       title: "Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/mst/prim.cpp
       title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
   - name: graph/others
@@ -306,7 +306,7 @@ data:
       title: 2-SAT
   - name: graph/shortest-path
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/shortest-path/bellman-ford.cpp
       title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
     - icon: ':heavy_check_mark:'
@@ -315,10 +315,10 @@ data:
     - icon: ':warning:'
       path: graph/shortest-path/complement-shotest-path.cpp
       title: "Complement-Shortest-Path(\u88DC\u30B0\u30E9\u30D5\u6700\u77ED\u8DEF)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/shortest-path/dijkstra-fibonacchi-heap.cpp
       title: "Dijkstra-Fibonacchi-Heap(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/shortest-path/dijkstra-radix-heap.cpp
       title: "Dijkstra-Radix-Heap(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
     - icon: ':question:'
@@ -333,11 +333,11 @@ data:
     - icon: ':x:'
       path: graph/shortest-path/k-shortest-walk.cpp
       title: K-Shortest-Walk
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/shortest-path/shortest-path-faster-algorithm.cpp
       title: "Shortest-Path-Faster-Algorithm(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF\
         )"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/shortest-path/warshall-floyd.cpp
       title: graph/shortest-path/warshall-floyd.cpp
   - name: graph/tree
@@ -354,23 +354,23 @@ data:
     - icon: ':warning:'
       path: graph/tree/disjoint-set-union-on-tree.cpp
       title: Disjoint-Set-Union-On-Tree
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/tree/doubling-lowest-common-ancestor.cpp
       title: "Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
         )"
     - icon: ':question:'
       path: graph/tree/heavy-light-decomposition.cpp
       title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/tree/pmormq-lowest-common-ancestor.cpp
       title: "PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
     - icon: ':heavy_check_mark:'
       path: graph/tree/rerooting.cpp
       title: graph/tree/rerooting.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/tree/rmq-lowest-common-ancestor.cpp
       title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/tree/tree-diameter.cpp
       title: "Tree-Diameter(\u6728\u306E\u76F4\u5F84)"
     - icon: ':heavy_check_mark:'
@@ -386,7 +386,7 @@ data:
     - icon: ':x:'
       path: math/combinatorics/arbitrary-mod-int.cpp
       title: math/combinatorics/arbitrary-mod-int.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/bell-number.cpp
       title: "Bell-Number(\u30D9\u30EB\u6570)"
     - icon: ':warning:'
@@ -395,7 +395,7 @@ data:
     - icon: ':warning:'
       path: math/combinatorics/binomial.cpp
       title: "Binomial(\u4E8C\u9805\u4FC2\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/enumeration.cpp
       title: math/combinatorics/enumeration.cpp
     - icon: ':warning:'
@@ -422,10 +422,10 @@ data:
     - icon: ':x:'
       path: math/combinatorics/montmort.cpp
       title: "Montmort-Number(\u30E2\u30F3\u30E2\u30FC\u30EB\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/partition-table.cpp
       title: "Partition-Table(\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/stirling-number-second.cpp
       title: "Stirling-Number-Second(\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
         \u6570)"
@@ -697,17 +697,17 @@ data:
       title: structure/convex-hull-trick/persistent-dynamic-li-chao-tree.cpp
   - name: structure/develop
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/develop/array-pool.cpp
       title: structure/develop/array-pool.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/develop/diameter.cpp
       title: structure/develop/diameter.cpp
     - icon: ':heavy_check_mark:'
       path: structure/develop/lazy-reversible-splay-tree.cpp
       title: "Lazy-Reversible-Splay-Tree(\u9045\u5EF6\u4F1D\u642C\u53CD\u8EE2\u53EF\
         \u80FDSplay\u6728)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/develop/link-cut-tree-subtree.cpp
       title: structure/develop/link-cut-tree-subtree.cpp
     - icon: ':question:'
@@ -719,12 +719,12 @@ data:
     - icon: ':question:'
       path: structure/develop/splay-tree-base.cpp
       title: "Splay-Tree-Base(Splay\u6728)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/develop/splay-tree.cpp
       title: structure/develop/splay-tree.cpp
   - name: structure/heap
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/heap/fibonacchi-heap.cpp
       title: "Fibonacchi-Heap(\u30D5\u30A3\u30DC\u30CA\u30C3\u30C1\u30D2\u30FC\u30D7\
         )"
@@ -734,15 +734,15 @@ data:
     - icon: ':x:'
       path: structure/heap/persistent-leftist-heap.cpp
       title: Persistent-Leftist-Heap
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/heap/radix-heap.cpp
       title: structure/heap/radix-heap.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: structure/heap/skew-heap.cpp
       title: Skew-Heap
   - name: structure/others
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: structure/others/binary-indexed-tree.cpp
       title: Binary-Indexed-Tree(BIT)
     - icon: ':x:'
@@ -760,7 +760,7 @@ data:
     - icon: ':x:'
       path: structure/others/persistent-array.cpp
       title: structure/others/persistent-array.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: structure/others/plus-minus-one-rmq.cpp
       title: Plus-Minus-One-RMQ
     - icon: ':warning:'
@@ -775,7 +775,7 @@ data:
     - icon: ':warning:'
       path: structure/others/slope-trick.cpp
       title: Slope-Trick
-    - icon: ':x:'
+    - icon: ':question:'
       path: structure/others/sparse-table.cpp
       title: "Sparse-Table(\u30B9\u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB)"
     - icon: ':warning:'
@@ -786,7 +786,7 @@ data:
       title: structure/others/union-rectangle.cpp
   - name: structure/segment-tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/segment-tree/dual-segment-tree.cpp
       title: "Dual-Segment-Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':question:'
@@ -809,12 +809,12 @@ data:
     - icon: ':warning:'
       path: structure/segment-tree/segment-tree-fractional-cascading.cpp
       title: structure/segment-tree/segment-tree-fractional-cascading.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: structure/segment-tree/segment-tree.cpp
       title: "Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - name: structure/trie
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: structure/trie/binary-trie.cpp
       title: Binary-Trie
     - icon: ':warning:'
@@ -840,7 +840,7 @@ data:
     - icon: ':question:'
       path: structure/union-find/union-find.cpp
       title: Union-Find
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/union-find/weighted-union-find.cpp
       title: structure/union-find/weighted-union-find.cpp
   - name: structure/wavelet
@@ -1126,136 +1126,136 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-cgl-7-d.test.cpp
       title: test/verify/aoj-cgl-7-d.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-cgl-7-e.test.cpp
       title: test/verify/aoj-cgl-7-e.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-cgl-7-h.test.cpp
       title: test/verify/aoj-cgl-7-h.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-1-b.test.cpp
       title: test/verify/aoj-dpl-1-b.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-1-c.test.cpp
       title: test/verify/aoj-dpl-1-c.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-1-d.test.cpp
       title: test/verify/aoj-dpl-1-d.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-1-e.test.cpp
       title: test/verify/aoj-dpl-1-e.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-1-f.test.cpp
       title: test/verify/aoj-dpl-1-f.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-1-g.test.cpp
       title: test/verify/aoj-dpl-1-g.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-1-i.test.cpp
       title: test/verify/aoj-dpl-1-i.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-3-c.test.cpp
       title: test/verify/aoj-dpl-3-c.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-5-g.test.cpp
       title: test/verify/aoj-dpl-5-g.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-5-i.test.cpp
       title: test/verify/aoj-dpl-5-i.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dpl-5-j.test.cpp
       title: test/verify/aoj-dpl-5-j.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dsl-1-a.test.cpp
       title: test/verify/aoj-dsl-1-a.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dsl-1-b.test.cpp
       title: test/verify/aoj-dsl-1-b.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dsl-2-a.test.cpp
       title: test/verify/aoj-dsl-2-a.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dsl-2-b-2.test.cpp
       title: test/verify/aoj-dsl-2-b-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dsl-2-b.test.cpp
       title: test/verify/aoj-dsl-2-b.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dsl-2-d.test.cpp
       title: test/verify/aoj-dsl-2-d.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-1-a-2.test.cpp
       title: test/verify/aoj-grl-1-a-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-1-a-3.test.cpp
       title: test/verify/aoj-grl-1-a-3.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-1-a.test.cpp
       title: test/verify/aoj-grl-1-a.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-1-b-2.test.cpp
       title: test/verify/aoj-grl-1-b-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-1-b.test.cpp
       title: test/verify/aoj-grl-1-b.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-1-c.test.cpp
       title: test/verify/aoj-grl-1-c.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-2-a-2.test.cpp
       title: test/verify/aoj-grl-2-a-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-2-a-3.test.cpp
       title: test/verify/aoj-grl-2-a-3.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-2-a-4.test.cpp
       title: test/verify/aoj-grl-2-a-4.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-2-a.test.cpp
       title: test/verify/aoj-grl-2-a.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-2-b.test.cpp
       title: test/verify/aoj-grl-2-b.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-3-a.test.cpp
       title: test/verify/aoj-grl-3-a.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-3-b.test.cpp
       title: test/verify/aoj-grl-3-b.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-3-c.test.cpp
       title: test/verify/aoj-grl-3-c.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-5-a-2.test.cpp
       title: test/verify/aoj-grl-5-a-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-5-a.test.cpp
       title: test/verify/aoj-grl-5-a.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-5-c-2.test.cpp
       title: test/verify/aoj-grl-5-c-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-5-c-3.test.cpp
       title: test/verify/aoj-grl-5-c-3.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-5-c-4.test.cpp
       title: test/verify/aoj-grl-5-c-4.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-5-c.test.cpp
       title: test/verify/aoj-grl-5-c.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-6-a-2.test.cpp
       title: test/verify/aoj-grl-6-a-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-6-a-3.test.cpp
       title: test/verify/aoj-grl-6-a-3.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-6-a-4.test.cpp
       title: test/verify/aoj-grl-6-a-4.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-6-a.test.cpp
       title: test/verify/aoj-grl-6-a.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-6-b.test.cpp
       title: test/verify/aoj-grl-6-b.test.cpp
     - icon: ':x:'

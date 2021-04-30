@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dsl-2-a.test.cpp
     title: test/verify/aoj-dsl-2-a.test.cpp
   - icon: ':x:'
@@ -11,16 +11,16 @@ data:
     title: test/verify/yukicoder-650.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/segment-tree.md
     document_title: "Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     links: []
   bundledCode: "#line 1 \"structure/segment-tree/segment-tree.cpp\"\n/**\n * @brief\
     \ Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs docs/segment-tree.md\n\
-    \ */\ntemplate< typename Monoid, typename F >\nstruct SegmentTree {\n  int sz;\n\
-    \  vector< Monoid > seg;\n\n  const F f;\n  const Monoid M1;\n  \n  SegmentTree(int\
-    \ n, const F f, const Monoid &M1) : f(f), M1(M1) {\n    sz = 1;\n    while(sz\
+    \ */\ntemplate< typename Monoid, typename F >\nstruct SegmentTree {\n  int n,\
+    \ sz;\n  vector< Monoid > seg;\n\n  const F f;\n  const Monoid M1;\n  \n  SegmentTree(int\
+    \ n, const F f, const Monoid &M1) : n(n), f(f), M1(M1) {\n    sz = 1;\n    while(sz\
     \ < n) sz <<= 1;\n    seg.assign(2 * sz, M1);\n  }\n\n  void set(int k, const\
     \ Monoid &x) {\n    seg[k + sz] = x;\n  }\n\n  void build() {\n    for(int k =\
     \ sz - 1; k > 0; k--) {\n      seg[k] = f(seg[2 * k + 0], seg[2 * k + 1]);\n \
@@ -36,10 +36,10 @@ data:
     \      else M = nxt, a = 2 * a + 1 - type;\n    }\n    return a - sz;\n  }\n\n\
     \  template< typename C >\n  int find_first(int a, const C &check) {\n    Monoid\
     \ L = M1;\n    if(a <= 0) {\n      if(check(f(L, seg[1]))) return find_subtree(1,\
-    \ check, L, false);\n      return -1;\n    }\n    int b = sz;\n    for(a += sz,\
+    \ check, L, false);\n      return n;\n    }\n    int b = sz;\n    for(a += sz,\
     \ b += sz; a < b; a >>= 1, b >>= 1) {\n      if(a & 1) {\n        Monoid nxt =\
     \ f(L, seg[a]);\n        if(check(nxt)) return find_subtree(a, check, L, false);\n\
-    \        L = nxt;\n        ++a;\n      }\n    }\n    return -1;\n  }\n\n  template<\
+    \        L = nxt;\n        ++a;\n      }\n    }\n    return n;\n  }\n\n  template<\
     \ typename C >\n  int find_last(int b, const C &check) {\n    Monoid R = M1;\n\
     \    if(b >= sz) {\n      if(check(f(seg[1], R))) return find_subtree(1, check,\
     \ R, true);\n      return -1;\n    }\n    int a = sz;\n    for(b += sz; a < b;\
@@ -50,11 +50,11 @@ data:
     \ M1) {\n  return {N, f, M1};\n}\n"
   code: "/**\n * @brief Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs\
     \ docs/segment-tree.md\n */\ntemplate< typename Monoid, typename F >\nstruct SegmentTree\
-    \ {\n  int sz;\n  vector< Monoid > seg;\n\n  const F f;\n  const Monoid M1;\n\
-    \  \n  SegmentTree(int n, const F f, const Monoid &M1) : f(f), M1(M1) {\n    sz\
-    \ = 1;\n    while(sz < n) sz <<= 1;\n    seg.assign(2 * sz, M1);\n  }\n\n  void\
-    \ set(int k, const Monoid &x) {\n    seg[k + sz] = x;\n  }\n\n  void build() {\n\
-    \    for(int k = sz - 1; k > 0; k--) {\n      seg[k] = f(seg[2 * k + 0], seg[2\
+    \ {\n  int n, sz;\n  vector< Monoid > seg;\n\n  const F f;\n  const Monoid M1;\n\
+    \  \n  SegmentTree(int n, const F f, const Monoid &M1) : n(n), f(f), M1(M1) {\n\
+    \    sz = 1;\n    while(sz < n) sz <<= 1;\n    seg.assign(2 * sz, M1);\n  }\n\n\
+    \  void set(int k, const Monoid &x) {\n    seg[k + sz] = x;\n  }\n\n  void build()\
+    \ {\n    for(int k = sz - 1; k > 0; k--) {\n      seg[k] = f(seg[2 * k + 0], seg[2\
     \ * k + 1]);\n    }\n  }\n\n  void update(int k, const Monoid &x) {\n    k +=\
     \ sz;\n    seg[k] = x;\n    while(k >>= 1) {\n      seg[k] = f(seg[2 * k + 0],\
     \ seg[2 * k + 1]);\n    }\n  }\n\n  Monoid query(int a, int b) {\n    Monoid L\
@@ -67,10 +67,10 @@ data:
     \ type;\n      else M = nxt, a = 2 * a + 1 - type;\n    }\n    return a - sz;\n\
     \  }\n\n  template< typename C >\n  int find_first(int a, const C &check) {\n\
     \    Monoid L = M1;\n    if(a <= 0) {\n      if(check(f(L, seg[1]))) return find_subtree(1,\
-    \ check, L, false);\n      return -1;\n    }\n    int b = sz;\n    for(a += sz,\
+    \ check, L, false);\n      return n;\n    }\n    int b = sz;\n    for(a += sz,\
     \ b += sz; a < b; a >>= 1, b >>= 1) {\n      if(a & 1) {\n        Monoid nxt =\
     \ f(L, seg[a]);\n        if(check(nxt)) return find_subtree(a, check, L, false);\n\
-    \        L = nxt;\n        ++a;\n      }\n    }\n    return -1;\n  }\n\n  template<\
+    \        L = nxt;\n        ++a;\n      }\n    }\n    return n;\n  }\n\n  template<\
     \ typename C >\n  int find_last(int b, const C &check) {\n    Monoid R = M1;\n\
     \    if(b >= sz) {\n      if(check(f(seg[1], R))) return find_subtree(1, check,\
     \ R, true);\n      return -1;\n    }\n    int a = sz;\n    for(b += sz; a < b;\
@@ -83,8 +83,8 @@ data:
   isVerificationFile: false
   path: structure/segment-tree/segment-tree.cpp
   requiredBy: []
-  timestamp: '2020-09-08 00:52:50+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-05-01 00:53:32+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-dsl-2-a.test.cpp
   - test/verify/yukicoder-650.test.cpp
@@ -112,8 +112,8 @@ title: "Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
 * `query(a, b)`: 区間 $[a, b)$ に対して二項演算した結果を返す.
 * `update(k, x)`: `k` 番目の要素を `x` に変更する.
 * `operator[k]`: `k` 番目の要素を返す.
-* `find_first(a, check)`: $[a, x)$ が `check` を満たす最初の要素位置 $x$ を返す.
-* `find_last(b, check)`: $[x, b)$ が `check` を満たす最後の要素位置 $x$ を返す.
+* `find_first(a, check)`: $[a, x)$ が `check` を満たす最初の要素位置 $x$ を返す. 存在しないとき $n$ を返す.
+* `find_last(b, check)`: $[x, b)$ が `check` を満たす最後の要素位置 $x$ を返す. 存在しないとき $-1$ を返す.
 
 ## 計算量
 

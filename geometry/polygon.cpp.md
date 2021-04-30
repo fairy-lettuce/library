@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/base.cpp
     title: geometry/base.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: geometry/area.cpp
     title: geometry/area.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/common_area_cp.cpp
     title: geometry/common_area_cp.cpp
   - icon: ':heavy_check_mark:'
@@ -54,12 +54,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-4-c.test.cpp
     title: test/verify/aoj-cgl-4-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-7-h.test.cpp
     title: test/verify/aoj-cgl-7-h.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"geometry/polygon.cpp\"\n\n#line 2 \"geometry/base.cpp\"\n\
@@ -101,7 +101,7 @@ data:
   - geometry/convex_polygon_contains.cpp
   - geometry/convex_hull.cpp
   timestamp: '2020-12-01 17:38:42+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-cgl-3-b.test.cpp
   - test/verify/aoj-cgl-3-c.test.cpp

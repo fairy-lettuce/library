@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/base.cpp
     title: geometry/base.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/point.cpp
     title: geometry/point.cpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/common_area_cp.cpp
     title: geometry/common_area_cp.cpp
   - icon: ':heavy_check_mark:'
     path: geometry/convex_polygon_cut.cpp
     title: geometry/convex_polygon_cut.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/cross_point_cl.cpp
     title: geometry/cross_point_cl.cpp
   - icon: ':warning:'
@@ -29,7 +29,7 @@ data:
   - icon: ':warning:'
     path: geometry/distance_lp.cpp
     title: geometry/distance_lp.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/distance_sp.cpp
     title: geometry/distance_sp.cpp
   - icon: ':heavy_check_mark:'
@@ -38,7 +38,7 @@ data:
   - icon: ':warning:'
     path: geometry/is_intersect_cl.cpp
     title: geometry/is_intersect_cl.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/is_intersect_cs.cpp
     title: geometry/is_intersect_cs.cpp
   - icon: ':warning:'
@@ -50,7 +50,7 @@ data:
   - icon: ':warning:'
     path: geometry/is_intersect_ls.cpp
     title: geometry/is_intersect_ls.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/is_intersect_sp.cpp
     title: geometry/is_intersect_sp.cpp
   - icon: ':heavy_check_mark:'
@@ -62,13 +62,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: geometry/is_parallel.cpp
     title: geometry/is_parallel.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/projection.cpp
     title: geometry/projection.cpp
   - icon: ':heavy_check_mark:'
     path: geometry/reflection.cpp
     title: geometry/reflection.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/segment.cpp
     title: geometry/segment.cpp
   _extendedVerifiedWith:
@@ -96,12 +96,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-7-d.test.cpp
     title: test/verify/aoj-cgl-7-d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-7-h.test.cpp
     title: test/verify/aoj-cgl-7-h.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real\
@@ -173,7 +173,7 @@ data:
   - geometry/distance_sp.cpp
   - geometry/is_orthogonal.cpp
   timestamp: '2020-12-01 17:38:42+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-cgl-2-b.test.cpp
   - test/verify/aoj-cgl-2-a.test.cpp

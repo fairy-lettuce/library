@@ -6,7 +6,7 @@ data:
     path: graph/connected-components/bi-connected-components.cpp
     title: "Bi-Connected-Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/connected-components/strongly-connected-components.cpp
     title: "Strongly-Connected-Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
@@ -18,19 +18,19 @@ data:
     path: graph/connected-components/two-edge-connected-components.cpp
     title: "Two-Edge-Connected-Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/mst/directed-mst.cpp
     title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/mst/kruskal.cpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':x:'
     path: graph/mst/manhattan-mst.cpp
     title: Manhattan-MST
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/mst/prim-fibonacchi-heap.cpp
     title: "Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/mst/prim.cpp
     title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':heavy_check_mark:'
@@ -60,7 +60,7 @@ data:
   - icon: ':question:'
     path: graph/tree/heavy-light-decomposition.cpp
     title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/tree/tree-diameter.cpp
     title: "Tree-Diameter(\u6728\u306E\u76F4\u5F84)"
   _extendedVerifiedWith:
@@ -91,55 +91,55 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-alds-1-11-c.test.cpp
     title: test/verify/aoj-alds-1-11-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-a-2.test.cpp
     title: test/verify/aoj-grl-1-a-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-a-3.test.cpp
     title: test/verify/aoj-grl-1-a-3.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-a.test.cpp
     title: test/verify/aoj-grl-1-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-b-2.test.cpp
     title: test/verify/aoj-grl-1-b-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-b.test.cpp
     title: test/verify/aoj-grl-1-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-a-2.test.cpp
     title: test/verify/aoj-grl-2-a-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-a-4.test.cpp
     title: test/verify/aoj-grl-2-a-4.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-a.test.cpp
     title: test/verify/aoj-grl-2-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-b.test.cpp
     title: test/verify/aoj-grl-2-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-3-a.test.cpp
     title: test/verify/aoj-grl-3-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-3-b.test.cpp
     title: test/verify/aoj-grl-3-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-3-c.test.cpp
     title: test/verify/aoj-grl-3-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-a.test.cpp
     title: test/verify/aoj-grl-5-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c-2.test.cpp
     title: test/verify/aoj-grl-5-c-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c-3.test.cpp
     title: test/verify/aoj-grl-5-c-3.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c-4.test.cpp
     title: test/verify/aoj-grl-5-c-4.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c.test.cpp
     title: test/verify/aoj-grl-5-c.test.cpp
   - icon: ':x:'

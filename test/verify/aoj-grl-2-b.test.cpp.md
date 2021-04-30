@@ -4,10 +4,10 @@ data:
   - icon: ':question:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/mst/directed-mst.cpp
     title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: structure/heap/skew-heap.cpp
     title: Skew-Heap
   - icon: ':question:'
@@ -15,9 +15,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_B
@@ -122,7 +122,7 @@ data:
   path: test/verify/aoj-grl-2-b.test.cpp
   requiredBy: []
   timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-2-b.test.cpp
 layout: document

@@ -2,20 +2,20 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/tree/pmormq-lowest-common-ancestor.cpp
     title: "PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/tree/rmq-lowest-common-ancestor.cpp
     title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: structure/others/plus-minus-one-rmq.cpp
     title: Plus-Minus-One-RMQ
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c-3.test.cpp
     title: test/verify/aoj-grl-5-c-3.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c-4.test.cpp
     title: test/verify/aoj-grl-5-c-4.test.cpp
   - icon: ':x:'
@@ -32,7 +32,7 @@ data:
     title: test/verify/yosupo-staticrmq.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/sparse-table.md
     document_title: "Sparse-Table(\u30B9\u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB\
@@ -75,7 +75,7 @@ data:
   - graph/tree/rmq-lowest-common-ancestor.cpp
   - graph/tree/pmormq-lowest-common-ancestor.cpp
   timestamp: '2020-11-09 17:59:38+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-staticrmq-4.test.cpp
   - test/verify/yosupo-lca.test.cpp

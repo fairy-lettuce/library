@@ -4,10 +4,10 @@ data:
   - icon: ':question:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/mst/directed-mst.cpp
     title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: structure/heap/skew-heap.cpp
     title: Skew-Heap
   - icon: ':question:'

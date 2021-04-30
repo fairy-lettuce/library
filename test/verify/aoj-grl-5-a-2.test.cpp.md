@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/develop/array-pool.cpp
     title: structure/develop/array-pool.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/develop/diameter.cpp
     title: structure/develop/diameter.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/develop/link-cut-tree-subtree.cpp
     title: structure/develop/link-cut-tree-subtree.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/develop/splay-tree.cpp
     title: structure/develop/splay-tree.cpp
   - icon: ':question:'
@@ -18,9 +18,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A
@@ -194,7 +194,7 @@ data:
   path: test/verify/aoj-grl-5-a-2.test.cpp
   requiredBy: []
   timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-5-a-2.test.cpp
 layout: document

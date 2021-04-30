@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-1-d.test.cpp
     title: test/verify/aoj-dpl-1-d.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/longest-increasing-subsequence.md
     document_title: "Longest-Increasing-Subsequence(\u6700\u9577\u5897\u52A0\u90E8\
@@ -34,7 +34,7 @@ data:
   path: dp/longest-increasing-subsequence.cpp
   requiredBy: []
   timestamp: '2020-02-26 02:30:05+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-dpl-1-d.test.cpp
 documentation_of: dp/longest-increasing-subsequence.cpp

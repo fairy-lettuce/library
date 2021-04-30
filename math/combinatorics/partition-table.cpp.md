@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-5-j.test.cpp
     title: test/verify/aoj-dpl-5-j.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/partition-table.md
     document_title: "Partition-Table(\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB)"
@@ -31,7 +31,7 @@ data:
   path: math/combinatorics/partition-table.cpp
   requiredBy: []
   timestamp: '2020-02-24 19:08:02+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-dpl-5-j.test.cpp
 documentation_of: math/combinatorics/partition-table.cpp

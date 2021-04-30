@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-a-2.test.cpp
     title: test/verify/aoj-grl-1-a-2.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/dijkstra-fibonacchi-heap.md
     document_title: "Dijkstra-Fibonacchi-Heap(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\
@@ -46,7 +46,7 @@ data:
   path: graph/shortest-path/dijkstra-fibonacchi-heap.cpp
   requiredBy: []
   timestamp: '2020-08-10 20:09:21+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-1-a-2.test.cpp
 documentation_of: graph/shortest-path/dijkstra-fibonacchi-heap.cpp

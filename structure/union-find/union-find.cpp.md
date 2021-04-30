@@ -9,10 +9,10 @@ data:
     path: graph/connected-components/three-edge-connected-components.cpp
     title: "Three-Edge-Connected-Components(\u4E09\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/mst/boruvka.cpp
     title: "Boruvka(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/mst/kruskal.cpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
   _extendedVerifiedWith:
@@ -22,13 +22,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-3139.test.cpp
     title: test/verify/aoj-3139.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dsl-1-a.test.cpp
     title: test/verify/aoj-dsl-1-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-a-2.test.cpp
     title: test/verify/aoj-grl-2-a-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-a-3.test.cpp
     title: test/verify/aoj-grl-2-a-3.test.cpp
   - icon: ':x:'

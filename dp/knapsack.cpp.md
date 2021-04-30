@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-1-c.test.cpp
     title: test/verify/aoj-dpl-1-c.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/knapsack.md
     document_title: "Knapsack(\u500B\u6570\u5236\u9650\u306A\u3057\u30CA\u30C3\u30D7\
@@ -37,7 +37,7 @@ data:
   path: dp/knapsack.cpp
   requiredBy: []
   timestamp: '2020-02-21 17:07:30+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-dpl-1-c.test.cpp
 documentation_of: dp/knapsack.cpp
