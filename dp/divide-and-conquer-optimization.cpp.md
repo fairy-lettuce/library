@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: dp/monotone-minima.cpp
     title: Monotone-Minima
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-2603.test.cpp
     title: test/verify/aoj-2603.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/divide-and-conquer-optimization.md
     document_title: Divide-And-Conquer-Optimization
@@ -52,7 +52,7 @@ data:
   path: dp/divide-and-conquer-optimization.cpp
   requiredBy: []
   timestamp: '2020-09-15 00:43:54+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/aoj-2603.test.cpp
 documentation_of: dp/divide-and-conquer-optimization.cpp

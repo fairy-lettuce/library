@@ -3,18 +3,18 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-2725.test.cpp
     title: test/verify/aoj-2725.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-line-add-get-min.test.cpp
     title: test/verify/yosupo-line-add-get-min.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-segment-add-get-min.test.cpp
     title: test/verify/yosupo-segment-add-get-min.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/dynamic-li-chao-tree.md
     document_title: Dynamic-Li-Chao-Tree
@@ -91,7 +91,7 @@ data:
   path: structure/convex-hull-trick/dynamic-li-chao-tree.cpp
   requiredBy: []
   timestamp: '2020-08-20 03:24:24+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/yosupo-segment-add-get-min.test.cpp
   - test/verify/aoj-2725.test.cpp

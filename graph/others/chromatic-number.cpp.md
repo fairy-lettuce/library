@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-1254.test.cpp
     title: test/verify/aoj-1254.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/chromatic-number.md
     document_title: "Chromatic-Number(\u5F69\u8272\u6570)"
@@ -45,7 +45,7 @@ data:
   path: graph/others/chromatic-number.cpp
   requiredBy: []
   timestamp: '2020-09-08 23:29:00+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/aoj-1254.test.cpp
 documentation_of: graph/others/chromatic-number.cpp

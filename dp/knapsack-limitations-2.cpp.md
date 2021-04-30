@@ -1,18 +1,18 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: dp/knapsack-limitations.cpp
     title: "Knapsack-Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\u30D7\
       \u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-dpl-1-i.test.cpp
     title: test/verify/aoj-dpl-1-i.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/knapsack-limitations-2.md
     document_title: "Knapsack-Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\
@@ -72,7 +72,7 @@ data:
   path: dp/knapsack-limitations-2.cpp
   requiredBy: []
   timestamp: '2020-09-15 00:43:54+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/aoj-dpl-1-i.test.cpp
 documentation_of: dp/knapsack-limitations-2.cpp

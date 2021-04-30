@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yukicoder-952.test.cpp
     title: test/verify/yukicoder-952.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/convex-hull-trick-add-monotone.md
     document_title: Convex-Hull-Trick-Add-Monotone
@@ -79,7 +79,7 @@ data:
   path: structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp
   requiredBy: []
   timestamp: '2020-08-20 03:24:24+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/yukicoder-952.test.cpp
 documentation_of: structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp

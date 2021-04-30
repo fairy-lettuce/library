@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: structure/develop/splay-tree.cpp
     title: structure/develop/splay-tree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-grl-5-a-2.test.cpp
     title: test/verify/aoj-grl-5-a-2.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"structure/develop/splay-tree.cpp\"\ntemplate< typename key_t,\
@@ -133,7 +133,7 @@ data:
   path: structure/develop/link-cut-tree-subtree.cpp
   requiredBy: []
   timestamp: '2020-11-04 13:55:57+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/aoj-grl-5-a-2.test.cpp
 documentation_of: structure/develop/link-cut-tree-subtree.cpp

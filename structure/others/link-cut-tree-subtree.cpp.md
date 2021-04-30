@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"structure/others/link-cut-tree-subtree.cpp\"\ntemplate<\
@@ -108,7 +108,7 @@ data:
   path: structure/others/link-cut-tree-subtree.cpp
   requiredBy: []
   timestamp: '2019-11-30 22:41:48+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp
 documentation_of: structure/others/link-cut-tree-subtree.cpp

@@ -3,15 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-dsl-2-b-2.test.cpp
     title: test/verify/aoj-dsl-2-b-2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-set-xor-min.test.cpp
     title: test/verify/yosupo-set-xor-min.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/binary-trie.md
     document_title: Binary-Trie
@@ -100,7 +100,7 @@ data:
   path: structure/trie/binary-trie.cpp
   requiredBy: []
   timestamp: '2021-03-20 15:01:50+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/aoj-dsl-2-b-2.test.cpp
   - test/verify/yosupo-set-xor-min.test.cpp

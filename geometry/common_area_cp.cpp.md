@@ -1,50 +1,50 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/base.cpp
     title: geometry/base.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/ccw.cpp
     title: geometry/ccw.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/circle.cpp
     title: geometry/circle.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/cross_point_cl.cpp
     title: geometry/cross_point_cl.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/distance_sp.cpp
     title: geometry/distance_sp.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/is_intersect_cs.cpp
     title: geometry/is_intersect_cs.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/is_intersect_sp.cpp
     title: geometry/is_intersect_sp.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/line.cpp
     title: geometry/line.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/polygon.cpp
     title: geometry/polygon.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/projection.cpp
     title: geometry/projection.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/segment.cpp
     title: geometry/segment.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-cgl-7-h.test.cpp
     title: test/verify/aoj-cgl-7-h.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_H
@@ -158,7 +158,7 @@ data:
   path: geometry/common_area_cp.cpp
   requiredBy: []
   timestamp: '2020-12-01 18:35:30+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/aoj-cgl-7-h.test.cpp
 documentation_of: geometry/common_area_cp.cpp

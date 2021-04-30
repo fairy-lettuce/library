@@ -1,50 +1,50 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/base.cpp
     title: geometry/base.cpp
   _extendedRequiredBy:
   - icon: ':warning:'
     path: geometry/angle.cpp
     title: geometry/angle.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/area.cpp
     title: geometry/area.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/ccw.cpp
     title: geometry/ccw.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/circle.cpp
     title: geometry/circle.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/common_area_cp.cpp
     title: geometry/common_area_cp.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/contains.cpp
     title: geometry/contains.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/convex_hull.cpp
     title: geometry/convex_hull.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/convex_polygon_contains.cpp
     title: geometry/convex_polygon_contains.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/convex_polygon_cut.cpp
     title: geometry/convex_polygon_cut.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/convex_polygon_diameter.cpp
     title: geometry/convex_polygon_diameter.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/cross_point_cc.cpp
     title: geometry/cross_point_cc.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/cross_point_cl.cpp
     title: geometry/cross_point_cl.cpp
   - icon: ':warning:'
     path: geometry/cross_point_cs.cpp
     title: geometry/cross_point_cs.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/cross_point_ll.cpp
     title: geometry/cross_point_ll.cpp
   - icon: ':warning:'
@@ -56,13 +56,13 @@ data:
   - icon: ':warning:'
     path: geometry/distance_pp.cpp
     title: geometry/distance_pp.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/distance_sp.cpp
     title: geometry/distance_sp.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/distance_ss.cpp
     title: geometry/distance_ss.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/is_convex_polygon.cpp
     title: geometry/is_convex_polygon.cpp
   - icon: ':warning:'
@@ -71,7 +71,7 @@ data:
   - icon: ':warning:'
     path: geometry/is_intersect_cp.cpp
     title: geometry/is_intersect_cp.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/is_intersect_cs.cpp
     title: geometry/is_intersect_cs.cpp
   - icon: ':warning:'
@@ -83,88 +83,88 @@ data:
   - icon: ':warning:'
     path: geometry/is_intersect_ls.cpp
     title: geometry/is_intersect_ls.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/is_intersect_sp.cpp
     title: geometry/is_intersect_sp.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/is_intersect_ss.cpp
     title: geometry/is_intersect_ss.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/is_orthogonal.cpp
     title: geometry/is_orthogonal.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/is_parallel.cpp
     title: geometry/is_parallel.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/line.cpp
     title: geometry/line.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/polygon.cpp
     title: geometry/polygon.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/projection.cpp
     title: geometry/projection.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/reflection.cpp
     title: geometry/reflection.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/segment.cpp
     title: geometry/segment.cpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-0412.test.cpp
     title: test/verify/aoj-0412.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-cgl-1-a.test.cpp
     title: test/verify/aoj-cgl-1-a.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-cgl-1-b.test.cpp
     title: test/verify/aoj-cgl-1-b.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-cgl-1-c.test.cpp
     title: test/verify/aoj-cgl-1-c.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-cgl-2-a.test.cpp
     title: test/verify/aoj-cgl-2-a.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-cgl-2-b.test.cpp
     title: test/verify/aoj-cgl-2-b.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-cgl-2-c.test.cpp
     title: test/verify/aoj-cgl-2-c.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-cgl-2-d.test.cpp
     title: test/verify/aoj-cgl-2-d.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-cgl-3-a.test.cpp
     title: test/verify/aoj-cgl-3-a.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-cgl-3-b.test.cpp
     title: test/verify/aoj-cgl-3-b.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-cgl-3-c.test.cpp
     title: test/verify/aoj-cgl-3-c.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-cgl-4-a.test.cpp
     title: test/verify/aoj-cgl-4-a.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-cgl-4-b.test.cpp
     title: test/verify/aoj-cgl-4-b.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-cgl-4-c.test.cpp
     title: test/verify/aoj-cgl-4-c.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-cgl-7-d.test.cpp
     title: test/verify/aoj-cgl-7-d.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-cgl-7-e.test.cpp
     title: test/verify/aoj-cgl-7-e.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-cgl-7-h.test.cpp
     title: test/verify/aoj-cgl-7-h.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real\
@@ -243,7 +243,7 @@ data:
   - geometry/is_orthogonal.cpp
   - geometry/convex_hull.cpp
   timestamp: '2020-12-01 17:38:42+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/aoj-cgl-3-b.test.cpp
   - test/verify/aoj-cgl-3-c.test.cpp

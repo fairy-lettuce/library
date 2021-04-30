@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-dpl-3-c.test.cpp
     title: test/verify/aoj-dpl-3-c.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/largest-rectangle.md
     document_title: "Largest-Rectangle(\u6700\u5927\u9577\u65B9\u5F62)"
@@ -34,7 +34,7 @@ data:
   path: dp/largest-rectangle.cpp
   requiredBy: []
   timestamp: '2020-08-04 00:02:11+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/aoj-dpl-3-c.test.cpp
 documentation_of: dp/largest-rectangle.cpp

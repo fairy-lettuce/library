@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-1595.test.cpp
     title: test/verify/aoj-1595.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"graph/tree/rerooting.cpp\"\ntemplate< typename sum_t, typename\
@@ -59,7 +59,7 @@ data:
   path: graph/tree/rerooting.cpp
   requiredBy: []
   timestamp: '2019-12-16 22:22:41+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/aoj-1595.test.cpp
 documentation_of: graph/tree/rerooting.cpp

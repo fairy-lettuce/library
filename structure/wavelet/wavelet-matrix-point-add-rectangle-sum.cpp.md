@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: structure/others/binary-indexed-tree.cpp
     title: Binary-Indexed-Tree(BIT)
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: structure/wavelet/succinct-indexable-dictionary.cpp
     title: structure/wavelet/succinct-indexable-dictionary.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-point-add-rectangle-sum.test.cpp
     title: test/verify/yosupo-point-add-rectangle-sum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/wavelet-matrix-point-add-rectangle-sum.md
     document_title: Wavelet-Matrix-Point-Add-Rectangle-Sum
@@ -138,7 +138,7 @@ data:
   path: structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
   requiredBy: []
   timestamp: '2020-12-18 20:33:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/yosupo-point-add-rectangle-sum.test.cpp
 documentation_of: structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp

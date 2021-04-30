@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-0233.test.cpp
     title: test/verify/aoj-0233.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/convert-base.md
     document_title: "Convert-Base(\u9032\u6570\u5909\u63DB)"
@@ -31,7 +31,7 @@ data:
   path: math/number-theory/convert-base.cpp
   requiredBy: []
   timestamp: '2020-02-24 19:08:02+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/aoj-0233.test.cpp
 documentation_of: math/number-theory/convert-base.cpp

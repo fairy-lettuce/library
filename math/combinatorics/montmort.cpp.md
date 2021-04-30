@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-montmort-number-mod.test.cpp
     title: test/verify/yosupo-montmort-number-mod.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/montmort.md
     document_title: "Montmort-Number(\u30E2\u30F3\u30E2\u30FC\u30EB\u6570)"
@@ -28,7 +28,7 @@ data:
   path: math/combinatorics/montmort.cpp
   requiredBy: []
   timestamp: '2020-02-24 19:08:02+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/yosupo-montmort-number-mod.test.cpp
 documentation_of: math/combinatorics/montmort.cpp

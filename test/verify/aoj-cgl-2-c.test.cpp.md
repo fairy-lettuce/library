@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/base.cpp
     title: geometry/base.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/cross_point_ll.cpp
     title: geometry/cross_point_ll.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/line.cpp
     title: geometry/line.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     ERROR: '0.00000001'
@@ -30,36 +30,35 @@ data:
   bundledCode: "#line 1 \"test/verify/aoj-cgl-2-c.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_C\"\
     \n#define ERROR 0.00000001\n\n#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\
     \nusing namespace std;\n\nusing int64 = long long;\nconst int mod = 1e9 + 7;\n\
-    \nconst int64 infll = (1LL << 62) - 1;\nconst int inf = (1 << 30) - 1;\n\nstruct\
-    \ IoSetup {\n  IoSetup() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\
-    \    cout << fixed << setprecision(10);\n    cerr << fixed << setprecision(10);\n\
-    \  }\n} iosetup;\n\n\ntemplate< typename T1, typename T2 >\nostream &operator<<(ostream\
-    \ &os, const pair< T1, T2 >& p) {\n  os << p.first << \" \" << p.second;\n  return\
-    \ os;\n}\n\ntemplate< typename T1, typename T2 >\nistream &operator>>(istream\
-    \ &is, pair< T1, T2 > &p) {\n  is >> p.first >> p.second;\n  return is;\n}\n\n\
-    template< typename T >\nostream &operator<<(ostream &os, const vector< T > &v)\
-    \ {\n  for(int i = 0; i < (int) v.size(); i++) {\n    os << v[i] << (i + 1 !=\
-    \ v.size() ? \" \" : \"\");\n  }\n  return os;\n}\n\ntemplate< typename T >\n\
-    istream &operator>>(istream &is, vector< T > &v) {\n  for(T &in : v) is >> in;\n\
-    \  return is;\n}\n\ntemplate< typename T1, typename T2 >\ninline bool chmax(T1\
-    \ &a, T2 b) { return a < b && (a = b, true); }\n\ntemplate< typename T1, typename\
-    \ T2 >\ninline bool chmin(T1 &a, T2 b) { return a > b && (a = b, true); }\n\n\
-    template< typename T = int64 >\nvector< T > make_v(size_t a) {\n  return vector<\
-    \ T >(a);\n}\n\ntemplate< typename T, typename... Ts >\nauto make_v(size_t a,\
-    \ Ts... ts) {\n  return vector< decltype(make_v< T >(ts...)) >(a, make_v< T >(ts...));\n\
-    }\n\ntemplate< typename T, typename V >\ntypename enable_if< is_class< T >::value\
-    \ == 0 >::type fill_v(T &t, const V &v) {\n  t = v;\n}\n\ntemplate< typename T,\
-    \ typename V >\ntypename enable_if< is_class< T >::value != 0 >::type fill_v(T\
-    \ &t, const V &v) {\n  for(auto &e : t) fill_v(e, v);\n}\n\ntemplate< typename\
-    \ F >\nstruct FixPoint : F {\n  FixPoint(F &&f) : F(forward< F >(f)) {}\n \n \
-    \ template< typename... Args >\n  decltype(auto) operator()(Args &&... args) const\
-    \ {\n    return F::operator()(*this, forward< Args >(args)...);\n  }\n};\n \n\
-    template< typename F >\ninline decltype(auto) MFP(F &&f) {\n  return FixPoint<\
-    \ F >{forward< F >(f)};\n}\n#line 5 \"test/verify/aoj-cgl-2-c.test.cpp\"\n\n#line\
-    \ 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real = double;\n  const\
-    \ Real EPS = 1e-8;\n  const Real PI = acos(static_cast< Real >(-1));\n\n  enum\
-    \ {\n    OUT, ON, IN\n  };\n\n  inline int sign(const Real &r) {\n    return r\
-    \ <= -EPS ? -1 : r >= EPS ? 1 : 0;\n  }\n\n  inline bool equals(const Real &a,\
+    \nconst int64 infll = (1LL << 62) - 1;\nconst int inf = (1 << 30) - 1;\n\n__attribute__((constructor))\n\
+    void io_setup() {\n  cin.tie(nullptr);\n  ios::sync_with_stdio(false);\n  cout\
+    \ << fixed << setprecision(10);\n  cerr << fixed << setprecision(10);\n}\n\ntemplate<\
+    \ typename T1, typename T2 >\nostream &operator<<(ostream &os, const pair< T1,\
+    \ T2 >& p) {\n  os << p.first << \" \" << p.second;\n  return os;\n}\n\ntemplate<\
+    \ typename T1, typename T2 >\nistream &operator>>(istream &is, pair< T1, T2 >\
+    \ &p) {\n  is >> p.first >> p.second;\n  return is;\n}\n\ntemplate< typename T\
+    \ >\nostream &operator<<(ostream &os, const vector< T > &v) {\n  for(int i = 0;\
+    \ i < (int) v.size(); i++) {\n    os << v[i] << (i + 1 != v.size() ? \" \" : \"\
+    \");\n  }\n  return os;\n}\n\ntemplate< typename T >\nistream &operator>>(istream\
+    \ &is, vector< T > &v) {\n  for(T &in : v) is >> in;\n  return is;\n}\n\ntemplate<\
+    \ typename T1, typename T2 >\ninline bool chmax(T1 &a, T2 b) { return a < b &&\
+    \ (a = b, true); }\n\ntemplate< typename T1, typename T2 >\ninline bool chmin(T1\
+    \ &a, T2 b) { return a > b && (a = b, true); }\n\ntemplate< typename T = int64\
+    \ >\nvector< T > make_v(size_t a) {\n  return vector< T >(a);\n}\n\ntemplate<\
+    \ typename T, typename... Ts >\nauto make_v(size_t a, Ts... ts) {\n  return vector<\
+    \ decltype(make_v< T >(ts...)) >(a, make_v< T >(ts...));\n}\n\ntemplate< typename\
+    \ T, typename V >\ntypename enable_if< is_class< T >::value == 0 >::type fill_v(T\
+    \ &t, const V &v) {\n  t = v;\n}\n\ntemplate< typename T, typename V >\ntypename\
+    \ enable_if< is_class< T >::value != 0 >::type fill_v(T &t, const V &v) {\n  for(auto\
+    \ &e : t) fill_v(e, v);\n}\n\ntemplate< typename F >\nstruct FixPoint : F {\n\
+    \  explicit FixPoint(F &&f) : F(forward< F >(f)) {}\n\n  template< typename...\
+    \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
+    \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
+    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 5 \"test/verify/aoj-cgl-2-c.test.cpp\"\
+    \n\n#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real = double;\n\
+    \  const Real EPS = 1e-8;\n  const Real PI = acos(static_cast< Real >(-1));\n\n\
+    \  enum {\n    OUT, ON, IN\n  };\n\n  inline int sign(const Real &r) {\n    return\
+    \ r <= -EPS ? -1 : r >= EPS ? 1 : 0;\n  }\n\n  inline bool equals(const Real &a,\
     \ const Real &b) {\n    return sign(a - b) == 0;\n  }\n}\n#line 3 \"geometry/point.cpp\"\
     \n\nnamespace geometry {\n  using Point = complex< Real >;\n\n  istream &operator>>(istream\
     \ &is, Point &p) {\n    Real a, b;\n    is >> a >> b;\n    p = Point(a, b);\n\
@@ -106,8 +105,8 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-cgl-2-c.test.cpp
   requiredBy: []
-  timestamp: '2020-12-01 17:38:42+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-04-30 16:27:36+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/aoj-cgl-2-c.test.cpp
 layout: document

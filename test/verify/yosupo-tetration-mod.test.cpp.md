@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/combinatorics/mod-pow.cpp
     title: "Mod-Pow(\u3079\u304D\u4E57)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/combinatorics/mod-tetration.cpp
     title: "Mod-Tetration(\u30C6\u30C8\u30EC\u30FC\u30B7\u30E7\u30F3)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/number-theory/euler-phi.cpp
     title: "Euler's-Phi-Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/tetration_mod
@@ -27,31 +27,31 @@ data:
     \ \"https://judge.yosupo.jp/problem/tetration_mod\"\n\n#line 1 \"template/template.cpp\"\
     \n#include<bits/stdc++.h>\n\nusing namespace std;\n\nusing int64 = long long;\n\
     const int mod = 1e9 + 7;\n\nconst int64 infll = (1LL << 62) - 1;\nconst int inf\
-    \ = (1 << 30) - 1;\n\nstruct IoSetup {\n  IoSetup() {\n    cin.tie(nullptr);\n\
-    \    ios::sync_with_stdio(false);\n    cout << fixed << setprecision(10);\n  \
-    \  cerr << fixed << setprecision(10);\n  }\n} iosetup;\n\n\ntemplate< typename\
-    \ T1, typename T2 >\nostream &operator<<(ostream &os, const pair< T1, T2 >& p)\
-    \ {\n  os << p.first << \" \" << p.second;\n  return os;\n}\n\ntemplate< typename\
-    \ T1, typename T2 >\nistream &operator>>(istream &is, pair< T1, T2 > &p) {\n \
-    \ is >> p.first >> p.second;\n  return is;\n}\n\ntemplate< typename T >\nostream\
-    \ &operator<<(ostream &os, const vector< T > &v) {\n  for(int i = 0; i < (int)\
-    \ v.size(); i++) {\n    os << v[i] << (i + 1 != v.size() ? \" \" : \"\");\n  }\n\
-    \  return os;\n}\n\ntemplate< typename T >\nistream &operator>>(istream &is, vector<\
-    \ T > &v) {\n  for(T &in : v) is >> in;\n  return is;\n}\n\ntemplate< typename\
-    \ T1, typename T2 >\ninline bool chmax(T1 &a, T2 b) { return a < b && (a = b,\
-    \ true); }\n\ntemplate< typename T1, typename T2 >\ninline bool chmin(T1 &a, T2\
-    \ b) { return a > b && (a = b, true); }\n\ntemplate< typename T = int64 >\nvector<\
-    \ T > make_v(size_t a) {\n  return vector< T >(a);\n}\n\ntemplate< typename T,\
-    \ typename... Ts >\nauto make_v(size_t a, Ts... ts) {\n  return vector< decltype(make_v<\
-    \ T >(ts...)) >(a, make_v< T >(ts...));\n}\n\ntemplate< typename T, typename V\
-    \ >\ntypename enable_if< is_class< T >::value == 0 >::type fill_v(T &t, const\
-    \ V &v) {\n  t = v;\n}\n\ntemplate< typename T, typename V >\ntypename enable_if<\
-    \ is_class< T >::value != 0 >::type fill_v(T &t, const V &v) {\n  for(auto &e\
-    \ : t) fill_v(e, v);\n}\n\ntemplate< typename F >\nstruct FixPoint : F {\n  FixPoint(F\
-    \ &&f) : F(forward< F >(f)) {}\n \n  template< typename... Args >\n  decltype(auto)\
-    \ operator()(Args &&... args) const {\n    return F::operator()(*this, forward<\
-    \ Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
-    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-tetration-mod.test.cpp\"\
+    \ = (1 << 30) - 1;\n\n__attribute__((constructor))\nvoid io_setup() {\n  cin.tie(nullptr);\n\
+    \  ios::sync_with_stdio(false);\n  cout << fixed << setprecision(10);\n  cerr\
+    \ << fixed << setprecision(10);\n}\n\ntemplate< typename T1, typename T2 >\nostream\
+    \ &operator<<(ostream &os, const pair< T1, T2 >& p) {\n  os << p.first << \" \"\
+    \ << p.second;\n  return os;\n}\n\ntemplate< typename T1, typename T2 >\nistream\
+    \ &operator>>(istream &is, pair< T1, T2 > &p) {\n  is >> p.first >> p.second;\n\
+    \  return is;\n}\n\ntemplate< typename T >\nostream &operator<<(ostream &os, const\
+    \ vector< T > &v) {\n  for(int i = 0; i < (int) v.size(); i++) {\n    os << v[i]\
+    \ << (i + 1 != v.size() ? \" \" : \"\");\n  }\n  return os;\n}\n\ntemplate< typename\
+    \ T >\nistream &operator>>(istream &is, vector< T > &v) {\n  for(T &in : v) is\
+    \ >> in;\n  return is;\n}\n\ntemplate< typename T1, typename T2 >\ninline bool\
+    \ chmax(T1 &a, T2 b) { return a < b && (a = b, true); }\n\ntemplate< typename\
+    \ T1, typename T2 >\ninline bool chmin(T1 &a, T2 b) { return a > b && (a = b,\
+    \ true); }\n\ntemplate< typename T = int64 >\nvector< T > make_v(size_t a) {\n\
+    \  return vector< T >(a);\n}\n\ntemplate< typename T, typename... Ts >\nauto make_v(size_t\
+    \ a, Ts... ts) {\n  return vector< decltype(make_v< T >(ts...)) >(a, make_v< T\
+    \ >(ts...));\n}\n\ntemplate< typename T, typename V >\ntypename enable_if< is_class<\
+    \ T >::value == 0 >::type fill_v(T &t, const V &v) {\n  t = v;\n}\n\ntemplate<\
+    \ typename T, typename V >\ntypename enable_if< is_class< T >::value != 0 >::type\
+    \ fill_v(T &t, const V &v) {\n  for(auto &e : t) fill_v(e, v);\n}\n\ntemplate<\
+    \ typename F >\nstruct FixPoint : F {\n  explicit FixPoint(F &&f) : F(forward<\
+    \ F >(f)) {}\n\n  template< typename... Args >\n  decltype(auto) operator()(Args\
+    \ &&... args) const {\n    return F::operator()(*this, forward< Args >(args)...);\n\
+    \  }\n};\n \ntemplate< typename F >\ninline decltype(auto) MFP(F &&f) {\n  return\
+    \ FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-tetration-mod.test.cpp\"\
     \n\n#line 1 \"math/combinatorics/mod-pow.cpp\"\n/**\n * @brief Mod-Pow(\u3079\u304D\
     \u4E57)\n * @docs docs/mod-pow.md\n */\ntemplate< typename T >\nT mod_pow(T x,\
     \ int64_t n, const T &p) {\n  T ret = 1;\n  while(n > 0) {\n    if(n & 1) (ret\
@@ -85,8 +85,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-tetration-mod.test.cpp
   requiredBy: []
-  timestamp: '2020-10-07 20:31:58+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-04-30 16:27:36+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-tetration-mod.test.cpp
 layout: document
