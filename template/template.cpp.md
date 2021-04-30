@@ -72,85 +72,85 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2667.test.cpp
     title: test/verify/aoj-2667.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2674-2.test.cpp
     title: test/verify/aoj-2674-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2674.test.cpp
     title: test/verify/aoj-2674.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2725.test.cpp
     title: test/verify/aoj-2725.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2821.test.cpp
     title: test/verify/aoj-2821.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-3022.test.cpp
     title: test/verify/aoj-3022.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-3139.test.cpp
     title: test/verify/aoj-3139.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-3198.test.cpp
     title: test/verify/aoj-3198.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-alds-1-1-c-2.test.cpp
     title: test/verify/aoj-alds-1-1-c-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-alds-1-1-c.test.cpp
     title: test/verify/aoj-alds-1-1-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-alds-1-11-c.test.cpp
     title: test/verify/aoj-alds-1-11-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-alds-1-14-b.test.cpp
     title: test/verify/aoj-alds-1-14-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-alds-1-14-d.test.cpp
     title: test/verify/aoj-alds-1-14-d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-alds-1-9-c.test.cpp
     title: test/verify/aoj-alds-1-9-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-1-a.test.cpp
     title: test/verify/aoj-cgl-1-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-1-b.test.cpp
     title: test/verify/aoj-cgl-1-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-1-c.test.cpp
     title: test/verify/aoj-cgl-1-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-2-a.test.cpp
     title: test/verify/aoj-cgl-2-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-2-b.test.cpp
     title: test/verify/aoj-cgl-2-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-2-c.test.cpp
     title: test/verify/aoj-cgl-2-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-2-d.test.cpp
     title: test/verify/aoj-cgl-2-d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-3-a.test.cpp
     title: test/verify/aoj-cgl-3-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-3-b.test.cpp
     title: test/verify/aoj-cgl-3-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-3-c.test.cpp
     title: test/verify/aoj-cgl-3-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-4-a.test.cpp
     title: test/verify/aoj-cgl-4-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-4-b.test.cpp
     title: test/verify/aoj-cgl-4-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-4-c.test.cpp
     title: test/verify/aoj-cgl-4-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-7-d.test.cpp
     title: test/verify/aoj-cgl-7-d.test.cpp
   - icon: ':x:'

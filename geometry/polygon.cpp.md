@@ -8,50 +8,50 @@ data:
     path: geometry/point.cpp
     title: geometry/point.cpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/area.cpp
     title: geometry/area.cpp
   - icon: ':x:'
     path: geometry/common_area_cp.cpp
     title: geometry/common_area_cp.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/contains.cpp
     title: geometry/contains.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/convex_hull.cpp
     title: geometry/convex_hull.cpp
   - icon: ':heavy_check_mark:'
     path: geometry/convex_polygon_contains.cpp
     title: geometry/convex_polygon_contains.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/convex_polygon_cut.cpp
     title: geometry/convex_polygon_cut.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/convex_polygon_diameter.cpp
     title: geometry/convex_polygon_diameter.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/is_convex_polygon.cpp
     title: geometry/is_convex_polygon.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-0412.test.cpp
     title: test/verify/aoj-0412.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-3-a.test.cpp
     title: test/verify/aoj-cgl-3-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-3-b.test.cpp
     title: test/verify/aoj-cgl-3-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-3-c.test.cpp
     title: test/verify/aoj-cgl-3-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-4-a.test.cpp
     title: test/verify/aoj-cgl-4-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-4-b.test.cpp
     title: test/verify/aoj-cgl-4-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-4-c.test.cpp
     title: test/verify/aoj-cgl-4-c.test.cpp
   - icon: ':x:'

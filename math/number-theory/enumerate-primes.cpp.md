@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number-theory/prime-table.cpp
     title: "Prime-Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
   _extendedRequiredBy: []

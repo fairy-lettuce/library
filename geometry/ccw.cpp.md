@@ -11,35 +11,35 @@ data:
   - icon: ':x:'
     path: geometry/common_area_cp.cpp
     title: geometry/common_area_cp.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/distance_sp.cpp
     title: geometry/distance_sp.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/distance_ss.cpp
     title: geometry/distance_ss.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/is_convex_polygon.cpp
     title: geometry/is_convex_polygon.cpp
   - icon: ':warning:'
     path: geometry/is_intersect_lp.cpp
     title: geometry/is_intersect_lp.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/is_intersect_sp.cpp
     title: geometry/is_intersect_sp.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/is_intersect_ss.cpp
     title: geometry/is_intersect_ss.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-1-c.test.cpp
     title: test/verify/aoj-cgl-1-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-2-b.test.cpp
     title: test/verify/aoj-cgl-2-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-2-d.test.cpp
     title: test/verify/aoj-cgl-2-d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-3-b.test.cpp
     title: test/verify/aoj-cgl-3-b.test.cpp
   - icon: ':x:'
@@ -47,7 +47,7 @@ data:
     title: test/verify/aoj-cgl-7-h.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C
@@ -101,7 +101,7 @@ data:
   - geometry/is_intersect_sp.cpp
   - geometry/distance_sp.cpp
   timestamp: '2020-12-01 17:38:42+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-cgl-3-b.test.cpp
   - test/verify/aoj-cgl-2-b.test.cpp

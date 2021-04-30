@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: geometry/base.cpp
     title: geometry/base.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/line.cpp
     title: geometry/line.cpp
   - icon: ':question:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/projection.cpp
     title: geometry/projection.cpp
   _extendedRequiredBy:

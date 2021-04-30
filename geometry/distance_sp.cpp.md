@@ -4,33 +4,33 @@ data:
   - icon: ':question:'
     path: geometry/base.cpp
     title: geometry/base.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/ccw.cpp
     title: geometry/ccw.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/is_intersect_sp.cpp
     title: geometry/is_intersect_sp.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/line.cpp
     title: geometry/line.cpp
   - icon: ':question:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/projection.cpp
     title: geometry/projection.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/segment.cpp
     title: geometry/segment.cpp
   _extendedRequiredBy:
   - icon: ':x:'
     path: geometry/common_area_cp.cpp
     title: geometry/common_area_cp.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/distance_ss.cpp
     title: geometry/distance_ss.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-2-d.test.cpp
     title: test/verify/aoj-cgl-2-d.test.cpp
   - icon: ':x:'
@@ -38,7 +38,7 @@ data:
     title: test/verify/aoj-cgl-7-h.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real\
@@ -108,7 +108,7 @@ data:
   - geometry/common_area_cp.cpp
   - geometry/distance_ss.cpp
   timestamp: '2020-12-01 18:35:30+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-cgl-7-h.test.cpp
   - test/verify/aoj-cgl-2-d.test.cpp

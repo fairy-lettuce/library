@@ -14,7 +14,7 @@ data:
   - icon: ':x:'
     path: geometry/cross_point_cc.cpp
     title: geometry/cross_point_cc.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/cross_point_cl.cpp
     title: geometry/cross_point_cl.cpp
   - icon: ':warning:'
@@ -30,7 +30,7 @@ data:
     path: geometry/is_intersect_cs.cpp
     title: geometry/is_intersect_cs.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-7-d.test.cpp
     title: test/verify/aoj-cgl-7-d.test.cpp
   - icon: ':x:'
@@ -41,7 +41,7 @@ data:
     title: test/verify/aoj-cgl-7-h.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"geometry/base.cpp\"\n\nnamespace geometry {\n  using Real\
@@ -85,7 +85,7 @@ data:
   - geometry/is_intersect_cl.cpp
   - geometry/cross_point_cc.cpp
   timestamp: '2020-12-01 17:38:42+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-cgl-7-e.test.cpp
   - test/verify/aoj-cgl-7-h.test.cpp

@@ -12,12 +12,12 @@ data:
     title: geometry/polygon.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-4-b.test.cpp
     title: test/verify/aoj-cgl-4-b.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_B
@@ -74,7 +74,7 @@ data:
   path: geometry/convex_polygon_diameter.cpp
   requiredBy: []
   timestamp: '2020-12-01 17:38:42+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-cgl-4-b.test.cpp
 documentation_of: geometry/convex_polygon_diameter.cpp

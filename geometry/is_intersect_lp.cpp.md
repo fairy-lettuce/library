@@ -4,10 +4,10 @@ data:
   - icon: ':question:'
     path: geometry/base.cpp
     title: geometry/base.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/ccw.cpp
     title: geometry/ccw.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/line.cpp
     title: geometry/line.cpp
   - icon: ':question:'

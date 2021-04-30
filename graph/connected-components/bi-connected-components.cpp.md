@@ -4,23 +4,23 @@ data:
   - icon: ':question:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/others/low-link.cpp
     title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/block-cut-tree.cpp
     title: Block-Cut-Tree
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-3022.test.cpp
     title: test/verify/aoj-3022.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-3139.test.cpp
     title: test/verify/aoj-3139.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/bi-connected-components.md
     document_title: "Bi-Connected-Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\
@@ -102,7 +102,7 @@ data:
   requiredBy:
   - graph/others/block-cut-tree.cpp
   timestamp: '2020-09-15 01:04:53+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-3022.test.cpp
   - test/verify/aoj-3139.test.cpp

@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2821.test.cpp
     title: test/verify/aoj-2821.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Tree-Isomorphism(\u6728\u306E\u540C\u578B\u6027\u5224\u5B9A)"
     links: []
@@ -75,7 +75,7 @@ data:
   path: graph/tree/tree-isomorphism.cpp
   requiredBy: []
   timestamp: '2020-03-30 02:08:59+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-2821.test.cpp
 documentation_of: graph/tree/tree-isomorphism.cpp

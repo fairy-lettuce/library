@@ -4,31 +4,31 @@ data:
   - icon: ':question:'
     path: geometry/base.cpp
     title: geometry/base.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/ccw.cpp
     title: geometry/ccw.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/distance_sp.cpp
     title: geometry/distance_sp.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/distance_ss.cpp
     title: geometry/distance_ss.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/is_intersect_sp.cpp
     title: geometry/is_intersect_sp.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/is_intersect_ss.cpp
     title: geometry/is_intersect_ss.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/line.cpp
     title: geometry/line.cpp
   - icon: ':question:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/projection.cpp
     title: geometry/projection.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/segment.cpp
     title: geometry/segment.cpp
   - icon: ':question:'
@@ -36,9 +36,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     ERROR: '0.00000001'
@@ -154,7 +154,7 @@ data:
   path: test/verify/aoj-cgl-2-d.test.cpp
   requiredBy: []
   timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-cgl-2-d.test.cpp
 layout: document

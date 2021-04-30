@@ -10,7 +10,7 @@ data:
   - icon: ':x:'
     path: graph/mst/manhattan-mst.cpp
     title: Manhattan-MST
-  - icon: ':x:'
+  - icon: ':question:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
   - icon: ':question:'

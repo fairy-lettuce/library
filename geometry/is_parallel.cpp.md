@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: geometry/base.cpp
     title: geometry/base.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/line.cpp
     title: geometry/line.cpp
   - icon: ':question:'
@@ -18,12 +18,12 @@ data:
     path: geometry/is_intersect_ll.cpp
     title: geometry/is_intersect_ll.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-2-a.test.cpp
     title: test/verify/aoj-cgl-2-a.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_A
@@ -74,7 +74,7 @@ data:
   - geometry/distance_ll.cpp
   - geometry/is_intersect_ll.cpp
   timestamp: '2020-12-01 17:38:42+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-cgl-2-a.test.cpp
 documentation_of: geometry/is_parallel.cpp

@@ -6,7 +6,7 @@ data:
     path: math/number-theory/enumerate-primes.cpp
     title: "Enumerate-Primes(\u7D20\u6570\u5217\u6319)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-alds-1-1-c-2.test.cpp
     title: test/verify/aoj-alds-1-1-c-2.test.cpp
   - icon: ':x:'
@@ -17,7 +17,7 @@ data:
     title: test/verify/yosupo-enumerate-primes.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/prime-table.md
     document_title: "Prime-Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
@@ -40,7 +40,7 @@ data:
   requiredBy:
   - math/number-theory/enumerate-primes.cpp
   timestamp: '2020-10-13 00:39:05+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-counting-primes.test.cpp
   - test/verify/aoj-alds-1-1-c-2.test.cpp

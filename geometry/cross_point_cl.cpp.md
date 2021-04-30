@@ -4,16 +4,16 @@ data:
   - icon: ':question:'
     path: geometry/base.cpp
     title: geometry/base.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/circle.cpp
     title: geometry/circle.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/line.cpp
     title: geometry/line.cpp
   - icon: ':question:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/projection.cpp
     title: geometry/projection.cpp
   _extendedRequiredBy:
@@ -24,7 +24,7 @@ data:
     path: geometry/cross_point_cs.cpp
     title: geometry/cross_point_cs.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-7-d.test.cpp
     title: test/verify/aoj-cgl-7-d.test.cpp
   - icon: ':x:'
@@ -32,7 +32,7 @@ data:
     title: test/verify/aoj-cgl-7-h.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D
@@ -95,7 +95,7 @@ data:
   - geometry/common_area_cp.cpp
   - geometry/cross_point_cs.cpp
   timestamp: '2020-12-01 18:35:30+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-cgl-7-h.test.cpp
   - test/verify/aoj-cgl-7-d.test.cpp

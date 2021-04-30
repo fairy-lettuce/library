@@ -6,7 +6,7 @@ data:
     title: graph/graph-template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-3139.test.cpp
     title: test/verify/aoj-3139.test.cpp
   - icon: ':x:'
@@ -17,7 +17,7 @@ data:
     title: test/verify/yukicoder-1002.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Centroid-Decomosition(\u91CD\u5FC3\u5206\u89E3)"
     links: []
@@ -75,7 +75,7 @@ data:
   path: graph/tree/centroid-decomposition.cpp
   requiredBy: []
   timestamp: '2020-09-15 01:04:53+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
   - test/verify/yukicoder-1002.test.cpp

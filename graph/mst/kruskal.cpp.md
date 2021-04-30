@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
   _extendedRequiredBy: []

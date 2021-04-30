@@ -47,30 +47,32 @@ data:
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-static-range-sum.test.cpp\"\
     \n\n#line 1 \"dp/cumulative-sum.cpp\"\n/**\n * @brief Cumulative-Sum(\u4E00\u6B21\
-    \u5143\u7D2F\u7A4D\u548C)\n * @docs docs/cumulative-sum.md\n */\ntemplate< class\
-    \ T >\nstruct CumulativeSum {\n  vector< T > data;\n\n  CumulativeSum() = default;\n\
-    \n  explicit CumulativeSum(size_t sz) : data(sz, 0) {}\n\n  void add(int k, const\
-    \ T &x) {\n    data[k] += x;\n  }\n\n  void build() {\n    for(int i = 1; i <\
-    \ data.size(); i++) {\n      data[i] += data[i - 1];\n    }\n  }\n\n  T query(int\
-    \ k) const {\n    if(k < 0) return 0;\n    return data[min(k, (int) data.size()\
-    \ - 1)];\n  }\n};\n#line 6 \"test/verify/yosupo-static-range-sum.test.cpp\"\n\n\
-    int main() {\n  int n, q;\n  cin >> n >> q;\n  CumulativeSum< int64 > cs(n);\n\
+    \u5143\u7D2F\u7A4D\u548C)\n * @docs docs/cumulative-sum.md\n */\n/**\n * @brief\
+    \ Cumulative-Sum(\u4E00\u6B21\u5143\u7D2F\u7A4D\u548C)\n * @docs docs/cumulative-sum.md\n\
+    \ */\ntemplate< class T >\nstruct CumulativeSum {\n  vector< T > data;\n\n  CumulativeSum()\
+    \ = default;\n\n  explicit CumulativeSum(size_t sz) : data(sz + 1, 0) {}\n\n \
+    \ void add(int k, const T &x) {\n    data[k + 1] += x;\n  }\n\n  void build()\
+    \ {\n    for(int i = 1; i < data.size(); i++) {\n      data[i] += data[i - 1];\n\
+    \    }\n  }\n\n  T fold(int r) const {\n    if(r < 0) return 0;\n    return data[min(r,\
+    \ (int) data.size() - 1)];\n  }\n\n  T fold(int l, int r) const {\n    return\
+    \ fold(r) - fold(l);\n  }\n};\n#line 6 \"test/verify/yosupo-static-range-sum.test.cpp\"\
+    \n\nint main() {\n  int n, q;\n  cin >> n >> q;\n  CumulativeSum< int64 > cs(n);\n\
     \  for(int i = 0; i < n; i++) {\n    int x;\n    cin >> x;\n    cs.add(i, x);\n\
     \  }\n  cs.build();\n  for(int i = 0; i < q; i++) {\n    int l, r;\n    cin >>\
-    \ l >> r;\n    cout << cs.query(r - 1) - cs.query(l - 1) << \"\\n\";\n  }\n}\n"
+    \ l >> r;\n    cout << cs.fold(l, r) << \"\\n\";\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n\n\
     #include \"../../template/template.cpp\"\n\n#include \"../../dp/cumulative-sum.cpp\"\
     \n\nint main() {\n  int n, q;\n  cin >> n >> q;\n  CumulativeSum< int64 > cs(n);\n\
     \  for(int i = 0; i < n; i++) {\n    int x;\n    cin >> x;\n    cs.add(i, x);\n\
     \  }\n  cs.build();\n  for(int i = 0; i < q; i++) {\n    int l, r;\n    cin >>\
-    \ l >> r;\n    cout << cs.query(r - 1) - cs.query(l - 1) << \"\\n\";\n  }\n}\n"
+    \ l >> r;\n    cout << cs.fold(l, r) << \"\\n\";\n  }\n}\n"
   dependsOn:
   - template/template.cpp
   - dp/cumulative-sum.cpp
   isVerificationFile: true
   path: test/verify/yosupo-static-range-sum.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-05-01 00:39:57+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-static-range-sum.test.cpp

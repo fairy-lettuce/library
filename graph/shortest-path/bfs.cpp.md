@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-alds-1-11-c.test.cpp
     title: test/verify/aoj-alds-1-11-c.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "BFS(\u5E45\u512A\u5148\u63A2\u7D22)"
     links: []
@@ -42,7 +42,7 @@ data:
   path: graph/shortest-path/bfs.cpp
   requiredBy: []
   timestamp: '2020-03-28 23:32:32+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-alds-1-11-c.test.cpp
 documentation_of: graph/shortest-path/bfs.cpp

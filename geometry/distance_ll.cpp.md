@@ -10,16 +10,16 @@ data:
   - icon: ':warning:'
     path: geometry/is_intersect_ll.cpp
     title: geometry/is_intersect_ll.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/is_parallel.cpp
     title: geometry/is_parallel.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/line.cpp
     title: geometry/line.cpp
   - icon: ':question:'
     path: geometry/point.cpp
     title: geometry/point.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/projection.cpp
     title: geometry/projection.cpp
   _extendedRequiredBy: []

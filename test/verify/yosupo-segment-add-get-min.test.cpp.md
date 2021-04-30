@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: structure/convex-hull-trick/dynamic-li-chao-tree.cpp
     title: Dynamic-Li-Chao-Tree
   - icon: ':question:'

@@ -16,10 +16,10 @@ data:
     path: graph/mst/kruskal.cpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2821.test.cpp
     title: test/verify/aoj-2821.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-3139.test.cpp
     title: test/verify/aoj-3139.test.cpp
   - icon: ':x:'
@@ -51,7 +51,7 @@ data:
     title: test/verify/yukicoder-583.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/union-find.md
     document_title: Union-Find
@@ -82,7 +82,7 @@ data:
   - graph/mst/kruskal.cpp
   - graph/mst/boruvka.cpp
   timestamp: '2020-02-19 21:42:58+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-bipartite-edge-coloring.test.cpp
   - test/verify/yosupo-three-edge-connected-components.test.cpp

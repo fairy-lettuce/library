@@ -7,7 +7,7 @@ data:
   - icon: ':x:'
     path: graph/mst/kruskal.cpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
   - icon: ':question:'

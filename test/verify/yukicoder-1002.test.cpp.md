@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/tree/centroid-decomposition.cpp
     title: "Centroid-Decomosition(\u91CD\u5FC3\u5206\u89E3)"
   - icon: ':question:'

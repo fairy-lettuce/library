@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: geometry/base.cpp
     title: geometry/base.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/line.cpp
     title: geometry/line.cpp
   - icon: ':question:'
@@ -14,7 +14,7 @@ data:
   - icon: ':x:'
     path: geometry/common_area_cp.cpp
     title: geometry/common_area_cp.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/cross_point_cl.cpp
     title: geometry/cross_point_cl.cpp
   - icon: ':warning:'
@@ -26,10 +26,10 @@ data:
   - icon: ':warning:'
     path: geometry/distance_lp.cpp
     title: geometry/distance_lp.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/distance_sp.cpp
     title: geometry/distance_sp.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/distance_ss.cpp
     title: geometry/distance_ss.cpp
   - icon: ':warning:'
@@ -38,20 +38,20 @@ data:
   - icon: ':x:'
     path: geometry/is_intersect_cs.cpp
     title: geometry/is_intersect_cs.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/reflection.cpp
     title: geometry/reflection.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-1-a.test.cpp
     title: test/verify/aoj-cgl-1-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-1-b.test.cpp
     title: test/verify/aoj-cgl-1-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-2-d.test.cpp
     title: test/verify/aoj-cgl-2-d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-cgl-7-d.test.cpp
     title: test/verify/aoj-cgl-7-d.test.cpp
   - icon: ':x:'
@@ -59,7 +59,7 @@ data:
     title: test/verify/aoj-cgl-7-h.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A
@@ -119,7 +119,7 @@ data:
   - geometry/distance_lp.cpp
   - geometry/distance_sp.cpp
   timestamp: '2020-12-01 18:35:30+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-cgl-7-h.test.cpp
   - test/verify/aoj-cgl-2-d.test.cpp

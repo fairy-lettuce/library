@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: graph/connected-components/incremental-bridge-connectivity.cpp
     title: Incremental-Bridge-Connectivity
-  - icon: ':x:'
+  - icon: ':question:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
   - icon: ':question:'

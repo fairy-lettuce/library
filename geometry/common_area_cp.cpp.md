@@ -4,25 +4,25 @@ data:
   - icon: ':question:'
     path: geometry/base.cpp
     title: geometry/base.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/ccw.cpp
     title: geometry/ccw.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/circle.cpp
     title: geometry/circle.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/cross_point_cl.cpp
     title: geometry/cross_point_cl.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/distance_sp.cpp
     title: geometry/distance_sp.cpp
   - icon: ':x:'
     path: geometry/is_intersect_cs.cpp
     title: geometry/is_intersect_cs.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/is_intersect_sp.cpp
     title: geometry/is_intersect_sp.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/line.cpp
     title: geometry/line.cpp
   - icon: ':question:'
@@ -31,10 +31,10 @@ data:
   - icon: ':question:'
     path: geometry/polygon.cpp
     title: geometry/polygon.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/projection.cpp
     title: geometry/projection.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/segment.cpp
     title: geometry/segment.cpp
   _extendedRequiredBy: []

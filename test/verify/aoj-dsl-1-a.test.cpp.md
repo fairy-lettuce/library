@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
   - icon: ':question:'

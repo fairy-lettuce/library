@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: graph/mst/boruvka.cpp
     title: "Boruvka(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
   - icon: ':question:'

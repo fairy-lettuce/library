@@ -10,7 +10,7 @@ data:
   - icon: ':x:'
     path: graph/shortest-path/k-shortest-walk.cpp
     title: K-Shortest-Walk
-  - icon: ':x:'
+  - icon: ':question:'
     path: structure/heap/leftist-heap.cpp
     title: Leftist-Heap
   - icon: ':x:'

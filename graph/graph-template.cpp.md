@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/connected-components/bi-connected-components.cpp
     title: "Bi-Connected-Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
@@ -33,7 +33,7 @@ data:
   - icon: ':x:'
     path: graph/mst/prim.cpp
     title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/block-cut-tree.cpp
     title: Block-Cut-Tree
   - icon: ':x:'
@@ -45,7 +45,7 @@ data:
   - icon: ':x:'
     path: graph/others/enumerate-triangles.cpp
     title: "Enumerate-Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/others/low-link.cpp
     title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
   - icon: ':x:'
@@ -54,7 +54,7 @@ data:
   - icon: ':x:'
     path: graph/others/two-satisfiability.cpp
     title: 2-SAT
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/tree/centroid-decomposition.cpp
     title: "Centroid-Decomosition(\u91CD\u5FC3\u5206\u89E3)"
   - icon: ':question:'
@@ -79,16 +79,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2667.test.cpp
     title: test/verify/aoj-2667.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2821.test.cpp
     title: test/verify/aoj-2821.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-3022.test.cpp
     title: test/verify/aoj-3022.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-3139.test.cpp
     title: test/verify/aoj-3139.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-alds-1-11-c.test.cpp
     title: test/verify/aoj-alds-1-11-c.test.cpp
   - icon: ':x:'

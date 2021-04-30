@@ -4,10 +4,10 @@ data:
   - icon: ':question:'
     path: geometry/base.cpp
     title: geometry/base.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/cross_point_ll.cpp
     title: geometry/cross_point_ll.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/line.cpp
     title: geometry/line.cpp
   - icon: ':question:'
@@ -18,9 +18,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     ERROR: '0.00000001'
@@ -107,7 +107,7 @@ data:
   path: test/verify/aoj-cgl-2-c.test.cpp
   requiredBy: []
   timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-cgl-2-c.test.cpp
 layout: document

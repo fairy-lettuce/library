@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number-theory/prime-table.cpp
     title: "Prime-Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C
@@ -67,7 +67,7 @@ data:
   path: test/verify/aoj-alds-1-1-c-2.test.cpp
   requiredBy: []
   timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-alds-1-1-c-2.test.cpp
 layout: document

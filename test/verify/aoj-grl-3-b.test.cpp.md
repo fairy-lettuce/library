@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/others/low-link.cpp
     title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
   - icon: ':question:'
