@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2405.test.cpp
     title: test/verify/aoj-2405.test.cpp
   - icon: ':x:'
@@ -11,7 +11,7 @@ data:
     title: test/verify/yosupo-tree-decomposition-width-2.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/tree-decomposition.md
     document_title: "Tree-Decomposition(\u6728\u5206\u89E3)"
@@ -125,7 +125,7 @@ data:
   path: graph/others/tree-decomposition.cpp
   requiredBy: []
   timestamp: '2020-09-30 18:06:49+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-tree-decomposition-width-2.test.cpp
   - test/verify/aoj-2405.test.cpp

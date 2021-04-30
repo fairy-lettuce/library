@@ -3,10 +3,10 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1508-2.test.cpp
     title: test/verify/aoj-1508-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1508-3.test.cpp
     title: test/verify/aoj-1508-3.test.cpp
   - icon: ':x:'
@@ -20,7 +20,7 @@ data:
     title: test/verify/yosupo-staticrmq-3.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"other/vector-pool.cpp\"\ntemplate< class T >\nstruct VectorPool\
@@ -40,7 +40,7 @@ data:
   path: other/vector-pool.cpp
   requiredBy: []
   timestamp: '2020-04-26 00:10:50+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-range-affine-range-sum-2.test.cpp
   - test/verify/yosupo-staticrmq-3.test.cpp

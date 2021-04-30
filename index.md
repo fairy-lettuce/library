@@ -3,13 +3,13 @@ data:
   libraryCategories:
   - name: dp
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: dp/cumulative-sum-2d.cpp
       title: "Cumulative-Sum-2D(\u4E8C\u6B21\u5143\u7D2F\u7A4D\u548C)"
     - icon: ':x:'
       path: dp/cumulative-sum.cpp
       title: "Cumulative-Sum(\u4E00\u6B21\u5143\u7D2F\u7A4D\u548C)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: dp/divide-and-conquer-optimization.cpp
       title: Divide-And-Conquer-Optimization
     - icon: ':x:'
@@ -41,7 +41,7 @@ data:
       path: dp/longest-increasing-subsequence.cpp
       title: "Longest-Increasing-Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
         )"
-    - icon: ':x:'
+    - icon: ':question:'
       path: dp/monotone-minima.cpp
       title: Monotone-Minima
     - icon: ':x:'
@@ -56,7 +56,7 @@ data:
     - icon: ':x:'
       path: geometry/area.cpp
       title: geometry/area.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: geometry/base.cpp
       title: geometry/base.cpp
     - icon: ':x:'
@@ -74,7 +74,7 @@ data:
     - icon: ':x:'
       path: geometry/convex_hull.cpp
       title: geometry/convex_hull.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: geometry/convex_polygon_contains.cpp
       title: geometry/convex_polygon_contains.cpp
     - icon: ':x:'
@@ -146,10 +146,10 @@ data:
     - icon: ':x:'
       path: geometry/line.cpp
       title: geometry/line.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: geometry/point.cpp
       title: geometry/point.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: geometry/polygon.cpp
       title: geometry/polygon.cpp
     - icon: ':x:'
@@ -187,7 +187,7 @@ data:
         \u5206\u89E3)"
   - name: graph/flow
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/flow/bipartite-flow.cpp
       title: "Bipartite-Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\u30FC\
         )"
@@ -198,7 +198,7 @@ data:
     - icon: ':x:'
       path: graph/flow/dinic-capacity-scaling.cpp
       title: "Dinic-Capacity-Scaling(\u6700\u5927\u6D41)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/flow/dinic.cpp
       title: "Dinic(\u6700\u5927\u6D41)"
     - icon: ':x:'
@@ -207,11 +207,11 @@ data:
     - icon: ':x:'
       path: graph/flow/gabow-edmonds.cpp
       title: graph/flow/gabow-edmonds.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/flow/hungarian.cpp
       title: "Hungarian(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5C0F\u91CD\u307F\
         \u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/flow/maxflow-lower-bound.cpp
       title: graph/flow/maxflow-lower-bound.cpp
     - icon: ':x:'
@@ -222,10 +222,10 @@ data:
       title: graph/flow/push-relabel.cpp
   - name: graph
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/graph-template.cpp
       title: graph/graph-template.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/template.cpp
       title: graph/template.cpp
   - name: graph/mst
@@ -260,16 +260,16 @@ data:
     - icon: ':x:'
       path: graph/others/cartesian-tree.cpp
       title: Cartesian-Tree
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/chromatic-number.cpp
       title: "Chromatic-Number(\u5F69\u8272\u6570)"
     - icon: ':x:'
       path: graph/others/cycle-detection.cpp
       title: "Cycle-Detection(\u9589\u8DEF\u691C\u51FA)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/others/dominator-tree.cpp
       title: Dominator-Tree
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/enumerate-cliques.cpp
       title: "Enumerate-Cliques(\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319)"
     - icon: ':x:'
@@ -290,15 +290,15 @@ data:
     - icon: ':x:'
       path: graph/others/namori-graph.cpp
       title: Namori-Graph
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/offline-dag-reachability.cpp
       title: "Offline-Dag-Reachability(DAG\u306E\u5230\u9054\u53EF\u80FD\u6027\u30AF\
         \u30A8\u30EA)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/topological-sort.cpp
       title: "Topological-Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
         )"
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/others/tree-decomposition.cpp
       title: "Tree-Decomposition(\u6728\u5206\u89E3)"
     - icon: ':x:'
@@ -306,7 +306,7 @@ data:
       title: 2-SAT
   - name: graph/shortest-path
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/shortest-path/bellman-ford.cpp
       title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
     - icon: ':x:'
@@ -321,7 +321,7 @@ data:
     - icon: ':x:'
       path: graph/shortest-path/dijkstra-radix-heap.cpp
       title: "Dijkstra-Radix-Heap(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/shortest-path/dijkstra.cpp
       title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
     - icon: ':warning:'
@@ -358,13 +358,13 @@ data:
       path: graph/tree/doubling-lowest-common-ancestor.cpp
       title: "Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
         )"
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/tree/heavy-light-decomposition.cpp
       title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
     - icon: ':x:'
       path: graph/tree/pmormq-lowest-common-ancestor.cpp
       title: "PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/rerooting.cpp
       title: graph/tree/rerooting.cpp
     - icon: ':x:'
@@ -404,7 +404,7 @@ data:
     - icon: ':warning:'
       path: math/combinatorics/mod-int-2.cpp
       title: math/combinatorics/mod-int-2.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/combinatorics/mod-int.cpp
       title: math/combinatorics/mod-int.cpp
     - icon: ':x:'
@@ -520,15 +520,15 @@ data:
     - icon: ':x:'
       path: math/matrix/binary-basis.cpp
       title: math/matrix/binary-basis.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/matrix/matrix.cpp
       title: math/matrix/matrix.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/matrix/square-matrix.cpp
       title: "Square-Matrix(\u6B63\u65B9\u884C\u5217)"
   - name: math/number-theory
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/number-theory/convert-base.cpp
       title: "Convert-Base(\u9032\u6570\u5909\u63DB)"
     - icon: ':warning:'
@@ -609,7 +609,7 @@ data:
     - icon: ':warning:'
       path: other/timer.cpp
       title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: other/vector-pool.cpp
       title: other/vector-pool.cpp
     - icon: ':warning:'
@@ -641,7 +641,7 @@ data:
     - icon: ':x:'
       path: structure/bbst/lazy-red-black-tree.cpp
       title: "Lazy-Red-Black-Tree(\u9045\u5EF6\u4F1D\u642C\u8D64\u9ED2\u6728)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: structure/bbst/lazy-reversible-splay-tree.cpp
       title: "Lazy-Reversible-Splay-Tree(\u9045\u5EF6\u4F1D\u642C\u53CD\u8EE2\u53EF\
         \u80FDSplay\u6728)"
@@ -669,16 +669,16 @@ data:
     - icon: ':warning:'
       path: structure/bbst/randomized-binary-search-tree-set.cpp
       title: structure/bbst/randomized-binary-search-tree-set.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/bbst/randomized-binary-search-tree.cpp
       title: structure/bbst/randomized-binary-search-tree.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: structure/bbst/red-black-tree.cpp
       title: "Red-Black-Tree(\u8D64\u9ED2\u6728)"
     - icon: ':x:'
       path: structure/bbst/reversible-splay-tree.cpp
       title: "Reversible-Splay-Tree(\u53CD\u8EE2\u53EF\u80FDSplay\u6728)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/bbst/weight-balanced-tree.cpp
       title: "Weight-Balanced-Tree(\u91CD\u307F\u5E73\u8861\u6728)"
   - name: structure/convex-hull-trick
@@ -703,20 +703,20 @@ data:
     - icon: ':x:'
       path: structure/develop/diameter.cpp
       title: structure/develop/diameter.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/develop/lazy-reversible-splay-tree.cpp
       title: "Lazy-Reversible-Splay-Tree(\u9045\u5EF6\u4F1D\u642C\u53CD\u8EE2\u53EF\
         \u80FDSplay\u6728)"
     - icon: ':x:'
       path: structure/develop/link-cut-tree-subtree.cpp
       title: structure/develop/link-cut-tree-subtree.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: structure/develop/link-cut-tree.cpp
       title: Link-Cut-Tree
-    - icon: ':x:'
+    - icon: ':question:'
       path: structure/develop/reversible-splay-tree.cpp
       title: "Reversible-Splay-Tree(\u53CD\u8EE2\u53EF\u80FDSplay\u6728)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: structure/develop/splay-tree-base.cpp
       title: "Splay-Tree-Base(Splay\u6728)"
     - icon: ':x:'
@@ -754,7 +754,7 @@ data:
     - icon: ':x:'
       path: structure/others/link-cut-tree-subtree.cpp
       title: structure/others/link-cut-tree-subtree.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: structure/others/link-cut-tree.cpp
       title: Link-Cut-Tree
     - icon: ':x:'
@@ -789,7 +789,7 @@ data:
     - icon: ':x:'
       path: structure/segment-tree/dual-segment-tree.cpp
       title: "Dual-Segment-Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: structure/segment-tree/lazy-segment-tree.cpp
       title: "Lazy-Segment-Tree(\u9045\u5EF6\u4F1D\u642C\u30BB\u30B0\u30E1\u30F3\u30C8\
         \u6728)"
@@ -845,7 +845,7 @@ data:
       title: structure/union-find/weighted-union-find.cpp
   - name: structure/wavelet
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: structure/wavelet/succinct-indexable-dictionary.cpp
       title: structure/wavelet/succinct-indexable-dictionary.cpp
     - icon: ':x:'
@@ -854,16 +854,16 @@ data:
     - icon: ':x:'
       path: structure/wavelet/wavelet-matrix-rectangle-sum.cpp
       title: Wavelet-Matrix-Rectangle-Sum
-    - icon: ':x:'
+    - icon: ':question:'
       path: structure/wavelet/wavelet-matrix.cpp
       title: "Wavelet-Matrix(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u884C\u5217\
         )"
-    - icon: ':x:'
+    - icon: ':question:'
       path: structure/wavelet/wavelet-tree.cpp
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -976,73 +976,73 @@ data:
   verificationCategories:
   - name: test/verify
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-0233.test.cpp
       title: test/verify/aoj-0233.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-0275.test.cpp
       title: test/verify/aoj-0275.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-0294.test.cpp
       title: test/verify/aoj-0294.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-0304.test.cpp
       title: test/verify/aoj-0304.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-0334.test.cpp
       title: test/verify/aoj-0334.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-0412.test.cpp
       title: test/verify/aoj-0412.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-0560.test.cpp
       title: test/verify/aoj-0560.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-1163.test.cpp
       title: test/verify/aoj-1163.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-1254.test.cpp
       title: test/verify/aoj-1254.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-1508-2.test.cpp
       title: test/verify/aoj-1508-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-1508-3.test.cpp
       title: test/verify/aoj-1508-3.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-1508.test.cpp
       title: test/verify/aoj-1508.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-1549-2.test.cpp
       title: test/verify/aoj-1549-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-1549.test.cpp
       title: test/verify/aoj-1549.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-1595.test.cpp
       title: test/verify/aoj-1595.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-1615.test.cpp
       title: test/verify/aoj-1615.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-2306.test.cpp
       title: test/verify/aoj-2306.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-2405.test.cpp
       title: test/verify/aoj-2405.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-2450-2.test.cpp
       title: test/verify/aoj-2450-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-2450-3.test.cpp
       title: test/verify/aoj-2450-3.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-2450.test.cpp
       title: test/verify/aoj-2450.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-2603.test.cpp
       title: test/verify/aoj-2603.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-2667.test.cpp
       title: test/verify/aoj-2667.test.cpp
     - icon: ':x:'

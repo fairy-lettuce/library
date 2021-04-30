@@ -6,10 +6,10 @@ data:
     path: structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
     title: Wavelet-Matrix-Point-Add-Rectangle-Sum
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1549-2.test.cpp
     title: test/verify/aoj-1549-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1549.test.cpp
     title: test/verify/aoj-1549.test.cpp
   - icon: ':x:'
@@ -32,7 +32,7 @@ data:
     title: test/verify/yosupo-rectangle-sum.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"structure/wavelet/succinct-indexable-dictionary.cpp\"\n\
@@ -63,7 +63,7 @@ data:
   requiredBy:
   - structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
   timestamp: '2019-12-31 16:31:54+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-2674.test.cpp
   - test/verify/yosupo-range-kth-smallest.test.cpp

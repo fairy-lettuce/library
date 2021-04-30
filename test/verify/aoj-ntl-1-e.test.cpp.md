@@ -5,7 +5,7 @@ data:
     path: math/number-theory/extgcd.cpp
     title: "Extgcd(\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\
       \u6CD5)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -21,16 +21,16 @@ data:
   bundledCode: "#line 1 \"test/verify/aoj-ntl-1-e.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_E\"\
     \n\n#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing namespace\
     \ std;\n\nusing int64 = long long;\nconst int mod = 1e9 + 7;\n\nconst int64 infll\
-    \ = (1LL << 62) - 1;\nconst int inf = (1 << 30) - 1;\n\n__attribute__((constructor))\n\
-    void io_setup() {\n  cin.tie(nullptr);\n  ios::sync_with_stdio(false);\n  cout\
-    \ << fixed << setprecision(10);\n  cerr << fixed << setprecision(10);\n}\n\ntemplate<\
-    \ typename T1, typename T2 >\nostream &operator<<(ostream &os, const pair< T1,\
-    \ T2 >& p) {\n  os << p.first << \" \" << p.second;\n  return os;\n}\n\ntemplate<\
-    \ typename T1, typename T2 >\nistream &operator>>(istream &is, pair< T1, T2 >\
-    \ &p) {\n  is >> p.first >> p.second;\n  return is;\n}\n\ntemplate< typename T\
-    \ >\nostream &operator<<(ostream &os, const vector< T > &v) {\n  for(int i = 0;\
-    \ i < (int) v.size(); i++) {\n    os << v[i] << (i + 1 != v.size() ? \" \" : \"\
-    \");\n  }\n  return os;\n}\n\ntemplate< typename T >\nistream &operator>>(istream\
+    \ = (1LL << 62) - 1;\nconst int inf = (1 << 30) - 1;\n\nstruct IoSetup {\n  IoSetup()\
+    \ {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n    cout << fixed\
+    \ << setprecision(10);\n    cerr << fixed << setprecision(10);\n  }\n} iosetup;\n\
+    \ntemplate< typename T1, typename T2 >\nostream &operator<<(ostream &os, const\
+    \ pair< T1, T2 >& p) {\n  os << p.first << \" \" << p.second;\n  return os;\n\
+    }\n\ntemplate< typename T1, typename T2 >\nistream &operator>>(istream &is, pair<\
+    \ T1, T2 > &p) {\n  is >> p.first >> p.second;\n  return is;\n}\n\ntemplate< typename\
+    \ T >\nostream &operator<<(ostream &os, const vector< T > &v) {\n  for(int i =\
+    \ 0; i < (int) v.size(); i++) {\n    os << v[i] << (i + 1 != v.size() ? \" \"\
+    \ : \"\");\n  }\n  return os;\n}\n\ntemplate< typename T >\nistream &operator>>(istream\
     \ &is, vector< T > &v) {\n  for(T &in : v) is >> in;\n  return is;\n}\n\ntemplate<\
     \ typename T1, typename T2 >\ninline bool chmax(T1 &a, T2 b) { return a < b &&\
     \ (a = b, true); }\n\ntemplate< typename T1, typename T2 >\ninline bool chmin(T1\
@@ -63,7 +63,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-ntl-1-e.test.cpp
   requiredBy: []
-  timestamp: '2021-04-30 16:27:36+09:00'
+  timestamp: '2021-05-01 00:06:55+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/aoj-ntl-1-e.test.cpp

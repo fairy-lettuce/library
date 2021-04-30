@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1254.test.cpp
     title: test/verify/aoj-1254.test.cpp
   - icon: ':x:'
@@ -11,7 +11,7 @@ data:
     title: test/verify/yukicoder-650.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Square-Matrix(\u6B63\u65B9\u884C\u5217)"
     links: []
@@ -77,7 +77,7 @@ data:
   path: math/matrix/square-matrix.cpp
   requiredBy: []
   timestamp: '2020-06-11 22:00:32+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-1254.test.cpp
   - test/verify/yukicoder-650.test.cpp

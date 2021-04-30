@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: structure/others/binary-indexed-tree.cpp
     title: Binary-Indexed-Tree(BIT)
-  - icon: ':x:'
+  - icon: ':question:'
     path: structure/wavelet/succinct-indexable-dictionary.cpp
     title: structure/wavelet/succinct-indexable-dictionary.cpp
   _extendedRequiredBy: []

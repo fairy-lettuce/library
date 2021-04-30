@@ -3,73 +3,73 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-0233.test.cpp
     title: test/verify/aoj-0233.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-0275.test.cpp
     title: test/verify/aoj-0275.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-0294.test.cpp
     title: test/verify/aoj-0294.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-0304.test.cpp
     title: test/verify/aoj-0304.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-0334.test.cpp
     title: test/verify/aoj-0334.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-0412.test.cpp
     title: test/verify/aoj-0412.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-0560.test.cpp
     title: test/verify/aoj-0560.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1163.test.cpp
     title: test/verify/aoj-1163.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1254.test.cpp
     title: test/verify/aoj-1254.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1508-2.test.cpp
     title: test/verify/aoj-1508-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1508-3.test.cpp
     title: test/verify/aoj-1508-3.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1508.test.cpp
     title: test/verify/aoj-1508.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1549-2.test.cpp
     title: test/verify/aoj-1549-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1549.test.cpp
     title: test/verify/aoj-1549.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1595.test.cpp
     title: test/verify/aoj-1595.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1615.test.cpp
     title: test/verify/aoj-1615.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2306.test.cpp
     title: test/verify/aoj-2306.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2405.test.cpp
     title: test/verify/aoj-2405.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2450-2.test.cpp
     title: test/verify/aoj-2450-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2450-3.test.cpp
     title: test/verify/aoj-2450-3.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2450.test.cpp
     title: test/verify/aoj-2450.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2603.test.cpp
     title: test/verify/aoj-2603.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2667.test.cpp
     title: test/verify/aoj-2667.test.cpp
   - icon: ':x:'
@@ -566,69 +566,70 @@ data:
     title: test/verify/yukicoder-952.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing\
     \ namespace std;\n\nusing int64 = long long;\nconst int mod = 1e9 + 7;\n\nconst\
-    \ int64 infll = (1LL << 62) - 1;\nconst int inf = (1 << 30) - 1;\n\n__attribute__((constructor))\n\
-    void io_setup() {\n  cin.tie(nullptr);\n  ios::sync_with_stdio(false);\n  cout\
-    \ << fixed << setprecision(10);\n  cerr << fixed << setprecision(10);\n}\n\ntemplate<\
-    \ typename T1, typename T2 >\nostream &operator<<(ostream &os, const pair< T1,\
-    \ T2 >& p) {\n  os << p.first << \" \" << p.second;\n  return os;\n}\n\ntemplate<\
-    \ typename T1, typename T2 >\nistream &operator>>(istream &is, pair< T1, T2 >\
-    \ &p) {\n  is >> p.first >> p.second;\n  return is;\n}\n\ntemplate< typename T\
-    \ >\nostream &operator<<(ostream &os, const vector< T > &v) {\n  for(int i = 0;\
-    \ i < (int) v.size(); i++) {\n    os << v[i] << (i + 1 != v.size() ? \" \" : \"\
-    \");\n  }\n  return os;\n}\n\ntemplate< typename T >\nistream &operator>>(istream\
-    \ &is, vector< T > &v) {\n  for(T &in : v) is >> in;\n  return is;\n}\n\ntemplate<\
-    \ typename T1, typename T2 >\ninline bool chmax(T1 &a, T2 b) { return a < b &&\
-    \ (a = b, true); }\n\ntemplate< typename T1, typename T2 >\ninline bool chmin(T1\
-    \ &a, T2 b) { return a > b && (a = b, true); }\n\ntemplate< typename T = int64\
-    \ >\nvector< T > make_v(size_t a) {\n  return vector< T >(a);\n}\n\ntemplate<\
-    \ typename T, typename... Ts >\nauto make_v(size_t a, Ts... ts) {\n  return vector<\
-    \ decltype(make_v< T >(ts...)) >(a, make_v< T >(ts...));\n}\n\ntemplate< typename\
-    \ T, typename V >\ntypename enable_if< is_class< T >::value == 0 >::type fill_v(T\
-    \ &t, const V &v) {\n  t = v;\n}\n\ntemplate< typename T, typename V >\ntypename\
-    \ enable_if< is_class< T >::value != 0 >::type fill_v(T &t, const V &v) {\n  for(auto\
-    \ &e : t) fill_v(e, v);\n}\n\ntemplate< typename F >\nstruct FixPoint : F {\n\
-    \  explicit FixPoint(F &&f) : F(forward< F >(f)) {}\n\n  template< typename...\
-    \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
-    \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
-    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n"
-  code: "#include<bits/stdc++.h>\n\nusing namespace std;\n\nusing int64 = long long;\n\
-    const int mod = 1e9 + 7;\n\nconst int64 infll = (1LL << 62) - 1;\nconst int inf\
-    \ = (1 << 30) - 1;\n\n__attribute__((constructor))\nvoid io_setup() {\n  cin.tie(nullptr);\n\
-    \  ios::sync_with_stdio(false);\n  cout << fixed << setprecision(10);\n  cerr\
-    \ << fixed << setprecision(10);\n}\n\ntemplate< typename T1, typename T2 >\nostream\
-    \ &operator<<(ostream &os, const pair< T1, T2 >& p) {\n  os << p.first << \" \"\
-    \ << p.second;\n  return os;\n}\n\ntemplate< typename T1, typename T2 >\nistream\
-    \ &operator>>(istream &is, pair< T1, T2 > &p) {\n  is >> p.first >> p.second;\n\
-    \  return is;\n}\n\ntemplate< typename T >\nostream &operator<<(ostream &os, const\
-    \ vector< T > &v) {\n  for(int i = 0; i < (int) v.size(); i++) {\n    os << v[i]\
-    \ << (i + 1 != v.size() ? \" \" : \"\");\n  }\n  return os;\n}\n\ntemplate< typename\
-    \ T >\nistream &operator>>(istream &is, vector< T > &v) {\n  for(T &in : v) is\
-    \ >> in;\n  return is;\n}\n\ntemplate< typename T1, typename T2 >\ninline bool\
-    \ chmax(T1 &a, T2 b) { return a < b && (a = b, true); }\n\ntemplate< typename\
-    \ T1, typename T2 >\ninline bool chmin(T1 &a, T2 b) { return a > b && (a = b,\
-    \ true); }\n\ntemplate< typename T = int64 >\nvector< T > make_v(size_t a) {\n\
-    \  return vector< T >(a);\n}\n\ntemplate< typename T, typename... Ts >\nauto make_v(size_t\
-    \ a, Ts... ts) {\n  return vector< decltype(make_v< T >(ts...)) >(a, make_v< T\
-    \ >(ts...));\n}\n\ntemplate< typename T, typename V >\ntypename enable_if< is_class<\
-    \ T >::value == 0 >::type fill_v(T &t, const V &v) {\n  t = v;\n}\n\ntemplate<\
-    \ typename T, typename V >\ntypename enable_if< is_class< T >::value != 0 >::type\
-    \ fill_v(T &t, const V &v) {\n  for(auto &e : t) fill_v(e, v);\n}\n\ntemplate<\
-    \ typename F >\nstruct FixPoint : F {\n  explicit FixPoint(F &&f) : F(forward<\
-    \ F >(f)) {}\n\n  template< typename... Args >\n  decltype(auto) operator()(Args\
-    \ &&... args) const {\n    return F::operator()(*this, forward< Args >(args)...);\n\
+    \ int64 infll = (1LL << 62) - 1;\nconst int inf = (1 << 30) - 1;\n\nstruct IoSetup\
+    \ {\n  IoSetup() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\
+    \    cout << fixed << setprecision(10);\n    cerr << fixed << setprecision(10);\n\
+    \  }\n} iosetup;\n\ntemplate< typename T1, typename T2 >\nostream &operator<<(ostream\
+    \ &os, const pair< T1, T2 >& p) {\n  os << p.first << \" \" << p.second;\n  return\
+    \ os;\n}\n\ntemplate< typename T1, typename T2 >\nistream &operator>>(istream\
+    \ &is, pair< T1, T2 > &p) {\n  is >> p.first >> p.second;\n  return is;\n}\n\n\
+    template< typename T >\nostream &operator<<(ostream &os, const vector< T > &v)\
+    \ {\n  for(int i = 0; i < (int) v.size(); i++) {\n    os << v[i] << (i + 1 !=\
+    \ v.size() ? \" \" : \"\");\n  }\n  return os;\n}\n\ntemplate< typename T >\n\
+    istream &operator>>(istream &is, vector< T > &v) {\n  for(T &in : v) is >> in;\n\
+    \  return is;\n}\n\ntemplate< typename T1, typename T2 >\ninline bool chmax(T1\
+    \ &a, T2 b) { return a < b && (a = b, true); }\n\ntemplate< typename T1, typename\
+    \ T2 >\ninline bool chmin(T1 &a, T2 b) { return a > b && (a = b, true); }\n\n\
+    template< typename T = int64 >\nvector< T > make_v(size_t a) {\n  return vector<\
+    \ T >(a);\n}\n\ntemplate< typename T, typename... Ts >\nauto make_v(size_t a,\
+    \ Ts... ts) {\n  return vector< decltype(make_v< T >(ts...)) >(a, make_v< T >(ts...));\n\
+    }\n\ntemplate< typename T, typename V >\ntypename enable_if< is_class< T >::value\
+    \ == 0 >::type fill_v(T &t, const V &v) {\n  t = v;\n}\n\ntemplate< typename T,\
+    \ typename V >\ntypename enable_if< is_class< T >::value != 0 >::type fill_v(T\
+    \ &t, const V &v) {\n  for(auto &e : t) fill_v(e, v);\n}\n\ntemplate< typename\
+    \ F >\nstruct FixPoint : F {\n  explicit FixPoint(F &&f) : F(forward< F >(f))\
+    \ {}\n\n  template< typename... Args >\n  decltype(auto) operator()(Args &&...\
+    \ args) const {\n    return F::operator()(*this, forward< Args >(args)...);\n\
     \  }\n};\n \ntemplate< typename F >\ninline decltype(auto) MFP(F &&f) {\n  return\
     \ FixPoint< F >{forward< F >(f)};\n}\n"
+  code: "#include<bits/stdc++.h>\n\nusing namespace std;\n\nusing int64 = long long;\n\
+    const int mod = 1e9 + 7;\n\nconst int64 infll = (1LL << 62) - 1;\nconst int inf\
+    \ = (1 << 30) - 1;\n\nstruct IoSetup {\n  IoSetup() {\n    cin.tie(nullptr);\n\
+    \    ios::sync_with_stdio(false);\n    cout << fixed << setprecision(10);\n  \
+    \  cerr << fixed << setprecision(10);\n  }\n} iosetup;\n\ntemplate< typename T1,\
+    \ typename T2 >\nostream &operator<<(ostream &os, const pair< T1, T2 >& p) {\n\
+    \  os << p.first << \" \" << p.second;\n  return os;\n}\n\ntemplate< typename\
+    \ T1, typename T2 >\nistream &operator>>(istream &is, pair< T1, T2 > &p) {\n \
+    \ is >> p.first >> p.second;\n  return is;\n}\n\ntemplate< typename T >\nostream\
+    \ &operator<<(ostream &os, const vector< T > &v) {\n  for(int i = 0; i < (int)\
+    \ v.size(); i++) {\n    os << v[i] << (i + 1 != v.size() ? \" \" : \"\");\n  }\n\
+    \  return os;\n}\n\ntemplate< typename T >\nistream &operator>>(istream &is, vector<\
+    \ T > &v) {\n  for(T &in : v) is >> in;\n  return is;\n}\n\ntemplate< typename\
+    \ T1, typename T2 >\ninline bool chmax(T1 &a, T2 b) { return a < b && (a = b,\
+    \ true); }\n\ntemplate< typename T1, typename T2 >\ninline bool chmin(T1 &a, T2\
+    \ b) { return a > b && (a = b, true); }\n\ntemplate< typename T = int64 >\nvector<\
+    \ T > make_v(size_t a) {\n  return vector< T >(a);\n}\n\ntemplate< typename T,\
+    \ typename... Ts >\nauto make_v(size_t a, Ts... ts) {\n  return vector< decltype(make_v<\
+    \ T >(ts...)) >(a, make_v< T >(ts...));\n}\n\ntemplate< typename T, typename V\
+    \ >\ntypename enable_if< is_class< T >::value == 0 >::type fill_v(T &t, const\
+    \ V &v) {\n  t = v;\n}\n\ntemplate< typename T, typename V >\ntypename enable_if<\
+    \ is_class< T >::value != 0 >::type fill_v(T &t, const V &v) {\n  for(auto &e\
+    \ : t) fill_v(e, v);\n}\n\ntemplate< typename F >\nstruct FixPoint : F {\n  explicit\
+    \ FixPoint(F &&f) : F(forward< F >(f)) {}\n\n  template< typename... Args >\n\
+    \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
+    \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
+    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: template/template.cpp
   requiredBy: []
-  timestamp: '2021-04-30 16:27:36+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-05-01 00:06:55+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-bipartitematching.test.cpp
   - test/verify/aoj-dsl-2-d.test.cpp

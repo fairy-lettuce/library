@@ -1,15 +1,15 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2450.test.cpp
     title: test/verify/aoj-2450.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2667.test.cpp
     title: test/verify/aoj-2667.test.cpp
   - icon: ':x:'
@@ -20,7 +20,7 @@ data:
     title: test/verify/yukicoder-650.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
     links:
@@ -132,7 +132,7 @@ data:
   path: graph/tree/heavy-light-decomposition.cpp
   requiredBy: []
   timestamp: '2020-09-15 01:41:10+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-2450.test.cpp
   - test/verify/aoj-grl-5-c-2.test.cpp

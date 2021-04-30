@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2306.test.cpp
     title: test/verify/aoj-2306.test.cpp
   - icon: ':x:'
@@ -14,7 +14,7 @@ data:
     title: test/verify/yosupo-maximum-independent-set.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"graph/template.cpp\"\ntemplate< typename T >\nstruct edge\
@@ -38,7 +38,7 @@ data:
   path: graph/template.cpp
   requiredBy: []
   timestamp: '2019-07-20 01:29:30+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-grl-1-c.test.cpp
   - test/verify/aoj-2306.test.cpp

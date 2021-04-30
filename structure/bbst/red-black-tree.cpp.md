@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1508-2.test.cpp
     title: test/verify/aoj-1508-2.test.cpp
   - icon: ':x:'
@@ -11,7 +11,7 @@ data:
     title: test/verify/yosupo-staticrmq-3.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/red-black-tree.md
     document_title: "Red-Black-Tree(\u8D64\u9ED2\u6728)"
@@ -162,7 +162,7 @@ data:
   path: structure/bbst/red-black-tree.cpp
   requiredBy: []
   timestamp: '2020-05-14 22:00:37+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-staticrmq-3.test.cpp
   - test/verify/aoj-1508-2.test.cpp

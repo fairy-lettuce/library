@@ -1,12 +1,12 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-0294.test.cpp
     title: test/verify/aoj-0294.test.cpp
   - icon: ':x:'
@@ -14,7 +14,7 @@ data:
     title: test/verify/yosupo-dominatortree.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/dominator-tree.md
     document_title: Dominator-Tree
@@ -99,7 +99,7 @@ data:
   path: graph/others/dominator-tree.cpp
   requiredBy: []
   timestamp: '2020-09-30 18:06:49+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-dominatortree.test.cpp
   - test/verify/aoj-0294.test.cpp

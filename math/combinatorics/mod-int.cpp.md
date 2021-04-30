@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2405.test.cpp
     title: test/verify/aoj-2405.test.cpp
   - icon: ':x:'
@@ -92,7 +92,7 @@ data:
     title: test/verify/yukicoder-650.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"math/combinatorics/mod-int.cpp\"\ntemplate< int mod >\n\
@@ -146,7 +146,7 @@ data:
   path: math/combinatorics/mod-int.cpp
   requiredBy: []
   timestamp: '2019-11-30 23:36:31+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-range-affine-range-sum-2.test.cpp
   - test/verify/yosupo-log-of-formal-power-series.test.cpp

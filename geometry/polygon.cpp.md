@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/base.cpp
     title: geometry/base.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/point.cpp
     title: geometry/point.cpp
   _extendedRequiredBy:
@@ -20,7 +20,7 @@ data:
   - icon: ':x:'
     path: geometry/convex_hull.cpp
     title: geometry/convex_hull.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/convex_polygon_contains.cpp
     title: geometry/convex_polygon_contains.cpp
   - icon: ':x:'
@@ -33,7 +33,7 @@ data:
     path: geometry/is_convex_polygon.cpp
     title: geometry/is_convex_polygon.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-0412.test.cpp
     title: test/verify/aoj-0412.test.cpp
   - icon: ':x:'
@@ -59,7 +59,7 @@ data:
     title: test/verify/aoj-cgl-7-h.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"geometry/polygon.cpp\"\n\n#line 2 \"geometry/base.cpp\"\n\
@@ -101,7 +101,7 @@ data:
   - geometry/convex_polygon_contains.cpp
   - geometry/convex_hull.cpp
   timestamp: '2020-12-01 17:38:42+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-cgl-3-b.test.cpp
   - test/verify/aoj-cgl-3-c.test.cpp

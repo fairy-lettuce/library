@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2450-2.test.cpp
     title: test/verify/aoj-2450-2.test.cpp
   - icon: ':x:'
@@ -11,7 +11,7 @@ data:
     title: test/verify/yosupo-point-set-range-composite-2.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Lazy-Reversible-Splay-Tree(\u9045\u5EF6\u4F1D\u642C\u53CD\u8EE2\
       \u53EF\u80FDSplay\u6728)"
@@ -204,7 +204,7 @@ data:
   path: structure/bbst/lazy-reversible-splay-tree.cpp
   requiredBy: []
   timestamp: '2020-06-19 01:56:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-2450-2.test.cpp
   - test/verify/yosupo-point-set-range-composite-2.test.cpp

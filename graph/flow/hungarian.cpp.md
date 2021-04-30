@@ -1,12 +1,12 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/matrix/matrix.cpp
     title: math/matrix/matrix.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1163.test.cpp
     title: test/verify/aoj-1163.test.cpp
   - icon: ':x:'
@@ -14,7 +14,7 @@ data:
     title: test/verify/yosupo-assignment.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Hungarian(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5C0F\u91CD\
       \u307F\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0)"
@@ -94,7 +94,7 @@ data:
   path: graph/flow/hungarian.cpp
   requiredBy: []
   timestamp: '2020-12-16 21:17:47+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-assignment.test.cpp
   - test/verify/aoj-1163.test.cpp

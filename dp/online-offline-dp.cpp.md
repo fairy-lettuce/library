@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: dp/monotone-minima.cpp
     title: Monotone-Minima
   _extendedRequiredBy: []

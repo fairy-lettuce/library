@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1549-2.test.cpp
     title: test/verify/aoj-1549-2.test.cpp
   - icon: ':x:'
@@ -14,7 +14,7 @@ data:
     title: test/verify/yosupo-range-kth-smallest-2.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/wavelet-tree.md
     document_title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728\
@@ -142,7 +142,7 @@ data:
   path: structure/wavelet/wavelet-tree.cpp
   requiredBy: []
   timestamp: '2020-08-20 02:29:21+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-range-kth-smallest-2.test.cpp
   - test/verify/aoj-1549-2.test.cpp

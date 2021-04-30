@@ -39,7 +39,7 @@ data:
   - icon: ':x:'
     path: graph/others/cycle-detection.cpp
     title: "Cycle-Detection(\u9589\u8DEF\u691C\u51FA)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/others/dominator-tree.cpp
     title: Dominator-Tree
   - icon: ':x:'
@@ -57,26 +57,26 @@ data:
   - icon: ':x:'
     path: graph/tree/centroid-decomposition.cpp
     title: "Centroid-Decomosition(\u91CD\u5FC3\u5206\u89E3)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/tree/heavy-light-decomposition.cpp
     title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
   - icon: ':x:'
     path: graph/tree/tree-diameter.cpp
     title: "Tree-Diameter(\u6728\u306E\u76F4\u5F84)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-0275.test.cpp
     title: test/verify/aoj-0275.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-0294.test.cpp
     title: test/verify/aoj-0294.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-0304.test.cpp
     title: test/verify/aoj-0304.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2450.test.cpp
     title: test/verify/aoj-2450.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2667.test.cpp
     title: test/verify/aoj-2667.test.cpp
   - icon: ':x:'
@@ -207,7 +207,7 @@ data:
     title: test/verify/yukicoder-650.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/graph-template.cpp\"\n\ntemplate< typename T = int\
@@ -265,7 +265,7 @@ data:
   - graph/tree/heavy-light-decomposition.cpp
   - graph/tree/centroid-decomposition.cpp
   timestamp: '2020-09-15 01:04:53+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-cycle-detection.test.cpp
   - test/verify/aoj-alds-1-11-c.test.cpp

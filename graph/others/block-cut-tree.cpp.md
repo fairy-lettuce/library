@@ -5,7 +5,7 @@ data:
     path: graph/connected-components/bi-connected-components.cpp
     title: "Bi-Connected-Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
   - icon: ':x:'

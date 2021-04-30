@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1615.test.cpp
     title: test/verify/aoj-1615.test.cpp
   - icon: ':x:'
@@ -11,7 +11,7 @@ data:
     title: test/verify/aoj-grl-6-a.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/dinic.md
     document_title: "Dinic(\u6700\u5927\u6D41)"
@@ -75,7 +75,7 @@ data:
   path: graph/flow/dinic.cpp
   requiredBy: []
   timestamp: '2020-08-20 17:25:40+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-grl-6-a.test.cpp
   - test/verify/aoj-1615.test.cpp

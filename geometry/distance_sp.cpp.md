@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/base.cpp
     title: geometry/base.cpp
   - icon: ':x:'
@@ -13,7 +13,7 @@ data:
   - icon: ':x:'
     path: geometry/line.cpp
     title: geometry/line.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/point.cpp
     title: geometry/point.cpp
   - icon: ':x:'
