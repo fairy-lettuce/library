@@ -6,7 +6,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2725.test.cpp
     title: test/verify/aoj-2725.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-line-add-get-min.test.cpp
     title: test/verify/yosupo-line-add-get-min.test.cpp
   - icon: ':x:'

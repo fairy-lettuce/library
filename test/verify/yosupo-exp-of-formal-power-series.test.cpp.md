@@ -7,22 +7,22 @@ data:
   - icon: ':question:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/diff.cpp
     title: Diff ($f'(x)$)
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/exp.cpp
     title: Exp ($e^{f(x)}$)
   - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/integral.cpp
     title: Integral ($\int f(x) dx$)
   - icon: ':question:'
     path: math/fps/inv.cpp
     title: Inv ($\frac {1} {f(x)}$)
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/log.cpp
     title: Log ($\log {f(x)}$)
   - icon: ':question:'
@@ -30,9 +30,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/exp_of_formal_power_series
@@ -264,7 +264,7 @@ data:
   path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
   requiredBy: []
   timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-exp-of-formal-power-series.test.cpp
 layout: document

@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-find-linear-recurrence.test.cpp
     title: test/verify/yosupo-find-linear-recurrence.test.cpp
   - icon: ':x:'
@@ -11,7 +11,7 @@ data:
     title: test/verify/yosupo-sparse-matrix-det.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"math/fps/berlekamp-massey.cpp\"\ntemplate< class T >\nFormalPowerSeries<\
@@ -39,7 +39,7 @@ data:
   path: math/fps/berlekamp-massey.cpp
   requiredBy: []
   timestamp: '2019-11-30 23:36:31+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-sparse-matrix-det.test.cpp
   - test/verify/yosupo-find-linear-recurrence.test.cpp

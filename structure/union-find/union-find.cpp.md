@@ -12,7 +12,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/mst/boruvka.cpp
     title: "Boruvka(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/mst/kruskal.cpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
   _extendedVerifiedWith:
@@ -34,7 +34,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bipartite-edge-coloring.test.cpp
     title: test/verify/yosupo-bipartite-edge-coloring.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-manhattanmst.test.cpp
     title: test/verify/yosupo-manhattanmst.test.cpp
   - icon: ':x:'

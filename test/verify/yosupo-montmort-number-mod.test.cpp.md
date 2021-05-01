@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/arbitrary-mod-int.cpp
     title: math/combinatorics/arbitrary-mod-int.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/montmort.cpp
     title: "Montmort-Number(\u30E2\u30F3\u30E2\u30FC\u30EB\u6570)"
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/montmort_number_mod
@@ -99,7 +99,7 @@ data:
   path: test/verify/yosupo-montmort-number-mod.test.cpp
   requiredBy: []
   timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-montmort-number-mod.test.cpp
 layout: document

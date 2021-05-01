@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/diff.cpp
     title: Diff ($f'(x)$)
   - icon: ':question:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/integral.cpp
     title: Integral ($\int f(x) dx$)
   - icon: ':question:'
@@ -17,17 +17,17 @@ data:
   - icon: ':warning:'
     path: math/fps/bell.cpp
     title: math/fps/bell.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/exp.cpp
     title: Exp ($e^{f(x)}$)
   - icon: ':x:'
     path: math/fps/pow.cpp
     title: Pow ($f(x)^k$)
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
     title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-log-of-formal-power-series.test.cpp
     title: test/verify/yosupo-log-of-formal-power-series.test.cpp
   - icon: ':x:'
@@ -35,7 +35,7 @@ data:
     title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/log.md
     document_title: Log ($\log {f(x)}$)
@@ -147,7 +147,7 @@ data:
   - math/fps/pow.cpp
   - math/fps/exp.cpp
   timestamp: '2020-10-23 03:48:43+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp

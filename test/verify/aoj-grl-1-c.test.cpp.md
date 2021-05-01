@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/shortest-path/warshall-floyd.cpp
     title: graph/shortest-path/warshall-floyd.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/template.cpp
     title: graph/template.cpp
   - icon: ':question:'

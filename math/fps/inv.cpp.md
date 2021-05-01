@@ -11,16 +11,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/bellnoulli.cpp
     title: math/fps/bellnoulli.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/exp.cpp
     title: Exp ($e^{f(x)}$)
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/log.cpp
     title: Log ($\log {f(x)}$)
   - icon: ':warning:'
     path: math/fps/mod-pow.cpp
     title: Mod-Pow ($f(x)^k \bmod g(x)$)
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/multipoint-evaluation.cpp
     title: math/fps/multipoint-evaluation.cpp
   - icon: ':x:'
@@ -39,16 +39,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bellnoulli-number.test.cpp
     title: test/verify/yosupo-bellnoulli-number.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
     title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
     title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-log-of-formal-power-series.test.cpp
     title: test/verify/yosupo-log-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-multipoint-evaluation.test.cpp
     title: test/verify/yosupo-multipoint-evaluation.test.cpp
   - icon: ':x:'

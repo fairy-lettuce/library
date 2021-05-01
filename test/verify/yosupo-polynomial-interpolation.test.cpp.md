@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/diff.cpp
     title: Diff ($f'(x)$)
   - icon: ':question:'
@@ -16,7 +16,7 @@ data:
   - icon: ':question:'
     path: math/fps/inv.cpp
     title: Inv ($\frac {1} {f(x)}$)
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/multipoint-evaluation.cpp
     title: math/fps/multipoint-evaluation.cpp
   - icon: ':x:'

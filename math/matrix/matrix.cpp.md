@@ -13,12 +13,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-assignment.test.cpp
     title: test/verify/yosupo-assignment.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-matrix-det.test.cpp
     title: test/verify/yosupo-matrix-det.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"math/matrix/matrix.cpp\"\ntemplate< class T >\nstruct Matrix\
@@ -104,7 +104,7 @@ data:
   requiredBy:
   - graph/flow/hungarian.cpp
   timestamp: '2019-11-30 23:36:31+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-assignment.test.cpp
   - test/verify/aoj-1163.test.cpp

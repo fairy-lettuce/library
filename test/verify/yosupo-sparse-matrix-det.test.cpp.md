@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/berlekamp-massey.cpp
     title: math/fps/berlekamp-massey.cpp
   - icon: ':question:'

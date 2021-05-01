@@ -204,7 +204,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/flow/ford-fulkerson.cpp
       title: "Ford-Fulkerson(\u6700\u5927\u6D41)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/flow/gabow-edmonds.cpp
       title: graph/flow/gabow-edmonds.cpp
     - icon: ':heavy_check_mark:'
@@ -225,7 +225,7 @@ data:
     - icon: ':question:'
       path: graph/graph-template.cpp
       title: graph/graph-template.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/template.cpp
       title: graph/template.cpp
   - name: graph/mst
@@ -236,10 +236,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/mst/directed-mst.cpp
       title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/mst/kruskal.cpp
       title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/mst/manhattan-mst.cpp
       title: Manhattan-MST
     - icon: ':heavy_check_mark:'
@@ -281,10 +281,10 @@ data:
     - icon: ':question:'
       path: graph/others/low-link.cpp
       title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/maximum-clique.cpp
       title: "Maximum-Clique(\u6700\u5927\u30AF\u30EA\u30FC\u30AF)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/maximum-independent-set.cpp
       title: graph/others/maximum-independent-set.cpp
     - icon: ':x:'
@@ -330,7 +330,7 @@ data:
     - icon: ':x:'
       path: graph/shortest-path/k-shortest-path.cpp
       title: K-Shortest-Path
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/shortest-path/k-shortest-walk.cpp
       title: K-Shortest-Walk
     - icon: ':heavy_check_mark:'
@@ -354,7 +354,7 @@ data:
     - icon: ':warning:'
       path: graph/tree/disjoint-set-union-on-tree.cpp
       title: Disjoint-Set-Union-On-Tree
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/doubling-lowest-common-ancestor.cpp
       title: "Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
         )"
@@ -367,7 +367,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/tree/rerooting.cpp
       title: graph/tree/rerooting.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/rmq-lowest-common-ancestor.cpp
       title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
     - icon: ':question:'
@@ -383,7 +383,7 @@ data:
       title: icpc/make.py
   - name: math/combinatorics
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/arbitrary-mod-int.cpp
       title: math/combinatorics/arbitrary-mod-int.cpp
     - icon: ':heavy_check_mark:'
@@ -419,7 +419,7 @@ data:
     - icon: ':x:'
       path: math/combinatorics/mod-tetration.cpp
       title: "Mod-Tetration(\u30C6\u30C8\u30EC\u30FC\u30B7\u30E7\u30F3)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/montmort.cpp
       title: "Montmort-Number(\u30E2\u30F3\u30E2\u30FC\u30EB\u6570)"
     - icon: ':heavy_check_mark:'
@@ -437,7 +437,7 @@ data:
     - icon: ':warning:'
       path: math/fft/arbitrary-mod-convolution.cpp
       title: math/fft/arbitrary-mod-convolution.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fft/fast-fourier-transform.cpp
       title: math/fft/fast-fourier-transform.cpp
     - icon: ':question:'
@@ -454,16 +454,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/bellnoulli.cpp
       title: math/fps/bellnoulli.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/fps/berlekamp-massey.cpp
       title: math/fps/berlekamp-massey.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/fps/diff.cpp
       title: Diff ($f'(x)$)
     - icon: ':warning:'
       path: math/fps/eulerian.cpp
       title: math/fps/eulerian.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/fps/exp.cpp
       title: Exp ($e^{f(x)}$)
     - icon: ':warning:'
@@ -472,19 +472,19 @@ data:
     - icon: ':question:'
       path: math/fps/formal-power-series.cpp
       title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/fps/integral.cpp
       title: Integral ($\int f(x) dx$)
     - icon: ':question:'
       path: math/fps/inv.cpp
       title: Inv ($\frac {1} {f(x)}$)
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/fps/log.cpp
       title: Log ($\log {f(x)}$)
     - icon: ':warning:'
       path: math/fps/mod-pow.cpp
       title: Mod-Pow ($f(x)^k \bmod g(x)$)
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/fps/multipoint-evaluation.cpp
       title: math/fps/multipoint-evaluation.cpp
     - icon: ':x:'
@@ -520,7 +520,7 @@ data:
     - icon: ':x:'
       path: math/matrix/binary-basis.cpp
       title: math/matrix/binary-basis.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/matrix/matrix.cpp
       title: math/matrix/matrix.cpp
     - icon: ':question:'
@@ -549,13 +549,13 @@ data:
       path: math/number-theory/extgcd.cpp
       title: "Extgcd(\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\
         \u6CD5)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/number-theory/fast-prime-factorization.cpp
       title: math/number-theory/fast-prime-factorization.cpp
     - icon: ':heavy_check_mark:'
       path: math/number-theory/is-prime.cpp
       title: math/number-theory/is-prime.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/number-theory/kth-root.cpp
       title: Kth-Root
     - icon: ':warning:'
@@ -597,13 +597,13 @@ data:
     - icon: ':warning:'
       path: other/offline-dynamic-connectivity.cpp
       title: other/offline-dynamic-connectivity.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: other/printer.cpp
       title: "Printer(\u9AD8\u901F\u51FA\u529B)"
     - icon: ':warning:'
       path: other/random-number-generator.cpp
       title: other/random-number-generator.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: other/scanner.cpp
       title: "Scanner(\u9AD8\u901F\u5165\u529B)"
     - icon: ':warning:'
@@ -728,10 +728,10 @@ data:
       path: structure/heap/fibonacchi-heap.cpp
       title: "Fibonacchi-Heap(\u30D5\u30A3\u30DC\u30CA\u30C3\u30C1\u30D2\u30FC\u30D7\
         )"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/heap/leftist-heap.cpp
       title: Leftist-Heap
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/heap/persistent-leftist-heap.cpp
       title: Persistent-Leftist-Heap
     - icon: ':heavy_check_mark:'
@@ -1327,61 +1327,61 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-enumerate-triangles.test.cpp
       title: test/verify/yosupo-enumerate-triangles.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
       title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-factorize.test.cpp
       title: test/verify/yosupo-factorize.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-find-linear-recurrence.test.cpp
       title: test/verify/yosupo-find-linear-recurrence.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
       title: test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-general-matching.test.cpp
       title: test/verify/yosupo-general-matching.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
       title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-k-shortest-walk.test.cpp
       title: test/verify/yosupo-k-shortest-walk.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-kth-root-integer.test.cpp
       title: test/verify/yosupo-kth-root-integer.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-lca-2.test.cpp
       title: test/verify/yosupo-lca-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-lca-3.test.cpp
       title: test/verify/yosupo-lca-3.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-lca.test.cpp
       title: test/verify/yosupo-lca.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-line-add-get-min.test.cpp
       title: test/verify/yosupo-line-add-get-min.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-log-of-formal-power-series.test.cpp
       title: test/verify/yosupo-log-of-formal-power-series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-manhattanmst.test.cpp
       title: test/verify/yosupo-manhattanmst.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-matrix-det.test.cpp
       title: test/verify/yosupo-matrix-det.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-maximum-independent-set-2.test.cpp
       title: test/verify/yosupo-maximum-independent-set-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-maximum-independent-set.test.cpp
       title: test/verify/yosupo-maximum-independent-set.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-montmort-number-mod.test.cpp
       title: test/verify/yosupo-montmort-number-mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-multipoint-evaluation.test.cpp
       title: test/verify/yosupo-multipoint-evaluation.test.cpp
     - icon: ':x:'

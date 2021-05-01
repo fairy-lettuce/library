@@ -8,10 +8,10 @@ data:
   - icon: ':warning:'
     path: math/fps/bell.cpp
     title: math/fps/bell.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/exp.cpp
     title: Exp ($e^{f(x)}$)
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/log.cpp
     title: Log ($\log {f(x)}$)
   - icon: ':x:'
@@ -21,10 +21,10 @@ data:
     path: math/fps/pow.cpp
     title: Pow ($f(x)^k$)
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
     title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-log-of-formal-power-series.test.cpp
     title: test/verify/yosupo-log-of-formal-power-series.test.cpp
   - icon: ':x:'
@@ -35,7 +35,7 @@ data:
     title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/diff.md
     document_title: Diff ($f'(x)$)
@@ -119,7 +119,7 @@ data:
   - math/fps/exp.cpp
   - math/fps/polynomial-interpolation.cpp
   timestamp: '2020-10-23 03:48:43+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
   - test/verify/yosupo-polynomial-interpolation.test.cpp

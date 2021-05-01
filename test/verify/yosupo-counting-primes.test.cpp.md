@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/number-theory/kth-root.cpp
     title: Kth-Root
   - icon: ':heavy_check_mark:'
