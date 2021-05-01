@@ -8,37 +8,37 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/bellnoulli.cpp
     title: math/fps/bellnoulli.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/diff.cpp
     title: Diff ($f'(x)$)
   - icon: ':warning:'
     path: math/fps/eulerian.cpp
     title: math/fps/eulerian.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/exp.cpp
     title: Exp ($e^{f(x)}$)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/integral.cpp
     title: Integral ($\int f(x) dx$)
   - icon: ':question:'
     path: math/fps/inv.cpp
     title: Inv ($\frac {1} {f(x)}$)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/log.cpp
     title: Log ($\log {f(x)}$)
   - icon: ':warning:'
     path: math/fps/mod-pow.cpp
     title: Mod-Pow ($f(x)^k \bmod g(x)$)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/multipoint-evaluation.cpp
     title: math/fps/multipoint-evaluation.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/partition.cpp
     title: math/fps/partition.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/polynomial-interpolation.cpp
     title: math/fps/polynomial-interpolation.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/pow.cpp
     title: Pow ($f(x)^k$)
   - icon: ':x:'
@@ -54,7 +54,7 @@ data:
   - icon: ':x:'
     path: math/fps/stirling-second.cpp
     title: math/fps/stirling-second.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/taylor-shift.cpp
     title: Taylor-Shift ($f(x) \Rightarrow f(x + c)$)
   _extendedVerifiedWith:
@@ -76,16 +76,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-multipoint-evaluation.test.cpp
     title: test/verify/yosupo-multipoint-evaluation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-partition-function.test.cpp
     title: test/verify/yosupo-partition-function.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
     title: test/verify/yosupo-polynomial-taylor-shift.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
     title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
   - icon: ':x:'

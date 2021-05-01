@@ -6,7 +6,7 @@ data:
     path: structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
     title: Wavelet-Matrix-Point-Add-Rectangle-Sum
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-dsl-2-b.test.cpp
     title: test/verify/aoj-dsl-2-b.test.cpp
   - icon: ':x:'
@@ -17,7 +17,7 @@ data:
     title: test/verify/yosupo-static-range-inversions-query.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/binary-indexed-tree.md
     document_title: Binary-Indexed-Tree(BIT)
@@ -65,7 +65,7 @@ data:
   requiredBy:
   - structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
   timestamp: '2020-12-18 20:33:07+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/yosupo-static-range-inversions-query.test.cpp
   - test/verify/yosupo-point-add-rectangle-sum.test.cpp
@@ -82,11 +82,13 @@ title: Binary-Indexed-Tree(BIT)
 Fenwick Tree とも呼ばれる. 数列に対し, ある要素に値を加える操作と, 区間和を求める操作をそれぞれ対数時間で行うことが出来るデータ構造. セグメント木や平衡二分探索
 木の機能を制限したものであるが, 実装が非常に単純で定数倍も軽いなどの利点がある.
 
+## 使い方
+
 * `BinaryIndexedTree(sz)`: 長さ `sz` の $0$ で初期化された配列で構築する.
 * `BinaryIndexedTree(vs)`: 配列 `vs` で構築する.
 * `add(k, x)`: 要素 `k` に値 `x` を加える.
-* `sum(r)`: 区間 $[0,r)$ の総和を求める.
-* `sum(l, r)`: 区間 $[l, r)$ の総和を求める.
+* `fold(r)`: 区間 $[0,r)$ の総和を求める.
+* `fold(l, r)`: 区間 $[l, r)$ の総和を求める.
 * `lower_bound(x)`: 区間 $[0,k]$ の総和が `x` 以上となる最小の $k$ を返す.
 * `upper_bound(x)`: 区間 $[0,k]$ の総和が `x` を上回る最小の $k$ を返す.
 

@@ -13,7 +13,7 @@ data:
   - icon: ':question:'
     path: math/fps/inv.cpp
     title: Inv ($\frac {1} {f(x)}$)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/multipoint-evaluation.cpp
     title: math/fps/multipoint-evaluation.cpp
   - icon: ':question:'

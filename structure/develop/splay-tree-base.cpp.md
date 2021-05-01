@@ -12,12 +12,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-point-set-range-composite-3.test.cpp
     title: test/verify/yosupo-point-set-range-composite-3.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Splay-Tree-Base(Splay\u6728)"
     links: []
@@ -130,7 +130,7 @@ data:
   path: structure/develop/splay-tree-base.cpp
   requiredBy: []
   timestamp: '2020-08-29 03:56:51+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-2450-3.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp

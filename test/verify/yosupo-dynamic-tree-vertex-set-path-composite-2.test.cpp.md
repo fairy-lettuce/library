@@ -7,10 +7,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: structure/develop/link-cut-tree.cpp
     title: Link-Cut-Tree
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/develop/reversible-splay-tree.cpp
     title: "Reversible-Splay-Tree(\u53CD\u8EE2\u53EF\u80FDSplay\u6728)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/develop/splay-tree-base.cpp
     title: "Splay-Tree-Base(Splay\u6728)"
   - icon: ':question:'

@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: other/scanner.cpp
     title: "Scanner(\u9AD8\u901F\u5165\u529B)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: structure/others/binary-indexed-tree.cpp
     title: Binary-Indexed-Tree(BIT)
   - icon: ':question:'
@@ -108,8 +108,8 @@ data:
     \ * f};\n  }\n\n  // count d[i] s.t. (l <= i < r) && (v[i] < upper)\n  D rect_sum(int\
     \ l, int r, T upper) {\n    D ret = 0;\n    for(int level = MAXLOG - 1; level\
     \ >= 0; level--) {\n      if(((upper >> level) & 1)) {\n        auto nxt = succ(false,\
-    \ l, r, level);\n        ret += ds[level].sum(nxt.first, nxt.second);\n      \
-    \  l = l - nxt.first + mid[level];\n        r = r - nxt.second + mid[level];\n\
+    \ l, r, level);\n        ret += ds[level].fold(nxt.first, nxt.second);\n     \
+    \   l = l - nxt.first + mid[level];\n        r = r - nxt.second + mid[level];\n\
     \      } else {\n        tie(l, r) = succ(false, l, r, level);\n      }\n    }\n\
     \    return ret;\n  }\n\n  D rect_sum(int l, int r, T lower, T upper) {\n    return\
     \ rect_sum(l, r, upper) - rect_sum(l, r, lower);\n  }\n\n  void point_add(int\
@@ -222,7 +222,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-point-add-rectangle-sum.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-05-01 19:53:10+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-point-add-rectangle-sum.test.cpp

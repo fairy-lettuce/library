@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: structure/others/binary-indexed-tree.cpp
     title: Binary-Indexed-Tree(BIT)
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B
@@ -65,20 +65,20 @@ data:
     \ i;\n  }\n};\n#line 6 \"test/verify/aoj-dsl-2-b.test.cpp\"\n\nint main() {\n\
     \  int N, Q;\n  cin >> N >> Q;\n  BinaryIndexedTree< int > bit(N);\n  while(Q--)\
     \ {\n    int T, X, Y;\n    cin >> T >> X >> Y;\n    if(T == 0) bit.add(X - 1,\
-    \ Y);\n    else cout << bit.sum(X - 1, Y) << \"\\n\";\n  }\n}\n"
+    \ Y);\n    else cout << bit.fold(X - 1, Y) << \"\\n\";\n  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../structure/others/binary-indexed-tree.cpp\"\
     \n\nint main() {\n  int N, Q;\n  cin >> N >> Q;\n  BinaryIndexedTree< int > bit(N);\n\
     \  while(Q--) {\n    int T, X, Y;\n    cin >> T >> X >> Y;\n    if(T == 0) bit.add(X\
-    \ - 1, Y);\n    else cout << bit.sum(X - 1, Y) << \"\\n\";\n  }\n}\n"
+    \ - 1, Y);\n    else cout << bit.fold(X - 1, Y) << \"\\n\";\n  }\n}\n"
   dependsOn:
   - template/template.cpp
   - structure/others/binary-indexed-tree.cpp
   isVerificationFile: true
   path: test/verify/aoj-dsl-2-b.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-05-01 19:53:10+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/aoj-dsl-2-b.test.cpp
 layout: document

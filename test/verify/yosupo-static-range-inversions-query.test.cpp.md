@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: other/mo.cpp
     title: Mo's Algorithm
-  - icon: ':question:'
+  - icon: ':x:'
     path: structure/others/binary-indexed-tree.cpp
     title: Binary-Indexed-Tree(BIT)
   - icon: ':question:'
@@ -90,11 +90,11 @@ data:
     \ end(xs));\n  xs.erase(unique(begin(xs), end(xs)), end(xs));\n  for(auto &a :\
     \ A) a = lower_bound(begin(xs), end(xs), a) - begin(xs);\n  BinaryIndexedTree<\
     \ int > bit(xs.size());\n  int64_t inv = 0, all = 0;\n  vector< int64_t > ans(Q);\n\
-    \  auto add_left = [&](int idx) {\n    inv += bit.sum(A[idx]);\n    bit.add(A[idx],\
-    \ 1);\n    all++;\n  };\n  auto add_right = [&](int idx) {\n    inv += all - bit.sum(A[idx]\
+    \  auto add_left = [&](int idx) {\n    inv += bit.fold(A[idx]);\n    bit.add(A[idx],\
+    \ 1);\n    all++;\n  };\n  auto add_right = [&](int idx) {\n    inv += all - bit.fold(A[idx]\
     \ + 1);\n    bit.add(A[idx], 1);\n    ++all;\n  };\n  auto erase_left = [&](int\
-    \ idx) {\n    inv -= bit.sum(A[idx]);\n    bit.add(A[idx], -1);\n    --all;\n\
-    \  };\n  auto erase_right = [&](int idx) {\n    inv -= all - bit.sum(A[idx] +\
+    \ idx) {\n    inv -= bit.fold(A[idx]);\n    bit.add(A[idx], -1);\n    --all;\n\
+    \  };\n  auto erase_right = [&](int idx) {\n    inv -= all - bit.fold(A[idx] +\
     \ 1);\n    bit.add(A[idx], -1);\n    --all;\n  };\n  auto out = [&](int idx) {\n\
     \    ans[idx] = inv;\n  };\n  mo.build(add_left, add_right, erase_left, erase_right,\
     \ out);\n  for(auto &p : ans) cout << p << \"\\n\";\n}\n"
@@ -107,11 +107,11 @@ data:
     \  xs.erase(unique(begin(xs), end(xs)), end(xs));\n  for(auto &a : A) a = lower_bound(begin(xs),\
     \ end(xs), a) - begin(xs);\n  BinaryIndexedTree< int > bit(xs.size());\n  int64_t\
     \ inv = 0, all = 0;\n  vector< int64_t > ans(Q);\n  auto add_left = [&](int idx)\
-    \ {\n    inv += bit.sum(A[idx]);\n    bit.add(A[idx], 1);\n    all++;\n  };\n\
-    \  auto add_right = [&](int idx) {\n    inv += all - bit.sum(A[idx] + 1);\n  \
-    \  bit.add(A[idx], 1);\n    ++all;\n  };\n  auto erase_left = [&](int idx) {\n\
-    \    inv -= bit.sum(A[idx]);\n    bit.add(A[idx], -1);\n    --all;\n  };\n  auto\
-    \ erase_right = [&](int idx) {\n    inv -= all - bit.sum(A[idx] + 1);\n    bit.add(A[idx],\
+    \ {\n    inv += bit.fold(A[idx]);\n    bit.add(A[idx], 1);\n    all++;\n  };\n\
+    \  auto add_right = [&](int idx) {\n    inv += all - bit.fold(A[idx] + 1);\n \
+    \   bit.add(A[idx], 1);\n    ++all;\n  };\n  auto erase_left = [&](int idx) {\n\
+    \    inv -= bit.fold(A[idx]);\n    bit.add(A[idx], -1);\n    --all;\n  };\n  auto\
+    \ erase_right = [&](int idx) {\n    inv -= all - bit.fold(A[idx] + 1);\n    bit.add(A[idx],\
     \ -1);\n    --all;\n  };\n  auto out = [&](int idx) {\n    ans[idx] = inv;\n \
     \ };\n  mo.build(add_left, add_right, erase_left, erase_right, out);\n  for(auto\
     \ &p : ans) cout << p << \"\\n\";\n}\n"
@@ -122,7 +122,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-static-range-inversions-query.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-05-01 19:53:10+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-static-range-inversions-query.test.cpp

@@ -457,13 +457,13 @@ data:
     - icon: ':question:'
       path: math/fps/berlekamp-massey.cpp
       title: math/fps/berlekamp-massey.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/diff.cpp
       title: Diff ($f'(x)$)
     - icon: ':warning:'
       path: math/fps/eulerian.cpp
       title: math/fps/eulerian.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/exp.cpp
       title: Exp ($e^{f(x)}$)
     - icon: ':warning:'
@@ -472,28 +472,28 @@ data:
     - icon: ':question:'
       path: math/fps/formal-power-series.cpp
       title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/integral.cpp
       title: Integral ($\int f(x) dx$)
     - icon: ':question:'
       path: math/fps/inv.cpp
       title: Inv ($\frac {1} {f(x)}$)
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/log.cpp
       title: Log ($\log {f(x)}$)
     - icon: ':warning:'
       path: math/fps/mod-pow.cpp
       title: Mod-Pow ($f(x)^k \bmod g(x)$)
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/multipoint-evaluation.cpp
       title: math/fps/multipoint-evaluation.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/partition.cpp
       title: math/fps/partition.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/polynomial-interpolation.cpp
       title: math/fps/polynomial-interpolation.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/pow.cpp
       title: Pow ($f(x)^k$)
     - icon: ':x:'
@@ -512,7 +512,7 @@ data:
     - icon: ':x:'
       path: math/fps/stirling-second.cpp
       title: math/fps/stirling-second.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/taylor-shift.cpp
       title: Taylor-Shift ($f(x) \Rightarrow f(x + c)$)
   - name: math/matrix
@@ -638,14 +638,14 @@ data:
       title: string/z-algorithm.cpp
   - name: structure/bbst
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/bbst/lazy-red-black-tree.cpp
       title: "Lazy-Red-Black-Tree(\u9045\u5EF6\u4F1D\u642C\u8D64\u9ED2\u6728)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/bbst/lazy-reversible-splay-tree.cpp
       title: "Lazy-Reversible-Splay-Tree(\u9045\u5EF6\u4F1D\u642C\u53CD\u8EE2\u53EF\
         \u80FDSplay\u6728)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/bbst/lazy-weight-balanced-tree.cpp
       title: "Lazy-Weight-Balanced-Tree(\u9045\u5EF6\u4F1D\u642C\u91CD\u307F\u5E73\
         \u8861\u6728)"
@@ -675,7 +675,7 @@ data:
     - icon: ':question:'
       path: structure/bbst/red-black-tree.cpp
       title: "Red-Black-Tree(\u8D64\u9ED2\u6728)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/bbst/reversible-splay-tree.cpp
       title: "Reversible-Splay-Tree(\u53CD\u8EE2\u53EF\u80FDSplay\u6728)"
     - icon: ':heavy_check_mark:'
@@ -713,10 +713,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/develop/link-cut-tree.cpp
       title: Link-Cut-Tree
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/develop/reversible-splay-tree.cpp
       title: "Reversible-Splay-Tree(\u53CD\u8EE2\u53EF\u80FDSplay\u6728)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/develop/splay-tree-base.cpp
       title: "Splay-Tree-Base(Splay\u6728)"
     - icon: ':heavy_check_mark:'
@@ -742,7 +742,7 @@ data:
       title: Skew-Heap
   - name: structure/others
     pages:
-    - icon: ':question:'
+    - icon: ':x:'
       path: structure/others/binary-indexed-tree.cpp
       title: Binary-Indexed-Tree(BIT)
     - icon: ':x:'
@@ -757,7 +757,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/others/link-cut-tree.cpp
       title: Link-Cut-Tree
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/others/persistent-array.cpp
       title: structure/others/persistent-array.cpp
     - icon: ':question:'
@@ -766,7 +766,7 @@ data:
     - icon: ':warning:'
       path: structure/others/priority-sum-structure.cpp
       title: structure/others/priority-sum-structure.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/others/sliding-window-aggregation.cpp
       title: structure/others/sliding-window-aggregation.cpp
     - icon: ':warning:'
@@ -831,7 +831,7 @@ data:
     - icon: ':warning:'
       path: structure/union-find/partially-persistent-union-find.cpp
       title: structure/union-find/partially-persistent-union-find.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/union-find/persistent-union-find.cpp
       title: "Persistent-Union-Find(\u6C38\u7D9AUnion-Find)"
     - icon: ':warning:'
@@ -1177,7 +1177,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dsl-2-b-2.test.cpp
       title: test/verify/aoj-dsl-2-b-2.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/aoj-dsl-2-b.test.cpp
       title: test/verify/aoj-dsl-2-b.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1384,40 +1384,40 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-multipoint-evaluation.test.cpp
       title: test/verify/yosupo-multipoint-evaluation.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-partition-function.test.cpp
       title: test/verify/yosupo-partition-function.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-persistent-unionfind.test.cpp
       title: test/verify/yosupo-persistent-unionfind.test.cpp
     - icon: ':x:'
       path: test/verify/yosupo-point-add-rectangle-sum.test.cpp
       title: test/verify/yosupo-point-add-rectangle-sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-point-set-range-composite-2.test.cpp
       title: test/verify/yosupo-point-set-range-composite-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-point-set-range-composite-3.test.cpp
       title: test/verify/yosupo-point-set-range-composite-3.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-point-set-range-composite.test.cpp
       title: test/verify/yosupo-point-set-range-composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-polynomial-interpolation.test.cpp
       title: test/verify/yosupo-polynomial-interpolation.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
       title: test/verify/yosupo-polynomial-taylor-shift.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
       title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-queue-operate-all-composite.test.cpp
       title: test/verify/yosupo-queue-operate-all-composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-range-affine-range-sum-2.test.cpp
       title: test/verify/yosupo-range-affine-range-sum-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-range-affine-range-sum-3.test.cpp
       title: test/verify/yosupo-range-affine-range-sum-3.test.cpp
     - icon: ':x:'
