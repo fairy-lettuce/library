@@ -32,7 +32,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/pow.cpp
     title: Pow ($f(x)^k$)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/sqrt.cpp
     title: Sqrt ($\sqrt {f(x)}$)
   _extendedVerifiedWith:
@@ -60,12 +60,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
     title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Inv ($\frac {1} {f(x)}$)
     links: []
@@ -179,7 +179,7 @@ data:
   - math/fps/exp.cpp
   - math/fps/polynomial-interpolation.cpp
   timestamp: '2020-10-23 03:48:43+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
   - test/verify/yosupo-bellnoulli-number.test.cpp

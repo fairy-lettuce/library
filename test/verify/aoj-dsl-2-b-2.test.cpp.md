@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/trie/binary-trie.cpp
     title: Binary-Trie
   - icon: ':question:'

@@ -6,7 +6,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: dp/cumulative-sum-2d.cpp
       title: "Cumulative-Sum-2D(\u4E8C\u6B21\u5143\u7D2F\u7A4D\u548C)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: dp/cumulative-sum.cpp
       title: "Cumulative-Sum(\u4E00\u6B21\u5143\u7D2F\u7A4D\u548C)"
     - icon: ':heavy_check_mark:'
@@ -321,7 +321,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/shortest-path/dijkstra-radix-heap.cpp
       title: "Dijkstra-Radix-Heap(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/shortest-path/dijkstra.cpp
       title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
     - icon: ':warning:'
@@ -413,7 +413,7 @@ data:
     - icon: ':question:'
       path: math/combinatorics/mod-pow.cpp
       title: "Mod-Pow(\u3079\u304D\u4E57)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-sqrt.cpp
       title: math/combinatorics/mod-sqrt.cpp
     - icon: ':x:'
@@ -454,7 +454,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/bellnoulli.cpp
       title: math/fps/bellnoulli.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/berlekamp-massey.cpp
       title: math/fps/berlekamp-massey.cpp
     - icon: ':heavy_check_mark:'
@@ -475,7 +475,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/integral.cpp
       title: Integral ($\int f(x) dx$)
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/inv.cpp
       title: Inv ($\frac {1} {f(x)}$)
     - icon: ':heavy_check_mark:'
@@ -496,10 +496,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/pow.cpp
       title: Pow ($f(x)^k$)
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/sparse-matrix.cpp
       title: math/fps/sparse-matrix.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/sqrt.cpp
       title: Sqrt ($\sqrt {f(x)}$)
     - icon: ':x:'
@@ -591,7 +591,7 @@ data:
     - icon: ':warning:'
       path: other/mo-rollback.cpp
       title: other/mo-rollback.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: other/mo.cpp
       title: Mo's Algorithm
     - icon: ':warning:'
@@ -609,7 +609,7 @@ data:
     - icon: ':warning:'
       path: other/timer.cpp
       title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: other/vector-pool.cpp
       title: other/vector-pool.cpp
     - icon: ':warning:'
@@ -672,7 +672,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/bbst/randomized-binary-search-tree.cpp
       title: structure/bbst/randomized-binary-search-tree.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/bbst/red-black-tree.cpp
       title: "Red-Black-Tree(\u8D64\u9ED2\u6728)"
     - icon: ':heavy_check_mark:'
@@ -686,7 +686,7 @@ data:
     - icon: ':x:'
       path: structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp
       title: Convex-Hull-Trick-Add-Monotone
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/convex-hull-trick/dynamic-li-chao-tree.cpp
       title: Dynamic-Li-Chao-Tree
     - icon: ':warning:'
@@ -742,10 +742,10 @@ data:
       title: Skew-Heap
   - name: structure/others
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/others/binary-indexed-tree.cpp
       title: Binary-Indexed-Tree(BIT)
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/others/disjoint-sparse-table.cpp
       title: Disjoint-Sparse-Table
     - icon: ':x:'
@@ -789,7 +789,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/segment-tree/dual-segment-tree.cpp
       title: "Dual-Segment-Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/segment-tree/lazy-segment-tree.cpp
       title: "Lazy-Segment-Tree(\u9045\u5EF6\u4F1D\u642C\u30BB\u30B0\u30E1\u30F3\u30C8\
         \u6728)"
@@ -814,7 +814,7 @@ data:
       title: "Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - name: structure/trie
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/trie/binary-trie.cpp
       title: Binary-Trie
     - icon: ':warning:'
@@ -845,20 +845,20 @@ data:
       title: structure/union-find/weighted-union-find.cpp
   - name: structure/wavelet
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/wavelet/succinct-indexable-dictionary.cpp
       title: structure/wavelet/succinct-indexable-dictionary.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
       title: Wavelet-Matrix-Point-Add-Rectangle-Sum
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/wavelet/wavelet-matrix-rectangle-sum.cpp
       title: Wavelet-Matrix-Rectangle-Sum
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/wavelet/wavelet-matrix.cpp
       title: "Wavelet-Matrix(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u884C\u5217\
         )"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/wavelet/wavelet-tree.cpp
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
@@ -1177,7 +1177,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dsl-2-b-2.test.cpp
       title: test/verify/aoj-dsl-2-b-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-dsl-2-b.test.cpp
       title: test/verify/aoj-dsl-2-b.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1390,7 +1390,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-persistent-unionfind.test.cpp
       title: test/verify/yosupo-persistent-unionfind.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-point-add-rectangle-sum.test.cpp
       title: test/verify/yosupo-point-add-rectangle-sum.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1420,49 +1420,49 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-range-affine-range-sum-3.test.cpp
       title: test/verify/yosupo-range-affine-range-sum-3.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-range-affine-range-sum.test.cpp
       title: test/verify/yosupo-range-affine-range-sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-range-kth-smallest-2.test.cpp
       title: test/verify/yosupo-range-kth-smallest-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-range-kth-smallest.test.cpp
       title: test/verify/yosupo-range-kth-smallest.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-rectangle-sum.test.cpp
       title: test/verify/yosupo-rectangle-sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-scc.test.cpp
       title: test/verify/yosupo-scc.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-segment-add-get-min.test.cpp
       title: test/verify/yosupo-segment-add-get-min.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-set-xor-min.test.cpp
       title: test/verify/yosupo-set-xor-min.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-shortest-path.test.cpp
       title: test/verify/yosupo-shortest-path.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-sparse-matrix-det.test.cpp
       title: test/verify/yosupo-sparse-matrix-det.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-sqrt-mod.test.cpp
       title: test/verify/yosupo-sqrt-mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
       title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-static-range-inversions-query.test.cpp
       title: test/verify/yosupo-static-range-inversions-query.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-static-range-sum.test.cpp
       title: test/verify/yosupo-static-range-sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-staticrmq-2.test.cpp
       title: test/verify/yosupo-staticrmq-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-staticrmq-3.test.cpp
       title: test/verify/yosupo-staticrmq-3.test.cpp
     - icon: ':x:'

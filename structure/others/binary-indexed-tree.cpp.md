@@ -2,22 +2,22 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
     title: Wavelet-Matrix-Point-Add-Rectangle-Sum
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dsl-2-b.test.cpp
     title: test/verify/aoj-dsl-2-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-point-add-rectangle-sum.test.cpp
     title: test/verify/yosupo-point-add-rectangle-sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-static-range-inversions-query.test.cpp
     title: test/verify/yosupo-static-range-inversions-query.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/binary-indexed-tree.md
     document_title: Binary-Indexed-Tree(BIT)
@@ -31,16 +31,16 @@ data:
     \ + 1] = vs[i];\n    for(size_t i = 1; i < data.size(); i++) {\n      size_t j\
     \ = i + (i & -i);\n      if(j < data.size()) data[j] += data[i];\n    }\n  }\n\
     \n  void add(int k, const T &x) {\n    for(++k; k < (int) data.size(); k += k\
-    \ & -k) data[k] += x;\n  }\n\n  T sum(int r) const {\n    T ret = T();\n    for(;\
-    \ r > 0; r -= r & -r) ret += data[r];\n    return ret;\n  }\n\n  T sum(int l,\
-    \ int r) const {\n    return sum(r) - sum(l);\n  }\n\n  int lower_bound(T x) const\
-    \ {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1); k > 0;\
-    \ k >>= 1) {\n      if(i + k < data.size() && data[i + k] < x) {\n        x -=\
-    \ data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\n  int upper_bound(T\
-    \ x) const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1);\
-    \ k > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <= x) {\n   \
-    \     x -= data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\
-    };\n"
+    \ & -k) data[k] += x;\n  }\n\n  T fold(int r) const {\n    T ret = T();\n    for(;\
+    \ r > 0; r -= r & -r) ret += data[r];\n    return ret;\n  }\n\n  T fold(int l,\
+    \ int r) const {\n    return fold(r) - fold(l);\n  }\n\n  int lower_bound(T x)\
+    \ const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1); k\
+    \ > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] < x) {\n      \
+    \  x -= data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\n\
+    \  int upper_bound(T x) const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size()\
+    \ - 1) + 1); k > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <=\
+    \ x) {\n        x -= data[i + k];\n        i += k;\n      }\n    }\n    return\
+    \ i;\n  }\n};\n"
   code: "/**\n * @brief Binary-Indexed-Tree(BIT)\n * @docs docs/binary-indexed-tree.md\n\
     \ */\ntemplate< typename T >\nstruct BinaryIndexedTree {\nprivate:\n  vector<\
     \ T > data;\n\npublic:\n  BinaryIndexedTree() = default;\n\n  explicit BinaryIndexedTree(size_t\
@@ -49,23 +49,23 @@ data:
     \ + 1] = vs[i];\n    for(size_t i = 1; i < data.size(); i++) {\n      size_t j\
     \ = i + (i & -i);\n      if(j < data.size()) data[j] += data[i];\n    }\n  }\n\
     \n  void add(int k, const T &x) {\n    for(++k; k < (int) data.size(); k += k\
-    \ & -k) data[k] += x;\n  }\n\n  T sum(int r) const {\n    T ret = T();\n    for(;\
-    \ r > 0; r -= r & -r) ret += data[r];\n    return ret;\n  }\n\n  T sum(int l,\
-    \ int r) const {\n    return sum(r) - sum(l);\n  }\n\n  int lower_bound(T x) const\
-    \ {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1); k > 0;\
-    \ k >>= 1) {\n      if(i + k < data.size() && data[i + k] < x) {\n        x -=\
-    \ data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\n  int upper_bound(T\
-    \ x) const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1);\
-    \ k > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <= x) {\n   \
-    \     x -= data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\
-    };\n"
+    \ & -k) data[k] += x;\n  }\n\n  T fold(int r) const {\n    T ret = T();\n    for(;\
+    \ r > 0; r -= r & -r) ret += data[r];\n    return ret;\n  }\n\n  T fold(int l,\
+    \ int r) const {\n    return fold(r) - fold(l);\n  }\n\n  int lower_bound(T x)\
+    \ const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1); k\
+    \ > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] < x) {\n      \
+    \  x -= data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\n\
+    \  int upper_bound(T x) const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size()\
+    \ - 1) + 1); k > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <=\
+    \ x) {\n        x -= data[i + k];\n        i += k;\n      }\n    }\n    return\
+    \ i;\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: structure/others/binary-indexed-tree.cpp
   requiredBy:
   - structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
-  timestamp: '2020-12-18 20:33:07+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-05-06 16:25:17+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-static-range-inversions-query.test.cpp
   - test/verify/yosupo-point-add-rectangle-sum.test.cpp

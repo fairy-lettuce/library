@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/others/binary-indexed-tree.cpp
     title: Binary-Indexed-Tree(BIT)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/wavelet/succinct-indexable-dictionary.cpp
     title: structure/wavelet/succinct-indexable-dictionary.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-point-add-rectangle-sum.test.cpp
     title: test/verify/yosupo-point-add-rectangle-sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/wavelet-matrix-point-add-rectangle-sum.md
     document_title: Wavelet-Matrix-Point-Add-Rectangle-Sum
@@ -38,12 +38,12 @@ data:
     \ i++) data[i + 1] = vs[i];\n    for(size_t i = 1; i < data.size(); i++) {\n \
     \     size_t j = i + (i & -i);\n      if(j < data.size()) data[j] += data[i];\n\
     \    }\n  }\n\n  void add(int k, const T &x) {\n    for(++k; k < (int) data.size();\
-    \ k += k & -k) data[k] += x;\n  }\n\n  T sum(int r) const {\n    T ret = T();\n\
-    \    for(; r > 0; r -= r & -r) ret += data[r];\n    return ret;\n  }\n\n  T sum(int\
-    \ l, int r) const {\n    return sum(r) - sum(l);\n  }\n\n  int lower_bound(T x)\
-    \ const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1); k\
-    \ > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] < x) {\n      \
-    \  x -= data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\n\
+    \ k += k & -k) data[k] += x;\n  }\n\n  T fold(int r) const {\n    T ret = T();\n\
+    \    for(; r > 0; r -= r & -r) ret += data[r];\n    return ret;\n  }\n\n  T fold(int\
+    \ l, int r) const {\n    return fold(r) - fold(l);\n  }\n\n  int lower_bound(T\
+    \ x) const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1);\
+    \ k > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] < x) {\n    \
+    \    x -= data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\n\
     \  int upper_bound(T x) const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size()\
     \ - 1) + 1); k > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <=\
     \ x) {\n        x -= data[i + k];\n        i += k;\n      }\n    }\n    return\
@@ -137,8 +137,8 @@ data:
   isVerificationFile: false
   path: structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
   requiredBy: []
-  timestamp: '2021-05-01 19:53:10+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-05-06 16:25:17+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-point-add-rectangle-sum.test.cpp
 documentation_of: structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp

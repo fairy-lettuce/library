@@ -7,13 +7,13 @@ data:
   - icon: ':question:'
     path: other/scanner.cpp
     title: "Scanner(\u9AD8\u901F\u5165\u529B)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/others/binary-indexed-tree.cpp
     title: Binary-Indexed-Tree(BIT)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/wavelet/succinct-indexable-dictionary.cpp
     title: structure/wavelet/succinct-indexable-dictionary.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
     title: Wavelet-Matrix-Point-Add-Rectangle-Sum
   - icon: ':question:'
@@ -21,9 +21,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_add_rectangle_sum
@@ -77,17 +77,17 @@ data:
     \ + 1] = vs[i];\n    for(size_t i = 1; i < data.size(); i++) {\n      size_t j\
     \ = i + (i & -i);\n      if(j < data.size()) data[j] += data[i];\n    }\n  }\n\
     \n  void add(int k, const T &x) {\n    for(++k; k < (int) data.size(); k += k\
-    \ & -k) data[k] += x;\n  }\n\n  T sum(int r) const {\n    T ret = T();\n    for(;\
-    \ r > 0; r -= r & -r) ret += data[r];\n    return ret;\n  }\n\n  T sum(int l,\
-    \ int r) const {\n    return sum(r) - sum(l);\n  }\n\n  int lower_bound(T x) const\
-    \ {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1); k > 0;\
-    \ k >>= 1) {\n      if(i + k < data.size() && data[i + k] < x) {\n        x -=\
-    \ data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\n  int upper_bound(T\
-    \ x) const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1);\
-    \ k > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <= x) {\n   \
-    \     x -= data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\
-    };\n#line 3 \"structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp\"\n\
-    \n/*\n * @brief Wavelet-Matrix-Point-Add-Rectangle-Sum\n * @docs docs/wavelet-matrix-point-add-rectangle-sum.md\n\
+    \ & -k) data[k] += x;\n  }\n\n  T fold(int r) const {\n    T ret = T();\n    for(;\
+    \ r > 0; r -= r & -r) ret += data[r];\n    return ret;\n  }\n\n  T fold(int l,\
+    \ int r) const {\n    return fold(r) - fold(l);\n  }\n\n  int lower_bound(T x)\
+    \ const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1); k\
+    \ > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] < x) {\n      \
+    \  x -= data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\n\
+    \  int upper_bound(T x) const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size()\
+    \ - 1) + 1); k > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <=\
+    \ x) {\n        x -= data[i + k];\n        i += k;\n      }\n    }\n    return\
+    \ i;\n  }\n};\n#line 3 \"structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp\"\
+    \n\n/*\n * @brief Wavelet-Matrix-Point-Add-Rectangle-Sum\n * @docs docs/wavelet-matrix-point-add-rectangle-sum.md\n\
     \ */\ntemplate< typename T, int MAXLOG, typename D >\nstruct WaveletMatrixPointAddRectangleSum\
     \ {\n  size_t length;\n  SuccinctIndexableDictionary matrix[MAXLOG];\n  BinaryIndexedTree<\
     \ D > ds[MAXLOG];\n  vector< T > v;\n  int mid[MAXLOG];\n\n  WaveletMatrixPointAddRectangleSum()\
@@ -222,8 +222,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-point-add-rectangle-sum.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 19:53:10+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-05-06 16:25:17+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-point-add-rectangle-sum.test.cpp
 layout: document

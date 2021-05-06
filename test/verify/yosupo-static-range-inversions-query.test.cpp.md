@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: other/mo.cpp
     title: Mo's Algorithm
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/others/binary-indexed-tree.cpp
     title: Binary-Indexed-Tree(BIT)
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_inversions_query
@@ -74,17 +74,17 @@ data:
     \ + 1] = vs[i];\n    for(size_t i = 1; i < data.size(); i++) {\n      size_t j\
     \ = i + (i & -i);\n      if(j < data.size()) data[j] += data[i];\n    }\n  }\n\
     \n  void add(int k, const T &x) {\n    for(++k; k < (int) data.size(); k += k\
-    \ & -k) data[k] += x;\n  }\n\n  T sum(int r) const {\n    T ret = T();\n    for(;\
-    \ r > 0; r -= r & -r) ret += data[r];\n    return ret;\n  }\n\n  T sum(int l,\
-    \ int r) const {\n    return sum(r) - sum(l);\n  }\n\n  int lower_bound(T x) const\
-    \ {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1); k > 0;\
-    \ k >>= 1) {\n      if(i + k < data.size() && data[i + k] < x) {\n        x -=\
-    \ data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\n  int upper_bound(T\
-    \ x) const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1);\
-    \ k > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <= x) {\n   \
-    \     x -= data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\
-    };\n#line 7 \"test/verify/yosupo-static-range-inversions-query.test.cpp\"\n\n\
-    int main() {\n  int N, Q;\n  cin >> N >> Q;\n  vector< int > A(N);\n  for(auto\
+    \ & -k) data[k] += x;\n  }\n\n  T fold(int r) const {\n    T ret = T();\n    for(;\
+    \ r > 0; r -= r & -r) ret += data[r];\n    return ret;\n  }\n\n  T fold(int l,\
+    \ int r) const {\n    return fold(r) - fold(l);\n  }\n\n  int lower_bound(T x)\
+    \ const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size() - 1) + 1); k\
+    \ > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] < x) {\n      \
+    \  x -= data[i + k];\n        i += k;\n      }\n    }\n    return i;\n  }\n\n\
+    \  int upper_bound(T x) const {\n    int i = 0;\n    for(int k = 1 << (__lg(data.size()\
+    \ - 1) + 1); k > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <=\
+    \ x) {\n        x -= data[i + k];\n        i += k;\n      }\n    }\n    return\
+    \ i;\n  }\n};\n#line 7 \"test/verify/yosupo-static-range-inversions-query.test.cpp\"\
+    \n\nint main() {\n  int N, Q;\n  cin >> N >> Q;\n  vector< int > A(N);\n  for(auto\
     \ &a : A) cin >> a;\n  Mo mo(N);\n  for(int i = 0; i < Q; i++) {\n    int l, r;\n\
     \    cin >> l >> r;\n    mo.add(l, r);\n  }\n  vector< int > xs{A};\n  sort(begin(xs),\
     \ end(xs));\n  xs.erase(unique(begin(xs), end(xs)), end(xs));\n  for(auto &a :\
@@ -122,8 +122,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-static-range-inversions-query.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 19:53:10+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-05-06 16:25:17+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-static-range-inversions-query.test.cpp
 layout: document
