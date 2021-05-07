@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedRequiredBy:
@@ -108,16 +108,16 @@ data:
   isVerificationFile: false
   path: math/fps/integral.cpp
   requiredBy:
-  - math/fps/log.cpp
-  - math/fps/bell.cpp
-  - math/fps/pow.cpp
   - math/fps/exp.cpp
+  - math/fps/log.cpp
+  - math/fps/pow.cpp
+  - math/fps/bell.cpp
   timestamp: '2020-10-23 03:48:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-log-of-formal-power-series.test.cpp
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp
   - test/verify/yosupo-pow-of-formal-power-series.test.cpp
+  - test/verify/yosupo-log-of-formal-power-series.test.cpp
 documentation_of: math/fps/integral.cpp
 layout: document
 redirect_from:

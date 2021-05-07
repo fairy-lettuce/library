@@ -6,12 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-ntl-1-d.test.cpp
     title: test/verify/aoj-ntl-1-d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-tetration-mod.test.cpp
     title: test/verify/yosupo-tetration-mod.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/euler-phi.md
     document_title: "Euler's-Phi-Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\
@@ -32,10 +32,10 @@ data:
   path: math/number-theory/euler-phi.cpp
   requiredBy: []
   timestamp: '2020-03-03 18:28:13+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-tetration-mod.test.cpp
   - test/verify/aoj-ntl-1-d.test.cpp
+  - test/verify/yosupo-tetration-mod.test.cpp
 documentation_of: math/number-theory/euler-phi.cpp
 layout: document
 redirect_from:

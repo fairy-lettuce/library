@@ -57,8 +57,12 @@ data:
     \    data[y] = x;\n    return true;\n  }\n\n  int find(int k) {\n    if(data[k]\
     \ < 0) return (k);\n    return data[k] = find(data[k]);\n  }\n\n  int size(int\
     \ k) {\n    return -data[find(k)];\n  }\n\n  bool same(int x, int y) {\n    return\
-    \ find(x) == find(y);\n  }\n};\n#line 6 \"test/verify/yukicoder-583.test.cpp\"\
-    \n\n#line 1 \"graph/others/eulerian-trail.cpp\"\n/**\n * @brief Eulerian-Trail(\u30AA\
+    \ find(x) == find(y);\n  }\n\n  vector< vector< int > > groups() {\n    int n\
+    \ = (int) data.size();\n    vector< vector< int > > ret(n);\n    for(int i = 0;\
+    \ i < n; i++) {\n      ret[find(i)].emplace_back(i);\n    }\n    ret.erase(remove_if(begin(ret),\
+    \ end(ret), [&](const vector< int > &v) {\n      return v.empty();\n    }));\n\
+    \    return ret;\n  }\n};\n#line 6 \"test/verify/yukicoder-583.test.cpp\"\n\n\
+    #line 1 \"graph/others/eulerian-trail.cpp\"\n/**\n * @brief Eulerian-Trail(\u30AA\
     \u30A4\u30E9\u30FC\u8DEF)\n * @docs docs/eulerian-trail.md\n */\ntemplate< bool\
     \ directed >\nstruct EulerianTrail {\n  vector< vector< pair< int, int > > > g;\n\
     \  vector< pair< int, int > > es;\n  int M;\n  vector< int > used_vertex, used_edge,\
@@ -110,7 +114,7 @@ data:
   isVerificationFile: true
   path: test/verify/yukicoder-583.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-05-07 20:07:14+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yukicoder-583.test.cpp

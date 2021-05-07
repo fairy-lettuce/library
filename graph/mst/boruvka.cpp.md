@@ -24,7 +24,11 @@ data:
     \    data[y] = x;\n    return true;\n  }\n\n  int find(int k) {\n    if(data[k]\
     \ < 0) return (k);\n    return data[k] = find(data[k]);\n  }\n\n  int size(int\
     \ k) {\n    return -data[find(k)];\n  }\n\n  bool same(int x, int y) {\n    return\
-    \ find(x) == find(y);\n  }\n};\n#line 2 \"graph/mst/boruvka.cpp\"\n\n/**\n * @brief\
+    \ find(x) == find(y);\n  }\n\n  vector< vector< int > > groups() {\n    int n\
+    \ = (int) data.size();\n    vector< vector< int > > ret(n);\n    for(int i = 0;\
+    \ i < n; i++) {\n      ret[find(i)].emplace_back(i);\n    }\n    ret.erase(remove_if(begin(ret),\
+    \ end(ret), [&](const vector< int > &v) {\n      return v.empty();\n    }));\n\
+    \    return ret;\n  }\n};\n#line 2 \"graph/mst/boruvka.cpp\"\n\n/**\n * @brief\
     \ Boruvka(\u6700\u5C0F\u5168\u57DF\u6728)\n * @docs docs/boruvka.md\n */\ntemplate<\
     \ typename T >\nstruct Boruvka {\nprivate:\n  size_t V;\n  const T INF;\n  UnionFind\
     \ uf;\n\npublic:\n  explicit Boruvka(size_t V, T INF = numeric_limits< T >::max())\
@@ -51,7 +55,7 @@ data:
   isVerificationFile: false
   path: graph/mst/boruvka.cpp
   requiredBy: []
-  timestamp: '2020-09-16 23:08:58+09:00'
+  timestamp: '2021-05-07 20:07:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-2-a-3.test.cpp

@@ -2,13 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/pmormq-lowest-common-ancestor.cpp
     title: "PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':heavy_check_mark:'
     path: graph/tree/rmq-lowest-common-ancestor.cpp
     title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/others/plus-minus-one-rmq.cpp
     title: Plus-Minus-One-RMQ
   _extendedVerifiedWith:
@@ -24,15 +24,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-lca.test.cpp
     title: test/verify/yosupo-lca.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-staticrmq-4.test.cpp
     title: test/verify/yosupo-staticrmq-4.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-staticrmq.test.cpp
     title: test/verify/yosupo-staticrmq.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/sparse-table.md
     document_title: "Sparse-Table(\u30B9\u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB\
@@ -75,14 +75,14 @@ data:
   - graph/tree/rmq-lowest-common-ancestor.cpp
   - graph/tree/pmormq-lowest-common-ancestor.cpp
   timestamp: '2020-11-09 17:59:38+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-staticrmq-4.test.cpp
-  - test/verify/yosupo-lca.test.cpp
-  - test/verify/yosupo-lca-2.test.cpp
   - test/verify/aoj-grl-5-c-3.test.cpp
-  - test/verify/yosupo-staticrmq.test.cpp
+  - test/verify/yosupo-lca-2.test.cpp
+  - test/verify/yosupo-lca.test.cpp
   - test/verify/aoj-grl-5-c-4.test.cpp
+  - test/verify/yosupo-staticrmq.test.cpp
+  - test/verify/yosupo-staticrmq-4.test.cpp
 documentation_of: structure/others/sparse-table.cpp
 layout: document
 redirect_from:

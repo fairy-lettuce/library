@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/connected-components/incremental-bridge-connectivity.cpp
     title: Incremental-Bridge-Connectivity
   - icon: ':question:'
@@ -57,7 +57,11 @@ data:
     \    data[y] = x;\n    return true;\n  }\n\n  int find(int k) {\n    if(data[k]\
     \ < 0) return (k);\n    return data[k] = find(data[k]);\n  }\n\n  int size(int\
     \ k) {\n    return -data[find(k)];\n  }\n\n  bool same(int x, int y) {\n    return\
-    \ find(x) == find(y);\n  }\n};\n#line 2 \"graph/connected-components/incremental-bridge-connectivity.cpp\"\
+    \ find(x) == find(y);\n  }\n\n  vector< vector< int > > groups() {\n    int n\
+    \ = (int) data.size();\n    vector< vector< int > > ret(n);\n    for(int i = 0;\
+    \ i < n; i++) {\n      ret[find(i)].emplace_back(i);\n    }\n    ret.erase(remove_if(begin(ret),\
+    \ end(ret), [&](const vector< int > &v) {\n      return v.empty();\n    }));\n\
+    \    return ret;\n  }\n};\n#line 2 \"graph/connected-components/incremental-bridge-connectivity.cpp\"\
     \n\n/**\n * @brief Incremental-Bridge-Connectivity\n * @docs docs/incremental-bridge-connectivity.md\n\
     \ * @see https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity\n\
     \ */\nstruct IncrementalBridgeConnectivity {\nprivate:\n  UnionFind cc, bcc;\n\
@@ -101,7 +105,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-two-edge-connected-components-2.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-05-07 20:07:14+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-two-edge-connected-components-2.test.cpp

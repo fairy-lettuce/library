@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/connected-components/incremental-bridge-connectivity.cpp
     title: Incremental-Bridge-Connectivity
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/connected-components/three-edge-connected-components.cpp
     title: "Three-Edge-Connected-Components(\u4E09\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
@@ -19,9 +19,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/three_edge_connected_components
@@ -78,9 +78,13 @@ data:
     \ > data[y]) swap(x, y);\n    data[x] += data[y];\n    data[y] = x;\n    return\
     \ true;\n  }\n\n  int find(int k) {\n    if(data[k] < 0) return (k);\n    return\
     \ data[k] = find(data[k]);\n  }\n\n  int size(int k) {\n    return -data[find(k)];\n\
-    \  }\n\n  bool same(int x, int y) {\n    return find(x) == find(y);\n  }\n};\n\
-    #line 2 \"graph/connected-components/incremental-bridge-connectivity.cpp\"\n\n\
-    /**\n * @brief Incremental-Bridge-Connectivity\n * @docs docs/incremental-bridge-connectivity.md\n\
+    \  }\n\n  bool same(int x, int y) {\n    return find(x) == find(y);\n  }\n\n \
+    \ vector< vector< int > > groups() {\n    int n = (int) data.size();\n    vector<\
+    \ vector< int > > ret(n);\n    for(int i = 0; i < n; i++) {\n      ret[find(i)].emplace_back(i);\n\
+    \    }\n    ret.erase(remove_if(begin(ret), end(ret), [&](const vector< int >\
+    \ &v) {\n      return v.empty();\n    }));\n    return ret;\n  }\n};\n#line 2\
+    \ \"graph/connected-components/incremental-bridge-connectivity.cpp\"\n\n/**\n\
+    \ * @brief Incremental-Bridge-Connectivity\n * @docs docs/incremental-bridge-connectivity.md\n\
     \ * @see https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity\n\
     \ */\nstruct IncrementalBridgeConnectivity {\nprivate:\n  UnionFind cc, bcc;\n\
     \  vector< int > bbf;\n  size_t bridge;\n\n  int size() {\n    return bbf.size();\n\
@@ -150,8 +154,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-three-edge-connected-components.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-05-07 20:07:14+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-three-edge-connected-components.test.cpp
 layout: document

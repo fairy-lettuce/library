@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/connected-components/incremental-bridge-connectivity.cpp
     title: Incremental-Bridge-Connectivity
   - icon: ':question:'
@@ -12,12 +12,12 @@ data:
     title: Union-Find
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-three-edge-connected-components.test.cpp
     title: test/verify/yosupo-three-edge-connected-components.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Three-Edge-Connected-Components(\u4E09\u91CD\u8FBA\u9023\u7D50\
       \u6210\u5206\u5206\u89E3)"
@@ -45,7 +45,11 @@ data:
     \ += data[y];\n    data[y] = x;\n    return true;\n  }\n\n  int find(int k) {\n\
     \    if(data[k] < 0) return (k);\n    return data[k] = find(data[k]);\n  }\n\n\
     \  int size(int k) {\n    return -data[find(k)];\n  }\n\n  bool same(int x, int\
-    \ y) {\n    return find(x) == find(y);\n  }\n};\n#line 2 \"graph/connected-components/incremental-bridge-connectivity.cpp\"\
+    \ y) {\n    return find(x) == find(y);\n  }\n\n  vector< vector< int > > groups()\
+    \ {\n    int n = (int) data.size();\n    vector< vector< int > > ret(n);\n   \
+    \ for(int i = 0; i < n; i++) {\n      ret[find(i)].emplace_back(i);\n    }\n \
+    \   ret.erase(remove_if(begin(ret), end(ret), [&](const vector< int > &v) {\n\
+    \      return v.empty();\n    }));\n    return ret;\n  }\n};\n#line 2 \"graph/connected-components/incremental-bridge-connectivity.cpp\"\
     \n\n/**\n * @brief Incremental-Bridge-Connectivity\n * @docs docs/incremental-bridge-connectivity.md\n\
     \ * @see https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity\n\
     \ */\nstruct IncrementalBridgeConnectivity {\nprivate:\n  UnionFind cc, bcc;\n\
@@ -136,8 +140,8 @@ data:
   isVerificationFile: false
   path: graph/connected-components/three-edge-connected-components.cpp
   requiredBy: []
-  timestamp: '2020-09-15 01:41:10+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-05-07 20:07:14+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-three-edge-connected-components.test.cpp
 documentation_of: graph/connected-components/three-edge-connected-components.cpp

@@ -53,11 +53,14 @@ data:
     \    data[y] = x;\n    return true;\n  }\n\n  int find(int k) {\n    if(data[k]\
     \ < 0) return (k);\n    return data[k] = find(data[k]);\n  }\n\n  int size(int\
     \ k) {\n    return -data[find(k)];\n  }\n\n  bool same(int x, int y) {\n    return\
-    \ find(x) == find(y);\n  }\n};\n#line 6 \"test/verify/aoj-dsl-1-a.test.cpp\"\n\
-    \nint main() {\n  int N, Q;\n  scanf(\"%d %d\", &N, &Q);\n  UnionFind uf(N);\n\
-    \  while(Q--) {\n    int t, x, y;\n    scanf(\"%d %d %d\", &t, &x, &y);\n    if(t\
-    \ == 0) uf.unite(x, y);\n    else printf(\"%d\\n\", uf.find(x) == uf.find(y));\n\
-    \  }\n}\n"
+    \ find(x) == find(y);\n  }\n\n  vector< vector< int > > groups() {\n    int n\
+    \ = (int) data.size();\n    vector< vector< int > > ret(n);\n    for(int i = 0;\
+    \ i < n; i++) {\n      ret[find(i)].emplace_back(i);\n    }\n    ret.erase(remove_if(begin(ret),\
+    \ end(ret), [&](const vector< int > &v) {\n      return v.empty();\n    }));\n\
+    \    return ret;\n  }\n};\n#line 6 \"test/verify/aoj-dsl-1-a.test.cpp\"\n\nint\
+    \ main() {\n  int N, Q;\n  scanf(\"%d %d\", &N, &Q);\n  UnionFind uf(N);\n  while(Q--)\
+    \ {\n    int t, x, y;\n    scanf(\"%d %d %d\", &t, &x, &y);\n    if(t == 0) uf.unite(x,\
+    \ y);\n    else printf(\"%d\\n\", uf.find(x) == uf.find(y));\n  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../structure/union-find/union-find.cpp\"\
     \n\nint main() {\n  int N, Q;\n  scanf(\"%d %d\", &N, &Q);\n  UnionFind uf(N);\n\
@@ -70,7 +73,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-dsl-1-a.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-05-07 20:07:14+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dsl-1-a.test.cpp

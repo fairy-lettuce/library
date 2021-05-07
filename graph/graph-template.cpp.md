@@ -10,7 +10,7 @@ data:
     path: graph/connected-components/strongly-connected-components.cpp
     title: "Strongly-Connected-Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/connected-components/three-edge-connected-components.cpp
     title: "Three-Edge-Connected-Components(\u4E09\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
@@ -178,10 +178,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-shortest-path.test.cpp
     title: test/verify/yosupo-shortest-path.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-staticrmq-4.test.cpp
     title: test/verify/yosupo-staticrmq-4.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-three-edge-connected-components.test.cpp
     title: test/verify/yosupo-three-edge-connected-components.test.cpp
   - icon: ':x:'
@@ -245,75 +245,75 @@ data:
   isVerificationFile: false
   path: graph/graph-template.cpp
   requiredBy:
-  - graph/connected-components/three-edge-connected-components.cpp
-  - graph/connected-components/bi-connected-components.cpp
-  - graph/connected-components/strongly-connected-components.cpp
-  - graph/connected-components/two-edge-connected-components.cpp
-  - graph/others/cycle-detection.cpp
-  - graph/others/block-cut-tree.cpp
-  - graph/others/dominator-tree.cpp
-  - graph/others/two-satisfiability.cpp
-  - graph/others/enumerate-triangles.cpp
-  - graph/others/low-link.cpp
-  - graph/others/namori-graph.cpp
+  - graph/tree/tree-diameter.cpp
+  - graph/tree/centroid-decomposition.cpp
+  - graph/tree/heavy-light-decomposition.cpp
+  - graph/mst/prim.cpp
   - graph/mst/kruskal.cpp
   - graph/mst/directed-mst.cpp
-  - graph/mst/manhattan-mst.cpp
   - graph/mst/prim-fibonacchi-heap.cpp
-  - graph/mst/prim.cpp
-  - graph/tree/tree-diameter.cpp
-  - graph/tree/heavy-light-decomposition.cpp
-  - graph/tree/centroid-decomposition.cpp
+  - graph/mst/manhattan-mst.cpp
+  - graph/others/enumerate-triangles.cpp
+  - graph/others/block-cut-tree.cpp
+  - graph/others/two-satisfiability.cpp
+  - graph/others/low-link.cpp
+  - graph/others/cycle-detection.cpp
+  - graph/others/namori-graph.cpp
+  - graph/others/dominator-tree.cpp
+  - graph/connected-components/three-edge-connected-components.cpp
+  - graph/connected-components/bi-connected-components.cpp
+  - graph/connected-components/two-edge-connected-components.cpp
+  - graph/connected-components/strongly-connected-components.cpp
   timestamp: '2020-09-15 01:04:53+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/verify/yosupo-cycle-detection.test.cpp
+  - test/verify/yosupo-two-sat.test.cpp
+  - test/verify/yosupo-directedmst.test.cpp
+  - test/verify/aoj-grl-1-a-2.test.cpp
+  - test/verify/yosupo-dominatortree.test.cpp
+  - test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
+  - test/verify/yosupo-three-edge-connected-components.test.cpp
+  - test/verify/yosupo-lca-3.test.cpp
+  - test/verify/aoj-grl-5-c-3.test.cpp
+  - test/verify/aoj-grl-1-b-2.test.cpp
   - test/verify/aoj-alds-1-11-c.test.cpp
-  - test/verify/aoj-grl-3-b.test.cpp
+  - test/verify/aoj-grl-3-a.test.cpp
+  - test/verify/aoj-2821.test.cpp
+  - test/verify/aoj-3139.test.cpp
+  - test/verify/aoj-grl-5-c.test.cpp
   - test/verify/yosupo-two-edge-connected-components.test.cpp
+  - test/verify/yukicoder-650.test.cpp
+  - test/verify/yosupo-manhattanmst.test.cpp
+  - test/verify/aoj-grl-2-a-4.test.cpp
+  - test/verify/yukicoder-1254.test.cpp
+  - test/verify/aoj-2667.test.cpp
+  - test/verify/aoj-0275.test.cpp
+  - test/verify/aoj-3022.test.cpp
+  - test/verify/aoj-2450.test.cpp
+  - test/verify/yosupo-lca-2.test.cpp
   - test/verify/yukicoder-1069.test.cpp
   - test/verify/aoj-grl-1-a.test.cpp
-  - test/verify/aoj-grl-1-b-2.test.cpp
-  - test/verify/aoj-grl-1-a-3.test.cpp
-  - test/verify/aoj-grl-1-b.test.cpp
-  - test/verify/aoj-2450.test.cpp
-  - test/verify/aoj-grl-5-c.test.cpp
-  - test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
-  - test/verify/yosupo-dominatortree.test.cpp
-  - test/verify/yosupo-three-edge-connected-components.test.cpp
-  - test/verify/aoj-grl-1-a-2.test.cpp
-  - test/verify/yosupo-enumerate-triangles.test.cpp
-  - test/verify/yukicoder-1254.test.cpp
-  - test/verify/aoj-grl-2-a-2.test.cpp
-  - test/verify/aoj-0294.test.cpp
-  - test/verify/aoj-3022.test.cpp
-  - test/verify/yosupo-two-sat.test.cpp
   - test/verify/aoj-grl-3-c.test.cpp
-  - test/verify/aoj-0275.test.cpp
-  - test/verify/yosupo-staticrmq-4.test.cpp
-  - test/verify/aoj-grl-5-c-2.test.cpp
-  - test/verify/aoj-grl-5-a.test.cpp
-  - test/verify/aoj-grl-2-a.test.cpp
-  - test/verify/yosupo-lca.test.cpp
-  - test/verify/yosupo-tree-diameter.test.cpp
-  - test/verify/aoj-grl-3-a.test.cpp
-  - test/verify/yukicoder-1002.test.cpp
-  - test/verify/aoj-0304.test.cpp
-  - test/verify/yosupo-k-shortest-walk.test.cpp
-  - test/verify/yosupo-lca-3.test.cpp
-  - test/verify/yosupo-shortest-path.test.cpp
-  - test/verify/yukicoder-650.test.cpp
-  - test/verify/yosupo-directedmst.test.cpp
-  - test/verify/yosupo-lca-2.test.cpp
-  - test/verify/aoj-3139.test.cpp
-  - test/verify/aoj-grl-5-c-3.test.cpp
   - test/verify/yosupo-scc.test.cpp
-  - test/verify/aoj-grl-2-b.test.cpp
-  - test/verify/aoj-2821.test.cpp
-  - test/verify/aoj-grl-2-a-4.test.cpp
-  - test/verify/yosupo-manhattanmst.test.cpp
-  - test/verify/aoj-2667.test.cpp
+  - test/verify/yosupo-cycle-detection.test.cpp
+  - test/verify/yosupo-lca.test.cpp
   - test/verify/aoj-grl-5-c-4.test.cpp
+  - test/verify/yosupo-shortest-path.test.cpp
+  - test/verify/aoj-grl-2-a.test.cpp
+  - test/verify/aoj-grl-2-b.test.cpp
+  - test/verify/aoj-grl-2-a-2.test.cpp
+  - test/verify/aoj-0304.test.cpp
+  - test/verify/aoj-grl-1-a-3.test.cpp
+  - test/verify/aoj-grl-5-c-2.test.cpp
+  - test/verify/yukicoder-1002.test.cpp
+  - test/verify/yosupo-tree-diameter.test.cpp
+  - test/verify/aoj-0294.test.cpp
+  - test/verify/yosupo-enumerate-triangles.test.cpp
+  - test/verify/yosupo-staticrmq-4.test.cpp
+  - test/verify/yosupo-k-shortest-walk.test.cpp
+  - test/verify/aoj-grl-5-a.test.cpp
+  - test/verify/aoj-grl-1-b.test.cpp
+  - test/verify/aoj-grl-3-b.test.cpp
 documentation_of: graph/graph-template.cpp
 layout: document
 redirect_from:

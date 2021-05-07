@@ -36,8 +36,8 @@ data:
   timestamp: '2020-10-09 19:49:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-counting-primes.test.cpp
   - test/verify/yosupo-kth-root-integer.test.cpp
+  - test/verify/yosupo-counting-primes.test.cpp
 documentation_of: math/number-theory/kth-root.cpp
 layout: document
 redirect_from:

@@ -60,10 +60,10 @@ data:
   timestamp: '2020-02-24 21:29:56+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/verify/yukicoder-705.test.cpp
+  - test/verify/aoj-2603.test.cpp
   - test/verify/yukicoder-703.test.cpp
   - test/verify/yukicoder-704.test.cpp
-  - test/verify/aoj-2603.test.cpp
-  - test/verify/yukicoder-705.test.cpp
 documentation_of: dp/monotone-minima.cpp
 layout: document
 redirect_from:

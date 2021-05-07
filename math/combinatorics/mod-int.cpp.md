@@ -81,10 +81,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   - icon: ':x:'
@@ -148,35 +148,35 @@ data:
   timestamp: '2019-11-30 23:36:31+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/verify/yosupo-range-affine-range-sum-2.test.cpp
+  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+  - test/verify/yosupo-exp-of-formal-power-series.test.cpp
+  - test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
+  - test/verify/yosupo-multipoint-evaluation.test.cpp
+  - test/verify/yukicoder-650.test.cpp
+  - test/verify/yosupo-point-set-range-composite-3.test.cpp
+  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
+  - test/verify/aoj-dpl-5-g.test.cpp
+  - test/verify/yosupo-matrix-det.test.cpp
+  - test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
+  - test/verify/aoj-dpl-5-i.test.cpp
+  - test/verify/yosupo-find-linear-recurrence.test.cpp
+  - test/verify/yosupo-sparse-matrix-det.test.cpp
+  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
+  - test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
+  - test/verify/yosupo-bellnoulli-number.test.cpp
+  - test/verify/yosupo-polynomial-taylor-shift.test.cpp
+  - test/verify/yosupo-partition-function.test.cpp
+  - test/verify/yosupo-range-affine-range-sum-3.test.cpp
+  - test/verify/aoj-2405.test.cpp
+  - test/verify/yosupo-point-set-range-composite-2.test.cpp
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
   - test/verify/yosupo-point-set-range-composite.test.cpp
-  - test/verify/aoj-dpl-5-g.test.cpp
-  - test/verify/yosupo-bellnoulli-number.test.cpp
-  - test/verify/yosupo-sparse-matrix-det.test.cpp
-  - test/verify/yosupo-partition-function.test.cpp
-  - test/verify/yosupo-range-affine-range-sum.test.cpp
-  - test/verify/aoj-dpl-5-j.test.cpp
-  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
-  - test/verify/yosupo-polynomial-taylor-shift.test.cpp
-  - test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
-  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - test/verify/aoj-dpl-5-i.test.cpp
-  - test/verify/yosupo-multipoint-evaluation.test.cpp
-  - test/verify/yosupo-point-set-range-composite-3.test.cpp
-  - test/verify/yukicoder-650.test.cpp
-  - test/verify/yosupo-range-affine-range-sum-3.test.cpp
-  - test/verify/yosupo-polynomial-interpolation.test.cpp
-  - test/verify/yosupo-point-set-range-composite-2.test.cpp
-  - test/verify/yosupo-exp-of-formal-power-series.test.cpp
+  - test/verify/yosupo-range-affine-range-sum-2.test.cpp
+  - test/verify/aoj-dpl-5-j.test.cpp
+  - test/verify/yosupo-range-affine-range-sum.test.cpp
   - test/verify/yosupo-queue-operate-all-composite.test.cpp
-  - test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
-  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
-  - test/verify/yosupo-find-linear-recurrence.test.cpp
-  - test/verify/aoj-2405.test.cpp
-  - test/verify/yosupo-matrix-det.test.cpp
+  - test/verify/yosupo-polynomial-interpolation.test.cpp
 documentation_of: math/combinatorics/mod-int.cpp
 layout: document
 redirect_from:

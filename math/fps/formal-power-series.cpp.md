@@ -44,14 +44,14 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/sqrt.cpp
     title: Sqrt ($\sqrt {f(x)}$)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/stirling-first.cpp
     title: "Stirling-First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\
       )"
   - icon: ':warning:'
     path: math/fps/stirling-second-kth-column.cpp
     title: math/fps/stirling-second-kth-column.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/stirling-second.cpp
     title: math/fps/stirling-second.cpp
   - icon: ':heavy_check_mark:'
@@ -94,15 +94,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links: []
@@ -228,41 +228,41 @@ data:
   isVerificationFile: false
   path: math/fps/formal-power-series.cpp
   requiredBy:
-  - math/fps/sqrt.cpp
-  - math/fps/log.cpp
-  - math/fps/bell.cpp
-  - math/fps/eulerian.cpp
-  - math/fps/taylor-shift.cpp
-  - math/fps/stirling-second-kth-column.cpp
-  - math/fps/pow.cpp
-  - math/fps/partition.cpp
-  - math/fps/inv.cpp
-  - math/fps/stirling-first.cpp
   - math/fps/integral.cpp
-  - math/fps/bellnoulli.cpp
-  - math/fps/mod-pow.cpp
-  - math/fps/multipoint-evaluation.cpp
-  - math/fps/diff.cpp
   - math/fps/exp.cpp
-  - math/fps/polynomial-interpolation.cpp
   - math/fps/stirling-second.cpp
+  - math/fps/multipoint-evaluation.cpp
+  - math/fps/stirling-first.cpp
+  - math/fps/log.cpp
+  - math/fps/bellnoulli.cpp
+  - math/fps/taylor-shift.cpp
+  - math/fps/diff.cpp
+  - math/fps/inv.cpp
+  - math/fps/pow.cpp
+  - math/fps/polynomial-interpolation.cpp
+  - math/fps/stirling-second-kth-column.cpp
+  - math/fps/sqrt.cpp
+  - math/fps/mod-pow.cpp
+  - math/fps/partition.cpp
+  - math/fps/eulerian.cpp
+  - math/fps/bell.cpp
   timestamp: '2020-10-23 03:48:43+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-log-of-formal-power-series.test.cpp
-  - test/verify/yosupo-bellnoulli-number.test.cpp
-  - test/verify/yosupo-sparse-matrix-det.test.cpp
-  - test/verify/yosupo-partition-function.test.cpp
-  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
-  - test/verify/yosupo-polynomial-taylor-shift.test.cpp
-  - test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - test/verify/yosupo-multipoint-evaluation.test.cpp
-  - test/verify/yosupo-polynomial-interpolation.test.cpp
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
+  - test/verify/yosupo-multipoint-evaluation.test.cpp
+  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
+  - test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   - test/verify/yosupo-find-linear-recurrence.test.cpp
+  - test/verify/yosupo-sparse-matrix-det.test.cpp
+  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
+  - test/verify/yosupo-bellnoulli-number.test.cpp
+  - test/verify/yosupo-polynomial-taylor-shift.test.cpp
+  - test/verify/yosupo-partition-function.test.cpp
+  - test/verify/yosupo-log-of-formal-power-series.test.cpp
+  - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
+  - test/verify/yosupo-polynomial-interpolation.test.cpp
 documentation_of: math/fps/formal-power-series.cpp
 layout: document
 redirect_from:

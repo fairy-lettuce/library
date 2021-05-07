@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/berlekamp-massey.cpp
     title: math/fps/berlekamp-massey.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':question:'

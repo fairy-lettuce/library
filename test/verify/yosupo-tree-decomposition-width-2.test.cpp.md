@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/tree-decomposition.cpp
     title: "Tree-Decomposition(\u6728\u5206\u89E3)"
   - icon: ':question:'
@@ -18,9 +18,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/tree_decomposition_width_2
@@ -108,7 +108,11 @@ data:
     \    data[y] = x;\n    return true;\n  }\n\n  int find(int k) {\n    if(data[k]\
     \ < 0) return (k);\n    return data[k] = find(data[k]);\n  }\n\n  int size(int\
     \ k) {\n    return -data[find(k)];\n  }\n\n  bool same(int x, int y) {\n    return\
-    \ find(x) == find(y);\n  }\n};\n#line 9 \"test/verify/yosupo-tree-decomposition-width-2.test.cpp\"\
+    \ find(x) == find(y);\n  }\n\n  vector< vector< int > > groups() {\n    int n\
+    \ = (int) data.size();\n    vector< vector< int > > ret(n);\n    for(int i = 0;\
+    \ i < n; i++) {\n      ret[find(i)].emplace_back(i);\n    }\n    ret.erase(remove_if(begin(ret),\
+    \ end(ret), [&](const vector< int > &v) {\n      return v.empty();\n    }));\n\
+    \    return ret;\n  }\n};\n#line 9 \"test/verify/yosupo-tree-decomposition-width-2.test.cpp\"\
     \n\n#line 1 \"graph/others/tree-decomposition.cpp\"\n/**\n * @brief Tree-Decomposition(\u6728\
     \u5206\u89E3)\n * @see https://ei1333.hateblo.jp/entry/2020/02/12/150319\n * @docs\
     \ docs/tree-decomposition.md\n */\nstruct DecompNode {\n  vector< int > bag, child;\n\
@@ -198,8 +202,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-tree-decomposition-width-2.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-05-07 20:07:14+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-tree-decomposition-width-2.test.cpp
 layout: document

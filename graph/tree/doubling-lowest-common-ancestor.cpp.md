@@ -71,8 +71,8 @@ data:
   timestamp: '2020-11-10 01:30:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-grl-5-c.test.cpp
   - test/verify/yosupo-lca-3.test.cpp
+  - test/verify/aoj-grl-5-c.test.cpp
 documentation_of: graph/tree/doubling-lowest-common-ancestor.cpp
 layout: document
 redirect_from:

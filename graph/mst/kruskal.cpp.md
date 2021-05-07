@@ -45,7 +45,11 @@ data:
     \ += data[y];\n    data[y] = x;\n    return true;\n  }\n\n  int find(int k) {\n\
     \    if(data[k] < 0) return (k);\n    return data[k] = find(data[k]);\n  }\n\n\
     \  int size(int k) {\n    return -data[find(k)];\n  }\n\n  bool same(int x, int\
-    \ y) {\n    return find(x) == find(y);\n  }\n};\n#line 3 \"graph/mst/kruskal.cpp\"\
+    \ y) {\n    return find(x) == find(y);\n  }\n\n  vector< vector< int > > groups()\
+    \ {\n    int n = (int) data.size();\n    vector< vector< int > > ret(n);\n   \
+    \ for(int i = 0; i < n; i++) {\n      ret[find(i)].emplace_back(i);\n    }\n \
+    \   ret.erase(remove_if(begin(ret), end(ret), [&](const vector< int > &v) {\n\
+    \      return v.empty();\n    }));\n    return ret;\n  }\n};\n#line 3 \"graph/mst/kruskal.cpp\"\
     \n\n/**\n * @brief Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)\n * @docs docs/kruskal.md\n\
     \ */\ntemplate< typename T >\nstruct MinimumSpanningTree {\n  T cost;\n  Edges<\
     \ T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree< T > kruskal(Edges<\
@@ -69,11 +73,11 @@ data:
   isVerificationFile: false
   path: graph/mst/kruskal.cpp
   requiredBy: []
-  timestamp: '2020-09-16 23:08:58+09:00'
+  timestamp: '2021-05-07 20:07:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-grl-2-a-2.test.cpp
   - test/verify/yosupo-manhattanmst.test.cpp
+  - test/verify/aoj-grl-2-a-2.test.cpp
 documentation_of: graph/mst/kruskal.cpp
 layout: document
 redirect_from:

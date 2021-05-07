@@ -47,39 +47,41 @@ data:
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-staticrmq-2.test.cpp\"\
     \n\n#line 1 \"structure/others/disjoint-sparse-table.cpp\"\n/**\n * @brief Disjoint-Sparse-Table\n\
-    \ * @docs docs/disjoint-sparse-table.md\n */\ntemplate< typename Semigroup >\n\
-    struct DisjointSparseTable {\n  using F = function< Semigroup(Semigroup, Semigroup)\
-    \ >;\n  const F f;\n  vector< vector< Semigroup > > st;\n  vector< int > lookup;\n\
-    \n  DisjointSparseTable(const vector< Semigroup > &v, const F &f) : f(f) {\n \
-    \   int b = 0;\n    while((1 << b) <= v.size()) ++b;\n    st.resize(b, vector<\
-    \ Semigroup >(v.size(), Semigroup()));\n    for(int i = 0; i < v.size(); i++)\
-    \ st[0][i] = v[i];\n    for(int i = 1; i < b; i++) {\n      int shift = 1 << i;\n\
-    \      for(int j = 0; j < v.size(); j += shift << 1) {\n        int t = min(j\
-    \ + shift, (int) v.size());\n        st[i][t - 1] = v[t - 1];\n        for(int\
-    \ k = t - 2; k >= j; k--) st[i][k] = f(v[k], st[i][k + 1]);\n        if(v.size()\
-    \ <= t) break;\n        st[i][t] = v[t];\n        int r = min(t + shift, (int)\
-    \ v.size());\n        for(int k = t + 1; k < r; k++) st[i][k] = f(st[i][k - 1],\
-    \ v[k]);\n      }\n    }\n    lookup.resize(1 << b);\n    for(int i = 2; i < lookup.size();\
-    \ i++) {\n      lookup[i] = lookup[i >> 1] + 1;\n    }\n  }\n\n  Semigroup query(int\
-    \ l, int r) {\n    if(l >= --r) return st[0][l];\n    int p = lookup[l ^ r];\n\
-    \    return f(st[p][l], st[p][r]);\n  }\n};\n#line 6 \"test/verify/yosupo-staticrmq-2.test.cpp\"\
-    \n\nint main() {\n  int N, Q;\n  cin >> N >> Q;\n  vector< int > A(N);\n  cin\
-    \ >> A;\n  auto f = [](int a, int b) { return min(a, b); };\n  DisjointSparseTable<\
-    \ int > st(A, f);\n  while(Q--) {\n    int l, r;\n    cin >> l >> r;\n    cout\
-    \ << st.query(l, r) << \"\\n\";\n  }\n}\n"
+    \ * @docs docs/disjoint-sparse-table.md\n */\ntemplate< typename Semigroup, typename\
+    \ F >\nstruct DisjointSparseTable {\n  const F f;\n  vector< vector< Semigroup\
+    \ > > st;\n  vector< int > lookup;\n\n  DisjointSparseTable(const vector< Semigroup\
+    \ > &v, const F &f) : f(f) {\n    int b = 0;\n    while((1 << b) <= v.size())\
+    \ ++b;\n    st.resize(b, vector< Semigroup >(v.size(), Semigroup()));\n    for(int\
+    \ i = 0; i < v.size(); i++) st[0][i] = v[i];\n    for(int i = 1; i < b; i++) {\n\
+    \      int shift = 1 << i;\n      for(int j = 0; j < v.size(); j += shift << 1)\
+    \ {\n        int t = min(j + shift, (int) v.size());\n        st[i][t - 1] = v[t\
+    \ - 1];\n        for(int k = t - 2; k >= j; k--) st[i][k] = f(v[k], st[i][k +\
+    \ 1]);\n        if(v.size() <= t) break;\n        st[i][t] = v[t];\n        int\
+    \ r = min(t + shift, (int) v.size());\n        for(int k = t + 1; k < r; k++)\
+    \ st[i][k] = f(st[i][k - 1], v[k]);\n      }\n    }\n    lookup.resize(1 << b);\n\
+    \    for(int i = 2; i < lookup.size(); i++) {\n      lookup[i] = lookup[i >> 1]\
+    \ + 1;\n    }\n  }\n\n  Semigroup fold(int l, int r) {\n    if(l >= --r) return\
+    \ st[0][l];\n    int p = lookup[l ^ r];\n    return f(st[p][l], st[p][r]);\n \
+    \ }\n};\n\ntemplate< typename SemiGroup, typename F >\nDisjointSparseTable< SemiGroup,\
+    \ F > get_disjoint_sparse_table(const vector< SemiGroup >& v, const F& f) {\n\
+    \  return {v, f};\n}\n#line 6 \"test/verify/yosupo-staticrmq-2.test.cpp\"\n\n\
+    int main() {\n  int N, Q;\n  cin >> N >> Q;\n  vector< int > A(N);\n  cin >> A;\n\
+    \  auto f = [](int a, int b) { return min(a, b); };\n  auto st = get_disjoint_sparse_table(A,\
+    \ f);\n  while(Q--) {\n    int l, r;\n    cin >> l >> r;\n    cout << st.fold(l,\
+    \ r) << \"\\n\";\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n\n#include\
     \ \"../../template/template.cpp\"\n\n#include \"../../structure/others/disjoint-sparse-table.cpp\"\
     \n\nint main() {\n  int N, Q;\n  cin >> N >> Q;\n  vector< int > A(N);\n  cin\
-    \ >> A;\n  auto f = [](int a, int b) { return min(a, b); };\n  DisjointSparseTable<\
-    \ int > st(A, f);\n  while(Q--) {\n    int l, r;\n    cin >> l >> r;\n    cout\
-    \ << st.query(l, r) << \"\\n\";\n  }\n}\n"
+    \ >> A;\n  auto f = [](int a, int b) { return min(a, b); };\n  auto st = get_disjoint_sparse_table(A,\
+    \ f);\n  while(Q--) {\n    int l, r;\n    cin >> l >> r;\n    cout << st.fold(l,\
+    \ r) << \"\\n\";\n  }\n}\n"
   dependsOn:
   - template/template.cpp
   - structure/others/disjoint-sparse-table.cpp
   isVerificationFile: true
   path: test/verify/yosupo-staticrmq-2.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-05-07 20:07:14+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-staticrmq-2.test.cpp

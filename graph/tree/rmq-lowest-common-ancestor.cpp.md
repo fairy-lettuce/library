@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/others/sparse-table.cpp
     title: "Sparse-Table(\u30B9\u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB)"
   _extendedRequiredBy: []
@@ -73,8 +73,8 @@ data:
   timestamp: '2020-11-11 23:28:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-lca-2.test.cpp
   - test/verify/aoj-grl-5-c-3.test.cpp
+  - test/verify/yosupo-lca-2.test.cpp
 documentation_of: graph/tree/rmq-lowest-common-ancestor.cpp
 layout: document
 redirect_from:
