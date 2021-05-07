@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-184.test.cpp
     title: test/verify/yukicoder-184.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"math/matrix/binary-basis.cpp\"\ntemplate< typename T >\n\
@@ -51,7 +51,7 @@ data:
   path: math/matrix/binary-basis.cpp
   requiredBy: []
   timestamp: '2020-06-03 21:44:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yukicoder-184.test.cpp
 documentation_of: math/matrix/binary-basis.cpp

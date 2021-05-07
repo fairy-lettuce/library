@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/heavy-light-decomposition.cpp
     title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

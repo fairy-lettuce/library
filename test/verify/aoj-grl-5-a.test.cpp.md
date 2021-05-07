@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/tree-diameter.cpp
     title: "Tree-Diameter(\u6728\u306E\u76F4\u5F84)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

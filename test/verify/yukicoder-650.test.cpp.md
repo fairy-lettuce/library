@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/heavy-light-decomposition.cpp
     title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/matrix/square-matrix.cpp
     title: "Square-Matrix(\u6B63\u65B9\u884C\u5217)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/segment-tree/segment-tree.cpp
     title: "Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/650
@@ -240,7 +240,7 @@ data:
   path: test/verify/yukicoder-650.test.cpp
   requiredBy: []
   timestamp: '2021-05-01 00:53:32+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yukicoder-650.test.cpp
 layout: document

@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-1069.test.cpp
     title: test/verify/yukicoder-1069.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/k-shortest-path.md
     document_title: K-Shortest-Path
@@ -105,7 +105,7 @@ data:
   path: graph/shortest-path/k-shortest-path.cpp
   requiredBy: []
   timestamp: '2020-08-22 20:09:30+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yukicoder-1069.test.cpp
 documentation_of: graph/shortest-path/k-shortest-path.cpp

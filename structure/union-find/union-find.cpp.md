@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/connected-components/incremental-bridge-connectivity.cpp
     title: Incremental-Bridge-Connectivity
   - icon: ':heavy_check_mark:'
@@ -43,15 +43,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-tree-decomposition-width-2.test.cpp
     title: test/verify/yosupo-tree-decomposition-width-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-two-edge-connected-components-2.test.cpp
     title: test/verify/yosupo-two-edge-connected-components-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-583.test.cpp
     title: test/verify/yukicoder-583.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/union-find.md
     document_title: Union-Find
@@ -90,7 +90,7 @@ data:
   - graph/connected-components/three-edge-connected-components.cpp
   - graph/connected-components/incremental-bridge-connectivity.cpp
   timestamp: '2021-05-07 20:07:14+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-bipartite-edge-coloring.test.cpp
   - test/verify/yosupo-three-edge-connected-components.test.cpp

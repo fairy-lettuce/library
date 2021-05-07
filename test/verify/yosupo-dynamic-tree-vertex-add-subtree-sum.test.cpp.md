@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: structure/others/link-cut-tree-subtree.cpp
     title: structure/others/link-cut-tree-subtree.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

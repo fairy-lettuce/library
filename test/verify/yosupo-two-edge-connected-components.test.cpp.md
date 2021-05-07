@@ -1,24 +1,24 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/connected-components/two-edge-connected-components.cpp
     title: "Two-Edge-Connected-Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph-template.cpp
     title: graph/graph-template.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/low-link.cpp
     title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/two_edge_connected_components
@@ -122,7 +122,7 @@ data:
   path: test/verify/yosupo-two-edge-connected-components.test.cpp
   requiredBy: []
   timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-two-edge-connected-components.test.cpp
 layout: document

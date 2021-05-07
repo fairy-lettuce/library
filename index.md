@@ -41,10 +41,10 @@ data:
       path: dp/longest-increasing-subsequence.cpp
       title: "Longest-Increasing-Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
         )"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: dp/monotone-minima.cpp
       title: Monotone-Minima
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: dp/online-offline-dp.cpp
       title: "Online-Offline-DP(\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u30AA\u30D5\u30E9\
         \u30A4\u30F3\u5909\u63DB)"
@@ -170,10 +170,10 @@ data:
       path: graph/connected-components/bi-connected-components.cpp
       title: "Bi-Connected-Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\
         \u5206\u89E3)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/connected-components/incremental-bridge-connectivity.cpp
       title: Incremental-Bridge-Connectivity
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/connected-components/strongly-connected-components.cpp
       title: "Strongly-Connected-Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
         )"
@@ -181,7 +181,7 @@ data:
       path: graph/connected-components/three-edge-connected-components.cpp
       title: "Three-Edge-Connected-Components(\u4E09\u91CD\u8FBA\u9023\u7D50\u6210\
         \u5206\u5206\u89E3)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/connected-components/two-edge-connected-components.cpp
       title: "Two-Edge-Connected-Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
         \u5206\u89E3)"
@@ -222,7 +222,7 @@ data:
       title: graph/flow/push-relabel.cpp
   - name: graph
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/graph-template.cpp
       title: graph/graph-template.cpp
     - icon: ':heavy_check_mark:'
@@ -275,10 +275,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/others/enumerate-triangles.cpp
       title: "Enumerate-Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/eulerian-trail.cpp
       title: "Eulerian-Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/low-link.cpp
       title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
     - icon: ':heavy_check_mark:'
@@ -287,7 +287,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/others/maximum-independent-set.cpp
       title: graph/others/maximum-independent-set.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/namori-graph.cpp
       title: Namori-Graph
     - icon: ':heavy_check_mark:'
@@ -301,7 +301,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/others/tree-decomposition.cpp
       title: "Tree-Decomposition(\u6728\u5206\u89E3)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/two-satisfiability.cpp
       title: 2-SAT
   - name: graph/shortest-path
@@ -327,7 +327,7 @@ data:
     - icon: ':warning:'
       path: graph/shortest-path/grid-bfs.cpp
       title: graph/shortest-path/grid-bfs.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/shortest-path/k-shortest-path.cpp
       title: K-Shortest-Path
     - icon: ':heavy_check_mark:'
@@ -342,7 +342,7 @@ data:
       title: graph/shortest-path/warshall-floyd.cpp
   - name: graph/tree
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/centroid-decomposition.cpp
       title: "Centroid-Decomosition(\u91CD\u5FC3\u5206\u89E3)"
     - icon: ':heavy_check_mark:'
@@ -358,7 +358,7 @@ data:
       path: graph/tree/doubling-lowest-common-ancestor.cpp
       title: "Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
         )"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/heavy-light-decomposition.cpp
       title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
     - icon: ':heavy_check_mark:'
@@ -370,7 +370,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/tree/rmq-lowest-common-ancestor.cpp
       title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/tree-diameter.cpp
       title: "Tree-Diameter(\u6728\u306E\u76F4\u5F84)"
     - icon: ':heavy_check_mark:'
@@ -404,7 +404,7 @@ data:
     - icon: ':warning:'
       path: math/combinatorics/mod-int-2.cpp
       title: math/combinatorics/mod-int-2.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-int.cpp
       title: math/combinatorics/mod-int.cpp
     - icon: ':heavy_check_mark:'
@@ -517,13 +517,13 @@ data:
       title: Taylor-Shift ($f(x) \Rightarrow f(x + c)$)
   - name: math/matrix
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/matrix/binary-basis.cpp
       title: math/matrix/binary-basis.cpp
     - icon: ':heavy_check_mark:'
       path: math/matrix/matrix.cpp
       title: math/matrix/matrix.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/matrix/square-matrix.cpp
       title: "Square-Matrix(\u6B63\u65B9\u884C\u5217)"
   - name: math/number-theory
@@ -597,13 +597,13 @@ data:
     - icon: ':warning:'
       path: other/offline-dynamic-connectivity.cpp
       title: other/offline-dynamic-connectivity.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: other/printer.cpp
       title: "Printer(\u9AD8\u901F\u51FA\u529B)"
     - icon: ':warning:'
       path: other/random-number-generator.cpp
       title: other/random-number-generator.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: other/scanner.cpp
       title: "Scanner(\u9AD8\u901F\u5165\u529B)"
     - icon: ':warning:'
@@ -617,7 +617,7 @@ data:
       title: Xor-Shift
   - name: string
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: string/aho-corasick.cpp
       title: "Aho-Corasick(\u30A8\u30A4\u30DB\u2013\u30B3\u30E9\u30B7\u30C3\u30AF\u6CD5\
         )"
@@ -672,9 +672,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/bbst/randomized-binary-search-tree.cpp
       title: structure/bbst/randomized-binary-search-tree.cpp
-    - icon: ':warning:'
-      path: structure/bbst/rbst.cpp
-      title: structure/bbst/rbst.cpp
     - icon: ':heavy_check_mark:'
       path: structure/bbst/red-black-tree.cpp
       title: "Red-Black-Tree(\u8D64\u9ED2\u6728)"
@@ -686,7 +683,7 @@ data:
       title: "Weight-Balanced-Tree(\u91CD\u307F\u5E73\u8861\u6728)"
   - name: structure/convex-hull-trick
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/convex-hull-trick/convex-hull-trick-add-monotone.cpp
       title: Convex-Hull-Trick-Add-Monotone
     - icon: ':heavy_check_mark:'
@@ -812,7 +809,7 @@ data:
     - icon: ':warning:'
       path: structure/segment-tree/segment-tree-fractional-cascading.cpp
       title: structure/segment-tree/segment-tree-fractional-cascading.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/segment-tree/segment-tree.cpp
       title: "Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - name: structure/trie
@@ -823,7 +820,7 @@ data:
     - icon: ':warning:'
       path: structure/trie/persistent-binary-trie.cpp
       title: Persistent-Binary-Trie
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/trie/trie.cpp
       title: structure/trie/trie.cpp
   - name: structure/union-find
@@ -840,7 +837,7 @@ data:
     - icon: ':warning:'
       path: structure/union-find/union-find-undo.cpp
       title: structure/union-find/union-find-undo.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/union-find/union-find.cpp
       title: Union-Find
     - icon: ':heavy_check_mark:'
@@ -866,7 +863,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -1495,49 +1492,49 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-tree-decomposition-width-2.test.cpp
       title: test/verify/yosupo-tree-decomposition-width-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-tree-diameter.test.cpp
       title: test/verify/yosupo-tree-diameter.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-two-edge-connected-components-2.test.cpp
       title: test/verify/yosupo-two-edge-connected-components-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-two-edge-connected-components.test.cpp
       title: test/verify/yosupo-two-edge-connected-components.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-two-sat.test.cpp
       title: test/verify/yosupo-two-sat.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-1002.test.cpp
       title: test/verify/yukicoder-1002.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-1069.test.cpp
       title: test/verify/yukicoder-1069.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-1254.test.cpp
       title: test/verify/yukicoder-1254.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-184.test.cpp
       title: test/verify/yukicoder-184.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-430.test.cpp
       title: test/verify/yukicoder-430.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-583.test.cpp
       title: test/verify/yukicoder-583.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-650.test.cpp
       title: test/verify/yukicoder-650.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-703.test.cpp
       title: test/verify/yukicoder-703.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-704.test.cpp
       title: test/verify/yukicoder-704.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-705.test.cpp
       title: test/verify/yukicoder-705.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-952.test.cpp
       title: test/verify/yukicoder-952.test.cpp
 layout: toppage

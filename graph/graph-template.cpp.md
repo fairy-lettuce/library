@@ -6,7 +6,7 @@ data:
     path: graph/connected-components/bi-connected-components.cpp
     title: "Bi-Connected-Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/connected-components/strongly-connected-components.cpp
     title: "Strongly-Connected-Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
@@ -14,7 +14,7 @@ data:
     path: graph/connected-components/three-edge-connected-components.cpp
     title: "Three-Edge-Connected-Components(\u4E09\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/connected-components/two-edge-connected-components.cpp
     title: "Two-Edge-Connected-Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
@@ -45,22 +45,22 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/others/enumerate-triangles.cpp
     title: "Enumerate-Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/low-link.cpp
     title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/namori-graph.cpp
     title: Namori-Graph
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/two-satisfiability.cpp
     title: 2-SAT
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/centroid-decomposition.cpp
     title: "Centroid-Decomosition(\u91CD\u5FC3\u5206\u89E3)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/heavy-light-decomposition.cpp
     title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/tree-diameter.cpp
     title: "Tree-Diameter(\u6728\u306E\u76F4\u5F84)"
   _extendedVerifiedWith:
@@ -184,30 +184,30 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-three-edge-connected-components.test.cpp
     title: test/verify/yosupo-three-edge-connected-components.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-tree-diameter.test.cpp
     title: test/verify/yosupo-tree-diameter.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-two-edge-connected-components.test.cpp
     title: test/verify/yosupo-two-edge-connected-components.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-two-sat.test.cpp
     title: test/verify/yosupo-two-sat.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-1002.test.cpp
     title: test/verify/yukicoder-1002.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-1069.test.cpp
     title: test/verify/yukicoder-1069.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-1254.test.cpp
     title: test/verify/yukicoder-1254.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/graph-template.cpp\"\n\ntemplate< typename T = int\
@@ -265,7 +265,7 @@ data:
   - graph/connected-components/two-edge-connected-components.cpp
   - graph/connected-components/strongly-connected-components.cpp
   timestamp: '2020-09-15 01:04:53+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-two-sat.test.cpp
   - test/verify/yosupo-directedmst.test.cpp

@@ -8,13 +8,13 @@ data:
     path: graph/others/bipartite-graph-edge-coloring.cpp
     title: "Bipartite-Graph-Edge-Coloring(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u8FBA\
       \u5F69\u8272)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/eulerian-trail.cpp
     title: "Eulerian-Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

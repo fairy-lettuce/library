@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: structure/union-find/persistent-union-find.cpp
     title: "Persistent-Union-Find(\u6C38\u7D9AUnion-Find)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

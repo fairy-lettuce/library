@@ -5,7 +5,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: dp/divide-and-conquer-optimization.cpp
     title: Divide-And-Conquer-Optimization
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: dp/online-offline-dp.cpp
     title: "Online-Offline-DP(\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u30AA\u30D5\u30E9\
       \u30A4\u30F3\u5909\u63DB)"
@@ -13,18 +13,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2603.test.cpp
     title: test/verify/aoj-2603.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-703.test.cpp
     title: test/verify/yukicoder-703.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-704.test.cpp
     title: test/verify/yukicoder-704.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-705.test.cpp
     title: test/verify/yukicoder-705.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/monotone-minima.md
     document_title: Monotone-Minima
@@ -58,7 +58,7 @@ data:
   - dp/divide-and-conquer-optimization.cpp
   - dp/online-offline-dp.cpp
   timestamp: '2020-02-24 21:29:56+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yukicoder-705.test.cpp
   - test/verify/aoj-2603.test.cpp
