@@ -6,18 +6,18 @@ data:
   - icon: ':x:'
     path: test/verify/aoj-2450-3.test.cpp
     title: test/verify/aoj-2450-3.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-point-set-range-composite-3.test.cpp
     title: test/verify/yosupo-point-set-range-composite-3.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Splay-Tree-Base(Splay\u6728)"
     links: []
@@ -65,7 +65,7 @@ data:
     \  }\n\n  NP insert_node(NP t, int k, NP v) {\n    splay(t);\n    auto x = split(t,\
     \ k);\n    return merge(x.first, v, x.second);\n  }\n\n  NP erase_node(NP t, int\
     \ k) {\n    splay(t);\n    auto x = split(t, k);\n    auto y = split(x.second,\
-    \ 1);\n    delete y.first;\n    return merge(x.first, y.second);\n  }\n}\n"
+    \ 1);\n    delete y.first;\n    return merge(x.first, y.second);\n  }\n};\n"
   code: "/**\n * @brief Splay-Tree-Base(Splay\u6728)\n */\ntemplate< typename Node\
     \ >\nstruct SplayTreeBase {\npublic:\n  using NP = Node *;\n\n  bool is_root(const\
     \ NP &t) const { return !t->p || (t->p->l != t && t->p->r != t); }\n\n  inline\
@@ -109,13 +109,13 @@ data:
     \  }\n\n  NP insert_node(NP t, int k, NP v) {\n    splay(t);\n    auto x = split(t,\
     \ k);\n    return merge(x.first, v, x.second);\n  }\n\n  NP erase_node(NP t, int\
     \ k) {\n    splay(t);\n    auto x = split(t, k);\n    auto y = split(x.second,\
-    \ 1);\n    delete y.first;\n    return merge(x.first, y.second);\n  }\n}\n"
+    \ 1);\n    delete y.first;\n    return merge(x.first, y.second);\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: structure/develop/splay-tree-base.cpp
   requiredBy: []
-  timestamp: '2021-05-08 17:56:58+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-05-08 18:10:42+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
   - test/verify/yosupo-point-set-range-composite-3.test.cpp
