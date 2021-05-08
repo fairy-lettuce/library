@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/flow/primal-dual.cpp
     title: graph/flow/primal-dual.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

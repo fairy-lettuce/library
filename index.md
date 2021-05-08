@@ -404,7 +404,7 @@ data:
     - icon: ':warning:'
       path: math/combinatorics/mod-int-2.cpp
       title: math/combinatorics/mod-int-2.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/combinatorics/mod-int.cpp
       title: math/combinatorics/mod-int.cpp
     - icon: ':heavy_check_mark:'
@@ -703,20 +703,20 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/develop/diameter.cpp
       title: structure/develop/diameter.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: structure/develop/lazy-reversible-splay-tree.cpp
       title: "Lazy-Reversible-Splay-Tree(\u9045\u5EF6\u4F1D\u642C\u53CD\u8EE2\u53EF\
         \u80FDSplay\u6728)"
     - icon: ':heavy_check_mark:'
       path: structure/develop/link-cut-tree-subtree.cpp
       title: structure/develop/link-cut-tree-subtree.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: structure/develop/link-cut-tree.cpp
       title: Link-Cut-Tree
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: structure/develop/reversible-splay-tree.cpp
       title: "Reversible-Splay-Tree(\u53CD\u8EE2\u53EF\u80FDSplay\u6728)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: structure/develop/splay-tree-base.cpp
       title: "Splay-Tree-Base(Splay\u6728)"
     - icon: ':heavy_check_mark:'
@@ -863,7 +863,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -1033,7 +1033,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-2450-2.test.cpp
       title: test/verify/aoj-2450-2.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/aoj-2450-3.test.cpp
       title: test/verify/aoj-2450-3.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1306,7 +1306,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-dominatortree.test.cpp
       title: test/verify/yosupo-dominatortree.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp
       title: test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1315,7 +1315,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp
       title: test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
       title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1396,7 +1396,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-point-set-range-composite-2.test.cpp
       title: test/verify/yosupo-point-set-range-composite-2.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-point-set-range-composite-3.test.cpp
       title: test/verify/yosupo-point-set-range-composite-3.test.cpp
     - icon: ':heavy_check_mark:'

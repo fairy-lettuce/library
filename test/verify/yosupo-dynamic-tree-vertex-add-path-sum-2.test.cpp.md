@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: structure/develop/link-cut-tree.cpp
     title: Link-Cut-Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: structure/develop/reversible-splay-tree.cpp
     title: "Reversible-Splay-Tree(\u53CD\u8EE2\u53EF\u80FDSplay\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: structure/develop/splay-tree-base.cpp
     title: "Splay-Tree-Base(Splay\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum
@@ -53,98 +53,94 @@ data:
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp\"\
     \n\n#line 1 \"structure/develop/splay-tree-base.cpp\"\n/**\n * @brief Splay-Tree-Base(Splay\u6728\
-    )\n */\ntemplate< typename Node >\nstruct SplayTreeBase {\npublic:\n  bool is_root(Node\
-    \ *t) const {\n    return !t->p || (t->p->l != t && t->p->r != t);\n  }\n\n  inline\
-    \ size_t count(Node *t) const { return t ? t->sz : 0; }\n\n  void splay(Node *t)\
-    \ {\n    push(t);\n    while(!is_root(t)) {\n      auto *q = t->p;\n      if(!is_root(t))\
-    \ {\n        push(q), push(t);\n        if(q->l == t) rotr(t);\n        else rotl(t);\n\
-    \      } else {\n        auto *r = q->p;\n        push(r), push(q), push(t);\n\
-    \        if(r->l == q) {\n          if(q->l == t) rotr(q), rotr(t);\n        \
-    \  else rotl(t), rotr(t);\n        } else {\n          if(q->r == t) rotl(q),\
-    \ rotl(t);\n          else rotr(t), rotl(t);\n        }\n      }\n    }\n  }\n\
-    \n  Node *erase(Node *t) {\n    splay(t);\n    Node *x = t->l, *y = t->r;\n  \
-    \  delete t;\n    if(!x) {\n      t = y;\n      if(t) t->p = nullptr;\n    } else\
-    \ if(!y) {\n      t = x;\n      t->p = nullptr;\n    } else {\n      x->p = nullptr;\n\
-    \      t = get_right(x);\n      splay(t);\n      t->r = y;\n      y->p = t;\n\
-    \    }\n    return t;\n  }\n\n  Node *get_left(Node *t) const {\n    while(t->l)\
-    \ t = t->l;\n    return t;\n  }\n\n  Node *get_right(Node *t) const {\n    while(t->r)\
-    \ t = t->r;\n    return t;\n  }\n\n  pair< Node *, Node * > split(Node *t, int\
-    \ k) {\n    if(!t) return {nullptr, nullptr};\n    push(t);\n    if(k <= count(t->l))\
-    \ {\n      auto x = split(t->l, k);\n      t->l = x.second;\n      t->p = nullptr;\n\
+    )\n */\ntemplate< typename Node >\nstruct SplayTreeBase {\npublic:\n  using NP\
+    \ = Node *;\n\n  bool is_root(const NP &t) const { return !t->p || (t->p->l !=\
+    \ t && t->p->r != t); }\n\n  inline size_t count(const NP &t) const { return t\
+    \ ? t->sz : 0; }\n\n  void splay(NP t) {\n    push(t);\n    while(!is_root(t))\
+    \ {\n      auto *q = t->p;\n      if(!is_root(t)) {\n        push(q), push(t);\n\
+    \        if(q->l == t) rotr(t);\n        else rotl(t);\n      } else {\n     \
+    \   auto *r = q->p;\n        push(r), push(q), push(t);\n        if(r->l == q)\
+    \ {\n          if(q->l == t) rotr(q), rotr(t);\n          else rotl(t), rotr(t);\n\
+    \        } else {\n          if(q->r == t) rotl(q), rotl(t);\n          else rotr(t),\
+    \ rotl(t);\n        }\n      }\n    }\n  }\n\n  NP erase(NP t) {\n    splay(t);\n\
+    \    Node *x = t->l, *y = t->r;\n    delete t;\n    if(!x) {\n      t = y;\n \
+    \     if(t) t->p = nullptr;\n    } else if(!y) {\n      t = x;\n      t->p = nullptr;\n\
+    \    } else {\n      x->p = nullptr;\n      t = get_right(x);\n      splay(t);\n\
+    \      t->r = y;\n      y->p = t;\n    }\n    return t;\n  }\n\n  NP splay_front(NP\
+    \ t) {\n    splay(t);\n    while(t->l) t = t->l;\n    splay(t);\n    return t;\n\
+    \  }\n\n  NP splay_back(NP t) {\n    splay(t);\n    while(t->r) t = t->r;\n  \
+    \  splay(t);\n    return t;\n  }\n\n  pair< NP, NP > split(NP t, int k) {\n  \
+    \  if(!t) return {nullptr, nullptr};\n    push(t);\n    if(k <= count(t->l)) {\n\
+    \      auto x = split(t->l, k);\n      t->l = x.second;\n      t->p = nullptr;\n\
     \      if(x.second) x.second->p = t;\n      return {x.first, update(t)};\n   \
     \ } else {\n      auto x = split(t->r, k - count(t->l) - 1);\n      t->r = x.first;\n\
     \      t->p = nullptr;\n      if(x.first) x.first->p = t;\n      return {update(t),\
-    \ x.second};\n    }\n  }\n\n  template< typename ... Args >\n  Node *merge(Node\
-    \ *l, Args ...rest) {\n    Node *r = merge(rest...);\n    if(!l && !r) return\
-    \ nullptr;\n    if(!l) return splay(r), r;\n    if(!r) return splay(l), l;\n \
-    \   splay(l), splay(r);\n    l = get_right(l);\n    splay(l);\n    l->r = r;\n\
-    \    r->p = l;\n    update(l);\n    return l;\n  }\n\n  tuple< Node *, Node *,\
-    \ Node * > split3(Node *t, int a, int b) {\n    splay(t);\n    auto x = split(t,\
-    \ a);\n    auto y = split(x.second, b - a);\n    return make_tuple(x.first, y.first,\
-    \ y.second);\n  }\n\n  virtual void push(Node *t) = 0;\n\n  virtual Node *update(Node\
-    \ *t) = 0;\n\nprivate:\n\n  void rotr(Node *t) {\n    auto *x = t->p, *y = x->p;\n\
+    \ x.second};\n    }\n  }\n\n  template< typename... Args >\n  NP merge(NP p, Args...\
+    \ args) {\n    return merge(p, merge(args...));\n  }\n\n  NP merge(NP l, NP r)\
+    \ {\n    if(!l && !r) return nullptr;\n    if(!l) return splay(r), r;\n    if(!r)\
+    \ return splay(l), l;\n    splay(l), splay(r);\n    l = splay_back(l);\n    l->r\
+    \ = r;\n    r->p = l;\n    update(l);\n    return l;\n  }\n\n  tuple< NP, NP,\
+    \ NP > split3(NP t, int a, int b) {\n    splay(t);\n    auto x = split(t, a);\n\
+    \    auto y = split(x.second, b - a);\n    return make_tuple(x.first, y.first,\
+    \ y.second);\n  }\n\n  virtual void push(NP t) = 0;\n\n  virtual Node *update(NP\
+    \ t) = 0;\n\nprivate:\n\n  void rotr(NP t) {\n    auto *x = t->p, *y = x->p;\n\
     \    if((x->l = t->r)) t->r->p = x;\n    t->r = x, x->p = t;\n    update(x), update(t);\n\
     \    if((t->p = y)) {\n      if(y->l == x) y->l = t;\n      if(y->r == x) y->r\
-    \ = t;\n      update(y);\n    }\n  }\n\n  void rotl(Node *t) {\n    auto *x =\
-    \ t->p, *y = x->p;\n    if((x->r = t->l)) t->l->p = x;\n    t->l = x, x->p = t;\n\
-    \    update(x), update(t);\n    if((t->p = y)) {\n      if(y->l == x) y->l = t;\n\
-    \      if(y->r == x) y->r = t;\n      update(y);\n    }\n  }\n\nprotected:\n\n\
-    \  Node *merge(Node *l) {\n    return l;\n  }\n\n  Node *build_node(const vector<\
-    \ Node * > &v) {\n    return build_node(0, v.size(), v);\n  }\n\n  Node *build_node(int\
-    \ l, int r, const vector< Node * > &v) {\n    if(l + 1 >= r) return v[l];\n  \
-    \  return merge(build_node(l, (l + r) >> 1, v), build_node((l + r) >> 1, r, v));\n\
-    \  }\n\n  Node *push_front_node(Node *t, Node *z) {\n    if(!t) {\n      return\
-    \ z;\n    } else {\n      splay(t);\n      Node *cur = get_left(t);\n      splay(cur);\n\
-    \      z->p = cur;\n      cur->l = z;\n      splay(z);\n      return z;\n    }\n\
-    \  }\n\n  Node *push_back_node(Node *t, Node *z) {\n    if(!t) {\n      return\
-    \ z;\n    } else {\n      splay(t);\n      Node *cur = get_right(t);\n      splay(cur);\n\
-    \      z->p = cur;\n      cur->r = z;\n      splay(z);\n      return z;\n    }\n\
-    \  }\n\n  void insert_node(Node *&t, int k, Node *v) {\n    splay(t);\n    auto\
-    \ x = split(t, k);\n    t = merge(merge(x.first, v), x.second);\n  }\n\n  void\
-    \ erase_node(Node *&t, int k) {\n    splay(t);\n    auto x = split(t, k);\n  \
-    \  auto y = split(x.second, 1);\n    delete y.first;\n    t = merge(x.first, y.second);\n\
-    \  }\n};\n#line 1 \"structure/develop/reversible-splay-tree.cpp\"\n/**\n * @brief\
-    \ Reversible-Splay-Tree(\u53CD\u8EE2\u53EF\u80FDSplay\u6728)\n */\ntemplate< typename\
-    \ Tp >\nstruct ReversibleSplayTreeNode {\n  using T = Tp;\n  ReversibleSplayTreeNode\
-    \ *l, *r, *p;\n  T key, sum;\n  bool rev;\n  size_t sz;\n\n  ReversibleSplayTreeNode()\
-    \ : ReversibleSplayTreeNode(Tp()) {}\n\n  ReversibleSplayTreeNode(const T &key)\
-    \ :\n      key(key), sum(key), rev(false), l(nullptr), r(nullptr), p(nullptr),\
-    \ sz(1) {}\n};\n\ntemplate< typename Np >\nstruct ReversibleSplayTree : SplayTreeBase<\
-    \ Np > {\npublic:\n  using Node = Np;\n  using T = typename Node::T;\n  using\
-    \ F = function< T(T, T) >;\n  using S = function< T(T) >;\n  using super = SplayTreeBase<\
-    \ Node >;\n\n  explicit ReversibleSplayTree(const F &f, const S &s, const T &M1)\
-    \ :\n      f(f), s(s), M1(M1) {}\n\n  using super::splay;\n  using super::split;\n\
+    \ = t;\n      update(y);\n    }\n  }\n\n  void rotl(NP t) {\n    auto *x = t->p,\
+    \ *y = x->p;\n    if((x->r = t->l)) t->l->p = x;\n    t->l = x, x->p = t;\n  \
+    \  update(x), update(t);\n    if((t->p = y)) {\n      if(y->l == x) y->l = t;\n\
+    \      if(y->r == x) y->r = t;\n      update(y);\n    }\n  }\n\n  NP build(int\
+    \ l, int r, const vector< NP > &v) {\n    if(l + 1 >= r) return v[l];\n    return\
+    \ merge(build(l, (l + r) >> 1, v), build((l + r) >> 1, r, v));\n  }\n\nprotected:\n\
+    \n  NP build_node(const vector< NP > &v) {\n    return build(0, v.size(), v);\n\
+    \  }\n\n  NP insert_node(NP t, int k, NP v) {\n    splay(t);\n    auto x = split(t,\
+    \ k);\n    return merge(x.first, v, x.second);\n  }\n\n  NP erase_node(NP t, int\
+    \ k) {\n    splay(t);\n    auto x = split(t, k);\n    auto y = split(x.second,\
+    \ 1);\n    delete y.first;\n    return merge(x.first, y.second);\n  }\n}\n#line\
+    \ 1 \"structure/develop/reversible-splay-tree.cpp\"\n/**\n * @brief Reversible-Splay-Tree(\u53CD\
+    \u8EE2\u53EF\u80FDSplay\u6728)\n */\ntemplate< typename Tp >\nstruct ReversibleSplayTreeNode\
+    \ {\n  using T = Tp;\n  ReversibleSplayTreeNode *l, *r, *p;\n  T key, sum;\n \
+    \ bool rev;\n  size_t sz;\n\n  ReversibleSplayTreeNode() : ReversibleSplayTreeNode(Tp())\
+    \ {}\n\n  ReversibleSplayTreeNode(const T &key) :\n      key(key), sum(key), rev(false),\
+    \ l(nullptr), r(nullptr), p(nullptr), sz(1) {}\n};\n\ntemplate< typename Np >\n\
+    struct ReversibleSplayTree : SplayTreeBase< Np > {\npublic:\n  using Node = Np;\n\
+    \  using T = typename Node::T;\n  using F = function< T(T, T) >;\n  using S =\
+    \ function< T(T) >;\n  using super = SplayTreeBase< Node >;\n  using NP = typename\
+    \ super::NP;\n\n  explicit ReversibleSplayTree(const F &f, const S &s, const T\
+    \ &M1) :\n      f(f), s(s), M1(M1) {}\n\n  using super::splay;\n  using super::split;\n\
     \  using super::count;\n  using super::merge;\n  using super::build_node;\n  using\
-    \ super::push_back_node;\n  using super::push_front_node;\n  using super::insert_node;\n\
-    \n  inline const T &sum(const Node *t) { return t ? t->sum : M1; }\n\n  virtual\
-    \ Node *alloc(const T &x) { return new Node(x); }\n\n  T query(Node *&t, int a,\
-    \ int b) {\n    splay(t);\n    auto x = split(t, a);\n    auto y = split(x.second,\
+    \ super::insert_node;\n\n  inline const T &sum(const NP t) { return t ? t->sum\
+    \ : M1; }\n\n  NP alloc(const T &x) { return new Node(x); }\n\n  T query(NP &t,\
+    \ int a, int b) {\n    splay(t);\n    auto x = split(t, a);\n    auto y = split(x.second,\
     \ b - a);\n    auto ret = sum(y.first);\n    t = merge(x.first, y.first, y.second);\n\
-    \    return ret;\n  }\n\n  virtual Node *build(const vector< T > &v) {\n    vector<\
-    \ Node * > vs(v.size());\n    for(int i = 0; i < v.size(); i++) vs[i] = new Node(v[i]);\n\
-    \    return build_node(vs);\n  }\n\n  void toggle(Node *t) {\n    swap(t->l, t->r);\n\
-    \    t->sum = s(t->sum);\n    t->rev ^= true;\n  }\n\n  Node *update(Node *t)\
-    \ override {\n    t->sz = 1;\n    t->sum = t->key;\n    if(t->l) t->sz += t->l->sz,\
-    \ t->sum = f(t->l->sum, t->sum);\n    if(t->r) t->sz += t->r->sz, t->sum = f(t->sum,\
-    \ t->r->sum);\n    return t;\n  }\n\n  void push(Node *t) override {\n    if(t->rev)\
+    \    return ret;\n  }\n\n  NP build(const vector< T > &v) {\n    vector< NP >\
+    \ vs(v.size());\n    for(int i = 0; i < v.size(); i++) vs[i] = alloc(v[i]);\n\
+    \    return build_node(vs);\n  }\n\n  void toggle(NP t) {\n    swap(t->l, t->r);\n\
+    \    t->sum = s(t->sum);\n    t->rev ^= true;\n  }\n\n  NP update(NP t) override\
+    \ {\n    t->sz = 1;\n    t->sum = t->key;\n    if(t->l) t->sz += t->l->sz, t->sum\
+    \ = f(t->l->sum, t->sum);\n    if(t->r) t->sz += t->r->sz, t->sum = f(t->sum,\
+    \ t->r->sum);\n    return t;\n  }\n\n  void push(NP t) override {\n    if(t->rev)\
     \ {\n      if(t->l) toggle(t->l);\n      if(t->r) toggle(t->r);\n      t->rev\
-    \ = false;\n    }\n  }\n\n  void set_element(Node *&t, int k, const T &x) {\n\
-    \    splay(t);\n    sub_set_element(t, k, x);\n  }\n\n  virtual Node *push_front(Node\
-    \ *t, const T &x) {\n    return push_front_node(t, new Node(x));\n  }\n\n  virtual\
-    \ Node *push_back(Node *t, const T &x) {\n    return push_back_node(t, new Node(x));\n\
-    \  }\n\n  virtual void insert(Node *&t, int k, const T &x) {\n    insert_node(t,\
-    \ k, new Node(x));\n  }\n\nprivate:\n  const T M1;\n  const F f;\n  const S s;\n\
-    \n  Node *sub_set_element(Node *&t, int k, const T &x) {\n    push(t);\n    if(k\
-    \ < count(t->l)) {\n      return sub_set_element(t->l, k, x);\n    } else if(k\
-    \ == count(t->l)) {\n      t->key = x;\n      splay(t);\n      return t;\n   \
-    \ } else {\n      return sub_set_element(t->r, k - count(t->l) - 1, x);\n    }\n\
-    \  }\n};\n\ntemplate< typename T >\nusing RST = ReversibleSplayTree< ReversibleSplayTreeNode<\
-    \ T > >;\n#line 1 \"structure/develop/link-cut-tree.cpp\"\n/**\n * @brief Link-Cut-Tree\n\
-    \ */\ntemplate< typename STp >\nstruct LinkCutTree : STp {\n  using ST = STp;\n\
-    \  using ST::ST;\n  using Node = typename ST::Node;\n\n  Node *expose(Node *t)\
-    \ {\n    Node *rp = nullptr;\n    for(Node *cur = t; cur; cur = cur->p) {\n  \
-    \    this->splay(cur);\n      cur->r = rp;\n      this->update(cur);\n      rp\
-    \ = cur;\n    }\n    this->splay(t);\n    return rp;\n  }\n\n  void link(Node\
+    \ = false;\n    }\n  }\n\n  NP insert(NP t, int k, const T &x) {\n    return insert_node(t,\
+    \ k, alloc(x));\n  }\n\n  NP set_element(NP t, int k, const T &x) {\n    splay(t);\n\
+    \    return imp_set_element(t, k, x);\n  }\n\n  pair< NP , NP > split_lower_bound(NP\
+    \ t, const T &key) {\n    if(!t) return {nullptr, nullptr};\n    push(t);\n  \
+    \  if(key <= t->key) {\n      auto x = split_lower_bound(t->l, key);\n      t->l\
+    \ = x.second;\n      t->p = nullptr;\n      if(x.second) x.second->p = t;\n  \
+    \    return {x.first, update(t)};\n    } else {\n      auto x = split_lower_bound(t->r,\
+    \ key);\n      t->r = x.first;\n      t->p = nullptr;\n      if(x.first) x.first->p\
+    \ = t;\n      return {update(t), x.second};\n    }\n  }\n\nprivate:\n  const T\
+    \ M1;\n  const F f;\n  const S s;\n\n  NP imp_set_element(NP t, int k, const T\
+    \ &x) {\n    push(t);\n    if(k < count(t->l)) {\n      return imp_set_element(t->l,\
+    \ k, x);\n    } else if(k == count(t->l)) {\n      t->key = x;\n      splay(t);\n\
+    \      return t;\n    } else {\n      return imp_set_element(t->r, k - count(t->l)\
+    \ - 1, x);\n    }\n  }\n};\n\ntemplate< typename T >\nusing RST = ReversibleSplayTree<\
+    \ ReversibleSplayTreeNode< T > >;\n#line 1 \"structure/develop/link-cut-tree.cpp\"\
+    \n/**\n * @brief Link-Cut-Tree\n */\ntemplate< typename STp >\nstruct LinkCutTree\
+    \ : STp {\n  using ST = STp;\n  using ST::ST;\n  using Node = typename ST::Node;\n\
+    \n  Node *expose(Node *t) {\n    Node *rp = nullptr;\n    for(Node *cur = t; cur;\
+    \ cur = cur->p) {\n      this->splay(cur);\n      cur->r = rp;\n      this->update(cur);\n\
+    \      rp = cur;\n    }\n    this->splay(t);\n    return rp;\n  }\n\n  void link(Node\
     \ *child, Node *parent) {\n    expose(child);\n    expose(parent);\n    child->p\
     \ = parent;\n    parent->r = child;\n    this->update(parent);\n  }\n\n  void\
     \ cut(Node *child) {\n    expose(child);\n    auto *parent = child->l;\n    child->l\
@@ -196,8 +192,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-05-08 17:56:58+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp
 layout: document

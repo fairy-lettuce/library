@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/others/dominator-tree.cpp
     title: Dominator-Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
