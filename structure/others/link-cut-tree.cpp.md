@@ -4,9 +4,6 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-2450-2.test.cpp
-    title: test/verify/aoj-2450-2.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -19,57 +16,108 @@ data:
     document_title: Link-Cut-Tree
     links: []
   bundledCode: "#line 1 \"structure/others/link-cut-tree.cpp\"\n/**\n * @brief Link-Cut-Tree\n\
-    \ */\ntemplate< template< typename, typename > typename ST, typename Monoid =\
-    \ int, typename OperatorMonoid = Monoid >\nstruct LinkCutTree : ST< Monoid, OperatorMonoid\
-    \ > {\n  using LST = ST< Monoid, OperatorMonoid >;\n  using ST< Monoid, OperatorMonoid\
-    \ >::ST;\n  using Node = typename LST::Node;\n\n  Node *expose(Node *t) {\n  \
-    \  Node *rp = nullptr;\n    for(Node *cur = t; cur; cur = cur->p) {\n      this->splay(cur);\n\
-    \      cur->r = rp;\n      this->update(cur);\n      rp = cur;\n    }\n    this->splay(t);\n\
-    \    return rp;\n  }\n\n  void link(Node *child, Node *parent) {\n    expose(child);\n\
-    \    expose(parent);\n    child->p = parent;\n    parent->r = child;\n    this->update(parent);\n\
-    \  }\n\n  void cut(Node *child) {\n    expose(child);\n    auto *parent = child->l;\n\
-    \    child->l = nullptr;\n    parent->p = nullptr;\n    this->update(child);\n\
-    \  }\n\n  void evert(Node *t) {\n    expose(t);\n    this->toggle(t);\n    this->push(t);\n\
-    \  }\n\n  Node *lca(Node *u, Node *v) {\n    if(get_root(u) != get_root(v)) return\
-    \ nullptr;\n    expose(u);\n    return expose(v);\n  }\n\n  void set_propagate(Node\
-    \ *t, const OperatorMonoid &x) {\n    expose(t);\n    LST::set_propagate(t, x);\n\
-    \  }\n\n  Node *get_kth(Node *x, int k) {\n    expose(x);\n    while(x) {\n  \
-    \    this->push(x);\n      if(x->r && x->r->sz > k) {\n        x = x->r;\n   \
+    \ */\ntemplate< typename T, typename F, typename S >\nstruct LinkCutTree {\n\n\
+    private:\n  F f;\n  S s;\n\n  struct Node {\n    Node *l, *r, *p;\n    T key,\
+    \ sum;\n    bool rev;\n    size_t sz;\n\n    explicit Node(const T &v) : key(v),\
+    \ sum(v), sz(1), rev(false),\n                                l(nullptr), r(nullptr),\
+    \ p(nullptr) {}\n\n    bool is_root() const {\n      return not p or (p->l !=\
+    \ this and p->r != this);\n    }\n  };\n\npublic:\n  using NP = Node *;\n\nprivate:\n\
+    \  NP update(NP t) {\n    t->sz = 1;\n    t->sum = t->key;\n    if(t->l) t->sz\
+    \ += t->l->sz, t->sum = f(t->l->sum, t->sum);\n    if(t->r) t->sz += t->r->sz,\
+    \ t->sum = f(t->sum, t->r->sum);\n    return t;\n  }\n\n  void rotr(NP t) {\n\
+    \    NP x = t->p, y = x->p;\n    if((x->l = t->r)) t->r->p = x;\n    t->r = x,\
+    \ x->p = t;\n    update(x), update(t);\n    if((t->p = y)) {\n      if(y->l ==\
+    \ x) y->l = t;\n      if(y->r == x) y->r = t;\n      update(y);\n    }\n  }\n\n\
+    \  void rotl(NP t) {\n    NP x = t->p, y = x->p;\n    if((x->r = t->l)) t->l->p\
+    \ = x;\n    t->l = x, x->p = t;\n    update(x), update(t);\n    if((t->p = y))\
+    \ {\n      if(y->l == x) y->l = t;\n      if(y->r == x) y->r = t;\n      update(y);\n\
+    \    }\n  }\n\n  void toggle(NP t) {\n    swap(t->l, t->r);\n    t->sum = s(t->sum);\n\
+    \    t->rev ^= true;\n  }\n\n  void push(NP t) {\n    if(t->rev) {\n      if(t->l)\
+    \ toggle(t->l);\n      if(t->r) toggle(t->r);\n      t->rev = false;\n    }\n\
+    \  }\n\n  void splay(NP t) {\n    push(t);\n    while(not t->is_root()) {\n  \
+    \    NP q = t->p;\n      if(q->is_root()) {\n        push(q), push(t);\n     \
+    \   if(q->l == t) rotr(t);\n        else rotl(t);\n      } else {\n        NP\
+    \ r = q->p;\n        push(r), push(q), push(t);\n        if(r->l == q) {\n   \
+    \       if(q->l == t) rotr(q), rotr(t);\n          else rotl(t), rotr(t);\n  \
+    \      } else {\n          if(q->r == t) rotl(q), rotl(t);\n          else rotr(t),\
+    \ rotl(t);\n        }\n      }\n    }\n  }\n\npublic:\n  LinkCutTree(const F &f,\
+    \ const S &s) : f(f), s(s) {}\n\n  NP alloc(const T &v = T()) {\n    return new\
+    \ Node(v);\n  }\n\n  vector< NP > build(vector< T > &vs) {\n    vector< NP > nodes(vs.size());\n\
+    \    for(int i = 0; i < (int) vs.size(); i++) {\n      nodes[i] = alloc(vs[i]);\n\
+    \    }\n    return nodes;\n  }\n\n  NP expose(NP t) {\n    NP rp = nullptr;\n\
+    \    for(NP cur = t; cur; cur = cur->p) {\n      splay(cur);\n      cur->r = rp;\n\
+    \      update(cur);\n      rp = cur;\n    }\n    splay(t);\n    return rp;\n \
+    \ }\n\n  void evert(NP t) {\n    expose(t);\n    toggle(t);\n    push(t);\n  }\n\
+    \n  void link(NP child, NP parent) {\n    expose(parent);\n    child->p = parent;\n\
+    \    parent->r = child;\n    update(parent);\n  }\n\n  void cut(NP child) {\n\
+    \    expose(child);\n    NP parent = child->l;\n    child->l = nullptr;\n    parent->p\
+    \ = nullptr;\n    update(child);\n  }\n\n  bool is_connected(NP u, NP v) {\n \
+    \   expose(u), expose(v);\n    return u == v or u->p;\n  }\n\n  NP lca(NP u, NP\
+    \ v) {\n    if(not is_connected(u, v)) return nullptr;\n    expose(u);\n    return\
+    \ expose(v);\n  }\n\n  NP get_kth(NP x, int k) {\n    expose(x);\n    while(x)\
+    \ {\n      push(x);\n      if(x->r && x->r->sz > k) {\n        x = x->r;\n   \
     \   } else {\n        if(x->r) k -= x->r->sz;\n        if(k == 0) return x;\n\
     \        k -= 1;\n        x = x->l;\n      }\n    }\n    return nullptr;\n  }\n\
-    \n  Node *get_root(Node *x) {\n    expose(x);\n    while(x->l) {\n      this->push(x);\n\
-    \      x = x->l;\n    }\n    return x;\n  }\n\n  const Monoid &query(Node *t)\
-    \ {\n    expose(t);\n    return t->sum;\n  }\n};\n"
-  code: "/**\n * @brief Link-Cut-Tree\n */\ntemplate< template< typename, typename\
-    \ > typename ST, typename Monoid = int, typename OperatorMonoid = Monoid >\nstruct\
-    \ LinkCutTree : ST< Monoid, OperatorMonoid > {\n  using LST = ST< Monoid, OperatorMonoid\
-    \ >;\n  using ST< Monoid, OperatorMonoid >::ST;\n  using Node = typename LST::Node;\n\
-    \n  Node *expose(Node *t) {\n    Node *rp = nullptr;\n    for(Node *cur = t; cur;\
-    \ cur = cur->p) {\n      this->splay(cur);\n      cur->r = rp;\n      this->update(cur);\n\
-    \      rp = cur;\n    }\n    this->splay(t);\n    return rp;\n  }\n\n  void link(Node\
-    \ *child, Node *parent) {\n    expose(child);\n    expose(parent);\n    child->p\
-    \ = parent;\n    parent->r = child;\n    this->update(parent);\n  }\n\n  void\
-    \ cut(Node *child) {\n    expose(child);\n    auto *parent = child->l;\n    child->l\
-    \ = nullptr;\n    parent->p = nullptr;\n    this->update(child);\n  }\n\n  void\
-    \ evert(Node *t) {\n    expose(t);\n    this->toggle(t);\n    this->push(t);\n\
-    \  }\n\n  Node *lca(Node *u, Node *v) {\n    if(get_root(u) != get_root(v)) return\
-    \ nullptr;\n    expose(u);\n    return expose(v);\n  }\n\n  void set_propagate(Node\
-    \ *t, const OperatorMonoid &x) {\n    expose(t);\n    LST::set_propagate(t, x);\n\
-    \  }\n\n  Node *get_kth(Node *x, int k) {\n    expose(x);\n    while(x) {\n  \
-    \    this->push(x);\n      if(x->r && x->r->sz > k) {\n        x = x->r;\n   \
-    \   } else {\n        if(x->r) k -= x->r->sz;\n        if(k == 0) return x;\n\
-    \        k -= 1;\n        x = x->l;\n      }\n    }\n    return nullptr;\n  }\n\
-    \n  Node *get_root(Node *x) {\n    expose(x);\n    while(x->l) {\n      this->push(x);\n\
-    \      x = x->l;\n    }\n    return x;\n  }\n\n  const Monoid &query(Node *t)\
-    \ {\n    expose(t);\n    return t->sum;\n  }\n};\n"
+    \n  const T &query(NP u) {\n    expose(u);\n    return u->sum;\n  }\n\n  const\
+    \ T &query(NP u, NP v) {\n    evert(u);\n    return query(v);\n  }\n\n  void set_key(NP\
+    \ t, T v) {\n    expose(t);\n    t->key = v;\n    update(t);\n  }\n};\n\ntemplate<\
+    \ typename T, typename F, typename S >\nLinkCutTree< T, F, S > get_link_cut_tree(const\
+    \ F &f, const S &s) {\n  return {f, s};\n}\n"
+  code: "/**\n * @brief Link-Cut-Tree\n */\ntemplate< typename T, typename F, typename\
+    \ S >\nstruct LinkCutTree {\n\nprivate:\n  F f;\n  S s;\n\n  struct Node {\n \
+    \   Node *l, *r, *p;\n    T key, sum;\n    bool rev;\n    size_t sz;\n\n    explicit\
+    \ Node(const T &v) : key(v), sum(v), sz(1), rev(false),\n                    \
+    \            l(nullptr), r(nullptr), p(nullptr) {}\n\n    bool is_root() const\
+    \ {\n      return not p or (p->l != this and p->r != this);\n    }\n  };\n\npublic:\n\
+    \  using NP = Node *;\n\nprivate:\n  NP update(NP t) {\n    t->sz = 1;\n    t->sum\
+    \ = t->key;\n    if(t->l) t->sz += t->l->sz, t->sum = f(t->l->sum, t->sum);\n\
+    \    if(t->r) t->sz += t->r->sz, t->sum = f(t->sum, t->r->sum);\n    return t;\n\
+    \  }\n\n  void rotr(NP t) {\n    NP x = t->p, y = x->p;\n    if((x->l = t->r))\
+    \ t->r->p = x;\n    t->r = x, x->p = t;\n    update(x), update(t);\n    if((t->p\
+    \ = y)) {\n      if(y->l == x) y->l = t;\n      if(y->r == x) y->r = t;\n    \
+    \  update(y);\n    }\n  }\n\n  void rotl(NP t) {\n    NP x = t->p, y = x->p;\n\
+    \    if((x->r = t->l)) t->l->p = x;\n    t->l = x, x->p = t;\n    update(x), update(t);\n\
+    \    if((t->p = y)) {\n      if(y->l == x) y->l = t;\n      if(y->r == x) y->r\
+    \ = t;\n      update(y);\n    }\n  }\n\n  void toggle(NP t) {\n    swap(t->l,\
+    \ t->r);\n    t->sum = s(t->sum);\n    t->rev ^= true;\n  }\n\n  void push(NP\
+    \ t) {\n    if(t->rev) {\n      if(t->l) toggle(t->l);\n      if(t->r) toggle(t->r);\n\
+    \      t->rev = false;\n    }\n  }\n\n  void splay(NP t) {\n    push(t);\n   \
+    \ while(not t->is_root()) {\n      NP q = t->p;\n      if(q->is_root()) {\n  \
+    \      push(q), push(t);\n        if(q->l == t) rotr(t);\n        else rotl(t);\n\
+    \      } else {\n        NP r = q->p;\n        push(r), push(q), push(t);\n  \
+    \      if(r->l == q) {\n          if(q->l == t) rotr(q), rotr(t);\n          else\
+    \ rotl(t), rotr(t);\n        } else {\n          if(q->r == t) rotl(q), rotl(t);\n\
+    \          else rotr(t), rotl(t);\n        }\n      }\n    }\n  }\n\npublic:\n\
+    \  LinkCutTree(const F &f, const S &s) : f(f), s(s) {}\n\n  NP alloc(const T &v\
+    \ = T()) {\n    return new Node(v);\n  }\n\n  vector< NP > build(vector< T > &vs)\
+    \ {\n    vector< NP > nodes(vs.size());\n    for(int i = 0; i < (int) vs.size();\
+    \ i++) {\n      nodes[i] = alloc(vs[i]);\n    }\n    return nodes;\n  }\n\n  NP\
+    \ expose(NP t) {\n    NP rp = nullptr;\n    for(NP cur = t; cur; cur = cur->p)\
+    \ {\n      splay(cur);\n      cur->r = rp;\n      update(cur);\n      rp = cur;\n\
+    \    }\n    splay(t);\n    return rp;\n  }\n\n  void evert(NP t) {\n    expose(t);\n\
+    \    toggle(t);\n    push(t);\n  }\n\n  void link(NP child, NP parent) {\n   \
+    \ expose(parent);\n    child->p = parent;\n    parent->r = child;\n    update(parent);\n\
+    \  }\n\n  void cut(NP child) {\n    expose(child);\n    NP parent = child->l;\n\
+    \    child->l = nullptr;\n    parent->p = nullptr;\n    update(child);\n  }\n\n\
+    \  bool is_connected(NP u, NP v) {\n    expose(u), expose(v);\n    return u ==\
+    \ v or u->p;\n  }\n\n  NP lca(NP u, NP v) {\n    if(not is_connected(u, v)) return\
+    \ nullptr;\n    expose(u);\n    return expose(v);\n  }\n\n  NP get_kth(NP x, int\
+    \ k) {\n    expose(x);\n    while(x) {\n      push(x);\n      if(x->r && x->r->sz\
+    \ > k) {\n        x = x->r;\n      } else {\n        if(x->r) k -= x->r->sz;\n\
+    \        if(k == 0) return x;\n        k -= 1;\n        x = x->l;\n      }\n \
+    \   }\n    return nullptr;\n  }\n\n  const T &query(NP u) {\n    expose(u);\n\
+    \    return u->sum;\n  }\n\n  const T &query(NP u, NP v) {\n    evert(u);\n  \
+    \  return query(v);\n  }\n\n  void set_key(NP t, T v) {\n    expose(t);\n    t->key\
+    \ = v;\n    update(t);\n  }\n};\n\ntemplate< typename T, typename F, typename\
+    \ S >\nLinkCutTree< T, F, S > get_link_cut_tree(const F &f, const S &s) {\n  return\
+    \ {f, s};\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: structure/others/link-cut-tree.cpp
   requiredBy: []
-  timestamp: '2020-06-19 01:29:44+09:00'
+  timestamp: '2021-05-09 15:31:01+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-2450-2.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
 documentation_of: structure/others/link-cut-tree.cpp

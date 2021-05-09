@@ -4,12 +4,6 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
-    title: test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
-    title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-point-set-range-composite.test.cpp
     title: test/verify/yosupo-point-set-range-composite.test.cpp
   _isVerificationFailed: false
@@ -179,8 +173,6 @@ data:
   timestamp: '2020-06-19 01:56:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
-  - test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
   - test/verify/yosupo-point-set-range-composite.test.cpp
 documentation_of: structure/bbst/reversible-splay-tree.cpp
 layout: document

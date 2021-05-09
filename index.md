@@ -749,6 +749,9 @@ data:
       path: structure/others/disjoint-sparse-table.cpp
       title: Disjoint-Sparse-Table
     - icon: ':heavy_check_mark:'
+      path: structure/others/lazy-link-cut-tree.cpp
+      title: Lazy-Link-Cut-Tree
+    - icon: ':heavy_check_mark:'
       path: structure/others/linear-rmq.cpp
       title: Linear-RMQ
     - icon: ':heavy_check_mark:'

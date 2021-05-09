@@ -4,9 +4,6 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-2450-2.test.cpp
-    title: test/verify/aoj-2450-2.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-point-set-range-composite-2.test.cpp
     title: test/verify/yosupo-point-set-range-composite-2.test.cpp
   _isVerificationFailed: false
@@ -206,7 +203,6 @@ data:
   timestamp: '2020-06-19 01:56:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-2450-2.test.cpp
   - test/verify/yosupo-point-set-range-composite-2.test.cpp
 documentation_of: structure/bbst/lazy-reversible-splay-tree.cpp
 layout: document
