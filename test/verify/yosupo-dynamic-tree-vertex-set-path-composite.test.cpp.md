@@ -5,7 +5,7 @@ data:
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
   - icon: ':heavy_check_mark:'
-    path: structure/others/link-cut-tree.cpp
+    path: structure/lct/link-cut-tree.cpp
     title: Link-Cut-Tree
   - icon: ':question:'
     path: template/template.cpp
@@ -49,7 +49,7 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp\"\
-    \n\n#line 1 \"structure/others/link-cut-tree.cpp\"\n/**\n * @brief Link-Cut-Tree\n\
+    \n\n#line 1 \"structure/lct/link-cut-tree.cpp\"\n/**\n * @brief Link-Cut-Tree\n\
     \ */\ntemplate< typename T, typename F, typename S >\nstruct LinkCutTree {\n\n\
     private:\n  F f;\n  S s;\n\n  struct Node {\n    Node *l, *r, *p;\n    T key,\
     \ sum;\n    bool rev;\n    size_t sz;\n\n    explicit Node(const T &v) : key(v),\
@@ -138,7 +138,7 @@ data:
     \    cin >> U >> V >> X;\n      auto ret = lct.query(vs[U], vs[V]).first;\n  \
     \    cout << ret.first * X + ret.second << \"\\n\";\n    }\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/dynamic_tree_vertex_set_path_composite\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../structure/others/link-cut-tree.cpp\"\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../structure/lct/link-cut-tree.cpp\"\
     \n\n#include \"../../math/combinatorics/mod-int.cpp\"\n\nusing mint = ModInt<\
     \ 998244353 >;\n\nint main() {\n  int N, Q;\n  cin >> N >> Q;\n\n  using pi =\
     \ pair< mint, mint >;\n  using pii = pair< pi, pi >;\n  auto f = [](const pi &x,\
@@ -159,12 +159,12 @@ data:
     \ \"\\n\";\n    }\n  }\n}\n"
   dependsOn:
   - template/template.cpp
-  - structure/others/link-cut-tree.cpp
+  - structure/lct/link-cut-tree.cpp
   - math/combinatorics/mod-int.cpp
   isVerificationFile: true
   path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
   requiredBy: []
-  timestamp: '2021-05-09 15:31:01+09:00'
+  timestamp: '2021-05-09 18:15:58+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp

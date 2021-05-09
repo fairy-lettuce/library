@@ -15,7 +15,7 @@ data:
   attributes:
     document_title: Link-Cut-Tree
     links: []
-  bundledCode: "#line 1 \"structure/others/link-cut-tree.cpp\"\n/**\n * @brief Link-Cut-Tree\n\
+  bundledCode: "#line 1 \"structure/lct/link-cut-tree.cpp\"\n/**\n * @brief Link-Cut-Tree\n\
     \ */\ntemplate< typename T, typename F, typename S >\nstruct LinkCutTree {\n\n\
     private:\n  F f;\n  S s;\n\n  struct Node {\n    Node *l, *r, *p;\n    T key,\
     \ sum;\n    bool rev;\n    size_t sz;\n\n    explicit Node(const T &v) : key(v),\
@@ -113,17 +113,17 @@ data:
     \ {f, s};\n}\n"
   dependsOn: []
   isVerificationFile: false
-  path: structure/others/link-cut-tree.cpp
+  path: structure/lct/link-cut-tree.cpp
   requiredBy: []
-  timestamp: '2021-05-09 15:31:01+09:00'
+  timestamp: '2021-05-09 18:15:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
-documentation_of: structure/others/link-cut-tree.cpp
+documentation_of: structure/lct/link-cut-tree.cpp
 layout: document
 redirect_from:
-- /library/structure/others/link-cut-tree.cpp
-- /library/structure/others/link-cut-tree.cpp.html
+- /library/structure/lct/link-cut-tree.cpp
+- /library/structure/lct/link-cut-tree.cpp.html
 title: Link-Cut-Tree
 ---

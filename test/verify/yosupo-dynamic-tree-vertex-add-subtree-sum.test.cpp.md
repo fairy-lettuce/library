@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: structure/others/link-cut-tree-subtree.cpp
-    title: structure/others/link-cut-tree-subtree.cpp
+    path: structure/lct/link-cut-tree-subtree.cpp
+    title: structure/lct/link-cut-tree-subtree.cpp
   - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
@@ -46,10 +46,10 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp\"\
-    \n\n#line 1 \"structure/others/link-cut-tree-subtree.cpp\"\ntemplate< typename\
-    \ SUM, typename KEY >\nstruct LinkCutTreeSubtree {\n \n  struct Node {\n    Node\
-    \ *l, *r, *p;\n \n    KEY key;\n    SUM sum;\n \n    bool rev;\n    int sz;\n\
-    \ \n    bool is_root() const {\n      return !p || (p->l != this && p->r != this);\n\
+    \n\n#line 1 \"structure/lct/link-cut-tree-subtree.cpp\"\ntemplate< typename SUM,\
+    \ typename KEY >\nstruct LinkCutTreeSubtree {\n \n  struct Node {\n    Node *l,\
+    \ *r, *p;\n \n    KEY key;\n    SUM sum;\n \n    bool rev;\n    int sz;\n \n \
+    \   bool is_root() const {\n      return !p || (p->l != this && p->r != this);\n\
     \    }\n \n    Node(const KEY &key, const SUM &sum) :\n        key(key), sum(sum),\
     \ rev(false), sz(1),\n        l(nullptr), r(nullptr), p(nullptr) {}\n  };\n \n\
     \  const SUM ident;\n \n  LinkCutTreeSubtree(const SUM &ident) : ident(ident)\
@@ -111,7 +111,7 @@ data:
     \  cin >> V >> P;\n      lct.evert(vs[P]);\n      cout << lct.query(vs[V]).csum\
     \ << \"\\n\";\n    }\n  }\n}\n\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_subtree_sum\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../structure/others/link-cut-tree-subtree.cpp\"\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../structure/lct/link-cut-tree-subtree.cpp\"\
     \n\nint main() {\n  int N, Q;\n  cin >> N >> Q;\n\n\n  struct Node {\n    int64\
     \ sum, psum, csum, lsum;\n\n    Node() : sum(0), lsum(0), psum(0), csum(0) {}\n\
     \n    void toggle() {\n      swap(psum, csum);\n    }\n\n    void merge(int64\
@@ -132,11 +132,11 @@ data:
     \ << \"\\n\";\n    }\n  }\n}\n\n"
   dependsOn:
   - template/template.cpp
-  - structure/others/link-cut-tree-subtree.cpp
+  - structure/lct/link-cut-tree-subtree.cpp
   isVerificationFile: true
   path: test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-05-09 18:15:58+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp

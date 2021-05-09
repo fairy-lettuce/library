@@ -740,6 +740,17 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/heap/skew-heap.cpp
       title: Skew-Heap
+  - name: structure/lct
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: structure/lct/link-cut-tree-lazy-path.cpp
+      title: Link-Cut-Tree-Lazy-Path
+    - icon: ':heavy_check_mark:'
+      path: structure/lct/link-cut-tree-subtree.cpp
+      title: structure/lct/link-cut-tree-subtree.cpp
+    - icon: ':heavy_check_mark:'
+      path: structure/lct/link-cut-tree.cpp
+      title: Link-Cut-Tree
   - name: structure/others
     pages:
     - icon: ':heavy_check_mark:'
@@ -749,17 +760,8 @@ data:
       path: structure/others/disjoint-sparse-table.cpp
       title: Disjoint-Sparse-Table
     - icon: ':heavy_check_mark:'
-      path: structure/others/lazy-link-cut-tree.cpp
-      title: Lazy-Link-Cut-Tree
-    - icon: ':heavy_check_mark:'
       path: structure/others/linear-rmq.cpp
       title: Linear-RMQ
-    - icon: ':heavy_check_mark:'
-      path: structure/others/link-cut-tree-subtree.cpp
-      title: structure/others/link-cut-tree-subtree.cpp
-    - icon: ':heavy_check_mark:'
-      path: structure/others/link-cut-tree.cpp
-      title: Link-Cut-Tree
     - icon: ':heavy_check_mark:'
       path: structure/others/persistent-array.cpp
       title: structure/others/persistent-array.cpp
