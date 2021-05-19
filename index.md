@@ -742,6 +742,9 @@ data:
       title: Skew-Heap
   - name: structure/lct
     pages:
+    - icon: ':warning:'
+      path: structure/lct/euler-tour-tree.cpp
+      title: Euler-Tour-Tree
     - icon: ':heavy_check_mark:'
       path: structure/lct/link-cut-tree-lazy-path.cpp
       title: Link-Cut-Tree-Lazy-Path
