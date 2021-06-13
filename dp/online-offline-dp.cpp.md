@@ -77,9 +77,9 @@ data:
   timestamp: '2020-09-15 00:43:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yukicoder-705.test.cpp
   - test/verify/yukicoder-703.test.cpp
   - test/verify/yukicoder-704.test.cpp
+  - test/verify/yukicoder-705.test.cpp
 documentation_of: dp/online-offline-dp.cpp
 layout: document
 redirect_from:

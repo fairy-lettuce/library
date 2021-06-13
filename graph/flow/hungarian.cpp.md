@@ -96,8 +96,8 @@ data:
   timestamp: '2020-12-16 21:17:47+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-assignment.test.cpp
   - test/verify/aoj-1163.test.cpp
+  - test/verify/yosupo-assignment.test.cpp
 documentation_of: graph/flow/hungarian.cpp
 layout: document
 redirect_from:

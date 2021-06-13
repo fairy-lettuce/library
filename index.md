@@ -762,6 +762,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/others/disjoint-sparse-table.cpp
       title: Disjoint-Sparse-Table
+    - icon: ':warning:'
+      path: structure/others/generalized-slope-trick.cpp
+      title: Generalized-Slope-Trick
     - icon: ':heavy_check_mark:'
       path: structure/others/linear-rmq.cpp
       title: Linear-RMQ
@@ -777,9 +780,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/others/sliding-window-aggregation.cpp
       title: structure/others/sliding-window-aggregation.cpp
-    - icon: ':warning:'
-      path: structure/others/slope-queue.cpp
-      title: Slope-Queue
     - icon: ':warning:'
       path: structure/others/slope-trick.cpp
       title: Slope-Trick

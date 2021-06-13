@@ -68,8 +68,8 @@ data:
   timestamp: '2020-09-30 18:06:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-tree-diameter.test.cpp
   - test/verify/aoj-grl-5-a.test.cpp
+  - test/verify/yosupo-tree-diameter.test.cpp
 documentation_of: graph/tree/tree-diameter.cpp
 layout: document
 redirect_from:

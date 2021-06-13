@@ -107,10 +107,10 @@ data:
   timestamp: '2021-05-08 17:56:58+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
   - test/verify/yosupo-point-set-range-composite-3.test.cpp
   - test/verify/aoj-2450-3.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp
+  - test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
 documentation_of: structure/develop/reversible-splay-tree.cpp
 layout: document
 redirect_from:

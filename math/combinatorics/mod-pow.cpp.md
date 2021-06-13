@@ -38,8 +38,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-sqrt-mod.test.cpp
-  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - test/verify/aoj-ntl-1-b.test.cpp
+  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - test/verify/yosupo-tetration-mod.test.cpp
 documentation_of: math/combinatorics/mod-pow.cpp
 layout: document

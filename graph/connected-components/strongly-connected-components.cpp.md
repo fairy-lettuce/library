@@ -92,8 +92,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-two-sat.test.cpp
-  - test/verify/aoj-grl-3-c.test.cpp
   - test/verify/yosupo-scc.test.cpp
+  - test/verify/aoj-grl-3-c.test.cpp
 documentation_of: graph/connected-components/strongly-connected-components.cpp
 layout: document
 redirect_from:

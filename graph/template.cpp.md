@@ -41,8 +41,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-maximum-independent-set.test.cpp
-  - test/verify/aoj-2306.test.cpp
   - test/verify/aoj-grl-1-c.test.cpp
+  - test/verify/aoj-2306.test.cpp
 documentation_of: graph/template.cpp
 layout: document
 redirect_from:
