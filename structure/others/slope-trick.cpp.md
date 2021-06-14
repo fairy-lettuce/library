@@ -42,7 +42,7 @@ data:
     \ R \u3092\u7834\u58CA\u3059\u308B\n  T get(const T &x) {\n    T ret = min_f;\n\
     \    while(not L.empty()) {\n      ret += max(T(0), pop_L() - x);\n    }\n   \
     \ while(not R.empty()) {\n      ret += max(T(0), x - pop_R());\n    }\n    return\
-    \ ret;\n  }\n \n  void merge(SlopeQueue &st) {\n    if(st.size() > size()) {\n\
+    \ ret;\n  }\n \n  void merge(SlopeTrick &st) {\n    if(st.size() > size()) {\n\
     \      swap(st.L, L);\n      swap(st.R, R);\n      swap(st.add_l, add_l);\n  \
     \    swap(st.add_r, add_r);\n      swap(st.min_f, min_f);\n    }\n    while(not\
     \ st.R.empty()) {\n      add_x_minus_a(st.pop_R());\n    }\n    while(not st.L.empty())\
@@ -77,7 +77,7 @@ data:
     \ R \u3092\u7834\u58CA\u3059\u308B\n  T get(const T &x) {\n    T ret = min_f;\n\
     \    while(not L.empty()) {\n      ret += max(T(0), pop_L() - x);\n    }\n   \
     \ while(not R.empty()) {\n      ret += max(T(0), x - pop_R());\n    }\n    return\
-    \ ret;\n  }\n \n  void merge(SlopeQueue &st) {\n    if(st.size() > size()) {\n\
+    \ ret;\n  }\n \n  void merge(SlopeTrick &st) {\n    if(st.size() > size()) {\n\
     \      swap(st.L, L);\n      swap(st.R, R);\n      swap(st.add_l, add_l);\n  \
     \    swap(st.add_r, add_r);\n      swap(st.min_f, min_f);\n    }\n    while(not\
     \ st.R.empty()) {\n      add_x_minus_a(st.pop_R());\n    }\n    while(not st.L.empty())\
@@ -86,7 +86,7 @@ data:
   isVerificationFile: false
   path: structure/others/slope-trick.cpp
   requiredBy: []
-  timestamp: '2021-06-14 03:49:45+09:00'
+  timestamp: '2021-06-14 14:00:31+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: structure/others/slope-trick.cpp
