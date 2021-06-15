@@ -79,19 +79,19 @@ data:
     \ v) {\n    if(dep[u] > dep[v]) swap(u, v);\n    v = climb(v, dep[v] - dep[u]);\n\
     \    if(u == v) return u;\n    for(int i = LOG - 1; i >= 0; i--) {\n      if(table[i][u]\
     \ != table[i][v]) {\n        u = table[i][u];\n        v = table[i][v];\n    \
-    \  }\n    }\n    return table[0][u];\n  }\n\n  int climb(int u, int k) const {\n\
-    \    if(dep[u] < k) return -1;\n    for(int i = LOG - 1; i >= 0; i--) {\n    \
-    \  if((k >> i) & 1) u = table[i][u];\n    }\n    return u;\n  }\n\n  T dist(int\
-    \ u, int v) const {\n    return sum[u] + sum[v] - 2 * sum[lca(u, v)];\n  }\n\n\
-    private:\n  void dfs(int idx, int par, int d) {\n    table[0][idx] = par;\n  \
-    \  dep[idx] = d;\n    for(auto &to : g[idx]) {\n      if(to != par) {\n      \
-    \  sum[to] = sum[idx] + to.cost;\n        dfs(to, idx, d + 1);\n      }\n    }\n\
-    \  }\n};\n#line 7 \"test/verify/aoj-grl-5-c.test.cpp\"\n\nint main() {\n  int\
-    \ N, Q;\n  cin >> N;\n  DoublingLowestCommonAncestor< int > dlca(N);\n  for(int\
-    \ i = 0; i < N; i++) {\n    int k;\n    cin >> k;\n    for(int j = 0; j < k; j++)\
-    \ {\n      int c;\n      cin >> c;\n      dlca.add_edge(i, c);\n    }\n  }\n \
-    \ dlca.build();\n  cin >> Q;\n  for(int i = 0; i < Q; i++) {\n    int u, v;\n\
-    \    cin >> u >> v;\n    cout << dlca.lca(u, v) << \"\\n\";\n  }\n}\n"
+    \  }\n    }\n    return table[0][u];\n  }\n\n  int climb(int u, int k) {\n   \
+    \ if(dep[u] < k) return -1;\n    for(int i = LOG - 1; i >= 0; i--) {\n      if((k\
+    \ >> i) & 1) u = table[i][u];\n    }\n    return u;\n  }\n\n  T dist(int u, int\
+    \ v) {\n    return sum[u] + sum[v] - 2 * sum[lca(u, v)];\n  }\n\nprivate:\n  void\
+    \ dfs(int idx, int par, int d) {\n    table[0][idx] = par;\n    dep[idx] = d;\n\
+    \    for(auto &to : g[idx]) {\n      if(to != par) {\n        sum[to] = sum[idx]\
+    \ + to.cost;\n        dfs(to, idx, d + 1);\n      }\n    }\n  }\n};\n#line 7 \"\
+    test/verify/aoj-grl-5-c.test.cpp\"\n\nint main() {\n  int N, Q;\n  cin >> N;\n\
+    \  DoublingLowestCommonAncestor< int > dlca(N);\n  for(int i = 0; i < N; i++)\
+    \ {\n    int k;\n    cin >> k;\n    for(int j = 0; j < k; j++) {\n      int c;\n\
+    \      cin >> c;\n      dlca.add_edge(i, c);\n    }\n  }\n  dlca.build();\n  cin\
+    \ >> Q;\n  for(int i = 0; i < Q; i++) {\n    int u, v;\n    cin >> u >> v;\n \
+    \   cout << dlca.lca(u, v) << \"\\n\";\n  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
     \n\n#include \"../../template/template.cpp\"\n#include \"../../graph/graph-template.cpp\"\
     \n\n#include \"../../graph/tree/doubling-lowest-common-ancestor.cpp\"\n\nint main()\
@@ -108,7 +108,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-grl-5-c.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-06-15 15:01:13+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-5-c.test.cpp

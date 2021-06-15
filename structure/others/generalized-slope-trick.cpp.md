@@ -107,8 +107,8 @@ data:
     \      }\n      L = st.merge(l, r);\n    }\n    {\n      auto[l, r] = st.split_lower_bound(R,\
     \ x);\n      if(l) {\n        ret += x * (T) st.count(r);\n        ret -= l->sum;\n\
     \      }\n      R = st.merge(l, r);\n    }\n    return ret;\n  }\n\n  // f(x)\
-    \ += g(x)\n  void merge(SlopeTrick &g) {\n    L = st.merge_wuh(L, g.L);\n    R\
-    \ = st.merge_wuh(R, g.R);\n    min_f += g.min_f;\n  }\n};\n"
+    \ += g(x)\n  void merge(GeneralizedSlopeTrick &g) {\n    L = st.merge_wuh(L, g.L);\n\
+    \    R = st.merge_wuh(R, g.R);\n    min_f += g.min_f;\n  }\n};\n"
   code: "/**\n * @brief Generalized-Slope-Trick\n * @docs docs/generalized-slope-trick.md\n\
     \ * @see https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n */\n\
     template< typename T >\nstruct LazySplayTree {\npublic:\n\n  struct Node {\n \
@@ -204,13 +204,13 @@ data:
     \      }\n      L = st.merge(l, r);\n    }\n    {\n      auto[l, r] = st.split_lower_bound(R,\
     \ x);\n      if(l) {\n        ret += x * (T) st.count(r);\n        ret -= l->sum;\n\
     \      }\n      R = st.merge(l, r);\n    }\n    return ret;\n  }\n\n  // f(x)\
-    \ += g(x)\n  void merge(SlopeTrick &g) {\n    L = st.merge_wuh(L, g.L);\n    R\
-    \ = st.merge_wuh(R, g.R);\n    min_f += g.min_f;\n  }\n};\n"
+    \ += g(x)\n  void merge(GeneralizedSlopeTrick &g) {\n    L = st.merge_wuh(L, g.L);\n\
+    \    R = st.merge_wuh(R, g.R);\n    min_f += g.min_f;\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: structure/others/generalized-slope-trick.cpp
   requiredBy: []
-  timestamp: '2021-06-14 03:49:45+09:00'
+  timestamp: '2021-06-14 14:00:59+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: structure/others/generalized-slope-trick.cpp

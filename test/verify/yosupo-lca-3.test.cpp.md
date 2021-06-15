@@ -86,16 +86,16 @@ data:
     \ v) {\n    if(dep[u] > dep[v]) swap(u, v);\n    v = climb(v, dep[v] - dep[u]);\n\
     \    if(u == v) return u;\n    for(int i = LOG - 1; i >= 0; i--) {\n      if(table[i][u]\
     \ != table[i][v]) {\n        u = table[i][u];\n        v = table[i][v];\n    \
-    \  }\n    }\n    return table[0][u];\n  }\n\n  int climb(int u, int k) const {\n\
-    \    if(dep[u] < k) return -1;\n    for(int i = LOG - 1; i >= 0; i--) {\n    \
-    \  if((k >> i) & 1) u = table[i][u];\n    }\n    return u;\n  }\n\n  T dist(int\
-    \ u, int v) const {\n    return sum[u] + sum[v] - 2 * sum[lca(u, v)];\n  }\n\n\
-    private:\n  void dfs(int idx, int par, int d) {\n    table[0][idx] = par;\n  \
-    \  dep[idx] = d;\n    for(auto &to : g[idx]) {\n      if(to != par) {\n      \
-    \  sum[to] = sum[idx] + to.cost;\n        dfs(to, idx, d + 1);\n      }\n    }\n\
-    \  }\n};\n#line 8 \"test/verify/yosupo-lca-3.test.cpp\"\n\n#line 1 \"other/scanner.cpp\"\
-    \n/**\n * @brief Scanner(\u9AD8\u901F\u5165\u529B)\n */\nstruct Scanner {\npublic:\n\
-    \n  explicit Scanner(FILE *fp) : fp(fp) {}\n\n  template< typename T, typename...\
+    \  }\n    }\n    return table[0][u];\n  }\n\n  int climb(int u, int k) {\n   \
+    \ if(dep[u] < k) return -1;\n    for(int i = LOG - 1; i >= 0; i--) {\n      if((k\
+    \ >> i) & 1) u = table[i][u];\n    }\n    return u;\n  }\n\n  T dist(int u, int\
+    \ v) {\n    return sum[u] + sum[v] - 2 * sum[lca(u, v)];\n  }\n\nprivate:\n  void\
+    \ dfs(int idx, int par, int d) {\n    table[0][idx] = par;\n    dep[idx] = d;\n\
+    \    for(auto &to : g[idx]) {\n      if(to != par) {\n        sum[to] = sum[idx]\
+    \ + to.cost;\n        dfs(to, idx, d + 1);\n      }\n    }\n  }\n};\n#line 8 \"\
+    test/verify/yosupo-lca-3.test.cpp\"\n\n#line 1 \"other/scanner.cpp\"\n/**\n *\
+    \ @brief Scanner(\u9AD8\u901F\u5165\u529B)\n */\nstruct Scanner {\npublic:\n\n\
+    \  explicit Scanner(FILE *fp) : fp(fp) {}\n\n  template< typename T, typename...\
     \ E >\n  void read(T &t, E &... e) {\n    read_single(t);\n    read(e...);\n \
     \ }\n\nprivate:\n  static constexpr size_t line_size = 1 << 16;\n  static constexpr\
     \ size_t int_digits = 20;\n  char line[line_size + 1] = {};\n  FILE *fp = nullptr;\n\
@@ -161,7 +161,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-lca-3.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-06-15 15:01:13+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-lca-3.test.cpp

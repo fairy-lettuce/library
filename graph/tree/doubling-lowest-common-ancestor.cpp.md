@@ -33,14 +33,13 @@ data:
     \ v) {\n    if(dep[u] > dep[v]) swap(u, v);\n    v = climb(v, dep[v] - dep[u]);\n\
     \    if(u == v) return u;\n    for(int i = LOG - 1; i >= 0; i--) {\n      if(table[i][u]\
     \ != table[i][v]) {\n        u = table[i][u];\n        v = table[i][v];\n    \
-    \  }\n    }\n    return table[0][u];\n  }\n\n  int climb(int u, int k) const {\n\
-    \    if(dep[u] < k) return -1;\n    for(int i = LOG - 1; i >= 0; i--) {\n    \
-    \  if((k >> i) & 1) u = table[i][u];\n    }\n    return u;\n  }\n\n  T dist(int\
-    \ u, int v) const {\n    return sum[u] + sum[v] - 2 * sum[lca(u, v)];\n  }\n\n\
-    private:\n  void dfs(int idx, int par, int d) {\n    table[0][idx] = par;\n  \
-    \  dep[idx] = d;\n    for(auto &to : g[idx]) {\n      if(to != par) {\n      \
-    \  sum[to] = sum[idx] + to.cost;\n        dfs(to, idx, d + 1);\n      }\n    }\n\
-    \  }\n};\n"
+    \  }\n    }\n    return table[0][u];\n  }\n\n  int climb(int u, int k) {\n   \
+    \ if(dep[u] < k) return -1;\n    for(int i = LOG - 1; i >= 0; i--) {\n      if((k\
+    \ >> i) & 1) u = table[i][u];\n    }\n    return u;\n  }\n\n  T dist(int u, int\
+    \ v) {\n    return sum[u] + sum[v] - 2 * sum[lca(u, v)];\n  }\n\nprivate:\n  void\
+    \ dfs(int idx, int par, int d) {\n    table[0][idx] = par;\n    dep[idx] = d;\n\
+    \    for(auto &to : g[idx]) {\n      if(to != par) {\n        sum[to] = sum[idx]\
+    \ + to.cost;\n        dfs(to, idx, d + 1);\n      }\n    }\n  }\n};\n"
   code: "/**\n * @brief Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\
     \u5148)\n * @docs docs/doubling-lowest-common-ancestor.md\n */\ntemplate< typename\
     \ T >\nstruct DoublingLowestCommonAncestor : Graph< T > {\npublic:\n  using Graph<\
@@ -56,19 +55,18 @@ data:
     \ v) {\n    if(dep[u] > dep[v]) swap(u, v);\n    v = climb(v, dep[v] - dep[u]);\n\
     \    if(u == v) return u;\n    for(int i = LOG - 1; i >= 0; i--) {\n      if(table[i][u]\
     \ != table[i][v]) {\n        u = table[i][u];\n        v = table[i][v];\n    \
-    \  }\n    }\n    return table[0][u];\n  }\n\n  int climb(int u, int k) const {\n\
-    \    if(dep[u] < k) return -1;\n    for(int i = LOG - 1; i >= 0; i--) {\n    \
-    \  if((k >> i) & 1) u = table[i][u];\n    }\n    return u;\n  }\n\n  T dist(int\
-    \ u, int v) const {\n    return sum[u] + sum[v] - 2 * sum[lca(u, v)];\n  }\n\n\
-    private:\n  void dfs(int idx, int par, int d) {\n    table[0][idx] = par;\n  \
-    \  dep[idx] = d;\n    for(auto &to : g[idx]) {\n      if(to != par) {\n      \
-    \  sum[to] = sum[idx] + to.cost;\n        dfs(to, idx, d + 1);\n      }\n    }\n\
-    \  }\n};\n"
+    \  }\n    }\n    return table[0][u];\n  }\n\n  int climb(int u, int k) {\n   \
+    \ if(dep[u] < k) return -1;\n    for(int i = LOG - 1; i >= 0; i--) {\n      if((k\
+    \ >> i) & 1) u = table[i][u];\n    }\n    return u;\n  }\n\n  T dist(int u, int\
+    \ v) {\n    return sum[u] + sum[v] - 2 * sum[lca(u, v)];\n  }\n\nprivate:\n  void\
+    \ dfs(int idx, int par, int d) {\n    table[0][idx] = par;\n    dep[idx] = d;\n\
+    \    for(auto &to : g[idx]) {\n      if(to != par) {\n        sum[to] = sum[idx]\
+    \ + to.cost;\n        dfs(to, idx, d + 1);\n      }\n    }\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/tree/doubling-lowest-common-ancestor.cpp
   requiredBy: []
-  timestamp: '2020-11-10 01:30:09+09:00'
+  timestamp: '2021-06-15 15:01:13+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-lca-3.test.cpp
