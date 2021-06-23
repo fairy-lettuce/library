@@ -71,8 +71,8 @@ data:
   isVerificationFile: false
   path: geometry/is_parallel.cpp
   requiredBy:
-  - geometry/distance_ll.cpp
   - geometry/is_intersect_ll.cpp
+  - geometry/distance_ll.cpp
   timestamp: '2020-12-01 17:38:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

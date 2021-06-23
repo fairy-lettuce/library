@@ -228,41 +228,41 @@ data:
   isVerificationFile: false
   path: math/fps/formal-power-series.cpp
   requiredBy:
-  - math/fps/integral.cpp
-  - math/fps/diff.cpp
   - math/fps/taylor-shift.cpp
-  - math/fps/mod-pow.cpp
-  - math/fps/partition.cpp
-  - math/fps/pow.cpp
   - math/fps/exp.cpp
-  - math/fps/stirling-second.cpp
-  - math/fps/inv.cpp
+  - math/fps/partition.cpp
   - math/fps/stirling-first.cpp
-  - math/fps/bell.cpp
-  - math/fps/sqrt.cpp
-  - math/fps/multipoint-evaluation.cpp
-  - math/fps/bellnoulli.cpp
-  - math/fps/log.cpp
   - math/fps/stirling-second-kth-column.cpp
-  - math/fps/eulerian.cpp
+  - math/fps/diff.cpp
   - math/fps/polynomial-interpolation.cpp
+  - math/fps/multipoint-evaluation.cpp
+  - math/fps/stirling-second.cpp
+  - math/fps/bellnoulli.cpp
+  - math/fps/integral.cpp
+  - math/fps/log.cpp
+  - math/fps/sqrt.cpp
+  - math/fps/pow.cpp
+  - math/fps/mod-pow.cpp
+  - math/fps/bell.cpp
+  - math/fps/inv.cpp
+  - math/fps/eulerian.cpp
   timestamp: '2020-10-23 03:48:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-bellnoulli-number.test.cpp
-  - test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
+  - test/verify/yosupo-polynomial-interpolation.test.cpp
+  - test/verify/yosupo-find-linear-recurrence.test.cpp
   - test/verify/yosupo-partition-function.test.cpp
-  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
-  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
+  - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
   - test/verify/yosupo-polynomial-taylor-shift.test.cpp
-  - test/verify/yosupo-multipoint-evaluation.test.cpp
+  - test/verify/yosupo-bellnoulli-number.test.cpp
+  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - test/verify/yosupo-sparse-matrix-det.test.cpp
-  - test/verify/yosupo-find-linear-recurrence.test.cpp
-  - test/verify/yosupo-polynomial-interpolation.test.cpp
-  - test/verify/yosupo-log-of-formal-power-series.test.cpp
-  - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp
+  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
+  - test/verify/yosupo-multipoint-evaluation.test.cpp
+  - test/verify/yosupo-log-of-formal-power-series.test.cpp
+  - test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
 documentation_of: math/fps/formal-power-series.cpp
 layout: document
 redirect_from:

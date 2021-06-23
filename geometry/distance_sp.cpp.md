@@ -105,8 +105,8 @@ data:
   isVerificationFile: false
   path: geometry/distance_sp.cpp
   requiredBy:
-  - geometry/distance_ss.cpp
   - geometry/common_area_cp.cpp
+  - geometry/distance_ss.cpp
   timestamp: '2020-12-01 18:35:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

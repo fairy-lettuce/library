@@ -6,7 +6,7 @@ data:
     title: math/combinatorics/mod-int.cpp
   - icon: ':heavy_check_mark:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
-    title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
+    title: Number-Theoretic-Transform-Friendly-Mod-Int
   - icon: ':heavy_check_mark:'
     path: math/fps/diff.cpp
     title: Diff ($f'(x)$)
@@ -90,33 +90,40 @@ data:
     \  friend istream &operator>>(istream &is, ModInt &a) {\n    int64_t t;\n    is\
     \ >> t;\n    a = ModInt< mod >(t);\n    return (is);\n  }\n\n  static int get_mod()\
     \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 1 \"math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\
-    \ntemplate< typename Mint >\nstruct NumberTheoreticTransformFriendlyModInt {\n\
-    \n  vector< Mint > dw, idw;\n  int max_base;\n  Mint root;\n\n  NumberTheoreticTransformFriendlyModInt()\
-    \ {\n    const unsigned mod = Mint::get_mod();\n    assert(mod >= 3 && mod % 2\
-    \ == 1);\n    auto tmp = mod - 1;\n    max_base = 0;\n    while(tmp % 2 == 0)\
-    \ tmp >>= 1, max_base++;\n    root = 2;\n    while(root.pow((mod - 1) >> 1) ==\
-    \ 1) root += 1;\n    assert(root.pow(mod - 1) == 1);\n    dw.resize(max_base);\n\
-    \    idw.resize(max_base);\n    for(int i = 0; i < max_base; i++) {\n      dw[i]\
-    \ = -root.pow((mod - 1) >> (i + 2));\n      idw[i] = Mint(1) / dw[i];\n    }\n\
-    \  }\n\n  void ntt(vector< Mint > &a) {\n    const int n = (int) a.size();\n \
-    \   assert((n & (n - 1)) == 0);\n    assert(__builtin_ctz(n) <= max_base);\n \
-    \   for(int m = n; m >>= 1;) {\n      Mint w = 1;\n      for(int s = 0, k = 0;\
+    \n/**\n * @brief Number-Theoretic-Transform-Friendly-Mod-Int\n */\ntemplate< typename\
+    \ Mint >\nstruct NumberTheoreticTransformFriendlyModInt {\n\n  static vector<\
+    \ Mint > dw, idw;\n  static int max_base;\n  static Mint root;\n\n  NumberTheoreticTransformFriendlyModInt()\
+    \ = default;\n\n  static void init() {\n    if(dw.empty()) {\n      const unsigned\
+    \ mod = Mint::get_mod();\n      assert(mod >= 3 && mod % 2 == 1);\n      auto\
+    \ tmp = mod - 1;\n      max_base = 0;\n      while(tmp % 2 == 0) tmp >>= 1, max_base++;\n\
+    \      root = 2;\n      while(root.pow((mod - 1) >> 1) == 1) root += 1;\n    \
+    \  assert(root.pow(mod - 1) == 1);\n      dw.resize(max_base);\n      idw.resize(max_base);\n\
+    \      for(int i = 0; i < max_base; i++) {\n        dw[i] = -root.pow((mod - 1)\
+    \ >> (i + 2));\n        idw[i] = Mint(1) / dw[i];\n      }\n    }\n  }\n\n  static\
+    \ void ntt(vector< Mint > &a) {\n    init();\n    const int n = (int) a.size();\n\
+    \    assert((n & (n - 1)) == 0);\n    assert(__builtin_ctz(n) <= max_base);\n\
+    \    for(int m = n; m >>= 1;) {\n      Mint w = 1;\n      for(int s = 0, k = 0;\
     \ s < n; s += 2 * m) {\n        for(int i = s, j = s + m; i < s + m; ++i, ++j)\
     \ {\n          auto x = a[i], y = a[j] * w;\n          a[i] = x + y, a[j] = x\
     \ - y;\n        }\n        w *= dw[__builtin_ctz(++k)];\n      }\n    }\n  }\n\
-    \n  void intt(vector< Mint > &a, bool f = true) {\n    const int n = (int) a.size();\n\
-    \    assert((n & (n - 1)) == 0);\n    assert(__builtin_ctz(n) <= max_base);\n\
-    \    for(int m = 1; m < n; m *= 2) {\n      Mint w = 1;\n      for(int s = 0,\
-    \ k = 0; s < n; s += 2 * m) {\n        for(int i = s, j = s + m; i < s + m; ++i,\
-    \ ++j) {\n          auto x = a[i], y = a[j];\n          a[i] = x + y, a[j] = (x\
-    \ - y) * w;\n        }\n        w *= idw[__builtin_ctz(++k)];\n      }\n    }\n\
-    \    if(f) {\n      Mint inv_sz = Mint(1) / n;\n      for(int i = 0; i < n; i++)\
-    \ a[i] *= inv_sz;\n    }\n  }\n\n  vector< Mint > multiply(vector< Mint > a, vector<\
-    \ Mint > b) {\n    int need = a.size() + b.size() - 1;\n    int nbase = 1;\n \
-    \   while((1 << nbase) < need) nbase++;\n    int sz = 1 << nbase;\n    a.resize(sz,\
-    \ 0);\n    b.resize(sz, 0);\n    ntt(a);\n    ntt(b);\n    Mint inv_sz = Mint(1)\
-    \ / sz;\n    for(int i = 0; i < sz; i++) a[i] *= b[i] * inv_sz;\n    intt(a, false);\n\
-    \    a.resize(need);\n    return a;\n  }\n};\n#line 7 \"test/verify/yosupo-exp-of-formal-power-series.test.cpp\"\
+    \n  static void intt(vector< Mint > &a, bool f = true) {\n    init();\n    const\
+    \ int n = (int) a.size();\n    assert((n & (n - 1)) == 0);\n    assert(__builtin_ctz(n)\
+    \ <= max_base);\n    for(int m = 1; m < n; m *= 2) {\n      Mint w = 1;\n    \
+    \  for(int s = 0, k = 0; s < n; s += 2 * m) {\n        for(int i = s, j = s +\
+    \ m; i < s + m; ++i, ++j) {\n          auto x = a[i], y = a[j];\n          a[i]\
+    \ = x + y, a[j] = (x - y) * w;\n        }\n        w *= idw[__builtin_ctz(++k)];\n\
+    \      }\n    }\n    if(f) {\n      Mint inv_sz = Mint(1) / n;\n      for(int\
+    \ i = 0; i < n; i++) a[i] *= inv_sz;\n    }\n  }\n\n  static vector< Mint > multiply(vector<\
+    \ Mint > a, vector< Mint > b) {\n    int need = a.size() + b.size() - 1;\n   \
+    \ int nbase = 1;\n    while((1 << nbase) < need) nbase++;\n    int sz = 1 << nbase;\n\
+    \    a.resize(sz, 0);\n    b.resize(sz, 0);\n    ntt(a);\n    ntt(b);\n    Mint\
+    \ inv_sz = Mint(1) / sz;\n    for(int i = 0; i < sz; i++) a[i] *= b[i] * inv_sz;\n\
+    \    intt(a, false);\n    a.resize(need);\n    return a;\n  }\n};\n\ntemplate<\
+    \ typename Mint >\nvector< Mint > NumberTheoreticTransformFriendlyModInt< Mint\
+    \ >::dw = vector< Mint >();\ntemplate< typename Mint >\nvector< Mint > NumberTheoreticTransformFriendlyModInt<\
+    \ Mint >::idw = vector< Mint >();\ntemplate< typename Mint >\nint NumberTheoreticTransformFriendlyModInt<\
+    \ Mint >::max_base = 0;\ntemplate< typename Mint >\nMint NumberTheoreticTransformFriendlyModInt<\
+    \ Mint >::root = Mint();\n#line 7 \"test/verify/yosupo-exp-of-formal-power-series.test.cpp\"\
     \n\n#line 2 \"math/fps/formal-power-series.cpp\"\n\n/**\n * @brief Formal-Power-Series(\u5F62\
     \u5F0F\u7684\u51AA\u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeries\
     \ : vector< T > {\n  using vector< T >::vector;\n  using P = FormalPowerSeries;\n\
@@ -263,7 +270,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-06-23 17:44:06+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-exp-of-formal-power-series.test.cpp

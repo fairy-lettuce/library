@@ -442,7 +442,7 @@ data:
       title: math/fft/fast-fourier-transform.cpp
     - icon: ':heavy_check_mark:'
       path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
-      title: math/fft/number-theoretic-transform-friendly-mod-int.cpp
+      title: Number-Theoretic-Transform-Friendly-Mod-Int
     - icon: ':heavy_check_mark:'
       path: math/fft/number-theoretic-transform.cpp
       title: math/fft/number-theoretic-transform.cpp

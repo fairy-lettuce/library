@@ -71,8 +71,8 @@ data:
   timestamp: '2020-12-18 20:17:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-dpl-5-i.test.cpp
   - test/verify/aoj-dpl-5-g.test.cpp
+  - test/verify/aoj-dpl-5-i.test.cpp
 documentation_of: math/combinatorics/enumeration.cpp
 layout: document
 redirect_from:

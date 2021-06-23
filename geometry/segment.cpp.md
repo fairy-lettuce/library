@@ -92,14 +92,14 @@ data:
   isVerificationFile: false
   path: geometry/segment.cpp
   requiredBy:
+  - geometry/is_intersect_ss.cpp
   - geometry/is_intersect_sp.cpp
+  - geometry/distance_sp.cpp
   - geometry/is_intersect_ls.cpp
-  - geometry/is_intersect_cs.cpp
-  - geometry/distance_ss.cpp
   - geometry/common_area_cp.cpp
   - geometry/cross_point_cs.cpp
-  - geometry/distance_sp.cpp
-  - geometry/is_intersect_ss.cpp
+  - geometry/distance_ss.cpp
+  - geometry/is_intersect_cs.cpp
   timestamp: '2020-12-01 17:38:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
