@@ -76,6 +76,9 @@ data:
     path: test/verify/yosupo-range-affine-range-sum.test.cpp
     title: test/verify/yosupo-range-affine-range-sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
+    title: test/verify/yosupo-sharp-p-subset-sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sparse-matrix-det.test.cpp
     title: test/verify/yosupo-sparse-matrix-det.test.cpp
   - icon: ':heavy_check_mark:'
@@ -151,6 +154,7 @@ data:
   - test/verify/yosupo-range-affine-range-sum.test.cpp
   - test/verify/yosupo-polynomial-interpolation.test.cpp
   - test/verify/yosupo-find-linear-recurrence.test.cpp
+  - test/verify/yosupo-sharp-p-subset-sum.test.cpp
   - test/verify/yosupo-partition-function.test.cpp
   - test/verify/yosupo-point-set-range-composite-3.test.cpp
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp

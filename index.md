@@ -458,6 +458,9 @@ data:
       path: math/fps/berlekamp-massey.cpp
       title: math/fps/berlekamp-massey.cpp
     - icon: ':heavy_check_mark:'
+      path: math/fps/count-subset-sum.cpp
+      title: Count-Subset-Sum
+    - icon: ':heavy_check_mark:'
       path: math/fps/diff.cpp
       title: Diff ($f'(x)$)
     - icon: ':warning:'
@@ -469,7 +472,7 @@ data:
     - icon: ':warning:'
       path: math/fps/factorial.cpp
       title: math/fps/factorial.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/formal-power-series-friendly-ntt.cpp
       title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\
         \u7D1A\u6570)"
@@ -1453,6 +1456,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-set-xor-min.test.cpp
       title: test/verify/yosupo-set-xor-min.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
+      title: test/verify/yosupo-sharp-p-subset-sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-shortest-path.test.cpp
       title: test/verify/yosupo-shortest-path.test.cpp

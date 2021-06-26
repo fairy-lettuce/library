@@ -469,6 +469,9 @@ data:
     path: test/verify/yosupo-set-xor-min.test.cpp
     title: test/verify/yosupo-set-xor-min.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
+    title: test/verify/yosupo-sharp-p-subset-sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-shortest-path.test.cpp
     title: test/verify/yosupo-shortest-path.test.cpp
   - icon: ':heavy_check_mark:'
@@ -648,6 +651,7 @@ data:
   - test/verify/aoj-dpl-3-c.test.cpp
   - test/verify/yosupo-find-linear-recurrence.test.cpp
   - test/verify/aoj-3198.test.cpp
+  - test/verify/yosupo-sharp-p-subset-sum.test.cpp
   - test/verify/aoj-grl-2-a-2.test.cpp
   - test/verify/yosupo-cycle-detection.test.cpp
   - test/verify/aoj-cgl-7-e.test.cpp

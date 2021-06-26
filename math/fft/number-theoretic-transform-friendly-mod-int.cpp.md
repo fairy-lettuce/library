@@ -1,7 +1,11 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: math/fps/formal-power-series-friendly-ntt.cpp
+    title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
+      \u6570)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bellnoulli-number.test.cpp
@@ -30,6 +34,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
     title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
+    title: test/verify/yosupo-sharp-p-subset-sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
@@ -117,11 +124,13 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
-  requiredBy: []
+  requiredBy:
+  - math/fps/formal-power-series-friendly-ntt.cpp
   timestamp: '2021-06-23 17:44:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-polynomial-interpolation.test.cpp
+  - test/verify/yosupo-sharp-p-subset-sum.test.cpp
   - test/verify/yosupo-partition-function.test.cpp
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
   - test/verify/yosupo-polynomial-taylor-shift.test.cpp
