@@ -4,29 +4,26 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/diff.cpp
     title: Diff ($f'(x)$)
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/exp.cpp
     title: Exp ($e^{f(x)}$)
   - icon: ':heavy_check_mark:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/integral.cpp
     title: Integral ($\int f(x) dx$)
   - icon: ':heavy_check_mark:'
     path: math/fps/inv.cpp
     title: Inv ($\frac {1} {f(x)}$)
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/log.cpp
     title: Log ($\log {f(x)}$)
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     document_title: Pow ($f(x)^k$)
     links: []
@@ -178,9 +175,8 @@ data:
   path: math/fps/pow.cpp
   requiredBy: []
   timestamp: '2020-10-23 03:48:43+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: math/fps/pow.cpp
 layout: document
 redirect_from:

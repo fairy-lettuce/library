@@ -8,28 +8,19 @@ data:
   - icon: ':warning:'
     path: math/fps/bell.cpp
     title: math/fps/bell.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/exp.cpp
     title: Exp ($e^{f(x)}$)
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/log.cpp
     title: Log ($\log {f(x)}$)
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/pow.cpp
     title: Pow ($f(x)^k$)
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-log-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-log-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     _deprecated_at_docs: docs/integral.md
     document_title: Integral ($\int f(x) dx$)
@@ -113,11 +104,8 @@ data:
   - math/fps/pow.cpp
   - math/fps/bell.cpp
   timestamp: '2020-10-23 03:48:43+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
-  - test/verify/yosupo-log-of-formal-power-series.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: math/fps/integral.cpp
 layout: document
 redirect_from:

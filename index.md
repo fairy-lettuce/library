@@ -466,7 +466,7 @@ data:
     - icon: ':warning:'
       path: math/fps/eulerian.cpp
       title: math/fps/eulerian.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: math/fps/exp.cpp
       title: Exp ($e^{f(x)}$)
     - icon: ':warning:'
@@ -479,13 +479,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/formal-power-series.cpp
       title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: math/fps/integral.cpp
       title: Integral ($\int f(x) dx$)
     - icon: ':heavy_check_mark:'
       path: math/fps/inv.cpp
       title: Inv ($\frac {1} {f(x)}$)
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: math/fps/log.cpp
       title: Log ($\log {f(x)}$)
     - icon: ':warning:'
@@ -500,13 +500,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/polynomial-interpolation.cpp
       title: math/fps/polynomial-interpolation.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: math/fps/pow.cpp
       title: Pow ($f(x)^k$)
     - icon: ':heavy_check_mark:'
       path: math/fps/sparse-matrix.cpp
       title: math/fps/sparse-matrix.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: math/fps/sqrt.cpp
       title: Sqrt ($\sqrt {f(x)}$)
     - icon: ':heavy_check_mark:'
@@ -519,7 +519,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/stirling-second.cpp
       title: math/fps/stirling-second.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: math/fps/taylor-shift.cpp
       title: Taylor-Shift ($f(x) \Rightarrow f(x + c)$)
   - name: math/matrix

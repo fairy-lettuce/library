@@ -8,31 +8,22 @@ data:
   - icon: ':warning:'
     path: math/fps/bell.cpp
     title: math/fps/bell.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/exp.cpp
     title: Exp ($e^{f(x)}$)
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/log.cpp
     title: Log ($\log {f(x)}$)
   - icon: ':heavy_check_mark:'
     path: math/fps/polynomial-interpolation.cpp
     title: math/fps/polynomial-interpolation.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/pow.cpp
     title: Pow ($f(x)^k$)
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-log-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-log-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -122,9 +113,6 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-polynomial-interpolation.test.cpp
-  - test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
-  - test/verify/yosupo-log-of-formal-power-series.test.cpp
 documentation_of: math/fps/diff.cpp
 layout: document
 redirect_from:

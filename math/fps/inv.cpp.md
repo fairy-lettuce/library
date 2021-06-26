@@ -11,10 +11,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/bellnoulli.cpp
     title: math/fps/bellnoulli.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/exp.cpp
     title: Exp ($e^{f(x)}$)
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/log.cpp
     title: Log ($\log {f(x)}$)
   - icon: ':warning:'
@@ -29,10 +29,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/polynomial-interpolation.cpp
     title: math/fps/polynomial-interpolation.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/pow.cpp
     title: Pow ($f(x)^k$)
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/sqrt.cpp
     title: Sqrt ($\sqrt {f(x)}$)
   _extendedVerifiedWith:
@@ -40,14 +40,8 @@ data:
     path: test/verify/yosupo-bellnoulli-number.test.cpp
     title: test/verify/yosupo-bellnoulli-number.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
     title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-log-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-log-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-multipoint-evaluation.test.cpp
     title: test/verify/yosupo-multipoint-evaluation.test.cpp
@@ -57,12 +51,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -185,11 +173,7 @@ data:
   - test/verify/yosupo-partition-function.test.cpp
   - test/verify/yosupo-bellnoulli-number.test.cpp
   - test/verify/yosupo-inv-of-formal-power-series.test.cpp
-  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
   - test/verify/yosupo-multipoint-evaluation.test.cpp
-  - test/verify/yosupo-log-of-formal-power-series.test.cpp
 documentation_of: math/fps/inv.cpp
 layout: document
 redirect_from:

@@ -8,11 +8,9 @@ data:
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number-Theoretic-Transform-Friendly-Mod-Int
   - icon: ':heavy_check_mark:'
-    path: math/fps/formal-power-series.cpp
-    title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
-    path: math/fps/taylor-shift.cpp
-    title: Taylor-Shift ($f(x) \Rightarrow f(x + c)$)
+    path: math/fps/formal-power-series-friendly-ntt.cpp
+    title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
+      \u6570)"
   - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
@@ -112,27 +110,16 @@ data:
     \ >::dw = vector< Mint >();\ntemplate< typename Mint >\nvector< Mint > NumberTheoreticTransformFriendlyModInt<\
     \ Mint >::idw = vector< Mint >();\ntemplate< typename Mint >\nint NumberTheoreticTransformFriendlyModInt<\
     \ Mint >::max_base = 0;\ntemplate< typename Mint >\nMint NumberTheoreticTransformFriendlyModInt<\
-    \ Mint >::root = Mint();\n#line 8 \"test/verify/yosupo-polynomial-taylor-shift.test.cpp\"\
-    \n\n#line 2 \"math/fps/formal-power-series.cpp\"\n\n/**\n * @brief Formal-Power-Series(\u5F62\
-    \u5F0F\u7684\u51AA\u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeries\
-    \ : vector< T > {\n  using vector< T >::vector;\n  using P = FormalPowerSeries;\n\
-    \n  using MULT = function< vector< T >(P, P) >;\n  using FFT = function< void(P\
-    \ &) >;\n  using SQRT = function< T(T) >;\n\n  static MULT &get_mult() {\n   \
-    \ static MULT mult = nullptr;\n    return mult;\n  }\n\n  static void set_mult(MULT\
-    \ f) {\n    get_mult() = f;\n  }\n\n  static FFT &get_fft() {\n    static FFT\
-    \ fft = nullptr;\n    return fft;\n  }\n\n  static FFT &get_ifft() {\n    static\
-    \ FFT ifft = nullptr;\n    return ifft;\n  }\n\n  static void set_fft(FFT f, FFT\
-    \ g) {\n    get_fft() = f;\n    get_ifft() = g;\n    if(get_mult() == nullptr)\
-    \ {\n      auto mult = [&](P a, P b) {\n        int need = a.size() + b.size()\
-    \ - 1;\n        int nbase = 1;\n        while((1 << nbase) < need) nbase++;\n\
-    \        int sz = 1 << nbase;\n        a.resize(sz, T(0));\n        b.resize(sz,\
-    \ T(0));\n        get_fft()(a);\n        get_fft()(b);\n        for(int i = 0;\
-    \ i < sz; i++) a[i] *= b[i];\n        get_ifft()(a);\n        a.resize(need);\n\
-    \        return a;\n      };\n      set_mult(mult);\n    }\n  }\n\n  static SQRT\
-    \ &get_sqrt() {\n    static SQRT sqr = nullptr;\n    return sqr;\n  }\n\n  static\
-    \ void set_sqrt(SQRT sqr) {\n    get_sqrt() = sqr;\n  }\n\n  void shrink() {\n\
-    \    while(this->size() && this->back() == T(0)) this->pop_back();\n  }\n\n  P\
-    \ operator+(const P &r) const { return P(*this) += r; }\n\n  P operator+(const\
+    \ Mint >::root = Mint();\n#line 2 \"math/fps/formal-power-series-friendly-ntt.cpp\"\
+    \n\n/**\n * @brief Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
+    \u51AA\u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeriesFriendlyNTT\
+    \ : vector< T > {\n  using vector< T >::vector;\n  using P = FormalPowerSeriesFriendlyNTT;\n\
+    \  using NTT = NumberTheoreticTransformFriendlyModInt< T >;\n\n  P pre(int deg)\
+    \ const {\n    return P(begin(*this), begin(*this) + min((int) this->size(), deg));\n\
+    \  }\n\n  P rev(int deg = -1) const {\n    P ret(*this);\n    if(deg != -1) ret.resize(deg,\
+    \ T(0));\n    reverse(begin(ret), end(ret));\n    return ret;\n  }\n\n  void shrink()\
+    \ {\n    while(this->size() && this->back() == T(0)) this->pop_back();\n  }\n\n\
+    \  P operator+(const P &r) const { return P(*this) += r; }\n\n  P operator+(const\
     \ T &v) const { return P(*this) += v; }\n\n  P operator-(const P &r) const { return\
     \ P(*this) -= r; }\n\n  P operator-(const T &v) const { return P(*this) -= v;\
     \ }\n\n  P operator*(const P &r) const { return P(*this) *= r; }\n\n  P operator*(const\
@@ -140,72 +127,128 @@ data:
     \ P(*this) /= r; }\n\n  P operator%(const P &r) const { return P(*this) %= r;\
     \ }\n\n  P &operator+=(const P &r) {\n    if(r.size() > this->size()) this->resize(r.size());\n\
     \    for(int i = 0; i < r.size(); i++) (*this)[i] += r[i];\n    return *this;\n\
-    \  }\n\n  P &operator+=(const T &r) {\n    if(this->empty()) this->resize(1);\n\
-    \    (*this)[0] += r;\n    return *this;\n  }\n\n  P &operator-=(const P &r) {\n\
-    \    if(r.size() > this->size()) this->resize(r.size());\n    for(int i = 0; i\
-    \ < r.size(); i++) (*this)[i] -= r[i];\n    shrink();\n    return *this;\n  }\n\
-    \n  P &operator-=(const T &r) {\n    if(this->empty()) this->resize(1);\n    (*this)[0]\
-    \ -= r;\n    shrink();\n    return *this;\n  }\n\n  P &operator*=(const T &v)\
-    \ {\n    const int n = (int) this->size();\n    for(int k = 0; k < n; k++) (*this)[k]\
-    \ *= v;\n    return *this;\n  }\n\n  P &operator*=(const P &r) {\n    if(this->empty()\
-    \ || r.empty()) {\n      this->clear();\n      return *this;\n    }\n    assert(get_mult()\
-    \ != nullptr);\n    auto ret = get_mult()(*this, r);\n    return *this = P(begin(ret),\
-    \ end(ret));\n  }\n\n  P &operator%=(const P &r) {\n    return *this -= *this\
-    \ / r * r;\n  }\n\n  P operator-() const {\n    P ret(this->size());\n    for(int\
+    \  }\n\n  P &operator-=(const P &r) {\n    if(r.size() > this->size()) this->resize(r.size());\n\
+    \    for(int i = 0; i < r.size(); i++) (*this)[i] -= r[i];\n    return *this;\n\
+    \  }\n\n  // https://judge.yosupo.jp/problem/convolution_mod\n  P &operator*=(const\
+    \ P &r) {\n    if(this->empty() || r.empty()) {\n      this->clear();\n      return\
+    \ *this;\n    }\n    auto ret = NTT::multiply(*this, r);\n    return *this = {begin(ret),\
+    \ end(ret)};\n  }\n\n  P &operator/=(const P &r) {\n    if(this->size() < r.size())\
+    \ {\n      this->clear();\n      return *this;\n    }\n    int n = this->size()\
+    \ - r.size() + 1;\n    return *this = (rev().pre(n) * r.rev().inv(n)).pre(n).rev(n);\n\
+    \  }\n\n  P &operator%=(const P &r) {\n    return *this -= *this / r * r;\n  }\n\
+    \n  // https://judge.yosupo.jp/problem/division_of_polynomials\n  pair< P, P >\
+    \ div_mod(const P &r) {\n    P q = *this / r;\n    return make_pair(q, *this -\
+    \ q * r);\n  }\n\n  P operator-() const {\n    P ret(this->size());\n    for(int\
     \ i = 0; i < this->size(); i++) ret[i] = -(*this)[i];\n    return ret;\n  }\n\n\
-    \  P &operator/=(const P &r) {\n    if(this->size() < r.size()) {\n      this->clear();\n\
-    \      return *this;\n    }\n    int n = this->size() - r.size() + 1;\n    return\
-    \ *this = (rev().pre(n) * r.rev().inv(n)).pre(n).rev(n);\n  }\n\n  P dot(P r)\
-    \ const {\n    P ret(min(this->size(), r.size()));\n    for(int i = 0; i < ret.size();\
-    \ i++) ret[i] = (*this)[i] * r[i];\n    return ret;\n  }\n\n  P pre(int sz) const\
-    \ {\n    return P(begin(*this), begin(*this) + min((int) this->size(), sz));\n\
-    \  }\n\n  P operator>>(int sz) const {\n    if(this->size() <= sz) return {};\n\
-    \    P ret(*this);\n    ret.erase(ret.begin(), ret.begin() + sz);\n    return\
+    \  P &operator+=(const T &r) {\n    if(this->empty()) this->resize(1);\n    (*this)[0]\
+    \ += r;\n    return *this;\n  }\n\n  P &operator-=(const T &r) {\n    if(this->empty())\
+    \ this->resize(1);\n    (*this)[0] -= r;\n    return *this;\n  }\n\n  P &operator*=(const\
+    \ T &v) {\n    for(int i = 0; i < this->size(); i++) (*this)[i] *= v;\n    return\
+    \ *this;\n  }\n\n  P dot(P r) const {\n    P ret(min(this->size(), r.size()));\n\
+    \    for(int i = 0; i < ret.size(); i++) ret[i] = (*this)[i] * r[i];\n    return\
+    \ ret;\n  }\n\n  P operator>>(int sz) const {\n    if(this->size() <= sz) return\
+    \ {};\n    P ret(*this);\n    ret.erase(ret.begin(), ret.begin() + sz);\n    return\
     \ ret;\n  }\n\n  P operator<<(int sz) const {\n    P ret(*this);\n    ret.insert(ret.begin(),\
-    \ sz, T(0));\n    return ret;\n  }\n\n  P rev(int deg = -1) const {\n    P ret(*this);\n\
-    \    if(deg != -1) ret.resize(deg, T(0));\n    reverse(begin(ret), end(ret));\n\
-    \    return ret;\n  }\n\n  T operator()(T x) const {\n    T r = 0, w = 1;\n  \
-    \  for(auto &v : *this) {\n      r += w * v;\n      w *= x;\n    }\n    return\
-    \ r;\n  }\n\n  P diff() const;\n\n  P integral() const;\n\n  // F(0) must not\
-    \ be 0\n  P inv_fast() const;\n\n  P inv(int deg = -1) const;\n\n  // F(0) must\
-    \ be 1\n  P log(int deg = -1) const;\n\n  P sqrt(int deg = -1) const;\n\n  //\
-    \ F(0) must be 0\n  P exp_fast(int deg = -1) const;\n\n  P exp(int deg = -1) const;\n\
-    \n  P pow(int64_t k, int deg = -1) const;\n\n  P mod_pow(int64_t k, P g) const;\n\
-    \n  P taylor_shift(T c) const;\n};\n#line 2 \"math/fps/taylor-shift.cpp\"\n\n\
-    /**\n * @brief Taylor-Shift ($f(x) \\Rightarrow f(x + c)$)\n */\ntemplate< typename\
-    \ T >\ntypename FormalPowerSeries< T >::P FormalPowerSeries< T >::taylor_shift(T\
-    \ c) const {\n  int n = (int) this->size();\n  vector< T > fact(n), rfact(n);\n\
-    \  fact[0] = rfact[0] = T(1);\n  for(int i = 1; i < n; i++) fact[i] = fact[i -\
-    \ 1] * T(i);\n  rfact[n - 1] = T(1) / fact[n - 1];\n  for(int i = n - 1; i > 1;\
-    \ i--) rfact[i - 1] = rfact[i] * T(i);\n  P p(*this);\n  for(int i = 0; i < n;\
-    \ i++) p[i] *= fact[i];\n  p = p.rev();\n  P bs(n, T(1));\n  for(int i = 1; i\
-    \ < n; i++) bs[i] = bs[i - 1] * c * rfact[i] * fact[i - 1];\n  p = (p * bs).pre(n);\n\
-    \  p = p.rev();\n  for(int i = 0; i < n; i++) p[i] *= rfact[i];\n  return p;\n\
-    }\n#line 10 \"test/verify/yosupo-polynomial-taylor-shift.test.cpp\"\n\nconst int\
-    \ MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n  NumberTheoreticTransformFriendlyModInt<\
-    \ mint > ntt;\n  using FPS = FormalPowerSeries< mint >;\n  FPS::set_fft([&](FPS\
-    \ &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a); });\n  int N, C;\n  cin >> N\
-    \ >> C;\n  FPS F(N);\n  cin >> F;\n  cout << F.taylor_shift(mint(C)) << \"\\n\"\
-    ;\n}\n"
+    \ sz, T(0));\n    return ret;\n  }\n\n  T operator()(T x) const {\n    T r = 0,\
+    \ w = 1;\n    for(auto &v : *this) {\n      r += w * v;\n      w *= x;\n    }\n\
+    \    return r;\n  }\n\n  P diff() const {\n    const int n = (int) this->size();\n\
+    \    P ret(max(0, n - 1));\n    for(int i = 1; i < n; i++) ret[i - 1] = (*this)[i]\
+    \ * T(i);\n    return ret;\n  }\n\n  P integral() const {\n    const int n = (int)\
+    \ this->size();\n    P ret(n + 1);\n    ret[0] = T(0);\n    for(int i = 0; i <\
+    \ n; i++) ret[i + 1] = (*this)[i] / T(i + 1);\n    return ret;\n  }\n\n  // https://judge.yosupo.jp/problem/inv_of_formal_power_series\n\
+    \  // F(0) must not be 0\n  P inv(int deg = -1) const {\n    assert(((*this)[0])\
+    \ != T(0));\n    const int n = (int) this->size();\n    if(deg == -1) deg = n;\n\
+    \    P res(deg);\n    res[0] = {T(1) / (*this)[0]};\n    for(int d = 1; d < deg;\
+    \ d <<= 1) {\n      P f(2 * d), g(2 * d);\n      for(int j = 0; j < min(n, 2 *\
+    \ d); j++) f[j] = (*this)[j];\n      for(int j = 0; j < d; j++) g[j] = res[j];\n\
+    \      NTT::ntt(f);\n      NTT::ntt(g);\n      f = f.dot(g);\n      NTT::intt(f);\n\
+    \      for(int j = 0; j < d; j++) f[j] = 0;\n      NTT::ntt(f);\n      for(int\
+    \ j = 0; j < 2 * d; j++) f[j] *= g[j];\n      NTT::intt(f);\n      for(int j =\
+    \ d; j < min(2 * d, deg); j++) res[j] = -f[j];\n    }\n    return res;\n  }\n\n\
+    \  // https://judge.yosupo.jp/problem/log_of_formal_power_series\n  // F(0) must\
+    \ be 1\n  P log(int deg = -1) const {\n    assert((*this)[0] == T(1));\n    const\
+    \ int n = (int) this->size();\n    if(deg == -1) deg = n;\n    return (this->diff()\
+    \ * this->inv(deg)).pre(deg - 1).integral();\n  }\n\n  // https://judge.yosupo.jp/problem/sqrt_of_formal_power_series\n\
+    \  P sqrt(int deg = -1, const function< T(T) > &get_sqrt = [](T) { return T(1);\
+    \ }) const {\n    const int n = (int) this->size();\n    if(deg == -1) deg = n;\n\
+    \    if((*this)[0] == T(0)) {\n      for(int i = 1; i < n; i++) {\n        if((*this)[i]\
+    \ != T(0)) {\n          if(i & 1) return {};\n          if(deg - i / 2 <= 0) break;\n\
+    \          auto ret = (*this >> i).sqrt(deg - i / 2, get_sqrt);\n          if(ret.empty())\
+    \ return {};\n          ret = ret << (i / 2);\n          if(ret.size() < deg)\
+    \ ret.resize(deg, T(0));\n          return ret;\n        }\n      }\n      return\
+    \ P(deg, 0);\n    }\n    auto sqr = T(get_sqrt((*this)[0]));\n    if(sqr * sqr\
+    \ != (*this)[0]) return {};\n    P ret{sqr};\n    T inv2 = T(1) / T(2);\n    for(int\
+    \ i = 1; i < deg; i <<= 1) {\n      ret = (ret + pre(i << 1) * ret.inv(i << 1))\
+    \ * inv2;\n    }\n    return ret.pre(deg);\n  }\n\n  P sqrt(const function< T(T)\
+    \ > &get_sqrt, int deg = -1) const {\n    return sqrt(deg, get_sqrt);\n  }\n\n\
+    \  // https://judge.yosupo.jp/problem/exp_of_formal_power_series\n  // F(0) must\
+    \ be 0\n  P exp(int deg = -1) const {\n    if(deg == -1) deg = this->size();\n\
+    \    assert((*this)[0] == T(0));\n\n    P inv;\n    inv.reserve(deg + 1);\n  \
+    \  inv.push_back(T(0));\n    inv.push_back(T(1));\n\n    auto inplace_integral\
+    \ = [&](P &F) -> void {\n      const int n = (int) F.size();\n      auto mod =\
+    \ T::get_mod();\n      while((int) inv.size() <= n) {\n        int i = inv.size();\n\
+    \        inv.push_back((-inv[mod % i]) * (mod / i));\n      }\n      F.insert(begin(F),\
+    \ T(0));\n      for(int i = 1; i <= n; i++) F[i] *= inv[i];\n    };\n\n    auto\
+    \ inplace_diff = [](P &F) -> void {\n      if(F.empty()) return;\n      F.erase(begin(F));\n\
+    \      T coeff = 1, one = 1;\n      for(int i = 0; i < (int) F.size(); i++) {\n\
+    \        F[i] *= coeff;\n        coeff += one;\n      }\n    };\n\n    P b{1,\
+    \ 1 < (int) this->size() ? (*this)[1] : 0}, c{1}, z1, z2{1, 1};\n    for(int m\
+    \ = 2; m < deg; m *= 2) {\n      auto y = b;\n      y.resize(2 * m);\n      NTT::ntt(y);\n\
+    \      z1 = z2;\n      P z(m);\n      for(int i = 0; i < m; ++i) z[i] = y[i] *\
+    \ z1[i];\n      NTT::intt(z);\n      fill(begin(z), begin(z) + m / 2, T(0));\n\
+    \      NTT::ntt(z);\n      for(int i = 0; i < m; ++i) z[i] *= -z1[i];\n      NTT::intt(z);\n\
+    \      c.insert(end(c), begin(z) + m / 2, end(z));\n      z2 = c;\n      z2.resize(2\
+    \ * m);\n      NTT::ntt(z2);\n      P x(begin(*this), begin(*this) + min< int\
+    \ >(this->size(), m));\n      inplace_diff(x);\n      x.push_back(T(0));\n   \
+    \   NTT::ntt(x);\n      for(int i = 0; i < m; ++i) x[i] *= y[i];\n      NTT::intt(x);\n\
+    \      x -= b.diff();\n      x.resize(2 * m);\n      for(int i = 0; i < m - 1;\
+    \ ++i) x[m + i] = x[i], x[i] = T(0);\n      NTT::ntt(x);\n      for(int i = 0;\
+    \ i < 2 * m; ++i) x[i] *= z2[i];\n      NTT::intt(x);\n      x.pop_back();\n \
+    \     inplace_integral(x);\n      for(int i = m; i < min< int >(this->size(),\
+    \ 2 * m); ++i) x[i] += (*this)[i];\n      fill(begin(x), begin(x) + m, T(0));\n\
+    \      NTT::ntt(x);\n      for(int i = 0; i < 2 * m; ++i) x[i] *= y[i];\n    \
+    \  NTT::intt(x);\n      b.insert(end(b), begin(x) + m, end(x));\n    }\n    return\
+    \ P{begin(b), begin(b) + deg};\n  }\n\n  // https://judge.yosupo.jp/problem/pow_of_formal_power_series\n\
+    \  P pow(int64_t k, int deg = -1) const {\n    const int n = (int) this->size();\n\
+    \    if(deg == -1) deg = n;\n    for(int i = 0; i < n; i++) {\n      if((*this)[i]\
+    \ != T(0)) {\n        T rev = T(1) / (*this)[i];\n        P ret = (((*this * rev)\
+    \ >> i).log() * k).exp() * ((*this)[i].pow(k));\n        if(i * k > deg) return\
+    \ P(deg, T(0));\n        ret = (ret << (i * k)).pre(deg);\n        if(ret.size()\
+    \ < deg) ret.resize(deg, T(0));\n        return ret;\n      }\n    }\n    return\
+    \ *this;\n  }\n\n  P mod_pow(int64_t k, P g) const {\n    P modinv = g.rev().inv();\n\
+    \    auto get_div = [&](P base) {\n      if(base.size() < g.size()) {\n      \
+    \  base.clear();\n        return base;\n      }\n      int n = base.size() - g.size()\
+    \ + 1;\n      return (base.rev().pre(n) * modinv.pre(n)).pre(n).rev(n);\n    };\n\
+    \    P x(*this), ret{1};\n    while(k > 0) {\n      if(k & 1) {\n        ret *=\
+    \ x;\n        ret -= get_div(ret) * g;\n      }\n      x *= x;\n      x -= get_div(x)\
+    \ * g;\n      k >>= 1;\n    }\n    return ret;\n  }\n\n  // https://judge.yosupo.jp/problem/polynomial_taylor_shift\n\
+    \  P taylor_shift(T c) const {\n    int n = (int) this->size();\n    vector< T\
+    \ > fact(n), rfact(n);\n    fact[0] = rfact[0] = T(1);\n    for(int i = 1; i <\
+    \ n; i++) fact[i] = fact[i - 1] * T(i);\n    rfact[n - 1] = T(1) / fact[n - 1];\n\
+    \    for(int i = n - 1; i > 1; i--) rfact[i - 1] = rfact[i] * T(i);\n    P p(*this);\n\
+    \    for(int i = 0; i < n; i++) p[i] *= fact[i];\n    p = p.rev();\n    P bs(n,\
+    \ T(1));\n    for(int i = 1; i < n; i++) bs[i] = bs[i - 1] * c * rfact[i] * fact[i\
+    \ - 1];\n    p = (p * bs).pre(n);\n    p = p.rev();\n    for(int i = 0; i < n;\
+    \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\n\ntemplate< typename Mint\
+    \ >\nusing FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 8 \"test/verify/yosupo-polynomial-taylor-shift.test.cpp\"\
+    \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
+    \  int N, C;\n  cin >> N >> C;\n  FPS< mint > F(N);\n  cin >> F;\n  cout << F.taylor_shift(mint(C))\
+    \ << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../math/combinatorics/mod-int.cpp\"\
-    \n\n#include \"../../math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\
-    \n\n#include \"../../math/fps/taylor-shift.cpp\"\n\nconst int MOD = 998244353;\n\
-    using mint = ModInt< MOD >;\n\nint main() {\n  NumberTheoreticTransformFriendlyModInt<\
-    \ mint > ntt;\n  using FPS = FormalPowerSeries< mint >;\n  FPS::set_fft([&](FPS\
-    \ &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a); });\n  int N, C;\n  cin >> N\
-    \ >> C;\n  FPS F(N);\n  cin >> F;\n  cout << F.taylor_shift(mint(C)) << \"\\n\"\
-    ;\n}\n"
+    \n\n#include \"../../math/fps/formal-power-series-friendly-ntt.cpp\"\n\nconst\
+    \ int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n  int N,\
+    \ C;\n  cin >> N >> C;\n  FPS< mint > F(N);\n  cin >> F;\n  cout << F.taylor_shift(mint(C))\
+    \ << \"\\n\";\n}\n"
   dependsOn:
   - template/template.cpp
   - math/combinatorics/mod-int.cpp
+  - math/fps/formal-power-series-friendly-ntt.cpp
   - math/fft/number-theoretic-transform-friendly-mod-int.cpp
-  - math/fps/taylor-shift.cpp
-  - math/fps/formal-power-series.cpp
   isVerificationFile: true
   path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
   requiredBy: []
-  timestamp: '2021-06-23 17:44:06+09:00'
+  timestamp: '2021-06-27 03:00:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-polynomial-taylor-shift.test.cpp

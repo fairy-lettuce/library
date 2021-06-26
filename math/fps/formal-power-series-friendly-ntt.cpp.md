@@ -10,8 +10,23 @@ data:
     path: test/verify/yosupo-division-of-polynomials.test.cpp
     title: test/verify/yosupo-division-of-polynomials.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
+    title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-log-of-formal-power-series.test.cpp
+    title: test/verify/yosupo-log-of-formal-power-series.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
+    title: test/verify/yosupo-polynomial-taylor-shift.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
+    title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
     title: test/verify/yosupo-sharp-p-subset-sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+    title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -312,7 +327,12 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-sharp-p-subset-sum.test.cpp
+  - test/verify/yosupo-polynomial-taylor-shift.test.cpp
   - test/verify/yosupo-division-of-polynomials.test.cpp
+  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+  - test/verify/yosupo-exp-of-formal-power-series.test.cpp
+  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
+  - test/verify/yosupo-log-of-formal-power-series.test.cpp
 documentation_of: math/fps/formal-power-series-friendly-ntt.cpp
 layout: document
 redirect_from:

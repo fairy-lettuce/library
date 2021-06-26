@@ -14,16 +14,16 @@ data:
   - icon: ':warning:'
     path: math/fps/eulerian.cpp
     title: math/fps/eulerian.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/exp.cpp
     title: Exp ($e^{f(x)}$)
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/integral.cpp
     title: Integral ($\int f(x) dx$)
   - icon: ':heavy_check_mark:'
     path: math/fps/inv.cpp
     title: Inv ($\frac {1} {f(x)}$)
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/log.cpp
     title: Log ($\log {f(x)}$)
   - icon: ':warning:'
@@ -38,10 +38,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/polynomial-interpolation.cpp
     title: math/fps/polynomial-interpolation.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/pow.cpp
     title: Pow ($f(x)^k$)
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/sqrt.cpp
     title: Sqrt ($\sqrt {f(x)}$)
   - icon: ':heavy_check_mark:'
@@ -54,7 +54,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/stirling-second.cpp
     title: math/fps/stirling-second.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/fps/taylor-shift.cpp
     title: Taylor-Shift ($f(x) \Rightarrow f(x + c)$)
   _extendedVerifiedWith:
@@ -62,17 +62,11 @@ data:
     path: test/verify/yosupo-bellnoulli-number.test.cpp
     title: test/verify/yosupo-bellnoulli-number.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-find-linear-recurrence.test.cpp
     title: test/verify/yosupo-find-linear-recurrence.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
     title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-log-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-log-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-multipoint-evaluation.test.cpp
     title: test/verify/yosupo-multipoint-evaluation.test.cpp
@@ -83,17 +77,8 @@ data:
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
-    title: test/verify/yosupo-polynomial-taylor-shift.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sparse-matrix-det.test.cpp
     title: test/verify/yosupo-sparse-matrix-det.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
@@ -253,15 +238,10 @@ data:
   - test/verify/yosupo-find-linear-recurrence.test.cpp
   - test/verify/yosupo-partition-function.test.cpp
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - test/verify/yosupo-polynomial-taylor-shift.test.cpp
   - test/verify/yosupo-bellnoulli-number.test.cpp
   - test/verify/yosupo-inv-of-formal-power-series.test.cpp
-  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - test/verify/yosupo-sparse-matrix-det.test.cpp
-  - test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
   - test/verify/yosupo-multipoint-evaluation.test.cpp
-  - test/verify/yosupo-log-of-formal-power-series.test.cpp
   - test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
 documentation_of: math/fps/formal-power-series.cpp
 layout: document
