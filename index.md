@@ -469,6 +469,10 @@ data:
     - icon: ':warning:'
       path: math/fps/factorial.cpp
       title: math/fps/factorial.cpp
+    - icon: ':warning:'
+      path: math/fps/formal-power-series-friendly-ntt.cpp
+      title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\
+        \u7D1A\u6570)"
     - icon: ':heavy_check_mark:'
       path: math/fps/formal-power-series.cpp
       title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
