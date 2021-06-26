@@ -331,6 +331,9 @@ data:
     path: test/verify/yosupo-discrete-logarithm-mod.test.cpp
     title: test/verify/yosupo-discrete-logarithm-mod.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-division-of-polynomials.test.cpp
+    title: test/verify/yosupo-division-of-polynomials.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dominatortree.test.cpp
     title: test/verify/yosupo-dominatortree.test.cpp
   - icon: ':heavy_check_mark:'
@@ -701,6 +704,7 @@ data:
   - test/verify/aoj-2450-2.test.cpp
   - test/verify/yosupo-maximum-independent-set-2.test.cpp
   - test/verify/aoj-0304.test.cpp
+  - test/verify/yosupo-division-of-polynomials.test.cpp
   - test/verify/yosupo-bipartite-edge-coloring.test.cpp
   - test/verify/aoj-cgl-3-c.test.cpp
   - test/verify/aoj-grl-6-a-2.test.cpp

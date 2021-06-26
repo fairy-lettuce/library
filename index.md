@@ -1319,6 +1319,9 @@ data:
       path: test/verify/yosupo-discrete-logarithm-mod.test.cpp
       title: test/verify/yosupo-discrete-logarithm-mod.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-division-of-polynomials.test.cpp
+      title: test/verify/yosupo-division-of-polynomials.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-dominatortree.test.cpp
       title: test/verify/yosupo-dominatortree.test.cpp
     - icon: ':heavy_check_mark:'

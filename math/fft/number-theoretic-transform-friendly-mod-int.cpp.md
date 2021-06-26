@@ -11,6 +11,9 @@ data:
     path: test/verify/yosupo-bellnoulli-number.test.cpp
     title: test/verify/yosupo-bellnoulli-number.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-division-of-polynomials.test.cpp
+    title: test/verify/yosupo-division-of-polynomials.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
     title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -134,6 +137,7 @@ data:
   - test/verify/yosupo-partition-function.test.cpp
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
   - test/verify/yosupo-polynomial-taylor-shift.test.cpp
+  - test/verify/yosupo-division-of-polynomials.test.cpp
   - test/verify/yosupo-bellnoulli-number.test.cpp
   - test/verify/yosupo-inv-of-formal-power-series.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp

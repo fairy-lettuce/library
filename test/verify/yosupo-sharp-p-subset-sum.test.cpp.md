@@ -138,16 +138,18 @@ data:
     \ {\n      this->clear();\n      return *this;\n    }\n    int n = this->size()\
     \ - r.size() + 1;\n    return *this = (rev().pre(n) * r.rev().inv(n)).pre(n).rev(n);\n\
     \  }\n\n  P &operator%=(const P &r) {\n    return *this -= *this / r * r;\n  }\n\
-    \n  P operator-() const {\n    P ret(this->size());\n    for(int i = 0; i < this->size();\
-    \ i++) ret[i] = -(*this)[i];\n    return ret;\n  }\n\n  P &operator+=(const T\
-    \ &r) {\n    if(this->empty()) this->resize(1);\n    (*this)[0] += r;\n    return\
-    \ *this;\n  }\n\n  P &operator-=(const T &r) {\n    if(this->empty()) this->resize(1);\n\
-    \    (*this)[0] -= r;\n    return *this;\n  }\n\n  P &operator*=(const T &v) {\n\
-    \    for(int i = 0; i < this->size(); i++) (*this)[i] *= v;\n    return *this;\n\
-    \  }\n\n  P dot(P r) const {\n    P ret(min(this->size(), r.size()));\n    for(int\
-    \ i = 0; i < ret.size(); i++) ret[i] = (*this)[i] * r[i];\n    return ret;\n \
-    \ }\n\n  P operator>>(int sz) const {\n    if(this->size() <= sz) return {};\n\
-    \    P ret(*this);\n    ret.erase(ret.begin(), ret.begin() + sz);\n    return\
+    \n  // https://judge.yosupo.jp/problem/division_of_polynomials\n  pair< P, P >\
+    \ div_mod(const P &r) {\n    P q = *this / r;\n    return make_pair(q, *this -\
+    \ q * r);\n  }\n\n  P operator-() const {\n    P ret(this->size());\n    for(int\
+    \ i = 0; i < this->size(); i++) ret[i] = -(*this)[i];\n    return ret;\n  }\n\n\
+    \  P &operator+=(const T &r) {\n    if(this->empty()) this->resize(1);\n    (*this)[0]\
+    \ += r;\n    return *this;\n  }\n\n  P &operator-=(const T &r) {\n    if(this->empty())\
+    \ this->resize(1);\n    (*this)[0] -= r;\n    return *this;\n  }\n\n  P &operator*=(const\
+    \ T &v) {\n    for(int i = 0; i < this->size(); i++) (*this)[i] *= v;\n    return\
+    \ *this;\n  }\n\n  P dot(P r) const {\n    P ret(min(this->size(), r.size()));\n\
+    \    for(int i = 0; i < ret.size(); i++) ret[i] = (*this)[i] * r[i];\n    return\
+    \ ret;\n  }\n\n  P operator>>(int sz) const {\n    if(this->size() <= sz) return\
+    \ {};\n    P ret(*this);\n    ret.erase(ret.begin(), ret.begin() + sz);\n    return\
     \ ret;\n  }\n\n  P operator<<(int sz) const {\n    P ret(*this);\n    ret.insert(ret.begin(),\
     \ sz, T(0));\n    return ret;\n  }\n\n  T operator()(T x) const {\n    T r = 0,\
     \ w = 1;\n    for(auto &v : *this) {\n      r += w * v;\n      w *= x;\n    }\n\
@@ -158,7 +160,7 @@ data:
     \ n; i++) ret[i + 1] = (*this)[i] / T(i + 1);\n    return ret;\n  }\n\n  // https://judge.yosupo.jp/problem/inv_of_formal_power_series\n\
     \  // F(0) must not be 0\n  P inv(int deg = -1) const {\n    assert(((*this)[0])\
     \ != T(0));\n    const int n = (int) this->size();\n    if(deg == -1) deg = n;\n\
-    \n    P res(deg);\n    res[0] = {T(1) / (*this)[0]};\n    for(int d = 1; d < n;\
+    \    P res(deg);\n    res[0] = {T(1) / (*this)[0]};\n    for(int d = 1; d < deg;\
     \ d <<= 1) {\n      P f(2 * d), g(2 * d);\n      for(int j = 0; j < min(n, 2 *\
     \ d); j++) f[j] = (*this)[j];\n      for(int j = 0; j < d; j++) g[j] = res[j];\n\
     \      NTT::ntt(f);\n      NTT::ntt(g);\n      f = f.dot(g);\n      NTT::intt(f);\n\
@@ -229,8 +231,8 @@ data:
     \    for(int i = 0; i < n; i++) p[i] *= fact[i];\n    p = p.rev();\n    P bs(n,\
     \ T(1));\n    for(int i = 1; i < n; i++) bs[i] = bs[i - 1] * c * rfact[i] * fact[i\
     \ - 1];\n    p = (p * bs).pre(n);\n    p = p.rev();\n    for(int i = 0; i < n;\
-    \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\ntemplate< typename Mint >\n\
-    using FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 1 \"math/fps/count-subset-sum.cpp\"\
+    \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\n\ntemplate< typename Mint\
+    \ >\nusing FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 1 \"math/fps/count-subset-sum.cpp\"\
     \n/**\n * @brief Count-Subset-Sum\n */\ntemplate< template< typename > class FPS,\
     \ typename Mint >\nFPS< Mint > count_subset_sum(vector< Mint > &c) {\n  const\
     \ int n = (int) c.size();\n  vector< Mint > inv(n);\n  inv[0] = Mint(0);\n  inv[1]\
@@ -260,7 +262,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
   requiredBy: []
-  timestamp: '2021-06-27 01:58:14+09:00'
+  timestamp: '2021-06-27 02:38:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-sharp-p-subset-sum.test.cpp

@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-division-of-polynomials.test.cpp
+    title: test/verify/yosupo-division-of-polynomials.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-lca-2.test.cpp
     title: test/verify/yosupo-lca-2.test.cpp
   - icon: ':heavy_check_mark:'
@@ -85,6 +88,7 @@ data:
   - test/verify/yosupo-lca-2.test.cpp
   - test/verify/yosupo-staticrmq-5.test.cpp
   - test/verify/yosupo-tree-decomposition-width-2.test.cpp
+  - test/verify/yosupo-division-of-polynomials.test.cpp
   - test/verify/yosupo-lca.test.cpp
   - test/verify/yosupo-two-sat.test.cpp
   - test/verify/yosupo-lca-3.test.cpp

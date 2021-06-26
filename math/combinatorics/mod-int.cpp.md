@@ -19,6 +19,9 @@ data:
     path: test/verify/yosupo-bellnoulli-number.test.cpp
     title: test/verify/yosupo-bellnoulli-number.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-division-of-polynomials.test.cpp
+    title: test/verify/yosupo-division-of-polynomials.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
   - icon: ':heavy_check_mark:'
@@ -160,6 +163,7 @@ data:
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
   - test/verify/yukicoder-650.test.cpp
   - test/verify/yosupo-polynomial-taylor-shift.test.cpp
+  - test/verify/yosupo-division-of-polynomials.test.cpp
   - test/verify/yosupo-bellnoulli-number.test.cpp
   - test/verify/yosupo-queue-operate-all-composite.test.cpp
   - test/verify/aoj-dpl-5-j.test.cpp
