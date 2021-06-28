@@ -6,6 +6,12 @@ data:
     path: math/combinatorics/bell-number.cpp
     title: "Bell-Number(\u30D9\u30EB\u6570)"
   - icon: ':heavy_check_mark:'
+    path: math/combinatorics/factorial.cpp
+    title: "Factorial(\u968E\u4E57)"
+  - icon: ':heavy_check_mark:'
+    path: math/combinatorics/sample-point-shift.cpp
+    title: Sample-Point-Shift
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/stirling-number-second.cpp
     title: "Stirling-Number-Second(\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570)"
@@ -16,6 +22,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-5-i.test.cpp
     title: test/verify/aoj-dpl-5-i.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yukicoder-502.test.cpp
+    title: test/verify/yukicoder-502.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -66,11 +75,14 @@ data:
   isVerificationFile: false
   path: math/combinatorics/enumeration.cpp
   requiredBy:
+  - math/combinatorics/factorial.cpp
   - math/combinatorics/bell-number.cpp
   - math/combinatorics/stirling-number-second.cpp
+  - math/combinatorics/sample-point-shift.cpp
   timestamp: '2021-06-28 00:13:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/verify/yukicoder-502.test.cpp
   - test/verify/aoj-dpl-5-g.test.cpp
   - test/verify/aoj-dpl-5-i.test.cpp
 documentation_of: math/combinatorics/enumeration.cpp

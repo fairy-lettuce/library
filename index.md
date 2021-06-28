@@ -398,6 +398,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/enumeration.cpp
       title: math/combinatorics/enumeration.cpp
+    - icon: ':heavy_check_mark:'
+      path: math/combinatorics/factorial.cpp
+      title: "Factorial(\u968E\u4E57)"
     - icon: ':warning:'
       path: math/combinatorics/lagrange-polynomial.cpp
       title: math/combinatorics/lagrange-polynomial.cpp
@@ -426,6 +429,9 @@ data:
       path: math/combinatorics/partition-table.cpp
       title: "Partition-Table(\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB)"
     - icon: ':heavy_check_mark:'
+      path: math/combinatorics/sample-point-shift.cpp
+      title: Sample-Point-Shift
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/stirling-number-second.cpp
       title: "Stirling-Number-Second(\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
         \u6570)"
@@ -434,9 +440,9 @@ data:
     - icon: ':warning:'
       path: math/fft/arbitrary-mod-convolution-long.cpp
       title: math/fft/arbitrary-mod-convolution-long.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: math/fft/arbitrary-mod-convolution.cpp
-      title: math/fft/arbitrary-mod-convolution.cpp
+      title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
     - icon: ':heavy_check_mark:'
       path: math/fft/fast-fourier-transform.cpp
       title: math/fft/fast-fourier-transform.cpp
@@ -469,9 +475,6 @@ data:
     - icon: ':warning:'
       path: math/fps/exp.cpp
       title: Exp ($e^{f(x)}$)
-    - icon: ':warning:'
-      path: math/fps/factorial.cpp
-      title: "Factorial(\u968E\u4E57)"
     - icon: ':heavy_check_mark:'
       path: math/fps/formal-power-series-friendly-ntt.cpp
       title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\
@@ -503,9 +506,6 @@ data:
     - icon: ':warning:'
       path: math/fps/pow.cpp
       title: Pow ($f(x)^k$)
-    - icon: ':warning:'
-      path: math/fps/sample-point-shift.cpp
-      title: Sample-Point-Shift
     - icon: ':heavy_check_mark:'
       path: math/fps/sparse-matrix.cpp
       title: math/fps/sparse-matrix.cpp
@@ -988,9 +988,6 @@ data:
     - icon: ':warning:'
       path: test/verify/yukicoder-3046.cpp
       title: test/verify/yukicoder-3046.cpp
-    - icon: ':warning:'
-      path: test/verify/yukicoder-502.cpp
-      title: test/verify/yukicoder-502.cpp
   verificationCategories:
   - name: test/verify
     pages:
@@ -1543,6 +1540,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-430.test.cpp
       title: test/verify/yukicoder-430.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yukicoder-502.test.cpp
+      title: test/verify/yukicoder-502.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-583.test.cpp
       title: test/verify/yukicoder-583.test.cpp

@@ -94,6 +94,9 @@ data:
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yukicoder-502.test.cpp
+    title: test/verify/yukicoder-502.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
   _isVerificationFailed: false
@@ -169,6 +172,7 @@ data:
   - test/verify/aoj-dpl-5-j.test.cpp
   - test/verify/yosupo-inv-of-formal-power-series.test.cpp
   - test/verify/yosupo-range-affine-range-sum-3.test.cpp
+  - test/verify/yukicoder-502.test.cpp
   - test/verify/yosupo-point-set-range-composite.test.cpp
   - test/verify/aoj-dpl-5-g.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp

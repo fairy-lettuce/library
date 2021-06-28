@@ -553,6 +553,9 @@ data:
     path: test/verify/yukicoder-430.test.cpp
     title: test/verify/yukicoder-430.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yukicoder-502.test.cpp
+    title: test/verify/yukicoder-502.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-583.test.cpp
     title: test/verify/yukicoder-583.test.cpp
   - icon: ':heavy_check_mark:'
@@ -731,6 +734,7 @@ data:
   - test/verify/aoj-alds-1-14-b.test.cpp
   - test/verify/aoj-1254.test.cpp
   - test/verify/aoj-cgl-2-c.test.cpp
+  - test/verify/yukicoder-502.test.cpp
   - test/verify/yosupo-staticrmq-3.test.cpp
   - test/verify/aoj-dsl-2-b-2.test.cpp
   - test/verify/yosupo-range-kth-smallest-2.test.cpp

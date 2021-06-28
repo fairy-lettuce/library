@@ -1,11 +1,17 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: math/fft/arbitrary-mod-convolution.cpp
+    title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
     title: test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yukicoder-502.test.cpp
+    title: test/verify/yukicoder-502.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -87,11 +93,13 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: math/fft/fast-fourier-transform.cpp
-  requiredBy: []
+  requiredBy:
+  - math/fft/arbitrary-mod-convolution.cpp
   timestamp: '2019-12-03 22:21:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
+  - test/verify/yukicoder-502.test.cpp
 documentation_of: math/fft/fast-fourier-transform.cpp
 layout: document
 redirect_from:
