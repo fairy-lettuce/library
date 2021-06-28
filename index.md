@@ -471,7 +471,7 @@ data:
       title: Exp ($e^{f(x)}$)
     - icon: ':warning:'
       path: math/fps/factorial.cpp
-      title: math/fps/factorial.cpp
+      title: "Factorial(\u968E\u4E57)"
     - icon: ':heavy_check_mark:'
       path: math/fps/formal-power-series-friendly-ntt.cpp
       title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\
@@ -503,6 +503,9 @@ data:
     - icon: ':warning:'
       path: math/fps/pow.cpp
       title: Pow ($f(x)^k$)
+    - icon: ':warning:'
+      path: math/fps/sample-point-shift.cpp
+      title: Sample-Point-Shift
     - icon: ':heavy_check_mark:'
       path: math/fps/sparse-matrix.cpp
       title: math/fps/sparse-matrix.cpp
