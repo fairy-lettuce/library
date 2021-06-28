@@ -16,7 +16,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: structure/heap/persistent-leftist-heap.cpp
     title: Persistent-Leftist-Heap
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

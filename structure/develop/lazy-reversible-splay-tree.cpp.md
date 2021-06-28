@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2450-3.test.cpp
     title: test/verify/aoj-2450-3.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Lazy-Reversible-Splay-Tree(\u9045\u5EF6\u4F1D\u642C\u53CD\u8EE2\
       \u53EF\u80FDSplay\u6728)"
@@ -30,16 +30,17 @@ data:
     \ F &f, const G &g, const H &h, const S &s,\n                                \
     \   const T &M1, const E &OM0) :\n      g(g), h(h), OM0(OM0), super(f, s, M1)\
     \ {}\n\n\n  using super::splay;\n  using super::split;\n  using super::merge;\n\
-    \n  NP alloc(const T &x) override { return new Node(x, OM0); }\n\n  void push(NP\
-    \ t) override {\n    if(t->lazy != OM0) {\n      if(t->l) propagate(t->l, t->lazy);\n\
-    \      if(t->r) propagate(t->r, t->lazy);\n      t->lazy = OM0;\n    }\n    super::push(t);\n\
+    \n  NP alloc(const T &x) { return new Node(x, OM0); }\n\n  void push(NP t) override\
+    \ {\n    if(t->lazy != OM0) {\n      if(t->l) propagate(t->l, t->lazy);\n    \
+    \  if(t->r) propagate(t->r, t->lazy);\n      t->lazy = OM0;\n    }\n    super::push(t);\n\
     \  }\n\n  NP set_propagate(NP& t, int a, int b, const E &pp) {\n    splay(t);\n\
     \    auto x = split(t, a);\n    auto y = split(x.second, b - a);\n    set_propagate(y.first,\
     \ pp);\n    return t = merge(x.first, y.first, y.second);\n  }\n\n  void set_propagate(NP\
     \ t, const E &pp) {\n    splay(t);\n    propagate(t, pp);\n    push(t);\n  }\n\
     \nprivate:\n  const E OM0;\n  const G g;\n  const H h;\n\n  void propagate(NP\
     \ t, const E &x) {\n    t->lazy = h(t->lazy, x);\n    t->key = g(t->key, x);\n\
-    \    t->sum = g(t->sum, x);\n  }\n}\n"
+    \    t->sum = g(t->sum, x);\n  }\n};\n\ntemplate< typename T, typename E >\nusing\
+    \ LRST = LazyReversibleSplayTree< LazyReversibleSplayTreeNode< T, E > >;\n"
   code: "/**\n * @brief Lazy-Reversible-Splay-Tree(\u9045\u5EF6\u4F1D\u642C\u53CD\u8EE2\
     \u53EF\u80FDSplay\u6728)\n */\ntemplate< typename Tp, typename Ep >\nstruct LazyReversibleSplayTreeNode\
     \ {\n  using T = Tp;\n  using E = Ep;\n  LazyReversibleSplayTreeNode *l, *r, *p;\n\
@@ -56,22 +57,23 @@ data:
     \ F &f, const G &g, const H &h, const S &s,\n                                \
     \   const T &M1, const E &OM0) :\n      g(g), h(h), OM0(OM0), super(f, s, M1)\
     \ {}\n\n\n  using super::splay;\n  using super::split;\n  using super::merge;\n\
-    \n  NP alloc(const T &x) override { return new Node(x, OM0); }\n\n  void push(NP\
-    \ t) override {\n    if(t->lazy != OM0) {\n      if(t->l) propagate(t->l, t->lazy);\n\
-    \      if(t->r) propagate(t->r, t->lazy);\n      t->lazy = OM0;\n    }\n    super::push(t);\n\
+    \n  NP alloc(const T &x) { return new Node(x, OM0); }\n\n  void push(NP t) override\
+    \ {\n    if(t->lazy != OM0) {\n      if(t->l) propagate(t->l, t->lazy);\n    \
+    \  if(t->r) propagate(t->r, t->lazy);\n      t->lazy = OM0;\n    }\n    super::push(t);\n\
     \  }\n\n  NP set_propagate(NP& t, int a, int b, const E &pp) {\n    splay(t);\n\
     \    auto x = split(t, a);\n    auto y = split(x.second, b - a);\n    set_propagate(y.first,\
     \ pp);\n    return t = merge(x.first, y.first, y.second);\n  }\n\n  void set_propagate(NP\
     \ t, const E &pp) {\n    splay(t);\n    propagate(t, pp);\n    push(t);\n  }\n\
     \nprivate:\n  const E OM0;\n  const G g;\n  const H h;\n\n  void propagate(NP\
     \ t, const E &x) {\n    t->lazy = h(t->lazy, x);\n    t->key = g(t->key, x);\n\
-    \    t->sum = g(t->sum, x);\n  }\n}\n"
+    \    t->sum = g(t->sum, x);\n  }\n};\n\ntemplate< typename T, typename E >\nusing\
+    \ LRST = LazyReversibleSplayTree< LazyReversibleSplayTreeNode< T, E > >;\n"
   dependsOn: []
   isVerificationFile: false
   path: structure/develop/lazy-reversible-splay-tree.cpp
   requiredBy: []
-  timestamp: '2021-05-08 18:29:53+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-06-27 10:22:55+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-2450-3.test.cpp
 documentation_of: structure/develop/lazy-reversible-splay-tree.cpp

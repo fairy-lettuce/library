@@ -710,20 +710,20 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/develop/diameter.cpp
       title: structure/develop/diameter.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/develop/lazy-reversible-splay-tree.cpp
       title: "Lazy-Reversible-Splay-Tree(\u9045\u5EF6\u4F1D\u642C\u53CD\u8EE2\u53EF\
         \u80FDSplay\u6728)"
     - icon: ':heavy_check_mark:'
       path: structure/develop/link-cut-tree-subtree.cpp
       title: structure/develop/link-cut-tree-subtree.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/develop/link-cut-tree.cpp
       title: Link-Cut-Tree
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/develop/reversible-splay-tree.cpp
       title: "Reversible-Splay-Tree(\u53CD\u8EE2\u53EF\u80FDSplay\u6728)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/develop/splay-tree-base.cpp
       title: "Splay-Tree-Base(Splay\u6728)"
     - icon: ':heavy_check_mark:'
@@ -878,7 +878,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -1048,7 +1048,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-2450-2.test.cpp
       title: test/verify/aoj-2450-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-2450-3.test.cpp
       title: test/verify/aoj-2450-3.test.cpp
     - icon: ':heavy_check_mark:'

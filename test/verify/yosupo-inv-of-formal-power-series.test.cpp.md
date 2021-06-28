@@ -13,7 +13,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/inv.cpp
     title: Inv ($\frac {1} {f(x)}$)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

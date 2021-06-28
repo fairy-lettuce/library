@@ -4,13 +4,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/develop/reversible-splay-tree.cpp
     title: "Reversible-Splay-Tree(\u53CD\u8EE2\u53EF\u80FDSplay\u6728)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/develop/splay-tree-base.cpp
     title: "Splay-Tree-Base(Splay\u6728)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
