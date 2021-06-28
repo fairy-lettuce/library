@@ -31,6 +31,7 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    _deprecated_at_docs: docs/formal-power-series-friendly-ntt.md
     document_title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
       \u51AA\u7D1A\u6570)"
     links:
@@ -78,10 +79,11 @@ data:
     \ Mint >::max_base = 0;\ntemplate< typename Mint >\nMint NumberTheoreticTransformFriendlyModInt<\
     \ Mint >::root = Mint();\n#line 2 \"math/fps/formal-power-series-friendly-ntt.cpp\"\
     \n\n/**\n * @brief Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
-    \u51AA\u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeriesFriendlyNTT\
-    \ : vector< T > {\n  using vector< T >::vector;\n  using P = FormalPowerSeriesFriendlyNTT;\n\
-    \  using NTT = NumberTheoreticTransformFriendlyModInt< T >;\n\n  P pre(int deg)\
-    \ const {\n    return P(begin(*this), begin(*this) + min((int) this->size(), deg));\n\
+    \u51AA\u7D1A\u6570)\n * @docs docs/formal-power-series-friendly-ntt.md\n */\n\
+    template< typename T >\nstruct FormalPowerSeriesFriendlyNTT : vector< T > {\n\
+    \  using vector< T >::vector;\n  using P = FormalPowerSeriesFriendlyNTT;\n  using\
+    \ NTT = NumberTheoreticTransformFriendlyModInt< T >;\n\n  P pre(int deg) const\
+    \ {\n    return P(begin(*this), begin(*this) + min((int) this->size(), deg));\n\
     \  }\n\n  P rev(int deg = -1) const {\n    P ret(*this);\n    if(deg != -1) ret.resize(deg,\
     \ T(0));\n    reverse(begin(ret), end(ret));\n    return ret;\n  }\n\n  void shrink()\
     \ {\n    while(this->size() && this->back() == T(0)) this->pop_back();\n  }\n\n\
@@ -199,22 +201,23 @@ data:
     \ >\nusing FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n"
   code: "#include \"../fft/number-theoretic-transform-friendly-mod-int.cpp\"\n\n/**\n\
     \ * @brief Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\
-    \u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeriesFriendlyNTT\
-    \ : vector< T > {\n  using vector< T >::vector;\n  using P = FormalPowerSeriesFriendlyNTT;\n\
-    \  using NTT = NumberTheoreticTransformFriendlyModInt< T >;\n\n  P pre(int deg)\
-    \ const {\n    return P(begin(*this), begin(*this) + min((int) this->size(), deg));\n\
-    \  }\n\n  P rev(int deg = -1) const {\n    P ret(*this);\n    if(deg != -1) ret.resize(deg,\
-    \ T(0));\n    reverse(begin(ret), end(ret));\n    return ret;\n  }\n\n  void shrink()\
-    \ {\n    while(this->size() && this->back() == T(0)) this->pop_back();\n  }\n\n\
-    \  P operator+(const P &r) const { return P(*this) += r; }\n\n  P operator+(const\
-    \ T &v) const { return P(*this) += v; }\n\n  P operator-(const P &r) const { return\
-    \ P(*this) -= r; }\n\n  P operator-(const T &v) const { return P(*this) -= v;\
-    \ }\n\n  P operator*(const P &r) const { return P(*this) *= r; }\n\n  P operator*(const\
-    \ T &v) const { return P(*this) *= v; }\n\n  P operator/(const P &r) const { return\
-    \ P(*this) /= r; }\n\n  P operator%(const P &r) const { return P(*this) %= r;\
-    \ }\n\n  P &operator+=(const P &r) {\n    if(r.size() > this->size()) this->resize(r.size());\n\
-    \    for(int i = 0; i < r.size(); i++) (*this)[i] += r[i];\n    return *this;\n\
-    \  }\n\n  P &operator-=(const P &r) {\n    if(r.size() > this->size()) this->resize(r.size());\n\
+    \u7D1A\u6570)\n * @docs docs/formal-power-series-friendly-ntt.md\n */\ntemplate<\
+    \ typename T >\nstruct FormalPowerSeriesFriendlyNTT : vector< T > {\n  using vector<\
+    \ T >::vector;\n  using P = FormalPowerSeriesFriendlyNTT;\n  using NTT = NumberTheoreticTransformFriendlyModInt<\
+    \ T >;\n\n  P pre(int deg) const {\n    return P(begin(*this), begin(*this) +\
+    \ min((int) this->size(), deg));\n  }\n\n  P rev(int deg = -1) const {\n    P\
+    \ ret(*this);\n    if(deg != -1) ret.resize(deg, T(0));\n    reverse(begin(ret),\
+    \ end(ret));\n    return ret;\n  }\n\n  void shrink() {\n    while(this->size()\
+    \ && this->back() == T(0)) this->pop_back();\n  }\n\n  P operator+(const P &r)\
+    \ const { return P(*this) += r; }\n\n  P operator+(const T &v) const { return\
+    \ P(*this) += v; }\n\n  P operator-(const P &r) const { return P(*this) -= r;\
+    \ }\n\n  P operator-(const T &v) const { return P(*this) -= v; }\n\n  P operator*(const\
+    \ P &r) const { return P(*this) *= r; }\n\n  P operator*(const T &v) const { return\
+    \ P(*this) *= v; }\n\n  P operator/(const P &r) const { return P(*this) /= r;\
+    \ }\n\n  P operator%(const P &r) const { return P(*this) %= r; }\n\n  P &operator+=(const\
+    \ P &r) {\n    if(r.size() > this->size()) this->resize(r.size());\n    for(int\
+    \ i = 0; i < r.size(); i++) (*this)[i] += r[i];\n    return *this;\n  }\n\n  P\
+    \ &operator-=(const P &r) {\n    if(r.size() > this->size()) this->resize(r.size());\n\
     \    for(int i = 0; i < r.size(); i++) (*this)[i] -= r[i];\n    return *this;\n\
     \  }\n\n  // https://judge.yosupo.jp/problem/convolution_mod\n  P &operator*=(const\
     \ P &r) {\n    if(this->empty() || r.empty()) {\n      this->clear();\n      return\
@@ -323,7 +326,7 @@ data:
   isVerificationFile: false
   path: math/fps/formal-power-series-friendly-ntt.cpp
   requiredBy: []
-  timestamp: '2021-06-27 02:38:56+09:00'
+  timestamp: '2021-06-28 15:21:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-sharp-p-subset-sum.test.cpp
@@ -341,3 +344,28 @@ redirect_from:
 title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
   \u6570)"
 ---
+## 概要
+
+NTT を利用可能な mod のもとで、形式的べき級数の各演算を効率的に行う。
+
+TODO 解説
+
+
+## 使い方
+
+計算量が書かれていない演算は $O(n \log n)$ で動作する。引数で `deg` を渡すことで, `deg` 項まで計算して返すものもある(デフォルトでは基本的に $\mathrm{deg}(n)$ 項で打ち切る)。
+
+* `+`: $f(x) + g(x)$ を返す。$O(n)$
+* `-`: $f(x) - g(x)$ を返す。$O(n)$
+* `*`: $f(x) \times g(x)$ を返す。
+* `/`: $f(x) = q (x)\times g(x) + r(x)$ かつ $\mathrm{deg}(r) \lt \mathrm{deg}(g)$ を満たす $q(x)$ を返す。
+* `%`: $f(x) = q(x) \times g(x) + r(x)$ かつ $\mathrm{deg}(r) \lt \mathrm{deg}(g)$ を満たす $g(x)$ を返す。
+* `diff()`: $f(x)'$ を返す。
+* `integral()`: $\int f(x) dx$ を返す。
+* `inv()`: $\frac {1} {f(x)}$ を返す。$f(0) \neq 0$ を要求する。
+* `log()`: $\log f(x)$ を返す。$f(0) = 1$ を要求する。
+* `sqrt(get_sqrt)`: $\sqrt {f(x)}$、つまり $f(x) = g(x)^2$ を満たす $g(x)$ を返す。存在しない場合空配列を返す。$get_sqrt$ はあるmodint $y$ が与えられたときに $y = x^2$ を満たす $x$ を返すラムダ式で, これを渡さない場合は非 $0$ な最初の項が $1$ であることを要求する。
+* `exp()`: $e^{f(x)}$ を返す。$f(0) = 0$ を要求する。
+* `pow(k)`: $f^{k} (x)$ を返す。
+* `mod_pow(k, g)`: $f^{k} (x) \pmod {g(x)}$ を返す。
+* `taylor_shift(c)`: $g(x) = f(x + c)$ を満たす $g(x)$ を返す。

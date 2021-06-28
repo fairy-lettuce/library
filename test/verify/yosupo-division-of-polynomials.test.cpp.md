@@ -117,10 +117,11 @@ data:
     \ Mint >::max_base = 0;\ntemplate< typename Mint >\nMint NumberTheoreticTransformFriendlyModInt<\
     \ Mint >::root = Mint();\n#line 2 \"math/fps/formal-power-series-friendly-ntt.cpp\"\
     \n\n/**\n * @brief Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
-    \u51AA\u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeriesFriendlyNTT\
-    \ : vector< T > {\n  using vector< T >::vector;\n  using P = FormalPowerSeriesFriendlyNTT;\n\
-    \  using NTT = NumberTheoreticTransformFriendlyModInt< T >;\n\n  P pre(int deg)\
-    \ const {\n    return P(begin(*this), begin(*this) + min((int) this->size(), deg));\n\
+    \u51AA\u7D1A\u6570)\n * @docs docs/formal-power-series-friendly-ntt.md\n */\n\
+    template< typename T >\nstruct FormalPowerSeriesFriendlyNTT : vector< T > {\n\
+    \  using vector< T >::vector;\n  using P = FormalPowerSeriesFriendlyNTT;\n  using\
+    \ NTT = NumberTheoreticTransformFriendlyModInt< T >;\n\n  P pre(int deg) const\
+    \ {\n    return P(begin(*this), begin(*this) + min((int) this->size(), deg));\n\
     \  }\n\n  P rev(int deg = -1) const {\n    P ret(*this);\n    if(deg != -1) ret.resize(deg,\
     \ T(0));\n    reverse(begin(ret), end(ret));\n    return ret;\n  }\n\n  void shrink()\
     \ {\n    while(this->size() && this->back() == T(0)) this->pop_back();\n  }\n\n\
@@ -313,7 +314,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-division-of-polynomials.test.cpp
   requiredBy: []
-  timestamp: '2021-06-27 02:38:56+09:00'
+  timestamp: '2021-06-28 15:21:00+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-division-of-polynomials.test.cpp
