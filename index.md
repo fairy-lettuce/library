@@ -734,6 +734,9 @@ data:
       title: structure/develop/splay-tree.cpp
   - name: structure/heap
     pages:
+    - icon: ':warning:'
+      path: structure/heap/erasable-heap.hpp
+      title: structure/heap/erasable-heap.hpp
     - icon: ':heavy_check_mark:'
       path: structure/heap/fibonacchi-heap.cpp
       title: "Fibonacchi-Heap(\u30D5\u30A3\u30DC\u30CA\u30C3\u30C1\u30D2\u30FC\u30D7\
