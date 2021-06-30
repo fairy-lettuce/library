@@ -329,13 +329,13 @@ data:
   timestamp: '2021-06-28 15:21:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-sharp-p-subset-sum.test.cpp
-  - test/verify/yosupo-polynomial-taylor-shift.test.cpp
-  - test/verify/yosupo-division-of-polynomials.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - test/verify/yosupo-exp-of-formal-power-series.test.cpp
+  - test/verify/yosupo-polynomial-taylor-shift.test.cpp
   - test/verify/yosupo-pow-of-formal-power-series.test.cpp
+  - test/verify/yosupo-exp-of-formal-power-series.test.cpp
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
+  - test/verify/yosupo-sharp-p-subset-sum.test.cpp
+  - test/verify/yosupo-division-of-polynomials.test.cpp
 documentation_of: math/fps/formal-power-series-friendly-ntt.cpp
 layout: document
 redirect_from:

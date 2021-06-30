@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/others/maximum-independent-set.cpp
-    title: graph/others/maximum-independent-set.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/template.cpp
-    title: graph/template.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: graph/others/maximum-independent-set.hpp
+    title: graph/others/maximum-independent-set.hpp
+  - icon: ':question:'
+    path: graph/template.hpp
+    title: graph/template.hpp
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/maximum_independent_set
@@ -48,48 +48,48 @@ data:
     \  explicit FixPoint(F &&f) : F(forward< F >(f)) {}\n\n  template< typename...\
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
-    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 1 \"graph/template.cpp\"\
-    \ntemplate< typename T >\nstruct edge {\n  int src, to;\n  T cost;\n\n  edge(int\
+    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-maximum-independent-set.test.cpp\"\
+    \n\n#line 2 \"graph/others/maximum-independent-set.hpp\"\n\n#line 2 \"graph/template.hpp\"\
+    \n\ntemplate< typename T >\nstruct edge {\n  int src, to;\n  T cost;\n\n  edge(int\
     \ to, T cost) : src(-1), to(to), cost(cost) {}\n\n  edge(int src, int to, T cost)\
     \ : src(src), to(to), cost(cost) {}\n\n  edge &operator=(const int &x) {\n   \
     \ to = x;\n    return *this;\n  }\n\n  operator int() const { return to; }\n};\n\
     \ntemplate< typename T >\nusing Edges = vector< edge< T > >;\ntemplate< typename\
     \ T >\nusing WeightedGraph = vector< Edges< T > >;\nusing UnWeightedGraph = vector<\
     \ vector< int > >;\ntemplate< typename T >\nusing Matrix = vector< vector< T >\
-    \ >;\n#line 5 \"test/verify/yosupo-maximum-independent-set.test.cpp\"\n\n#line\
-    \ 1 \"graph/others/maximum-independent-set.cpp\"\ntemplate< typename T >\nvector<\
-    \ int > maximum_independent_set(const Matrix< T > &g, int trial = 1000000) {\n\
-    \n  int N = (int) g.size();\n  vector< uint64_t > bit(N);\n\n  assert(N <= 64);\n\
-    \  for(int i = 0; i < N; i++) {\n    for(int j = 0; j < N; j++) {\n      if(i\
-    \ != j) {\n        assert(g[i][j] == g[j][i]);\n        if(g[i][j]) bit[i] |=\
-    \ uint64_t(1) << j;\n      }\n    }\n  }\n\n  vector< int > ord(N);\n  iota(begin(ord),\
-    \ end(ord), 0);\n  mt19937 mt(chrono::steady_clock::now().time_since_epoch().count());\n\
-    \  int ret = 0;\n  uint64_t ver;\n  for(int i = 0; i < trial; i++) {\n    shuffle(begin(ord),\
-    \ end(ord), mt);\n    uint64_t used = 0;\n    int add = 0;\n    for(int j : ord)\
-    \ {\n      if(used & bit[j]) continue;\n      used |= uint64_t(1) << j;\n    \
-    \  ++add;\n    }\n    if(ret < add) {\n      ret = add;\n      ver = used;\n \
-    \   }\n  }\n  vector< int > ans;\n  for(int i = 0; i < N; i++) {\n    if((ver\
-    \ >> i) & 1) ans.emplace_back(i);\n  }\n  return ans;\n}\n#line 7 \"test/verify/yosupo-maximum-independent-set.test.cpp\"\
+    \ >;\n#line 4 \"graph/others/maximum-independent-set.hpp\"\n\ntemplate< typename\
+    \ T >\nvector< int > maximum_independent_set(const Matrix< T > &g, int trial =\
+    \ 1000000) {\n\n  int N = (int) g.size();\n  vector< uint64_t > bit(N);\n\n  assert(N\
+    \ <= 64);\n  for(int i = 0; i < N; i++) {\n    for(int j = 0; j < N; j++) {\n\
+    \      if(i != j) {\n        assert(g[i][j] == g[j][i]);\n        if(g[i][j])\
+    \ bit[i] |= uint64_t(1) << j;\n      }\n    }\n  }\n\n  vector< int > ord(N);\n\
+    \  iota(begin(ord), end(ord), 0);\n  mt19937 mt(chrono::steady_clock::now().time_since_epoch().count());\n\
+    \  int ret = 0;\n  uint64_t ver = 0;\n  for(int i = 0; i < trial; i++) {\n   \
+    \ shuffle(begin(ord), end(ord), mt);\n    uint64_t used = 0;\n    int add = 0;\n\
+    \    for(int j : ord) {\n      if(used & bit[j]) continue;\n      used |= uint64_t(1)\
+    \ << j;\n      ++add;\n    }\n    if(ret < add) {\n      ret = add;\n      ver\
+    \ = used;\n    }\n  }\n  vector< int > ans;\n  for(int i = 0; i < N; i++) {\n\
+    \    if((ver >> i) & 1) ans.emplace_back(i);\n  }\n  return ans;\n}\n#line 6 \"\
+    test/verify/yosupo-maximum-independent-set.test.cpp\"\n\nint main() {\n  int N,\
+    \ M;\n  cin >> N >> M;\n  Matrix < int > mat(N, vector< int >(N));\n  for(int\
+    \ i = 0; i < M; i++) {\n    int a, b;\n    cin >> a >> b;\n    mat[a][b] = true;\n\
+    \    mat[b][a] = true;\n  }\n  auto ret = maximum_independent_set(mat);\n  cout\
+    \ << ret.size() << endl;\n  cout << ret << endl;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/maximum_independent_set\"\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/others/maximum-independent-set.hpp\"\
     \n\nint main() {\n  int N, M;\n  cin >> N >> M;\n  Matrix < int > mat(N, vector<\
     \ int >(N));\n  for(int i = 0; i < M; i++) {\n    int a, b;\n    cin >> a >> b;\n\
     \    mat[a][b] = true;\n    mat[b][a] = true;\n  }\n  auto ret = maximum_independent_set(mat);\n\
     \  cout << ret.size() << endl;\n  cout << ret << endl;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/maximum_independent_set\"\
-    \n\n#include \"../../template/template.cpp\"\n#include \"../../graph/template.cpp\"\
-    \n\n#include \"../../graph/others/maximum-independent-set.cpp\"\n\nint main()\
-    \ {\n  int N, M;\n  cin >> N >> M;\n  Matrix < int > mat(N, vector< int >(N));\n\
-    \  for(int i = 0; i < M; i++) {\n    int a, b;\n    cin >> a >> b;\n    mat[a][b]\
-    \ = true;\n    mat[b][a] = true;\n  }\n  auto ret = maximum_independent_set(mat);\n\
-    \  cout << ret.size() << endl;\n  cout << ret << endl;\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/template.cpp
-  - graph/others/maximum-independent-set.cpp
+  - graph/others/maximum-independent-set.hpp
+  - graph/template.hpp
   isVerificationFile: true
   path: test/verify/yosupo-maximum-independent-set.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-maximum-independent-set.test.cpp
 layout: document

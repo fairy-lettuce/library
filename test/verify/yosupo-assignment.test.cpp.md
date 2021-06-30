@@ -1,21 +1,21 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/flow/hungarian.cpp
+  - icon: ':question:'
+    path: graph/flow/hungarian.hpp
     title: "Hungarian(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5C0F\u91CD\u307F\
       \u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/matrix/matrix.cpp
     title: math/matrix/matrix.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/assignment
@@ -88,7 +88,7 @@ data:
     \      for(int j = 0; j < width(); j++) {\n        B[i][j] /= vv;\n      }\n \
     \     for(int j = i + 1; j < width(); j++) {\n        T a = B[j][i];\n       \
     \ for(int k = 0; k < width(); k++) {\n          B[j][k] -= B[i][k] * a;\n    \
-    \    }\n      }\n    }\n    return (ret);\n  }\n};\n#line 2 \"graph/flow/hungarian.cpp\"\
+    \    }\n      }\n    }\n    return (ret);\n  }\n};\n#line 2 \"graph/flow/hungarian.hpp\"\
     \n\n/**\n * @brief Hungarian(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5C0F\u91CD\
     \u307F\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0)\n */\ntemplate< typename T >\n\
     pair< T, vector< int > > hungarian(Matrix< T > &A) {\n  const T infty = numeric_limits<\
@@ -110,7 +110,7 @@ data:
     \ \"\\n\";\n  ret.second.erase(begin(ret.second));\n  for(auto& p : ret.second)\
     \ --p;\n  cout << ret.second << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/assignment\"\n\n#include\
-    \ \"../../template/template.cpp\"\n\n#include \"../../graph/flow/hungarian.cpp\"\
+    \ \"../../template/template.cpp\"\n\n#include \"../../graph/flow/hungarian.hpp\"\
     \n\nint main() {\n  int N;\n  cin >> N;\n  Matrix< int64_t > X(N + 1, N + 1);\n\
     \  for(int i = 1; i <= N; i++) {\n    for(int j = 1; j <= N; j++) {\n      cin\
     \ >> X[j][i];\n    }\n  }\n  auto ret = hungarian(X);\n  cout << ret.first <<\
@@ -118,13 +118,13 @@ data:
     \ --p;\n  cout << ret.second << \"\\n\";\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/flow/hungarian.cpp
+  - graph/flow/hungarian.hpp
   - math/matrix/matrix.cpp
   isVerificationFile: true
   path: test/verify/yosupo-assignment.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-assignment.test.cpp
 layout: document

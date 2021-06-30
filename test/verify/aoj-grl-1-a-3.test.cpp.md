@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
-    path: graph/graph-template.cpp
-    title: graph/graph-template.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/shortest-path/dijkstra-radix-heap.cpp
+    path: graph/shortest-path/dijkstra-radix-heap.hpp
     title: "Dijkstra-Radix-Heap(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
   - icon: ':heavy_check_mark:'
     path: structure/heap/radix-heap.cpp
     title: structure/heap/radix-heap.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -51,7 +51,21 @@ data:
     \  explicit FixPoint(F &&f) : F(forward< F >(f)) {}\n\n  template< typename...\
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
-    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 2 \"graph/graph-template.cpp\"\
+    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-grl-1-a-3.test.cpp\"\
+    \n\n#line 1 \"structure/heap/radix-heap.cpp\"\ntemplate< typename key_t, typename\
+    \ val_t >\nstruct RadixHeap {\n  static constexpr int bit = sizeof(key_t) * 8;\n\
+    \  array< vector< pair< key_t, val_t > >, bit > vs;\n\n  size_t sz;\n  key_t last;\n\
+    \n  RadixHeap() : sz(0), last(0) {}\n\n  bool empty() const { return sz == 0;\
+    \ }\n\n  size_t size() const { return sz; }\n\n  inline int getbit(int a) const\
+    \ {\n    return a ? bit - __builtin_clz(a) : 0;\n  }\n\n  inline int getbit(int64_t\
+    \ a) const {\n    return a ? bit - __builtin_clzll(a) : 0;\n  }\n\n  void push(const\
+    \ key_t &key, const val_t &val) {\n    sz++;\n    vs[getbit(key ^ last)].emplace_back(key,\
+    \ val);\n  }\n\n  pair< key_t, val_t > pop() {\n    if(vs[0].empty()) {\n    \
+    \  int idx = 1;\n      while(vs[idx].empty()) idx++;\n      last = min_element(vs[idx].begin(),\
+    \ vs[idx].end())->first;\n      for(auto &p:vs[idx]) vs[getbit(p.first ^ last)].emplace_back(p);\n\
+    \      vs[idx].clear();\n    }\n    --sz;\n    auto res = vs[0].back();\n    vs[0].pop_back();\n\
+    \    return res;\n  }\n};\n#line 6 \"test/verify/aoj-grl-1-a-3.test.cpp\"\n\n\
+    #line 2 \"graph/shortest-path/dijkstra-radix-heap.hpp\"\n\n#line 2 \"graph/graph-template.hpp\"\
     \n\ntemplate< typename T = int >\nstruct Edge {\n  int from, to;\n  T cost;\n\
     \  int idx;\n\n  Edge() = default;\n\n  Edge(int from, int to, T cost = 1, int\
     \ idx = -1) : from(from), to(to), cost(cost), idx(idx) {}\n\n  operator int()\
@@ -66,50 +80,36 @@ data:
     \      cin >> a >> b;\n      a += padding;\n      b += padding;\n      T c = T(1);\n\
     \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
     \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
-    using Edges = vector< Edge< T > >;\n#line 5 \"test/verify/aoj-grl-1-a-3.test.cpp\"\
-    \n\n#line 1 \"structure/heap/radix-heap.cpp\"\ntemplate< typename key_t, typename\
-    \ val_t >\nstruct RadixHeap {\n  static constexpr int bit = sizeof(key_t) * 8;\n\
-    \  array< vector< pair< key_t, val_t > >, bit > vs;\n\n  size_t sz;\n  key_t last;\n\
-    \n  RadixHeap() : sz(0), last(0) {}\n\n  bool empty() const { return sz == 0;\
-    \ }\n\n  size_t size() const { return sz; }\n\n  inline int getbit(int a) const\
-    \ {\n    return a ? bit - __builtin_clz(a) : 0;\n  }\n\n  inline int getbit(int64_t\
-    \ a) const {\n    return a ? bit - __builtin_clzll(a) : 0;\n  }\n\n  void push(const\
-    \ key_t &key, const val_t &val) {\n    sz++;\n    vs[getbit(key ^ last)].emplace_back(key,\
-    \ val);\n  }\n\n  pair< key_t, val_t > pop() {\n    if(vs[0].empty()) {\n    \
-    \  int idx = 1;\n      while(vs[idx].empty()) idx++;\n      last = min_element(vs[idx].begin(),\
-    \ vs[idx].end())->first;\n      for(auto &p:vs[idx]) vs[getbit(p.first ^ last)].emplace_back(p);\n\
-    \      vs[idx].clear();\n    }\n    --sz;\n    auto res = vs[0].back();\n    vs[0].pop_back();\n\
-    \    return res;\n  }\n};\n#line 7 \"test/verify/aoj-grl-1-a-3.test.cpp\"\n\n\
-    #line 1 \"graph/shortest-path/dijkstra-radix-heap.cpp\"\n/**\n * @brief Dijkstra-Radix-Heap(\u5358\
-    \u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)\n */\ntemplate< typename T >\nvector< T\
-    \ > dijkstra_radix_heap(Graph< T > &g, int s) {\n  const auto INF = numeric_limits<\
-    \ T >::max();\n  vector< T > dist(g.size(), INF);\n\n  using Pi = pair< T, int\
-    \ >;\n  RadixHeap< T, int > heap;\n  dist[s] = 0;\n  heap.push(dist[s], s);\n\
+    using Edges = vector< Edge< T > >;\n#line 4 \"graph/shortest-path/dijkstra-radix-heap.hpp\"\
+    \n\n/**\n * @brief Dijkstra-Radix-Heap(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF\
+    )\n */\ntemplate< typename T >\nvector< T > dijkstra_radix_heap(Graph< T > &g,\
+    \ int s) {\n  const auto INF = numeric_limits< T >::max();\n  vector< T > dist(g.size(),\
+    \ INF);\n\n  RadixHeap< T, int > heap;\n  dist[s] = 0;\n  heap.push(dist[s], s);\n\
     \  while(!heap.empty()) {\n    T cost;\n    int idx;\n    tie(cost, idx) = heap.pop();\n\
     \    if(dist[idx] < cost) continue;\n    for(auto &e : g.g[idx]) {\n      auto\
     \ next_cost = cost + e.cost;\n      if(dist[e.to] <= next_cost) continue;\n  \
     \    dist[e.to] = next_cost;\n      heap.push(dist[e.to], e.to);\n    }\n  }\n\
-    \  return dist;\n}\n#line 9 \"test/verify/aoj-grl-1-a-3.test.cpp\"\n\nint main()\
+    \  return dist;\n}\n#line 8 \"test/verify/aoj-grl-1-a-3.test.cpp\"\n\nint main()\
     \ {\n  int V, E, R;\n  cin >> V >> E >> R;\n  Graph< int > g(V);\n  g.read(E,\
     \ 0, true, true);\n  for(auto &dist : dijkstra_radix_heap(g, R)) {\n    if(dist\
     \ == numeric_limits< int >::max()) cout << \"INF\\n\";\n    else cout << dist\
     \ << \"\\n\";\n  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
-    \n\n#include \"../../template/template.cpp\"\n#include \"../../graph/graph-template.cpp\"\
-    \n\n#include \"../../structure/heap/radix-heap.cpp\"\n\n#include \"../../graph/shortest-path/dijkstra-radix-heap.cpp\"\
-    \n\nint main() {\n  int V, E, R;\n  cin >> V >> E >> R;\n  Graph< int > g(V);\n\
-    \  g.read(E, 0, true, true);\n  for(auto &dist : dijkstra_radix_heap(g, R)) {\n\
-    \    if(dist == numeric_limits< int >::max()) cout << \"INF\\n\";\n    else cout\
-    \ << dist << \"\\n\";\n  }\n}\n"
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../structure/heap/radix-heap.cpp\"\
+    \n\n#include \"../../graph/shortest-path/dijkstra-radix-heap.hpp\"\n\nint main()\
+    \ {\n  int V, E, R;\n  cin >> V >> E >> R;\n  Graph< int > g(V);\n  g.read(E,\
+    \ 0, true, true);\n  for(auto &dist : dijkstra_radix_heap(g, R)) {\n    if(dist\
+    \ == numeric_limits< int >::max()) cout << \"INF\\n\";\n    else cout << dist\
+    \ << \"\\n\";\n  }\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/graph-template.cpp
   - structure/heap/radix-heap.cpp
-  - graph/shortest-path/dijkstra-radix-heap.cpp
+  - graph/shortest-path/dijkstra-radix-heap.hpp
+  - graph/graph-template.hpp
   isVerificationFile: true
   path: test/verify/aoj-grl-1-a-3.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-01 02:53:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-1-a-3.test.cpp

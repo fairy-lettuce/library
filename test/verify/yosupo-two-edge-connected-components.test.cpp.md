@@ -1,24 +1,24 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/connected-components/two-edge-connected-components.cpp
+  - icon: ':x:'
+    path: graph/connected-components/two-edge-connected-components.hpp
     title: "Two-Edge-Connected-Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
-  - icon: ':heavy_check_mark:'
-    path: graph/graph-template.cpp
-    title: graph/graph-template.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/others/low-link.cpp
+  - icon: ':question:'
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
+  - icon: ':question:'
+    path: graph/others/low-link.hpp
     title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/two_edge_connected_components
@@ -53,7 +53,8 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-two-edge-connected-components.test.cpp\"\
-    \n\n#line 2 \"graph/graph-template.cpp\"\n\ntemplate< typename T = int >\nstruct\
+    \n\n#line 2 \"graph/connected-components/two-edge-connected-components.hpp\"\n\
+    \n#line 2 \"graph/graph-template.hpp\"\n\ntemplate< typename T = int >\nstruct\
     \ Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int\
     \ from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx)\
     \ {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename T = int\
@@ -68,61 +69,62 @@ data:
     \      b += padding;\n      T c = T(1);\n      if(weighted) cin >> c;\n      if(directed)\
     \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
     \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 2 \"\
-    graph/others/low-link.cpp\"\n\n/**\n * @brief Low-Link(\u6A4B/\u95A2\u7BC0\u70B9\
-    )\n * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213\n * @docs docs/low-link.md\n\
-    \ */\ntemplate< typename T = int >\nstruct LowLink : Graph< T > {\npublic:\n \
-    \ using Graph< T >::Graph;\n  vector< int > ord, low, articulation;\n  vector<\
-    \ Edge< T > > bridge;\n  using Graph< T >::g;\n\n  virtual void build() {\n  \
-    \  used.assign(g.size(), 0);\n    ord.assign(g.size(), 0);\n    low.assign(g.size(),\
-    \ 0);\n    int k = 0;\n    for(int i = 0; i < (int) g.size(); i++) {\n      if(!used[i])\
-    \ k = dfs(i, k, -1);\n    }\n  }\n\n  explicit LowLink(const Graph< T > &g) :\
-    \ Graph< T >(g) {}\n\nprivate:\n  vector< int > used;\n\n  int dfs(int idx, int\
-    \ k, int par) {\n    used[idx] = true;\n    ord[idx] = k++;\n    low[idx] = ord[idx];\n\
-    \    bool is_articulation = false, beet = false;\n    int cnt = 0;\n    for(auto\
-    \ &to : g[idx]) {\n      if(to == par && !exchange(beet, true)) {\n        continue;\n\
-    \      }\n      if(!used[to]) {\n        ++cnt;\n        k = dfs(to, k, idx);\n\
-    \        low[idx] = min(low[idx], low[to]);\n        is_articulation |= par >=\
-    \ 0 && low[to] >= ord[idx];\n        if(ord[idx] < low[to]) bridge.emplace_back(to);\n\
-    \      } else {\n        low[idx] = min(low[idx], ord[to]);\n      }\n    }\n\
-    \    is_articulation |= par == -1 && cnt > 1;\n    if(is_articulation) articulation.push_back(idx);\n\
-    \    return k;\n  }\n};\n#line 2 \"graph/connected-components/two-edge-connected-components.cpp\"\
-    \n\n/**\n * @brief Two-Edge-Connected-Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\
-    \u6210\u5206\u5206\u89E3)\n * @docs docs/two-edge-connected-components.md\n */\n\
-    template< typename T = int >\nstruct TwoEdgeConnectedComponents : LowLink< T >\
-    \ {\npublic:\n  using LowLink< T >::LowLink;\n  using LowLink< T >::g;\n  using\
-    \ LowLink< T >::ord;\n  using LowLink< T >::low;\n  using LowLink< T >::bridge;\n\
-    \n  vector< int > comp;\n  Graph< T > tree;\n  vector< vector< int > > group;\n\
-    \n  int operator[](const int &k) const {\n    return comp[k];\n  }\n\n  void build()\
-    \ override {\n    LowLink< T >::build();\n    comp.assign(g.size(), -1);\n   \
-    \ int k = 0;\n    for(int i = 0; i < (int) comp.size(); i++) {\n      if(comp[i]\
-    \ == -1) dfs(i, -1, k);\n    }\n    group.resize(k);\n    for(int i = 0; i < (int)\
-    \ g.size(); i++) {\n      group[comp[i]].emplace_back(i);\n    }\n    tree = Graph<\
-    \ T >(k);\n    for(auto &e : bridge) {\n      tree.add_edge(comp[e.from], comp[e.to],\
-    \ e.cost);\n    }\n  }\n\n  explicit TwoEdgeConnectedComponents(const Graph< T\
-    \ > &g) : Graph< T >(g) {}\n\nprivate:\n  void dfs(int idx, int par, int &k) {\n\
-    \    if(par >= 0 && ord[par] >= low[idx]) comp[idx] = comp[par];\n    else comp[idx]\
-    \ = k++;\n    for(auto &to : g[idx]) {\n      if(comp[to] == -1) dfs(to, idx,\
-    \ k);\n    }\n  }\n};\n#line 6 \"test/verify/yosupo-two-edge-connected-components.test.cpp\"\
+    graph/others/low-link.hpp\"\n\n#line 4 \"graph/others/low-link.hpp\"\n\n/**\n\
+    \ * @brief Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)\n * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213\n\
+    \ * @docs docs/low-link.md\n */\ntemplate< typename T = int >\nstruct LowLink\
+    \ : Graph< T > {\npublic:\n  using Graph< T >::Graph;\n  vector< int > ord, low,\
+    \ articulation;\n  vector< Edge< T > > bridge;\n  using Graph< T >::g;\n\n  virtual\
+    \ void build() {\n    used.assign(g.size(), 0);\n    ord.assign(g.size(), 0);\n\
+    \    low.assign(g.size(), 0);\n    int k = 0;\n    for(int i = 0; i < (int) g.size();\
+    \ i++) {\n      if(!used[i]) k = dfs(i, k, -1);\n    }\n  }\n\n  explicit LowLink(const\
+    \ Graph< T > &g) : Graph< T >(g) {}\n\nprivate:\n  vector< int > used;\n\n  int\
+    \ dfs(int idx, int k, int par) {\n    used[idx] = true;\n    ord[idx] = k++;\n\
+    \    low[idx] = ord[idx];\n    bool is_articulation = false, beet = false;\n \
+    \   int cnt = 0;\n    for(auto &to : g[idx]) {\n      if(to == par && !exchange(beet,\
+    \ true)) {\n        continue;\n      }\n      if(!used[to]) {\n        ++cnt;\n\
+    \        k = dfs(to, k, idx);\n        low[idx] = min(low[idx], low[to]);\n  \
+    \      is_articulation |= par >= 0 && low[to] >= ord[idx];\n        if(ord[idx]\
+    \ < low[to]) bridge.emplace_back(to);\n      } else {\n        low[idx] = min(low[idx],\
+    \ ord[to]);\n      }\n    }\n    is_articulation |= par == -1 && cnt > 1;\n  \
+    \  if(is_articulation) articulation.push_back(idx);\n    return k;\n  }\n};\n\
+    #line 5 \"graph/connected-components/two-edge-connected-components.hpp\"\n\n/**\n\
+    \ * @brief Two-Edge-Connected-Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
+    \u5206\u89E3)\n * @docs docs/two-edge-connected-components.md\n */\ntemplate<\
+    \ typename T = int >\nstruct TwoEdgeConnectedComponents : LowLink< T > {\npublic:\n\
+    \  using LowLink< T >::LowLink;\n  using LowLink< T >::g;\n  using LowLink< T\
+    \ >::ord;\n  using LowLink< T >::low;\n  using LowLink< T >::bridge;\n\n  vector<\
+    \ int > comp;\n  Graph< T > tree;\n  vector< vector< int > > group;\n\n  int operator[](const\
+    \ int &k) const {\n    return comp[k];\n  }\n\n  void build() override {\n   \
+    \ LowLink< T >::build();\n    comp.assign(g.size(), -1);\n    int k = 0;\n   \
+    \ for(int i = 0; i < (int) comp.size(); i++) {\n      if(comp[i] == -1) dfs(i,\
+    \ -1, k);\n    }\n    group.resize(k);\n    for(int i = 0; i < (int) g.size();\
+    \ i++) {\n      group[comp[i]].emplace_back(i);\n    }\n    tree = Graph< T >(k);\n\
+    \    for(auto &e : bridge) {\n      tree.add_edge(comp[e.from], comp[e.to], e.cost);\n\
+    \    }\n  }\n\n  explicit TwoEdgeConnectedComponents(const Graph< T > &g) : Graph<\
+    \ T >(g) {}\n\nprivate:\n  void dfs(int idx, int par, int &k) {\n    if(par >=\
+    \ 0 && ord[par] >= low[idx]) comp[idx] = comp[par];\n    else comp[idx] = k++;\n\
+    \    for(auto &to : g[idx]) {\n      if(comp[to] == -1) dfs(to, idx, k);\n   \
+    \ }\n  }\n};\n#line 6 \"test/verify/yosupo-two-edge-connected-components.test.cpp\"\
     \n\nint main() {\n  int N, M;\n  cin >> N >> M;\n  TwoEdgeConnectedComponents<>\
     \ g(N);\n  g.read(M, 0);\n  g.build();\n  cout << g.group.size() << \"\\n\";\n\
     \  for(auto &p : g.group) {\n    cout << p.size() << \" \" << p << \"\\n\";\n\
     \  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/two_edge_connected_components\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/connected-components/two-edge-connected-components.cpp\"\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/connected-components/two-edge-connected-components.hpp\"\
     \n\nint main() {\n  int N, M;\n  cin >> N >> M;\n  TwoEdgeConnectedComponents<>\
     \ g(N);\n  g.read(M, 0);\n  g.build();\n  cout << g.group.size() << \"\\n\";\n\
     \  for(auto &p : g.group) {\n    cout << p.size() << \" \" << p << \"\\n\";\n\
     \  }\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/connected-components/two-edge-connected-components.cpp
-  - graph/others/low-link.cpp
-  - graph/graph-template.cpp
+  - graph/connected-components/two-edge-connected-components.hpp
+  - graph/graph-template.hpp
+  - graph/others/low-link.hpp
   isVerificationFile: true
   path: test/verify/yosupo-two-edge-connected-components.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-two-edge-connected-components.test.cpp
 layout: document

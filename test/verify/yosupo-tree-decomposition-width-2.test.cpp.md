@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/others/tree-decomposition.cpp
+  - icon: ':question:'
+    path: graph/others/tree-decomposition.hpp
     title: "Tree-Decomposition(\u6728\u5206\u89E3)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: other/printer.cpp
     title: "Printer(\u9AD8\u901F\u51FA\u529B)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: other/scanner.cpp
     title: "Scanner(\u9AD8\u901F\u5165\u529B)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/tree_decomposition_width_2
@@ -113,7 +113,7 @@ data:
     \ i < n; i++) {\n      ret[find(i)].emplace_back(i);\n    }\n    ret.erase(remove_if(begin(ret),\
     \ end(ret), [&](const vector< int > &v) {\n      return v.empty();\n    }));\n\
     \    return ret;\n  }\n};\n#line 9 \"test/verify/yosupo-tree-decomposition-width-2.test.cpp\"\
-    \n\n#line 1 \"graph/others/tree-decomposition.cpp\"\n/**\n * @brief Tree-Decomposition(\u6728\
+    \n\n#line 2 \"graph/others/tree-decomposition.hpp\"\n\n/**\n * @brief Tree-Decomposition(\u6728\
     \u5206\u89E3)\n * @see https://ei1333.hateblo.jp/entry/2020/02/12/150319\n * @docs\
     \ docs/tree-decomposition.md\n */\nstruct DecompNode {\n  vector< int > bag, child;\n\
     \n  DecompNode() = default;\n};\n\nstruct TreeDecomposition {\n\n  vector< vector<\
@@ -171,39 +171,39 @@ data:
     \ B[i]);\n  }\n  int root = -1;\n  for(int i = 0; i < N; i++) {\n    if(uf.find(i)\
     \ == i) {\n      if(root == -1) {\n        root = i;\n      } else {\n       \
     \ A.emplace_back(root);\n        B.emplace_back(i);\n      }\n    }\n  }\n  TreeDecomposition\
-    \ td(N);\n  for(int i = 0; i < A.size(); i++) {\n    td.add_edge(A[i], B[i]);\n\
+    \ td(N);\n  for(size_t i = 0; i < A.size(); i++) {\n    td.add_edge(A[i], B[i]);\n\
     \  }\n  auto tap = td.build();\n  if(tap.empty()) {\n    pout.writeln(\"-1\");\n\
-    \    return 0;\n  }\n  pout.writeln(\"s\", \"td\", tap.size(), 2, N);\n  for(int\
+    \    return 0;\n  }\n  pout.writeln(\"s\", \"td\", tap.size(), 2, N);\n  for(size_t\
     \ i = 0; i < tap.size(); i++) {\n    for(auto &t : tap[i].bag) ++t;\n    pout.writeln(\"\
-    b\", i + 1, tap[i].bag);\n  }\n  for(int i = 0; i < tap.size(); i++) {\n    for(auto\
-    \ &t : tap[i].child) pout.writeln(i + 1, t + 1);\n  }\n}\n"
+    b\", i + 1, tap[i].bag);\n  }\n  for(size_t i = 0; i < tap.size(); i++) {\n  \
+    \  for(auto &t : tap[i].child) pout.writeln(i + 1, t + 1);\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/tree_decomposition_width_2\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../other/scanner.cpp\"\
     \n#include \"../../other/printer.cpp\"\n\n#include \"../../structure/union-find/union-find.cpp\"\
-    \n\n#include \"../../graph/others/tree-decomposition.cpp\"\n\nint main() {\n \
+    \n\n#include \"../../graph/others/tree-decomposition.hpp\"\n\nint main() {\n \
     \ string x;\n  int N, M;\n  Scanner pin(stdin);\n  Printer pout(stdout);\n  pin.read(x,\
     \ x, N, M);\n  vector< int > A(M), B(M);\n  UnionFind uf(N);\n  for(int i = 0;\
     \ i < M; i++) {\n    pin.read(A[i], B[i]);\n    --A[i], --B[i];\n    uf.unite(A[i],\
     \ B[i]);\n  }\n  int root = -1;\n  for(int i = 0; i < N; i++) {\n    if(uf.find(i)\
     \ == i) {\n      if(root == -1) {\n        root = i;\n      } else {\n       \
     \ A.emplace_back(root);\n        B.emplace_back(i);\n      }\n    }\n  }\n  TreeDecomposition\
-    \ td(N);\n  for(int i = 0; i < A.size(); i++) {\n    td.add_edge(A[i], B[i]);\n\
+    \ td(N);\n  for(size_t i = 0; i < A.size(); i++) {\n    td.add_edge(A[i], B[i]);\n\
     \  }\n  auto tap = td.build();\n  if(tap.empty()) {\n    pout.writeln(\"-1\");\n\
-    \    return 0;\n  }\n  pout.writeln(\"s\", \"td\", tap.size(), 2, N);\n  for(int\
+    \    return 0;\n  }\n  pout.writeln(\"s\", \"td\", tap.size(), 2, N);\n  for(size_t\
     \ i = 0; i < tap.size(); i++) {\n    for(auto &t : tap[i].bag) ++t;\n    pout.writeln(\"\
-    b\", i + 1, tap[i].bag);\n  }\n  for(int i = 0; i < tap.size(); i++) {\n    for(auto\
-    \ &t : tap[i].child) pout.writeln(i + 1, t + 1);\n  }\n}\n"
+    b\", i + 1, tap[i].bag);\n  }\n  for(size_t i = 0; i < tap.size(); i++) {\n  \
+    \  for(auto &t : tap[i].child) pout.writeln(i + 1, t + 1);\n  }\n}\n"
   dependsOn:
   - template/template.cpp
   - other/scanner.cpp
   - other/printer.cpp
   - structure/union-find/union-find.cpp
-  - graph/others/tree-decomposition.cpp
+  - graph/others/tree-decomposition.hpp
   isVerificationFile: true
   path: test/verify/yosupo-tree-decomposition-width-2.test.cpp
   requiredBy: []
-  timestamp: '2021-05-07 20:07:14+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-tree-decomposition-width-2.test.cpp
 layout: document

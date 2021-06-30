@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/others/cartesian-tree.cpp
+  - icon: ':x:'
+    path: graph/others/cartesian-tree.hpp
     title: Cartesian-Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/cartesian_tree
@@ -46,7 +46,7 @@ data:
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-cartesian-tree.test.cpp\"\
-    \n\n#line 1 \"graph/others/cartesian-tree.cpp\"\n/**\n * @brief Cartesian-Tree\n\
+    \n\n#line 2 \"graph/others/cartesian-tree.hpp\"\n/**\n * @brief Cartesian-Tree\n\
     \ * @docs docs/cartesian-tree.md\n * @see https://kimiyuki.net/blog/2020/07/27/recursion-on-cartesian-tree/\n\
     \ */\ntemplate< typename T >\nvector< int > cartesian_tree(const vector< T > &v)\
     \ {\n  int n = (int) v.size();\n  vector< int > par(n, -1);\n  stack< int > st;\n\
@@ -59,19 +59,19 @@ data:
     \ {\n    if(p[i] >= 0) cout << p[i] << \" \";\n    else cout << i << \" \";\n\
     \  }\n  cout << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/cartesian_tree\"\n\n#include\
-    \ \"../../template/template.cpp\"\n\n#include \"../../graph/others/cartesian-tree.cpp\"\
+    \ \"../../template/template.cpp\"\n\n#include \"../../graph/others/cartesian-tree.hpp\"\
     \n\nint main() {\n  int N;\n  cin >> N;\n  vector< int > A(N);\n  for(auto &a\
     \ : A) cin >> a;\n  auto p = cartesian_tree(A);\n  for(int i = 0; i < N; i++)\
     \ {\n    if(p[i] >= 0) cout << p[i] << \" \";\n    else cout << i << \" \";\n\
     \  }\n  cout << \"\\n\";\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/others/cartesian-tree.cpp
+  - graph/others/cartesian-tree.hpp
   isVerificationFile: true
   path: test/verify/yosupo-cartesian-tree.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-cartesian-tree.test.cpp
 layout: document

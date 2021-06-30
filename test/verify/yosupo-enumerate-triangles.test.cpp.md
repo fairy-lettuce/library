@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/graph-template.cpp
-    title: graph/graph-template.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/others/enumerate-triangles.cpp
+  - icon: ':question:'
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
+  - icon: ':x:'
+    path: graph/others/enumerate-triangles.hpp
     title: "Enumerate-Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/enumerate_triangles
@@ -49,42 +49,43 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-enumerate-triangles.test.cpp\"\
-    \n\n#line 2 \"graph/graph-template.cpp\"\n\ntemplate< typename T = int >\nstruct\
-    \ Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int\
-    \ from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx)\
-    \ {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename T = int\
-    \ >\nstruct Graph {\n  vector< vector< Edge< T > > > g;\n  int es;\n\n  Graph()\
-    \ = default;\n\n  explicit Graph(int n) : g(n), es(0) {}\n\n  size_t size() const\
-    \ {\n    return g.size();\n  }\n\n  void add_directed_edge(int from, int to, T\
-    \ cost = 1) {\n    g[from].emplace_back(from, to, cost, es++);\n  }\n\n  void\
-    \ add_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from, to,\
-    \ cost, es);\n    g[to].emplace_back(to, from, cost, es++);\n  }\n\n  void read(int\
-    \ M, int padding = -1, bool weighted = false, bool directed = false) {\n    for(int\
-    \ i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n      a += padding;\n\
-    \      b += padding;\n      T c = T(1);\n      if(weighted) cin >> c;\n      if(directed)\
-    \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
-    \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 2 \"\
-    graph/others/enumerate-triangles.cpp\"\n\n/**\n * @brief Enumerate-Triangles(\u4E09\
-    \u89D2\u5F62\u5168\u5217\u6319)\n */\ntemplate< typename T >\nvector< tuple< int,\
-    \ int, int > > enumerate_triangles(const Graph< T >& g) {\n    int N = (int)g.size();\n\
-    \    using pi = pair< int, int >;\n    vector< pi > vp(N);\n    for(int i = 0;\
-    \ i < N; i++) {\n        vp[i] = {(int)g.g[i].size(), i};\n    }\n    vector<\
-    \ vector< int > > h(N);\n    for(int i = 0; i < N; i++) {\n        for(auto& j\
-    \ : g.g[i]) {\n            if(vp[i] > vp[j]) {\n                h[i].emplace_back(j);\n\
-    \            }\n        }\n    }\n    vector< tuple< int, int, int > > triangle;\n\
-    \    vector< int > used(N);\n    for(int x = 0; x < N; x++) {\n        for(int\
-    \ z : h[x]) used[z] = true;\n        for(int y : h[x]) {\n            for(int\
-    \ z : h[y]) {\n                if(used[z]) triangle.emplace_back(x, y, z);\n \
-    \           }\n        }\n        for(int z : h[x]) used[z] = false;\n    }\n\n\
-    \    return triangle;\n}\n#line 6 \"test/verify/yosupo-enumerate-triangles.test.cpp\"\
-    \n\nint main() {\n    int N, M;\n    cin >> N >> M;\n    vector< int > xs(N);\n\
-    \    for(auto& x : xs) cin >> x;\n    Graph<> g(N);\n    g.read(M, 0);\n    auto\
-    \ triangle = enumerate_triangles(g);\n    const int MOD = 998244353;\n    int\
-    \ ret = 0;\n    for(auto& p : triangle) {\n        int a, b, c;\n        tie(a,\
-    \ b, c) = p;\n        ret += 1LL * xs[a] * xs[b] % MOD * xs[c] % MOD;\n      \
-    \  if(ret >= MOD) ret -= MOD;\n    }\n    cout << ret << \"\\n\";\n}\n"
+    \n\n#line 2 \"graph/others/enumerate-triangles.hpp\"\n\n#line 2 \"graph/graph-template.hpp\"\
+    \n\ntemplate< typename T = int >\nstruct Edge {\n  int from, to;\n  T cost;\n\
+    \  int idx;\n\n  Edge() = default;\n\n  Edge(int from, int to, T cost = 1, int\
+    \ idx = -1) : from(from), to(to), cost(cost), idx(idx) {}\n\n  operator int()\
+    \ const { return to; }\n};\n\ntemplate< typename T = int >\nstruct Graph {\n \
+    \ vector< vector< Edge< T > > > g;\n  int es;\n\n  Graph() = default;\n\n  explicit\
+    \ Graph(int n) : g(n), es(0) {}\n\n  size_t size() const {\n    return g.size();\n\
+    \  }\n\n  void add_directed_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from,\
+    \ to, cost, es++);\n  }\n\n  void add_edge(int from, int to, T cost = 1) {\n \
+    \   g[from].emplace_back(from, to, cost, es);\n    g[to].emplace_back(to, from,\
+    \ cost, es++);\n  }\n\n  void read(int M, int padding = -1, bool weighted = false,\
+    \ bool directed = false) {\n    for(int i = 0; i < M; i++) {\n      int a, b;\n\
+    \      cin >> a >> b;\n      a += padding;\n      b += padding;\n      T c = T(1);\n\
+    \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
+    \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
+    using Edges = vector< Edge< T > >;\n#line 4 \"graph/others/enumerate-triangles.hpp\"\
+    \n\n/**\n * @brief Enumerate-Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)\n\
+    \ */\ntemplate< typename T >\nvector< tuple< int, int, int > > enumerate_triangles(const\
+    \ Graph< T >& g) {\n    int N = (int)g.size();\n    using pi = pair< int, int\
+    \ >;\n    vector< pi > vp(N);\n    for(int i = 0; i < N; i++) {\n        vp[i]\
+    \ = {(int)g.g[i].size(), i};\n    }\n    vector< vector< int > > h(N);\n    for(int\
+    \ i = 0; i < N; i++) {\n        for(auto& j : g.g[i]) {\n            if(vp[i]\
+    \ > vp[j]) {\n                h[i].emplace_back(j);\n            }\n        }\n\
+    \    }\n    vector< tuple< int, int, int > > triangle;\n    vector< int > used(N);\n\
+    \    for(int x = 0; x < N; x++) {\n        for(int z : h[x]) used[z] = true;\n\
+    \        for(int y : h[x]) {\n            for(int z : h[y]) {\n              \
+    \  if(used[z]) triangle.emplace_back(x, y, z);\n            }\n        }\n   \
+    \     for(int z : h[x]) used[z] = false;\n    }\n\n    return triangle;\n}\n#line\
+    \ 6 \"test/verify/yosupo-enumerate-triangles.test.cpp\"\n\nint main() {\n    int\
+    \ N, M;\n    cin >> N >> M;\n    vector< int > xs(N);\n    for(auto& x : xs) cin\
+    \ >> x;\n    Graph<> g(N);\n    g.read(M, 0);\n    auto triangle = enumerate_triangles(g);\n\
+    \    const int MOD = 998244353;\n    int ret = 0;\n    for(auto& p : triangle)\
+    \ {\n        int a, b, c;\n        tie(a, b, c) = p;\n        ret += 1LL * xs[a]\
+    \ * xs[b] % MOD * xs[c] % MOD;\n        if(ret >= MOD) ret -= MOD;\n    }\n  \
+    \  cout << ret << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_triangles\"\n\
-    \n#include \"../../template/template.cpp\"\n\n#include \"../../graph/others/enumerate-triangles.cpp\"\
+    \n#include \"../../template/template.cpp\"\n\n#include \"../../graph/others/enumerate-triangles.hpp\"\
     \n\nint main() {\n    int N, M;\n    cin >> N >> M;\n    vector< int > xs(N);\n\
     \    for(auto& x : xs) cin >> x;\n    Graph<> g(N);\n    g.read(M, 0);\n    auto\
     \ triangle = enumerate_triangles(g);\n    const int MOD = 998244353;\n    int\
@@ -93,13 +94,13 @@ data:
     \  if(ret >= MOD) ret -= MOD;\n    }\n    cout << ret << \"\\n\";\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/others/enumerate-triangles.cpp
-  - graph/graph-template.cpp
+  - graph/others/enumerate-triangles.hpp
+  - graph/graph-template.hpp
   isVerificationFile: true
   path: test/verify/yosupo-enumerate-triangles.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-enumerate-triangles.test.cpp
 layout: document

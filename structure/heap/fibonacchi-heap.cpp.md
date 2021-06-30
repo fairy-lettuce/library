@@ -2,19 +2,19 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: graph/mst/prim-fibonacchi-heap.cpp
+  - icon: ':x:'
+    path: graph/mst/prim-fibonacchi-heap.hpp
     title: "Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-a-2.test.cpp
     title: test/verify/aoj-grl-1-a-2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-grl-2-a-4.test.cpp
     title: test/verify/aoj-grl-2-a-4.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Fibonacchi-Heap(\u30D5\u30A3\u30DC\u30CA\u30C3\u30C1\u30D2\u30FC\
       \u30D7)"
@@ -110,12 +110,12 @@ data:
   isVerificationFile: false
   path: structure/heap/fibonacchi-heap.cpp
   requiredBy:
-  - graph/mst/prim-fibonacchi-heap.cpp
+  - graph/mst/prim-fibonacchi-heap.hpp
   timestamp: '2020-08-20 17:25:40+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/verify/aoj-grl-1-a-2.test.cpp
   - test/verify/aoj-grl-2-a-4.test.cpp
+  - test/verify/aoj-grl-1-a-2.test.cpp
 documentation_of: structure/heap/fibonacchi-heap.cpp
 layout: document
 redirect_from:

@@ -1,24 +1,24 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/graph-template.cpp
-    title: graph/graph-template.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/mst/prim-fibonacchi-heap.cpp
+  - icon: ':question:'
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
+  - icon: ':x:'
+    path: graph/mst/prim-fibonacchi-heap.hpp
     title: "Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: structure/heap/fibonacchi-heap.cpp
     title: "Fibonacchi-Heap(\u30D5\u30A3\u30DC\u30CA\u30C3\u30C1\u30D2\u30FC\u30D7\
       )"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
@@ -53,23 +53,24 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-grl-2-a-4.test.cpp\"\
-    \n\n#line 2 \"graph/graph-template.cpp\"\n\ntemplate< typename T = int >\nstruct\
-    \ Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int\
-    \ from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx)\
-    \ {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename T = int\
-    \ >\nstruct Graph {\n  vector< vector< Edge< T > > > g;\n  int es;\n\n  Graph()\
-    \ = default;\n\n  explicit Graph(int n) : g(n), es(0) {}\n\n  size_t size() const\
-    \ {\n    return g.size();\n  }\n\n  void add_directed_edge(int from, int to, T\
-    \ cost = 1) {\n    g[from].emplace_back(from, to, cost, es++);\n  }\n\n  void\
-    \ add_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from, to,\
-    \ cost, es);\n    g[to].emplace_back(to, from, cost, es++);\n  }\n\n  void read(int\
-    \ M, int padding = -1, bool weighted = false, bool directed = false) {\n    for(int\
-    \ i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n      a += padding;\n\
-    \      b += padding;\n      T c = T(1);\n      if(weighted) cin >> c;\n      if(directed)\
-    \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
-    \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 1 \"\
-    structure/heap/fibonacchi-heap.cpp\"\n/**\n * @brief Fibonacchi-Heap(\u30D5\u30A3\
-    \u30DC\u30CA\u30C3\u30C1\u30D2\u30FC\u30D7)\n * @see https://www.cs.princeton.edu/~wayne/teaching/fibonacci-heap.pdf\n\
+    \n\n#line 2 \"graph/mst/prim-fibonacchi-heap.hpp\"\n\n#line 2 \"graph/graph-template.hpp\"\
+    \n\ntemplate< typename T = int >\nstruct Edge {\n  int from, to;\n  T cost;\n\
+    \  int idx;\n\n  Edge() = default;\n\n  Edge(int from, int to, T cost = 1, int\
+    \ idx = -1) : from(from), to(to), cost(cost), idx(idx) {}\n\n  operator int()\
+    \ const { return to; }\n};\n\ntemplate< typename T = int >\nstruct Graph {\n \
+    \ vector< vector< Edge< T > > > g;\n  int es;\n\n  Graph() = default;\n\n  explicit\
+    \ Graph(int n) : g(n), es(0) {}\n\n  size_t size() const {\n    return g.size();\n\
+    \  }\n\n  void add_directed_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from,\
+    \ to, cost, es++);\n  }\n\n  void add_edge(int from, int to, T cost = 1) {\n \
+    \   g[from].emplace_back(from, to, cost, es);\n    g[to].emplace_back(to, from,\
+    \ cost, es++);\n  }\n\n  void read(int M, int padding = -1, bool weighted = false,\
+    \ bool directed = false) {\n    for(int i = 0; i < M; i++) {\n      int a, b;\n\
+    \      cin >> a >> b;\n      a += padding;\n      b += padding;\n      T c = T(1);\n\
+    \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
+    \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
+    using Edges = vector< Edge< T > >;\n#line 1 \"structure/heap/fibonacchi-heap.cpp\"\
+    \n/**\n * @brief Fibonacchi-Heap(\u30D5\u30A3\u30DC\u30CA\u30C3\u30C1\u30D2\u30FC\
+    \u30D7)\n * @see https://www.cs.princeton.edu/~wayne/teaching/fibonacci-heap.pdf\n\
     \ */\ntemplate< typename key_t, typename val_t >\nstruct FibonacchiHeap {\n  struct\
     \ Node {\n    key_t key;\n    val_t val;\n    Node *left, *right, *child, *par;\n\
     \    int sz;\n    bool mark;\n\n    Node(const key_t &key, const val_t &val)\n\
@@ -110,13 +111,12 @@ data:
     \ void decrease_key(Node *t, const key_t &d) {\n    t->key -= d;\n\n    if(!t->par)\
     \ {\n      update_min(t);\n      return;\n    }\n\n    if(t->par->key <= t->key)\
     \ {\n      return;\n    }\n\n    t->sz++;\n    t->mark = true;\n    mark_dfs(t);\n\
-    \    update_min(t);\n  }\n};\n#line 3 \"graph/mst/prim-fibonacchi-heap.cpp\"\n\
+    \    update_min(t);\n  }\n};\n#line 5 \"graph/mst/prim-fibonacchi-heap.hpp\"\n\
     \n/**\n * @brief Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)\n * @docs\
     \ docs/prim-fibonacchi-heap.md\n */\ntemplate< typename T >\nstruct MinimumSpanningTree\
     \ {\n  T cost;\n  Edges< T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree<\
-    \ T > prim_fibonacchi_heap(Graph< T > &g) {\n  const auto INF = numeric_limits<\
-    \ T >::max();\n  using Heap = FibonacchiHeap< T, int >;\n  using Node = typename\
-    \ Heap::Node;\n  using Pi = pair< T, int >;\n\n  T total = 0;\n  vector< Edge<\
+    \ T > prim_fibonacchi_heap(Graph< T > &g) {\n  using Heap = FibonacchiHeap< T,\
+    \ int >;\n  using Node = typename Heap::Node;\n\n  T total = 0;\n  vector< Edge<\
     \ T > * > dist(g.size());\n  vector< int > used(g.size());\n  Heap heap;\n  vector<\
     \ Node * > keep(g.size(), nullptr);\n  keep[0] = heap.push(0, 0);\n  Edges< T\
     \ > es;\n  while(!heap.empty()) {\n    T cost;\n    int idx;\n    tie(cost, idx)\
@@ -130,19 +130,19 @@ data:
     \n\nint main() {\n  int V, E;\n  cin >> V >> E;\n  Graph<> g(V);\n  g.read(E,\
     \ 0, true);\n  cout << prim_fibonacchi_heap(g).cost << \"\\n\";\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/mst/prim-fibonacchi-heap.cpp\"\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/mst/prim-fibonacchi-heap.hpp\"\
     \n\nint main() {\n  int V, E;\n  cin >> V >> E;\n  Graph<> g(V);\n  g.read(E,\
     \ 0, true);\n  cout << prim_fibonacchi_heap(g).cost << \"\\n\";\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/mst/prim-fibonacchi-heap.cpp
-  - graph/graph-template.cpp
+  - graph/mst/prim-fibonacchi-heap.hpp
+  - graph/graph-template.hpp
   - structure/heap/fibonacchi-heap.cpp
   isVerificationFile: true
   path: test/verify/aoj-grl-2-a-4.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-2-a-4.test.cpp
 layout: document

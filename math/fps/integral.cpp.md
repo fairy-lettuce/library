@@ -100,9 +100,9 @@ data:
   path: math/fps/integral.cpp
   requiredBy:
   - math/fps/exp.cpp
+  - math/fps/bell.cpp
   - math/fps/log.cpp
   - math/fps/pow.cpp
-  - math/fps/bell.cpp
   timestamp: '2020-10-23 03:48:43+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

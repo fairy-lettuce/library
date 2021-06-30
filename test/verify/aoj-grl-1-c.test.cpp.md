@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/shortest-path/warshall-floyd.cpp
-    title: graph/shortest-path/warshall-floyd.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/template.cpp
-    title: graph/template.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: graph/shortest-path/warshall-floyd.hpp
+    title: graph/shortest-path/warshall-floyd.hpp
+  - icon: ':question:'
+    path: graph/template.hpp
+    title: graph/template.hpp
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C
@@ -47,48 +47,49 @@ data:
     \  explicit FixPoint(F &&f) : F(forward< F >(f)) {}\n\n  template< typename...\
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
-    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 1 \"graph/template.cpp\"\
-    \ntemplate< typename T >\nstruct edge {\n  int src, to;\n  T cost;\n\n  edge(int\
+    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-grl-1-c.test.cpp\"\
+    \n\n#line 2 \"graph/shortest-path/warshall-floyd.hpp\"\n\n#line 2 \"graph/template.hpp\"\
+    \n\ntemplate< typename T >\nstruct edge {\n  int src, to;\n  T cost;\n\n  edge(int\
     \ to, T cost) : src(-1), to(to), cost(cost) {}\n\n  edge(int src, int to, T cost)\
     \ : src(src), to(to), cost(cost) {}\n\n  edge &operator=(const int &x) {\n   \
     \ to = x;\n    return *this;\n  }\n\n  operator int() const { return to; }\n};\n\
     \ntemplate< typename T >\nusing Edges = vector< edge< T > >;\ntemplate< typename\
     \ T >\nusing WeightedGraph = vector< Edges< T > >;\nusing UnWeightedGraph = vector<\
     \ vector< int > >;\ntemplate< typename T >\nusing Matrix = vector< vector< T >\
-    \ >;\n#line 5 \"test/verify/aoj-grl-1-c.test.cpp\"\n\n#line 1 \"graph/shortest-path/warshall-floyd.cpp\"\
-    \ntemplate< typename T >\nvoid warshall_floyd(Matrix< T > &g, T INF) {\n  for(int\
-    \ k = 0; k < g.size(); k++) {\n    for(int i = 0; i < g.size(); i++) {\n     \
-    \ for(int j = 0; j < g.size(); j++) {\n        if(g[i][k] == INF || g[k][j] ==\
-    \ INF) continue;\n        g[i][j] = min(g[i][j], g[i][k] + g[k][j]);\n      }\n\
-    \    }\n  }\n}\n#line 7 \"test/verify/aoj-grl-1-c.test.cpp\"\n\nint main() {\n\
-    \  int V, E;\n  scanf(\"%d %d\", &V, &E);\n  Matrix< int > mat(V, vector< int\
-    \ >(V, INT_MAX));\n  for(int i = 0; i < V; i++) mat[i][i] = 0;\n  for(int i =\
-    \ 0; i < E; i++) {\n    int x, y, z;\n    scanf(\"%d %d %d\", &x, &y, &z);\n \
-    \   mat[x][y] = z;\n  }\n  warshall_floyd(mat, INT_MAX);\n  for(int i = 0; i <\
-    \ V; i++) {\n    if(mat[i][i] < 0) {\n      puts(\"NEGATIVE CYCLE\");\n      return\
-    \ 0;\n    }\n  }\n  for(int i = 0; i < V; i++) {\n    for(int j = 0; j < V; j++)\
-    \ {\n      if(j > 0) putchar(' ');\n      if(mat[i][j] == INT_MAX) printf(\"INF\"\
-    );\n      else printf(\"%d\", mat[i][j]);\n    }\n    putchar('\\n');\n  }\n}\n"
+    \ >;\n#line 4 \"graph/shortest-path/warshall-floyd.hpp\"\n\ntemplate< typename\
+    \ T >\nvoid warshall_floyd(Matrix< T > &g, T INF) {\n  for(size_t k = 0; k < g.size();\
+    \ k++) {\n    for(size_t i = 0; i < g.size(); i++) {\n      for(size_t j = 0;\
+    \ j < g.size(); j++) {\n        if(g[i][k] == INF || g[k][j] == INF) continue;\n\
+    \        g[i][j] = min(g[i][j], g[i][k] + g[k][j]);\n      }\n    }\n  }\n}\n\
+    #line 6 \"test/verify/aoj-grl-1-c.test.cpp\"\n\nint main() {\n  int V, E;\n  scanf(\"\
+    %d %d\", &V, &E);\n  Matrix< int > mat(V, vector< int >(V, INT_MAX));\n  for(int\
+    \ i = 0; i < V; i++) mat[i][i] = 0;\n  for(int i = 0; i < E; i++) {\n    int x,\
+    \ y, z;\n    scanf(\"%d %d %d\", &x, &y, &z);\n    mat[x][y] = z;\n  }\n  warshall_floyd(mat,\
+    \ INT_MAX);\n  for(int i = 0; i < V; i++) {\n    if(mat[i][i] < 0) {\n      puts(\"\
+    NEGATIVE CYCLE\");\n      return 0;\n    }\n  }\n  for(int i = 0; i < V; i++)\
+    \ {\n    for(int j = 0; j < V; j++) {\n      if(j > 0) putchar(' ');\n      if(mat[i][j]\
+    \ == INT_MAX) printf(\"INF\");\n      else printf(\"%d\", mat[i][j]);\n    }\n\
+    \    putchar('\\n');\n  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C\"\
-    \n\n#include \"../../template/template.cpp\"\n#include \"../../graph/template.cpp\"\
-    \n\n#include \"../../graph/shortest-path/warshall-floyd.cpp\"\n\nint main() {\n\
-    \  int V, E;\n  scanf(\"%d %d\", &V, &E);\n  Matrix< int > mat(V, vector< int\
-    \ >(V, INT_MAX));\n  for(int i = 0; i < V; i++) mat[i][i] = 0;\n  for(int i =\
-    \ 0; i < E; i++) {\n    int x, y, z;\n    scanf(\"%d %d %d\", &x, &y, &z);\n \
-    \   mat[x][y] = z;\n  }\n  warshall_floyd(mat, INT_MAX);\n  for(int i = 0; i <\
-    \ V; i++) {\n    if(mat[i][i] < 0) {\n      puts(\"NEGATIVE CYCLE\");\n      return\
-    \ 0;\n    }\n  }\n  for(int i = 0; i < V; i++) {\n    for(int j = 0; j < V; j++)\
-    \ {\n      if(j > 0) putchar(' ');\n      if(mat[i][j] == INT_MAX) printf(\"INF\"\
-    );\n      else printf(\"%d\", mat[i][j]);\n    }\n    putchar('\\n');\n  }\n}\n"
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/shortest-path/warshall-floyd.hpp\"\
+    \n\nint main() {\n  int V, E;\n  scanf(\"%d %d\", &V, &E);\n  Matrix< int > mat(V,\
+    \ vector< int >(V, INT_MAX));\n  for(int i = 0; i < V; i++) mat[i][i] = 0;\n \
+    \ for(int i = 0; i < E; i++) {\n    int x, y, z;\n    scanf(\"%d %d %d\", &x,\
+    \ &y, &z);\n    mat[x][y] = z;\n  }\n  warshall_floyd(mat, INT_MAX);\n  for(int\
+    \ i = 0; i < V; i++) {\n    if(mat[i][i] < 0) {\n      puts(\"NEGATIVE CYCLE\"\
+    );\n      return 0;\n    }\n  }\n  for(int i = 0; i < V; i++) {\n    for(int j\
+    \ = 0; j < V; j++) {\n      if(j > 0) putchar(' ');\n      if(mat[i][j] == INT_MAX)\
+    \ printf(\"INF\");\n      else printf(\"%d\", mat[i][j]);\n    }\n    putchar('\\\
+    n');\n  }\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/template.cpp
-  - graph/shortest-path/warshall-floyd.cpp
+  - graph/shortest-path/warshall-floyd.hpp
+  - graph/template.hpp
   isVerificationFile: true
   path: test/verify/aoj-grl-1-c.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-1-c.test.cpp
 layout: document

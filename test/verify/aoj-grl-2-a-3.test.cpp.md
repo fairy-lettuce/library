@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/mst/boruvka.cpp
+  - icon: ':x:'
+    path: graph/mst/boruvka.hpp
     title: "Boruvka(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
@@ -61,14 +61,14 @@ data:
     \ = (int) data.size();\n    vector< vector< int > > ret(n);\n    for(int i = 0;\
     \ i < n; i++) {\n      ret[find(i)].emplace_back(i);\n    }\n    ret.erase(remove_if(begin(ret),\
     \ end(ret), [&](const vector< int > &v) {\n      return v.empty();\n    }));\n\
-    \    return ret;\n  }\n};\n#line 2 \"graph/mst/boruvka.cpp\"\n\n/**\n * @brief\
+    \    return ret;\n  }\n};\n#line 2 \"graph/mst/boruvka.hpp\"\n\n/**\n * @brief\
     \ Boruvka(\u6700\u5C0F\u5168\u57DF\u6728)\n * @docs docs/boruvka.md\n */\ntemplate<\
-    \ typename T >\nstruct Boruvka {\nprivate:\n  size_t V;\n  const T INF;\n  UnionFind\
-    \ uf;\n\npublic:\n  explicit Boruvka(size_t V, T INF = numeric_limits< T >::max())\
+    \ typename T >\nstruct Boruvka {\nprivate:\n  size_t V;\n  UnionFind uf;\n  const\
+    \ T INF;\n\npublic:\n  explicit Boruvka(size_t V, T INF = numeric_limits< T >::max())\
     \ : V(V), uf(V), INF(INF) {}\n\n  inline int find(int k) {\n    return uf.find(k);\n\
     \  }\n\n  template< typename F >\n  T build(const F &update) {\n    T ret = T();\n\
-    \    while(uf.size(0) < V) {\n      vector< pair< T, int > > v(V, make_pair(INF,\
-    \ -1));\n      update(v);\n      bool con = false;\n      for(int i = 0; i < V;\
+    \    while(uf.size(0) < (int)V) {\n      vector< pair< T, int > > v(V, make_pair(INF,\
+    \ -1));\n      update(v);\n      bool con = false;\n      for(int i = 0; i < (int)V;\
     \ i++) {\n        if(v[i].second >= 0 && uf.unite(i, v[i].second)) {\n       \
     \   ret += v[i].first;\n          con = true;\n        }\n      }\n      if(!con)\
     \ return INF;\n    }\n    return ret;\n  }\n};\n#line 6 \"test/verify/aoj-grl-2-a-3.test.cpp\"\
@@ -80,7 +80,7 @@ data:
     \ Y[i]));\n      ret[Y[i]] = min(ret[Y[i]], make_pair(Z[i], X[i]));\n    }\n \
     \   return ret;\n  };\n  cout << mst.build(f) << endl;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/mst/boruvka.cpp\"\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/mst/boruvka.hpp\"\
     \n\nint main() {\n  int V, E;\n  cin >> V >> E;\n  vector< int > X(E), Y(E), Z(E);\n\
     \  for(int i = 0; i < E; i++) {\n    cin >> X[i] >> Y[i] >> Z[i];\n  }\n  Boruvka<\
     \ int > mst(V);\n  auto f = [&](vector< pair< int, int > > &ret) {\n    for(int\
@@ -90,13 +90,13 @@ data:
     \   return ret;\n  };\n  cout << mst.build(f) << endl;\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/mst/boruvka.cpp
+  - graph/mst/boruvka.hpp
   - structure/union-find/union-find.cpp
   isVerificationFile: true
   path: test/verify/aoj-grl-2-a-3.test.cpp
   requiredBy: []
-  timestamp: '2021-05-07 20:07:14+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-2-a-3.test.cpp
 layout: document

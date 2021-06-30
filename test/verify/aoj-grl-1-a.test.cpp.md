@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/graph-template.cpp
-    title: graph/graph-template.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/shortest-path/dijkstra.cpp
+  - icon: ':question:'
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
+  - icon: ':question:'
+    path: graph/shortest-path/dijkstra.hpp
     title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -47,7 +47,8 @@ data:
     \  explicit FixPoint(F &&f) : F(forward< F >(f)) {}\n\n  template< typename...\
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
-    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 2 \"graph/graph-template.cpp\"\
+    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-grl-1-a.test.cpp\"\
+    \n\n#line 2 \"graph/shortest-path/dijkstra.hpp\"\n\n#line 2 \"graph/graph-template.hpp\"\
     \n\ntemplate< typename T = int >\nstruct Edge {\n  int from, to;\n  T cost;\n\
     \  int idx;\n\n  Edge() = default;\n\n  Edge(int from, int to, T cost = 1, int\
     \ idx = -1) : from(from), to(to), cost(cost), idx(idx) {}\n\n  operator int()\
@@ -62,39 +63,38 @@ data:
     \      cin >> a >> b;\n      a += padding;\n      b += padding;\n      T c = T(1);\n\
     \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
     \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
-    using Edges = vector< Edge< T > >;\n#line 5 \"test/verify/aoj-grl-1-a.test.cpp\"\
-    \n\n#line 1 \"graph/shortest-path/dijkstra.cpp\"\n/**\n * @brief Dijkstra(\u5358\
-    \u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)\n * @docs docs/dijkstra.md\n */\ntemplate<\
-    \ typename T >\nstruct ShortestPath {\n  vector< T > dist;\n  vector< int > from,\
-    \ id;\n};\n\ntemplate< typename T >\nShortestPath< T > dijkstra(const Graph< T\
-    \ > &g, int s) {\n  const auto INF = numeric_limits< T >::max();\n  vector< T\
-    \ > dist(g.size(), INF);\n  vector< int > from(g.size(), -1), id(g.size(), -1);\n\
-    \  using Pi = pair< T, int >;\n  priority_queue< Pi, vector< Pi >, greater<> >\
-    \ que;\n  dist[s] = 0;\n  que.emplace(dist[s], s);\n  while(!que.empty()) {\n\
-    \    T cost;\n    int idx;\n    tie(cost, idx) = que.top();\n    que.pop();\n\
-    \    if(dist[idx] < cost) continue;\n    for(auto &e : g.g[idx]) {\n      auto\
-    \ next_cost = cost + e.cost;\n      if(dist[e.to] <= next_cost) continue;\n  \
-    \    dist[e.to] = next_cost;\n      from[e.to] = idx;\n      id[e.to] = e.idx;\n\
-    \      que.emplace(dist[e.to], e.to);\n    }\n  }\n  return {dist, from, id};\n\
-    }\n#line 7 \"test/verify/aoj-grl-1-a.test.cpp\"\n\nint main() {\n  int V, E, R;\n\
-    \  cin >> V >> E >> R;\n  Graph< int > g(V);\n  g.read(E, 0, true, true);\n  for(auto\
-    \ &dist : dijkstra(g, R).dist) {\n    if(dist == numeric_limits< int >::max())\
-    \ cout << \"INF\\n\";\n    else cout << dist << \"\\n\";\n  }\n}\n"
-  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
-    \n\n#include \"../../template/template.cpp\"\n#include \"../../graph/graph-template.cpp\"\
-    \n\n#include \"../../graph/shortest-path/dijkstra.cpp\"\n\nint main() {\n  int\
-    \ V, E, R;\n  cin >> V >> E >> R;\n  Graph< int > g(V);\n  g.read(E, 0, true,\
+    using Edges = vector< Edge< T > >;\n#line 4 \"graph/shortest-path/dijkstra.hpp\"\
+    \n\n/**\n * @brief Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)\n * @docs\
+    \ docs/dijkstra.md\n */\ntemplate< typename T >\nstruct ShortestPath {\n  vector<\
+    \ T > dist;\n  vector< int > from, id;\n};\n\ntemplate< typename T >\nShortestPath<\
+    \ T > dijkstra(const Graph< T > &g, int s) {\n  const auto INF = numeric_limits<\
+    \ T >::max();\n  vector< T > dist(g.size(), INF);\n  vector< int > from(g.size(),\
+    \ -1), id(g.size(), -1);\n  using Pi = pair< T, int >;\n  priority_queue< Pi,\
+    \ vector< Pi >, greater<> > que;\n  dist[s] = 0;\n  que.emplace(dist[s], s);\n\
+    \  while(!que.empty()) {\n    T cost;\n    int idx;\n    tie(cost, idx) = que.top();\n\
+    \    que.pop();\n    if(dist[idx] < cost) continue;\n    for(auto &e : g.g[idx])\
+    \ {\n      auto next_cost = cost + e.cost;\n      if(dist[e.to] <= next_cost)\
+    \ continue;\n      dist[e.to] = next_cost;\n      from[e.to] = idx;\n      id[e.to]\
+    \ = e.idx;\n      que.emplace(dist[e.to], e.to);\n    }\n  }\n  return {dist,\
+    \ from, id};\n}\n#line 6 \"test/verify/aoj-grl-1-a.test.cpp\"\n\nint main() {\n\
+    \  int V, E, R;\n  cin >> V >> E >> R;\n  Graph< int > g(V);\n  g.read(E, 0, true,\
     \ true);\n  for(auto &dist : dijkstra(g, R).dist) {\n    if(dist == numeric_limits<\
     \ int >::max()) cout << \"INF\\n\";\n    else cout << dist << \"\\n\";\n  }\n\
     }\n"
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/shortest-path/dijkstra.hpp\"\
+    \n\nint main() {\n  int V, E, R;\n  cin >> V >> E >> R;\n  Graph< int > g(V);\n\
+    \  g.read(E, 0, true, true);\n  for(auto &dist : dijkstra(g, R).dist) {\n    if(dist\
+    \ == numeric_limits< int >::max()) cout << \"INF\\n\";\n    else cout << dist\
+    \ << \"\\n\";\n  }\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/graph-template.cpp
-  - graph/shortest-path/dijkstra.cpp
+  - graph/shortest-path/dijkstra.hpp
+  - graph/graph-template.hpp
   isVerificationFile: true
   path: test/verify/aoj-grl-1-a.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-01 02:53:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-1-a.test.cpp

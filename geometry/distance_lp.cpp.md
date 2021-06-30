@@ -72,8 +72,8 @@ data:
   isVerificationFile: false
   path: geometry/distance_lp.cpp
   requiredBy:
-  - geometry/is_intersect_cl.cpp
   - geometry/distance_ll.cpp
+  - geometry/is_intersect_cl.cpp
   timestamp: '2020-12-01 18:35:30+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

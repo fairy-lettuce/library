@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/graph-template.cpp
-    title: graph/graph-template.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/tree/doubling-lowest-common-ancestor.cpp
+  - icon: ':question:'
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
+  - icon: ':x:'
+    path: graph/tree/doubling-lowest-common-ancestor.hpp
     title: "Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
@@ -47,7 +47,8 @@ data:
     \  explicit FixPoint(F &&f) : F(forward< F >(f)) {}\n\n  template< typename...\
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
-    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 2 \"graph/graph-template.cpp\"\
+    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-grl-5-c.test.cpp\"\
+    \n\n#line 2 \"graph/tree/doubling-lowest-common-ancestor.hpp\"\n\n#line 2 \"graph/graph-template.hpp\"\
     \n\ntemplate< typename T = int >\nstruct Edge {\n  int from, to;\n  T cost;\n\
     \  int idx;\n\n  Edge() = default;\n\n  Edge(int from, int to, T cost = 1, int\
     \ idx = -1) : from(from), to(to), cost(cost), idx(idx) {}\n\n  operator int()\
@@ -62,18 +63,17 @@ data:
     \      cin >> a >> b;\n      a += padding;\n      b += padding;\n      T c = T(1);\n\
     \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
     \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
-    using Edges = vector< Edge< T > >;\n#line 5 \"test/verify/aoj-grl-5-c.test.cpp\"\
-    \n\n#line 1 \"graph/tree/doubling-lowest-common-ancestor.cpp\"\n/**\n * @brief\
-    \ Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)\n * @docs\
-    \ docs/doubling-lowest-common-ancestor.md\n */\ntemplate< typename T >\nstruct\
-    \ DoublingLowestCommonAncestor : Graph< T > {\npublic:\n  using Graph< T >::g;\n\
-    \  vector< int > dep;\n  vector< T > sum;\n  vector< vector< int > > table;\n\
-    \  const int LOG;\n\n  explicit DoublingLowestCommonAncestor(int n)\n      : LOG(32\
-    \ - __builtin_clz(g.size())), Graph< T >(n) {}\n\n  explicit DoublingLowestCommonAncestor(const\
+    using Edges = vector< Edge< T > >;\n#line 4 \"graph/tree/doubling-lowest-common-ancestor.hpp\"\
+    \n\n/**\n * @brief Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\
+    \u5148)\n * @docs docs/doubling-lowest-common-ancestor.md\n */\ntemplate< typename\
+    \ T >\nstruct DoublingLowestCommonAncestor : Graph< T > {\npublic:\n  using Graph<\
+    \ T >::g;\n  vector< int > dep;\n  vector< T > sum;\n  vector< vector< int > >\
+    \ table;\n  const int LOG;\n\n  explicit DoublingLowestCommonAncestor(int n)\n\
+    \      : Graph< T >(n), LOG(32 - __builtin_clz(g.size())) {}\n\n  explicit DoublingLowestCommonAncestor(const\
     \ Graph< T > &g)\n      : LOG(32 - __builtin_clz(g.size())), Graph< T >(g) {}\n\
     \n  void build() {\n    dep.assign(g.size(), 0);\n    sum.assign(g.size(), 0);\n\
     \    table.assign(LOG, vector< int >(g.size(), -1));\n    dfs(0, -1, 0);\n   \
-    \ for(int k = 0; k + 1 < LOG; k++) {\n      for(int i = 0; i < table[k].size();\
+    \ for(int k = 0; k + 1 < LOG; k++) {\n      for(int i = 0; i < (int)table[k].size();\
     \ i++) {\n        if(table[k][i] == -1) table[k + 1][i] = -1;\n        else table[k\
     \ + 1][i] = table[k][table[k][i]];\n      }\n    }\n  }\n\n  int lca(int u, int\
     \ v) {\n    if(dep[u] > dep[v]) swap(u, v);\n    v = climb(v, dep[v] - dep[u]);\n\
@@ -85,7 +85,7 @@ data:
     \ v) {\n    return sum[u] + sum[v] - 2 * sum[lca(u, v)];\n  }\n\nprivate:\n  void\
     \ dfs(int idx, int par, int d) {\n    table[0][idx] = par;\n    dep[idx] = d;\n\
     \    for(auto &to : g[idx]) {\n      if(to != par) {\n        sum[to] = sum[idx]\
-    \ + to.cost;\n        dfs(to, idx, d + 1);\n      }\n    }\n  }\n};\n#line 7 \"\
+    \ + to.cost;\n        dfs(to, idx, d + 1);\n      }\n    }\n  }\n};\n#line 6 \"\
     test/verify/aoj-grl-5-c.test.cpp\"\n\nint main() {\n  int N, Q;\n  cin >> N;\n\
     \  DoublingLowestCommonAncestor< int > dlca(N);\n  for(int i = 0; i < N; i++)\
     \ {\n    int k;\n    cin >> k;\n    for(int j = 0; j < k; j++) {\n      int c;\n\
@@ -93,23 +93,22 @@ data:
     \ >> Q;\n  for(int i = 0; i < Q; i++) {\n    int u, v;\n    cin >> u >> v;\n \
     \   cout << dlca.lca(u, v) << \"\\n\";\n  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
-    \n\n#include \"../../template/template.cpp\"\n#include \"../../graph/graph-template.cpp\"\
-    \n\n#include \"../../graph/tree/doubling-lowest-common-ancestor.cpp\"\n\nint main()\
-    \ {\n  int N, Q;\n  cin >> N;\n  DoublingLowestCommonAncestor< int > dlca(N);\n\
-    \  for(int i = 0; i < N; i++) {\n    int k;\n    cin >> k;\n    for(int j = 0;\
-    \ j < k; j++) {\n      int c;\n      cin >> c;\n      dlca.add_edge(i, c);\n \
-    \   }\n  }\n  dlca.build();\n  cin >> Q;\n  for(int i = 0; i < Q; i++) {\n   \
-    \ int u, v;\n    cin >> u >> v;\n    cout << dlca.lca(u, v) << \"\\n\";\n  }\n\
-    }\n"
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/tree/doubling-lowest-common-ancestor.hpp\"\
+    \n\nint main() {\n  int N, Q;\n  cin >> N;\n  DoublingLowestCommonAncestor< int\
+    \ > dlca(N);\n  for(int i = 0; i < N; i++) {\n    int k;\n    cin >> k;\n    for(int\
+    \ j = 0; j < k; j++) {\n      int c;\n      cin >> c;\n      dlca.add_edge(i,\
+    \ c);\n    }\n  }\n  dlca.build();\n  cin >> Q;\n  for(int i = 0; i < Q; i++)\
+    \ {\n    int u, v;\n    cin >> u >> v;\n    cout << dlca.lca(u, v) << \"\\n\"\
+    ;\n  }\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/graph-template.cpp
-  - graph/tree/doubling-lowest-common-ancestor.cpp
+  - graph/tree/doubling-lowest-common-ancestor.hpp
+  - graph/graph-template.hpp
   isVerificationFile: true
   path: test/verify/aoj-grl-5-c.test.cpp
   requiredBy: []
-  timestamp: '2021-06-15 15:01:13+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-5-c.test.cpp
 layout: document

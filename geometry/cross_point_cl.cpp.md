@@ -97,8 +97,8 @@ data:
   timestamp: '2020-12-01 18:35:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-cgl-7-d.test.cpp
   - test/verify/aoj-cgl-7-h.test.cpp
+  - test/verify/aoj-cgl-7-d.test.cpp
 documentation_of: geometry/cross_point_cl.cpp
 layout: document
 redirect_from:

@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':question:'
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
-    path: graph/graph-template.cpp
-    title: graph/graph-template.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/shortest-path/shortest-path-faster-algorithm.cpp
+    path: graph/shortest-path/shortest-path-faster-algorithm.hpp
     title: "Shortest-Path-Faster-Algorithm(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF\
       )"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -49,55 +49,55 @@ data:
     \  explicit FixPoint(F &&f) : F(forward< F >(f)) {}\n\n  template< typename...\
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
-    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 2 \"graph/graph-template.cpp\"\
-    \n\ntemplate< typename T = int >\nstruct Edge {\n  int from, to;\n  T cost;\n\
-    \  int idx;\n\n  Edge() = default;\n\n  Edge(int from, int to, T cost = 1, int\
-    \ idx = -1) : from(from), to(to), cost(cost), idx(idx) {}\n\n  operator int()\
-    \ const { return to; }\n};\n\ntemplate< typename T = int >\nstruct Graph {\n \
-    \ vector< vector< Edge< T > > > g;\n  int es;\n\n  Graph() = default;\n\n  explicit\
-    \ Graph(int n) : g(n), es(0) {}\n\n  size_t size() const {\n    return g.size();\n\
-    \  }\n\n  void add_directed_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from,\
-    \ to, cost, es++);\n  }\n\n  void add_edge(int from, int to, T cost = 1) {\n \
-    \   g[from].emplace_back(from, to, cost, es);\n    g[to].emplace_back(to, from,\
-    \ cost, es++);\n  }\n\n  void read(int M, int padding = -1, bool weighted = false,\
-    \ bool directed = false) {\n    for(int i = 0; i < M; i++) {\n      int a, b;\n\
-    \      cin >> a >> b;\n      a += padding;\n      b += padding;\n      T c = T(1);\n\
-    \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
-    \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
-    using Edges = vector< Edge< T > >;\n#line 5 \"test/verify/aoj-grl-1-b-2.test.cpp\"\
-    \n\n#line 1 \"graph/shortest-path/shortest-path-faster-algorithm.cpp\"\n/**\n\
-    \ * @brief Shortest-Path-Faster-Algorithm(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\
-    \u8DEF)\n */\ntemplate< typename T >\nvector< T > shortest_path_faster_algorithm(const\
-    \ Graph< T > &g, int s) {\n  const auto INF = numeric_limits< T >::max();\n  vector<\
-    \ T > dist(g.size(), INF);\n  vector< int > pending(g.size(), 0), times(g.size(),\
-    \ 0);\n  queue< int > que;\n\n  que.emplace(s);\n  pending[s] = true;\n  ++times[s];\n\
-    \  dist[s] = 0;\n\n  while(!que.empty()) {\n    int p = que.front();\n    que.pop();\n\
-    \    pending[p] = false;\n    for(auto &e : g.g[p]) {\n      T next_cost = dist[p]\
-    \ + e.cost;\n      if(next_cost >= dist[e.to]) continue;\n      dist[e.to] = next_cost;\n\
-    \      if(!pending[e.to]) {\n        if(++times[e.to] >= g.size()) return vector<\
-    \ T >();\n        pending[e.to] = true;\n        que.emplace(e.to);\n      }\n\
-    \    }\n  }\n  return dist;\n}\n#line 7 \"test/verify/aoj-grl-1-b-2.test.cpp\"\
-    \n\nint main() {\n  int V, E, R;\n  cin >> V >> E >> R;\n  Graph< int > g(V);\n\
-    \  g.read(E, 0, true, true);\n  auto dists = shortest_path_faster_algorithm(g,\
-    \ R);\n  if(dists.empty()) cout << \"NEGATIVE CYCLE\\n\";\n  for(auto &dist :\
-    \ dists) {\n    if(dist == numeric_limits< int >::max()) cout << \"INF\\n\";\n\
-    \    else cout << dist << \"\\n\";\n  }\n}\n"
+    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-grl-1-b-2.test.cpp\"\
+    \n\n#line 2 \"graph/shortest-path/shortest-path-faster-algorithm.hpp\"\n\n#line\
+    \ 2 \"graph/graph-template.hpp\"\n\ntemplate< typename T = int >\nstruct Edge\
+    \ {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int\
+    \ from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx)\
+    \ {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename T = int\
+    \ >\nstruct Graph {\n  vector< vector< Edge< T > > > g;\n  int es;\n\n  Graph()\
+    \ = default;\n\n  explicit Graph(int n) : g(n), es(0) {}\n\n  size_t size() const\
+    \ {\n    return g.size();\n  }\n\n  void add_directed_edge(int from, int to, T\
+    \ cost = 1) {\n    g[from].emplace_back(from, to, cost, es++);\n  }\n\n  void\
+    \ add_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from, to,\
+    \ cost, es);\n    g[to].emplace_back(to, from, cost, es++);\n  }\n\n  void read(int\
+    \ M, int padding = -1, bool weighted = false, bool directed = false) {\n    for(int\
+    \ i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n      a += padding;\n\
+    \      b += padding;\n      T c = T(1);\n      if(weighted) cin >> c;\n      if(directed)\
+    \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
+    \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 4 \"\
+    graph/shortest-path/shortest-path-faster-algorithm.hpp\"\n\n/**\n * @brief Shortest-Path-Faster-Algorithm(\u5358\
+    \u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)\n */\ntemplate< typename T >\nvector< T\
+    \ > shortest_path_faster_algorithm(const Graph< T > &g, int s) {\n  const auto\
+    \ INF = numeric_limits< T >::max();\n  vector< T > dist(g.size(), INF);\n  vector<\
+    \ int > pending(g.size(), 0), times(g.size(), 0);\n  queue< int > que;\n\n  que.emplace(s);\n\
+    \  pending[s] = true;\n  ++times[s];\n  dist[s] = 0;\n\n  while(!que.empty())\
+    \ {\n    int p = que.front();\n    que.pop();\n    pending[p] = false;\n    for(auto\
+    \ &e : g.g[p]) {\n      T next_cost = dist[p] + e.cost;\n      if(next_cost >=\
+    \ dist[e.to]) continue;\n      dist[e.to] = next_cost;\n      if(!pending[e.to])\
+    \ {\n        if(++times[e.to] >= (int)g.size()) return vector< T >();\n      \
+    \  pending[e.to] = true;\n        que.emplace(e.to);\n      }\n    }\n  }\n  return\
+    \ dist;\n}\n#line 6 \"test/verify/aoj-grl-1-b-2.test.cpp\"\n\nint main() {\n \
+    \ int V, E, R;\n  cin >> V >> E >> R;\n  Graph< int > g(V);\n  g.read(E, 0, true,\
+    \ true);\n  auto dists = shortest_path_faster_algorithm(g, R);\n  if(dists.empty())\
+    \ cout << \"NEGATIVE CYCLE\\n\";\n  for(auto &dist : dists) {\n    if(dist ==\
+    \ numeric_limits< int >::max()) cout << \"INF\\n\";\n    else cout << dist <<\
+    \ \"\\n\";\n  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B\"\
-    \n\n#include \"../../template/template.cpp\"\n#include \"../../graph/graph-template.cpp\"\
-    \n\n#include \"../../graph/shortest-path/shortest-path-faster-algorithm.cpp\"\n\
-    \nint main() {\n  int V, E, R;\n  cin >> V >> E >> R;\n  Graph< int > g(V);\n\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/shortest-path/shortest-path-faster-algorithm.hpp\"\
+    \n\nint main() {\n  int V, E, R;\n  cin >> V >> E >> R;\n  Graph< int > g(V);\n\
     \  g.read(E, 0, true, true);\n  auto dists = shortest_path_faster_algorithm(g,\
     \ R);\n  if(dists.empty()) cout << \"NEGATIVE CYCLE\\n\";\n  for(auto &dist :\
     \ dists) {\n    if(dist == numeric_limits< int >::max()) cout << \"INF\\n\";\n\
     \    else cout << dist << \"\\n\";\n  }\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/graph-template.cpp
-  - graph/shortest-path/shortest-path-faster-algorithm.cpp
+  - graph/shortest-path/shortest-path-faster-algorithm.hpp
+  - graph/graph-template.hpp
   isVerificationFile: true
   path: test/verify/aoj-grl-1-b-2.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-01 02:53:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-1-b-2.test.cpp

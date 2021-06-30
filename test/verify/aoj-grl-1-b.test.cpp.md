@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/graph-template.cpp
-    title: graph/graph-template.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/shortest-path/bellman-ford.cpp
+  - icon: ':question:'
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
+  - icon: ':question:'
+    path: graph/shortest-path/bellman-ford.hpp
     title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B
@@ -47,7 +47,8 @@ data:
     \  explicit FixPoint(F &&f) : F(forward< F >(f)) {}\n\n  template< typename...\
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
-    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 2 \"graph/graph-template.cpp\"\
+    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-grl-1-b.test.cpp\"\
+    \n\n#line 2 \"graph/shortest-path/bellman-ford.hpp\"\n\n#line 2 \"graph/graph-template.hpp\"\
     \n\ntemplate< typename T = int >\nstruct Edge {\n  int from, to;\n  T cost;\n\
     \  int idx;\n\n  Edge() = default;\n\n  Edge(int from, int to, T cost = 1, int\
     \ idx = -1) : from(from), to(to), cost(cost), idx(idx) {}\n\n  operator int()\
@@ -62,40 +63,38 @@ data:
     \      cin >> a >> b;\n      a += padding;\n      b += padding;\n      T c = T(1);\n\
     \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
     \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
-    using Edges = vector< Edge< T > >;\n#line 5 \"test/verify/aoj-grl-1-b.test.cpp\"\
-    \n\n#line 1 \"graph/shortest-path/bellman-ford.cpp\"\n/**\n * @brief Bellman-Ford(\u5358\
-    \u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)\n * @docs docs/bellman-ford.md\n */\ntemplate<\
-    \ typename T >\nvector< T > bellman_ford(const Edges< T > &edges, int V, int s)\
-    \ {\n  const auto INF = numeric_limits< T >::max();\n  vector< T > dist(V, INF);\n\
-    \  dist[s] = 0;\n  for(int i = 0; i < V - 1; i++) {\n    for(auto &e : edges)\
-    \ {\n      if(dist[e.from] == INF) continue;\n      dist[e.to] = min(dist[e.to],\
-    \ dist[e.from] + e.cost);\n    }\n  }\n  for(auto &e : edges) {\n    if(dist[e.from]\
-    \ == INF) continue;\n    if(dist[e.from] + e.cost < dist[e.to]) return vector<\
-    \ T >();\n  }\n  return dist;\n}\n#line 7 \"test/verify/aoj-grl-1-b.test.cpp\"\
+    using Edges = vector< Edge< T > >;\n#line 4 \"graph/shortest-path/bellman-ford.hpp\"\
+    \n\n/**\n * @brief Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)\n\
+    \ * @docs docs/bellman-ford.md\n */\ntemplate< typename T >\nvector< T > bellman_ford(const\
+    \ Edges< T > &edges, int V, int s) {\n  const auto INF = numeric_limits< T >::max();\n\
+    \  vector< T > dist(V, INF);\n  dist[s] = 0;\n  for(int i = 0; i < V - 1; i++)\
+    \ {\n    for(auto &e : edges) {\n      if(dist[e.from] == INF) continue;\n   \
+    \   dist[e.to] = min(dist[e.to], dist[e.from] + e.cost);\n    }\n  }\n  for(auto\
+    \ &e : edges) {\n    if(dist[e.from] == INF) continue;\n    if(dist[e.from] +\
+    \ e.cost < dist[e.to]) return vector< T >();\n  }\n  return dist;\n}\n#line 6\
+    \ \"test/verify/aoj-grl-1-b.test.cpp\"\n\nint main() {\n  int V, E, R;\n  cin\
+    \ >> V >> E >> R;\n  Edges< > es;\n  for(int i = 0; i < E; i++) {\n    int a,\
+    \ b, c;\n    cin >> a >> b >> c;\n    es.emplace_back(a, b, c);\n  }\n  auto dists\
+    \ = bellman_ford(es, V, R);\n  if(dists.empty()) cout << \"NEGATIVE CYCLE\\n\"\
+    ;\n  for(auto &dist : dists) {\n    if(dist == numeric_limits< int >::max()) cout\
+    \ << \"INF\\n\";\n    else cout << dist << \"\\n\";\n  }\n}\n"
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B\"\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/shortest-path/bellman-ford.hpp\"\
     \n\nint main() {\n  int V, E, R;\n  cin >> V >> E >> R;\n  Edges< > es;\n  for(int\
     \ i = 0; i < E; i++) {\n    int a, b, c;\n    cin >> a >> b >> c;\n    es.emplace_back(a,\
     \ b, c);\n  }\n  auto dists = bellman_ford(es, V, R);\n  if(dists.empty()) cout\
     \ << \"NEGATIVE CYCLE\\n\";\n  for(auto &dist : dists) {\n    if(dist == numeric_limits<\
     \ int >::max()) cout << \"INF\\n\";\n    else cout << dist << \"\\n\";\n  }\n\
     }\n"
-  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B\"\
-    \n\n#include \"../../template/template.cpp\"\n#include \"../../graph/graph-template.cpp\"\
-    \n\n#include \"../../graph/shortest-path/bellman-ford.cpp\"\n\nint main() {\n\
-    \  int V, E, R;\n  cin >> V >> E >> R;\n  Edges< > es;\n  for(int i = 0; i < E;\
-    \ i++) {\n    int a, b, c;\n    cin >> a >> b >> c;\n    es.emplace_back(a, b,\
-    \ c);\n  }\n  auto dists = bellman_ford(es, V, R);\n  if(dists.empty()) cout <<\
-    \ \"NEGATIVE CYCLE\\n\";\n  for(auto &dist : dists) {\n    if(dist == numeric_limits<\
-    \ int >::max()) cout << \"INF\\n\";\n    else cout << dist << \"\\n\";\n  }\n\
-    }\n"
   dependsOn:
   - template/template.cpp
-  - graph/graph-template.cpp
-  - graph/shortest-path/bellman-ford.cpp
+  - graph/shortest-path/bellman-ford.hpp
+  - graph/graph-template.hpp
   isVerificationFile: true
   path: test/verify/aoj-grl-1-b.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-1-b.test.cpp
 layout: document

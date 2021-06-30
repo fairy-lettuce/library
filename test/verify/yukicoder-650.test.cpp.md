@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/graph-template.cpp
-    title: graph/graph-template.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/tree/heavy-light-decomposition.cpp
+  - icon: ':question:'
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
+  - icon: ':question:'
+    path: graph/tree/heavy-light-decomposition.hpp
     title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/matrix/square-matrix.cpp
     title: "Square-Matrix(\u6B63\u65B9\u884C\u5217)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: structure/segment-tree/segment-tree.cpp
     title: "Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/650
@@ -58,27 +58,27 @@ data:
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yukicoder-650.test.cpp\"\
-    \n\n#line 2 \"graph/graph-template.cpp\"\n\ntemplate< typename T = int >\nstruct\
-    \ Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int\
-    \ from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx)\
-    \ {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename T = int\
-    \ >\nstruct Graph {\n  vector< vector< Edge< T > > > g;\n  int es;\n\n  Graph()\
-    \ = default;\n\n  explicit Graph(int n) : g(n), es(0) {}\n\n  size_t size() const\
-    \ {\n    return g.size();\n  }\n\n  void add_directed_edge(int from, int to, T\
-    \ cost = 1) {\n    g[from].emplace_back(from, to, cost, es++);\n  }\n\n  void\
-    \ add_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from, to,\
-    \ cost, es);\n    g[to].emplace_back(to, from, cost, es++);\n  }\n\n  void read(int\
-    \ M, int padding = -1, bool weighted = false, bool directed = false) {\n    for(int\
-    \ i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n      a += padding;\n\
-    \      b += padding;\n      T c = T(1);\n      if(weighted) cin >> c;\n      if(directed)\
-    \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
-    \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 2 \"\
-    graph/tree/heavy-light-decomposition.cpp\"\n\n/**\n * @brief Heavy-Light-Decomposition(HL\u5206\
-    \u89E3)\n * @see https://smijake3.hatenablog.com/entry/2019/09/15/200200\n */\n\
-    template< typename T = int >\nstruct HeavyLightDecomposition : Graph< T > {\n\
-    public:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n  vector< int > sz,\
-    \ in, out, head, rev, par, dep;\n\n  void build() {\n    sz.assign(g.size(), 0);\n\
-    \    in.assign(g.size(), 0);\n    out.assign(g.size(), 0);\n    head.assign(g.size(),\
+    \n\n#line 2 \"graph/tree/heavy-light-decomposition.hpp\"\n\n#line 2 \"graph/graph-template.hpp\"\
+    \n\ntemplate< typename T = int >\nstruct Edge {\n  int from, to;\n  T cost;\n\
+    \  int idx;\n\n  Edge() = default;\n\n  Edge(int from, int to, T cost = 1, int\
+    \ idx = -1) : from(from), to(to), cost(cost), idx(idx) {}\n\n  operator int()\
+    \ const { return to; }\n};\n\ntemplate< typename T = int >\nstruct Graph {\n \
+    \ vector< vector< Edge< T > > > g;\n  int es;\n\n  Graph() = default;\n\n  explicit\
+    \ Graph(int n) : g(n), es(0) {}\n\n  size_t size() const {\n    return g.size();\n\
+    \  }\n\n  void add_directed_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from,\
+    \ to, cost, es++);\n  }\n\n  void add_edge(int from, int to, T cost = 1) {\n \
+    \   g[from].emplace_back(from, to, cost, es);\n    g[to].emplace_back(to, from,\
+    \ cost, es++);\n  }\n\n  void read(int M, int padding = -1, bool weighted = false,\
+    \ bool directed = false) {\n    for(int i = 0; i < M; i++) {\n      int a, b;\n\
+    \      cin >> a >> b;\n      a += padding;\n      b += padding;\n      T c = T(1);\n\
+    \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
+    \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
+    using Edges = vector< Edge< T > >;\n#line 4 \"graph/tree/heavy-light-decomposition.hpp\"\
+    \n\n/**\n * @brief Heavy-Light-Decomposition(HL\u5206\u89E3)\n * @see https://smijake3.hatenablog.com/entry/2019/09/15/200200\n\
+    \ */\ntemplate< typename T = int >\nstruct HeavyLightDecomposition : Graph< T\
+    \ > {\npublic:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n  vector<\
+    \ int > sz, in, out, head, rev, par, dep;\n\n  void build() {\n    sz.assign(g.size(),\
+    \ 0);\n    in.assign(g.size(), 0);\n    out.assign(g.size(), 0);\n    head.assign(g.size(),\
     \ 0);\n    rev.assign(g.size(), 0);\n    par.assign(g.size(), 0);\n    dep.assign(g.size(),\
     \ 0);\n    dfs_sz(0, -1, 0);\n    int t = 0;\n    dfs_hld(0, -1, t);\n  }\n\n\
     \  /* k: 0-indexed */\n  int la(int v, int k) {\n    while(1) {\n      int u =\
@@ -213,7 +213,7 @@ data:
     \ << mat[0][1] << \" \" << mat[1][0] << \" \" << mat[1][1] << \"\\n\";\n    }\n\
     \  }\n}\n"
   code: "#define PROBLEM \"https://yukicoder.me/problems/no/650\"\n\n#include \"../../template/template.cpp\"\
-    \n\n#include \"../../graph/tree/heavy-light-decomposition.cpp\"\n\n#include \"\
+    \n\n#include \"../../graph/tree/heavy-light-decomposition.hpp\"\n\n#include \"\
     ../../structure/segment-tree/segment-tree.cpp\"\n\n#include \"../../math/combinatorics/mod-int.cpp\"\
     \n#include \"../../math/matrix/square-matrix.cpp\"\n\nint main() {\n  int N;\n\
     \  cin >> N;\n  vector< int > X(N), Y(N);\n  HeavyLightDecomposition<> g(N);\n\
@@ -231,16 +231,16 @@ data:
     \  }\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/tree/heavy-light-decomposition.cpp
-  - graph/graph-template.cpp
+  - graph/tree/heavy-light-decomposition.hpp
+  - graph/graph-template.hpp
   - structure/segment-tree/segment-tree.cpp
   - math/combinatorics/mod-int.cpp
   - math/matrix/square-matrix.cpp
   isVerificationFile: true
   path: test/verify/yukicoder-650.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:53:32+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yukicoder-650.test.cpp
 layout: document

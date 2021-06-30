@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/flow/gabow-edmonds.cpp
-    title: graph/flow/gabow-edmonds.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: graph/flow/gabow-edmonds.hpp
+    title: graph/flow/gabow-edmonds.hpp
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/general_matching
@@ -46,7 +46,7 @@ data:
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-general-matching.test.cpp\"\
-    \n\n#line 1 \"graph/flow/gabow-edmonds.cpp\"\n// https://qiita.com/Kutimoti_T/items/5b579773e0a24d650bdf\n\
+    \n\n#line 1 \"graph/flow/gabow-edmonds.hpp\"\n// https://qiita.com/Kutimoti_T/items/5b579773e0a24d650bdf\n\
     struct GabowEdmonds {\n\n  struct edge {\n    int to, idx;\n  };\n\n  vector<\
     \ vector< edge > > g;\n  vector< pair< int, int > > edges;\n  vector< int > mate,\
     \ label, first;\n  queue< int > que;\n\n  GabowEdmonds(int n) : g(n + 1), mate(n\
@@ -56,7 +56,7 @@ data:
     \ v);\n  }\n\n  int find(int x) {\n    if(label[first[x]] < 0) return first[x];\n\
     \    first[x] = find(first[x]);\n    return first[x];\n  }\n\n  void rematch(int\
     \ v, int w) {\n    int t = mate[v];\n    mate[v] = w;\n    if(mate[t] != v) return;\n\
-    \    if(label[v] < g.size()) {\n      mate[t] = label[v];\n      rematch(label[v],\
+    \    if(label[v] < (int)g.size()) {\n      mate[t] = label[v];\n      rematch(label[v],\
     \ t);\n    } else {\n      int x = edges[label[v] - g.size()].first;\n      int\
     \ y = edges[label[v] - g.size()].second;\n      rematch(x, y);\n      rematch(y,\
     \ x);\n    }\n  }\n\n  void assign_label(int x, int y, int num) {\n    int r =\
@@ -76,9 +76,9 @@ data:
     \ {\n          assign_label(x, y, e.idx);\n        } else if(label[mate[y]] <\
     \ 0) {\n          label[mate[y]] = x;\n          first[mate[y]] = y;\n       \
     \   que.push(mate[y]);\n        }\n      }\n    }\n    return false;\n  }\n\n\
-    \  vector< pair< int, int > > max_matching() {\n    for(int i = 1; i < g.size();\
+    \  vector< pair< int, int > > max_matching() {\n    for(int i = 1; i < (int)g.size();\
     \ i++) {\n      if(mate[i] != 0) continue;\n      if(augment_check(i)) label.assign(g.size(),\
-    \ -1);\n    }\n    vector< pair< int, int > > ret;\n    for(int i = 1; i < g.size();\
+    \ -1);\n    }\n    vector< pair< int, int > > ret;\n    for(int i = 1; i < (int)g.size();\
     \ i++) {\n      if(i < mate[i]) ret.emplace_back(i - 1, mate[i] - 1);\n    }\n\
     \    return ret;\n  }\n};\n#line 6 \"test/verify/yosupo-general-matching.test.cpp\"\
     \n\nint main() {\n  int N, M;\n  cin >> N >> M;\n  GabowEdmonds flow(N);\n  for(int\
@@ -86,19 +86,19 @@ data:
     \ b);\n  }\n  auto ret = flow.max_matching();\n  cout << ret.size() << endl;\n\
     \  for(auto &p : ret) cout << p << endl;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/general_matching\"\n\n\
-    #include \"../../template/template.cpp\"\n\n#include \"../../graph/flow/gabow-edmonds.cpp\"\
+    #include \"../../template/template.cpp\"\n\n#include \"../../graph/flow/gabow-edmonds.hpp\"\
     \n\nint main() {\n  int N, M;\n  cin >> N >> M;\n  GabowEdmonds flow(N);\n  for(int\
     \ i = 0; i < M; i++) {\n    int a, b;\n    cin >> a >> b;\n    flow.add_edge(a,\
     \ b);\n  }\n  auto ret = flow.max_matching();\n  cout << ret.size() << endl;\n\
     \  for(auto &p : ret) cout << p << endl;\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/flow/gabow-edmonds.cpp
+  - graph/flow/gabow-edmonds.hpp
   isVerificationFile: true
   path: test/verify/yosupo-general-matching.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-general-matching.test.cpp
 layout: document

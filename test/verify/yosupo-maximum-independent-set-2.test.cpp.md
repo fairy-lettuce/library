@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/others/maximum-clique.cpp
+  - icon: ':x:'
+    path: graph/others/maximum-clique.hpp
     title: "Maximum-Clique(\u6700\u5927\u30AF\u30EA\u30FC\u30AF)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/maximum_independent_set
@@ -46,7 +46,7 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-maximum-independent-set-2.test.cpp\"\
-    \n\n#line 1 \"graph/others/maximum-clique.cpp\"\n/**\n * @brief Maximum-Clique(\u6700\
+    \n\n#line 2 \"graph/others/maximum-clique.hpp\"\n\n/**\n * @brief Maximum-Clique(\u6700\
     \u5927\u30AF\u30EA\u30FC\u30AF)\n */\ntemplate< int V >\nstruct MaximumClique\
     \ {\n  using B = bitset< V >;\n  vector< B > g, col_buf;\n\n  struct P {\n   \
     \ int idx, col, deg;\n\n    P(int idx, int col, int deg) : idx(idx), col(col),\
@@ -65,7 +65,7 @@ data:
     \ {\n          nrem.emplace_back(q.idx, -1, 0);\n          bs.set(q.idx);\n  \
     \      }\n      }\n      for(auto &q : nrem) {\n        q.deg = (bs & g[q.idx]).count();\n\
     \      }\n      now.emplace_back(p.idx);\n      dfs(nrem);\n      now.pop_back();\n\
-    \    }\n  }\n\n  vector< int > solve() {\n    vector< P > remark;\n    for(int\
+    \    }\n  }\n\n  vector< int > solve() {\n    vector< P > remark;\n    for(size_t\
     \ i = 0; i < g.size(); i++) {\n      remark.emplace_back(i, -1, (int) g[i].size());\n\
     \    }\n    dfs(remark);\n    return clique;\n  }\n};\n#line 6 \"test/verify/yosupo-maximum-independent-set-2.test.cpp\"\
     \n\nint main() {\n  int V, E;\n  cin >> V >> E;\n  auto D = make_v< int >(V, V);\n\
@@ -75,7 +75,7 @@ data:
     \ j);\n    }\n  }\n  auto ret = mc.solve();\n  cout << ret.size() << \"\\n\";\n\
     \  cout << ret << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/maximum_independent_set\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/others/maximum-clique.cpp\"\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/others/maximum-clique.hpp\"\
     \n\nint main() {\n  int V, E;\n  cin >> V >> E;\n  auto D = make_v< int >(V, V);\n\
     \  for(int i = 0; i < E; i++) {\n    int a, b;\n    cin >> a >> b;\n    D[a][b]\
     \ = D[b][a] = true;\n  }\n  MaximumClique< 40 > mc(V);\n  for(int i = 0; i < V;\
@@ -84,12 +84,12 @@ data:
     \  cout << ret << \"\\n\";\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/others/maximum-clique.cpp
+  - graph/others/maximum-clique.hpp
   isVerificationFile: true
   path: test/verify/yosupo-maximum-independent-set-2.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-maximum-independent-set-2.test.cpp
 layout: document

@@ -75,10 +75,10 @@ data:
   isVerificationFile: false
   path: math/combinatorics/enumeration.cpp
   requiredBy:
-  - math/combinatorics/factorial.cpp
-  - math/combinatorics/bell-number.cpp
   - math/combinatorics/stirling-number-second.cpp
+  - math/combinatorics/factorial.cpp
   - math/combinatorics/sample-point-shift.cpp
+  - math/combinatorics/bell-number.cpp
   timestamp: '2021-06-28 00:13:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

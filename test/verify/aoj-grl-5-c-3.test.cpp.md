@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/graph-template.cpp
-    title: graph/graph-template.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/tree/rmq-lowest-common-ancestor.cpp
+  - icon: ':question:'
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
+  - icon: ':x:'
+    path: graph/tree/rmq-lowest-common-ancestor.hpp
     title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: structure/others/sparse-table.cpp
     title: "Sparse-Table(\u30B9\u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
@@ -51,7 +51,8 @@ data:
     \  explicit FixPoint(F &&f) : F(forward< F >(f)) {}\n\n  template< typename...\
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
-    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 2 \"graph/graph-template.cpp\"\
+    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-grl-5-c-3.test.cpp\"\
+    \n\n#line 2 \"graph/tree/rmq-lowest-common-ancestor.hpp\"\n\n#line 2 \"graph/graph-template.hpp\"\
     \n\ntemplate< typename T = int >\nstruct Edge {\n  int from, to;\n  T cost;\n\
     \  int idx;\n\n  Edge() = default;\n\n  Edge(int from, int to, T cost = 1, int\
     \ idx = -1) : from(from), to(to), cost(cost), idx(idx) {}\n\n  operator int()\
@@ -66,23 +67,22 @@ data:
     \      cin >> a >> b;\n      a += padding;\n      b += padding;\n      T c = T(1);\n\
     \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
     \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
-    using Edges = vector< Edge< T > >;\n#line 5 \"test/verify/aoj-grl-5-c-3.test.cpp\"\
-    \n\n#line 1 \"structure/others/sparse-table.cpp\"\n/**\n * @brief Sparse-Table(\u30B9\
-    \u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB)\n * @docs docs/sparse-table.md\n */\n\
-    template< typename T, typename F >\nstruct SparseTable {\n  F f;\n  vector< vector<\
-    \ T > > st;\n  vector< int > lookup;\n\n  SparseTable() = default;\n\n  explicit\
-    \ SparseTable(const vector< T > &v, const F &f) : f(f) {\n    const int n = (int)\
-    \ v.size();\n    const int b = 32 - __builtin_clz(n);\n    st.assign(b, vector<\
-    \ T >(n));\n    for(int i = 0; i < v.size(); i++) {\n      st[0][i] = v[i];\n\
-    \    }\n    for(int i = 1; i < b; i++) {\n      for(int j = 0; j + (1 << i) <=\
-    \ n; j++) {\n        st[i][j] = f(st[i - 1][j], st[i - 1][j + (1 << (i - 1))]);\n\
-    \      }\n    }\n    lookup.resize(v.size() + 1);\n    for(int i = 2; i < lookup.size();\
-    \ i++) {\n      lookup[i] = lookup[i >> 1] + 1;\n    }\n  }\n\n  inline T fold(int\
-    \ l, int r) const {\n    int b = lookup[r - l];\n    return f(st[b][l], st[b][r\
-    \ - (1 << b)]);\n  }\n};\n\ntemplate< typename T, typename F >\nSparseTable< T,\
-    \ F > get_sparse_table(const vector< T > &v, const F &f) {\n  return SparseTable<\
-    \ T, F >(v, f);\n}\n#line 2 \"graph/tree/rmq-lowest-common-ancestor.cpp\"\n\n\
-    /**\n * @brief RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
+    using Edges = vector< Edge< T > >;\n#line 1 \"structure/others/sparse-table.cpp\"\
+    \n/**\n * @brief Sparse-Table(\u30B9\u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB\
+    )\n * @docs docs/sparse-table.md\n */\ntemplate< typename T, typename F >\nstruct\
+    \ SparseTable {\n  F f;\n  vector< vector< T > > st;\n  vector< int > lookup;\n\
+    \n  SparseTable() = default;\n\n  explicit SparseTable(const vector< T > &v, const\
+    \ F &f) : f(f) {\n    const int n = (int) v.size();\n    const int b = 32 - __builtin_clz(n);\n\
+    \    st.assign(b, vector< T >(n));\n    for(int i = 0; i < v.size(); i++) {\n\
+    \      st[0][i] = v[i];\n    }\n    for(int i = 1; i < b; i++) {\n      for(int\
+    \ j = 0; j + (1 << i) <= n; j++) {\n        st[i][j] = f(st[i - 1][j], st[i -\
+    \ 1][j + (1 << (i - 1))]);\n      }\n    }\n    lookup.resize(v.size() + 1);\n\
+    \    for(int i = 2; i < lookup.size(); i++) {\n      lookup[i] = lookup[i >> 1]\
+    \ + 1;\n    }\n  }\n\n  inline T fold(int l, int r) const {\n    int b = lookup[r\
+    \ - l];\n    return f(st[b][l], st[b][r - (1 << b)]);\n  }\n};\n\ntemplate< typename\
+    \ T, typename F >\nSparseTable< T, F > get_sparse_table(const vector< T > &v,\
+    \ const F &f) {\n  return SparseTable< T, F >(v, f);\n}\n#line 5 \"graph/tree/rmq-lowest-common-ancestor.hpp\"\
+    \n\n/**\n * @brief RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
     )\n * @docs docs/rmq-lowest-common-ancestor.md\n **/\ntemplate< typename T = int\
     \ >\nstruct RMQLowestCommonAncestor : Graph< T > {\npublic:\n  using Graph< T\
     \ >::Graph;\n  using Graph< T >::g;\n  using F = function< int(int, int) >;\n\n\
@@ -96,30 +96,29 @@ data:
     \ par, int d) {\n    in[idx] = (int) ord.size();\n    ord.emplace_back(idx);\n\
     \    dep.emplace_back(d);\n    for(auto &to : g[idx]) {\n      if(to != par) {\n\
     \        dfs(to, idx, d + 1);\n        ord.emplace_back(idx);\n        dep.emplace_back(d);\n\
-    \      }\n    }\n  }\n};\n#line 7 \"test/verify/aoj-grl-5-c-3.test.cpp\"\n\nint\
+    \      }\n    }\n  }\n};\n#line 6 \"test/verify/aoj-grl-5-c-3.test.cpp\"\n\nint\
     \ main() {\n  int N, Q;\n  cin >> N;\n  RMQLowestCommonAncestor< int > lca(N);\n\
     \  for(int i = 0; i < N; i++) {\n    int k;\n    cin >> k;\n    for(int j = 0;\
     \ j < k; j++) {\n      int c;\n      cin >> c;\n      lca.add_edge(i, c);\n  \
     \  }\n  }\n  lca.build();\n  cin >> Q;\n  for(int i = 0; i < Q; i++) {\n    int\
     \ u, v;\n    cin >> u >> v;\n    cout << lca.lca(u, v) << \"\\n\";\n  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
-    \n\n#include \"../../template/template.cpp\"\n#include \"../../graph/graph-template.cpp\"\
-    \n\n#include \"../../graph/tree/rmq-lowest-common-ancestor.cpp\"\n\nint main()\
-    \ {\n  int N, Q;\n  cin >> N;\n  RMQLowestCommonAncestor< int > lca(N);\n  for(int\
-    \ i = 0; i < N; i++) {\n    int k;\n    cin >> k;\n    for(int j = 0; j < k; j++)\
-    \ {\n      int c;\n      cin >> c;\n      lca.add_edge(i, c);\n    }\n  }\n  lca.build();\n\
-    \  cin >> Q;\n  for(int i = 0; i < Q; i++) {\n    int u, v;\n    cin >> u >> v;\n\
-    \    cout << lca.lca(u, v) << \"\\n\";\n  }\n}\n"
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/tree/rmq-lowest-common-ancestor.hpp\"\
+    \n\nint main() {\n  int N, Q;\n  cin >> N;\n  RMQLowestCommonAncestor< int > lca(N);\n\
+    \  for(int i = 0; i < N; i++) {\n    int k;\n    cin >> k;\n    for(int j = 0;\
+    \ j < k; j++) {\n      int c;\n      cin >> c;\n      lca.add_edge(i, c);\n  \
+    \  }\n  }\n  lca.build();\n  cin >> Q;\n  for(int i = 0; i < Q; i++) {\n    int\
+    \ u, v;\n    cin >> u >> v;\n    cout << lca.lca(u, v) << \"\\n\";\n  }\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/graph-template.cpp
-  - graph/tree/rmq-lowest-common-ancestor.cpp
+  - graph/tree/rmq-lowest-common-ancestor.hpp
+  - graph/graph-template.hpp
   - structure/others/sparse-table.cpp
   isVerificationFile: true
   path: test/verify/aoj-grl-5-c-3.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-5-c-3.test.cpp
 layout: document

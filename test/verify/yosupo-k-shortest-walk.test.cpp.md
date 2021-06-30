@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/graph-template.cpp
-    title: graph/graph-template.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/shortest-path/dijkstra.cpp
+  - icon: ':question:'
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
+  - icon: ':question:'
+    path: graph/shortest-path/dijkstra.hpp
     title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
-    path: graph/shortest-path/k-shortest-walk.cpp
+  - icon: ':x:'
+    path: graph/shortest-path/k-shortest-walk.hpp
     title: K-Shortest-Walk
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: structure/heap/leftist-heap.cpp
     title: Leftist-Heap
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: structure/heap/persistent-leftist-heap.cpp
     title: Persistent-Leftist-Heap
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/k_shortest_walk
@@ -58,7 +58,7 @@ data:
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-k-shortest-walk.test.cpp\"\
-    \n\n#line 2 \"graph/graph-template.cpp\"\n\ntemplate< typename T = int >\nstruct\
+    \n\n#line 2 \"graph/graph-template.hpp\"\n\ntemplate< typename T = int >\nstruct\
     \ Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int\
     \ from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx)\
     \ {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename T = int\
@@ -72,29 +72,30 @@ data:
     \ i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n      a += padding;\n\
     \      b += padding;\n      T c = T(1);\n      if(weighted) cin >> c;\n      if(directed)\
     \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
-    \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 1 \"\
-    graph/shortest-path/dijkstra.cpp\"\n/**\n * @brief Dijkstra(\u5358\u4E00\u59CB\
-    \u70B9\u6700\u77ED\u8DEF)\n * @docs docs/dijkstra.md\n */\ntemplate< typename\
-    \ T >\nstruct ShortestPath {\n  vector< T > dist;\n  vector< int > from, id;\n\
-    };\n\ntemplate< typename T >\nShortestPath< T > dijkstra(const Graph< T > &g,\
-    \ int s) {\n  const auto INF = numeric_limits< T >::max();\n  vector< T > dist(g.size(),\
-    \ INF);\n  vector< int > from(g.size(), -1), id(g.size(), -1);\n  using Pi = pair<\
-    \ T, int >;\n  priority_queue< Pi, vector< Pi >, greater<> > que;\n  dist[s] =\
-    \ 0;\n  que.emplace(dist[s], s);\n  while(!que.empty()) {\n    T cost;\n    int\
-    \ idx;\n    tie(cost, idx) = que.top();\n    que.pop();\n    if(dist[idx] < cost)\
-    \ continue;\n    for(auto &e : g.g[idx]) {\n      auto next_cost = cost + e.cost;\n\
-    \      if(dist[e.to] <= next_cost) continue;\n      dist[e.to] = next_cost;\n\
-    \      from[e.to] = idx;\n      id[e.to] = e.idx;\n      que.emplace(dist[e.to],\
-    \ e.to);\n    }\n  }\n  return {dist, from, id};\n}\n#line 7 \"test/verify/yosupo-k-shortest-walk.test.cpp\"\
-    \n\n#line 1 \"structure/heap/leftist-heap.cpp\"\n/**\n * @brief Leftist-Heap\n\
-    \ */\ntemplate< typename T, bool isMin = true >\nstruct LeftistHeap {\n  struct\
-    \ Node {\n    Node *l, *r;\n    int s;\n    T key;\n    int idx;\n\n    explicit\
-    \ Node(const T &key, int idx) : key(key), s(1), l(nullptr), r(nullptr), idx(idx)\
-    \ {}\n  };\n\n  LeftistHeap() = default;\n\n  virtual Node *clone(Node *t) {\n\
-    \    return t;\n  }\n\n  Node *alloc(const T &key, int idx = -1) {\n    return\
-    \ new Node(key, idx);\n  }\n\n  Node *meld(Node *a, Node *b) {\n    if(!a || !b)\
-    \ return a ? a : b;\n    if((a->key < b->key) ^ isMin) swap(a, b);\n    a = clone(a);\n\
-    \    a->r = meld(a->r, b);\n    if(!a->l || a->l->s < a->r->s) swap(a->l, a->r);\n\
+    \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 2 \"\
+    graph/shortest-path/dijkstra.hpp\"\n\n#line 4 \"graph/shortest-path/dijkstra.hpp\"\
+    \n\n/**\n * @brief Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)\n * @docs\
+    \ docs/dijkstra.md\n */\ntemplate< typename T >\nstruct ShortestPath {\n  vector<\
+    \ T > dist;\n  vector< int > from, id;\n};\n\ntemplate< typename T >\nShortestPath<\
+    \ T > dijkstra(const Graph< T > &g, int s) {\n  const auto INF = numeric_limits<\
+    \ T >::max();\n  vector< T > dist(g.size(), INF);\n  vector< int > from(g.size(),\
+    \ -1), id(g.size(), -1);\n  using Pi = pair< T, int >;\n  priority_queue< Pi,\
+    \ vector< Pi >, greater<> > que;\n  dist[s] = 0;\n  que.emplace(dist[s], s);\n\
+    \  while(!que.empty()) {\n    T cost;\n    int idx;\n    tie(cost, idx) = que.top();\n\
+    \    que.pop();\n    if(dist[idx] < cost) continue;\n    for(auto &e : g.g[idx])\
+    \ {\n      auto next_cost = cost + e.cost;\n      if(dist[e.to] <= next_cost)\
+    \ continue;\n      dist[e.to] = next_cost;\n      from[e.to] = idx;\n      id[e.to]\
+    \ = e.idx;\n      que.emplace(dist[e.to], e.to);\n    }\n  }\n  return {dist,\
+    \ from, id};\n}\n#line 7 \"test/verify/yosupo-k-shortest-walk.test.cpp\"\n\n#line\
+    \ 1 \"structure/heap/leftist-heap.cpp\"\n/**\n * @brief Leftist-Heap\n */\ntemplate<\
+    \ typename T, bool isMin = true >\nstruct LeftistHeap {\n  struct Node {\n   \
+    \ Node *l, *r;\n    int s;\n    T key;\n    int idx;\n\n    explicit Node(const\
+    \ T &key, int idx) : key(key), s(1), l(nullptr), r(nullptr), idx(idx) {}\n  };\n\
+    \n  LeftistHeap() = default;\n\n  virtual Node *clone(Node *t) {\n    return t;\n\
+    \  }\n\n  Node *alloc(const T &key, int idx = -1) {\n    return new Node(key,\
+    \ idx);\n  }\n\n  Node *meld(Node *a, Node *b) {\n    if(!a || !b) return a ?\
+    \ a : b;\n    if((a->key < b->key) ^ isMin) swap(a, b);\n    a = clone(a);\n \
+    \   a->r = meld(a->r, b);\n    if(!a->l || a->l->s < a->r->s) swap(a->l, a->r);\n\
     \    a->s = (a->r ? a->r->s : 0) + 1;\n    return a;\n  }\n\n  Node *push(Node\
     \ *t, const T &key, int idx = -1) {\n    return meld(t, alloc(key, idx));\n  }\n\
     \n  Node *pop(Node *t) {\n    assert(t != nullptr);\n    return meld(t->l, t->r);\n\
@@ -102,8 +103,9 @@ data:
     \n/**\n * @brief Persistent-Leftist-Heap\n */\ntemplate< typename T, bool isMin\
     \ = true >\nstruct PersistentLeftistHeap : LeftistHeap< T, isMin > {\n  using\
     \ Node = typename LeftistHeap< T, isMin >::Node;\n\n  Node *clone(Node *t) override\
-    \ {\n    return new Node(*t);\n  }\n};\n#line 1 \"graph/shortest-path/k-shortest-walk.cpp\"\
-    \n/**\n * @brief K-Shortest-Walk\n * @docs docs/k-shortest-walk.md\n * @see https://qiita.com/hotman78/items/42534a01c4bd05ed5e1e\n\
+    \ {\n    return new Node(*t);\n  }\n};\n#line 2 \"graph/shortest-path/k-shortest-walk.hpp\"\
+    \n\n#line 4 \"graph/shortest-path/k-shortest-walk.hpp\"\n\n/**\n * @brief K-Shortest-Walk\n\
+    \ * @docs docs/k-shortest-walk.md\n * @see https://qiita.com/hotman78/items/42534a01c4bd05ed5e1e\n\
     \ */\ntemplate< typename T >\nvector< T > k_shortest_walk(const Graph< T > &g,\
     \ int s, int t, int k) {\n  int N = (int) g.size();\n  Graph< T > rg(N);\n  for(int\
     \ i = 0; i < N; i++) {\n    for(auto &e : g.g[i]) rg.add_directed_edge(e.to, i,\
@@ -124,34 +126,34 @@ data:
     \ > que(comp);\n  Node *root = heap.make_root();\n  root = heap.push(root, p[s],\
     \ s);\n  que.emplace(p[s], root);\n  vector< T > ans;\n  while(!que.empty()) {\n\
     \    T cost;\n    Node *cur;\n    tie(cost, cur) = que.top();\n    que.pop();\n\
-    \    ans.emplace_back(cost);\n    if(ans.size() == k) break;\n    if(cur->l) que.emplace(cost\
-    \ + cur->l->key - cur->key, cur->l);\n    if(cur->r) que.emplace(cost + cur->r->key\
-    \ - cur->key, cur->r);\n    if(h[cur->idx]) que.emplace(cost + h[cur->idx]->key,\
+    \    ans.emplace_back(cost);\n    if((int)ans.size() == k) break;\n    if(cur->l)\
+    \ que.emplace(cost + cur->l->key - cur->key, cur->l);\n    if(cur->r) que.emplace(cost\
+    \ + cur->r->key - cur->key, cur->r);\n    if(h[cur->idx]) que.emplace(cost + h[cur->idx]->key,\
     \ h[cur->idx]);\n  }\n  return ans;\n}\n#line 11 \"test/verify/yosupo-k-shortest-walk.test.cpp\"\
     \n\nint main() {\n  int N, M, S, T, K;\n  cin >> N >> M >> S >> T >> K;\n  Graph<\
     \ int64 > g(N);\n  g.read(M, 0, true, true);\n  auto ret = k_shortest_walk(g,\
-    \ S, T, K);\n  for(int i = 0; i < K; i++) {\n    if(i >= ret.size()) cout << -1\
-    \ << \"\\n\";\n    else cout << ret[i] << \"\\n\";\n  }\n}\n"
+    \ S, T, K);\n  for(int i = 0; i < K; i++) {\n    if(i >= (int)ret.size()) cout\
+    \ << -1 << \"\\n\";\n    else cout << ret[i] << \"\\n\";\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/k_shortest_walk\"\n\n#include\
-    \ \"../../template/template.cpp\"\n\n#include \"../../graph/graph-template.cpp\"\
-    \n#include \"../../graph/shortest-path/dijkstra.cpp\"\n\n#include \"../../structure/heap/leftist-heap.cpp\"\
-    \n#include \"../../structure/heap/persistent-leftist-heap.cpp\"\n#include \"../../graph/shortest-path/k-shortest-walk.cpp\"\
+    \ \"../../template/template.cpp\"\n\n#include \"../../graph/graph-template.hpp\"\
+    \n#include \"../../graph/shortest-path/dijkstra.hpp\"\n\n#include \"../../structure/heap/leftist-heap.cpp\"\
+    \n#include \"../../structure/heap/persistent-leftist-heap.cpp\"\n#include \"../../graph/shortest-path/k-shortest-walk.hpp\"\
     \n\nint main() {\n  int N, M, S, T, K;\n  cin >> N >> M >> S >> T >> K;\n  Graph<\
     \ int64 > g(N);\n  g.read(M, 0, true, true);\n  auto ret = k_shortest_walk(g,\
-    \ S, T, K);\n  for(int i = 0; i < K; i++) {\n    if(i >= ret.size()) cout << -1\
-    \ << \"\\n\";\n    else cout << ret[i] << \"\\n\";\n  }\n}\n"
+    \ S, T, K);\n  for(int i = 0; i < K; i++) {\n    if(i >= (int)ret.size()) cout\
+    \ << -1 << \"\\n\";\n    else cout << ret[i] << \"\\n\";\n  }\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/graph-template.cpp
-  - graph/shortest-path/dijkstra.cpp
+  - graph/graph-template.hpp
+  - graph/shortest-path/dijkstra.hpp
   - structure/heap/leftist-heap.cpp
   - structure/heap/persistent-leftist-heap.cpp
-  - graph/shortest-path/k-shortest-walk.cpp
+  - graph/shortest-path/k-shortest-walk.hpp
   isVerificationFile: true
   path: test/verify/yosupo-k-shortest-walk.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-k-shortest-walk.test.cpp
 layout: document

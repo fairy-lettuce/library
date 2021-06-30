@@ -135,8 +135,8 @@ data:
   path: math/fps/log.cpp
   requiredBy:
   - math/fps/exp.cpp
-  - math/fps/pow.cpp
   - math/fps/bell.cpp
+  - math/fps/pow.cpp
   timestamp: '2020-10-23 03:48:43+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

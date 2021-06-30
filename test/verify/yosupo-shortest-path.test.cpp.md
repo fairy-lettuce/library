@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/graph-template.cpp
-    title: graph/graph-template.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/shortest-path/dijkstra.cpp
+  - icon: ':question:'
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
+  - icon: ':question:'
+    path: graph/shortest-path/dijkstra.hpp
     title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/shortest_path
@@ -49,7 +49,7 @@ data:
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-shortest-path.test.cpp\"\
-    \n\n#line 2 \"graph/graph-template.cpp\"\n\ntemplate< typename T = int >\nstruct\
+    \n\n#line 2 \"graph/graph-template.hpp\"\n\ntemplate< typename T = int >\nstruct\
     \ Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int\
     \ from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx)\
     \ {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename T = int\
@@ -63,9 +63,9 @@ data:
     \ i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n      a += padding;\n\
     \      b += padding;\n      T c = T(1);\n      if(weighted) cin >> c;\n      if(directed)\
     \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
-    \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 6 \"\
-    test/verify/yosupo-shortest-path.test.cpp\"\n\n#line 1 \"graph/shortest-path/dijkstra.cpp\"\
-    \n/**\n * @brief Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)\n * @docs\
+    \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 2 \"\
+    graph/shortest-path/dijkstra.hpp\"\n\n#line 4 \"graph/shortest-path/dijkstra.hpp\"\
+    \n\n/**\n * @brief Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)\n * @docs\
     \ docs/dijkstra.md\n */\ntemplate< typename T >\nstruct ShortestPath {\n  vector<\
     \ T > dist;\n  vector< int > from, id;\n};\n\ntemplate< typename T >\nShortestPath<\
     \ T > dijkstra(const Graph< T > &g, int s) {\n  const auto INF = numeric_limits<\
@@ -77,7 +77,7 @@ data:
     \ {\n      auto next_cost = cost + e.cost;\n      if(dist[e.to] <= next_cost)\
     \ continue;\n      dist[e.to] = next_cost;\n      from[e.to] = idx;\n      id[e.to]\
     \ = e.idx;\n      que.emplace(dist[e.to], e.to);\n    }\n  }\n  return {dist,\
-    \ from, id};\n}\n#line 8 \"test/verify/yosupo-shortest-path.test.cpp\"\n\nint\
+    \ from, id};\n}\n#line 7 \"test/verify/yosupo-shortest-path.test.cpp\"\n\nint\
     \ main() {\n  int N, M, S, T;\n  cin >> N >> M >> S >> T;\n  Graph< int64 > g(N);\n\
     \  g.read(M, 0, true, true);\n  auto ret = dijkstra(g, S);\n  if(ret.from[T] ==\
     \ -1) {\n    cout << -1 << \"\\n\";\n  } else {\n    cout << ret.dist[T] << \"\
@@ -86,24 +86,24 @@ data:
     \ << es.size() << \"\\n\";\n    for(auto &p : es) cout << p.first << \" \" <<\
     \ p.second << \"\\n\";\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/shortest_path\"\n\n#include\
-    \ \"../../template/template.cpp\"\n\n#include \"../../graph/graph-template.cpp\"\
-    \n\n#include \"../../graph/shortest-path/dijkstra.cpp\"\n\nint main() {\n  int\
-    \ N, M, S, T;\n  cin >> N >> M >> S >> T;\n  Graph< int64 > g(N);\n  g.read(M,\
-    \ 0, true, true);\n  auto ret = dijkstra(g, S);\n  if(ret.from[T] == -1) {\n \
-    \   cout << -1 << \"\\n\";\n  } else {\n    cout << ret.dist[T] << \" \";\n  \
-    \  vector< pair< int, int > > es;\n    while(S != T) {\n      es.emplace_back(ret.from[T],\
+    \ \"../../template/template.cpp\"\n\n#include \"../../graph/graph-template.hpp\"\
+    \n#include \"../../graph/shortest-path/dijkstra.hpp\"\n\nint main() {\n  int N,\
+    \ M, S, T;\n  cin >> N >> M >> S >> T;\n  Graph< int64 > g(N);\n  g.read(M, 0,\
+    \ true, true);\n  auto ret = dijkstra(g, S);\n  if(ret.from[T] == -1) {\n    cout\
+    \ << -1 << \"\\n\";\n  } else {\n    cout << ret.dist[T] << \" \";\n    vector<\
+    \ pair< int, int > > es;\n    while(S != T) {\n      es.emplace_back(ret.from[T],\
     \ T);\n      T = ret.from[T];\n    }\n    reverse(begin(es), end(es));\n    cout\
     \ << es.size() << \"\\n\";\n    for(auto &p : es) cout << p.first << \" \" <<\
     \ p.second << \"\\n\";\n  }\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/graph-template.cpp
-  - graph/shortest-path/dijkstra.cpp
+  - graph/graph-template.hpp
+  - graph/shortest-path/dijkstra.hpp
   isVerificationFile: true
   path: test/verify/yosupo-shortest-path.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-shortest-path.test.cpp
 layout: document

@@ -6,12 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dsl-2-a.test.cpp
     title: test/verify/aoj-dsl-2-a.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/segment-tree.md
     document_title: "Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
@@ -84,10 +84,10 @@ data:
   path: structure/segment-tree/segment-tree.cpp
   requiredBy: []
   timestamp: '2021-05-01 00:53:32+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/verify/yukicoder-650.test.cpp
   - test/verify/aoj-dsl-2-a.test.cpp
+  - test/verify/yukicoder-650.test.cpp
 documentation_of: structure/segment-tree/segment-tree.cpp
 layout: document
 redirect_from:

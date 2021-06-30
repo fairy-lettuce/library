@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/graph-template.cpp
-    title: graph/graph-template.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/mst/kruskal.cpp
+  - icon: ':question:'
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
+  - icon: ':x:'
+    path: graph/mst/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
@@ -52,59 +52,60 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-grl-2-a-2.test.cpp\"\
-    \n\n#line 2 \"graph/graph-template.cpp\"\n\ntemplate< typename T = int >\nstruct\
-    \ Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int\
-    \ from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx)\
-    \ {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename T = int\
-    \ >\nstruct Graph {\n  vector< vector< Edge< T > > > g;\n  int es;\n\n  Graph()\
-    \ = default;\n\n  explicit Graph(int n) : g(n), es(0) {}\n\n  size_t size() const\
-    \ {\n    return g.size();\n  }\n\n  void add_directed_edge(int from, int to, T\
-    \ cost = 1) {\n    g[from].emplace_back(from, to, cost, es++);\n  }\n\n  void\
-    \ add_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from, to,\
-    \ cost, es);\n    g[to].emplace_back(to, from, cost, es++);\n  }\n\n  void read(int\
-    \ M, int padding = -1, bool weighted = false, bool directed = false) {\n    for(int\
-    \ i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n      a += padding;\n\
-    \      b += padding;\n      T c = T(1);\n      if(weighted) cin >> c;\n      if(directed)\
-    \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
-    \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 1 \"\
-    structure/union-find/union-find.cpp\"\n/**\n * @brief Union-Find\n * @docs docs/union-find.md\n\
-    \ */\nstruct UnionFind {\n  vector< int > data;\n\n  UnionFind() = default;\n\n\
-    \  explicit UnionFind(size_t sz) : data(sz, -1) {}\n\n  bool unite(int x, int\
-    \ y) {\n    x = find(x), y = find(y);\n    if(x == y) return false;\n    if(data[x]\
-    \ > data[y]) swap(x, y);\n    data[x] += data[y];\n    data[y] = x;\n    return\
-    \ true;\n  }\n\n  int find(int k) {\n    if(data[k] < 0) return (k);\n    return\
-    \ data[k] = find(data[k]);\n  }\n\n  int size(int k) {\n    return -data[find(k)];\n\
-    \  }\n\n  bool same(int x, int y) {\n    return find(x) == find(y);\n  }\n\n \
-    \ vector< vector< int > > groups() {\n    int n = (int) data.size();\n    vector<\
-    \ vector< int > > ret(n);\n    for(int i = 0; i < n; i++) {\n      ret[find(i)].emplace_back(i);\n\
-    \    }\n    ret.erase(remove_if(begin(ret), end(ret), [&](const vector< int >\
-    \ &v) {\n      return v.empty();\n    }));\n    return ret;\n  }\n};\n#line 3\
-    \ \"graph/mst/kruskal.cpp\"\n\n/**\n * @brief Kruskal(\u6700\u5C0F\u5168\u57DF\
-    \u6728)\n * @docs docs/kruskal.md\n */\ntemplate< typename T >\nstruct MinimumSpanningTree\
-    \ {\n  T cost;\n  Edges< T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree<\
-    \ T > kruskal(Edges< T > &edges, int V) {\n  sort(begin(edges), end(edges), [](const\
-    \ Edge< T > &a, const Edge< T > &b) {\n    return a.cost < b.cost;\n  });\n  UnionFind\
-    \ tree(V);\n  T total = T();\n  Edges< T > es;\n  for(auto &e : edges) {\n   \
-    \ if(tree.unite(e.from, e.to)) {\n      es.emplace_back(e);\n      total += e.cost;\n\
-    \    }\n  }\n  return {total, es};\n}\n#line 6 \"test/verify/aoj-grl-2-a-2.test.cpp\"\
-    \n\nint main() {\n  int V, E;\n  cin >> V >> E;\n  Edges< int > edges;\n  for(int\
-    \ i = 0; i < E; i++) {\n    int a, b, c;\n    cin >> a >> b >> c;\n    edges.emplace_back(a,\
+    \n\n#line 2 \"graph/mst/kruskal.hpp\"\n\n#line 2 \"graph/graph-template.hpp\"\n\
+    \ntemplate< typename T = int >\nstruct Edge {\n  int from, to;\n  T cost;\n  int\
+    \ idx;\n\n  Edge() = default;\n\n  Edge(int from, int to, T cost = 1, int idx\
+    \ = -1) : from(from), to(to), cost(cost), idx(idx) {}\n\n  operator int() const\
+    \ { return to; }\n};\n\ntemplate< typename T = int >\nstruct Graph {\n  vector<\
+    \ vector< Edge< T > > > g;\n  int es;\n\n  Graph() = default;\n\n  explicit Graph(int\
+    \ n) : g(n), es(0) {}\n\n  size_t size() const {\n    return g.size();\n  }\n\n\
+    \  void add_directed_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from,\
+    \ to, cost, es++);\n  }\n\n  void add_edge(int from, int to, T cost = 1) {\n \
+    \   g[from].emplace_back(from, to, cost, es);\n    g[to].emplace_back(to, from,\
+    \ cost, es++);\n  }\n\n  void read(int M, int padding = -1, bool weighted = false,\
+    \ bool directed = false) {\n    for(int i = 0; i < M; i++) {\n      int a, b;\n\
+    \      cin >> a >> b;\n      a += padding;\n      b += padding;\n      T c = T(1);\n\
+    \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
+    \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
+    using Edges = vector< Edge< T > >;\n#line 1 \"structure/union-find/union-find.cpp\"\
+    \n/**\n * @brief Union-Find\n * @docs docs/union-find.md\n */\nstruct UnionFind\
+    \ {\n  vector< int > data;\n\n  UnionFind() = default;\n\n  explicit UnionFind(size_t\
+    \ sz) : data(sz, -1) {}\n\n  bool unite(int x, int y) {\n    x = find(x), y =\
+    \ find(y);\n    if(x == y) return false;\n    if(data[x] > data[y]) swap(x, y);\n\
+    \    data[x] += data[y];\n    data[y] = x;\n    return true;\n  }\n\n  int find(int\
+    \ k) {\n    if(data[k] < 0) return (k);\n    return data[k] = find(data[k]);\n\
+    \  }\n\n  int size(int k) {\n    return -data[find(k)];\n  }\n\n  bool same(int\
+    \ x, int y) {\n    return find(x) == find(y);\n  }\n\n  vector< vector< int >\
+    \ > groups() {\n    int n = (int) data.size();\n    vector< vector< int > > ret(n);\n\
+    \    for(int i = 0; i < n; i++) {\n      ret[find(i)].emplace_back(i);\n    }\n\
+    \    ret.erase(remove_if(begin(ret), end(ret), [&](const vector< int > &v) {\n\
+    \      return v.empty();\n    }));\n    return ret;\n  }\n};\n#line 5 \"graph/mst/kruskal.hpp\"\
+    \n\n/**\n * @brief Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)\n * @docs docs/kruskal.md\n\
+    \ */\ntemplate< typename T >\nstruct MinimumSpanningTree {\n  T cost;\n  Edges<\
+    \ T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree< T > kruskal(Edges<\
+    \ T > &edges, int V) {\n  sort(begin(edges), end(edges), [](const Edge< T > &a,\
+    \ const Edge< T > &b) {\n    return a.cost < b.cost;\n  });\n  UnionFind tree(V);\n\
+    \  T total = T();\n  Edges< T > es;\n  for(auto &e : edges) {\n    if(tree.unite(e.from,\
+    \ e.to)) {\n      es.emplace_back(e);\n      total += e.cost;\n    }\n  }\n  return\
+    \ {total, es};\n}\n#line 6 \"test/verify/aoj-grl-2-a-2.test.cpp\"\n\nint main()\
+    \ {\n  int V, E;\n  cin >> V >> E;\n  Edges< int > edges;\n  for(int i = 0; i\
+    \ < E; i++) {\n    int a, b, c;\n    cin >> a >> b >> c;\n    edges.emplace_back(a,\
     \ b, c);\n  }\n  cout << kruskal(edges, V).cost << \"\\n\";\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/mst/kruskal.cpp\"\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/mst/kruskal.hpp\"\
     \n\nint main() {\n  int V, E;\n  cin >> V >> E;\n  Edges< int > edges;\n  for(int\
     \ i = 0; i < E; i++) {\n    int a, b, c;\n    cin >> a >> b >> c;\n    edges.emplace_back(a,\
     \ b, c);\n  }\n  cout << kruskal(edges, V).cost << \"\\n\";\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/mst/kruskal.cpp
-  - graph/graph-template.cpp
+  - graph/mst/kruskal.hpp
+  - graph/graph-template.hpp
   - structure/union-find/union-find.cpp
   isVerificationFile: true
   path: test/verify/aoj-grl-2-a-2.test.cpp
   requiredBy: []
-  timestamp: '2021-05-07 20:07:14+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-2-a-2.test.cpp
 layout: document

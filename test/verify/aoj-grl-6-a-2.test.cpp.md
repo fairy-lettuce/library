@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/flow/ford-fulkerson.cpp
+  - icon: ':x:'
+    path: graph/flow/ford-fulkerson.hpp
     title: "Ford-Fulkerson(\u6700\u5927\u6D41)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A
@@ -46,14 +46,14 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-grl-6-a-2.test.cpp\"\
-    \n\n#line 1 \"graph/flow/ford-fulkerson.cpp\"\n/**\n * @brief Ford-Fulkerson(\u6700\
+    \n\n#line 1 \"graph/flow/ford-fulkerson.hpp\"\n/**\n * @brief Ford-Fulkerson(\u6700\
     \u5927\u6D41)\n * @docs docs/ford-fulkerson.md\n */\ntemplate< typename flow_t\
     \ >\nstruct FordFulkerson {\n  struct edge {\n    int to;\n    flow_t cap;\n \
-    \   int rev;\n    bool isrev;\n    int idx;\n  };\n\n  vector< vector< edge >\
-    \ > graph;\n  vector< int > used;\n  const flow_t INF;\n  int timestamp;\n\n \
-    \ explicit FordFulkerson(int V) : INF(numeric_limits< flow_t >::max()), graph(V),\
-    \ used(V, -1), timestamp(0) {}\n\n  void add_edge(int from, int to, flow_t cap,\
-    \ int idx = -1) {\n    graph[from].emplace_back((edge) {to, cap, (int) graph[to].size(),\
+    \   int rev;\n    bool isrev;\n    int idx;\n  };\n\n  const flow_t INF;\n  vector<\
+    \ vector< edge > > graph;\n  vector< int > used;\n  int timestamp;\n\n  explicit\
+    \ FordFulkerson(int V) : INF(numeric_limits< flow_t >::max()), graph(V), used(V,\
+    \ -1), timestamp(0) {}\n\n  void add_edge(int from, int to, flow_t cap, int idx\
+    \ = -1) {\n    graph[from].emplace_back((edge) {to, cap, (int) graph[to].size(),\
     \ false, idx});\n    graph[to].emplace_back((edge) {from, 0, (int) graph[from].size()\
     \ - 1, true, idx});\n  }\n\n  flow_t find_augment_path(int idx, const int t, flow_t\
     \ flow) {\n    if(idx == t) return flow;\n    used[idx] = timestamp;\n    for(auto\
@@ -67,24 +67,24 @@ data:
     \ &e : graph[i]) {\n        if(e.isrev) continue;\n        auto &rev_e = graph[e.to][e.rev];\n\
     \        cout << i << \"->\" << e.to << \" (flow: \" << rev_e.cap << \"/\" <<\
     \ e.cap + rev_e.cap << \")\" << endl;\n      }\n    }\n  }\n};\n#line 6 \"test/verify/aoj-grl-6-a-2.test.cpp\"\
-    \n\n\nint main() {\n  int V, E;\n  scanf(\"%d %d\", &V, &E);\n  FordFulkerson<\
-    \ int > g(V);\n  for(int i = 0; i < E; i++) {\n    int a, b, c;\n    scanf(\"\
-    %d %d %d\", &a, &b, &c);\n    g.add_edge(a, b, c);\n  }\n  printf(\"%d\\n\", g.max_flow(0,\
+    \n\nint main() {\n  int V, E;\n  scanf(\"%d %d\", &V, &E);\n  FordFulkerson< int\
+    \ > g(V);\n  for(int i = 0; i < E; i++) {\n    int a, b, c;\n    scanf(\"%d %d\
+    \ %d\", &a, &b, &c);\n    g.add_edge(a, b, c);\n  }\n  printf(\"%d\\n\", g.max_flow(0,\
     \ V - 1));\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/flow/ford-fulkerson.cpp\"\
-    \n\n\nint main() {\n  int V, E;\n  scanf(\"%d %d\", &V, &E);\n  FordFulkerson<\
-    \ int > g(V);\n  for(int i = 0; i < E; i++) {\n    int a, b, c;\n    scanf(\"\
-    %d %d %d\", &a, &b, &c);\n    g.add_edge(a, b, c);\n  }\n  printf(\"%d\\n\", g.max_flow(0,\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/flow/ford-fulkerson.hpp\"\
+    \n\nint main() {\n  int V, E;\n  scanf(\"%d %d\", &V, &E);\n  FordFulkerson< int\
+    \ > g(V);\n  for(int i = 0; i < E; i++) {\n    int a, b, c;\n    scanf(\"%d %d\
+    \ %d\", &a, &b, &c);\n    g.add_edge(a, b, c);\n  }\n  printf(\"%d\\n\", g.max_flow(0,\
     \ V - 1));\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/flow/ford-fulkerson.cpp
+  - graph/flow/ford-fulkerson.hpp
   isVerificationFile: true
   path: test/verify/aoj-grl-6-a-2.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-6-a-2.test.cpp
 layout: document

@@ -1,32 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/graph-template.cpp
-    title: graph/graph-template.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/tree/pmormq-lowest-common-ancestor.cpp
+  - icon: ':question:'
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
+  - icon: ':x:'
+    path: graph/tree/pmormq-lowest-common-ancestor.hpp
     title: "PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: other/printer.cpp
     title: "Printer(\u9AD8\u901F\u51FA\u529B)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: other/scanner.cpp
     title: "Scanner(\u9AD8\u901F\u5165\u529B)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: structure/others/plus-minus-one-rmq.cpp
     title: Plus-Minus-One-RMQ
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: structure/others/sparse-table.cpp
     title: "Sparse-Table(\u30B9\u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/lca
@@ -60,7 +60,7 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-lca.test.cpp\"\
-    \n\n#line 2 \"graph/graph-template.cpp\"\n\ntemplate< typename T = int >\nstruct\
+    \n\n#line 2 \"graph/graph-template.hpp\"\n\ntemplate< typename T = int >\nstruct\
     \ Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int\
     \ from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx)\
     \ {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename T = int\
@@ -74,8 +74,8 @@ data:
     \ i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n      a += padding;\n\
     \      b += padding;\n      T c = T(1);\n      if(weighted) cin >> c;\n      if(directed)\
     \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
-    \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 6 \"\
-    test/verify/yosupo-lca.test.cpp\"\n\n#line 1 \"structure/others/sparse-table.cpp\"\
+    \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 2 \"\
+    graph/tree/pmormq-lowest-common-ancestor.hpp\"\n\n#line 1 \"structure/others/sparse-table.cpp\"\
     \n/**\n * @brief Sparse-Table(\u30B9\u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB\
     )\n * @docs docs/sparse-table.md\n */\ntemplate< typename T, typename F >\nstruct\
     \ SparseTable {\n  F f;\n  vector< vector< T > > st;\n  vector< int > lookup;\n\
@@ -115,8 +115,8 @@ data:
     \      int sub = rb * backet + lookup[bbit[rb]][0][r % backet];\n      if(vs[sub]\
     \ < vs[pos]) pos = sub;\n    }\n    if(lb + 1 == rb) {\n      return {vs[pos],\
     \ pos};\n    } else {\n      int sub = st.fold(lb + 1, rb);\n      if(vs[sub]\
-    \ < vs[pos]) pos = sub;\n      return {vs[pos], pos};\n    }\n  }\n};\n#line 2\
-    \ \"graph/tree/pmormq-lowest-common-ancestor.cpp\"\n\n/**\n * @brief PMORMQ-Lowest-Common-Ancestor(\u6700\
+    \ < vs[pos]) pos = sub;\n      return {vs[pos], pos};\n    }\n  }\n};\n#line 5\
+    \ \"graph/tree/pmormq-lowest-common-ancestor.hpp\"\n\n/**\n * @brief PMORMQ-Lowest-Common-Ancestor(\u6700\
     \u5C0F\u5171\u901A\u7956\u5148)\n * @docs docs/pmormq-lowest-common-ancestor.md\n\
     \ **/\ntemplate< typename T = int >\nstruct PMORMQLowestCommonAncestor : Graph<\
     \ T > {\npublic:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n  using\
@@ -129,7 +129,7 @@ data:
     \ int > st;\n\n  void dfs(int idx, int par, int d) {\n    in[idx] = (int) ord.size();\n\
     \    ord.emplace_back(idx);\n    dep.emplace_back(d);\n    for(auto &to : g[idx])\
     \ {\n      if(to != par) {\n        dfs(to, idx, d + 1);\n        ord.emplace_back(idx);\n\
-    \        dep.emplace_back(d);\n      }\n    }\n  }\n};\n#line 8 \"test/verify/yosupo-lca.test.cpp\"\
+    \        dep.emplace_back(d);\n      }\n    }\n  }\n};\n#line 7 \"test/verify/yosupo-lca.test.cpp\"\
     \n\n#line 1 \"other/scanner.cpp\"\n/**\n * @brief Scanner(\u9AD8\u901F\u5165\u529B\
     )\n */\nstruct Scanner {\npublic:\n\n  explicit Scanner(FILE *fp) : fp(fp) {}\n\
     \n  template< typename T, typename... E >\n  void read(T &t, E &... e) {\n   \
@@ -174,14 +174,14 @@ data:
     \ : s) write_single(c);\n  }\n\n  void write_single(const char *s) {\n    while(*s\
     \ != 0) write_single(*s++);\n  }\n\n  template< typename T >\n  void write_single(const\
     \ vector< T > &s) {\n    for(size_t i = 0; i < s.size(); i++) {\n      if(i) write_single('\
-    \ ');\n      write_single(s[i]);\n    }\n  }\n};\n#line 11 \"test/verify/yosupo-lca.test.cpp\"\
+    \ ');\n      write_single(s[i]);\n    }\n  }\n};\n#line 10 \"test/verify/yosupo-lca.test.cpp\"\
     \n\n\nint main() {\n  Scanner in(stdin);\n  Printer out(stdout);\n  int N, Q;\n\
     \  in.read(N, Q);\n  PMORMQLowestCommonAncestor< int > g(N);\n  for(int i = 1;\
     \ i < N; i++) {\n    int x;\n    in.read(x);\n    g.add_directed_edge(x, i);\n\
     \  }\n  g.build();\n  for(int i = 0; i < Q; i++) {\n    int u, v;\n    in.read(u,\
     \ v);\n    out.writeln(g.lca(u, v));\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n\n#include \"../../template/template.cpp\"\
-    \n\n#include \"../../graph/graph-template.cpp\"\n\n#include \"../../graph/tree/pmormq-lowest-common-ancestor.cpp\"\
+    \n\n#include \"../../graph/graph-template.hpp\"\n#include \"../../graph/tree/pmormq-lowest-common-ancestor.hpp\"\
     \n\n#include \"../../other/scanner.cpp\"\n#include \"../../other/printer.cpp\"\
     \n\n\nint main() {\n  Scanner in(stdin);\n  Printer out(stdout);\n  int N, Q;\n\
     \  in.read(N, Q);\n  PMORMQLowestCommonAncestor< int > g(N);\n  for(int i = 1;\
@@ -190,8 +190,8 @@ data:
     \ v);\n    out.writeln(g.lca(u, v));\n  }\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/graph-template.cpp
-  - graph/tree/pmormq-lowest-common-ancestor.cpp
+  - graph/graph-template.hpp
+  - graph/tree/pmormq-lowest-common-ancestor.hpp
   - structure/others/plus-minus-one-rmq.cpp
   - structure/others/sparse-table.cpp
   - other/scanner.cpp
@@ -199,8 +199,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-lca.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-lca.test.cpp
 layout: document

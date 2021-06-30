@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/flow/primal-dual.cpp
-    title: graph/flow/primal-dual.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: graph/flow/primal-dual.hpp
+    title: graph/flow/primal-dual.hpp
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B
@@ -45,11 +45,11 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-grl-6-b.test.cpp\"\
-    \n\n#line 1 \"graph/flow/primal-dual.cpp\"\ntemplate< typename flow_t, typename\
-    \ cost_t >\nstruct PrimalDual {\n  const cost_t INF;\n\n  struct edge {\n    int\
-    \ to;\n    flow_t cap;\n    cost_t cost;\n    int rev;\n    bool isrev;\n  };\n\
-    \  vector< vector< edge > > graph;\n  vector< cost_t > potential, min_cost;\n\
-    \  vector< int > prevv, preve;\n\n  PrimalDual(int V) : graph(V), INF(numeric_limits<\
+    \n\n#line 1 \"graph/flow/primal-dual.hpp\"\ntemplate< typename flow_t, typename\
+    \ cost_t >\nstruct PrimalDual {\n  struct edge {\n    int to;\n    flow_t cap;\n\
+    \    cost_t cost;\n    int rev;\n    bool isrev;\n  };\n\n  vector< vector< edge\
+    \ > > graph;\n  vector< cost_t > potential, min_cost;\n  vector< int > prevv,\
+    \ preve;\n  const cost_t INF;\n\n  PrimalDual(int V) : graph(V), INF(numeric_limits<\
     \ cost_t >::max()) {}\n\n  void add_edge(int from, int to, flow_t cap, cost_t\
     \ cost) {\n    graph[from].emplace_back((edge) {to, cap, cost, (int) graph[to].size(),\
     \ false});\n    graph[to].emplace_back((edge) {from, 0, -cost, (int) graph[from].size()\
@@ -60,7 +60,7 @@ data:
     \ {\n      min_cost.assign(V, INF);\n      que.emplace(0, s);\n      min_cost[s]\
     \ = 0;\n      while(!que.empty()) {\n        Pi p = que.top();\n        que.pop();\n\
     \        if(min_cost[p.second] < p.first) continue;\n        for(int i = 0; i\
-    \ < graph[p.second].size(); i++) {\n          edge &e = graph[p.second][i];\n\
+    \ < (int)graph[p.second].size(); i++) {\n          edge &e = graph[p.second][i];\n\
     \          cost_t nextCost = min_cost[p.second] + e.cost + potential[p.second]\
     \ - potential[e.to];\n          if(e.cap > 0 && min_cost[e.to] > nextCost) {\n\
     \            min_cost[e.to] = nextCost;\n            prevv[e.to] = p.second, preve[e.to]\
@@ -75,25 +75,25 @@ data:
     \ i++) {\n      for(auto &e : graph[i]) {\n        if(e.isrev) continue;\n   \
     \     auto &rev_e = graph[e.to][e.rev];\n        cout << i << \"->\" << e.to <<\
     \ \" (flow: \" << rev_e.cap << \"/\" << rev_e.cap + e.cap << \")\" << endl;\n\
-    \      }\n    }\n  }\n};\n#line 6 \"test/verify/aoj-grl-6-b.test.cpp\"\n\n\nint\
+    \      }\n    }\n  }\n};\n#line 6 \"test/verify/aoj-grl-6-b.test.cpp\"\n\nint\
     \ main() {\n  int V, E, F;\n  scanf(\"%d %d %d\", &V, &E, &F);\n  PrimalDual<\
     \ int, int > g(V);\n  for(int i = 0; i < E; i++) {\n    int a, b, c, d;\n    scanf(\"\
     %d %d %d %d\", &a, &b, &c, &d);\n    g.add_edge(a, b, c, d);\n  }\n  printf(\"\
     %d\\n\", g.min_cost_flow(0, V - 1, F));\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/flow/primal-dual.cpp\"\
-    \n\n\nint main() {\n  int V, E, F;\n  scanf(\"%d %d %d\", &V, &E, &F);\n  PrimalDual<\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/flow/primal-dual.hpp\"\
+    \n\nint main() {\n  int V, E, F;\n  scanf(\"%d %d %d\", &V, &E, &F);\n  PrimalDual<\
     \ int, int > g(V);\n  for(int i = 0; i < E; i++) {\n    int a, b, c, d;\n    scanf(\"\
     %d %d %d %d\", &a, &b, &c, &d);\n    g.add_edge(a, b, c, d);\n  }\n  printf(\"\
     %d\\n\", g.min_cost_flow(0, V - 1, F));\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/flow/primal-dual.cpp
+  - graph/flow/primal-dual.hpp
   isVerificationFile: true
   path: test/verify/aoj-grl-6-b.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-6-b.test.cpp
 layout: document

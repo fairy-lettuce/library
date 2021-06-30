@@ -157,23 +157,23 @@ data:
   path: math/fps/inv.cpp
   requiredBy:
   - math/fps/exp.cpp
-  - math/fps/partition.cpp
-  - math/fps/polynomial-interpolation.cpp
-  - math/fps/multipoint-evaluation.cpp
-  - math/fps/bellnoulli.cpp
-  - math/fps/log.cpp
-  - math/fps/sqrt.cpp
-  - math/fps/pow.cpp
   - math/fps/mod-pow.cpp
   - math/fps/bell.cpp
+  - math/fps/sqrt.cpp
+  - math/fps/bellnoulli.cpp
+  - math/fps/log.cpp
+  - math/fps/pow.cpp
+  - math/fps/multipoint-evaluation.cpp
+  - math/fps/polynomial-interpolation.cpp
+  - math/fps/partition.cpp
   timestamp: '2020-10-23 03:48:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/verify/yosupo-multipoint-evaluation.test.cpp
   - test/verify/yosupo-polynomial-interpolation.test.cpp
   - test/verify/yosupo-partition-function.test.cpp
   - test/verify/yosupo-bellnoulli-number.test.cpp
   - test/verify/yosupo-inv-of-formal-power-series.test.cpp
-  - test/verify/yosupo-multipoint-evaluation.test.cpp
 documentation_of: math/fps/inv.cpp
 layout: document
 redirect_from:

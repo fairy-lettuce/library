@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/flow/dinic.cpp
+  - icon: ':question:'
+    path: graph/flow/dinic.hpp
     title: "Dinic(\u6700\u5927\u6D41)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A
@@ -45,7 +45,7 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-grl-6-a.test.cpp\"\
-    \n\n#line 1 \"graph/flow/dinic.cpp\"\n/**\n * @brief Dinic(\u6700\u5927\u6D41\
+    \n\n#line 1 \"graph/flow/dinic.hpp\"\n/**\n * @brief Dinic(\u6700\u5927\u6D41\
     )\n * @docs docs/dinic.md\n */\ntemplate< typename flow_t >\nstruct Dinic {\n\
     \  const flow_t INF;\n\n  struct edge {\n    int to;\n    flow_t cap;\n    int\
     \ rev;\n    bool isrev;\n    int idx;\n  };\n\n  vector< vector< edge > > graph;\n\
@@ -60,7 +60,7 @@ data:
     \          min_cost[e.to] = min_cost[p] + 1;\n          que.push(e.to);\n    \
     \    }\n      }\n    }\n    return min_cost[t] != -1;\n  }\n\n  flow_t find_min_dist_augment_path(int\
     \ idx, const int t, flow_t flow) {\n    if(idx == t) return flow;\n    for(int\
-    \ &i = iter[idx]; i < graph[idx].size(); i++) {\n      edge &e = graph[idx][i];\n\
+    \ &i = iter[idx]; i < (int)graph[idx].size(); i++) {\n      edge &e = graph[idx][i];\n\
     \      if(e.cap > 0 && min_cost[idx] < min_cost[e.to]) {\n        flow_t d = find_min_dist_augment_path(e.to,\
     \ t, min(flow, e.cap));\n        if(d > 0) {\n          e.cap -= d;\n        \
     \  graph[e.to][e.rev].cap += d;\n          return d;\n        }\n      }\n   \
@@ -77,19 +77,19 @@ data:
     \ &b, &c);\n    g.add_edge(a, b, c);\n  }\n  printf(\"%d\\n\", g.max_flow(0, V\
     \ - 1));\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/flow/dinic.cpp\"\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/flow/dinic.hpp\"\
     \n\nint main() {\n  int V, E;\n  scanf(\"%d %d\", &V, &E);\n  Dinic< int > g(V);\n\
     \  for(int i = 0; i < E; i++) {\n    int a, b, c;\n    scanf(\"%d %d %d\", &a,\
     \ &b, &c);\n    g.add_edge(a, b, c);\n  }\n  printf(\"%d\\n\", g.max_flow(0, V\
     \ - 1));\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/flow/dinic.cpp
+  - graph/flow/dinic.hpp
   isVerificationFile: true
   path: test/verify/aoj-grl-6-a.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-6-a.test.cpp
 layout: document

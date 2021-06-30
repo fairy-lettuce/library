@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/others/eulerian-trail.cpp
+  - icon: ':x:'
+    path: graph/others/eulerian-trail.hpp
     title: "Eulerian-Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/583
@@ -62,11 +62,11 @@ data:
     \ i < n; i++) {\n      ret[find(i)].emplace_back(i);\n    }\n    ret.erase(remove_if(begin(ret),\
     \ end(ret), [&](const vector< int > &v) {\n      return v.empty();\n    }));\n\
     \    return ret;\n  }\n};\n#line 6 \"test/verify/yukicoder-583.test.cpp\"\n\n\
-    #line 1 \"graph/others/eulerian-trail.cpp\"\n/**\n * @brief Eulerian-Trail(\u30AA\
+    #line 2 \"graph/others/eulerian-trail.hpp\"\n\n/**\n * @brief Eulerian-Trail(\u30AA\
     \u30A4\u30E9\u30FC\u8DEF)\n * @docs docs/eulerian-trail.md\n */\ntemplate< bool\
     \ directed >\nstruct EulerianTrail {\n  vector< vector< pair< int, int > > > g;\n\
     \  vector< pair< int, int > > es;\n  int M;\n  vector< int > used_vertex, used_edge,\
-    \ deg;\n\n  explicit EulerianTrail(int V) : g(V), M(0), deg(V), used_vertex(V)\
+    \ deg;\n\n  explicit EulerianTrail(int V) : g(V), M(0), used_vertex(V), deg(V)\
     \ {}\n\n  void add_edge(int a, int b) {\n    es.emplace_back(a, b);\n    g[a].emplace_back(b,\
     \ M);\n    if(directed) {\n      deg[a]++;\n      deg[b]--;\n    } else {\n  \
     \    g[b].emplace_back(a, M);\n      deg[a]++;\n      deg[b]++;\n    }\n    M++;\n\
@@ -102,7 +102,7 @@ data:
     \   et.add_edge(A[i], B[i]);\n  }\n  if(et.enumerate_semi_eulerian_trail().size()\
     \ == 1) cout << \"YES\\n\";\n  else cout << \"NO\\n\";\n}\n"
   code: "#define PROBLEM \"https://yukicoder.me/problems/no/583\"\n\n#include \"../../template/template.cpp\"\
-    \n\n#include \"../../structure/union-find/union-find.cpp\"\n\n#include \"../../graph/others/eulerian-trail.cpp\"\
+    \n\n#include \"../../structure/union-find/union-find.cpp\"\n\n#include \"../../graph/others/eulerian-trail.hpp\"\
     \n\nint main() {\n  int N, M;\n  cin >> N >> M;\n  vector< int > A(M), B(M);\n\
     \  EulerianTrail< false > et(N);\n  for(int i = 0; i < M; i++) {\n    cin >> A[i]\
     \ >> B[i];\n    et.add_edge(A[i], B[i]);\n  }\n  if(et.enumerate_semi_eulerian_trail().size()\
@@ -110,12 +110,12 @@ data:
   dependsOn:
   - template/template.cpp
   - structure/union-find/union-find.cpp
-  - graph/others/eulerian-trail.cpp
+  - graph/others/eulerian-trail.hpp
   isVerificationFile: true
   path: test/verify/yukicoder-583.test.cpp
   requiredBy: []
-  timestamp: '2021-05-07 20:07:14+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yukicoder-583.test.cpp
 layout: document

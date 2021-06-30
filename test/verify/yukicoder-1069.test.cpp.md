@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/graph-template.cpp
-    title: graph/graph-template.cpp
-  - icon: ':heavy_check_mark:'
-    path: graph/shortest-path/k-shortest-path.cpp
+  - icon: ':question:'
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
+  - icon: ':x:'
+    path: graph/shortest-path/k-shortest-path.hpp
     title: K-Shortest-Path
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     ERROR: 1e-4
@@ -50,7 +50,7 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 5 \"test/verify/yukicoder-1069.test.cpp\"\
-    \n\n#line 2 \"graph/graph-template.cpp\"\n\ntemplate< typename T = int >\nstruct\
+    \n\n#line 2 \"graph/graph-template.hpp\"\n\ntemplate< typename T = int >\nstruct\
     \ Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int\
     \ from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx)\
     \ {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename T = int\
@@ -64,20 +64,21 @@ data:
     \ i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n      a += padding;\n\
     \      b += padding;\n      T c = T(1);\n      if(weighted) cin >> c;\n      if(directed)\
     \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
-    \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 1 \"\
-    graph/shortest-path/k-shortest-path.cpp\"\n/**\n * @brief K-Shortest-Path\n *\
-    \ @docs docs/k-shortest-path.md\n * @see https://qiita.com/nariaki3551/items/821dc6ffdc552d3d5f22\n\
-    \ */\ntemplate< typename T >\nvector< pair< T, vector< int > > > k_shortest_path(const\
-    \ Graph< T > &g, int s, int t, int k) {\n  assert(s != t);\n  int N = (int) g.size();\n\
-    \  int M = 0;\n  for(int i = 0; i < N; i++) M += g.g[i].size();\n  vector< int\
-    \ > latte(M), malta(M);\n  vector< T > cost(M);\n  for(int i = 0; i < N; i++)\
-    \ {\n    for(auto &e : g.g[i]) {\n      latte[e.idx] = i;\n      malta[e.idx]\
-    \ = e.to;\n      cost[e.idx] = e.cost;\n    }\n  }\n  const auto INF = numeric_limits<\
-    \ T >::max();\n  vector< int > dame(M, -1);\n  int timestamp = 0;\n  auto shortest_path\
-    \ = [&](vector< T > &dist, vector< int > &from, vector< int > &id, int st) {\n\
-    \    using Pi = pair< T, int >;\n    priority_queue< Pi, vector< Pi >, greater<>\
-    \ > que;\n    que.emplace(dist[st], st);\n    while(!que.empty()) {\n      T cost;\n\
-    \      int idx;\n      tie(cost, idx) = que.top();\n      que.pop();\n      if(dist[idx]\
+    \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 2 \"\
+    graph/shortest-path/k-shortest-path.hpp\"\n\n#line 4 \"graph/shortest-path/k-shortest-path.hpp\"\
+    \n\n/**\n * @brief K-Shortest-Path\n * @docs docs/k-shortest-path.md\n * @see\
+    \ https://qiita.com/nariaki3551/items/821dc6ffdc552d3d5f22\n */\ntemplate< typename\
+    \ T >\nvector< pair< T, vector< int > > > k_shortest_path(const Graph< T > &g,\
+    \ int s, int t, int k) {\n  assert(s != t);\n  int N = (int) g.size();\n  int\
+    \ M = 0;\n  for(int i = 0; i < N; i++) M += g.g[i].size();\n  vector< int > latte(M),\
+    \ malta(M);\n  vector< T > cost(M);\n  for(int i = 0; i < N; i++) {\n    for(auto\
+    \ &e : g.g[i]) {\n      latte[e.idx] = i;\n      malta[e.idx] = e.to;\n      cost[e.idx]\
+    \ = e.cost;\n    }\n  }\n  const auto INF = numeric_limits< T >::max();\n  vector<\
+    \ int > dame(M, -1);\n  int timestamp = 0;\n  auto shortest_path = [&](vector<\
+    \ T > &dist, vector< int > &from, vector< int > &id, int st) {\n    using Pi =\
+    \ pair< T, int >;\n    priority_queue< Pi, vector< Pi >, greater<> > que;\n  \
+    \  que.emplace(dist[st], st);\n    while(!que.empty()) {\n      T cost;\n    \
+    \  int idx;\n      tie(cost, idx) = que.top();\n      que.pop();\n      if(dist[idx]\
     \ < cost) continue;\n      if(idx == t) return;\n      for(auto &e : g.g[idx])\
     \ {\n        auto next_cost = cost + e.cost;\n        if(dist[e.to] <= next_cost)\
     \ continue;\n        if(dame[e.idx] == timestamp) continue;\n        dist[e.to]\
@@ -119,8 +120,8 @@ data:
     \ Y, K);\n  for(int i = 0; i < K; i++) {\n    if(i < ans.size()) cout << ans[i].first\
     \ << \"\\n\";\n    else cout << -1 << \"\\n\";\n  }\n}\n"
   code: "#define ERROR \"1e-4\"\n#define PROBLEM \"https://yukicoder.me/problems/no/1069\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/graph-template.cpp\"\
-    \n#include \"../../graph/shortest-path/k-shortest-path.cpp\"\n\nint main() {\n\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/graph-template.hpp\"\
+    \n#include \"../../graph/shortest-path/k-shortest-path.hpp\"\n\nint main() {\n\
     \  int N, M, K;\n  cin >> N >> M >> K;\n  int X, Y;\n  cin >> X >> Y;\n  --X,\
     \ --Y;\n  vector< int > P(N), Q(N);\n  for(int i = 0; i < N; i++) {\n    cin >>\
     \ P[i] >> Q[i];\n  }\n  Graph< double > g(N);\n  vector< int > x(M * 2), y(M *\
@@ -133,13 +134,13 @@ data:
     ;\n    else cout << -1 << \"\\n\";\n  }\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/graph-template.cpp
-  - graph/shortest-path/k-shortest-path.cpp
+  - graph/graph-template.hpp
+  - graph/shortest-path/k-shortest-path.hpp
   isVerificationFile: true
   path: test/verify/yukicoder-1069.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yukicoder-1069.test.cpp
 layout: document

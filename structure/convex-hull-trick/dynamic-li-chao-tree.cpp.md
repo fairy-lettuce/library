@@ -94,8 +94,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-line-add-get-min.test.cpp
-  - test/verify/yosupo-segment-add-get-min.test.cpp
   - test/verify/aoj-2725.test.cpp
+  - test/verify/yosupo-segment-add-get-min.test.cpp
 documentation_of: structure/convex-hull-trick/dynamic-li-chao-tree.cpp
 layout: document
 redirect_from:

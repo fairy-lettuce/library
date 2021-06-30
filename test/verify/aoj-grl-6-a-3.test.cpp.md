@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/flow/push-relabel.cpp
-    title: graph/flow/push-relabel.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: graph/flow/push-relabel.hpp
+    title: graph/flow/push-relabel.hpp
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A
@@ -46,7 +46,7 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-grl-6-a-3.test.cpp\"\
-    \n\n#line 1 \"graph/flow/push-relabel.cpp\"\nclass Stack {\nprivate:\n  const\
+    \n\n#line 1 \"graph/flow/push-relabel.hpp\"\nclass Stack {\nprivate:\n  const\
     \ int N, H;\n  vector< int > node;\n \npublic:\n  Stack(const int N, const int\
     \ H) : N(N), H(H), node(N + H) { clear(); }\n \n  inline bool empty(const int\
     \ h) const { return node[N + h] == N + h; }\n \n  inline int top(const int h)\
@@ -65,8 +65,8 @@ data:
     \ {\n    for(int i = N; i < N + H; ++i) dat[i].prev = dat[i].next = i;\n  }\n\
     };\n\ntemplate< typename flow_t >\nstruct PushRelabel {\n  struct edge {\n   \
     \ int to;\n    flow_t cap;\n    int rev;\n    bool isrev;\n    int idx;\n  };\n\
-    \n  vector< vector< edge > > graph;\n  vector< int > potential, cur_edge;\n  vector<\
-    \ flow_t > ex;\n  int V, height, relabels;\n  List all_ver;\n  Stack act_ver;\n\
+    \n  int V, height, relabels;\n  vector< flow_t > ex;\n  vector< int > potential,\
+    \ cur_edge;\n  List all_ver;\n  Stack act_ver;\n  vector< vector< edge > > graph;\n\
     \n  PushRelabel(int V)\n      : V(V), height(-1), relabels(0), ex(V, flow_t(0)),\
     \ potential(V, 0), cur_edge(V), all_ver(V, V), act_ver(V, V), graph(V) {}\n\n\
     \  void add_edge(int from, int to, flow_t cap, int idx = -1) {\n    graph[from].emplace_back((edge)\
@@ -89,7 +89,7 @@ data:
     \ t, edge &e) {\n    flow_t f = min(e.cap, ex[u]);\n    int v = e.to;\n    e.cap\
     \ -= f, ex[u] -= f;\n    graph[v][e.rev].cap += f, ex[v] += f;\n    if(ex[v] ==\
     \ f && v != t) act_ver.push(potential[v], v);\n    return ex[u] == 0;\n  }\n\n\
-    \  int discharge(int u, int t) {\n    for(int &i = cur_edge[u]; i < graph[u].size();\
+    \  int discharge(int u, int t) {\n    for(int &i = cur_edge[u]; i < (int)graph[u].size();\
     \ i++) {\n      auto &e = graph[u][i];\n      if(potential[u] == potential[e.to]\
     \ + 1 && e.cap > 0) {\n        if(push(u, t, e)) return potential[u];\n      }\n\
     \    }\n    return relabel(u);\n  }\n\n  int global_relabel(int t) {\n    bfs(t);\n\
@@ -116,19 +116,19 @@ data:
     \ %d\", &a, &b, &c);\n    g.add_edge(a, b, c);\n  }\n  printf(\"%d\\n\", g.max_flow(0,\
     \ V - 1));\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/flow/push-relabel.cpp\"\
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/flow/push-relabel.hpp\"\
     \n\nint main() {\n  int V, E;\n  scanf(\"%d %d\", &V, &E);\n  PushRelabel< int\
     \ > g(V);\n  for(int i = 0; i < E; i++) {\n    int a, b, c;\n    scanf(\"%d %d\
     \ %d\", &a, &b, &c);\n    g.add_edge(a, b, c);\n  }\n  printf(\"%d\\n\", g.max_flow(0,\
     \ V - 1));\n}\n"
   dependsOn:
   - template/template.cpp
-  - graph/flow/push-relabel.cpp
+  - graph/flow/push-relabel.hpp
   isVerificationFile: true
   path: test/verify/aoj-grl-6-a-3.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-6-a-3.test.cpp
 layout: document

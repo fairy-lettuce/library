@@ -1,27 +1,27 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/flow/bipartite-flow.cpp
+  - icon: ':question:'
+    path: graph/flow/bipartite-flow.hpp
     title: "Bipartite-Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\u30FC)"
-  - icon: ':heavy_check_mark:'
-    path: graph/others/bipartite-graph-edge-coloring.cpp
+  - icon: ':x:'
+    path: graph/others/bipartite-graph-edge-coloring.hpp
     title: "Bipartite-Graph-Edge-Coloring(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u8FBA\
       \u5F69\u8272)"
-  - icon: ':heavy_check_mark:'
-    path: graph/others/eulerian-trail.cpp
+  - icon: ':x:'
+    path: graph/others/eulerian-trail.hpp
     title: "Eulerian-Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/bipartite_edge_coloring
@@ -69,67 +69,68 @@ data:
     \ i < n; i++) {\n      ret[find(i)].emplace_back(i);\n    }\n    ret.erase(remove_if(begin(ret),\
     \ end(ret), [&](const vector< int > &v) {\n      return v.empty();\n    }));\n\
     \    return ret;\n  }\n};\n#line 6 \"test/verify/yosupo-bipartite-edge-coloring.test.cpp\"\
-    \n\n#line 1 \"graph/flow/bipartite-flow.cpp\"\n/**\n * @brief Bipartite-Flow(\u4E8C\
+    \n\n#line 1 \"graph/flow/bipartite-flow.hpp\"\n/**\n * @brief Bipartite-Flow(\u4E8C\
     \u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\u30FC)\n * @docs docs/bipartite-flow.md\n\
     \ */\nstruct BipartiteFlow {\n  size_t n, m, time_stamp;\n  vector< vector< int\
     \ > > g, rg;\n  vector< int > match_l, match_r, dist, used, alive;\n  bool matched;\n\
-    \npublic:\n  explicit BipartiteFlow(size_t n, size_t m) :\n      n(n), m(m), g(n),\
-    \ rg(m), match_l(n, -1), match_r(m, -1), used(n), alive(n, 1), time_stamp(0),\
-    \ matched(false) {}\n\n  void add_edge(int u, int v) {\n    g[u].push_back(v);\n\
-    \    rg[v].emplace_back(u);\n  }\n\n  vector< pair< int, int > > max_matching()\
-    \ {\n    matched = true;\n    for(;;) {\n      build_augment_path();\n      ++time_stamp;\n\
-    \      int flow = 0;\n      for(int i = 0; i < n; i++) {\n        if(match_l[i]\
-    \ == -1) flow += find_min_dist_augment_path(i);\n      }\n      if(flow == 0)\
-    \ break;\n    }\n    vector< pair< int, int > > ret;\n    for(int i = 0; i < n;\
-    \ i++) {\n      if(match_l[i] >= 0) ret.emplace_back(i, match_l[i]);\n    }\n\
-    \    return ret;\n  }\n\n  /* http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3198\
+    \npublic:\n  explicit BipartiteFlow(size_t n, size_t m) :\n      n(n), m(m), time_stamp(0),\
+    \ g(n), rg(m), match_l(n, -1), match_r(m, -1), used(n), alive(n, 1), matched(false)\
+    \ {}\n\n  void add_edge(int u, int v) {\n    g[u].push_back(v);\n    rg[v].emplace_back(u);\n\
+    \  }\n\n  vector< pair< int, int > > max_matching() {\n    matched = true;\n \
+    \   for(;;) {\n      build_augment_path();\n      ++time_stamp;\n      int flow\
+    \ = 0;\n      for(int i = 0; i < (int)n; i++) {\n        if(match_l[i] == -1)\
+    \ flow += find_min_dist_augment_path(i);\n      }\n      if(flow == 0) break;\n\
+    \    }\n    vector< pair< int, int > > ret;\n    for(int i = 0; i < (int)n; i++)\
+    \ {\n      if(match_l[i] >= 0) ret.emplace_back(i, match_l[i]);\n    }\n    return\
+    \ ret;\n  }\n\n  /* http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3198\
     \ */\n  void erase_edge(int a, int b) {\n    if(match_l[a] == b) {\n      match_l[a]\
     \ = -1;\n      match_r[b] = -1;\n    }\n    g[a].erase(find(begin(g[a]), end(g[a]),\
     \ b));\n    rg[b].erase(find(begin(rg[b]), end(rg[b]), a));\n  }\n\n  /* http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0334\
     \ */\n  vector< pair< int, int > > lex_max_matching() {\n    if(!matched) max_matching();\n\
     \    for(auto &vs : g) sort(begin(vs), end(vs));\n    vector< pair< int, int >\
-    \ > es;\n    for(int i = 0; i < n; i++) {\n      if(match_l[i] == -1 || alive[i]\
+    \ > es;\n    for(int i = 0; i < (int)n; i++) {\n      if(match_l[i] == -1 || alive[i]\
     \ == 0) {\n        continue;\n      }\n      match_r[match_l[i]] = -1;\n     \
     \ match_l[i] = -1;\n      ++time_stamp;\n      find_augment_path(i);\n      alive[i]\
     \ = 0;\n      es.emplace_back(i, match_l[i]);\n    }\n    return es;\n  }\n\n\
     \  vector< int > min_vertex_cover() {\n    auto visited = find_residual_path();\n\
-    \    vector< int > ret;\n    for(int i = 0; i < n + m; i++) {\n      if(visited[i]\
-    \ ^ (i < n)) {\n        ret.emplace_back(i);\n      }\n    }\n    return ret;\n\
-    \  }\n\n  /* https://atcoder.jp/contests/utpc2013/tasks/utpc2013_11 */\n  vector<\
-    \ int > lex_min_vertex_cover(const vector< int > &ord) {\n    assert(ord.size()\
+    \    vector< int > ret;\n    for(int i = 0; i < (int)(n + m); i++) {\n      if(visited[i]\
+    \ ^ (i < (int)n)) {\n        ret.emplace_back(i);\n      }\n    }\n    return\
+    \ ret;\n  }\n\n  /* https://atcoder.jp/contests/utpc2013/tasks/utpc2013_11 */\n\
+    \  vector< int > lex_min_vertex_cover(const vector< int > &ord) {\n    assert(ord.size()\
     \ == n + m);\n    auto res = build_risidual_graph();\n    vector< vector< int\
-    \ > > r_res(n + m + 2);\n    for(int i = 0; i < n + m + 2; i++) {\n      for(auto\
-    \ &j : res[i]) r_res[j].emplace_back(i);\n    }\n    queue< int > que;\n    vector<\
-    \ int > visited(n + m + 2, -1);\n    auto expand_left = [&](int t) {\n      if(visited[t]\
-    \ != -1) return;\n      que.emplace(t);\n      visited[t] = 1;\n      while(!que.empty())\
-    \ {\n        int idx = que.front();\n        que.pop();\n        for(auto &to\
-    \ : r_res[idx]) {\n          if(visited[to] != -1) continue;\n          visited[to]\
-    \ = 1;\n          que.emplace(to);\n        }\n      }\n    };\n    auto expand_right\
-    \ = [&](int t) {\n      if(visited[t] != -1) return;\n      que.emplace(t);\n\
-    \      visited[t] = 0;\n      while(!que.empty()) {\n        int idx = que.front();\n\
-    \        que.pop();\n        for(auto &to : res[idx]) {\n          if(visited[to]\
-    \ != -1) continue;\n          visited[to] = 0;\n          que.emplace(to);\n \
-    \       }\n      }\n    };\n    expand_right(n + m);\n    expand_left(n + m +\
-    \ 1);\n    vector< int > ret;\n    for(auto &t : ord) {\n      if(t < n) {\n \
-    \       expand_left(t);\n        if(visited[t] & 1) ret.emplace_back(t);\n   \
-    \   } else {\n        expand_right(t);\n        if(~visited[t] & 1) ret.emplace_back(t);\n\
+    \ > > r_res(n + m + 2);\n    for(int i = 0; i < (int)(n + m + 2); i++) {\n   \
+    \   for(auto &j : res[i]) r_res[j].emplace_back(i);\n    }\n    queue< int > que;\n\
+    \    vector< int > visited(n + m + 2, -1);\n    auto expand_left = [&](int t)\
+    \ {\n      if(visited[t] != -1) return;\n      que.emplace(t);\n      visited[t]\
+    \ = 1;\n      while(!que.empty()) {\n        int idx = que.front();\n        que.pop();\n\
+    \        for(auto &to : r_res[idx]) {\n          if(visited[to] != -1) continue;\n\
+    \          visited[to] = 1;\n          que.emplace(to);\n        }\n      }\n\
+    \    };\n    auto expand_right = [&](int t) {\n      if(visited[t] != -1) return;\n\
+    \      que.emplace(t);\n      visited[t] = 0;\n      while(!que.empty()) {\n \
+    \       int idx = que.front();\n        que.pop();\n        for(auto &to : res[idx])\
+    \ {\n          if(visited[to] != -1) continue;\n          visited[to] = 0;\n \
+    \         que.emplace(to);\n        }\n      }\n    };\n    expand_right(n + m);\n\
+    \    expand_left(n + m + 1);\n    vector< int > ret;\n    for(auto &t : ord) {\n\
+    \      if(t < (int)n) {\n        expand_left(t);\n        if(visited[t] & 1) ret.emplace_back(t);\n\
+    \      } else {\n        expand_right(t);\n        if(~visited[t] & 1) ret.emplace_back(t);\n\
     \      }\n    }\n    return ret;\n  }\n\n\n  vector< int > max_independent_set()\
     \ {\n    auto visited = find_residual_path();\n    vector< int > ret;\n    for(int\
-    \ i = 0; i < n + m; i++) {\n      if(visited[i] ^ (i >= n)) {\n        ret.emplace_back(i);\n\
-    \      }\n    }\n    return ret;\n  }\n\n  vector< pair< int, int > > min_edge_cover()\
-    \ {\n    auto es = max_matching();\n    for(int i = 0; i < n; i++) {\n      if(match_l[i]\
-    \ >= 0) {\n        continue;\n      }\n      if(g[i].empty()) {\n        return\
-    \ {};\n      }\n      es.emplace_back(i, g[i][0]);\n    }\n    for(int i = 0;\
-    \ i < m; i++) {\n      if(match_r[i] >= 0) {\n        continue;\n      }\n   \
-    \   if(rg[i].empty()) {\n        return {};\n      }\n      es.emplace_back(rg[i][0],\
-    \ i);\n    }\n    return es;\n  }\n\n  // left: [0,n), right: [n,n+m), S: n+m,\
-    \ T: n+m+1\n  vector< vector< int > > build_risidual_graph() {\n    if(!matched)\
-    \ max_matching();\n    const size_t S = n + m;\n    const size_t T = n + m + 1;\n\
-    \    vector< vector< int > > ris(n + m + 2);\n    for(int i = 0; i < n; i++) {\n\
-    \      if(match_l[i] == -1) ris[S].emplace_back(i);\n      else ris[i].emplace_back(S);\n\
-    \    }\n    for(int i = 0; i < m; i++) {\n      if(match_r[i] == -1) ris[i + n].emplace_back(T);\n\
-    \      else ris[T].emplace_back(i + n);\n    }\n    for(int i = 0; i < n; i++)\
-    \ {\n      for(auto &j : g[i]) {\n        if(match_l[i] == j) ris[j + n].emplace_back(i);\n\
+    \ i = 0; i < (int)(n + m); i++) {\n      if(visited[i] ^ (i >= (int)n)) {\n  \
+    \      ret.emplace_back(i);\n      }\n    }\n    return ret;\n  }\n\n  vector<\
+    \ pair< int, int > > min_edge_cover() {\n    auto es = max_matching();\n    for(int\
+    \ i = 0; i < (int)n; i++) {\n      if(match_l[i] >= 0) {\n        continue;\n\
+    \      }\n      if(g[i].empty()) {\n        return {};\n      }\n      es.emplace_back(i,\
+    \ g[i][0]);\n    }\n    for(int i = 0; i < (int)m; i++) {\n      if(match_r[i]\
+    \ >= 0) {\n        continue;\n      }\n      if(rg[i].empty()) {\n        return\
+    \ {};\n      }\n      es.emplace_back(rg[i][0], i);\n    }\n    return es;\n \
+    \ }\n\n  // left: [0,n), right: [n,n+m), S: n+m, T: n+m+1\n  vector< vector< int\
+    \ > > build_risidual_graph() {\n    if(!matched) max_matching();\n    const size_t\
+    \ S = n + m;\n    const size_t T = n + m + 1;\n    vector< vector< int > > ris(n\
+    \ + m + 2);\n    for(int i = 0; i < (int)n; i++) {\n      if(match_l[i] == -1)\
+    \ ris[S].emplace_back(i);\n      else ris[i].emplace_back(S);\n    }\n    for(int\
+    \ i = 0; i < (int)m; i++) {\n      if(match_r[i] == -1) ris[i + n].emplace_back(T);\n\
+    \      else ris[T].emplace_back(i + n);\n    }\n    for(int i = 0; i < (int)n;\
+    \ i++) {\n      for(auto &j : g[i]) {\n        if(match_l[i] == j) ris[j + n].emplace_back(i);\n\
     \        else ris[i].emplace_back(j + n);\n      }\n    }\n    return ris;\n \
     \ }\n\nprivate:\n  vector< int > find_residual_path() {\n    auto res = build_risidual_graph();\n\
     \    queue< int > que;\n    vector< int > visited(n + m + 2);\n    que.emplace(n\
@@ -138,24 +139,24 @@ data:
     \ if(visited[to]) continue;\n        visited[to] = true;\n        que.emplace(to);\n\
     \      }\n    }\n    return visited;\n  }\n\n  void build_augment_path() {\n \
     \   queue< int > que;\n    dist.assign(g.size(), -1);\n    for(int i = 0; i <\
-    \ n; i++) {\n      if(match_l[i] == -1) {\n        que.emplace(i);\n        dist[i]\
-    \ = 0;\n      }\n    }\n    while(!que.empty()) {\n      int a = que.front();\n\
+    \ (int)n; i++) {\n      if(match_l[i] == -1) {\n        que.emplace(i);\n    \
+    \    dist[i] = 0;\n      }\n    }\n    while(!que.empty()) {\n      int a = que.front();\n\
     \      que.pop();\n      for(auto &b : g[a]) {\n        int c = match_r[b];\n\
     \        if(c >= 0 && dist[c] == -1) {\n          dist[c] = dist[a] + 1;\n   \
     \       que.emplace(c);\n        }\n      }\n    }\n  }\n\n  bool find_min_dist_augment_path(int\
     \ a) {\n    used[a] = time_stamp;\n    for(auto &b : g[a]) {\n      int c = match_r[b];\n\
-    \      if(c < 0 || (used[c] != time_stamp && dist[c] == dist[a] + 1 && find_min_dist_augment_path(c)))\
+    \      if(c < 0 || (used[c] != (int)time_stamp && dist[c] == dist[a] + 1 && find_min_dist_augment_path(c)))\
     \ {\n        match_r[b] = a;\n        match_l[a] = b;\n        return true;\n\
     \      }\n    }\n    return false;\n  }\n\n  bool find_augment_path(int a) {\n\
     \    used[a] = time_stamp;\n    for(auto &b : g[a]) {\n      int c = match_r[b];\n\
-    \      if(c < 0 || (alive[c] == 1 && used[c] != time_stamp && find_augment_path(c)))\
+    \      if(c < 0 || (alive[c] == 1 && used[c] != (int)time_stamp && find_augment_path(c)))\
     \ {\n        match_r[b] = a;\n        match_l[a] = b;\n        return true;\n\
-    \      }\n    }\n    return false;\n  }\n};\n#line 1 \"graph/others/eulerian-trail.cpp\"\
-    \n/**\n * @brief Eulerian-Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)\n * @docs docs/eulerian-trail.md\n\
+    \      }\n    }\n    return false;\n  }\n};\n#line 2 \"graph/others/eulerian-trail.hpp\"\
+    \n\n/**\n * @brief Eulerian-Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)\n * @docs docs/eulerian-trail.md\n\
     \ */\ntemplate< bool directed >\nstruct EulerianTrail {\n  vector< vector< pair<\
     \ int, int > > > g;\n  vector< pair< int, int > > es;\n  int M;\n  vector< int\
     \ > used_vertex, used_edge, deg;\n\n  explicit EulerianTrail(int V) : g(V), M(0),\
-    \ deg(V), used_vertex(V) {}\n\n  void add_edge(int a, int b) {\n    es.emplace_back(a,\
+    \ used_vertex(V), deg(V) {}\n\n  void add_edge(int a, int b) {\n    es.emplace_back(a,\
     \ b);\n    g[a].emplace_back(b, M);\n    if(directed) {\n      deg[a]++;\n   \
     \   deg[b]--;\n    } else {\n      g[b].emplace_back(a, M);\n      deg[a]++;\n\
     \      deg[b]++;\n    }\n    M++;\n  }\n\n  pair< int, int > get_edge(int idx)\
@@ -184,7 +185,7 @@ data:
     \ {\n        auto e = g[idx].back();\n        g[idx].pop_back();\n        if(used_edge[e.second])\
     \ continue;\n        used_edge[e.second] = true;\n        st.emplace(e);\n   \
     \   }\n    }\n    ord.pop_back();\n    reverse(ord.begin(), ord.end());\n    return\
-    \ ord;\n  }\n};\n#line 1 \"graph/others/bipartite-graph-edge-coloring.cpp\"\n\
+    \ ord;\n  }\n};\n#line 2 \"graph/others/bipartite-graph-edge-coloring.hpp\"\n\
     /**\n * @brief Bipartite-Graph-Edge-Coloring(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\
     \u8FBA\u5F69\u8272)\n * @see https://ei1333.hateblo.jp/entry/2020/08/25/015955\n\
     \ */\nstruct BipariteGraphEdgeColoring {\nprivate:\n  vector< vector< int > >\
@@ -233,17 +234,17 @@ data:
     \    vector< int > ord(g.A.size());\n    iota(ord.begin(), ord.end(), 0);\n  \
     \  rec(ord, g.k);\n    vector< vector< int > > res;\n    for(int i = 0; i < (int)\
     \ ans.size(); i++) {\n      res.emplace_back();\n      for(auto &j : ans[i]) if(j\
-    \ < A.size()) res.back().emplace_back(j);\n    }\n    return res;\n  }\n};\n#line\
-    \ 10 \"test/verify/yosupo-bipartite-edge-coloring.test.cpp\"\n\nint main() {\n\
-    \  int L, R, M;\n  cin >> L >> R >> M;\n  BipariteGraphEdgeColoring ecbg;\n  for(int\
-    \ i = 0; i < M; i++) {\n    int a, b;\n    cin >> a >> b;\n    ecbg.add_edge(a,\
+    \ < (int)A.size()) res.back().emplace_back(j);\n    }\n    return res;\n  }\n\
+    };\n#line 10 \"test/verify/yosupo-bipartite-edge-coloring.test.cpp\"\n\nint main()\
+    \ {\n  int L, R, M;\n  cin >> L >> R >> M;\n  BipariteGraphEdgeColoring ecbg;\n\
+    \  for(int i = 0; i < M; i++) {\n    int a, b;\n    cin >> a >> b;\n    ecbg.add_edge(a,\
     \ b);\n  }\n  auto res = ecbg.build();\n  cout << res.size() << \"\\n\";\n  vector<\
     \ int > color(M);\n  for(int i = 0; i < res.size(); i++) {\n    for(auto &j :\
     \ res[i]) color[j] = i;\n  }\n  for(auto &c : color) cout << c << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bipartite_edge_coloring\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../structure/union-find/union-find.cpp\"\
-    \n\n#include \"../../graph/flow/bipartite-flow.cpp\"\n#include \"../../graph/others/eulerian-trail.cpp\"\
-    \n#include \"../../graph/others/bipartite-graph-edge-coloring.cpp\"\n\nint main()\
+    \n\n#include \"../../graph/flow/bipartite-flow.hpp\"\n#include \"../../graph/others/eulerian-trail.hpp\"\
+    \n#include \"../../graph/others/bipartite-graph-edge-coloring.hpp\"\n\nint main()\
     \ {\n  int L, R, M;\n  cin >> L >> R >> M;\n  BipariteGraphEdgeColoring ecbg;\n\
     \  for(int i = 0; i < M; i++) {\n    int a, b;\n    cin >> a >> b;\n    ecbg.add_edge(a,\
     \ b);\n  }\n  auto res = ecbg.build();\n  cout << res.size() << \"\\n\";\n  vector<\
@@ -252,14 +253,14 @@ data:
   dependsOn:
   - template/template.cpp
   - structure/union-find/union-find.cpp
-  - graph/flow/bipartite-flow.cpp
-  - graph/others/eulerian-trail.cpp
-  - graph/others/bipartite-graph-edge-coloring.cpp
+  - graph/flow/bipartite-flow.hpp
+  - graph/others/eulerian-trail.hpp
+  - graph/others/bipartite-graph-edge-coloring.hpp
   isVerificationFile: true
   path: test/verify/yosupo-bipartite-edge-coloring.test.cpp
   requiredBy: []
-  timestamp: '2021-05-07 20:07:14+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-01 02:53:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-bipartite-edge-coloring.test.cpp
 layout: document
