@@ -5,15 +5,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fft/arbitrary-mod-convolution.cpp
     title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':warning:'
-    path: math/fps/eulerian.cpp
-    title: math/fps/eulerian.cpp
   - icon: ':heavy_check_mark:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':warning:'
-    path: math/fps/stirling-second-kth-column.cpp
-    title: math/fps/stirling-second-kth-column.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
@@ -106,9 +100,7 @@ data:
   isVerificationFile: false
   path: math/fft/fast-fourier-transform.cpp
   requiredBy:
-  - math/fps/stirling-second-kth-column.cpp
   - math/fps/formal-power-series.cpp
-  - math/fps/eulerian.cpp
   - math/fft/arbitrary-mod-convolution.cpp
   timestamp: '2019-12-03 22:21:44+09:00'
   verificationStatus: LIBRARY_ALL_AC

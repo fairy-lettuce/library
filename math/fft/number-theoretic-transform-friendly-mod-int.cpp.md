@@ -8,6 +8,9 @@ data:
       \u6570)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-bernoulli-number.test.cpp
+    title: test/verify/yosupo-bernoulli-number.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-division-of-polynomials.test.cpp
     title: test/verify/yosupo-division-of-polynomials.test.cpp
   - icon: ':heavy_check_mark:'
@@ -19,6 +22,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-log-of-formal-power-series.test.cpp
     title: test/verify/yosupo-log-of-formal-power-series.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-partition-function.test.cpp
+    title: test/verify/yosupo-partition-function.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
     title: test/verify/yosupo-polynomial-taylor-shift.test.cpp
@@ -126,9 +132,11 @@ data:
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
+  - test/verify/yosupo-partition-function.test.cpp
   - test/verify/yosupo-sharp-p-subset-sum.test.cpp
   - test/verify/yosupo-find-linear-recurrence.test.cpp
   - test/verify/yosupo-division-of-polynomials.test.cpp
+  - test/verify/yosupo-bernoulli-number.test.cpp
   - test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
 documentation_of: math/fft/number-theoretic-transform-friendly-mod-int.cpp
 layout: document

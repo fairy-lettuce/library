@@ -5,15 +5,9 @@ data:
     path: math/fft/fast-fourier-transform.cpp
     title: math/fft/fast-fourier-transform.cpp
   _extendedRequiredBy:
-  - icon: ':warning:'
-    path: math/fps/eulerian.cpp
-    title: math/fps/eulerian.cpp
   - icon: ':heavy_check_mark:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':warning:'
-    path: math/fps/stirling-second-kth-column.cpp
-    title: math/fps/stirling-second-kth-column.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sparse-matrix-det.test.cpp
@@ -120,9 +114,7 @@ data:
   isVerificationFile: false
   path: math/fft/arbitrary-mod-convolution.cpp
   requiredBy:
-  - math/fps/stirling-second-kth-column.cpp
   - math/fps/formal-power-series.cpp
-  - math/fps/eulerian.cpp
   timestamp: '2021-06-29 02:11:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

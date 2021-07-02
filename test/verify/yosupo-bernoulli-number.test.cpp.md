@@ -8,6 +8,9 @@ data:
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number-Theoretic-Transform-Friendly-Mod-Int
   - icon: ':heavy_check_mark:'
+    path: math/fps/bernoulli.cpp
+    title: "Bernoulli(\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
+  - icon: ':heavy_check_mark:'
     path: math/fps/formal-power-series-friendly-ntt.cpp
     title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
       \u6570)"
@@ -21,38 +24,38 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/exp_of_formal_power_series
+    PROBLEM: https://judge.yosupo.jp/problem/bernoulli_number
     links:
-    - https://judge.yosupo.jp/problem/exp_of_formal_power_series
-  bundledCode: "#line 1 \"test/verify/yosupo-exp-of-formal-power-series.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/exp_of_formal_power_series\"\
-    \n\n#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing namespace\
-    \ std;\n\nusing int64 = long long;\nconst int mod = 1e9 + 7;\n\nconst int64 infll\
-    \ = (1LL << 62) - 1;\nconst int inf = (1 << 30) - 1;\n\nstruct IoSetup {\n  IoSetup()\
-    \ {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n    cout << fixed\
-    \ << setprecision(10);\n    cerr << fixed << setprecision(10);\n  }\n} iosetup;\n\
-    \ntemplate< typename T1, typename T2 >\nostream &operator<<(ostream &os, const\
-    \ pair< T1, T2 >& p) {\n  os << p.first << \" \" << p.second;\n  return os;\n\
-    }\n\ntemplate< typename T1, typename T2 >\nistream &operator>>(istream &is, pair<\
-    \ T1, T2 > &p) {\n  is >> p.first >> p.second;\n  return is;\n}\n\ntemplate< typename\
-    \ T >\nostream &operator<<(ostream &os, const vector< T > &v) {\n  for(int i =\
-    \ 0; i < (int) v.size(); i++) {\n    os << v[i] << (i + 1 != v.size() ? \" \"\
-    \ : \"\");\n  }\n  return os;\n}\n\ntemplate< typename T >\nistream &operator>>(istream\
-    \ &is, vector< T > &v) {\n  for(T &in : v) is >> in;\n  return is;\n}\n\ntemplate<\
-    \ typename T1, typename T2 >\ninline bool chmax(T1 &a, T2 b) { return a < b &&\
-    \ (a = b, true); }\n\ntemplate< typename T1, typename T2 >\ninline bool chmin(T1\
-    \ &a, T2 b) { return a > b && (a = b, true); }\n\ntemplate< typename T = int64\
-    \ >\nvector< T > make_v(size_t a) {\n  return vector< T >(a);\n}\n\ntemplate<\
-    \ typename T, typename... Ts >\nauto make_v(size_t a, Ts... ts) {\n  return vector<\
-    \ decltype(make_v< T >(ts...)) >(a, make_v< T >(ts...));\n}\n\ntemplate< typename\
-    \ T, typename V >\ntypename enable_if< is_class< T >::value == 0 >::type fill_v(T\
-    \ &t, const V &v) {\n  t = v;\n}\n\ntemplate< typename T, typename V >\ntypename\
-    \ enable_if< is_class< T >::value != 0 >::type fill_v(T &t, const V &v) {\n  for(auto\
-    \ &e : t) fill_v(e, v);\n}\n\ntemplate< typename F >\nstruct FixPoint : F {\n\
-    \  explicit FixPoint(F &&f) : F(forward< F >(f)) {}\n\n  template< typename...\
-    \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
+    - https://judge.yosupo.jp/problem/bernoulli_number
+  bundledCode: "#line 1 \"test/verify/yosupo-bernoulli-number.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/bernoulli_number\"\n\n#line 1 \"template/template.cpp\"\
+    \n#include<bits/stdc++.h>\n\nusing namespace std;\n\nusing int64 = long long;\n\
+    const int mod = 1e9 + 7;\n\nconst int64 infll = (1LL << 62) - 1;\nconst int inf\
+    \ = (1 << 30) - 1;\n\nstruct IoSetup {\n  IoSetup() {\n    cin.tie(nullptr);\n\
+    \    ios::sync_with_stdio(false);\n    cout << fixed << setprecision(10);\n  \
+    \  cerr << fixed << setprecision(10);\n  }\n} iosetup;\n\ntemplate< typename T1,\
+    \ typename T2 >\nostream &operator<<(ostream &os, const pair< T1, T2 >& p) {\n\
+    \  os << p.first << \" \" << p.second;\n  return os;\n}\n\ntemplate< typename\
+    \ T1, typename T2 >\nistream &operator>>(istream &is, pair< T1, T2 > &p) {\n \
+    \ is >> p.first >> p.second;\n  return is;\n}\n\ntemplate< typename T >\nostream\
+    \ &operator<<(ostream &os, const vector< T > &v) {\n  for(int i = 0; i < (int)\
+    \ v.size(); i++) {\n    os << v[i] << (i + 1 != v.size() ? \" \" : \"\");\n  }\n\
+    \  return os;\n}\n\ntemplate< typename T >\nistream &operator>>(istream &is, vector<\
+    \ T > &v) {\n  for(T &in : v) is >> in;\n  return is;\n}\n\ntemplate< typename\
+    \ T1, typename T2 >\ninline bool chmax(T1 &a, T2 b) { return a < b && (a = b,\
+    \ true); }\n\ntemplate< typename T1, typename T2 >\ninline bool chmin(T1 &a, T2\
+    \ b) { return a > b && (a = b, true); }\n\ntemplate< typename T = int64 >\nvector<\
+    \ T > make_v(size_t a) {\n  return vector< T >(a);\n}\n\ntemplate< typename T,\
+    \ typename... Ts >\nauto make_v(size_t a, Ts... ts) {\n  return vector< decltype(make_v<\
+    \ T >(ts...)) >(a, make_v< T >(ts...));\n}\n\ntemplate< typename T, typename V\
+    \ >\ntypename enable_if< is_class< T >::value == 0 >::type fill_v(T &t, const\
+    \ V &v) {\n  t = v;\n}\n\ntemplate< typename T, typename V >\ntypename enable_if<\
+    \ is_class< T >::value != 0 >::type fill_v(T &t, const V &v) {\n  for(auto &e\
+    \ : t) fill_v(e, v);\n}\n\ntemplate< typename F >\nstruct FixPoint : F {\n  explicit\
+    \ FixPoint(F &&f) : F(forward< F >(f)) {}\n\n  template< typename... Args >\n\
+    \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
-    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-exp-of-formal-power-series.test.cpp\"\
+    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-bernoulli-number.test.cpp\"\
     \n\n#line 1 \"math/combinatorics/mod-int.cpp\"\ntemplate< int mod >\nstruct ModInt\
     \ {\n  int x;\n\n  ModInt() : x(0) {}\n\n  ModInt(int64_t y) : x(y >= 0 ? y %\
     \ mod : (mod - (-y) % mod) % mod) {}\n\n  ModInt &operator+=(const ModInt &p)\
@@ -75,9 +78,8 @@ data:
     \ &operator<<(ostream &os, const ModInt &p) {\n    return os << p.x;\n  }\n\n\
     \  friend istream &operator>>(istream &is, ModInt &a) {\n    int64_t t;\n    is\
     \ >> t;\n    a = ModInt< mod >(t);\n    return (is);\n  }\n\n  static int get_mod()\
-    \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 6 \"test/verify/yosupo-exp-of-formal-power-series.test.cpp\"\
-    \n\n#line 1 \"math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\n/**\n\
-    \ * @brief Number-Theoretic-Transform-Friendly-Mod-Int\n */\ntemplate< typename\
+    \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 1 \"math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\
+    \n/**\n * @brief Number-Theoretic-Transform-Friendly-Mod-Int\n */\ntemplate< typename\
     \ Mint >\nstruct NumberTheoreticTransformFriendlyModInt {\n\n  static vector<\
     \ Mint > dw, idw;\n  static int max_base;\n  static Mint root;\n\n  NumberTheoreticTransformFriendlyModInt()\
     \ = default;\n\n  static void init() {\n    if(dw.empty()) {\n      const unsigned\
@@ -231,30 +233,37 @@ data:
     \ T(1));\n    for(int i = 1; i < n; i++) bs[i] = bs[i - 1] * c * rfact[i] * fact[i\
     \ - 1];\n    p = (p * bs).pre(n);\n    p = p.rev();\n    for(int i = 0; i < n;\
     \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\n\ntemplate< typename Mint\
-    \ >\nusing FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 8 \"test/verify/yosupo-exp-of-formal-power-series.test.cpp\"\
+    \ >\nusing FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 1 \"math/fps/bernoulli.cpp\"\
+    \n/**\n * @brief Bernoulli(\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)\n */\ntemplate<\
+    \ template< typename > class FPS, typename Mint >\nFPS< Mint > bernoulli(int N)\
+    \ {\n  FPS< Mint > poly(N + 1);\n  poly[0] = Mint(1);\n  for(int i = 1; i <= N;\
+    \ i++) {\n    poly[i] = poly[i - 1] / Mint(i + 1);\n  }\n  poly = poly.inv();\n\
+    \  Mint tmp(1);\n  for(int i = 1; i <= N; i++) {\n    tmp *= Mint(i);\n    poly[i]\
+    \ *= tmp;\n  }\n  return poly;\n}\n#line 8 \"test/verify/yosupo-bernoulli-number.test.cpp\"\
     \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
-    \  int N;\n  cin >> N;\n  FPS< mint > F(N);\n  cin >> F;\n  cout << F.exp() <<\
-    \ endl;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/exp_of_formal_power_series\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../math/combinatorics/mod-int.cpp\"\
-    \n\n#include \"../../math/fps/formal-power-series-friendly-ntt.cpp\"\n\nconst\
-    \ int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n  int N;\n\
-    \  cin >> N;\n  FPS< mint > F(N);\n  cin >> F;\n  cout << F.exp() << endl;\n}\n"
+    \  int N;\n  cin >> N;\n  cout << bernoulli< FPS, mint >(N) << endl;\n}\n\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bernoulli_number\"\n\n\
+    #include \"../../template/template.cpp\"\n\n#include \"../../math/combinatorics/mod-int.cpp\"\
+    \n#include \"../../math/fps/formal-power-series-friendly-ntt.cpp\"\n#include \"\
+    ../../math/fps/bernoulli.cpp\"\n\nconst int MOD = 998244353;\nusing mint = ModInt<\
+    \ MOD >;\n\nint main() {\n  int N;\n  cin >> N;\n  cout << bernoulli< FPS, mint\
+    \ >(N) << endl;\n}\n\n"
   dependsOn:
   - template/template.cpp
   - math/combinatorics/mod-int.cpp
   - math/fps/formal-power-series-friendly-ntt.cpp
   - math/fft/number-theoretic-transform-friendly-mod-int.cpp
+  - math/fps/bernoulli.cpp
   isVerificationFile: true
-  path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
+  path: test/verify/yosupo-bernoulli-number.test.cpp
   requiredBy: []
-  timestamp: '2021-06-28 15:21:00+09:00'
+  timestamp: '2021-07-03 01:30:39+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/verify/yosupo-exp-of-formal-power-series.test.cpp
+documentation_of: test/verify/yosupo-bernoulli-number.test.cpp
 layout: document
 redirect_from:
-- /verify/test/verify/yosupo-exp-of-formal-power-series.test.cpp
-- /verify/test/verify/yosupo-exp-of-formal-power-series.test.cpp.html
-title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
+- /verify/test/verify/yosupo-bernoulli-number.test.cpp
+- /verify/test/verify/yosupo-bernoulli-number.test.cpp.html
+title: test/verify/yosupo-bernoulli-number.test.cpp
 ---

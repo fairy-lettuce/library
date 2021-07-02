@@ -16,6 +16,9 @@ data:
     path: test/verify/aoj-dpl-5-j.test.cpp
     title: test/verify/aoj-dpl-5-j.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-bernoulli-number.test.cpp
+    title: test/verify/yosupo-bernoulli-number.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-division-of-polynomials.test.cpp
     title: test/verify/yosupo-division-of-polynomials.test.cpp
   - icon: ':heavy_check_mark:'
@@ -36,6 +39,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-matrix-det.test.cpp
     title: test/verify/yosupo-matrix-det.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-partition-function.test.cpp
+    title: test/verify/yosupo-partition-function.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-point-set-range-composite-2.test.cpp
     title: test/verify/yosupo-point-set-range-composite-2.test.cpp
@@ -81,12 +87,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-502.test.cpp
     title: test/verify/yukicoder-502.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"math/combinatorics/mod-int.cpp\"\ntemplate< int mod >\n\
@@ -140,7 +146,7 @@ data:
   path: math/combinatorics/mod-int.cpp
   requiredBy: []
   timestamp: '2019-11-30 23:36:31+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - test/verify/yosupo-polynomial-taylor-shift.test.cpp
@@ -157,6 +163,7 @@ data:
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
   - test/verify/aoj-dpl-5-g.test.cpp
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
+  - test/verify/yosupo-partition-function.test.cpp
   - test/verify/yosupo-range-affine-range-sum.test.cpp
   - test/verify/yosupo-sharp-p-subset-sum.test.cpp
   - test/verify/yosupo-matrix-det.test.cpp
@@ -166,6 +173,7 @@ data:
   - test/verify/yukicoder-650.test.cpp
   - test/verify/yosupo-find-linear-recurrence.test.cpp
   - test/verify/yosupo-division-of-polynomials.test.cpp
+  - test/verify/yosupo-bernoulli-number.test.cpp
   - test/verify/yosupo-range-affine-range-sum-3.test.cpp
   - test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp

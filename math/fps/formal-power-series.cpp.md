@@ -7,13 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fft/fast-fourier-transform.cpp
     title: math/fft/fast-fourier-transform.cpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: math/fps/eulerian.cpp
-    title: math/fps/eulerian.cpp
-  - icon: ':warning:'
-    path: math/fps/stirling-second-kth-column.cpp
-    title: math/fps/stirling-second-kth-column.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sparse-matrix-det.test.cpp
@@ -286,9 +280,7 @@ data:
   - math/fft/fast-fourier-transform.cpp
   isVerificationFile: false
   path: math/fps/formal-power-series.cpp
-  requiredBy:
-  - math/fps/stirling-second-kth-column.cpp
-  - math/fps/eulerian.cpp
+  requiredBy: []
   timestamp: '2021-07-02 22:57:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
