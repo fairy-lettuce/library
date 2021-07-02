@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-6-a-2.test.cpp
     title: test/verify/aoj-grl-6-a-2.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/ford-fulkerson.md
     document_title: "Ford-Fulkerson(\u6700\u5927\u6D41)"
@@ -60,7 +60,7 @@ data:
   path: graph/flow/ford-fulkerson.hpp
   requiredBy: []
   timestamp: '2021-07-01 02:53:34+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-6-a-2.test.cpp
 documentation_of: graph/flow/ford-fulkerson.hpp

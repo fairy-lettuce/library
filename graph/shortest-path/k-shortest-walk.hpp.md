@@ -6,12 +6,12 @@ data:
     title: graph/graph-template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-k-shortest-walk.test.cpp
     title: test/verify/yosupo-k-shortest-walk.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/k-shortest-walk.md
     document_title: K-Shortest-Walk
@@ -91,7 +91,7 @@ data:
   path: graph/shortest-path/k-shortest-walk.hpp
   requiredBy: []
   timestamp: '2021-07-01 02:53:34+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-k-shortest-walk.test.cpp
 documentation_of: graph/shortest-path/k-shortest-walk.hpp

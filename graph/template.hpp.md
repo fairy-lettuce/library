@@ -8,14 +8,14 @@ data:
   - icon: ':x:'
     path: graph/others/maximum-independent-set.hpp
     title: graph/others/maximum-independent-set.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/shortest-path/warshall-floyd.hpp
     title: graph/shortest-path/warshall-floyd.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2306.test.cpp
     title: test/verify/aoj-2306.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-c.test.cpp
     title: test/verify/aoj-grl-1-c.test.cpp
   - icon: ':x:'

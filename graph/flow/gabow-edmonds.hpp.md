@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-general-matching.test.cpp
     title: test/verify/yosupo-general-matching.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://qiita.com/Kutimoti_T/items/5b579773e0a24d650bdf
@@ -87,7 +87,7 @@ data:
   path: graph/flow/gabow-edmonds.hpp
   requiredBy: []
   timestamp: '2021-07-01 02:53:34+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-general-matching.test.cpp
 documentation_of: graph/flow/gabow-edmonds.hpp

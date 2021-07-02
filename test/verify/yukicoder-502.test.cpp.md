@@ -13,7 +13,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/sample-point-shift.cpp
     title: Sample-Point-Shift
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/arbitrary-mod-convolution.cpp
     title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   - icon: ':question:'

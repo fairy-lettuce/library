@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number-Theoretic-Transform-Friendly-Mod-Int
   - icon: ':heavy_check_mark:'

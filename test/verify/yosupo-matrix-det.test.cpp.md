@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/matrix/matrix.cpp
     title: math/matrix/matrix.cpp
   - icon: ':question:'

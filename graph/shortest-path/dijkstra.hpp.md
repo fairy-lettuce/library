@@ -12,7 +12,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-a.test.cpp
     title: test/verify/aoj-grl-1-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-k-shortest-walk.test.cpp
     title: test/verify/yosupo-k-shortest-walk.test.cpp
   - icon: ':x:'

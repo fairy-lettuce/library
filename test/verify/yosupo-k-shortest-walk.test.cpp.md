@@ -7,13 +7,13 @@ data:
   - icon: ':question:'
     path: graph/shortest-path/dijkstra.hpp
     title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/shortest-path/k-shortest-walk.hpp
     title: K-Shortest-Walk
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/heap/leftist-heap.cpp
     title: Leftist-Heap
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/heap/persistent-leftist-heap.cpp
     title: Persistent-Leftist-Heap
   - icon: ':question:'
@@ -21,9 +21,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/k_shortest_walk
@@ -153,7 +153,7 @@ data:
   path: test/verify/yosupo-k-shortest-walk.test.cpp
   requiredBy: []
   timestamp: '2021-07-01 02:53:34+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-k-shortest-walk.test.cpp
 layout: document

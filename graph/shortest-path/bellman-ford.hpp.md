@@ -9,12 +9,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-0304.test.cpp
     title: test/verify/aoj-0304.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-b.test.cpp
     title: test/verify/aoj-grl-1-b.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/bellman-ford.md
     document_title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
@@ -58,7 +58,7 @@ data:
   path: graph/shortest-path/bellman-ford.hpp
   requiredBy: []
   timestamp: '2021-07-01 02:53:34+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-1-b.test.cpp
   - test/verify/aoj-0304.test.cpp

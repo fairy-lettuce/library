@@ -6,12 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-alds-1-9-c.test.cpp
     title: test/verify/aoj-alds-1-9-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-k-shortest-walk.test.cpp
     title: test/verify/yosupo-k-shortest-walk.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Leftist-Heap
     links: []
@@ -46,7 +46,7 @@ data:
   path: structure/heap/leftist-heap.cpp
   requiredBy: []
   timestamp: '2020-08-21 01:30:35+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-k-shortest-walk.test.cpp
   - test/verify/aoj-alds-1-9-c.test.cpp

@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: graph/graph-template.hpp
     title: graph/graph-template.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/tree/tree-diameter.hpp
     title: "Tree-Diameter(\u6728\u306E\u76F4\u5F84)"
   - icon: ':question:'

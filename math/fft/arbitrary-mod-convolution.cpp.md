@@ -4,14 +4,42 @@ data:
   - icon: ':question:'
     path: math/fft/fast-fourier-transform.cpp
     title: math/fft/fast-fourier-transform.cpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: math/fps/eulerian.cpp
+    title: math/fps/eulerian.cpp
+  - icon: ':question:'
+    path: math/fps/formal-power-series.cpp
+    title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
+  - icon: ':x:'
+    path: math/fps/stirling-first.cpp
+    title: "Stirling-First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\
+      )"
+  - icon: ':warning:'
+    path: math/fps/stirling-second-kth-column.cpp
+    title: math/fps/stirling-second-kth-column.cpp
+  - icon: ':x:'
+    path: math/fps/stirling-second.cpp
+    title: math/fps/stirling-second.cpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-find-linear-recurrence.test.cpp
+    title: test/verify/yosupo-find-linear-recurrence.test.cpp
+  - icon: ':x:'
+    path: test/verify/yosupo-sparse-matrix-det.test.cpp
+    title: test/verify/yosupo-sparse-matrix-det.test.cpp
+  - icon: ':x:'
+    path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
+    title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
+  - icon: ':x:'
+    path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
+    title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-502.test.cpp
     title: test/verify/yukicoder-502.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
       )"
@@ -107,11 +135,20 @@ data:
   - math/fft/fast-fourier-transform.cpp
   isVerificationFile: false
   path: math/fft/arbitrary-mod-convolution.cpp
-  requiredBy: []
+  requiredBy:
+  - math/fps/stirling-second-kth-column.cpp
+  - math/fps/stirling-second.cpp
+  - math/fps/formal-power-series.cpp
+  - math/fps/eulerian.cpp
+  - math/fps/stirling-first.cpp
   timestamp: '2021-06-29 02:11:11+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/verify/yosupo-sparse-matrix-det.test.cpp
   - test/verify/yukicoder-502.test.cpp
+  - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
+  - test/verify/yosupo-find-linear-recurrence.test.cpp
+  - test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
 documentation_of: math/fft/arbitrary-mod-convolution.cpp
 layout: document
 redirect_from:

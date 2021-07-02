@@ -9,7 +9,7 @@ data:
     title: Union-Find
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-a-2.test.cpp
     title: test/verify/aoj-grl-2-a-2.test.cpp
   - icon: ':x:'
@@ -17,7 +17,7 @@ data:
     title: test/verify/yosupo-manhattanmst.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/kruskal.md
     document_title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
@@ -74,7 +74,7 @@ data:
   path: graph/mst/kruskal.hpp
   requiredBy: []
   timestamp: '2021-07-01 02:53:34+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-manhattanmst.test.cpp
   - test/verify/aoj-grl-2-a-2.test.cpp

@@ -9,7 +9,7 @@ data:
   - icon: ':x:'
     path: graph/connected-components/incremental-bridge-connectivity.hpp
     title: Incremental-Bridge-Connectivity
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/connected-components/strongly-connected-components.hpp
     title: "Strongly-Connected-Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
@@ -21,35 +21,35 @@ data:
     path: graph/connected-components/two-edge-connected-components.hpp
     title: "Two-Edge-Connected-Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/flow/bipartite-matching.hpp
     title: "Bipartite-Matching(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\
       \u30C3\u30C1\u30F3\u30B0)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/mst/directed-mst.hpp
     title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/mst/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':x:'
     path: graph/mst/manhattan-mst.hpp
     title: Manhattan-MST
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/mst/prim-fibonacchi-heap.hpp
     title: "Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/mst/prim.hpp
     title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':heavy_check_mark:'
     path: graph/others/block-cut-tree.hpp
     title: Block-Cut-Tree
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/cycle-detection.hpp
     title: "Cycle-Detection(\u9589\u8DEF\u691C\u51FA)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/dominator-tree.hpp
     title: Dominator-Tree
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/enumerate-triangles.hpp
     title: "Enumerate-Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)"
   - icon: ':question:'
@@ -69,7 +69,7 @@ data:
   - icon: ':x:'
     path: graph/others/two-satisfiability.hpp
     title: 2-SAT
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/shortest-path/bellman-ford.hpp
     title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
   - icon: ':heavy_check_mark:'
@@ -90,7 +90,7 @@ data:
   - icon: ':x:'
     path: graph/shortest-path/k-shortest-path.hpp
     title: K-Shortest-Path
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/shortest-path/k-shortest-walk.hpp
     title: K-Shortest-Walk
   - icon: ':heavy_check_mark:'
@@ -109,19 +109,19 @@ data:
   - icon: ':warning:'
     path: graph/tree/disjoint-set-union-on-tree.hpp
     title: Disjoint-Set-Union-On-Tree
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/tree/doubling-lowest-common-ancestor.hpp
     title: "Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':question:'
     path: graph/tree/heavy-light-decomposition.hpp
     title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/tree/pmormq-lowest-common-ancestor.hpp
     title: "PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/rmq-lowest-common-ancestor.hpp
     title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/tree/tree-diameter.hpp
     title: "Tree-Diameter(\u6728\u306E\u76F4\u5F84)"
   - icon: ':heavy_check_mark:'
@@ -167,67 +167,67 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-b-2.test.cpp
     title: test/verify/aoj-grl-1-b-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-b.test.cpp
     title: test/verify/aoj-grl-1-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-a-2.test.cpp
     title: test/verify/aoj-grl-2-a-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-a-4.test.cpp
     title: test/verify/aoj-grl-2-a-4.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-a.test.cpp
     title: test/verify/aoj-grl-2-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-b.test.cpp
     title: test/verify/aoj-grl-2-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-3-a.test.cpp
     title: test/verify/aoj-grl-3-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-3-b.test.cpp
     title: test/verify/aoj-grl-3-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-3-c.test.cpp
     title: test/verify/aoj-grl-3-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-a.test.cpp
     title: test/verify/aoj-grl-5-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c-2.test.cpp
     title: test/verify/aoj-grl-5-c-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c-3.test.cpp
     title: test/verify/aoj-grl-5-c-3.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c-4.test.cpp
     title: test/verify/aoj-grl-5-c-4.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c.test.cpp
     title: test/verify/aoj-grl-5-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-7-a.test.cpp
     title: test/verify/aoj-grl-7-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-cycle-detection.test.cpp
     title: test/verify/yosupo-cycle-detection.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-directedmst.test.cpp
     title: test/verify/yosupo-directedmst.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dominatortree.test.cpp
     title: test/verify/yosupo-dominatortree.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-enumerate-triangles.test.cpp
     title: test/verify/yosupo-enumerate-triangles.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
     title: test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-k-shortest-walk.test.cpp
     title: test/verify/yosupo-k-shortest-walk.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-lca-2.test.cpp
     title: test/verify/yosupo-lca-2.test.cpp
   - icon: ':x:'

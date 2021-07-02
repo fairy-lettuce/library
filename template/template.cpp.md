@@ -222,70 +222,70 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-b-2.test.cpp
     title: test/verify/aoj-grl-1-b-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-b.test.cpp
     title: test/verify/aoj-grl-1-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-c.test.cpp
     title: test/verify/aoj-grl-1-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-a-2.test.cpp
     title: test/verify/aoj-grl-2-a-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-a-3.test.cpp
     title: test/verify/aoj-grl-2-a-3.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-a-4.test.cpp
     title: test/verify/aoj-grl-2-a-4.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-a.test.cpp
     title: test/verify/aoj-grl-2-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-b.test.cpp
     title: test/verify/aoj-grl-2-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-3-a.test.cpp
     title: test/verify/aoj-grl-3-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-3-b.test.cpp
     title: test/verify/aoj-grl-3-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-3-c.test.cpp
     title: test/verify/aoj-grl-3-c.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-a-2.test.cpp
     title: test/verify/aoj-grl-5-a-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-a.test.cpp
     title: test/verify/aoj-grl-5-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c-2.test.cpp
     title: test/verify/aoj-grl-5-c-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c-3.test.cpp
     title: test/verify/aoj-grl-5-c-3.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c-4.test.cpp
     title: test/verify/aoj-grl-5-c-4.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-5-c.test.cpp
     title: test/verify/aoj-grl-5-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-6-a-2.test.cpp
     title: test/verify/aoj-grl-6-a-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-6-a-3.test.cpp
     title: test/verify/aoj-grl-6-a-3.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-6-a-4.test.cpp
     title: test/verify/aoj-grl-6-a-4.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-6-a.test.cpp
     title: test/verify/aoj-grl-6-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-6-b.test.cpp
     title: test/verify/aoj-grl-6-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-7-a.test.cpp
     title: test/verify/aoj-grl-7-a.test.cpp
   - icon: ':heavy_check_mark:'
@@ -300,19 +300,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-ntl-1-e.test.cpp
     title: test/verify/aoj-ntl-1-e.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-assignment.test.cpp
     title: test/verify/yosupo-assignment.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-bellnoulli-number.test.cpp
-    title: test/verify/yosupo-bellnoulli-number.test.cpp
-  - icon: ':x:'
     path: test/verify/yosupo-bipartite-edge-coloring.test.cpp
     title: test/verify/yosupo-bipartite-edge-coloring.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bipartitematching.test.cpp
     title: test/verify/yosupo-bipartitematching.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-cartesian-tree.test.cpp
     title: test/verify/yosupo-cartesian-tree.test.cpp
   - icon: ':heavy_check_mark:'
@@ -321,10 +318,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-counting-primes.test.cpp
     title: test/verify/yosupo-counting-primes.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-cycle-detection.test.cpp
     title: test/verify/yosupo-cycle-detection.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-directedmst.test.cpp
     title: test/verify/yosupo-directedmst.test.cpp
   - icon: ':heavy_check_mark:'
@@ -333,7 +330,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-division-of-polynomials.test.cpp
     title: test/verify/yosupo-division-of-polynomials.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dominatortree.test.cpp
     title: test/verify/yosupo-dominatortree.test.cpp
   - icon: ':heavy_check_mark:'
@@ -354,7 +351,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-enumerate-primes.test.cpp
     title: test/verify/yosupo-enumerate-primes.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-enumerate-triangles.test.cpp
     title: test/verify/yosupo-enumerate-triangles.test.cpp
   - icon: ':heavy_check_mark:'
@@ -366,22 +363,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-find-linear-recurrence.test.cpp
     title: test/verify/yosupo-find-linear-recurrence.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
     title: test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-general-matching.test.cpp
     title: test/verify/yosupo-general-matching.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
-    title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
-  - icon: ':x:'
     path: test/verify/yosupo-k-shortest-walk.test.cpp
     title: test/verify/yosupo-k-shortest-walk.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-kth-root-integer.test.cpp
     title: test/verify/yosupo-kth-root-integer.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-lca-2.test.cpp
     title: test/verify/yosupo-lca-2.test.cpp
   - icon: ':x:'
@@ -412,12 +406,6 @@ data:
     path: test/verify/yosupo-montmort-number-mod.test.cpp
     title: test/verify/yosupo-montmort-number-mod.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-multipoint-evaluation.test.cpp
-    title: test/verify/yosupo-multipoint-evaluation.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-partition-function.test.cpp
-    title: test/verify/yosupo-partition-function.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-persistent-unionfind.test.cpp
     title: test/verify/yosupo-persistent-unionfind.test.cpp
   - icon: ':heavy_check_mark:'
@@ -432,9 +420,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-point-set-range-composite.test.cpp
     title: test/verify/yosupo-point-set-range-composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-polynomial-interpolation.test.cpp
-    title: test/verify/yosupo-polynomial-interpolation.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
     title: test/verify/yosupo-polynomial-taylor-shift.test.cpp
@@ -477,7 +462,7 @@ data:
   - icon: ':x:'
     path: test/verify/yosupo-shortest-path.test.cpp
     title: test/verify/yosupo-shortest-path.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-sparse-matrix-det.test.cpp
     title: test/verify/yosupo-sparse-matrix-det.test.cpp
   - icon: ':heavy_check_mark:'
@@ -507,10 +492,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-staticrmq.test.cpp
     title: test/verify/yosupo-staticrmq.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   - icon: ':heavy_check_mark:'
@@ -642,7 +627,6 @@ data:
   verifiedWith:
   - test/verify/yosupo-k-shortest-walk.test.cpp
   - test/verify/yosupo-staticrmq-3.test.cpp
-  - test/verify/yosupo-multipoint-evaluation.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - test/verify/yosupo-two-sat.test.cpp
   - test/verify/yosupo-range-kth-smallest.test.cpp
@@ -674,7 +658,6 @@ data:
   - test/verify/aoj-3139.test.cpp
   - test/verify/aoj-grl-5-c.test.cpp
   - test/verify/aoj-2405.test.cpp
-  - test/verify/yosupo-polynomial-interpolation.test.cpp
   - test/verify/aoj-0294.test.cpp
   - test/verify/aoj-dsl-2-a.test.cpp
   - test/verify/aoj-cgl-7-h.test.cpp
@@ -728,7 +711,6 @@ data:
   - test/verify/yukicoder-705.test.cpp
   - test/verify/yosupo-two-edge-connected-components.test.cpp
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - test/verify/yosupo-partition-function.test.cpp
   - test/verify/yosupo-assignment.test.cpp
   - test/verify/yosupo-dominatortree.test.cpp
   - test/verify/yosupo-montmort-number-mod.test.cpp
@@ -736,7 +718,6 @@ data:
   - test/verify/yosupo-bipartitematching.test.cpp
   - test/verify/aoj-0304.test.cpp
   - test/verify/aoj-grl-2-a-3.test.cpp
-  - test/verify/yosupo-bellnoulli-number.test.cpp
   - test/verify/yosupo-three-edge-connected-components.test.cpp
   - test/verify/yukicoder-703.test.cpp
   - test/verify/aoj-ntl-1-e.test.cpp
@@ -780,7 +761,6 @@ data:
   - test/verify/yosupo-find-linear-recurrence.test.cpp
   - test/verify/yosupo-tree-decomposition-width-2.test.cpp
   - test/verify/aoj-grl-5-c-4.test.cpp
-  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
   - test/verify/yosupo-division-of-polynomials.test.cpp
   - test/verify/aoj-0275.test.cpp
   - test/verify/aoj-dsl-2-b.test.cpp
