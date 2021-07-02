@@ -8,7 +8,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: structure/trie/trie.cpp
     title: structure/trie/trie.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

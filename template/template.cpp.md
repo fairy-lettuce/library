@@ -373,6 +373,9 @@ data:
     path: test/verify/yosupo-general-matching.test.cpp
     title: test/verify/yosupo-general-matching.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
+    title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-k-shortest-walk.test.cpp
     title: test/verify/yosupo-k-shortest-walk.test.cpp
   - icon: ':heavy_check_mark:'
@@ -408,6 +411,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-montmort-number-mod.test.cpp
     title: test/verify/yosupo-montmort-number-mod.test.cpp
+  - icon: ':x:'
+    path: test/verify/yosupo-multipoint-evaluation.test.cpp
+    title: test/verify/yosupo-multipoint-evaluation.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-partition-function.test.cpp
     title: test/verify/yosupo-partition-function.test.cpp
@@ -426,6 +432,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-point-set-range-composite.test.cpp
     title: test/verify/yosupo-point-set-range-composite.test.cpp
+  - icon: ':x:'
+    path: test/verify/yosupo-polynomial-interpolation.test.cpp
+    title: test/verify/yosupo-polynomial-interpolation.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
     title: test/verify/yosupo-polynomial-taylor-shift.test.cpp
@@ -564,9 +573,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-952.test.cpp
     title: test/verify/yukicoder-952.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing\
@@ -629,10 +638,11 @@ data:
   path: template/template.cpp
   requiredBy: []
   timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-k-shortest-walk.test.cpp
   - test/verify/yosupo-staticrmq-3.test.cpp
+  - test/verify/yosupo-multipoint-evaluation.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - test/verify/yosupo-two-sat.test.cpp
   - test/verify/yosupo-range-kth-smallest.test.cpp
@@ -664,6 +674,7 @@ data:
   - test/verify/aoj-3139.test.cpp
   - test/verify/aoj-grl-5-c.test.cpp
   - test/verify/aoj-2405.test.cpp
+  - test/verify/yosupo-polynomial-interpolation.test.cpp
   - test/verify/aoj-0294.test.cpp
   - test/verify/aoj-dsl-2-a.test.cpp
   - test/verify/aoj-cgl-7-h.test.cpp
@@ -768,6 +779,7 @@ data:
   - test/verify/yosupo-find-linear-recurrence.test.cpp
   - test/verify/yosupo-tree-decomposition-width-2.test.cpp
   - test/verify/aoj-grl-5-c-4.test.cpp
+  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
   - test/verify/yosupo-division-of-polynomials.test.cpp
   - test/verify/aoj-0275.test.cpp
   - test/verify/aoj-dsl-2-b.test.cpp
