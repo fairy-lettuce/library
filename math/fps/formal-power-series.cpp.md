@@ -1,42 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fft/arbitrary-mod-convolution.cpp
     title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fft/fast-fourier-transform.cpp
     title: math/fft/fast-fourier-transform.cpp
   _extendedRequiredBy:
   - icon: ':warning:'
     path: math/fps/eulerian.cpp
     title: math/fps/eulerian.cpp
-  - icon: ':x:'
-    path: math/fps/stirling-first.cpp
-    title: "Stirling-First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\
-      )"
   - icon: ':warning:'
     path: math/fps/stirling-second-kth-column.cpp
     title: math/fps/stirling-second-kth-column.cpp
-  - icon: ':x:'
-    path: math/fps/stirling-second.cpp
-    title: math/fps/stirling-second.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-find-linear-recurrence.test.cpp
-    title: test/verify/yosupo-find-linear-recurrence.test.cpp
-  - icon: ':x:'
     path: test/verify/yosupo-sparse-matrix-det.test.cpp
     title: test/verify/yosupo-sparse-matrix-det.test.cpp
-  - icon: ':x:'
-    path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-    title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - icon: ':x:'
-    path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
-    title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links:
@@ -304,16 +288,11 @@ data:
   path: math/fps/formal-power-series.cpp
   requiredBy:
   - math/fps/stirling-second-kth-column.cpp
-  - math/fps/stirling-second.cpp
   - math/fps/eulerian.cpp
-  - math/fps/stirling-first.cpp
   timestamp: '2021-07-02 22:57:57+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-sparse-matrix-det.test.cpp
-  - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - test/verify/yosupo-find-linear-recurrence.test.cpp
-  - test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
 documentation_of: math/fps/formal-power-series.cpp
 layout: document
 redirect_from:

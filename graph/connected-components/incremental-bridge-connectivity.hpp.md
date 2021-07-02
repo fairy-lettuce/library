@@ -8,12 +8,12 @@ data:
     path: structure/union-find/union-find.cpp
     title: Union-Find
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/connected-components/three-edge-connected-components.hpp
     title: "Three-Edge-Connected-Components(\u4E09\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-three-edge-connected-components.test.cpp
     title: test/verify/yosupo-three-edge-connected-components.test.cpp
   - icon: ':x:'
@@ -21,7 +21,7 @@ data:
     title: test/verify/yosupo-two-edge-connected-components-2.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/incremental-bridge-connectivity.md
     document_title: Incremental-Bridge-Connectivity
@@ -105,7 +105,7 @@ data:
   requiredBy:
   - graph/connected-components/three-edge-connected-components.hpp
   timestamp: '2021-07-01 02:53:34+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-three-edge-connected-components.test.cpp
   - test/verify/yosupo-two-edge-connected-components-2.test.cpp

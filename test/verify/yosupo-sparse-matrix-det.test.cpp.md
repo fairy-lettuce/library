@@ -4,19 +4,19 @@ data:
   - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fft/arbitrary-mod-convolution.cpp
     title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fft/fast-fourier-transform.cpp
     title: math/fft/fast-fourier-transform.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/berlekamp-massey.cpp
-    title: math/fps/berlekamp-massey.cpp
-  - icon: ':question:'
+    title: Berlekamp-Massey
+  - icon: ':heavy_check_mark:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/sparse-matrix.cpp
     title: math/fps/sparse-matrix.cpp
   - icon: ':question:'
@@ -24,9 +24,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sparse_matrix_det
@@ -239,16 +239,17 @@ data:
     \ - 1];\n    p = (p * bs).pre(n);\n    p = p.rev();\n    for(int i = 0; i < n;\
     \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\n\ntemplate< typename Mint\
     \ >\nusing FPS = FormalPowerSeries< Mint >;\n#line 8 \"test/verify/yosupo-sparse-matrix-det.test.cpp\"\
-    \n\n#line 1 \"math/fps/berlekamp-massey.cpp\"\ntemplate< class T >\nFormalPowerSeries<\
-    \ T > berlekamp_massey(const FormalPowerSeries< T > &s) {\n  const int N = (int)\
-    \ s.size();\n  FormalPowerSeries< T > b = {T(-1)}, c = {T(-1)};\n  T y = T(1);\n\
-    \  for(int ed = 1; ed <= N; ed++) {\n    int l = int(c.size()), m = int(b.size());\n\
-    \    T x = 0;\n    for(int i = 0; i < l; i++) x += c[i] * s[ed - l + i];\n   \
-    \ b.emplace_back(0);\n    m++;\n    if(x == T(0)) continue;\n    T freq = x /\
-    \ y;\n    if(l < m) {\n      auto tmp = c;\n      c.insert(begin(c), m - l, T(0));\n\
-    \      for(int i = 0; i < m; i++) c[m - 1 - i] -= freq * b[m - 1 - i];\n     \
-    \ b = tmp;\n      y = x;\n    } else {\n      for(int i = 0; i < m; i++) c[l -\
-    \ 1 - i] -= freq * b[m - 1 - i];\n    }\n  }\n  return c;\n}\n#line 1 \"math/fps/sparse-matrix.cpp\"\
+    \n\n#line 1 \"math/fps/berlekamp-massey.cpp\"\n/**\n * @brief Berlekamp-Massey\n\
+    \ */\ntemplate< template< typename > class FPS, typename Mint >\nFPS< Mint > berlekamp_massey(const\
+    \ FPS< Mint > &s) {\n  const int N = (int) s.size();\n  FPS< Mint > b = {Mint(-1)},\
+    \ c = {Mint(-1)};\n  Mint y = Mint(1);\n  for(int ed = 1; ed <= N; ed++) {\n \
+    \   int l = int(c.size()), m = int(b.size());\n    Mint x = 0;\n    for(int i\
+    \ = 0; i < l; i++) x += c[i] * s[ed - l + i];\n    b.emplace_back(0);\n    m++;\n\
+    \    if(x == Mint(0)) continue;\n    Mint freq = x / y;\n    if(l < m) {\n   \
+    \   auto tmp = c;\n      c.insert(begin(c), m - l, Mint(0));\n      for(int i\
+    \ = 0; i < m; i++) c[m - 1 - i] -= freq * b[m - 1 - i];\n      b = tmp;\n    \
+    \  y = x;\n    } else {\n      for(int i = 0; i < m; i++) c[l - 1 - i] -= freq\
+    \ * b[m - 1 - i];\n    }\n  }\n  return c;\n}\n#line 1 \"math/fps/sparse-matrix.cpp\"\
     \ntemplate< typename T >\nusing FPSGraph = vector< vector< pair< int, T > > >;\n\
     \ntemplate< typename T >\nFormalPowerSeries< T > random_poly(int n) {\n  mt19937\
     \ mt(1333333);\n  FormalPowerSeries< T > res(n);\n  uniform_int_distribution<\
@@ -296,8 +297,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-sparse-matrix-det.test.cpp
   requiredBy: []
-  timestamp: '2021-07-02 22:57:57+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-07-02 23:41:25+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-sparse-matrix-det.test.cpp
 layout: document

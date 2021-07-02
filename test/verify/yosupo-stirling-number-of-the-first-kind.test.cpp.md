@@ -4,19 +4,14 @@ data:
   - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':question:'
-    path: math/fft/arbitrary-mod-convolution.cpp
-    title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':question:'
-    path: math/fft/fast-fourier-transform.cpp
-    title: math/fft/fast-fourier-transform.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number-Theoretic-Transform-Friendly-Mod-Int
-  - icon: ':question:'
-    path: math/fps/formal-power-series.cpp
-    title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
+    path: math/fps/formal-power-series-friendly-ntt.cpp
+    title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
+      \u6570)"
+  - icon: ':heavy_check_mark:'
     path: math/fps/stirling-first.cpp
     title: "Stirling-First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\
       )"
@@ -25,9 +20,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind
@@ -118,74 +113,14 @@ data:
     \ >::dw = vector< Mint >();\ntemplate< typename Mint >\nvector< Mint > NumberTheoreticTransformFriendlyModInt<\
     \ Mint >::idw = vector< Mint >();\ntemplate< typename Mint >\nint NumberTheoreticTransformFriendlyModInt<\
     \ Mint >::max_base = 0;\ntemplate< typename Mint >\nMint NumberTheoreticTransformFriendlyModInt<\
-    \ Mint >::root = Mint();\n#line 7 \"test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp\"\
-    \n\n#line 1 \"math/fft/fast-fourier-transform.cpp\"\nnamespace FastFourierTransform\
-    \ {\n  using real = double;\n\n  struct C {\n    real x, y;\n\n    C() : x(0),\
-    \ y(0) {}\n\n    C(real x, real y) : x(x), y(y) {}\n\n    inline C operator+(const\
-    \ C &c) const { return C(x + c.x, y + c.y); }\n\n    inline C operator-(const\
-    \ C &c) const { return C(x - c.x, y - c.y); }\n\n    inline C operator*(const\
-    \ C &c) const { return C(x * c.x - y * c.y, x * c.y + y * c.x); }\n\n    inline\
-    \ C conj() const { return C(x, -y); }\n  };\n\n  const real PI = acosl(-1);\n\
-    \  int base = 1;\n  vector< C > rts = { {0, 0},\n                     {1, 0} };\n\
-    \  vector< int > rev = {0, 1};\n\n\n  void ensure_base(int nbase) {\n    if(nbase\
-    \ <= base) return;\n    rev.resize(1 << nbase);\n    rts.resize(1 << nbase);\n\
-    \    for(int i = 0; i < (1 << nbase); i++) {\n      rev[i] = (rev[i >> 1] >> 1)\
-    \ + ((i & 1) << (nbase - 1));\n    }\n    while(base < nbase) {\n      real angle\
-    \ = PI * 2.0 / (1 << (base + 1));\n      for(int i = 1 << (base - 1); i < (1 <<\
-    \ base); i++) {\n        rts[i << 1] = rts[i];\n        real angle_i = angle *\
-    \ (2 * i + 1 - (1 << base));\n        rts[(i << 1) + 1] = C(cos(angle_i), sin(angle_i));\n\
-    \      }\n      ++base;\n    }\n  }\n\n  void fft(vector< C > &a, int n) {\n \
-    \   assert((n & (n - 1)) == 0);\n    int zeros = __builtin_ctz(n);\n    ensure_base(zeros);\n\
-    \    int shift = base - zeros;\n    for(int i = 0; i < n; i++) {\n      if(i <\
-    \ (rev[i] >> shift)) {\n        swap(a[i], a[rev[i] >> shift]);\n      }\n   \
-    \ }\n    for(int k = 1; k < n; k <<= 1) {\n      for(int i = 0; i < n; i += 2\
-    \ * k) {\n        for(int j = 0; j < k; j++) {\n          C z = a[i + j + k] *\
-    \ rts[j + k];\n          a[i + j + k] = a[i + j] - z;\n          a[i + j] = a[i\
-    \ + j] + z;\n        }\n      }\n    }\n  }\n\n  vector< int64_t > multiply(const\
-    \ vector< int > &a, const vector< int > &b) {\n    int need = (int) a.size() +\
-    \ (int) b.size() - 1;\n    int nbase = 1;\n    while((1 << nbase) < need) nbase++;\n\
-    \    ensure_base(nbase);\n    int sz = 1 << nbase;\n    vector< C > fa(sz);\n\
-    \    for(int i = 0; i < sz; i++) {\n      int x = (i < (int) a.size() ? a[i] :\
-    \ 0);\n      int y = (i < (int) b.size() ? b[i] : 0);\n      fa[i] = C(x, y);\n\
-    \    }\n    fft(fa, sz);\n    C r(0, -0.25 / (sz >> 1)), s(0, 1), t(0.5, 0);\n\
-    \    for(int i = 0; i <= (sz >> 1); i++) {\n      int j = (sz - i) & (sz - 1);\n\
-    \      C z = (fa[j] * fa[j] - (fa[i] * fa[i]).conj()) * r;\n      fa[j] = (fa[i]\
-    \ * fa[i] - (fa[j] * fa[j]).conj()) * r;\n      fa[i] = z;\n    }\n    for(int\
-    \ i = 0; i < (sz >> 1); i++) {\n      C A0 = (fa[i] + fa[i + (sz >> 1)]) * t;\n\
-    \      C A1 = (fa[i] - fa[i + (sz >> 1)]) * t * rts[(sz >> 1) + i];\n      fa[i]\
-    \ = A0 + A1 * s;\n    }\n    fft(fa, sz >> 1);\n    vector< int64_t > ret(need);\n\
-    \    for(int i = 0; i < need; i++) {\n      ret[i] = llround(i & 1 ? fa[i >> 1].y\
-    \ : fa[i >> 1].x);\n    }\n    return ret;\n  }\n};\n#line 2 \"math/fft/arbitrary-mod-convolution.cpp\"\
-    \n\n/*\n * @brief Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
-    )\n */\ntemplate< typename T >\nstruct ArbitraryModConvolution {\n  using real\
-    \ = FastFourierTransform::real;\n  using C = FastFourierTransform::C;\n\n  ArbitraryModConvolution()\
-    \ = default;\n\n  vector< T > multiply(const vector< T > &a, const vector< T >\
-    \ &b, int need = -1) {\n    if(need == -1) need = a.size() + b.size() - 1;\n \
-    \   int nbase = 0;\n    while((1 << nbase) < need) nbase++;\n    FastFourierTransform::ensure_base(nbase);\n\
-    \    int sz = 1 << nbase;\n    vector< C > fa(sz);\n    for(int i = 0; i < a.size();\
-    \ i++) {\n      fa[i] = C(a[i].x & ((1 << 15) - 1), a[i].x >> 15);\n    }\n  \
-    \  fft(fa, sz);\n    vector< C > fb(sz);\n    if(a == b) {\n      fb = fa;\n \
-    \   } else {\n      for(int i = 0; i < b.size(); i++) {\n        fb[i] = C(b[i].x\
-    \ & ((1 << 15) - 1), b[i].x >> 15);\n      }\n      fft(fb, sz);\n    }\n    real\
-    \ ratio = 0.25 / sz;\n    C r2(0, -1), r3(ratio, 0), r4(0, -ratio), r5(0, 1);\n\
-    \    for(int i = 0; i <= (sz >> 1); i++) {\n      int j = (sz - i) & (sz - 1);\n\
-    \      C a1 = (fa[i] + fa[j].conj());\n      C a2 = (fa[i] - fa[j].conj()) * r2;\n\
-    \      C b1 = (fb[i] + fb[j].conj()) * r3;\n      C b2 = (fb[i] - fb[j].conj())\
-    \ * r4;\n      if(i != j) {\n        C c1 = (fa[j] + fa[i].conj());\n        C\
-    \ c2 = (fa[j] - fa[i].conj()) * r2;\n        C d1 = (fb[j] + fb[i].conj()) * r3;\n\
-    \        C d2 = (fb[j] - fb[i].conj()) * r4;\n        fa[i] = c1 * d1 + c2 * d2\
-    \ * r5;\n        fb[i] = c1 * d2 + c2 * d1;\n      }\n      fa[j] = a1 * b1 +\
-    \ a2 * b2 * r5;\n      fb[j] = a1 * b2 + a2 * b1;\n    }\n    fft(fa, sz);\n \
-    \   fft(fb, sz);\n    vector< T > ret(need);\n    for(int i = 0; i < need; i++)\
-    \ {\n      int64_t aa = llround(fa[i].x);\n      int64_t bb = llround(fb[i].x);\n\
-    \      int64_t cc = llround(fa[i].y);\n      aa = T(aa).x, bb = T(bb).x, cc =\
-    \ T(cc).x;\n      ret[i] = aa + (bb << 15) + (cc << 30);\n    }\n    return ret;\n\
-    \  }\n};\n#line 2 \"math/fps/formal-power-series.cpp\"\n\n/**\n * @brief Formal-Power-Series(\u5F62\
-    \u5F0F\u7684\u51AA\u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeries\
-    \ : vector< T > {\n  using vector< T >::vector;\n  using P = FormalPowerSeries;\n\
-    \  using Conv = ArbitraryModConvolution< T >;\n\n  P pre(int deg) const {\n  \
-    \  return P(begin(*this), begin(*this) + min((int) this->size(), deg));\n  }\n\
-    \n  P rev(int deg = -1) const {\n    P ret(*this);\n    if(deg != -1) ret.resize(deg,\
+    \ Mint >::root = Mint();\n#line 2 \"math/fps/formal-power-series-friendly-ntt.cpp\"\
+    \n\n/**\n * @brief Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
+    \u51AA\u7D1A\u6570)\n * @docs docs/formal-power-series-friendly-ntt.md\n */\n\
+    template< typename T >\nstruct FormalPowerSeriesFriendlyNTT : vector< T > {\n\
+    \  using vector< T >::vector;\n  using P = FormalPowerSeriesFriendlyNTT;\n  using\
+    \ NTT = NumberTheoreticTransformFriendlyModInt< T >;\n\n  P pre(int deg) const\
+    \ {\n    return P(begin(*this), begin(*this) + min((int) this->size(), deg));\n\
+    \  }\n\n  P rev(int deg = -1) const {\n    P ret(*this);\n    if(deg != -1) ret.resize(deg,\
     \ T(0));\n    reverse(begin(ret), end(ret));\n    return ret;\n  }\n\n  void shrink()\
     \ {\n    while(this->size() && this->back() == T(0)) this->pop_back();\n  }\n\n\
     \  P operator+(const P &r) const { return P(*this) += r; }\n\n  P operator+(const\
@@ -200,10 +135,10 @@ data:
     \    for(int i = 0; i < r.size(); i++) (*this)[i] -= r[i];\n    return *this;\n\
     \  }\n\n  // https://judge.yosupo.jp/problem/convolution_mod\n  P &operator*=(const\
     \ P &r) {\n    if(this->empty() || r.empty()) {\n      this->clear();\n      return\
-    \ *this;\n    }\n    auto ret = Conv::multiply(*this, r);\n    return *this =\
-    \ {begin(ret), end(ret)};\n  }\n\n  P &operator/=(const P &r) {\n    if(this->size()\
-    \ < r.size()) {\n      this->clear();\n      return *this;\n    }\n    int n =\
-    \ this->size() - r.size() + 1;\n    return *this = (rev().pre(n) * r.rev().inv(n)).pre(n).rev(n);\n\
+    \ *this;\n    }\n    auto ret = NTT::multiply(*this, r);\n    return *this = {begin(ret),\
+    \ end(ret)};\n  }\n\n  P &operator/=(const P &r) {\n    if(this->size() < r.size())\
+    \ {\n      this->clear();\n      return *this;\n    }\n    int n = this->size()\
+    \ - r.size() + 1;\n    return *this = (rev().pre(n) * r.rev().inv(n)).pre(n).rev(n);\n\
     \  }\n\n  P &operator%=(const P &r) {\n    return *this -= *this / r * r;\n  }\n\
     \n  // https://judge.yosupo.jp/problem/division_of_polynomials\n  pair< P, P >\
     \ div_mod(const P &r) {\n    P q = *this / r;\n    return make_pair(q, *this -\
@@ -227,18 +162,22 @@ data:
     \ n; i++) ret[i + 1] = (*this)[i] / T(i + 1);\n    return ret;\n  }\n\n  // https://judge.yosupo.jp/problem/inv_of_formal_power_series\n\
     \  // F(0) must not be 0\n  P inv(int deg = -1) const {\n    assert(((*this)[0])\
     \ != T(0));\n    const int n = (int) this->size();\n    if(deg == -1) deg = n;\n\
-    \    P ret({T(1) / (*this)[0]});\n    for(int i = 1; i < deg; i <<= 1) {\n   \
-    \   ret = (ret + ret - ret * ret * pre(i << 1)).pre(i << 1);\n    }\n    return\
-    \ ret.pre(deg);\n  }\n\n  // https://judge.yosupo.jp/problem/log_of_formal_power_series\n\
-    \  // F(0) must be 1\n  P log(int deg = -1) const {\n    assert((*this)[0] ==\
-    \ T(1));\n    const int n = (int) this->size();\n    if(deg == -1) deg = n;\n\
-    \    return (this->diff() * this->inv(deg)).pre(deg - 1).integral();\n  }\n\n\
-    \  // https://judge.yosupo.jp/problem/sqrt_of_formal_power_series\n  P sqrt(int\
-    \ deg = -1, const function< T(T) > &get_sqrt = [](T) { return T(1); }) const {\n\
-    \    const int n = (int) this->size();\n    if(deg == -1) deg = n;\n    if((*this)[0]\
-    \ == T(0)) {\n      for(int i = 1; i < n; i++) {\n        if((*this)[i] != T(0))\
-    \ {\n          if(i & 1) return {};\n          if(deg - i / 2 <= 0) break;\n \
-    \         auto ret = (*this >> i).sqrt(deg - i / 2, get_sqrt);\n          if(ret.empty())\
+    \    P res(deg);\n    res[0] = {T(1) / (*this)[0]};\n    for(int d = 1; d < deg;\
+    \ d <<= 1) {\n      P f(2 * d), g(2 * d);\n      for(int j = 0; j < min(n, 2 *\
+    \ d); j++) f[j] = (*this)[j];\n      for(int j = 0; j < d; j++) g[j] = res[j];\n\
+    \      NTT::ntt(f);\n      NTT::ntt(g);\n      f = f.dot(g);\n      NTT::intt(f);\n\
+    \      for(int j = 0; j < d; j++) f[j] = 0;\n      NTT::ntt(f);\n      for(int\
+    \ j = 0; j < 2 * d; j++) f[j] *= g[j];\n      NTT::intt(f);\n      for(int j =\
+    \ d; j < min(2 * d, deg); j++) res[j] = -f[j];\n    }\n    return res;\n  }\n\n\
+    \  // https://judge.yosupo.jp/problem/log_of_formal_power_series\n  // F(0) must\
+    \ be 1\n  P log(int deg = -1) const {\n    assert((*this)[0] == T(1));\n    const\
+    \ int n = (int) this->size();\n    if(deg == -1) deg = n;\n    return (this->diff()\
+    \ * this->inv(deg)).pre(deg - 1).integral();\n  }\n\n  // https://judge.yosupo.jp/problem/sqrt_of_formal_power_series\n\
+    \  P sqrt(int deg = -1, const function< T(T) > &get_sqrt = [](T) { return T(1);\
+    \ }) const {\n    const int n = (int) this->size();\n    if(deg == -1) deg = n;\n\
+    \    if((*this)[0] == T(0)) {\n      for(int i = 1; i < n; i++) {\n        if((*this)[i]\
+    \ != T(0)) {\n          if(i & 1) return {};\n          if(deg - i / 2 <= 0) break;\n\
+    \          auto ret = (*this >> i).sqrt(deg - i / 2, get_sqrt);\n          if(ret.empty())\
     \ return {};\n          ret = ret << (i / 2);\n          if(ret.size() < deg)\
     \ ret.resize(deg, T(0));\n          return ret;\n        }\n      }\n      return\
     \ P(deg, 0);\n    }\n    auto sqr = T(get_sqrt((*this)[0]));\n    if(sqr * sqr\
@@ -248,10 +187,32 @@ data:
     \ > &get_sqrt, int deg = -1) const {\n    return sqrt(deg, get_sqrt);\n  }\n\n\
     \  // https://judge.yosupo.jp/problem/exp_of_formal_power_series\n  // F(0) must\
     \ be 0\n  P exp(int deg = -1) const {\n    if(deg == -1) deg = this->size();\n\
-    \    assert((*this)[0] == T(0));\n    const int n = (int) this->size();\n    if(deg\
-    \ == -1) deg = n;\n    P ret({T(1)});\n    for(int i = 1; i < deg; i <<= 1) {\n\
-    \      ret = (ret * (pre(i << 1) + T(1) - ret.log(i << 1))).pre(i << 1);\n   \
-    \ }\n    return ret.pre(deg);\n  }\n\n  // https://judge.yosupo.jp/problem/pow_of_formal_power_series\n\
+    \    assert((*this)[0] == T(0));\n\n    P inv;\n    inv.reserve(deg + 1);\n  \
+    \  inv.push_back(T(0));\n    inv.push_back(T(1));\n\n    auto inplace_integral\
+    \ = [&](P &F) -> void {\n      const int n = (int) F.size();\n      auto mod =\
+    \ T::get_mod();\n      while((int) inv.size() <= n) {\n        int i = inv.size();\n\
+    \        inv.push_back((-inv[mod % i]) * (mod / i));\n      }\n      F.insert(begin(F),\
+    \ T(0));\n      for(int i = 1; i <= n; i++) F[i] *= inv[i];\n    };\n\n    auto\
+    \ inplace_diff = [](P &F) -> void {\n      if(F.empty()) return;\n      F.erase(begin(F));\n\
+    \      T coeff = 1, one = 1;\n      for(int i = 0; i < (int) F.size(); i++) {\n\
+    \        F[i] *= coeff;\n        coeff += one;\n      }\n    };\n\n    P b{1,\
+    \ 1 < (int) this->size() ? (*this)[1] : 0}, c{1}, z1, z2{1, 1};\n    for(int m\
+    \ = 2; m < deg; m *= 2) {\n      auto y = b;\n      y.resize(2 * m);\n      NTT::ntt(y);\n\
+    \      z1 = z2;\n      P z(m);\n      for(int i = 0; i < m; ++i) z[i] = y[i] *\
+    \ z1[i];\n      NTT::intt(z);\n      fill(begin(z), begin(z) + m / 2, T(0));\n\
+    \      NTT::ntt(z);\n      for(int i = 0; i < m; ++i) z[i] *= -z1[i];\n      NTT::intt(z);\n\
+    \      c.insert(end(c), begin(z) + m / 2, end(z));\n      z2 = c;\n      z2.resize(2\
+    \ * m);\n      NTT::ntt(z2);\n      P x(begin(*this), begin(*this) + min< int\
+    \ >(this->size(), m));\n      inplace_diff(x);\n      x.push_back(T(0));\n   \
+    \   NTT::ntt(x);\n      for(int i = 0; i < m; ++i) x[i] *= y[i];\n      NTT::intt(x);\n\
+    \      x -= b.diff();\n      x.resize(2 * m);\n      for(int i = 0; i < m - 1;\
+    \ ++i) x[m + i] = x[i], x[i] = T(0);\n      NTT::ntt(x);\n      for(int i = 0;\
+    \ i < 2 * m; ++i) x[i] *= z2[i];\n      NTT::intt(x);\n      x.pop_back();\n \
+    \     inplace_integral(x);\n      for(int i = m; i < min< int >(this->size(),\
+    \ 2 * m); ++i) x[i] += (*this)[i];\n      fill(begin(x), begin(x) + m, T(0));\n\
+    \      NTT::ntt(x);\n      for(int i = 0; i < 2 * m; ++i) x[i] *= y[i];\n    \
+    \  NTT::intt(x);\n      b.insert(end(b), begin(x) + m, end(x));\n    }\n    return\
+    \ P{begin(b), begin(b) + deg};\n  }\n\n  // https://judge.yosupo.jp/problem/pow_of_formal_power_series\n\
     \  P pow(int64_t k, int deg = -1) const {\n    const int n = (int) this->size();\n\
     \    if(deg == -1) deg = n;\n    for(int i = 0; i < n; i++) {\n      if((*this)[i]\
     \ != T(0)) {\n        T rev = T(1) / (*this)[i];\n        P ret = (((*this * rev)\
@@ -273,49 +234,42 @@ data:
     \ T(1));\n    for(int i = 1; i < n; i++) bs[i] = bs[i - 1] * c * rfact[i] * fact[i\
     \ - 1];\n    p = (p * bs).pre(n);\n    p = p.rev();\n    for(int i = 0; i < n;\
     \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\n\ntemplate< typename Mint\
-    \ >\nusing FPS = FormalPowerSeries< Mint >;\n#line 2 \"math/fps/stirling-first.cpp\"\
-    \n\n/**\n * @brief Stirling-First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\
-    \u30B0\u6570)\n */\ntemplate< typename T >\nFormalPowerSeries< T > stirling_first(int\
-    \ N) {\n  if(N == 0) return {1};\n  int M = 1;\n  vector< T > fact(N + 1), rfact(N\
-    \ + 1);\n  fact[0] = rfact[N] = T(1);\n  for(int i = 1; i <= N; i++) fact[i] =\
-    \ fact[i - 1] * i;\n  rfact[N] /= fact[N];\n  for(int i = N - 1; i >= 0; i--)\
-    \ rfact[i] = rfact[i + 1] * (i + 1);\n  FormalPowerSeries< T > ret({T(0), T(1)});\n\
-    \  for(int k = 30 - __builtin_clz(N); k >= 0; k--) {\n    FormalPowerSeries< T\
-    \ > as(M + 1), bs(M + 1);\n    for(int i = 0; i <= M; i++) as[i] = ret[i] * fact[i];\n\
-    \    bs[M] = T(1);\n    for(int i = 1; i <= M; i++) bs[M - i] = bs[M - (i - 1)]\
-    \ * -T(M);\n    for(int i = 0; i <= M; i++) bs[M - i] *= rfact[i];\n    auto cs\
-    \ = as * bs;\n    FormalPowerSeries< T > ds(M + 1);\n    for(int i = 0; i <= M;\
-    \ i++) ds[i] = rfact[i] * cs[M + i];\n    ret *= ds;\n    M <<= 1;\n    if((N\
-    \ >> k) & 1) {\n      FormalPowerSeries< T > ts(M + 1 + 1, T(0));\n      for(int\
-    \ i = 0; i <= M; i++) {\n        ts[i + 0] += ret[i] * -T(M);\n        ts[i +\
-    \ 1] += ret[i];\n      }\n      ret = ts;\n      M |= 1;\n    }\n  }\n  return\
-    \ ret;\n}\n#line 9 \"test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp\"\
+    \ >\nusing FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 1 \"math/fps/stirling-first.cpp\"\
+    \n/**\n * @brief Stirling-First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\
+    \u30B0\u6570)\n */\ntemplate< template< typename > class FPS, typename Mint >\n\
+    FPS< Mint > stirling_first(int N) {\n  if(N == 0) return {Mint(1)};\n  int M =\
+    \ 1;\n  vector< Mint > fact(N + 1), rfact(N + 1);\n  fact[0] = rfact[N] = Mint(1);\n\
+    \  for(int i = 1; i <= N; i++) fact[i] = fact[i - 1] * i;\n  rfact[N] /= fact[N];\n\
+    \  for(int i = N - 1; i >= 0; i--) rfact[i] = rfact[i + 1] * (i + 1);\n  FPS<\
+    \ Mint > ret({Mint(0), Mint(1)});\n  for(int k = 30 - __builtin_clz(N); k >= 0;\
+    \ k--) {\n    FPS< Mint > as(M + 1), bs(M + 1);\n    for(int i = 0; i <= M; i++)\
+    \ as[i] = ret[i] * fact[i];\n    bs[M] = Mint(1);\n    for(int i = 1; i <= M;\
+    \ i++) bs[M - i] = bs[M - (i - 1)] * Mint(-M);\n    for(int i = 0; i <= M; i++)\
+    \ bs[M - i] *= rfact[i];\n    auto cs = as * bs;\n    FPS< Mint > ds(M + 1);\n\
+    \    for(int i = 0; i <= M; i++) ds[i] = rfact[i] * cs[M + i];\n    ret *= ds;\n\
+    \    M <<= 1;\n    if((N >> k) & 1) {\n      FPS< Mint > ts(M + 1 + 1, Mint(0));\n\
+    \      for(int i = 0; i <= M; i++) {\n        ts[i + 0] -= ret[i] * Mint(M);\n\
+    \        ts[i + 1] += ret[i];\n      }\n      ret = ts;\n      M |= 1;\n    }\n\
+    \  }\n  return ret;\n}\n#line 8 \"test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp\"\
     \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
-    \  NumberTheoreticTransformFriendlyModInt< mint > ntt;\n  using FPS = FormalPowerSeries<\
-    \ mint >;\n  FPS::set_fft([&](FPS &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a);\
-    \ });\n\n  int N;\n  cin >> N;\n  cout << stirling_first< mint >(N) << endl;\n\
-    }\n"
+    \  int N;\n  cin >> N;\n  cout << stirling_first< FPS, mint >(N) << endl;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../math/combinatorics/mod-int.cpp\"\
-    \n#include \"../../math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\n\
-    \n#include \"../../math/fps/stirling-first.cpp\"\n\nconst int MOD = 998244353;\n\
-    using mint = ModInt< MOD >;\n\nint main() {\n  NumberTheoreticTransformFriendlyModInt<\
-    \ mint > ntt;\n  using FPS = FormalPowerSeries< mint >;\n  FPS::set_fft([&](FPS\
-    \ &a) { ntt.ntt(a); }, [&](FPS &a) { ntt.intt(a); });\n\n  int N;\n  cin >> N;\n\
-    \  cout << stirling_first< mint >(N) << endl;\n}\n"
+    \n#include \"../../math/fps/formal-power-series-friendly-ntt.cpp\"\n#include \"\
+    ../../math/fps/stirling-first.cpp\"\n\nconst int MOD = 998244353;\nusing mint\
+    \ = ModInt< MOD >;\n\nint main() {\n  int N;\n  cin >> N;\n  cout << stirling_first<\
+    \ FPS, mint >(N) << endl;\n}\n"
   dependsOn:
   - template/template.cpp
   - math/combinatorics/mod-int.cpp
+  - math/fps/formal-power-series-friendly-ntt.cpp
   - math/fft/number-theoretic-transform-friendly-mod-int.cpp
   - math/fps/stirling-first.cpp
-  - math/fps/formal-power-series.cpp
-  - math/fft/arbitrary-mod-convolution.cpp
-  - math/fft/fast-fourier-transform.cpp
   isVerificationFile: true
   path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
   requiredBy: []
-  timestamp: '2021-07-02 22:57:57+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-07-02 23:41:25+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
 layout: document

@@ -14,6 +14,9 @@ data:
     path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
     title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-find-linear-recurrence.test.cpp
+    title: test/verify/yosupo-find-linear-recurrence.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-log-of-formal-power-series.test.cpp
     title: test/verify/yosupo-log-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -28,15 +31,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Number-Theoretic-Transform-Friendly-Mod-Int
     links: []
@@ -115,7 +118,7 @@ data:
   requiredBy:
   - math/fps/formal-power-series-friendly-ntt.cpp
   timestamp: '2021-06-23 17:44:06+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - test/verify/yosupo-polynomial-taylor-shift.test.cpp
@@ -124,6 +127,7 @@ data:
   - test/verify/yosupo-log-of-formal-power-series.test.cpp
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
   - test/verify/yosupo-sharp-p-subset-sum.test.cpp
+  - test/verify/yosupo-find-linear-recurrence.test.cpp
   - test/verify/yosupo-division-of-polynomials.test.cpp
   - test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
 documentation_of: math/fft/number-theoretic-transform-friendly-mod-int.cpp

@@ -13,10 +13,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/sample-point-shift.cpp
     title: Sample-Point-Shift
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fft/arbitrary-mod-convolution.cpp
     title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fft/fast-fourier-transform.cpp
     title: math/fft/fast-fourier-transform.cpp
   - icon: ':question:'

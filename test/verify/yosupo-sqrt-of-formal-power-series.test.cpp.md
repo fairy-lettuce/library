@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-sqrt.cpp
     title: math/combinatorics/mod-sqrt.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number-Theoretic-Transform-Friendly-Mod-Int
   - icon: ':heavy_check_mark:'

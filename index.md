@@ -170,14 +170,14 @@ data:
       path: graph/connected-components/bi-connected-components.hpp
       title: "Bi-Connected-Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\
         \u5206\u89E3)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/connected-components/incremental-bridge-connectivity.hpp
       title: Incremental-Bridge-Connectivity
     - icon: ':question:'
       path: graph/connected-components/strongly-connected-components.hpp
       title: "Strongly-Connected-Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
         )"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/connected-components/three-edge-connected-components.hpp
       title: "Three-Edge-Connected-Components(\u4E09\u91CD\u8FBA\u9023\u7D50\u6210\
         \u5206\u5206\u89E3)"
@@ -225,7 +225,7 @@ data:
     - icon: ':question:'
       path: graph/graph-template.hpp
       title: graph/graph-template.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/template.hpp
       title: graph/template.hpp
   - name: graph/mst
@@ -236,10 +236,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/mst/directed-mst.hpp
       title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/mst/kruskal.hpp
       title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/mst/manhattan-mst.hpp
       title: Manhattan-MST
     - icon: ':heavy_check_mark:'
@@ -257,7 +257,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/others/block-cut-tree.hpp
       title: Block-Cut-Tree
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/cartesian-tree.hpp
       title: Cartesian-Tree
     - icon: ':heavy_check_mark:'
@@ -281,10 +281,10 @@ data:
     - icon: ':question:'
       path: graph/others/low-link.hpp
       title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/maximum-clique.hpp
       title: "Maximum-Clique(\u6700\u5927\u30AF\u30EA\u30FC\u30AF)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/maximum-independent-set.hpp
       title: graph/others/maximum-independent-set.hpp
     - icon: ':x:'
@@ -298,7 +298,7 @@ data:
       path: graph/others/topological-sort.hpp
       title: "Topological-Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
         )"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/tree-decomposition.hpp
       title: "Tree-Decomposition(\u6728\u5206\u89E3)"
     - icon: ':x:'
@@ -321,7 +321,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/shortest-path/dijkstra-radix-heap.hpp
       title: "Dijkstra-Radix-Heap(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/shortest-path/dijkstra.hpp
       title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
     - icon: ':warning:'
@@ -354,14 +354,14 @@ data:
     - icon: ':warning:'
       path: graph/tree/disjoint-set-union-on-tree.hpp
       title: Disjoint-Set-Union-On-Tree
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/doubling-lowest-common-ancestor.hpp
       title: "Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
         )"
     - icon: ':question:'
       path: graph/tree/heavy-light-decomposition.hpp
       title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/pmormq-lowest-common-ancestor.hpp
       title: "PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
     - icon: ':heavy_check_mark:'
@@ -370,7 +370,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/tree/rmq-lowest-common-ancestor.hpp
       title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/tree-diameter.hpp
       title: "Tree-Diameter(\u6728\u306E\u76F4\u5F84)"
     - icon: ':heavy_check_mark:'
@@ -440,13 +440,13 @@ data:
     - icon: ':warning:'
       path: math/fft/arbitrary-mod-convolution-long.cpp
       title: math/fft/arbitrary-mod-convolution-long.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fft/arbitrary-mod-convolution.cpp
       title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fft/fast-fourier-transform.cpp
       title: math/fft/fast-fourier-transform.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
       title: Number-Theoretic-Transform-Friendly-Mod-Int
     - icon: ':heavy_check_mark:'
@@ -460,9 +460,9 @@ data:
     - icon: ':warning:'
       path: math/fps/bellnoulli.cpp
       title: math/fps/bellnoulli.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/berlekamp-massey.cpp
-      title: math/fps/berlekamp-massey.cpp
+      title: Berlekamp-Massey
     - icon: ':heavy_check_mark:'
       path: math/fps/count-subset-sum.cpp
       title: Count-Subset-Sum
@@ -473,7 +473,7 @@ data:
       path: math/fps/formal-power-series-friendly-ntt.cpp
       title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\
         \u7D1A\u6570)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/formal-power-series.cpp
       title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     - icon: ':warning:'
@@ -485,19 +485,20 @@ data:
     - icon: ':warning:'
       path: math/fps/polynomial-interpolation.cpp
       title: math/fps/polynomial-interpolation.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/sparse-matrix.cpp
       title: math/fps/sparse-matrix.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/stirling-first.cpp
       title: "Stirling-First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
         \u6570)"
     - icon: ':warning:'
       path: math/fps/stirling-second-kth-column.cpp
       title: math/fps/stirling-second-kth-column.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/stirling-second.cpp
-      title: math/fps/stirling-second.cpp
+      title: "Stirling-Second(\u7B2C\u4E8C\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
+        \u6570)"
   - name: math/matrix
     pages:
     - icon: ':heavy_check_mark:'
@@ -757,7 +758,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/others/persistent-array.cpp
       title: structure/others/persistent-array.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/others/plus-minus-one-rmq.cpp
       title: Plus-Minus-One-RMQ
     - icon: ':warning:'
@@ -769,7 +770,7 @@ data:
     - icon: ':warning:'
       path: structure/others/slope-trick.cpp
       title: Slope-Trick
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/others/sparse-table.cpp
       title: "Sparse-Table(\u30B9\u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB)"
     - icon: ':warning:'
@@ -1348,10 +1349,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-lca-2.test.cpp
       title: test/verify/yosupo-lca-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-lca-3.test.cpp
       title: test/verify/yosupo-lca-3.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-lca.test.cpp
       title: test/verify/yosupo-lca.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1360,16 +1361,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-log-of-formal-power-series.test.cpp
       title: test/verify/yosupo-log-of-formal-power-series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-manhattanmst.test.cpp
       title: test/verify/yosupo-manhattanmst.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-matrix-det.test.cpp
       title: test/verify/yosupo-matrix-det.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-maximum-independent-set-2.test.cpp
       title: test/verify/yosupo-maximum-independent-set-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-maximum-independent-set.test.cpp
       title: test/verify/yosupo-maximum-independent-set.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1426,7 +1427,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-rectangle-sum.test.cpp
       title: test/verify/yosupo-rectangle-sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-scc.test.cpp
       title: test/verify/yosupo-scc.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1438,10 +1439,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
       title: test/verify/yosupo-sharp-p-subset-sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-shortest-path.test.cpp
       title: test/verify/yosupo-shortest-path.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-sparse-matrix-det.test.cpp
       title: test/verify/yosupo-sparse-matrix-det.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1462,7 +1463,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-staticrmq-3.test.cpp
       title: test/verify/yosupo-staticrmq-3.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-staticrmq-4.test.cpp
       title: test/verify/yosupo-staticrmq-4.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1471,10 +1472,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-staticrmq.test.cpp
       title: test/verify/yosupo-staticrmq.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
       title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
       title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1483,13 +1484,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-tetration-mod.test.cpp
       title: test/verify/yosupo-tetration-mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-three-edge-connected-components.test.cpp
       title: test/verify/yosupo-three-edge-connected-components.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-tree-decomposition-width-2.test.cpp
       title: test/verify/yosupo-tree-decomposition-width-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-tree-diameter.test.cpp
       title: test/verify/yosupo-tree-diameter.test.cpp
     - icon: ':x:'

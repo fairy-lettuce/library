@@ -5,7 +5,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/others/enumerate-cliques.hpp
     title: "Enumerate-Cliques(\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/maximum-independent-set.hpp
     title: graph/others/maximum-independent-set.hpp
   - icon: ':heavy_check_mark:'
@@ -18,12 +18,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-c.test.cpp
     title: test/verify/aoj-grl-1-c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-maximum-independent-set.test.cpp
     title: test/verify/yosupo-maximum-independent-set.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/template.hpp\"\n\ntemplate< typename T >\nstruct edge\
@@ -50,7 +50,7 @@ data:
   - graph/others/maximum-independent-set.hpp
   - graph/shortest-path/warshall-floyd.hpp
   timestamp: '2021-07-01 02:53:34+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-1-c.test.cpp
   - test/verify/aoj-2306.test.cpp
