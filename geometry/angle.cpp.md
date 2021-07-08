@@ -37,7 +37,7 @@ data:
     \n\nnamespace geometry {\n  Real radian_to_degree(const Real &theta) {\n    return\
     \ theta * 180.0 / PI;\n  }\n\n  Real degree_to_radian(const Real &deg) {\n   \
     \ return deg * PI / 180.0;\n  }\n\n  // smaller angle of the a-b-c\n  Real get_smaller_angle(const\
-    \ Point &a, const Point &b, const Point &c) {\n    const Point v(b - a), w(c -\
+    \ Point &a, const Point &b, const Point &c) {\n    const Point v(a - b), w(c -\
     \ b);\n    auto alpha = atan2(imag(v), real(v));\n    auto beta = atan2(imag(w),\
     \ real(w));\n    if(alpha > beta) swap(alpha, beta);\n    Real theta = (beta -\
     \ alpha);\n    return min(theta, 2 * PI - theta);\n  }\n}\n"
@@ -45,7 +45,7 @@ data:
     \ Real &theta) {\n    return theta * 180.0 / PI;\n  }\n\n  Real degree_to_radian(const\
     \ Real &deg) {\n    return deg * PI / 180.0;\n  }\n\n  // smaller angle of the\
     \ a-b-c\n  Real get_smaller_angle(const Point &a, const Point &b, const Point\
-    \ &c) {\n    const Point v(b - a), w(c - b);\n    auto alpha = atan2(imag(v),\
+    \ &c) {\n    const Point v(a - b), w(c - b);\n    auto alpha = atan2(imag(v),\
     \ real(v));\n    auto beta = atan2(imag(w), real(w));\n    if(alpha > beta) swap(alpha,\
     \ beta);\n    Real theta = (beta - alpha);\n    return min(theta, 2 * PI - theta);\n\
     \  }\n}\n"
@@ -55,7 +55,7 @@ data:
   isVerificationFile: false
   path: geometry/angle.cpp
   requiredBy: []
-  timestamp: '2020-12-01 17:38:42+09:00'
+  timestamp: '2021-07-07 08:38:07+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: geometry/angle.cpp
