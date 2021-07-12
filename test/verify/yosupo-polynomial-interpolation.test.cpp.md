@@ -15,6 +15,9 @@ data:
     path: math/fps/polynomial-interpolation.cpp
     title: "Polynomial-Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
   - icon: ':heavy_check_mark:'
+    path: math/fps/subproduct-tree.cpp
+    title: Subproduct-Tree
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -234,17 +237,21 @@ data:
     \ T(1));\n    for(int i = 1; i < n; i++) bs[i] = bs[i - 1] * c * rfact[i] * fact[i\
     \ - 1];\n    p = (p * bs).pre(n);\n    p = p.rev();\n    for(int i = 0; i < n;\
     \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\n\ntemplate< typename Mint\
-    \ >\nusing FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 1 \"math/fps/polynomial-interpolation.cpp\"\
-    \n/**\n * @brief Polynomial-Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)\n */\n\
-    template< template< typename > class FPS, typename Mint >\nFPS< Mint > polynomial_interpolation(const\
-    \ FPS< Mint > &xs, const FPS< Mint > &ys) {\n  assert(xs.size() == ys.size());\n\
-    \  int n = (int) xs.size();\n  int k = 1;\n  while(k < n) k <<= 1;\n  vector<\
-    \ FPS< Mint > > mul(2 * k, {1}), g(2 * k);\n  for(int i = 0; i < n; i++) mul[k\
-    \ + i] = {-xs[i], Mint(1)};\n  for(int i = k; i-- > 1;) mul[i] = mul[i << 1] *\
-    \ mul[i << 1 | 1];\n  g[1] = mul[1].diff() % mul[1];\n  for(int i = 2; i < k +\
-    \ n; i++) g[i] = g[i >> 1] % mul[i];\n  for(int i = 0; i < n; i++) g[k + i] =\
-    \ {ys[i] / g[k + i][0]};\n  for(int i = k; i-- > 1;) g[i] = g[i << 1] * mul[i\
-    \ << 1 | 1] + g[i << 1 | 1] * mul[i << 1];\n  return g[1];\n}\n#line 8 \"test/verify/yosupo-polynomial-interpolation.test.cpp\"\
+    \ >\nusing FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 1 \"math/fps/subproduct-tree.cpp\"\
+    \n/**\n * @brief Subproduct-Tree\n */\ntemplate< template< typename > class FPS,\
+    \ typename Mint >\nvector< FPS< Mint > > subproduct_tree(const FPS< Mint > &xs)\
+    \ {\n  int n = (int) xs.size();\n  int k = 1;\n  while(k < n) k <<= 1;\n  vector<\
+    \ FPS< Mint > > g(2 * k, {1});\n  for(int i = 0; i < n; i++) g[k + i] = {-xs[i],\
+    \ Mint(1)};\n  for(int i = k; i-- > 1;) g[i] = g[i << 1] * g[i << 1 | 1];\n  return\
+    \ g;\n}\n#line 2 \"math/fps/polynomial-interpolation.cpp\"\n\n/**\n * @brief Polynomial-Interpolation(\u591A\
+    \u9805\u5F0F\u88DC\u9593)\n */\ntemplate< template< typename > class FPS, typename\
+    \ Mint >\nFPS< Mint > polynomial_interpolation(const FPS< Mint > &xs, const FPS<\
+    \ Mint > &ys) {\n  assert(xs.size() == ys.size());\n  auto mul = subproduct_tree(xs);\n\
+    \  int n = (int) xs.size(), k = (int) mul.size() / 2;\n  vector< FPS< Mint > >\
+    \ g(2 * k);\n  g[1] = mul[1].diff() % mul[1];\n  for(int i = 2; i < k + n; i++)\
+    \ g[i] = g[i >> 1] % mul[i];\n  for(int i = 0; i < n; i++) g[k + i] = {ys[i] /\
+    \ g[k + i][0]};\n  for(int i = k; i-- > 1;) g[i] = g[i << 1] * mul[i << 1 | 1]\
+    \ + g[i << 1 | 1] * mul[i << 1];\n  return g[1];\n}\n#line 8 \"test/verify/yosupo-polynomial-interpolation.test.cpp\"\
     \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
     \  int N, M;\n  cin >> N;\n  FPS< mint > xs(N), ys(N);\n  cin >> xs >> ys;\n \
     \ cout << polynomial_interpolation(xs, ys) << endl;\n}\n"
@@ -261,10 +268,11 @@ data:
   - math/fps/formal-power-series-friendly-ntt.cpp
   - math/fft/number-theoretic-transform-friendly-mod-int.cpp
   - math/fps/polynomial-interpolation.cpp
+  - math/fps/subproduct-tree.cpp
   isVerificationFile: true
   path: test/verify/yosupo-polynomial-interpolation.test.cpp
   requiredBy: []
-  timestamp: '2021-07-12 18:11:22+09:00'
+  timestamp: '2021-07-13 00:02:55+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-polynomial-interpolation.test.cpp
