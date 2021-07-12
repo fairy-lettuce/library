@@ -471,19 +471,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-set-xor-min.test.cpp
     title: test/verify/yosupo-set-xor-min.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
     title: test/verify/yosupo-sharp-p-subset-sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-shortest-path.test.cpp
     title: test/verify/yosupo-shortest-path.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-sparse-matrix-det.test.cpp
     title: test/verify/yosupo-sparse-matrix-det.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-mod.test.cpp
     title: test/verify/yosupo-sqrt-mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -507,10 +507,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-staticrmq.test.cpp
     title: test/verify/yosupo-staticrmq.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   - icon: ':heavy_check_mark:'
@@ -549,10 +549,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-184.test.cpp
     title: test/verify/yukicoder-184.test.cpp
+  - icon: ':x:'
+    path: test/verify/yukicoder-215.test.cpp
+    title: test/verify/yukicoder-215.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-430.test.cpp
     title: test/verify/yukicoder-430.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yukicoder-502.test.cpp
     title: test/verify/yukicoder-502.test.cpp
   - icon: ':heavy_check_mark:'
@@ -573,9 +576,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-952.test.cpp
     title: test/verify/yukicoder-952.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"template/template.cpp\"\n#include<bits/stdc++.h>\n\nusing\
@@ -638,7 +641,7 @@ data:
   path: template/template.cpp
   requiredBy: []
   timestamp: '2021-05-01 00:06:55+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-k-shortest-walk.test.cpp
   - test/verify/yosupo-staticrmq-3.test.cpp
@@ -660,6 +663,7 @@ data:
   - test/verify/yosupo-convolution-mod.test.cpp
   - test/verify/yosupo-kth-root-integer.test.cpp
   - test/verify/yukicoder-1069.test.cpp
+  - test/verify/yukicoder-215.test.cpp
   - test/verify/yukicoder-184.test.cpp
   - test/verify/aoj-cgl-1-a.test.cpp
   - test/verify/aoj-1508.test.cpp

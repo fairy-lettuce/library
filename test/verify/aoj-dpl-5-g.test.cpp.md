@@ -4,13 +4,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/bell-number.cpp
     title: "Bell-Number(\u30D9\u30EB\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/enumeration.cpp
     title: math/combinatorics/enumeration.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

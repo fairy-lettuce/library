@@ -2,25 +2,28 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/fft/arbitrary-mod-convolution.cpp
     title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
     title: test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-sparse-matrix-det.test.cpp
     title: test/verify/yosupo-sparse-matrix-det.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: test/verify/yukicoder-215.test.cpp
+    title: test/verify/yukicoder-215.test.cpp
+  - icon: ':x:'
     path: test/verify/yukicoder-502.test.cpp
     title: test/verify/yukicoder-502.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"math/fft/fast-fourier-transform.cpp\"\nnamespace FastFourierTransform\
@@ -103,8 +106,9 @@ data:
   - math/fps/formal-power-series.cpp
   - math/fft/arbitrary-mod-convolution.cpp
   timestamp: '2019-12-03 22:21:44+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/verify/yukicoder-215.test.cpp
   - test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
   - test/verify/yosupo-sparse-matrix-det.test.cpp
   - test/verify/yukicoder-502.test.cpp

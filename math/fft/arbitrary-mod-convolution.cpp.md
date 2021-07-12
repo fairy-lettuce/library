@@ -1,23 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/fast-fourier-transform.cpp
     title: math/fft/fast-fourier-transform.cpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/fps/formal-power-series.cpp
     title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-sparse-matrix-det.test.cpp
     title: test/verify/yosupo-sparse-matrix-det.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: test/verify/yukicoder-215.test.cpp
+    title: test/verify/yukicoder-215.test.cpp
+  - icon: ':x:'
     path: test/verify/yukicoder-502.test.cpp
     title: test/verify/yukicoder-502.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
       )"
@@ -62,9 +65,9 @@ data:
     \n\n/*\n * @brief Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
     )\n */\ntemplate< typename T >\nstruct ArbitraryModConvolution {\n  using real\
     \ = FastFourierTransform::real;\n  using C = FastFourierTransform::C;\n\n  ArbitraryModConvolution()\
-    \ = default;\n\n  vector< T > multiply(const vector< T > &a, const vector< T >\
-    \ &b, int need = -1) {\n    if(need == -1) need = a.size() + b.size() - 1;\n \
-    \   int nbase = 0;\n    while((1 << nbase) < need) nbase++;\n    FastFourierTransform::ensure_base(nbase);\n\
+    \ = default;\n\n  static vector< T > multiply(const vector< T > &a, const vector<\
+    \ T > &b, int need = -1) {\n    if(need == -1) need = a.size() + b.size() - 1;\n\
+    \    int nbase = 0;\n    while((1 << nbase) < need) nbase++;\n    FastFourierTransform::ensure_base(nbase);\n\
     \    int sz = 1 << nbase;\n    vector< C > fa(sz);\n    for(int i = 0; i < a.size();\
     \ i++) {\n      fa[i] = C(a[i].x & ((1 << 15) - 1), a[i].x >> 15);\n    }\n  \
     \  fft(fa, sz);\n    vector< C > fb(sz);\n    if(a == b) {\n      fb = fa;\n \
@@ -87,12 +90,12 @@ data:
   code: "#include \"fast-fourier-transform.cpp\"\n\n/*\n * @brief Arbitrary-Mod-Convolution(\u4EFB\
     \u610Fmod\u7573\u307F\u8FBC\u307F)\n */\ntemplate< typename T >\nstruct ArbitraryModConvolution\
     \ {\n  using real = FastFourierTransform::real;\n  using C = FastFourierTransform::C;\n\
-    \n  ArbitraryModConvolution() = default;\n\n  vector< T > multiply(const vector<\
-    \ T > &a, const vector< T > &b, int need = -1) {\n    if(need == -1) need = a.size()\
-    \ + b.size() - 1;\n    int nbase = 0;\n    while((1 << nbase) < need) nbase++;\n\
-    \    FastFourierTransform::ensure_base(nbase);\n    int sz = 1 << nbase;\n   \
-    \ vector< C > fa(sz);\n    for(int i = 0; i < a.size(); i++) {\n      fa[i] =\
-    \ C(a[i].x & ((1 << 15) - 1), a[i].x >> 15);\n    }\n    fft(fa, sz);\n    vector<\
+    \n  ArbitraryModConvolution() = default;\n\n  static vector< T > multiply(const\
+    \ vector< T > &a, const vector< T > &b, int need = -1) {\n    if(need == -1) need\
+    \ = a.size() + b.size() - 1;\n    int nbase = 0;\n    while((1 << nbase) < need)\
+    \ nbase++;\n    FastFourierTransform::ensure_base(nbase);\n    int sz = 1 << nbase;\n\
+    \    vector< C > fa(sz);\n    for(int i = 0; i < a.size(); i++) {\n      fa[i]\
+    \ = C(a[i].x & ((1 << 15) - 1), a[i].x >> 15);\n    }\n    fft(fa, sz);\n    vector<\
     \ C > fb(sz);\n    if(a == b) {\n      fb = fa;\n    } else {\n      for(int i\
     \ = 0; i < b.size(); i++) {\n        fb[i] = C(b[i].x & ((1 << 15) - 1), b[i].x\
     \ >> 15);\n      }\n      fft(fb, sz);\n    }\n    real ratio = 0.25 / sz;\n \
@@ -115,9 +118,10 @@ data:
   path: math/fft/arbitrary-mod-convolution.cpp
   requiredBy:
   - math/fps/formal-power-series.cpp
-  timestamp: '2021-06-29 02:11:11+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-07-13 01:03:05+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
+  - test/verify/yukicoder-215.test.cpp
   - test/verify/yosupo-sparse-matrix-det.test.cpp
   - test/verify/yukicoder-502.test.cpp
 documentation_of: math/fft/arbitrary-mod-convolution.cpp

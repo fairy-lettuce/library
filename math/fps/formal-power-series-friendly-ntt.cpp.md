@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number-Theoretic-Transform-Friendly-Mod-Int
   _extendedRequiredBy: []
@@ -39,21 +39,21 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
     title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
     title: test/verify/yosupo-sharp-p-subset-sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/formal-power-series-friendly-ntt.md
     document_title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
@@ -213,8 +213,9 @@ data:
     \  base.clear();\n        return base;\n      }\n      int n = base.size() - g.size()\
     \ + 1;\n      return (base.rev().pre(n) * modinv.pre(n)).pre(n).rev(n);\n    };\n\
     \    P x(*this), ret{1};\n    while(k > 0) {\n      if(k & 1) {\n        ret *=\
-    \ x;\n        ret -= get_div(ret) * g;\n      }\n      x *= x;\n      x -= get_div(x)\
-    \ * g;\n      k >>= 1;\n    }\n    return ret;\n  }\n\n  // https://judge.yosupo.jp/problem/polynomial_taylor_shift\n\
+    \ x;\n        ret -= get_div(ret) * g;\n        ret.shrink();\n      }\n     \
+    \ x *= x;\n      x -= get_div(x) * g;\n      x.shrink();\n      k >>= 1;\n   \
+    \ }\n    return ret;\n  }\n\n  // https://judge.yosupo.jp/problem/polynomial_taylor_shift\n\
     \  P taylor_shift(T c) const {\n    int n = (int) this->size();\n    vector< T\
     \ > fact(n), rfact(n);\n    fact[0] = rfact[0] = T(1);\n    for(int i = 1; i <\
     \ n; i++) fact[i] = fact[i - 1] * T(i);\n    rfact[n - 1] = T(1) / fact[n - 1];\n\
@@ -336,8 +337,9 @@ data:
     \  base.clear();\n        return base;\n      }\n      int n = base.size() - g.size()\
     \ + 1;\n      return (base.rev().pre(n) * modinv.pre(n)).pre(n).rev(n);\n    };\n\
     \    P x(*this), ret{1};\n    while(k > 0) {\n      if(k & 1) {\n        ret *=\
-    \ x;\n        ret -= get_div(ret) * g;\n      }\n      x *= x;\n      x -= get_div(x)\
-    \ * g;\n      k >>= 1;\n    }\n    return ret;\n  }\n\n  // https://judge.yosupo.jp/problem/polynomial_taylor_shift\n\
+    \ x;\n        ret -= get_div(ret) * g;\n        ret.shrink();\n      }\n     \
+    \ x *= x;\n      x -= get_div(x) * g;\n      x.shrink();\n      k >>= 1;\n   \
+    \ }\n    return ret;\n  }\n\n  // https://judge.yosupo.jp/problem/polynomial_taylor_shift\n\
     \  P taylor_shift(T c) const {\n    int n = (int) this->size();\n    vector< T\
     \ > fact(n), rfact(n);\n    fact[0] = rfact[0] = T(1);\n    for(int i = 1; i <\
     \ n; i++) fact[i] = fact[i - 1] * T(i);\n    rfact[n - 1] = T(1) / fact[n - 1];\n\
@@ -352,8 +354,8 @@ data:
   isVerificationFile: false
   path: math/fps/formal-power-series-friendly-ntt.cpp
   requiredBy: []
-  timestamp: '2021-07-12 18:11:22+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-07-13 01:03:05+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-multipoint-evaluation.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp

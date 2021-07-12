@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/enumeration.cpp
     title: math/combinatorics/enumeration.cpp
   _extendedRequiredBy: []

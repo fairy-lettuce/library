@@ -6,12 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-find-linear-recurrence.test.cpp
     title: test/verify/yosupo-find-linear-recurrence.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-sparse-matrix-det.test.cpp
     title: test/verify/yosupo-sparse-matrix-det.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: Berlekamp-Massey
     links: []
@@ -42,7 +42,7 @@ data:
   path: math/fps/berlekamp-massey.cpp
   requiredBy: []
   timestamp: '2021-07-02 23:41:25+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-sparse-matrix-det.test.cpp
   - test/verify/yosupo-find-linear-recurrence.test.cpp

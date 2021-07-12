@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number-Theoretic-Transform-Friendly-Mod-Int
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fps/formal-power-series-friendly-ntt.cpp
     title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
       \u6570)"
@@ -17,7 +17,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/subproduct-tree.cpp
     title: Subproduct-Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -227,8 +227,9 @@ data:
     \  base.clear();\n        return base;\n      }\n      int n = base.size() - g.size()\
     \ + 1;\n      return (base.rev().pre(n) * modinv.pre(n)).pre(n).rev(n);\n    };\n\
     \    P x(*this), ret{1};\n    while(k > 0) {\n      if(k & 1) {\n        ret *=\
-    \ x;\n        ret -= get_div(ret) * g;\n      }\n      x *= x;\n      x -= get_div(x)\
-    \ * g;\n      k >>= 1;\n    }\n    return ret;\n  }\n\n  // https://judge.yosupo.jp/problem/polynomial_taylor_shift\n\
+    \ x;\n        ret -= get_div(ret) * g;\n        ret.shrink();\n      }\n     \
+    \ x *= x;\n      x -= get_div(x) * g;\n      x.shrink();\n      k >>= 1;\n   \
+    \ }\n    return ret;\n  }\n\n  // https://judge.yosupo.jp/problem/polynomial_taylor_shift\n\
     \  P taylor_shift(T c) const {\n    int n = (int) this->size();\n    vector< T\
     \ > fact(n), rfact(n);\n    fact[0] = rfact[0] = T(1);\n    for(int i = 1; i <\
     \ n; i++) fact[i] = fact[i - 1] * T(i);\n    rfact[n - 1] = T(1) / fact[n - 1];\n\
@@ -269,7 +270,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-multipoint-evaluation.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 00:02:55+09:00'
+  timestamp: '2021-07-13 01:03:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-multipoint-evaluation.test.cpp

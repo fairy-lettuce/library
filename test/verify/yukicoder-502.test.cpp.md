@@ -1,32 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/enumeration.cpp
     title: math/combinatorics/enumeration.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/combinatorics/factorial.cpp
     title: "Factorial(\u968E\u4E57)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/combinatorics/sample-point-shift.cpp
     title: Sample-Point-Shift
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/fft/arbitrary-mod-convolution.cpp
     title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/fast-fourier-transform.cpp
     title: math/fft/fast-fourier-transform.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/502
@@ -165,9 +165,9 @@ data:
     \n\n/*\n * @brief Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
     )\n */\ntemplate< typename T >\nstruct ArbitraryModConvolution {\n  using real\
     \ = FastFourierTransform::real;\n  using C = FastFourierTransform::C;\n\n  ArbitraryModConvolution()\
-    \ = default;\n\n  vector< T > multiply(const vector< T > &a, const vector< T >\
-    \ &b, int need = -1) {\n    if(need == -1) need = a.size() + b.size() - 1;\n \
-    \   int nbase = 0;\n    while((1 << nbase) < need) nbase++;\n    FastFourierTransform::ensure_base(nbase);\n\
+    \ = default;\n\n  static vector< T > multiply(const vector< T > &a, const vector<\
+    \ T > &b, int need = -1) {\n    if(need == -1) need = a.size() + b.size() - 1;\n\
+    \    int nbase = 0;\n    while((1 << nbase) < need) nbase++;\n    FastFourierTransform::ensure_base(nbase);\n\
     \    int sz = 1 << nbase;\n    vector< C > fa(sz);\n    for(int i = 0; i < a.size();\
     \ i++) {\n      fa[i] = C(a[i].x & ((1 << 15) - 1), a[i].x >> 15);\n    }\n  \
     \  fft(fa, sz);\n    vector< C > fb(sz);\n    if(a == b) {\n      fb = fa;\n \
@@ -209,8 +209,8 @@ data:
   isVerificationFile: true
   path: test/verify/yukicoder-502.test.cpp
   requiredBy: []
-  timestamp: '2021-06-29 02:11:11+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-13 01:03:05+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yukicoder-502.test.cpp
 layout: document

@@ -1,20 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/fft/arbitrary-mod-convolution.cpp
     title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/fast-fourier-transform.cpp
     title: math/fft/fast-fourier-transform.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-sparse-matrix-det.test.cpp
     title: test/verify/yosupo-sparse-matrix-det.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/verify/yukicoder-215.test.cpp
+    title: test/verify/yukicoder-215.test.cpp
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links:
@@ -26,6 +29,7 @@ data:
     - https://judge.yosupo.jp/problem/polynomial_taylor_shift
     - https://judge.yosupo.jp/problem/pow_of_formal_power_series
     - https://judge.yosupo.jp/problem/sqrt_of_formal_power_series
+    - https://yukicoder.me/problems/no/215
   bundledCode: "#line 1 \"math/fft/fast-fourier-transform.cpp\"\nnamespace FastFourierTransform\
     \ {\n  using real = double;\n\n  struct C {\n    real x, y;\n\n    C() : x(0),\
     \ y(0) {}\n\n    C(real x, real y) : x(x), y(y) {}\n\n    inline C operator+(const\
@@ -66,9 +70,9 @@ data:
     \n\n/*\n * @brief Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
     )\n */\ntemplate< typename T >\nstruct ArbitraryModConvolution {\n  using real\
     \ = FastFourierTransform::real;\n  using C = FastFourierTransform::C;\n\n  ArbitraryModConvolution()\
-    \ = default;\n\n  vector< T > multiply(const vector< T > &a, const vector< T >\
-    \ &b, int need = -1) {\n    if(need == -1) need = a.size() + b.size() - 1;\n \
-    \   int nbase = 0;\n    while((1 << nbase) < need) nbase++;\n    FastFourierTransform::ensure_base(nbase);\n\
+    \ = default;\n\n  static vector< T > multiply(const vector< T > &a, const vector<\
+    \ T > &b, int need = -1) {\n    if(need == -1) need = a.size() + b.size() - 1;\n\
+    \    int nbase = 0;\n    while((1 << nbase) < need) nbase++;\n    FastFourierTransform::ensure_base(nbase);\n\
     \    int sz = 1 << nbase;\n    vector< C > fa(sz);\n    for(int i = 0; i < a.size();\
     \ i++) {\n      fa[i] = C(a[i].x & ((1 << 15) - 1), a[i].x >> 15);\n    }\n  \
     \  fft(fa, sz);\n    vector< C > fb(sz);\n    if(a == b) {\n      fb = fa;\n \
@@ -165,13 +169,14 @@ data:
     \ >> i).log() * k).exp() * ((*this)[i].pow(k));\n        if(i * k > deg) return\
     \ P(deg, T(0));\n        ret = (ret << (i * k)).pre(deg);\n        if(ret.size()\
     \ < deg) ret.resize(deg, T(0));\n        return ret;\n      }\n    }\n    return\
-    \ *this;\n  }\n\n  P mod_pow(int64_t k, P g) const {\n    P modinv = g.rev().inv();\n\
-    \    auto get_div = [&](P base) {\n      if(base.size() < g.size()) {\n      \
-    \  base.clear();\n        return base;\n      }\n      int n = base.size() - g.size()\
-    \ + 1;\n      return (base.rev().pre(n) * modinv.pre(n)).pre(n).rev(n);\n    };\n\
-    \    P x(*this), ret{1};\n    while(k > 0) {\n      if(k & 1) {\n        ret *=\
-    \ x;\n        ret -= get_div(ret) * g;\n      }\n      x *= x;\n      x -= get_div(x)\
-    \ * g;\n      k >>= 1;\n    }\n    return ret;\n  }\n\n  // https://judge.yosupo.jp/problem/polynomial_taylor_shift\n\
+    \ *this;\n  }\n\n  // https://yukicoder.me/problems/no/215\n  P mod_pow(int64_t\
+    \ k, P g) const {\n    P modinv = g.rev().inv();\n    auto get_div = [&](P base)\
+    \ {\n      if(base.size() < g.size()) {\n        base.clear();\n        return\
+    \ base;\n      }\n      int n = base.size() - g.size() + 1;\n      return (base.rev().pre(n)\
+    \ * modinv.pre(n)).pre(n).rev(n);\n    };\n    P x(*this), ret{1};\n    while(k\
+    \ > 0) {\n      if(k & 1) {\n        ret *= x;\n        ret -= get_div(ret) *\
+    \ g;\n        ret.shrink();\n      }\n      x *= x;\n      x -= get_div(x) * g;\n\
+    \      x.shrink();\n      k >>= 1;\n    }\n    return ret;\n  }\n\n  // https://judge.yosupo.jp/problem/polynomial_taylor_shift\n\
     \  P taylor_shift(T c) const {\n    int n = (int) this->size();\n    vector< T\
     \ > fact(n), rfact(n);\n    fact[0] = rfact[0] = T(1);\n    for(int i = 1; i <\
     \ n; i++) fact[i] = fact[i - 1] * T(i);\n    rfact[n - 1] = T(1) / fact[n - 1];\n\
@@ -259,13 +264,14 @@ data:
     \ >> i).log() * k).exp() * ((*this)[i].pow(k));\n        if(i * k > deg) return\
     \ P(deg, T(0));\n        ret = (ret << (i * k)).pre(deg);\n        if(ret.size()\
     \ < deg) ret.resize(deg, T(0));\n        return ret;\n      }\n    }\n    return\
-    \ *this;\n  }\n\n  P mod_pow(int64_t k, P g) const {\n    P modinv = g.rev().inv();\n\
-    \    auto get_div = [&](P base) {\n      if(base.size() < g.size()) {\n      \
-    \  base.clear();\n        return base;\n      }\n      int n = base.size() - g.size()\
-    \ + 1;\n      return (base.rev().pre(n) * modinv.pre(n)).pre(n).rev(n);\n    };\n\
-    \    P x(*this), ret{1};\n    while(k > 0) {\n      if(k & 1) {\n        ret *=\
-    \ x;\n        ret -= get_div(ret) * g;\n      }\n      x *= x;\n      x -= get_div(x)\
-    \ * g;\n      k >>= 1;\n    }\n    return ret;\n  }\n\n  // https://judge.yosupo.jp/problem/polynomial_taylor_shift\n\
+    \ *this;\n  }\n\n  // https://yukicoder.me/problems/no/215\n  P mod_pow(int64_t\
+    \ k, P g) const {\n    P modinv = g.rev().inv();\n    auto get_div = [&](P base)\
+    \ {\n      if(base.size() < g.size()) {\n        base.clear();\n        return\
+    \ base;\n      }\n      int n = base.size() - g.size() + 1;\n      return (base.rev().pre(n)\
+    \ * modinv.pre(n)).pre(n).rev(n);\n    };\n    P x(*this), ret{1};\n    while(k\
+    \ > 0) {\n      if(k & 1) {\n        ret *= x;\n        ret -= get_div(ret) *\
+    \ g;\n        ret.shrink();\n      }\n      x *= x;\n      x -= get_div(x) * g;\n\
+    \      x.shrink();\n      k >>= 1;\n    }\n    return ret;\n  }\n\n  // https://judge.yosupo.jp/problem/polynomial_taylor_shift\n\
     \  P taylor_shift(T c) const {\n    int n = (int) this->size();\n    vector< T\
     \ > fact(n), rfact(n);\n    fact[0] = rfact[0] = T(1);\n    for(int i = 1; i <\
     \ n; i++) fact[i] = fact[i - 1] * T(i);\n    rfact[n - 1] = T(1) / fact[n - 1];\n\
@@ -281,9 +287,10 @@ data:
   isVerificationFile: false
   path: math/fps/formal-power-series.cpp
   requiredBy: []
-  timestamp: '2021-07-02 22:57:57+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-07-13 01:03:05+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
+  - test/verify/yukicoder-215.test.cpp
   - test/verify/yosupo-sparse-matrix-det.test.cpp
 documentation_of: math/fps/formal-power-series.cpp
 layout: document

@@ -9,15 +9,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-mod.test.cpp
     title: test/verify/yosupo-sqrt-mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-tetration-mod.test.cpp
     title: test/verify/yosupo-tetration-mod.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/mod-pow.md
     document_title: "Mod-Pow(\u3079\u304D\u4E57)"
@@ -35,7 +35,7 @@ data:
   path: math/combinatorics/mod-pow.cpp
   requiredBy: []
   timestamp: '2020-10-07 20:31:58+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - test/verify/yosupo-sqrt-mod.test.cpp
