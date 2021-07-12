@@ -5,10 +5,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/bell-number.cpp
     title: "Bell-Number(\u30D9\u30EB\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/factorial.cpp
     title: "Factorial(\u968E\u4E57)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/sample-point-shift.cpp
     title: Sample-Point-Shift
   - icon: ':heavy_check_mark:'
@@ -22,12 +22,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dpl-5-i.test.cpp
     title: test/verify/aoj-dpl-5-i.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-502.test.cpp
     title: test/verify/yukicoder-502.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"math/combinatorics/enumeration.cpp\"\ntemplate< typename\
@@ -80,7 +80,7 @@ data:
   - math/combinatorics/sample-point-shift.cpp
   - math/combinatorics/bell-number.cpp
   timestamp: '2021-06-28 00:13:35+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yukicoder-502.test.cpp
   - test/verify/aoj-dpl-5-g.test.cpp

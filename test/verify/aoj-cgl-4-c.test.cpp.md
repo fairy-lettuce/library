@@ -22,7 +22,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: geometry/polygon.cpp
     title: geometry/polygon.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
