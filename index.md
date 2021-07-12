@@ -413,10 +413,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-log.cpp
       title: "Mod-Log(\u96E2\u6563\u5BFE\u6570\u554F\u984C)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/combinatorics/mod-pow.cpp
       title: "Mod-Pow(\u3079\u304D\u4E57)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/combinatorics/mod-sqrt.cpp
       title: math/combinatorics/mod-sqrt.cpp
     - icon: ':heavy_check_mark:'
@@ -476,26 +476,26 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/formal-power-series.cpp
       title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/multipoint-evaluation.cpp
-      title: math/fps/multipoint-evaluation.cpp
+      title: Multipoint-Evaluation
     - icon: ':heavy_check_mark:'
       path: math/fps/partition.cpp
       title: "Partition(\u5206\u5272\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/polynomial-interpolation.cpp
-      title: math/fps/polynomial-interpolation.cpp
+      title: "Polynomial-Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
     - icon: ':heavy_check_mark:'
       path: math/fps/sparse-matrix.cpp
       title: math/fps/sparse-matrix.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: math/fps/stirling-first.cpp
       title: "Stirling-First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
         \u6570)"
     - icon: ':warning:'
       path: math/fps/stirling-second-kth-column.cpp
       title: math/fps/stirling-second-kth-column.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: math/fps/stirling-second.cpp
       title: "Stirling-Second(\u7B2C\u4E8C\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
         \u6570)"
@@ -1376,7 +1376,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-montmort-number-mod.test.cpp
       title: test/verify/yosupo-montmort-number-mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-multipoint-evaluation.test.cpp
       title: test/verify/yosupo-multipoint-evaluation.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1397,7 +1397,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-point-set-range-composite.test.cpp
       title: test/verify/yosupo-point-set-range-composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-polynomial-interpolation.test.cpp
       title: test/verify/yosupo-polynomial-interpolation.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1448,7 +1448,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-sqrt-mod.test.cpp
       title: test/verify/yosupo-sqrt-mod.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
       title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1472,10 +1472,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-staticrmq.test.cpp
       title: test/verify/yosupo-staticrmq.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
       title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
       title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     - icon: ':heavy_check_mark:'

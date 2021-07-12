@@ -138,19 +138,20 @@ data:
     \ end(ret)};\n  }\n\n  P &operator/=(const P &r) {\n    if(this->size() < r.size())\
     \ {\n      this->clear();\n      return *this;\n    }\n    int n = this->size()\
     \ - r.size() + 1;\n    return *this = (rev().pre(n) * r.rev().inv(n)).pre(n).rev(n);\n\
-    \  }\n\n  P &operator%=(const P &r) {\n    return *this -= *this / r * r;\n  }\n\
-    \n  // https://judge.yosupo.jp/problem/division_of_polynomials\n  pair< P, P >\
-    \ div_mod(const P &r) {\n    P q = *this / r;\n    return make_pair(q, *this -\
-    \ q * r);\n  }\n\n  P operator-() const {\n    P ret(this->size());\n    for(int\
-    \ i = 0; i < this->size(); i++) ret[i] = -(*this)[i];\n    return ret;\n  }\n\n\
-    \  P &operator+=(const T &r) {\n    if(this->empty()) this->resize(1);\n    (*this)[0]\
-    \ += r;\n    return *this;\n  }\n\n  P &operator-=(const T &r) {\n    if(this->empty())\
-    \ this->resize(1);\n    (*this)[0] -= r;\n    return *this;\n  }\n\n  P &operator*=(const\
-    \ T &v) {\n    for(int i = 0; i < this->size(); i++) (*this)[i] *= v;\n    return\
-    \ *this;\n  }\n\n  P dot(P r) const {\n    P ret(min(this->size(), r.size()));\n\
-    \    for(int i = 0; i < ret.size(); i++) ret[i] = (*this)[i] * r[i];\n    return\
-    \ ret;\n  }\n\n  P operator>>(int sz) const {\n    if(this->size() <= sz) return\
-    \ {};\n    P ret(*this);\n    ret.erase(ret.begin(), ret.begin() + sz);\n    return\
+    \  }\n\n  P &operator%=(const P &r) {\n    *this -= *this / r * r;\n    shrink();\n\
+    \    return *this;\n  }\n\n  // https://judge.yosupo.jp/problem/division_of_polynomials\n\
+    \  pair< P, P > div_mod(const P &r) {\n    P q = *this / r;\n    P x = *this -\
+    \ q * r;\n    x.shrink();\n    return make_pair(q, x);\n  }\n\n  P operator-()\
+    \ const {\n    P ret(this->size());\n    for(int i = 0; i < this->size(); i++)\
+    \ ret[i] = -(*this)[i];\n    return ret;\n  }\n\n  P &operator+=(const T &r) {\n\
+    \    if(this->empty()) this->resize(1);\n    (*this)[0] += r;\n    return *this;\n\
+    \  }\n\n  P &operator-=(const T &r) {\n    if(this->empty()) this->resize(1);\n\
+    \    (*this)[0] -= r;\n    return *this;\n  }\n\n  P &operator*=(const T &v) {\n\
+    \    for(int i = 0; i < this->size(); i++) (*this)[i] *= v;\n    return *this;\n\
+    \  }\n\n  P dot(P r) const {\n    P ret(min(this->size(), r.size()));\n    for(int\
+    \ i = 0; i < ret.size(); i++) ret[i] = (*this)[i] * r[i];\n    return ret;\n \
+    \ }\n\n  P operator>>(int sz) const {\n    if(this->size() <= sz) return {};\n\
+    \    P ret(*this);\n    ret.erase(ret.begin(), ret.begin() + sz);\n    return\
     \ ret;\n  }\n\n  P operator<<(int sz) const {\n    P ret(*this);\n    ret.insert(ret.begin(),\
     \ sz, T(0));\n    return ret;\n  }\n\n  T operator()(T x) const {\n    T r = 0,\
     \ w = 1;\n    for(auto &v : *this) {\n      r += w * v;\n      w *= x;\n    }\n\
@@ -263,7 +264,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
   requiredBy: []
-  timestamp: '2021-06-28 15:21:00+09:00'
+  timestamp: '2021-07-12 18:11:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-sharp-p-subset-sum.test.cpp

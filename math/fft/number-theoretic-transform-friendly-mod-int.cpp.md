@@ -25,13 +25,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-log-of-formal-power-series.test.cpp
     title: test/verify/yosupo-log-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-multipoint-evaluation.test.cpp
     title: test/verify/yosupo-multipoint-evaluation.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-partition-function.test.cpp
     title: test/verify/yosupo-partition-function.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
   - icon: ':heavy_check_mark:'
@@ -43,13 +43,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
     title: test/verify/yosupo-sharp-p-subset-sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   _isVerificationFailed: true

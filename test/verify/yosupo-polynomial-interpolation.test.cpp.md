@@ -11,20 +11,17 @@ data:
     path: math/fps/formal-power-series-friendly-ntt.cpp
     title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
       \u6570)"
-  - icon: ':x:'
-    path: math/fps/multipoint-evaluation.cpp
-    title: math/fps/multipoint-evaluation.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/polynomial-interpolation.cpp
-    title: math/fps/polynomial-interpolation.cpp
+    title: "Polynomial-Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
   - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/polynomial_interpolation
@@ -141,19 +138,20 @@ data:
     \ end(ret)};\n  }\n\n  P &operator/=(const P &r) {\n    if(this->size() < r.size())\
     \ {\n      this->clear();\n      return *this;\n    }\n    int n = this->size()\
     \ - r.size() + 1;\n    return *this = (rev().pre(n) * r.rev().inv(n)).pre(n).rev(n);\n\
-    \  }\n\n  P &operator%=(const P &r) {\n    return *this -= *this / r * r;\n  }\n\
-    \n  // https://judge.yosupo.jp/problem/division_of_polynomials\n  pair< P, P >\
-    \ div_mod(const P &r) {\n    P q = *this / r;\n    return make_pair(q, *this -\
-    \ q * r);\n  }\n\n  P operator-() const {\n    P ret(this->size());\n    for(int\
-    \ i = 0; i < this->size(); i++) ret[i] = -(*this)[i];\n    return ret;\n  }\n\n\
-    \  P &operator+=(const T &r) {\n    if(this->empty()) this->resize(1);\n    (*this)[0]\
-    \ += r;\n    return *this;\n  }\n\n  P &operator-=(const T &r) {\n    if(this->empty())\
-    \ this->resize(1);\n    (*this)[0] -= r;\n    return *this;\n  }\n\n  P &operator*=(const\
-    \ T &v) {\n    for(int i = 0; i < this->size(); i++) (*this)[i] *= v;\n    return\
-    \ *this;\n  }\n\n  P dot(P r) const {\n    P ret(min(this->size(), r.size()));\n\
-    \    for(int i = 0; i < ret.size(); i++) ret[i] = (*this)[i] * r[i];\n    return\
-    \ ret;\n  }\n\n  P operator>>(int sz) const {\n    if(this->size() <= sz) return\
-    \ {};\n    P ret(*this);\n    ret.erase(ret.begin(), ret.begin() + sz);\n    return\
+    \  }\n\n  P &operator%=(const P &r) {\n    *this -= *this / r * r;\n    shrink();\n\
+    \    return *this;\n  }\n\n  // https://judge.yosupo.jp/problem/division_of_polynomials\n\
+    \  pair< P, P > div_mod(const P &r) {\n    P q = *this / r;\n    P x = *this -\
+    \ q * r;\n    x.shrink();\n    return make_pair(q, x);\n  }\n\n  P operator-()\
+    \ const {\n    P ret(this->size());\n    for(int i = 0; i < this->size(); i++)\
+    \ ret[i] = -(*this)[i];\n    return ret;\n  }\n\n  P &operator+=(const T &r) {\n\
+    \    if(this->empty()) this->resize(1);\n    (*this)[0] += r;\n    return *this;\n\
+    \  }\n\n  P &operator-=(const T &r) {\n    if(this->empty()) this->resize(1);\n\
+    \    (*this)[0] -= r;\n    return *this;\n  }\n\n  P &operator*=(const T &v) {\n\
+    \    for(int i = 0; i < this->size(); i++) (*this)[i] *= v;\n    return *this;\n\
+    \  }\n\n  P dot(P r) const {\n    P ret(min(this->size(), r.size()));\n    for(int\
+    \ i = 0; i < ret.size(); i++) ret[i] = (*this)[i] * r[i];\n    return ret;\n \
+    \ }\n\n  P operator>>(int sz) const {\n    if(this->size() <= sz) return {};\n\
+    \    P ret(*this);\n    ret.erase(ret.begin(), ret.begin() + sz);\n    return\
     \ ret;\n  }\n\n  P operator<<(int sz) const {\n    P ret(*this);\n    ret.insert(ret.begin(),\
     \ sz, T(0));\n    return ret;\n  }\n\n  T operator()(T x) const {\n    T r = 0,\
     \ w = 1;\n    for(auto &v : *this) {\n      r += w * v;\n      w *= x;\n    }\n\
@@ -236,34 +234,20 @@ data:
     \ T(1));\n    for(int i = 1; i < n; i++) bs[i] = bs[i - 1] * c * rfact[i] * fact[i\
     \ - 1];\n    p = (p * bs).pre(n);\n    p = p.rev();\n    for(int i = 0; i < n;\
     \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\n\ntemplate< typename Mint\
-    \ >\nusing FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 1 \"math/fps/multipoint-evaluation.cpp\"\
-    \ntemplate< template< typename > class FPS, typename Mint >\nstruct PolyBuf {\n\
-    \  const FPS< Mint > xs;\n  using pi = pair< int, int >;\n  map< pi, FPS< Mint\
-    \ > > buf;\n\n  PolyBuf(const FPS< Mint > &xs) : xs(xs) {}\n\n  const FPS< Mint\
-    \ > &query(int l, int r) {\n    if(buf.count({l, r})) return buf[{l, r}];\n  \
-    \  if(l + 1 == r) return buf[{l, r}] = {-xs[l], 1};\n    return buf[{l, r}] =\
-    \ query(l, (l + r) >> 1) * query((l + r) >> 1, r);\n  }\n};\n\n\ntemplate< template<\
-    \ typename > class FPS, typename Mint >\nFPS< Mint > multipoint_evaluation(const\
-    \ FPS< Mint > &as, const FPS< Mint > &xs, PolyBuf< FPS, Mint > &buf) {\n  FPS<\
-    \ Mint > ret;\n  const int B = 64;\n  function< void(FPS< Mint >, int, int) >\
-    \ rec = [&](FPS< Mint > a, int l, int r) -> void {\n    a %= buf.query(l, r);\n\
-    \    if(a.size() <= B) {\n      for(int i = l; i < r; i++) ret.emplace_back(a(xs[i]));\n\
-    \      return;\n    }\n    rec(a, l, (l + r) >> 1);\n    rec(a, (l + r) >> 1,\
-    \ r);\n  };\n  rec(as, 0, xs.size());\n  return ret;\n};\n\ntemplate< template<\
-    \ typename > class FPS, typename Mint >\nFPS< Mint > multipoint_evaluation(const\
-    \ FPS< Mint > &as, const FPS< Mint > &xs) {\n  PolyBuf< FPS, Mint > buff(xs);\n\
-    \  return multipoint_evaluation(as, xs, buff);\n}\n\n#line 2 \"math/fps/polynomial-interpolation.cpp\"\
-    \n\ntemplate< template< typename > class FPS, typename Mint >\nFPS< Mint > polynomial_interpolation(const\
-    \ FPS< Mint > &xs, const vector< Mint > &ys) {\n  assert(xs.size() == ys.size());\n\
-    \  PolyBuf< FPS, Mint > buf(xs);\n  FPS< Mint > w = buf.query(0, xs.size()).diff();\n\
-    \  auto vs = multipoint_evaluation(w, xs, buf);\n  function< FPS< Mint >(int,\
-    \ int) > rec = [&](int l, int r) -> FPS< Mint > {\n    if(r - l == 1) return {ys[l]\
-    \ / vs[l]};\n    int m = (l + r) >> 1;\n    return rec(l, m) * buf.query(m, r)\
-    \ + rec(m, r) * buf.query(l, m);\n  };\n  return rec(0, xs.size());\n}\n#line\
-    \ 8 \"test/verify/yosupo-polynomial-interpolation.test.cpp\"\n\nconst int MOD\
-    \ = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n  int N, M;\n  cin\
-    \ >> N;\n  FPS< mint > xs(N), ys(N);\n  cin >> xs >> ys;\n  cout << polynomial_interpolation(xs,\
-    \ ys) << endl;\n}\n"
+    \ >\nusing FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 1 \"math/fps/polynomial-interpolation.cpp\"\
+    \n/**\n * @brief Polynomial-Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)\n */\n\
+    template< template< typename > class FPS, typename Mint >\nFPS< Mint > polynomial_interpolation(const\
+    \ FPS< Mint > &xs, const FPS< Mint > &ys) {\n  assert(xs.size() == ys.size());\n\
+    \  int n = (int) xs.size();\n  int k = 1;\n  while(k < n) k <<= 1;\n  vector<\
+    \ FPS< Mint > > mul(2 * k, {1}), g(2 * k);\n  for(int i = 0; i < n; i++) mul[k\
+    \ + i] = {-xs[i], Mint(1)};\n  for(int i = k; i-- > 1;) mul[i] = mul[i << 1] *\
+    \ mul[i << 1 | 1];\n  g[1] = mul[1].diff() % mul[1];\n  for(int i = 2; i < k +\
+    \ n; i++) g[i] = g[i >> 1] % mul[i];\n  for(int i = 0; i < n; i++) g[k + i] =\
+    \ {ys[i] / g[k + i][0]};\n  for(int i = k; i-- > 1;) g[i] = g[i << 1] * mul[i\
+    \ << 1 | 1] + g[i << 1 | 1] * mul[i << 1];\n  return g[1];\n}\n#line 8 \"test/verify/yosupo-polynomial-interpolation.test.cpp\"\
+    \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
+    \  int N, M;\n  cin >> N;\n  FPS< mint > xs(N), ys(N);\n  cin >> xs >> ys;\n \
+    \ cout << polynomial_interpolation(xs, ys) << endl;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_interpolation\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../math/combinatorics/mod-int.cpp\"\
     \n#include \"../../math/fps/formal-power-series-friendly-ntt.cpp\"\n#include \"\
@@ -277,12 +261,11 @@ data:
   - math/fps/formal-power-series-friendly-ntt.cpp
   - math/fft/number-theoretic-transform-friendly-mod-int.cpp
   - math/fps/polynomial-interpolation.cpp
-  - math/fps/multipoint-evaluation.cpp
   isVerificationFile: true
   path: test/verify/yosupo-polynomial-interpolation.test.cpp
   requiredBy: []
-  timestamp: '2021-07-03 01:50:07+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-07-12 18:11:22+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-polynomial-interpolation.test.cpp
 layout: document

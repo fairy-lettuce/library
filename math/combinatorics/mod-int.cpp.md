@@ -42,7 +42,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-matrix-det.test.cpp
     title: test/verify/yosupo-matrix-det.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-multipoint-evaluation.test.cpp
     title: test/verify/yosupo-multipoint-evaluation.test.cpp
   - icon: ':heavy_check_mark:'
@@ -57,7 +57,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-point-set-range-composite.test.cpp
     title: test/verify/yosupo-point-set-range-composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
   - icon: ':heavy_check_mark:'
@@ -84,13 +84,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sparse-matrix-det.test.cpp
     title: test/verify/yosupo-sparse-matrix-det.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   - icon: ':heavy_check_mark:'
