@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number-Theoretic-Transform-Friendly-Mod-Int
   _extendedRequiredBy: []
@@ -42,18 +42,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
     title: test/verify/yosupo-sharp-p-subset-sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/formal-power-series-friendly-ntt.md
     document_title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
@@ -353,7 +353,7 @@ data:
   path: math/fps/formal-power-series-friendly-ntt.cpp
   requiredBy: []
   timestamp: '2021-07-12 18:11:22+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-multipoint-evaluation.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
@@ -389,7 +389,7 @@ TODO 解説
 
 通常はテンプレートの型として Modint 構造体を渡す。また static  な関数として `ntt` と `intt` が実装された構造体が必要である。この構造体は `NumberTheoreticTransformFriendlyModInt< T >` に対応しているが、他のライブラリを使いたい場合は必要に応じてこの部分を書き換えること。
 
-計算量が書かれていない演算は $O(n \log n)$ で動作する。引数で `deg` を渡すことで, `deg` 項まで計算して返すものもある(デフォルトでは基本的に $\mathrm{deg(f)$ 項で打ち切る)。
+計算量が書かれていない演算は $O(n \log n)$ で動作する。引数で `deg` を渡すことで, `deg` 項まで計算して返すものもある(デフォルトでは基本的に $\mathrm{deg}(f)$ 項で打ち切る)。
 
 * `+`: $f(x) + g(x)$ を返す。$O(n)$
 * `-`: $f(x) - g(x)$ を返す。$O(n)$

@@ -407,16 +407,16 @@ data:
     - icon: ':warning:'
       path: math/combinatorics/mod-int-2.cpp
       title: math/combinatorics/mod-int-2.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-int.cpp
       title: math/combinatorics/mod-int.cpp
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-log.cpp
       title: "Mod-Log(\u96E2\u6563\u5BFE\u6570\u554F\u984C)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-pow.cpp
       title: "Mod-Pow(\u3079\u304D\u4E57)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-sqrt.cpp
       title: math/combinatorics/mod-sqrt.cpp
     - icon: ':heavy_check_mark:'
@@ -446,7 +446,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fft/fast-fourier-transform.cpp
       title: math/fft/fast-fourier-transform.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
       title: Number-Theoretic-Transform-Friendly-Mod-Int
     - icon: ':heavy_check_mark:'
@@ -469,7 +469,7 @@ data:
     - icon: ':warning:'
       path: math/fps/eulerian.cpp
       title: "Eulerian(\u30AA\u30A4\u30E9\u30FC\u6570)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/formal-power-series-friendly-ntt.cpp
       title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\
         \u7D1A\u6570)"
@@ -488,14 +488,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/sparse-matrix.cpp
       title: math/fps/sparse-matrix.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/stirling-first.cpp
       title: "Stirling-First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
         \u6570)"
     - icon: ':warning:'
       path: math/fps/stirling-second-kth-column.cpp
       title: math/fps/stirling-second-kth-column.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/stirling-second.cpp
       title: "Stirling-Second(\u7B2C\u4E8C\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
         \u6570)"
@@ -858,7 +858,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -1448,7 +1448,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-sqrt-mod.test.cpp
       title: test/verify/yosupo-sqrt-mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
       title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1472,10 +1472,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-staticrmq.test.cpp
       title: test/verify/yosupo-staticrmq.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
       title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
       title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     - icon: ':heavy_check_mark:'
