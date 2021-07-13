@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number-Theoretic-Transform-Friendly-Mod-Int
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fps/berlekamp-massey.cpp
-    title: Berlekamp-Massey
-  - icon: ':heavy_check_mark:'
+    title: Berlekamp Massey
+  - icon: ':question:'
     path: math/fps/formal-power-series-friendly-ntt.cpp
-    title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
+    title: "Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
       \u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -113,7 +113,7 @@ data:
     \ Mint >::idw = vector< Mint >();\ntemplate< typename Mint >\nint NumberTheoreticTransformFriendlyModInt<\
     \ Mint >::max_base = 0;\ntemplate< typename Mint >\nMint NumberTheoreticTransformFriendlyModInt<\
     \ Mint >::root = Mint();\n#line 2 \"math/fps/formal-power-series-friendly-ntt.cpp\"\
-    \n\n/**\n * @brief Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
+    \n\n/**\n * @brief Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
     \u51AA\u7D1A\u6570)\n * @docs docs/formal-power-series-friendly-ntt.md\n */\n\
     template< typename T >\nstruct FormalPowerSeriesFriendlyNTT : vector< T > {\n\
     \  using vector< T >::vector;\n  using P = FormalPowerSeriesFriendlyNTT;\n  using\
@@ -236,7 +236,7 @@ data:
     \ - 1];\n    p = (p * bs).pre(n);\n    p = p.rev();\n    for(int i = 0; i < n;\
     \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\n\ntemplate< typename Mint\
     \ >\nusing FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 1 \"math/fps/berlekamp-massey.cpp\"\
-    \n/**\n * @brief Berlekamp-Massey\n */\ntemplate< template< typename > class FPS,\
+    \n/**\n * @brief Berlekamp Massey\n */\ntemplate< template< typename > class FPS,\
     \ typename Mint >\nFPS< Mint > berlekamp_massey(const FPS< Mint > &s) {\n  const\
     \ int N = (int) s.size();\n  FPS< Mint > b = {Mint(-1)}, c = {Mint(-1)};\n  Mint\
     \ y = Mint(1);\n  for(int ed = 1; ed <= N; ed++) {\n    int l = int(c.size()),\
@@ -267,7 +267,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-find-linear-recurrence.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 01:03:05+09:00'
+  timestamp: '2021-07-13 20:24:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-find-linear-recurrence.test.cpp

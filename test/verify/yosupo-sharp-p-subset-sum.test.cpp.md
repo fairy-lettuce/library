@@ -1,27 +1,27 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number-Theoretic-Transform-Friendly-Mod-Int
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/fps/count-subset-sum.cpp
-    title: Count-Subset-Sum
-  - icon: ':heavy_check_mark:'
+    title: Count Subset Sum
+  - icon: ':question:'
     path: math/fps/formal-power-series-friendly-ntt.cpp
-    title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
+    title: "Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
       \u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sharp_p_subset_sum
@@ -113,7 +113,7 @@ data:
     \ Mint >::idw = vector< Mint >();\ntemplate< typename Mint >\nint NumberTheoreticTransformFriendlyModInt<\
     \ Mint >::max_base = 0;\ntemplate< typename Mint >\nMint NumberTheoreticTransformFriendlyModInt<\
     \ Mint >::root = Mint();\n#line 2 \"math/fps/formal-power-series-friendly-ntt.cpp\"\
-    \n\n/**\n * @brief Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
+    \n\n/**\n * @brief Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
     \u51AA\u7D1A\u6570)\n * @docs docs/formal-power-series-friendly-ntt.md\n */\n\
     template< typename T >\nstruct FormalPowerSeriesFriendlyNTT : vector< T > {\n\
     \  using vector< T >::vector;\n  using P = FormalPowerSeriesFriendlyNTT;\n  using\
@@ -236,7 +236,7 @@ data:
     \ - 1];\n    p = (p * bs).pre(n);\n    p = p.rev();\n    for(int i = 0; i < n;\
     \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\n\ntemplate< typename Mint\
     \ >\nusing FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 1 \"math/fps/count-subset-sum.cpp\"\
-    \n/**\n * @brief Count-Subset-Sum\n */\ntemplate< template< typename > class FPS,\
+    \n/**\n * @brief Count Subset Sum\n */\ntemplate< template< typename > class FPS,\
     \ typename Mint >\nFPS< Mint > count_subset_sum(vector< Mint > &c) {\n  const\
     \ int n = (int) c.size();\n  vector< Mint > inv(n);\n  inv[0] = Mint(0);\n  inv[1]\
     \ = Mint(1);\n  auto mod = Mint::get_mod();\n  for(int i = 2; i < n; i++) {\n\
@@ -265,8 +265,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 01:03:05+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-13 20:24:08+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-sharp-p-subset-sum.test.cpp
 layout: document

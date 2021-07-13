@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/arbitrary-mod-convolution.cpp
     title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/fast-fourier-transform.cpp
     title: math/fft/fast-fourier-transform.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/fps/formal-power-series.cpp
-    title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+    title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/215
@@ -139,7 +139,7 @@ data:
     \      int64_t bb = llround(fb[i].x);\n      int64_t cc = llround(fa[i].y);\n\
     \      aa = T(aa).x, bb = T(bb).x, cc = T(cc).x;\n      ret[i] = aa + (bb << 15)\
     \ + (cc << 30);\n    }\n    return ret;\n  }\n};\n#line 2 \"math/fps/formal-power-series.cpp\"\
-    \n\n/**\n * @brief Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n\
+    \n\n/**\n * @brief Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n\
     \ */\ntemplate< typename T >\nstruct FormalPowerSeries : vector< T > {\n  using\
     \ vector< T >::vector;\n  using P = FormalPowerSeries;\n  using Conv = ArbitraryModConvolution<\
     \ T >;\n\n  P pre(int deg) const {\n    return P(begin(*this), begin(*this) +\
@@ -267,8 +267,8 @@ data:
   isVerificationFile: true
   path: test/verify/yukicoder-215.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 01:03:05+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-13 20:24:08+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yukicoder-215.test.cpp
 layout: document

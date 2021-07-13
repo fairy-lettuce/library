@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: math/fps/subproduct-tree.cpp
-    title: Subproduct-Tree
+    title: Subproduct Tree
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -13,15 +13,15 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: "Polynomial-Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
+    document_title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
     links: []
-  bundledCode: "#line 1 \"math/fps/subproduct-tree.cpp\"\n/**\n * @brief Subproduct-Tree\n\
-    \ */\ntemplate< template< typename > class FPS, typename Mint >\nvector< FPS<\
-    \ Mint > > subproduct_tree(const FPS< Mint > &xs) {\n  int n = (int) xs.size();\n\
+  bundledCode: "#line 1 \"math/fps/subproduct-tree.cpp\"\n/**\n * @brief Subproduct\
+    \ Tree\n */\ntemplate< template< typename > class FPS, typename Mint >\nvector<\
+    \ FPS< Mint > > subproduct_tree(const FPS< Mint > &xs) {\n  int n = (int) xs.size();\n\
     \  int k = 1;\n  while(k < n) k <<= 1;\n  vector< FPS< Mint > > g(2 * k, {1});\n\
     \  for(int i = 0; i < n; i++) g[k + i] = {-xs[i], Mint(1)};\n  for(int i = k;\
     \ i-- > 1;) g[i] = g[i << 1] * g[i << 1 | 1];\n  return g;\n}\n#line 2 \"math/fps/polynomial-interpolation.cpp\"\
-    \n\n/**\n * @brief Polynomial-Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)\n\
+    \n\n/**\n * @brief Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)\n\
     \ */\ntemplate< template< typename > class FPS, typename Mint >\nFPS< Mint > polynomial_interpolation(const\
     \ FPS< Mint > &xs, const FPS< Mint > &ys) {\n  assert(xs.size() == ys.size());\n\
     \  auto mul = subproduct_tree(xs);\n  int n = (int) xs.size(), k = (int) mul.size()\
@@ -30,7 +30,7 @@ data:
     \ i < n; i++) g[k + i] = {ys[i] / g[k + i][0]};\n  for(int i = k; i-- > 1;) g[i]\
     \ = g[i << 1] * mul[i << 1 | 1] + g[i << 1 | 1] * mul[i << 1];\n  return g[1];\n\
     }\n"
-  code: "#include \"subproduct-tree.cpp\"\n\n/**\n * @brief Polynomial-Interpolation(\u591A\
+  code: "#include \"subproduct-tree.cpp\"\n\n/**\n * @brief Polynomial Interpolation(\u591A\
     \u9805\u5F0F\u88DC\u9593)\n */\ntemplate< template< typename > class FPS, typename\
     \ Mint >\nFPS< Mint > polynomial_interpolation(const FPS< Mint > &xs, const FPS<\
     \ Mint > &ys) {\n  assert(xs.size() == ys.size());\n  auto mul = subproduct_tree(xs);\n\
@@ -44,7 +44,7 @@ data:
   isVerificationFile: false
   path: math/fps/polynomial-interpolation.cpp
   requiredBy: []
-  timestamp: '2021-07-13 00:02:55+09:00'
+  timestamp: '2021-07-13 20:24:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-polynomial-interpolation.test.cpp
@@ -53,5 +53,5 @@ layout: document
 redirect_from:
 - /library/math/fps/polynomial-interpolation.cpp
 - /library/math/fps/polynomial-interpolation.cpp.html
-title: "Polynomial-Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
+title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
 ---

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number-Theoretic-Transform-Friendly-Mod-Int
   _extendedRequiredBy: []
@@ -42,24 +42,24 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
     title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
     title: test/verify/yosupo-sharp-p-subset-sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/formal-power-series-friendly-ntt.md
-    document_title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
+    document_title: "Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
       \u51AA\u7D1A\u6570)"
     links:
     - https://judge.yosupo.jp/problem/convolution_mod
@@ -105,7 +105,7 @@ data:
     \ Mint >::idw = vector< Mint >();\ntemplate< typename Mint >\nint NumberTheoreticTransformFriendlyModInt<\
     \ Mint >::max_base = 0;\ntemplate< typename Mint >\nMint NumberTheoreticTransformFriendlyModInt<\
     \ Mint >::root = Mint();\n#line 2 \"math/fps/formal-power-series-friendly-ntt.cpp\"\
-    \n\n/**\n * @brief Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
+    \n\n/**\n * @brief Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
     \u51AA\u7D1A\u6570)\n * @docs docs/formal-power-series-friendly-ntt.md\n */\n\
     template< typename T >\nstruct FormalPowerSeriesFriendlyNTT : vector< T > {\n\
     \  using vector< T >::vector;\n  using P = FormalPowerSeriesFriendlyNTT;\n  using\
@@ -229,7 +229,7 @@ data:
     \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\n\ntemplate< typename Mint\
     \ >\nusing FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n"
   code: "#include \"../fft/number-theoretic-transform-friendly-mod-int.cpp\"\n\n/**\n\
-    \ * @brief Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\
+    \ * @brief Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\
     \u7D1A\u6570)\n * @docs docs/formal-power-series-friendly-ntt.md\n */\ntemplate<\
     \ typename T >\nstruct FormalPowerSeriesFriendlyNTT : vector< T > {\n  using vector<\
     \ T >::vector;\n  using P = FormalPowerSeriesFriendlyNTT;\n  using NTT = NumberTheoreticTransformFriendlyModInt<\
@@ -357,8 +357,8 @@ data:
   isVerificationFile: false
   path: math/fps/formal-power-series-friendly-ntt.cpp
   requiredBy: []
-  timestamp: '2021-07-13 01:03:05+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-07-13 20:24:08+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-multipoint-evaluation.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
@@ -381,7 +381,7 @@ layout: document
 redirect_from:
 - /library/math/fps/formal-power-series-friendly-ntt.cpp
 - /library/math/fps/formal-power-series-friendly-ntt.cpp.html
-title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
+title: "Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
   \u6570)"
 ---
 ## 概要

@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number-Theoretic-Transform-Friendly-Mod-Int
   - icon: ':heavy_check_mark:'
     path: math/fps/coeff-of-rational-function.cpp
-    title: Coeff-Of-Rational-Function
-  - icon: ':heavy_check_mark:'
+    title: Coeff of Rational Function
+  - icon: ':question:'
     path: math/fps/formal-power-series-friendly-ntt.cpp
-    title: "Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
+    title: "Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
       \u6570)"
   - icon: ':heavy_check_mark:'
     path: math/fps/kth-term-of-linearly-recurrent-sequence.cpp
-    title: Kth-Term-Of-Linearly-Recurrent-Sequence
-  - icon: ':heavy_check_mark:'
+    title: Kth Term of Linearly Recurrent Sequence
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -116,7 +116,7 @@ data:
     \ Mint >::idw = vector< Mint >();\ntemplate< typename Mint >\nint NumberTheoreticTransformFriendlyModInt<\
     \ Mint >::max_base = 0;\ntemplate< typename Mint >\nMint NumberTheoreticTransformFriendlyModInt<\
     \ Mint >::root = Mint();\n#line 2 \"math/fps/formal-power-series-friendly-ntt.cpp\"\
-    \n\n/**\n * @brief Formal-Power-Series-Friendly-NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
+    \n\n/**\n * @brief Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
     \u51AA\u7D1A\u6570)\n * @docs docs/formal-power-series-friendly-ntt.md\n */\n\
     template< typename T >\nstruct FormalPowerSeriesFriendlyNTT : vector< T > {\n\
     \  using vector< T >::vector;\n  using P = FormalPowerSeriesFriendlyNTT;\n  using\
@@ -239,7 +239,7 @@ data:
     \ - 1];\n    p = (p * bs).pre(n);\n    p = p.rev();\n    for(int i = 0; i < n;\
     \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\n\ntemplate< typename Mint\
     \ >\nusing FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 1 \"math/fps/coeff-of-rational-function.cpp\"\
-    \n/**\n * @brief Coeff-Of-Rational-Function\n * @docs docs/coeff-of-rational-function.md\n\
+    \n/**\n * @brief Coeff of Rational Function\n * @docs docs/coeff-of-rational-function.md\n\
     \ */\ntemplate< template< typename > class FPS, typename Mint >\nMint coeff_of_rational_function(FPS<\
     \ Mint > P, FPS< Mint > Q, int64_t k) {\n  // compute the coefficient [x^k] P/Q\
     \ of rational power series\n  Mint ret = 0;\n  if(P.size() >= Q.size()) {\n  \
@@ -251,7 +251,7 @@ data:
     \ i = 1; i < (int) Q2.size(); i += 2) Q2[i] = -Q2[i];\n    P = sub(P * Q2, k &\
     \ 1);\n    Q = sub(Q * Q2, 0);\n    k >>= 1;\n  }\n  return ret + P[0];\n}\n#line\
     \ 2 \"math/fps/kth-term-of-linearly-recurrent-sequence.cpp\"\n\n/**\n * @brief\
-    \ Kth-Term-Of-Linearly-Recurrent-Sequence\n */\ntemplate< template< typename >\
+    \ Kth Term of Linearly Recurrent Sequence\n */\ntemplate< template< typename >\
     \ class FPS, typename Mint >\nMint kth_term_of_linearly_recurrent_sequence(const\
     \ FPS< Mint > &a, FPS< Mint > c, int64_t k) {\n  assert(a.size() == c.size());\n\
     \  c = FPS< Mint >{1} - (c << 1);\n  return coeff_of_rational_function((a * c).pre(a.size()),\
@@ -277,7 +277,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 19:53:12+09:00'
+  timestamp: '2021-07-13 20:24:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp

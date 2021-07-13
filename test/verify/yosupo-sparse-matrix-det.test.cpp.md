@@ -1,32 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/arbitrary-mod-convolution.cpp
     title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/fast-fourier-transform.cpp
     title: math/fft/fast-fourier-transform.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fps/berlekamp-massey.cpp
-    title: Berlekamp-Massey
-  - icon: ':heavy_check_mark:'
+    title: Berlekamp Massey
+  - icon: ':x:'
     path: math/fps/formal-power-series.cpp
-    title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+    title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
+  - icon: ':x:'
     path: math/fps/sparse-matrix.cpp
     title: math/fps/sparse-matrix.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sparse_matrix_det
@@ -145,26 +145,27 @@ data:
     \ {\n      int64_t aa = llround(fa[i].x);\n      int64_t bb = llround(fb[i].x);\n\
     \      int64_t cc = llround(fa[i].y);\n      aa = T(aa).x, bb = T(bb).x, cc =\
     \ T(cc).x;\n      ret[i] = aa + (bb << 15) + (cc << 30);\n    }\n    return ret;\n\
-    \  }\n};\n#line 2 \"math/fps/formal-power-series.cpp\"\n\n/**\n * @brief Formal-Power-Series(\u5F62\
-    \u5F0F\u7684\u51AA\u7D1A\u6570)\n */\ntemplate< typename T >\nstruct FormalPowerSeries\
-    \ : vector< T > {\n  using vector< T >::vector;\n  using P = FormalPowerSeries;\n\
-    \  using Conv = ArbitraryModConvolution< T >;\n\n  P pre(int deg) const {\n  \
-    \  return P(begin(*this), begin(*this) + min((int) this->size(), deg));\n  }\n\
-    \n  P rev(int deg = -1) const {\n    P ret(*this);\n    if(deg != -1) ret.resize(deg,\
-    \ T(0));\n    reverse(begin(ret), end(ret));\n    return ret;\n  }\n\n  void shrink()\
-    \ {\n    while(this->size() && this->back() == T(0)) this->pop_back();\n  }\n\n\
-    \  P operator+(const P &r) const { return P(*this) += r; }\n\n  P operator+(const\
-    \ T &v) const { return P(*this) += v; }\n\n  P operator-(const P &r) const { return\
-    \ P(*this) -= r; }\n\n  P operator-(const T &v) const { return P(*this) -= v;\
-    \ }\n\n  P operator*(const P &r) const { return P(*this) *= r; }\n\n  P operator*(const\
-    \ T &v) const { return P(*this) *= v; }\n\n  P operator/(const P &r) const { return\
-    \ P(*this) /= r; }\n\n  P operator%(const P &r) const { return P(*this) %= r;\
-    \ }\n\n  P &operator+=(const P &r) {\n    if(r.size() > this->size()) this->resize(r.size());\n\
-    \    for(int i = 0; i < r.size(); i++) (*this)[i] += r[i];\n    return *this;\n\
-    \  }\n\n  P &operator-=(const P &r) {\n    if(r.size() > this->size()) this->resize(r.size());\n\
-    \    for(int i = 0; i < r.size(); i++) (*this)[i] -= r[i];\n    return *this;\n\
-    \  }\n\n  // https://judge.yosupo.jp/problem/convolution_mod\n  P &operator*=(const\
-    \ P &r) {\n    if(this->empty() || r.empty()) {\n      this->clear();\n      return\
+    \  }\n};\n#line 2 \"math/fps/formal-power-series.cpp\"\n\n/**\n * @brief Formal\
+    \ Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n */\ntemplate< typename\
+    \ T >\nstruct FormalPowerSeries : vector< T > {\n  using vector< T >::vector;\n\
+    \  using P = FormalPowerSeries;\n  using Conv = ArbitraryModConvolution< T >;\n\
+    \n  P pre(int deg) const {\n    return P(begin(*this), begin(*this) + min((int)\
+    \ this->size(), deg));\n  }\n\n  P rev(int deg = -1) const {\n    P ret(*this);\n\
+    \    if(deg != -1) ret.resize(deg, T(0));\n    reverse(begin(ret), end(ret));\n\
+    \    return ret;\n  }\n\n  void shrink() {\n    while(this->size() && this->back()\
+    \ == T(0)) this->pop_back();\n  }\n\n  P operator+(const P &r) const { return\
+    \ P(*this) += r; }\n\n  P operator+(const T &v) const { return P(*this) += v;\
+    \ }\n\n  P operator-(const P &r) const { return P(*this) -= r; }\n\n  P operator-(const\
+    \ T &v) const { return P(*this) -= v; }\n\n  P operator*(const P &r) const { return\
+    \ P(*this) *= r; }\n\n  P operator*(const T &v) const { return P(*this) *= v;\
+    \ }\n\n  P operator/(const P &r) const { return P(*this) /= r; }\n\n  P operator%(const\
+    \ P &r) const { return P(*this) %= r; }\n\n  P &operator+=(const P &r) {\n   \
+    \ if(r.size() > this->size()) this->resize(r.size());\n    for(int i = 0; i <\
+    \ r.size(); i++) (*this)[i] += r[i];\n    return *this;\n  }\n\n  P &operator-=(const\
+    \ P &r) {\n    if(r.size() > this->size()) this->resize(r.size());\n    for(int\
+    \ i = 0; i < r.size(); i++) (*this)[i] -= r[i];\n    return *this;\n  }\n\n  //\
+    \ https://judge.yosupo.jp/problem/convolution_mod\n  P &operator*=(const P &r)\
+    \ {\n    if(this->empty() || r.empty()) {\n      this->clear();\n      return\
     \ *this;\n    }\n    auto ret = Conv::multiply(*this, r);\n    return *this =\
     \ {begin(ret), end(ret)};\n  }\n\n  P &operator/=(const P &r) {\n    if(this->size()\
     \ < r.size()) {\n      this->clear();\n      return *this;\n    }\n    int n =\
@@ -240,7 +241,7 @@ data:
     \ - 1];\n    p = (p * bs).pre(n);\n    p = p.rev();\n    for(int i = 0; i < n;\
     \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\n\ntemplate< typename Mint\
     \ >\nusing FPS = FormalPowerSeries< Mint >;\n#line 8 \"test/verify/yosupo-sparse-matrix-det.test.cpp\"\
-    \n\n#line 1 \"math/fps/berlekamp-massey.cpp\"\n/**\n * @brief Berlekamp-Massey\n\
+    \n\n#line 1 \"math/fps/berlekamp-massey.cpp\"\n/**\n * @brief Berlekamp Massey\n\
     \ */\ntemplate< template< typename > class FPS, typename Mint >\nFPS< Mint > berlekamp_massey(const\
     \ FPS< Mint > &s) {\n  const int N = (int) s.size();\n  FPS< Mint > b = {Mint(-1)},\
     \ c = {Mint(-1)};\n  Mint y = Mint(1);\n  for(int ed = 1; ed <= N; ed++) {\n \
@@ -298,8 +299,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-sparse-matrix-det.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 01:03:05+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-13 20:24:08+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-sparse-matrix-det.test.cpp
 layout: document

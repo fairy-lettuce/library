@@ -3,17 +3,17 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    document_title: "Stirling-First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\
+    document_title: "Stirling First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\
       \u30B0\u6570)"
     links: []
-  bundledCode: "#line 1 \"math/fps/stirling-first.cpp\"\n/**\n * @brief Stirling-First(\u7B2C\
+  bundledCode: "#line 1 \"math/fps/stirling-first.cpp\"\n/**\n * @brief Stirling First(\u7B2C\
     \u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570)\n */\ntemplate< template<\
     \ typename > class FPS, typename Mint >\nFPS< Mint > stirling_first(int N) {\n\
     \  if(N == 0) return {Mint(1)};\n  int M = 1;\n  vector< Mint > fact(N + 1), rfact(N\
@@ -29,7 +29,7 @@ data:
     \ Mint > ts(M + 1 + 1, Mint(0));\n      for(int i = 0; i <= M; i++) {\n      \
     \  ts[i + 0] -= ret[i] * Mint(M);\n        ts[i + 1] += ret[i];\n      }\n   \
     \   ret = ts;\n      M |= 1;\n    }\n  }\n  return ret;\n}\n"
-  code: "/**\n * @brief Stirling-First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\
+  code: "/**\n * @brief Stirling First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\
     \u30B0\u6570)\n */\ntemplate< template< typename > class FPS, typename Mint >\n\
     FPS< Mint > stirling_first(int N) {\n  if(N == 0) return {Mint(1)};\n  int M =\
     \ 1;\n  vector< Mint > fact(N + 1), rfact(N + 1);\n  fact[0] = rfact[N] = Mint(1);\n\
@@ -49,8 +49,8 @@ data:
   isVerificationFile: false
   path: math/fps/stirling-first.cpp
   requiredBy: []
-  timestamp: '2021-07-02 23:41:25+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-07-13 20:24:08+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
 documentation_of: math/fps/stirling-first.cpp
@@ -58,6 +58,6 @@ layout: document
 redirect_from:
 - /library/math/fps/stirling-first.cpp
 - /library/math/fps/stirling-first.cpp.html
-title: "Stirling-First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\
+title: "Stirling First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\
   )"
 ---
