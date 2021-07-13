@@ -401,7 +401,7 @@ data:
       title: "Binomial(\u4E8C\u9805\u4FC2\u6570)"
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/enumeration.cpp
-      title: math/combinatorics/enumeration.cpp
+      title: "Enumeration(\u7D44\u307F\u5408\u308F\u305B)"
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/factorial.cpp
       title: "Factorial(\u968E\u4E57)"

@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/enumeration.cpp
-    title: math/combinatorics/enumeration.cpp
+    title: "Enumeration(\u7D44\u307F\u5408\u308F\u305B)"
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/factorial.cpp
     title: "Factorial(\u968E\u4E57)"
@@ -84,15 +84,16 @@ data:
     \  friend istream &operator>>(istream &is, ModInt &a) {\n    int64_t t;\n    is\
     \ >> t;\n    a = ModInt< mod >(t);\n    return (is);\n  }\n\n  static int get_mod()\
     \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 1 \"math/combinatorics/enumeration.cpp\"\
-    \ntemplate< typename T >\nstruct Enumeration {\nprivate:\n  static vector< T >\
-    \ _fact, _finv, _inv;\n\n  inline static void expand(size_t sz) {\n    if(_fact.size()\
-    \ < sz + 1) {\n      int pre_sz = max(1, (int) _fact.size());\n      _fact.resize(sz\
-    \ + 1, T(1));\n      _finv.resize(sz + 1, T(1));\n      _inv.resize(sz + 1, T(1));\n\
-    \      for(int i = pre_sz; i <= (int) sz; i++) {\n        _fact[i] = _fact[i -\
-    \ 1] * T(i);\n      }\n      _finv[sz] = T(1) / _fact[sz];\n      for(int i =\
-    \ (int) sz - 1; i >= pre_sz; i--) {\n        _finv[i] = _finv[i + 1] * T(i + 1);\n\
-    \      }\n      for(int i = pre_sz; i <= (int) sz; i++) {\n        _inv[i] = _finv[i]\
-    \ * _fact[i - 1];\n      }\n    }\n  }\n\npublic:\n  explicit Enumeration(size_t\
+    \n/**\n * @brief Enumeration(\u7D44\u307F\u5408\u308F\u305B)\n */\ntemplate< typename\
+    \ T >\nstruct Enumeration {\nprivate:\n  static vector< T > _fact, _finv, _inv;\n\
+    \n  inline static void expand(size_t sz) {\n    if(_fact.size() < sz + 1) {\n\
+    \      int pre_sz = max(1, (int) _fact.size());\n      _fact.resize(sz + 1, T(1));\n\
+    \      _finv.resize(sz + 1, T(1));\n      _inv.resize(sz + 1, T(1));\n      for(int\
+    \ i = pre_sz; i <= (int) sz; i++) {\n        _fact[i] = _fact[i - 1] * T(i);\n\
+    \      }\n      _finv[sz] = T(1) / _fact[sz];\n      for(int i = (int) sz - 1;\
+    \ i >= pre_sz; i--) {\n        _finv[i] = _finv[i + 1] * T(i + 1);\n      }\n\
+    \      for(int i = pre_sz; i <= (int) sz; i++) {\n        _inv[i] = _finv[i] *\
+    \ _fact[i - 1];\n      }\n    }\n  }\n\npublic:\n  explicit Enumeration(size_t\
     \ sz = 0) { expand(sz); }\n\n  static inline T fact(int k) {\n    expand(k);\n\
     \    return _fact[k];\n  }\n\n  static inline T finv(int k) {\n    expand(k);\n\
     \    return _finv[k];\n  }\n\n  static inline T inv(int k) {\n    expand(k);\n\
@@ -210,7 +211,7 @@ data:
   isVerificationFile: true
   path: test/verify/yukicoder-502.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 21:04:36+09:00'
+  timestamp: '2021-07-13 23:44:53+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yukicoder-502.test.cpp

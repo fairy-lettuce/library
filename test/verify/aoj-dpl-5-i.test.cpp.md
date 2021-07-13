@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/enumeration.cpp
-    title: math/combinatorics/enumeration.cpp
+    title: "Enumeration(\u7D44\u307F\u5408\u308F\u305B)"
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
@@ -75,35 +75,35 @@ data:
     \  friend istream &operator>>(istream &is, ModInt &a) {\n    int64_t t;\n    is\
     \ >> t;\n    a = ModInt< mod >(t);\n    return (is);\n  }\n\n  static int get_mod()\
     \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 6 \"test/verify/aoj-dpl-5-i.test.cpp\"\
-    \n\n#line 1 \"math/combinatorics/enumeration.cpp\"\ntemplate< typename T >\nstruct\
-    \ Enumeration {\nprivate:\n  static vector< T > _fact, _finv, _inv;\n\n  inline\
-    \ static void expand(size_t sz) {\n    if(_fact.size() < sz + 1) {\n      int\
-    \ pre_sz = max(1, (int) _fact.size());\n      _fact.resize(sz + 1, T(1));\n  \
-    \    _finv.resize(sz + 1, T(1));\n      _inv.resize(sz + 1, T(1));\n      for(int\
-    \ i = pre_sz; i <= (int) sz; i++) {\n        _fact[i] = _fact[i - 1] * T(i);\n\
-    \      }\n      _finv[sz] = T(1) / _fact[sz];\n      for(int i = (int) sz - 1;\
-    \ i >= pre_sz; i--) {\n        _finv[i] = _finv[i + 1] * T(i + 1);\n      }\n\
-    \      for(int i = pre_sz; i <= (int) sz; i++) {\n        _inv[i] = _finv[i] *\
-    \ _fact[i - 1];\n      }\n    }\n  }\n\npublic:\n  explicit Enumeration(size_t\
-    \ sz = 0) { expand(sz); }\n\n  static inline T fact(int k) {\n    expand(k);\n\
-    \    return _fact[k];\n  }\n\n  static inline T finv(int k) {\n    expand(k);\n\
-    \    return _finv[k];\n  }\n\n  static inline T inv(int k) {\n    expand(k);\n\
-    \    return _inv[k];\n  }\n\n  static T P(int n, int r) {\n    if(r < 0 || n <\
-    \ r) return 0;\n    return fact(n) * finv(n - r);\n  }\n\n  static T C(int p,\
-    \ int q) {\n    if(q < 0 || p < q) return 0;\n    return fact(p) * finv(q) * finv(p\
-    \ - q);\n  }\n\n  static T H(int n, int r) {\n    if(n < 0 || r < 0) return 0;\n\
-    \    return r == 0 ? 1 : C(n + r - 1, r);\n  }\n};\n\ntemplate< typename T >\n\
-    vector< T > Enumeration< T >::_fact = vector< T >();\ntemplate< typename T >\n\
-    vector< T > Enumeration< T >::_finv = vector< T >();\ntemplate< typename T >\n\
-    vector< T > Enumeration< T >::_inv = vector< T >();\n#line 2 \"math/combinatorics/stirling-number-second.cpp\"\
-    \n\n/**\n * @brief Stirling Number Second(\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\
-    \u30F3\u30B0\u6570)\n * @docs docs/stirling-number-second.md\n */\ntemplate< typename\
-    \ T >\nT stirling_number_second(int n, int k) {\n  Enumeration< T > table(k);\n\
-    \  T ret = 0;\n  for(int i = 0; i <= k; i++) {\n    auto add = T(i).pow(n) * table.C(k,\
-    \ i);\n    if((k - i) & 1) ret -= add;\n    else ret += add;\n  }\n  return ret\
-    \ * table.finv(k);\n}\n#line 8 \"test/verify/aoj-dpl-5-i.test.cpp\"\n\nint main()\
-    \ {\n  int N, K;\n  cin >> N >> K;\n  cout << stirling_number_second< modint >(N,\
-    \ K) << endl;\n}\n\n"
+    \n\n#line 1 \"math/combinatorics/enumeration.cpp\"\n/**\n * @brief Enumeration(\u7D44\
+    \u307F\u5408\u308F\u305B)\n */\ntemplate< typename T >\nstruct Enumeration {\n\
+    private:\n  static vector< T > _fact, _finv, _inv;\n\n  inline static void expand(size_t\
+    \ sz) {\n    if(_fact.size() < sz + 1) {\n      int pre_sz = max(1, (int) _fact.size());\n\
+    \      _fact.resize(sz + 1, T(1));\n      _finv.resize(sz + 1, T(1));\n      _inv.resize(sz\
+    \ + 1, T(1));\n      for(int i = pre_sz; i <= (int) sz; i++) {\n        _fact[i]\
+    \ = _fact[i - 1] * T(i);\n      }\n      _finv[sz] = T(1) / _fact[sz];\n     \
+    \ for(int i = (int) sz - 1; i >= pre_sz; i--) {\n        _finv[i] = _finv[i +\
+    \ 1] * T(i + 1);\n      }\n      for(int i = pre_sz; i <= (int) sz; i++) {\n \
+    \       _inv[i] = _finv[i] * _fact[i - 1];\n      }\n    }\n  }\n\npublic:\n \
+    \ explicit Enumeration(size_t sz = 0) { expand(sz); }\n\n  static inline T fact(int\
+    \ k) {\n    expand(k);\n    return _fact[k];\n  }\n\n  static inline T finv(int\
+    \ k) {\n    expand(k);\n    return _finv[k];\n  }\n\n  static inline T inv(int\
+    \ k) {\n    expand(k);\n    return _inv[k];\n  }\n\n  static T P(int n, int r)\
+    \ {\n    if(r < 0 || n < r) return 0;\n    return fact(n) * finv(n - r);\n  }\n\
+    \n  static T C(int p, int q) {\n    if(q < 0 || p < q) return 0;\n    return fact(p)\
+    \ * finv(q) * finv(p - q);\n  }\n\n  static T H(int n, int r) {\n    if(n < 0\
+    \ || r < 0) return 0;\n    return r == 0 ? 1 : C(n + r - 1, r);\n  }\n};\n\ntemplate<\
+    \ typename T >\nvector< T > Enumeration< T >::_fact = vector< T >();\ntemplate<\
+    \ typename T >\nvector< T > Enumeration< T >::_finv = vector< T >();\ntemplate<\
+    \ typename T >\nvector< T > Enumeration< T >::_inv = vector< T >();\n#line 2 \"\
+    math/combinatorics/stirling-number-second.cpp\"\n\n/**\n * @brief Stirling Number\
+    \ Second(\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570)\n * @docs docs/stirling-number-second.md\n\
+    \ */\ntemplate< typename T >\nT stirling_number_second(int n, int k) {\n  Enumeration<\
+    \ T > table(k);\n  T ret = 0;\n  for(int i = 0; i <= k; i++) {\n    auto add =\
+    \ T(i).pow(n) * table.C(k, i);\n    if((k - i) & 1) ret -= add;\n    else ret\
+    \ += add;\n  }\n  return ret * table.finv(k);\n}\n#line 8 \"test/verify/aoj-dpl-5-i.test.cpp\"\
+    \n\nint main() {\n  int N, K;\n  cin >> N >> K;\n  cout << stirling_number_second<\
+    \ modint >(N, K) << endl;\n}\n\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../math/combinatorics/mod-int.cpp\"\
     \n\n#include \"../../math/combinatorics/stirling-number-second.cpp\"\n\nint main()\
@@ -117,7 +117,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-dpl-5-i.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 21:04:36+09:00'
+  timestamp: '2021-07-13 23:44:53+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dpl-5-i.test.cpp
