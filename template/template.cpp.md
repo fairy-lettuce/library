@@ -382,6 +382,9 @@ data:
     path: test/verify/yosupo-kth-root-integer.test.cpp
     title: test/verify/yosupo-kth-root-integer.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
+    title: test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-lca-2.test.cpp
     title: test/verify/yosupo-lca-2.test.cpp
   - icon: ':heavy_check_mark:'
@@ -672,6 +675,7 @@ data:
   - test/verify/aoj-grl-6-a-3.test.cpp
   - test/verify/yosupo-point-set-range-composite.test.cpp
   - test/verify/yosupo-sum-of-floor-of-linear.test.cpp
+  - test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
   - test/verify/yosupo-line-add-get-min.test.cpp
   - test/verify/aoj-alds-1-1-c-2.test.cpp
   - test/verify/yosupo-bipartite-edge-coloring.test.cpp

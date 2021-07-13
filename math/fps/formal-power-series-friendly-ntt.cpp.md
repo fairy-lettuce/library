@@ -22,6 +22,9 @@ data:
     path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
     title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
+    title: test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-log-of-formal-power-series.test.cpp
     title: test/verify/yosupo-log-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -361,6 +364,7 @@ data:
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - test/verify/yosupo-polynomial-taylor-shift.test.cpp
   - test/verify/yosupo-pow-of-formal-power-series.test.cpp
+  - test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
   - test/verify/yosupo-polynomial-interpolation.test.cpp
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp
   - test/verify/yosupo-log-of-formal-power-series.test.cpp

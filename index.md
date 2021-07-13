@@ -464,6 +464,9 @@ data:
       path: math/fps/bernoulli.cpp
       title: "Bernoulli(\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
     - icon: ':heavy_check_mark:'
+      path: math/fps/coeff-of-rational-function.cpp
+      title: Coeff of Rational Function
+    - icon: ':heavy_check_mark:'
       path: math/fps/count-subset-sum.cpp
       title: Count-Subset-Sum
     - icon: ':warning:'
@@ -476,9 +479,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/formal-power-series.cpp
       title: "Formal-Power-Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-    - icon: ':warning:'
-      path: math/fps/linear-recursion-formula.cpp
-      title: Linear-Recursion-Formula
+    - icon: ':heavy_check_mark:'
+      path: math/fps/kth-term-of-linearly-recurrent-sequence.cpp
+      title: Kth-Term-Of-Linearly-Recurrent-Sequence
     - icon: ':heavy_check_mark:'
       path: math/fps/multipoint-evaluation.cpp
       title: Multipoint-Evaluation
@@ -1352,6 +1355,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-kth-root-integer.test.cpp
       title: test/verify/yosupo-kth-root-integer.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
+      title: test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-lca-2.test.cpp
       title: test/verify/yosupo-lca-2.test.cpp
