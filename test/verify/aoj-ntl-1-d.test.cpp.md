@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':question:'
     path: math/number-theory/euler-phi.cpp
-    title: "Euler's-Phi-Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570)"
+    title: "Euler's Phi(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570)"
   - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
@@ -45,7 +45,7 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-ntl-1-d.test.cpp\"\
-    \n\n#line 1 \"math/number-theory/euler-phi.cpp\"\n/**\n * @brief Euler's-Phi-Function(\u30AA\
+    \n\n#line 1 \"math/number-theory/euler-phi.cpp\"\n/**\n * @brief Euler's Phi(\u30AA\
     \u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570)\n * @docs docs/euler-phi.md\n */\n\
     template< typename T >\nT euler_phi(T n) {\n  T ret = n;\n  for(T i = 2; i * i\
     \ <= n; i++) {\n    if(n % i == 0) {\n      ret -= ret / i;\n      while(n % i\
@@ -62,7 +62,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-ntl-1-d.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-13 21:51:53+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-ntl-1-d.test.cpp

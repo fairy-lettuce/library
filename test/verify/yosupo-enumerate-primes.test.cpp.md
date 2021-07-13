@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: math/number-theory/enumerate-primes.cpp
-    title: "Enumerate-Primes(\u7D20\u6570\u5217\u6319)"
+    title: "Enumerate Primes(\u7D20\u6570\u5217\u6319)"
   - icon: ':heavy_check_mark:'
     path: math/number-theory/prime-table.cpp
     title: "Prime-Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
@@ -55,7 +55,7 @@ data:
     \ = false;\n  if(n >= 1) prime[1] = false;\n  for(int i = 2; i * i <= n; i++)\
     \ {\n    if(!prime[i]) continue;\n    for(int j = i * i; j <= n; j += i) {\n \
     \     prime[j] = false;\n    }\n  }\n  return prime;\n}\n#line 2 \"math/number-theory/enumerate-primes.cpp\"\
-    \n\n/**\n * @brief Enumerate-Primes(\u7D20\u6570\u5217\u6319)\n * @docs docs/enumerate-primes.md\n\
+    \n\n/**\n * @brief Enumerate Primes(\u7D20\u6570\u5217\u6319)\n * @docs docs/enumerate-primes.md\n\
     \ */\nvector< int > enumerate_primes(int n) {\n  if(n <= 1) return {};\n  auto\
     \ d = prime_table(n);\n  vector< int > primes;\n  primes.reserve(count(begin(d),\
     \ end(d), true));\n  for(int i = 0; i < d.size(); i++) {\n    if(d[i]) primes.push_back(i);\n\
@@ -77,7 +77,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-enumerate-primes.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-13 21:51:53+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-enumerate-primes.test.cpp

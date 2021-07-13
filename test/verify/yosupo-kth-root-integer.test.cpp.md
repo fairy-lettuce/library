@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: math/number-theory/kth-root.cpp
-    title: Kth-Root
+    title: Kth Root
   - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
@@ -46,7 +46,7 @@ data:
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-kth-root-integer.test.cpp\"\
-    \n\n#line 1 \"math/number-theory/kth-root.cpp\"\n/**\n * @brief Kth-Root\n * @docs\
+    \n\n#line 1 \"math/number-theory/kth-root.cpp\"\n/**\n * @brief Kth Root\n * @docs\
     \ docs/kth-root.md\n */\nuint64_t kth_root(uint64_t a, int k) {\n  if(k == 1)\
     \ return a;\n  auto check = [&](uint32_t x) {\n    uint64_t mul = 1;\n    for(int\
     \ j = 0; j < k; j++) {\n      if(__builtin_mul_overflow(mul, x, &mul)) return\
@@ -65,7 +65,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-kth-root-integer.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-13 21:51:53+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-kth-root-integer.test.cpp

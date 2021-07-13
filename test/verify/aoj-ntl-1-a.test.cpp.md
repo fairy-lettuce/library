@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: math/number-theory/prime-factor.cpp
-    title: math/number-theory/prime-factor.cpp
+    title: "Prime Factor(\u7D20\u56E0\u6570\u5206\u89E3)"
   - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
@@ -45,13 +45,13 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-ntl-1-a.test.cpp\"\
-    \n\n#line 1 \"math/number-theory/prime-factor.cpp\"\nmap< int64_t, int > prime_factor(int64_t\
-    \ n) {\n  map< int64_t, int > ret;\n  for(int64_t i = 2; i * i <= n; i++) {\n\
-    \    while(n % i == 0) {\n      ret[i]++;\n      n /= i;\n    }\n  }\n  if(n !=\
-    \ 1) ret[n] = 1;\n  return ret;\n}\n#line 6 \"test/verify/aoj-ntl-1-a.test.cpp\"\
-    \n\nint main() {\n  int N;\n  cin >> N;\n  cout << N << \":\";\n  for(auto p :\
-    \ prime_factor(N)) {\n    while(p.second--) cout << \" \" << p.first;\n  }\n \
-    \ cout << endl;\n}\n"
+    \n\n#line 1 \"math/number-theory/prime-factor.cpp\"\n/**\n * @brief Prime Factor(\u7D20\
+    \u56E0\u6570\u5206\u89E3)\n */\nmap< int64_t, int > prime_factor(int64_t n) {\n\
+    \  map< int64_t, int > ret;\n  for(int64_t i = 2; i * i <= n; i++) {\n    while(n\
+    \ % i == 0) {\n      ret[i]++;\n      n /= i;\n    }\n  }\n  if(n != 1) ret[n]\
+    \ = 1;\n  return ret;\n}\n#line 6 \"test/verify/aoj-ntl-1-a.test.cpp\"\n\nint\
+    \ main() {\n  int N;\n  cin >> N;\n  cout << N << \":\";\n  for(auto p : prime_factor(N))\
+    \ {\n    while(p.second--) cout << \" \" << p.first;\n  }\n  cout << endl;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../math/number-theory/prime-factor.cpp\"\
     \n\nint main() {\n  int N;\n  cin >> N;\n  cout << N << \":\";\n  for(auto p :\
@@ -63,7 +63,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-ntl-1-a.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-13 21:51:53+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-ntl-1-a.test.cpp

@@ -520,21 +520,20 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: math/number-theory/convert-base.cpp
-      title: "Convert-Base(\u9032\u6570\u5909\u63DB)"
+      title: "Convert Base(\u9032\u6570\u5909\u63DB)"
     - icon: ':warning:'
       path: math/number-theory/divisor.cpp
       title: "Divisor(\u7D04\u6570\u5217\u6319)"
     - icon: ':heavy_check_mark:'
       path: math/number-theory/enumerate-primes.cpp
-      title: "Enumerate-Primes(\u7D20\u6570\u5217\u6319)"
+      title: "Enumerate Primes(\u7D20\u6570\u5217\u6319)"
     - icon: ':warning:'
       path: math/number-theory/euler-phi-table.cpp
-      title: "Euler\u2019s-Phi-Function-Table(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\
-        \u95A2\u6570\u30C6\u30FC\u30D6\u30EB)"
+      title: "Euler\u2019s Phi Table(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
+        \u30C6\u30FC\u30D6\u30EB)"
     - icon: ':question:'
       path: math/number-theory/euler-phi.cpp
-      title: "Euler's-Phi-Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
-        )"
+      title: "Euler's Phi(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570)"
     - icon: ':heavy_check_mark:'
       path: math/number-theory/extgcd.cpp
       title: "Extgcd(\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\
@@ -547,16 +546,16 @@ data:
       title: math/number-theory/is-prime.cpp
     - icon: ':heavy_check_mark:'
       path: math/number-theory/kth-root.cpp
-      title: Kth-Root
+      title: Kth Root
     - icon: ':warning:'
       path: math/number-theory/moebius-mu-table.cpp
       title: math/number-theory/moebius-mu-table.cpp
     - icon: ':heavy_check_mark:'
       path: math/number-theory/prime-count.cpp
-      title: "Prime-Count(\u7D20\u6570\u306E\u500B\u6570)"
+      title: "Prime Count(\u7D20\u6570\u306E\u500B\u6570)"
     - icon: ':heavy_check_mark:'
       path: math/number-theory/prime-factor.cpp
-      title: math/number-theory/prime-factor.cpp
+      title: "Prime Factor(\u7D20\u56E0\u6570\u5206\u89E3)"
     - icon: ':heavy_check_mark:'
       path: math/number-theory/prime-table.cpp
       title: "Prime-Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
@@ -565,7 +564,7 @@ data:
       title: math/number-theory/quotient-range.cpp
     - icon: ':heavy_check_mark:'
       path: math/number-theory/sum-of-floor-of-linear.cpp
-      title: "Sum-Of-Floor-Of-Linear(\u4E00\u6B21\u95A2\u6570\u306E\u5E8A\u95A2\u6570\
+      title: "Sum of Floor of Linear(\u4E00\u6B21\u95A2\u6570\u306E\u5E8A\u95A2\u6570\
         \u306E\u548C)"
   - name: other
     pages:

@@ -3,10 +3,10 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: math/number-theory/kth-root.cpp
-    title: Kth-Root
+    title: Kth Root
   - icon: ':heavy_check_mark:'
     path: math/number-theory/prime-count.cpp
-    title: "Prime-Count(\u7D20\u6570\u306E\u500B\u6570)"
+    title: "Prime Count(\u7D20\u6570\u306E\u500B\u6570)"
   - icon: ':heavy_check_mark:'
     path: math/number-theory/prime-table.cpp
     title: "Prime-Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
@@ -52,7 +52,7 @@ data:
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-counting-primes.test.cpp\"\
-    \n\n#line 1 \"math/number-theory/kth-root.cpp\"\n/**\n * @brief Kth-Root\n * @docs\
+    \n\n#line 1 \"math/number-theory/kth-root.cpp\"\n/**\n * @brief Kth Root\n * @docs\
     \ docs/kth-root.md\n */\nuint64_t kth_root(uint64_t a, int k) {\n  if(k == 1)\
     \ return a;\n  auto check = [&](uint32_t x) {\n    uint64_t mul = 1;\n    for(int\
     \ j = 0; j < k; j++) {\n      if(__builtin_mul_overflow(mul, x, &mul)) return\
@@ -64,7 +64,7 @@ data:
     \  if(n >= 0) prime[0] = false;\n  if(n >= 1) prime[1] = false;\n  for(int i =\
     \ 2; i * i <= n; i++) {\n    if(!prime[i]) continue;\n    for(int j = i * i; j\
     \ <= n; j += i) {\n      prime[j] = false;\n    }\n  }\n  return prime;\n}\n#line\
-    \ 1 \"math/number-theory/prime-count.cpp\"\n/**\n * @brief Prime-Count(\u7D20\u6570\
+    \ 1 \"math/number-theory/prime-count.cpp\"\n/**\n * @brief Prime Count(\u7D20\u6570\
     \u306E\u500B\u6570)\n */\ntemplate< int64_t LIM = 100000000000LL >\nstruct PrimeCount\
     \ {\nprivate:\n  int64_t sq;\n  vector< bool > prime;\n  vector< int64_t > prime_sum,\
     \ primes;\n\n  int64_t p2(int64_t x, int64_t y) {\n    if(x < 4) return 0;\n \
@@ -99,7 +99,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-counting-primes.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-13 21:51:53+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-counting-primes.test.cpp

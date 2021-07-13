@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: math/number-theory/sum-of-floor-of-linear.cpp
-    title: "Sum-Of-Floor-Of-Linear(\u4E00\u6B21\u95A2\u6570\u306E\u5E8A\u95A2\u6570\
+    title: "Sum of Floor of Linear(\u4E00\u6B21\u95A2\u6570\u306E\u5E8A\u95A2\u6570\
       \u306E\u548C)"
   - icon: ':question:'
     path: template/template.cpp
@@ -48,7 +48,7 @@ data:
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-sum-of-floor-of-linear.test.cpp\"\
     \n\n#line 1 \"math/number-theory/sum-of-floor-of-linear.cpp\"\n/**\n * @brief\
-    \ Sum-Of-Floor-Of-Linear(\u4E00\u6B21\u95A2\u6570\u306E\u5E8A\u95A2\u6570\u306E\
+    \ Sum of Floor of Linear(\u4E00\u6B21\u95A2\u6570\u306E\u5E8A\u95A2\u6570\u306E\
     \u548C)\n * @docs docs/sum-of-floor-of-linear.md\n */\ntemplate< typename T >\n\
     T sum_of_floor_of_linear(const T &n, const T &m, T a, T b) {\n  T ret = 0;\n \
     \ if(a >= m) ret += (n - 1) * n * (a / m) / 2, a %= m;\n  if(b >= m) ret += n\
@@ -69,7 +69,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-sum-of-floor-of-linear.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-13 21:51:53+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-sum-of-floor-of-linear.test.cpp

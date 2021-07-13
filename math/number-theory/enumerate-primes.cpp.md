@@ -14,7 +14,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/enumerate-primes.md
-    document_title: "Enumerate-Primes(\u7D20\u6570\u5217\u6319)"
+    document_title: "Enumerate Primes(\u7D20\u6570\u5217\u6319)"
     links: []
   bundledCode: "#line 1 \"math/number-theory/prime-table.cpp\"\n/**\n * @brief Prime-Table(\u7D20\
     \u6570\u30C6\u30FC\u30D6\u30EB)\n * @docs docs/prime-table.md\n */\nvector< bool\
@@ -22,12 +22,12 @@ data:
     \ = false;\n  if(n >= 1) prime[1] = false;\n  for(int i = 2; i * i <= n; i++)\
     \ {\n    if(!prime[i]) continue;\n    for(int j = i * i; j <= n; j += i) {\n \
     \     prime[j] = false;\n    }\n  }\n  return prime;\n}\n#line 2 \"math/number-theory/enumerate-primes.cpp\"\
-    \n\n/**\n * @brief Enumerate-Primes(\u7D20\u6570\u5217\u6319)\n * @docs docs/enumerate-primes.md\n\
+    \n\n/**\n * @brief Enumerate Primes(\u7D20\u6570\u5217\u6319)\n * @docs docs/enumerate-primes.md\n\
     \ */\nvector< int > enumerate_primes(int n) {\n  if(n <= 1) return {};\n  auto\
     \ d = prime_table(n);\n  vector< int > primes;\n  primes.reserve(count(begin(d),\
     \ end(d), true));\n  for(int i = 0; i < d.size(); i++) {\n    if(d[i]) primes.push_back(i);\n\
     \  }\n  return primes;\n}\n"
-  code: "#include \"prime-table.cpp\"\n\n/**\n * @brief Enumerate-Primes(\u7D20\u6570\
+  code: "#include \"prime-table.cpp\"\n\n/**\n * @brief Enumerate Primes(\u7D20\u6570\
     \u5217\u6319)\n * @docs docs/enumerate-primes.md\n */\nvector< int > enumerate_primes(int\
     \ n) {\n  if(n <= 1) return {};\n  auto d = prime_table(n);\n  vector< int > primes;\n\
     \  primes.reserve(count(begin(d), end(d), true));\n  for(int i = 0; i < d.size();\
@@ -37,7 +37,7 @@ data:
   isVerificationFile: false
   path: math/number-theory/enumerate-primes.cpp
   requiredBy: []
-  timestamp: '2020-10-13 00:40:11+09:00'
+  timestamp: '2021-07-13 21:51:53+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-enumerate-primes.test.cpp
@@ -46,7 +46,7 @@ layout: document
 redirect_from:
 - /library/math/number-theory/enumerate-primes.cpp
 - /library/math/number-theory/enumerate-primes.cpp.html
-title: "Enumerate-Primes(\u7D20\u6570\u5217\u6319)"
+title: "Enumerate Primes(\u7D20\u6570\u5217\u6319)"
 ---
 ## 概要
 

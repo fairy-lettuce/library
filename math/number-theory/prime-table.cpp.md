@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: math/number-theory/enumerate-primes.cpp
-    title: "Enumerate-Primes(\u7D20\u6570\u5217\u6319)"
+    title: "Enumerate Primes(\u7D20\u6570\u5217\u6319)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-alds-1-1-c-2.test.cpp
