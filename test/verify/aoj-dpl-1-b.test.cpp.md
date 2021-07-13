@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: dp/knapsack-01.cpp
-    title: "Knapsack-01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$"
+    title: "Knapsack 01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$"
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -45,7 +45,7 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-dpl-1-b.test.cpp\"\
-    \n\n#line 1 \"dp/knapsack-01.cpp\"\n/**\n * @brief Knapsack-01(0-1\u30CA\u30C3\
+    \n\n#line 1 \"dp/knapsack-01.cpp\"\n/**\n * @brief Knapsack 01(0-1\u30CA\u30C3\
     \u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$\n * @docs docs/knapsack-01.md\n\
     \ */\ntemplate< typename T, typename Compare = greater< T > >\nvector< T > knapsack_01(const\
     \ vector< int > &w, const vector< T > &v, const int &W, const T &NG, const Compare\
@@ -68,7 +68,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-dpl-1-b.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-13 19:53:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dpl-1-b.test.cpp

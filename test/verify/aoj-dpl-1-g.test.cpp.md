@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: dp/knapsack-limitations.cpp
-    title: "Knapsack-Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\u30D7\
+    title: "Knapsack Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\u30D7\
       \u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$"
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
@@ -46,7 +46,7 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-dpl-1-g.test.cpp\"\
-    \n\n#line 1 \"dp/knapsack-limitations.cpp\"\n/**\n * @brief Knapsack-Limitations(\u500B\
+    \n\n#line 1 \"dp/knapsack-limitations.cpp\"\n/**\n * @brief Knapsack Limitations(\u500B\
     \u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C\
     ) $O(NW)$\n * @docs docs/knapsack-limitations.md\n */\ntemplate< typename T, typename\
     \ Compare = greater< T > >\nvector< T > knapsack_limitations(const vector< int\
@@ -76,7 +76,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-dpl-1-g.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-13 19:53:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dpl-1-g.test.cpp

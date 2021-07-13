@@ -11,10 +11,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/knapsack-01.md
-    document_title: "Knapsack-01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C\
+    document_title: "Knapsack 01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C\
       ) $O(NW)$"
     links: []
-  bundledCode: "#line 1 \"dp/knapsack-01.cpp\"\n/**\n * @brief Knapsack-01(0-1\u30CA\
+  bundledCode: "#line 1 \"dp/knapsack-01.cpp\"\n/**\n * @brief Knapsack 01(0-1\u30CA\
     \u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$\n * @docs docs/knapsack-01.md\n\
     \ */\ntemplate< typename T, typename Compare = greater< T > >\nvector< T > knapsack_01(const\
     \ vector< int > &w, const vector< T > &v, const int &W, const T &NG, const Compare\
@@ -23,7 +23,7 @@ data:
     \ j >= w[i]; j--) {\n      if(dp[j - w[i]] != NG) {\n        if(comp(dp[j - w[i]]\
     \ + v[i], dp[j])) {\n          dp[j] = dp[j - w[i]] + v[i];\n        }\n     \
     \ }\n    }\n  }\n  return dp;\n}\n"
-  code: "/**\n * @brief Knapsack-01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C\
+  code: "/**\n * @brief Knapsack 01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C\
     ) $O(NW)$\n * @docs docs/knapsack-01.md\n */\ntemplate< typename T, typename Compare\
     \ = greater< T > >\nvector< T > knapsack_01(const vector< int > &w, const vector<\
     \ T > &v, const int &W, const T &NG, const Compare &comp = Compare()) {\n  const\
@@ -35,7 +35,7 @@ data:
   isVerificationFile: false
   path: dp/knapsack-01.cpp
   requiredBy: []
-  timestamp: '2020-02-21 17:07:30+09:00'
+  timestamp: '2021-07-13 19:53:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-dpl-1-b.test.cpp
@@ -44,7 +44,7 @@ layout: document
 redirect_from:
 - /library/dp/knapsack-01.cpp
 - /library/dp/knapsack-01.cpp.html
-title: "Knapsack-01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$"
+title: "Knapsack 01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$"
 ---
 ## 概要
 

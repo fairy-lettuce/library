@@ -3,10 +3,10 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: dp/monotone-minima.cpp
-    title: Monotone-Minima
+    title: Monotone Minima
   - icon: ':heavy_check_mark:'
     path: dp/online-offline-dp.cpp
-    title: "Online-Offline-DP(\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u30AA\u30D5\u30E9\
+    title: "Online Offline DP(\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u30AA\u30D5\u30E9\
       \u30A4\u30F3\u5909\u63DB)"
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
@@ -50,7 +50,7 @@ data:
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yukicoder-704.test.cpp\"\
-    \n\n#line 1 \"dp/monotone-minima.cpp\"\n/**\n * @brief Monotone-Minima\n * @docs\
+    \n\n#line 1 \"dp/monotone-minima.cpp\"\n/**\n * @brief Monotone Minima\n * @docs\
     \ docs/monotone-minima.md\n */\ntemplate< typename T, typename Compare = less<\
     \ T > >\nvector< pair< int, T > > monotone_minima(int H, int W, const function<\
     \ T(int, int) > &f, const Compare &comp = Compare()) {\n  vector< pair< int, T\
@@ -61,7 +61,7 @@ data:
     \       ma = cst;\n        mi = i;\n      }\n    }\n    dp[line] = make_pair(mi,\
     \ ma);\n    dfs(top, line - 1, left, mi);\n    dfs(line + 1, bottom, mi, right);\n\
     \  };\n  dfs(0, H - 1, 0, W - 1);\n  return dp;\n}\n#line 2 \"dp/online-offline-dp.cpp\"\
-    \n\n/**\n * @brief  Online-Offline-DP(\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u30AA\
+    \n\n/**\n * @brief  Online Offline DP(\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u30AA\
     \u30D5\u30E9\u30A4\u30F3\u5909\u63DB)\n * @docs docs/online-offline-dp.md\n */\n\
     template< typename T, typename Compare = less< T > >\nvector< T > online_offline_dp(int\
     \ W, const function< T(int, int) > &f, const Compare &comp = Compare()) {\n  vector<\
@@ -100,7 +100,7 @@ data:
   isVerificationFile: true
   path: test/verify/yukicoder-704.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-13 19:53:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yukicoder-704.test.cpp

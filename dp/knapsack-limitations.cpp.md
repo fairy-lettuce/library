@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: dp/knapsack-limitations-2.cpp
-    title: "Knapsack-Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\u30D7\
+    title: "Knapsack Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\u30D7\
       \u30B5\u30C3\u30AF\u554F\u984C) $O(N^2 \\max(v_i)^2)$"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -18,10 +18,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/knapsack-limitations.md
-    document_title: "Knapsack-Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\
+    document_title: "Knapsack Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\
       \u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$"
     links: []
-  bundledCode: "#line 1 \"dp/knapsack-limitations.cpp\"\n/**\n * @brief Knapsack-Limitations(\u500B\
+  bundledCode: "#line 1 \"dp/knapsack-limitations.cpp\"\n/**\n * @brief Knapsack Limitations(\u500B\
     \u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C\
     ) $O(NW)$\n * @docs docs/knapsack-limitations.md\n */\ntemplate< typename T, typename\
     \ Compare = greater< T > >\nvector< T > knapsack_limitations(const vector< int\
@@ -36,7 +36,7 @@ data:
     \      if(s < t) {\n          dp[j * w[i] + a] = deqv[s] + j * v[i];\n       \
     \   if(deq[s] == j - m[i]) ++s;\n        }\n      }\n    }\n  }\n  return dp;\n\
     }\n"
-  code: "/**\n * @brief Knapsack-Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\
+  code: "/**\n * @brief Knapsack Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\
     \u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$\n * @docs docs/knapsack-limitations.md\n\
     \ */\ntemplate< typename T, typename Compare = greater< T > >\nvector< T > knapsack_limitations(const\
     \ vector< int > &w, const vector< int > &m, const vector< T > &v,\n          \
@@ -55,7 +55,7 @@ data:
   path: dp/knapsack-limitations.cpp
   requiredBy:
   - dp/knapsack-limitations-2.cpp
-  timestamp: '2020-02-26 02:30:05+09:00'
+  timestamp: '2021-07-13 19:53:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-dpl-1-i.test.cpp
@@ -65,7 +65,7 @@ layout: document
 redirect_from:
 - /library/dp/knapsack-limitations.cpp
 - /library/dp/knapsack-limitations.cpp.html
-title: "Knapsack-Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\u30D7\
+title: "Knapsack Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\u30D7\
   \u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$"
 ---
 ## 概要

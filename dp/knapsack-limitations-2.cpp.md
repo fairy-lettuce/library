@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: dp/knapsack-limitations.cpp
-    title: "Knapsack-Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\u30D7\
+    title: "Knapsack Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\u30D7\
       \u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
@@ -15,10 +15,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/knapsack-limitations-2.md
-    document_title: "Knapsack-Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\
+    document_title: "Knapsack Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\
       \u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(N^2 \\max(v_i)^2)$"
     links: []
-  bundledCode: "#line 1 \"dp/knapsack-limitations.cpp\"\n/**\n * @brief Knapsack-Limitations(\u500B\
+  bundledCode: "#line 1 \"dp/knapsack-limitations.cpp\"\n/**\n * @brief Knapsack Limitations(\u500B\
     \u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C\
     ) $O(NW)$\n * @docs docs/knapsack-limitations.md\n */\ntemplate< typename T, typename\
     \ Compare = greater< T > >\nvector< T > knapsack_limitations(const vector< int\
@@ -32,7 +32,7 @@ data:
     \ 1])) --t;\n          deq[t] = j;\n          deqv[t++] = val;\n        }\n  \
     \      if(s < t) {\n          dp[j * w[i] + a] = deqv[s] + j * v[i];\n       \
     \   if(deq[s] == j - m[i]) ++s;\n        }\n      }\n    }\n  }\n  return dp;\n\
-    }\n#line 2 \"dp/knapsack-limitations-2.cpp\"\n\n/**\n * @brief Knapsack-Limitations(\u500B\
+    }\n#line 2 \"dp/knapsack-limitations-2.cpp\"\n\n/**\n * @brief Knapsack Limitations(\u500B\
     \u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C\
     ) $O(N^2 \\max(v_i)^2)$\n * @docs docs/knapsack-limitations-2.md\n */\ntemplate<\
     \ typename T >\nT knapsack_limitations(const vector< T > &w, const vector< T >\
@@ -49,7 +49,7 @@ data:
     \   auto get = min(mb[p], rest / w[p]);\n      if(get == 0) break;\n      cost\
     \ += get * v[p];\n      rest -= get * w[p];\n    }\n    ret = max(ret, cost);\n\
     \  }\n  return ret;\n}\n"
-  code: "#include \"knapsack-limitations.cpp\"\n\n/**\n * @brief Knapsack-Limitations(\u500B\
+  code: "#include \"knapsack-limitations.cpp\"\n\n/**\n * @brief Knapsack Limitations(\u500B\
     \u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C\
     ) $O(N^2 \\max(v_i)^2)$\n * @docs docs/knapsack-limitations-2.md\n */\ntemplate<\
     \ typename T >\nT knapsack_limitations(const vector< T > &w, const vector< T >\
@@ -71,7 +71,7 @@ data:
   isVerificationFile: false
   path: dp/knapsack-limitations-2.cpp
   requiredBy: []
-  timestamp: '2020-09-15 00:43:54+09:00'
+  timestamp: '2021-07-13 19:53:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-dpl-1-i.test.cpp
@@ -80,7 +80,7 @@ layout: document
 redirect_from:
 - /library/dp/knapsack-limitations-2.cpp
 - /library/dp/knapsack-limitations-2.cpp.html
-title: "Knapsack-Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\u30D7\
+title: "Knapsack Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\u30D7\
   \u30B5\u30C3\u30AF\u554F\u984C) $O(N^2 \\max(v_i)^2)$"
 ---
 ## 概要

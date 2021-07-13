@@ -5,30 +5,30 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: dp/cumulative-sum-2d.cpp
-      title: "Cumulative-Sum-2D(\u4E8C\u6B21\u5143\u7D2F\u7A4D\u548C)"
+      title: "Cumulative Sum 2D(\u4E8C\u6B21\u5143\u7D2F\u7A4D\u548C)"
     - icon: ':heavy_check_mark:'
       path: dp/cumulative-sum.cpp
-      title: "Cumulative-Sum(\u4E00\u6B21\u5143\u7D2F\u7A4D\u548C)"
+      title: "Cumulative Sum(\u4E00\u6B21\u5143\u7D2F\u7A4D\u548C)"
     - icon: ':heavy_check_mark:'
       path: dp/divide-and-conquer-optimization.cpp
-      title: Divide-And-Conquer-Optimization
+      title: Divide And Conquer Optimization
     - icon: ':heavy_check_mark:'
       path: dp/edit-distance.cpp
-      title: "Edit-Distance(\u7DE8\u96C6\u8DDD\u96E2)"
+      title: "Edit Distance(\u7DE8\u96C6\u8DDD\u96E2)"
     - icon: ':heavy_check_mark:'
       path: dp/knapsack-01-2.cpp
-      title: "Knapsack-01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(N\
+      title: "Knapsack 01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(N\
         \ \\sum {v_i})$"
     - icon: ':heavy_check_mark:'
       path: dp/knapsack-01.cpp
-      title: "Knapsack-01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$"
+      title: "Knapsack 01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$"
     - icon: ':heavy_check_mark:'
       path: dp/knapsack-limitations-2.cpp
-      title: "Knapsack-Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\
+      title: "Knapsack Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\
         \u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(N^2 \\max(v_i)^2)$"
     - icon: ':heavy_check_mark:'
       path: dp/knapsack-limitations.cpp
-      title: "Knapsack-Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\
+      title: "Knapsack Limitations(\u500B\u6570\u5236\u9650\u3064\u304D\u30CA\u30C3\
         \u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$"
     - icon: ':heavy_check_mark:'
       path: dp/knapsack.cpp
@@ -36,17 +36,17 @@ data:
         \u30C3\u30AF\u554F\u984C)"
     - icon: ':heavy_check_mark:'
       path: dp/largest-rectangle.cpp
-      title: "Largest-Rectangle(\u6700\u5927\u9577\u65B9\u5F62)"
+      title: "Largest Rectangle(\u6700\u5927\u9577\u65B9\u5F62)"
     - icon: ':heavy_check_mark:'
       path: dp/longest-increasing-subsequence.cpp
-      title: "Longest-Increasing-Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
+      title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
         )"
     - icon: ':heavy_check_mark:'
       path: dp/monotone-minima.cpp
-      title: Monotone-Minima
+      title: Monotone Minima
     - icon: ':heavy_check_mark:'
       path: dp/online-offline-dp.cpp
-      title: "Online-Offline-DP(\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u30AA\u30D5\u30E9\
+      title: "Online Offline DP(\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u30AA\u30D5\u30E9\
         \u30A4\u30F3\u5909\u63DB)"
   - name: geometry
     pages:
@@ -465,7 +465,7 @@ data:
       title: "Bernoulli(\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
     - icon: ':heavy_check_mark:'
       path: math/fps/coeff-of-rational-function.cpp
-      title: Coeff of Rational Function
+      title: Coeff-Of-Rational-Function
     - icon: ':heavy_check_mark:'
       path: math/fps/count-subset-sum.cpp
       title: Count-Subset-Sum

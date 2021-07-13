@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: dp/knapsack-01-2.cpp
-    title: "Knapsack-01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(N\
+    title: "Knapsack 01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(N\
       \ \\sum {v_i})$"
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
@@ -46,7 +46,7 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-dpl-1-f.test.cpp\"\
-    \n\n#line 1 \"dp/knapsack-01-2.cpp\"\n/**\n * @brief Knapsack-01(0-1\u30CA\u30C3\
+    \n\n#line 1 \"dp/knapsack-01-2.cpp\"\n/**\n * @brief Knapsack 01(0-1\u30CA\u30C3\
     \u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(N \\sum {v_i})$\n * @docs docs/knapsack-01-2.md\n\
     \ */\ntemplate< typename T >\nT knapsack_01_2(const vector< T > &w, const vector<\
     \ int > &v, const T &W) {\n  const int N = (int) w.size();\n  const int sum =\
@@ -68,7 +68,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-dpl-1-f.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-13 19:53:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dpl-1-f.test.cpp

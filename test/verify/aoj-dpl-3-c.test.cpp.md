@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: dp/largest-rectangle.cpp
-    title: "Largest-Rectangle(\u6700\u5927\u9577\u65B9\u5F62)"
+    title: "Largest Rectangle(\u6700\u5927\u9577\u65B9\u5F62)"
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -45,7 +45,7 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-dpl-3-c.test.cpp\"\
-    \n\n#line 1 \"dp/largest-rectangle.cpp\"\n/**\n * @brief Largest-Rectangle(\u6700\
+    \n\n#line 1 \"dp/largest-rectangle.cpp\"\n/**\n * @brief Largest Rectangle(\u6700\
     \u5927\u9577\u65B9\u5F62)\n * @docs docs/largest-rectangle.md\n */\t\ntemplate<\
     \ typename T >\nint64_t largest_rectangle(vector< T > height)\n{\n  stack< int\
     \ > st;\n  height.push_back(0);\n  vector< int > left(height.size());\n  int64_t\
@@ -65,7 +65,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-dpl-3-c.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-13 19:53:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dpl-3-c.test.cpp

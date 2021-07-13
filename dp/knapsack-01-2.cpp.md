@@ -11,10 +11,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/knapsack-01-2.md
-    document_title: "Knapsack-01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C\
+    document_title: "Knapsack 01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C\
       ) $O(N \\sum {v_i})$"
     links: []
-  bundledCode: "#line 1 \"dp/knapsack-01-2.cpp\"\n/**\n * @brief Knapsack-01(0-1\u30CA\
+  bundledCode: "#line 1 \"dp/knapsack-01-2.cpp\"\n/**\n * @brief Knapsack 01(0-1\u30CA\
     \u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(N \\sum {v_i})$\n * @docs docs/knapsack-01-2.md\n\
     \ */\ntemplate< typename T >\nT knapsack_01_2(const vector< T > &w, const vector<\
     \ int > &v, const T &W) {\n  const int N = (int) w.size();\n  const int sum =\
@@ -23,7 +23,7 @@ data:
     \ {\n      dp[j] = min(dp[j], dp[j - v[i]] + w[i]);\n    }\n  }\n  int ret = 0;\n\
     \  for(int i = 0; i <= sum; i++) {\n    if(dp[i] <= W) ret = i;\n  }\n  return\
     \ ret;\n}\n"
-  code: "/**\n * @brief Knapsack-01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C\
+  code: "/**\n * @brief Knapsack 01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C\
     ) $O(N \\sum {v_i})$\n * @docs docs/knapsack-01-2.md\n */\ntemplate< typename\
     \ T >\nT knapsack_01_2(const vector< T > &w, const vector< int > &v, const T &W)\
     \ {\n  const int N = (int) w.size();\n  const int sum = accumulate(begin(v), end(v),\
@@ -35,7 +35,7 @@ data:
   isVerificationFile: false
   path: dp/knapsack-01-2.cpp
   requiredBy: []
-  timestamp: '2020-02-21 17:07:30+09:00'
+  timestamp: '2021-07-13 19:53:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-dpl-1-f.test.cpp
@@ -44,7 +44,7 @@ layout: document
 redirect_from:
 - /library/dp/knapsack-01-2.cpp
 - /library/dp/knapsack-01-2.cpp.html
-title: "Knapsack-01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(N \\sum\
+title: "Knapsack 01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(N \\sum\
   \ {v_i})$"
 ---
 ## 概要

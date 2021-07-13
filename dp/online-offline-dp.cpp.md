@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: dp/monotone-minima.cpp
-    title: Monotone-Minima
+    title: Monotone Minima
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -20,10 +20,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/online-offline-dp.md
-    document_title: "Online-Offline-DP(\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u30AA\u30D5\
+    document_title: "Online Offline DP(\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u30AA\u30D5\
       \u30E9\u30A4\u30F3\u5909\u63DB)"
     links: []
-  bundledCode: "#line 1 \"dp/monotone-minima.cpp\"\n/**\n * @brief Monotone-Minima\n\
+  bundledCode: "#line 1 \"dp/monotone-minima.cpp\"\n/**\n * @brief Monotone Minima\n\
     \ * @docs docs/monotone-minima.md\n */\ntemplate< typename T, typename Compare\
     \ = less< T > >\nvector< pair< int, T > > monotone_minima(int H, int W, const\
     \ function< T(int, int) > &f, const Compare &comp = Compare()) {\n  vector< pair<\
@@ -34,7 +34,7 @@ data:
     \ ma)) {\n        ma = cst;\n        mi = i;\n      }\n    }\n    dp[line] = make_pair(mi,\
     \ ma);\n    dfs(top, line - 1, left, mi);\n    dfs(line + 1, bottom, mi, right);\n\
     \  };\n  dfs(0, H - 1, 0, W - 1);\n  return dp;\n}\n#line 2 \"dp/online-offline-dp.cpp\"\
-    \n\n/**\n * @brief  Online-Offline-DP(\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u30AA\
+    \n\n/**\n * @brief  Online Offline DP(\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u30AA\
     \u30D5\u30E9\u30A4\u30F3\u5909\u63DB)\n * @docs docs/online-offline-dp.md\n */\n\
     template< typename T, typename Compare = less< T > >\nvector< T > online_offline_dp(int\
     \ W, const function< T(int, int) > &f, const Compare &comp = Compare()) {\n  vector<\
@@ -51,7 +51,7 @@ data:
     \ dp[l])) {\n        isset[l] = true;\n        dp[l] = cst;\n      }\n    } else\
     \ {\n      int mid = (l + r) / 2;\n      dfs(l, mid);\n      induce(l, mid, r);\n\
     \      dfs(mid, r);\n    }\n  };\n  dfs(0, W + 1);\n  return dp;\n};\n"
-  code: "#include \"monotone-minima.cpp\"\n\n/**\n * @brief  Online-Offline-DP(\u30AA\
+  code: "#include \"monotone-minima.cpp\"\n\n/**\n * @brief  Online Offline DP(\u30AA\
     \u30F3\u30E9\u30A4\u30F3\u30FB\u30AA\u30D5\u30E9\u30A4\u30F3\u5909\u63DB)\n *\
     \ @docs docs/online-offline-dp.md\n */\ntemplate< typename T, typename Compare\
     \ = less< T > >\nvector< T > online_offline_dp(int W, const function< T(int, int)\
@@ -74,7 +74,7 @@ data:
   isVerificationFile: false
   path: dp/online-offline-dp.cpp
   requiredBy: []
-  timestamp: '2020-09-15 00:43:54+09:00'
+  timestamp: '2021-07-13 19:53:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yukicoder-704.test.cpp
@@ -85,7 +85,7 @@ layout: document
 redirect_from:
 - /library/dp/online-offline-dp.cpp
 - /library/dp/online-offline-dp.cpp.html
-title: "Online-Offline-DP(\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u30AA\u30D5\u30E9\u30A4\
+title: "Online Offline DP(\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u30AA\u30D5\u30E9\u30A4\
   \u30F3\u5909\u63DB)"
 ---
 ## 概要

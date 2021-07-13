@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: math/fps/coeff-of-rational-function.cpp
-    title: Coeff of Rational Function
+    title: Coeff-Of-Rational-Function
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -16,7 +16,7 @@ data:
     document_title: Kth-Term-Of-Linearly-Recurrent-Sequence
     links: []
   bundledCode: "#line 1 \"math/fps/coeff-of-rational-function.cpp\"\n/**\n * @brief\
-    \ Coeff of Rational Function\n * @docs docs/coeff-of-rational-function.md\n */\n\
+    \ Coeff-Of-Rational-Function\n * @docs docs/coeff-of-rational-function.md\n */\n\
     template< template< typename > class FPS, typename Mint >\nMint coeff_of_rational_function(FPS<\
     \ Mint > P, FPS< Mint > Q, int64_t k) {\n  // compute the coefficient [x^k] P/Q\
     \ of rational power series\n  Mint ret = 0;\n  if(P.size() >= Q.size()) {\n  \
@@ -43,7 +43,7 @@ data:
   isVerificationFile: false
   path: math/fps/kth-term-of-linearly-recurrent-sequence.cpp
   requiredBy: []
-  timestamp: '2021-07-13 19:38:41+09:00'
+  timestamp: '2021-07-13 19:53:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp

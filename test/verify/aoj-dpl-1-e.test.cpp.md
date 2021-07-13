@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: dp/edit-distance.cpp
-    title: "Edit-Distance(\u7DE8\u96C6\u8DDD\u96E2)"
+    title: "Edit Distance(\u7DE8\u96C6\u8DDD\u96E2)"
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -45,7 +45,7 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-dpl-1-e.test.cpp\"\
-    \n\n#line 1 \"dp/edit-distance.cpp\"\n/**\n * @brief Edit-Distance(\u7DE8\u96C6\
+    \n\n#line 1 \"dp/edit-distance.cpp\"\n/**\n * @brief Edit Distance(\u7DE8\u96C6\
     \u8DDD\u96E2)\n * @docs docs/edit-distance.md\n */\nint edit_distance(const string\
     \ &S, const string &T) {\n  const int N = (int) S.size(), M = (int) T.size();\n\
     \  vector< vector< int > > dp(N + 1, vector< int >(M + 1, N + M));\n  for(int\
@@ -66,7 +66,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-dpl-1-e.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-13 19:53:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dpl-1-e.test.cpp

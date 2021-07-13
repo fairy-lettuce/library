@@ -4,10 +4,10 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: dp/divide-and-conquer-optimization.cpp
-    title: Divide-And-Conquer-Optimization
+    title: Divide And Conquer Optimization
   - icon: ':heavy_check_mark:'
     path: dp/online-offline-dp.cpp
-    title: "Online-Offline-DP(\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u30AA\u30D5\u30E9\
+    title: "Online Offline DP(\u30AA\u30F3\u30E9\u30A4\u30F3\u30FB\u30AA\u30D5\u30E9\
       \u30A4\u30F3\u5909\u63DB)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -27,9 +27,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/monotone-minima.md
-    document_title: Monotone-Minima
+    document_title: Monotone Minima
     links: []
-  bundledCode: "#line 1 \"dp/monotone-minima.cpp\"\n/**\n * @brief Monotone-Minima\n\
+  bundledCode: "#line 1 \"dp/monotone-minima.cpp\"\n/**\n * @brief Monotone Minima\n\
     \ * @docs docs/monotone-minima.md\n */\ntemplate< typename T, typename Compare\
     \ = less< T > >\nvector< pair< int, T > > monotone_minima(int H, int W, const\
     \ function< T(int, int) > &f, const Compare &comp = Compare()) {\n  vector< pair<\
@@ -40,7 +40,7 @@ data:
     \ ma)) {\n        ma = cst;\n        mi = i;\n      }\n    }\n    dp[line] = make_pair(mi,\
     \ ma);\n    dfs(top, line - 1, left, mi);\n    dfs(line + 1, bottom, mi, right);\n\
     \  };\n  dfs(0, H - 1, 0, W - 1);\n  return dp;\n}\n"
-  code: "/**\n * @brief Monotone-Minima\n * @docs docs/monotone-minima.md\n */\ntemplate<\
+  code: "/**\n * @brief Monotone Minima\n * @docs docs/monotone-minima.md\n */\ntemplate<\
     \ typename T, typename Compare = less< T > >\nvector< pair< int, T > > monotone_minima(int\
     \ H, int W, const function< T(int, int) > &f, const Compare &comp = Compare())\
     \ {\n  vector< pair< int, T > > dp(H);\n  function< void(int, int, int, int) >\
@@ -57,7 +57,7 @@ data:
   requiredBy:
   - dp/online-offline-dp.cpp
   - dp/divide-and-conquer-optimization.cpp
-  timestamp: '2020-02-24 21:29:56+09:00'
+  timestamp: '2021-07-13 19:53:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-2603.test.cpp
@@ -69,7 +69,7 @@ layout: document
 redirect_from:
 - /library/dp/monotone-minima.cpp
 - /library/dp/monotone-minima.cpp.html
-title: Monotone-Minima
+title: Monotone Minima
 ---
 ## 概要
 
