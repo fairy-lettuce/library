@@ -406,8 +406,14 @@ data:
       path: math/combinatorics/factorial.cpp
       title: "Factorial(\u968E\u4E57)"
     - icon: ':warning:'
+      path: math/combinatorics/lagrange-polynomial-2.cpp
+      title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593, \u4FC2\u6570)"
+    - icon: ':warning:'
+      path: math/combinatorics/lagrange-polynomial-3.cpp
+      title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593, \u5024)"
+    - icon: ':warning:'
       path: math/combinatorics/lagrange-polynomial.cpp
-      title: math/combinatorics/lagrange-polynomial.cpp
+      title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593, \u5024)"
     - icon: ':warning:'
       path: math/combinatorics/mod-int-2.cpp
       title: math/combinatorics/mod-int-2.cpp
