@@ -7,6 +7,12 @@ data:
     path: test/verify/aoj-1254.test.cpp
     title: test/verify/aoj-1254.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-2306.test.cpp
+    title: test/verify/aoj-2306.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-grl-1-c.test.cpp
+    title: test/verify/aoj-grl-1-c.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
   _isVerificationFailed: false
@@ -17,10 +23,10 @@ data:
     links: []
   bundledCode: "#line 1 \"math/matrix/square-matrix.cpp\"\n/**\n * @brief Square-Matrix(\u6B63\
     \u65B9\u884C\u5217)\n */\ntemplate< class T, size_t N >\nstruct SquareMatrix {\n\
-    \  array< array< T, N >, N > A;\n\n  SquareMatrix() = default;\n\n  size_t size()\
-    \ { return N; }\n\n  inline const array< T, N > &operator[](int k) const {\n \
-    \   return (A.at(k));\n  }\n\n  inline array< T, N > &operator[](int k) {\n  \
-    \  return (A.at(k));\n  }\n\n  static SquareMatrix add_identity() {\n    return\
+    \  array< array< T, N >, N > A;\n\n  SquareMatrix() : A{{}} {}\n\n  size_t size()\
+    \ const { return N; }\n\n  inline const array< T, N > &operator[](int k) const\
+    \ {\n    return (A.at(k));\n  }\n\n  inline array< T, N > &operator[](int k) {\n\
+    \    return (A.at(k));\n  }\n\n  static SquareMatrix add_identity() {\n    return\
     \ SquareMatrix();\n  }\n\n  static SquareMatrix mul_identity() {\n    SquareMatrix\
     \ mat;\n    for(size_t i = 0; i < N; i++) mat[i][i] = 1;\n    return mat;\n  }\n\
     \n  SquareMatrix &operator+=(const SquareMatrix &B) {\n    for(size_t i = 0; i\
@@ -46,9 +52,9 @@ data:
     \   }\n    }\n    return os;\n  }\n};\n"
   code: "/**\n * @brief Square-Matrix(\u6B63\u65B9\u884C\u5217)\n */\ntemplate< class\
     \ T, size_t N >\nstruct SquareMatrix {\n  array< array< T, N >, N > A;\n\n  SquareMatrix()\
-    \ = default;\n\n  size_t size() { return N; }\n\n  inline const array< T, N >\
-    \ &operator[](int k) const {\n    return (A.at(k));\n  }\n\n  inline array< T,\
-    \ N > &operator[](int k) {\n    return (A.at(k));\n  }\n\n  static SquareMatrix\
+    \ : A{{}} {}\n\n  size_t size() const { return N; }\n\n  inline const array< T,\
+    \ N > &operator[](int k) const {\n    return (A.at(k));\n  }\n\n  inline array<\
+    \ T, N > &operator[](int k) {\n    return (A.at(k));\n  }\n\n  static SquareMatrix\
     \ add_identity() {\n    return SquareMatrix();\n  }\n\n  static SquareMatrix mul_identity()\
     \ {\n    SquareMatrix mat;\n    for(size_t i = 0; i < N; i++) mat[i][i] = 1;\n\
     \    return mat;\n  }\n\n  SquareMatrix &operator+=(const SquareMatrix &B) {\n\
@@ -76,9 +82,11 @@ data:
   isVerificationFile: false
   path: math/matrix/square-matrix.cpp
   requiredBy: []
-  timestamp: '2020-06-11 22:00:32+09:00'
+  timestamp: '2021-07-14 01:17:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/verify/aoj-grl-1-c.test.cpp
+  - test/verify/aoj-2306.test.cpp
   - test/verify/yukicoder-650.test.cpp
   - test/verify/aoj-1254.test.cpp
 documentation_of: math/matrix/square-matrix.cpp

@@ -173,9 +173,9 @@ data:
     \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 1 \"math/matrix/square-matrix.cpp\"\
     \n/**\n * @brief Square-Matrix(\u6B63\u65B9\u884C\u5217)\n */\ntemplate< class\
     \ T, size_t N >\nstruct SquareMatrix {\n  array< array< T, N >, N > A;\n\n  SquareMatrix()\
-    \ = default;\n\n  size_t size() { return N; }\n\n  inline const array< T, N >\
-    \ &operator[](int k) const {\n    return (A.at(k));\n  }\n\n  inline array< T,\
-    \ N > &operator[](int k) {\n    return (A.at(k));\n  }\n\n  static SquareMatrix\
+    \ : A{{}} {}\n\n  size_t size() const { return N; }\n\n  inline const array< T,\
+    \ N > &operator[](int k) const {\n    return (A.at(k));\n  }\n\n  inline array<\
+    \ T, N > &operator[](int k) {\n    return (A.at(k));\n  }\n\n  static SquareMatrix\
     \ add_identity() {\n    return SquareMatrix();\n  }\n\n  static SquareMatrix mul_identity()\
     \ {\n    SquareMatrix mat;\n    for(size_t i = 0; i < N; i++) mat[i][i] = 1;\n\
     \    return mat;\n  }\n\n  SquareMatrix &operator+=(const SquareMatrix &B) {\n\
@@ -239,7 +239,7 @@ data:
   isVerificationFile: true
   path: test/verify/yukicoder-650.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-14 01:17:14+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yukicoder-650.test.cpp

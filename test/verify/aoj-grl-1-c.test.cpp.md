@@ -3,10 +3,10 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: graph/shortest-path/warshall-floyd.hpp
-    title: graph/shortest-path/warshall-floyd.hpp
+    title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
   - icon: ':heavy_check_mark:'
-    path: graph/template.hpp
-    title: graph/template.hpp
+    path: math/matrix/square-matrix.cpp
+    title: "Square-Matrix(\u6B63\u65B9\u884C\u5217)"
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -48,47 +48,70 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-grl-1-c.test.cpp\"\
-    \n\n#line 2 \"graph/shortest-path/warshall-floyd.hpp\"\n\n#line 2 \"graph/template.hpp\"\
-    \n\ntemplate< typename T >\nstruct edge {\n  int src, to;\n  T cost;\n\n  edge(int\
-    \ to, T cost) : src(-1), to(to), cost(cost) {}\n\n  edge(int src, int to, T cost)\
-    \ : src(src), to(to), cost(cost) {}\n\n  edge &operator=(const int &x) {\n   \
-    \ to = x;\n    return *this;\n  }\n\n  operator int() const { return to; }\n};\n\
-    \ntemplate< typename T >\nusing Edges = vector< edge< T > >;\ntemplate< typename\
-    \ T >\nusing WeightedGraph = vector< Edges< T > >;\nusing UnWeightedGraph = vector<\
-    \ vector< int > >;\ntemplate< typename T >\nusing Matrix = vector< vector< T >\
-    \ >;\n#line 4 \"graph/shortest-path/warshall-floyd.hpp\"\n\ntemplate< typename\
-    \ T >\nvoid warshall_floyd(Matrix< T > &g, T INF) {\n  for(size_t k = 0; k < g.size();\
-    \ k++) {\n    for(size_t i = 0; i < g.size(); i++) {\n      for(size_t j = 0;\
-    \ j < g.size(); j++) {\n        if(g[i][k] == INF || g[k][j] == INF) continue;\n\
-    \        g[i][j] = min(g[i][j], g[i][k] + g[k][j]);\n      }\n    }\n  }\n}\n\
-    #line 6 \"test/verify/aoj-grl-1-c.test.cpp\"\n\nint main() {\n  int V, E;\n  scanf(\"\
-    %d %d\", &V, &E);\n  Matrix< int > mat(V, vector< int >(V, INT_MAX));\n  for(int\
-    \ i = 0; i < V; i++) mat[i][i] = 0;\n  for(int i = 0; i < E; i++) {\n    int x,\
-    \ y, z;\n    scanf(\"%d %d %d\", &x, &y, &z);\n    mat[x][y] = z;\n  }\n  warshall_floyd(mat,\
-    \ INT_MAX);\n  for(int i = 0; i < V; i++) {\n    if(mat[i][i] < 0) {\n      puts(\"\
-    NEGATIVE CYCLE\");\n      return 0;\n    }\n  }\n  for(int i = 0; i < V; i++)\
-    \ {\n    for(int j = 0; j < V; j++) {\n      if(j > 0) putchar(' ');\n      if(mat[i][j]\
-    \ == INT_MAX) printf(\"INF\");\n      else printf(\"%d\", mat[i][j]);\n    }\n\
-    \    putchar('\\n');\n  }\n}\n"
+    \n\n#line 1 \"math/matrix/square-matrix.cpp\"\n/**\n * @brief Square-Matrix(\u6B63\
+    \u65B9\u884C\u5217)\n */\ntemplate< class T, size_t N >\nstruct SquareMatrix {\n\
+    \  array< array< T, N >, N > A;\n\n  SquareMatrix() : A{{}} {}\n\n  size_t size()\
+    \ const { return N; }\n\n  inline const array< T, N > &operator[](int k) const\
+    \ {\n    return (A.at(k));\n  }\n\n  inline array< T, N > &operator[](int k) {\n\
+    \    return (A.at(k));\n  }\n\n  static SquareMatrix add_identity() {\n    return\
+    \ SquareMatrix();\n  }\n\n  static SquareMatrix mul_identity() {\n    SquareMatrix\
+    \ mat;\n    for(size_t i = 0; i < N; i++) mat[i][i] = 1;\n    return mat;\n  }\n\
+    \n  SquareMatrix &operator+=(const SquareMatrix &B) {\n    for(size_t i = 0; i\
+    \ < N; i++) {\n      for(size_t j = 0; j < N; j++) {\n        (*this)[i][j] +=\
+    \ B[i][j];\n      }\n    }\n    return *this;\n  }\n\n  SquareMatrix &operator-=(const\
+    \ SquareMatrix &B) {\n    for(size_t i = 0; i < N; i++) {\n      for(size_t j\
+    \ = 0; j < N; j++) {\n        (*this)[i][j] -= B[i][j];\n      }\n    }\n    return\
+    \ *this;\n  }\n\n  SquareMatrix &operator*=(const SquareMatrix &B) {\n    array<\
+    \ array< T, N >, N > C;\n    for(size_t i = 0; i < N; i++) {\n      for(size_t\
+    \ j = 0; j < N; j++) {\n        for(size_t k = 0; k < N; k++) {\n          C[i][j]\
+    \ = (C[i][j] + (*this)[i][k] * B[k][j]);\n        }\n      }\n    }\n    A.swap(C);\n\
+    \    return (*this);\n  }\n\n  SquareMatrix &operator^=(uint64_t k) {\n    SquareMatrix\
+    \ B = SquareMatrix::mul_identity();\n    while(k > 0) {\n      if(k & 1) B *=\
+    \ *this;\n      *this *= *this;\n      k >>= 1LL;\n    }\n    A.swap(B.A);\n \
+    \   return *this;\n  }\n\n  SquareMatrix operator+(const SquareMatrix &B) const\
+    \ {\n    return SquareMatrix(*this) += B;\n  }\n\n  SquareMatrix operator-(const\
+    \ SquareMatrix &B) const {\n    return SquareMatrix(*this) -= B;\n  }\n\n  SquareMatrix\
+    \ operator*(const SquareMatrix &B) const {\n    return SquareMatrix(*this) *=\
+    \ B;\n  }\n\n  SquareMatrix operator^(uint64_t k) const {\n    return SquareMatrix(*this)\
+    \ ^= k;\n  }\n\n  friend ostream &operator<<(ostream &os, SquareMatrix &p) {\n\
+    \    for(int i = 0; i < N; i++) {\n      os << \"[\";\n      for(int j = 0; j\
+    \ < N; j++) {\n        os << p[i][j] << (j + 1 == N ? \"]\\n\" : \",\");\n   \
+    \   }\n    }\n    return os;\n  }\n};\n#line 1 \"graph/shortest-path/warshall-floyd.hpp\"\
+    \n/**\n * @brief Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)\n\
+    \ */\ntemplate< typename Matrix, typename T >\nvoid warshall_floyd(Matrix &g,\
+    \ T INF) {\n  for(size_t k = 0; k < g.size(); k++) {\n    for(size_t i = 0; i\
+    \ < g.size(); i++) {\n      for(size_t j = 0; j < g.size(); j++) {\n        if(g[i][k]\
+    \ == INF || g[k][j] == INF) continue;\n        g[i][j] = min(g[i][j], g[i][k]\
+    \ + g[k][j]);\n      }\n    }\n  }\n}\n#line 7 \"test/verify/aoj-grl-1-c.test.cpp\"\
+    \n\nint main() {\n  int V, E;\n  scanf(\"%d %d\", &V, &E);\n  SquareMatrix< int,\
+    \ 100 > mat;\n  for(int i = 0; i < 100; i++) {\n    for(int j = 0; j < 100; j++)\
+    \ {\n      if(i != j) mat[i][j] = INT_MAX;\n    }\n  }\n  for(int i = 0; i < E;\
+    \ i++) {\n    int x, y, z;\n    scanf(\"%d %d %d\", &x, &y, &z);\n    mat[x][y]\
+    \ = z;\n  }\n  warshall_floyd(mat, INT_MAX);\n  for(int i = 0; i < V; i++) {\n\
+    \    if(mat[i][i] < 0) {\n      puts(\"NEGATIVE CYCLE\");\n      return 0;\n \
+    \   }\n  }\n  for(int i = 0; i < V; i++) {\n    for(int j = 0; j < V; j++) {\n\
+    \      if(j > 0) putchar(' ');\n      if(mat[i][j] == INT_MAX) printf(\"INF\"\
+    );\n      else printf(\"%d\", mat[i][j]);\n    }\n    putchar('\\n');\n  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../graph/shortest-path/warshall-floyd.hpp\"\
-    \n\nint main() {\n  int V, E;\n  scanf(\"%d %d\", &V, &E);\n  Matrix< int > mat(V,\
-    \ vector< int >(V, INT_MAX));\n  for(int i = 0; i < V; i++) mat[i][i] = 0;\n \
-    \ for(int i = 0; i < E; i++) {\n    int x, y, z;\n    scanf(\"%d %d %d\", &x,\
-    \ &y, &z);\n    mat[x][y] = z;\n  }\n  warshall_floyd(mat, INT_MAX);\n  for(int\
-    \ i = 0; i < V; i++) {\n    if(mat[i][i] < 0) {\n      puts(\"NEGATIVE CYCLE\"\
-    );\n      return 0;\n    }\n  }\n  for(int i = 0; i < V; i++) {\n    for(int j\
-    \ = 0; j < V; j++) {\n      if(j > 0) putchar(' ');\n      if(mat[i][j] == INT_MAX)\
-    \ printf(\"INF\");\n      else printf(\"%d\", mat[i][j]);\n    }\n    putchar('\\\
-    n');\n  }\n}\n"
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../math/matrix/square-matrix.cpp\"\
+    \n#include \"../../graph/shortest-path/warshall-floyd.hpp\"\n\nint main() {\n\
+    \  int V, E;\n  scanf(\"%d %d\", &V, &E);\n  SquareMatrix< int, 100 > mat;\n \
+    \ for(int i = 0; i < 100; i++) {\n    for(int j = 0; j < 100; j++) {\n      if(i\
+    \ != j) mat[i][j] = INT_MAX;\n    }\n  }\n  for(int i = 0; i < E; i++) {\n   \
+    \ int x, y, z;\n    scanf(\"%d %d %d\", &x, &y, &z);\n    mat[x][y] = z;\n  }\n\
+    \  warshall_floyd(mat, INT_MAX);\n  for(int i = 0; i < V; i++) {\n    if(mat[i][i]\
+    \ < 0) {\n      puts(\"NEGATIVE CYCLE\");\n      return 0;\n    }\n  }\n  for(int\
+    \ i = 0; i < V; i++) {\n    for(int j = 0; j < V; j++) {\n      if(j > 0) putchar('\
+    \ ');\n      if(mat[i][j] == INT_MAX) printf(\"INF\");\n      else printf(\"%d\"\
+    , mat[i][j]);\n    }\n    putchar('\\n');\n  }\n}\n"
   dependsOn:
   - template/template.cpp
+  - math/matrix/square-matrix.cpp
   - graph/shortest-path/warshall-floyd.hpp
-  - graph/template.hpp
   isVerificationFile: true
   path: test/verify/aoj-grl-1-c.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-14 01:17:14+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-1-c.test.cpp

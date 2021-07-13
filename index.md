@@ -225,9 +225,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/graph-template.hpp
       title: graph/graph-template.hpp
-    - icon: ':heavy_check_mark:'
-      path: graph/template.hpp
-      title: graph/template.hpp
   - name: graph/mst
     pages:
     - icon: ':heavy_check_mark:'
@@ -286,7 +283,7 @@ data:
       title: "Maximum-Clique(\u6700\u5927\u30AF\u30EA\u30FC\u30AF)"
     - icon: ':heavy_check_mark:'
       path: graph/others/maximum-independent-set.hpp
-      title: graph/others/maximum-independent-set.hpp
+      title: "Maximum Independent Set(\u6700\u5927\u72EC\u7ACB\u96C6\u5408)"
     - icon: ':heavy_check_mark:'
       path: graph/others/namori-graph.hpp
       title: Namori-Graph
@@ -343,7 +340,7 @@ data:
         )"
     - icon: ':heavy_check_mark:'
       path: graph/shortest-path/warshall-floyd.hpp
-      title: graph/shortest-path/warshall-floyd.hpp
+      title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
   - name: graph/tree
     pages:
     - icon: ':heavy_check_mark:'
