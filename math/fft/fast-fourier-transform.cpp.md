@@ -2,9 +2,9 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/fft/arbitrary-mod-convolution.cpp
-    title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
+    title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   - icon: ':x:'
     path: math/fps/formal-power-series.cpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
@@ -18,7 +18,7 @@ data:
   - icon: ':x:'
     path: test/verify/yukicoder-215.test.cpp
     title: test/verify/yukicoder-215.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yukicoder-502.test.cpp
     title: test/verify/yukicoder-502.test.cpp
   _isVerificationFailed: true

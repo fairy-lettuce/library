@@ -3,8 +3,8 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/bell-number.cpp
-    title: "Bell-Number(\u30D9\u30EB\u6570)"
-  - icon: ':heavy_check_mark:'
+    title: "Bell Number(\u30D9\u30EB\u6570)"
+  - icon: ':question:'
     path: math/combinatorics/enumeration.cpp
     title: math/combinatorics/enumeration.cpp
   - icon: ':question:'
@@ -95,7 +95,7 @@ data:
     vector< T > Enumeration< T >::_fact = vector< T >();\ntemplate< typename T >\n\
     vector< T > Enumeration< T >::_finv = vector< T >();\ntemplate< typename T >\n\
     vector< T > Enumeration< T >::_inv = vector< T >();\n#line 2 \"math/combinatorics/bell-number.cpp\"\
-    \n\n/**\n * @brief Bell-Number(\u30D9\u30EB\u6570)\n * @docs docs/bell-number.md\n\
+    \n\n/**\n * @brief Bell Number(\u30D9\u30EB\u6570)\n * @docs docs/bell-number.md\n\
     \ */\ntemplate< typename T >\nT bell_number(int n, int k) {\n  if(n == 0) return\
     \ 1;\n  k = min(k, n);\n  Enumeration< T > uku(k);\n  T ret = 0;\n  vector< T\
     \ > pref(k + 1);\n  pref[0] = 1;\n  for(int i = 1; i <= k; i++) {\n    if(i &\
@@ -116,7 +116,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-dpl-5-g.test.cpp
   requiredBy: []
-  timestamp: '2021-06-28 00:13:35+09:00'
+  timestamp: '2021-07-13 20:39:58+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dpl-5-g.test.cpp

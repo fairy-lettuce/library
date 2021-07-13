@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/enumeration.cpp
     title: math/combinatorics/enumeration.cpp
   _extendedRequiredBy: []
@@ -14,7 +14,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/bell-number.md
-    document_title: "Bell-Number(\u30D9\u30EB\u6570)"
+    document_title: "Bell Number(\u30D9\u30EB\u6570)"
     links: []
   bundledCode: "#line 1 \"math/combinatorics/enumeration.cpp\"\ntemplate< typename\
     \ T >\nstruct Enumeration {\nprivate:\n  static vector< T > _fact, _finv, _inv;\n\
@@ -37,14 +37,14 @@ data:
     vector< T > Enumeration< T >::_fact = vector< T >();\ntemplate< typename T >\n\
     vector< T > Enumeration< T >::_finv = vector< T >();\ntemplate< typename T >\n\
     vector< T > Enumeration< T >::_inv = vector< T >();\n#line 2 \"math/combinatorics/bell-number.cpp\"\
-    \n\n/**\n * @brief Bell-Number(\u30D9\u30EB\u6570)\n * @docs docs/bell-number.md\n\
+    \n\n/**\n * @brief Bell Number(\u30D9\u30EB\u6570)\n * @docs docs/bell-number.md\n\
     \ */\ntemplate< typename T >\nT bell_number(int n, int k) {\n  if(n == 0) return\
     \ 1;\n  k = min(k, n);\n  Enumeration< T > uku(k);\n  T ret = 0;\n  vector< T\
     \ > pref(k + 1);\n  pref[0] = 1;\n  for(int i = 1; i <= k; i++) {\n    if(i &\
     \ 1) pref[i] = pref[i - 1] - uku.finv(i);\n    else pref[i] = pref[i - 1] + uku.finv(i);\n\
     \  }\n  for(int i = 1; i <= k; i++) {\n    ret += T(i).pow(n) * uku.finv(i) *\
     \ pref[k - i];\n  }\n  return ret;\n}\n"
-  code: "#include \"enumeration.cpp\"\n\n/**\n * @brief Bell-Number(\u30D9\u30EB\u6570\
+  code: "#include \"enumeration.cpp\"\n\n/**\n * @brief Bell Number(\u30D9\u30EB\u6570\
     )\n * @docs docs/bell-number.md\n */\ntemplate< typename T >\nT bell_number(int\
     \ n, int k) {\n  if(n == 0) return 1;\n  k = min(k, n);\n  Enumeration< T > uku(k);\n\
     \  T ret = 0;\n  vector< T > pref(k + 1);\n  pref[0] = 1;\n  for(int i = 1; i\
@@ -56,7 +56,7 @@ data:
   isVerificationFile: false
   path: math/combinatorics/bell-number.cpp
   requiredBy: []
-  timestamp: '2021-06-28 00:13:35+09:00'
+  timestamp: '2021-07-13 20:39:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-dpl-5-g.test.cpp
@@ -65,7 +65,7 @@ layout: document
 redirect_from:
 - /library/math/combinatorics/bell-number.cpp
 - /library/math/combinatorics/bell-number.cpp.html
-title: "Bell-Number(\u30D9\u30EB\u6570)"
+title: "Bell Number(\u30D9\u30EB\u6570)"
 ---
 ## 概要
 

@@ -1,21 +1,21 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/enumeration.cpp
     title: math/combinatorics/enumeration.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/combinatorics/factorial.cpp
     title: "Factorial(\u968E\u4E57)"
   - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/combinatorics/sample-point-shift.cpp
     title: Sample-Point-Shift
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/fft/arbitrary-mod-convolution.cpp
-    title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
+    title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   - icon: ':question:'
     path: math/fft/fast-fourier-transform.cpp
     title: math/fft/fast-fourier-transform.cpp
@@ -24,9 +24,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/502
@@ -162,7 +162,7 @@ data:
     \ = A0 + A1 * s;\n    }\n    fft(fa, sz >> 1);\n    vector< int64_t > ret(need);\n\
     \    for(int i = 0; i < need; i++) {\n      ret[i] = llround(i & 1 ? fa[i >> 1].y\
     \ : fa[i >> 1].x);\n    }\n    return ret;\n  }\n};\n#line 2 \"math/fft/arbitrary-mod-convolution.cpp\"\
-    \n\n/*\n * @brief Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
+    \n\n/*\n * @brief Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
     )\n */\ntemplate< typename T >\nstruct ArbitraryModConvolution {\n  using real\
     \ = FastFourierTransform::real;\n  using C = FastFourierTransform::C;\n\n  ArbitraryModConvolution()\
     \ = default;\n\n  static vector< T > multiply(const vector< T > &a, const vector<\
@@ -209,8 +209,8 @@ data:
   isVerificationFile: true
   path: test/verify/yukicoder-502.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 01:03:05+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-07-13 20:39:58+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yukicoder-502.test.cpp
 layout: document

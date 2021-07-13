@@ -15,14 +15,14 @@ data:
   - icon: ':x:'
     path: test/verify/yukicoder-215.test.cpp
     title: test/verify/yukicoder-215.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yukicoder-502.test.cpp
     title: test/verify/yukicoder-502.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    document_title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
+    document_title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
       )"
     links: []
   bundledCode: "#line 1 \"math/fft/fast-fourier-transform.cpp\"\nnamespace FastFourierTransform\
@@ -62,7 +62,7 @@ data:
     \ = A0 + A1 * s;\n    }\n    fft(fa, sz >> 1);\n    vector< int64_t > ret(need);\n\
     \    for(int i = 0; i < need; i++) {\n      ret[i] = llround(i & 1 ? fa[i >> 1].y\
     \ : fa[i >> 1].x);\n    }\n    return ret;\n  }\n};\n#line 2 \"math/fft/arbitrary-mod-convolution.cpp\"\
-    \n\n/*\n * @brief Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
+    \n\n/*\n * @brief Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
     )\n */\ntemplate< typename T >\nstruct ArbitraryModConvolution {\n  using real\
     \ = FastFourierTransform::real;\n  using C = FastFourierTransform::C;\n\n  ArbitraryModConvolution()\
     \ = default;\n\n  static vector< T > multiply(const vector< T > &a, const vector<\
@@ -87,7 +87,7 @@ data:
     \      int64_t cc = llround(fa[i].y);\n      aa = T(aa).x, bb = T(bb).x, cc =\
     \ T(cc).x;\n      ret[i] = aa + (bb << 15) + (cc << 30);\n    }\n    return ret;\n\
     \  }\n};\n"
-  code: "#include \"fast-fourier-transform.cpp\"\n\n/*\n * @brief Arbitrary-Mod-Convolution(\u4EFB\
+  code: "#include \"fast-fourier-transform.cpp\"\n\n/*\n * @brief Arbitrary Mod Convolution(\u4EFB\
     \u610Fmod\u7573\u307F\u8FBC\u307F)\n */\ntemplate< typename T >\nstruct ArbitraryModConvolution\
     \ {\n  using real = FastFourierTransform::real;\n  using C = FastFourierTransform::C;\n\
     \n  ArbitraryModConvolution() = default;\n\n  static vector< T > multiply(const\
@@ -118,8 +118,8 @@ data:
   path: math/fft/arbitrary-mod-convolution.cpp
   requiredBy:
   - math/fps/formal-power-series.cpp
-  timestamp: '2021-07-13 01:03:05+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2021-07-13 20:39:58+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/yukicoder-215.test.cpp
   - test/verify/yosupo-sparse-matrix-det.test.cpp
@@ -129,5 +129,5 @@ layout: document
 redirect_from:
 - /library/math/fft/arbitrary-mod-convolution.cpp
 - /library/math/fft/arbitrary-mod-convolution.cpp.html
-title: "Arbitrary-Mod-Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
+title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
 ---

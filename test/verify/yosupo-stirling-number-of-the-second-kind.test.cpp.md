@@ -6,7 +6,7 @@ data:
     title: math/combinatorics/mod-int.cpp
   - icon: ':question:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
-    title: Number-Theoretic-Transform-Friendly-Mod-Int
+    title: Number Theoretic Transform Friendly Mod Int
   - icon: ':question:'
     path: math/fps/formal-power-series-friendly-ntt.cpp
     title: "Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
@@ -80,7 +80,7 @@ data:
     \  friend istream &operator>>(istream &is, ModInt &a) {\n    int64_t t;\n    is\
     \ >> t;\n    a = ModInt< mod >(t);\n    return (is);\n  }\n\n  static int get_mod()\
     \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 1 \"math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\
-    \n/**\n * @brief Number-Theoretic-Transform-Friendly-Mod-Int\n */\ntemplate< typename\
+    \n/**\n * @brief Number Theoretic Transform Friendly Mod Int\n */\ntemplate< typename\
     \ Mint >\nstruct NumberTheoreticTransformFriendlyModInt {\n\n  static vector<\
     \ Mint > dw, idw;\n  static int max_base;\n  static Mint root;\n\n  NumberTheoreticTransformFriendlyModInt()\
     \ = default;\n\n  static void init() {\n    if(dw.empty()) {\n      const unsigned\
@@ -261,7 +261,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 20:24:08+09:00'
+  timestamp: '2021-07-13 20:39:58+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp

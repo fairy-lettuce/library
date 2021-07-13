@@ -59,10 +59,10 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':question:'
   attributes:
-    document_title: Number-Theoretic-Transform-Friendly-Mod-Int
+    document_title: Number Theoretic Transform Friendly Mod Int
     links: []
   bundledCode: "#line 1 \"math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\
-    \n/**\n * @brief Number-Theoretic-Transform-Friendly-Mod-Int\n */\ntemplate< typename\
+    \n/**\n * @brief Number Theoretic Transform Friendly Mod Int\n */\ntemplate< typename\
     \ Mint >\nstruct NumberTheoreticTransformFriendlyModInt {\n\n  static vector<\
     \ Mint > dw, idw;\n  static int max_base;\n  static Mint root;\n\n  NumberTheoreticTransformFriendlyModInt()\
     \ = default;\n\n  static void init() {\n    if(dw.empty()) {\n      const unsigned\
@@ -96,7 +96,7 @@ data:
     \ Mint >::idw = vector< Mint >();\ntemplate< typename Mint >\nint NumberTheoreticTransformFriendlyModInt<\
     \ Mint >::max_base = 0;\ntemplate< typename Mint >\nMint NumberTheoreticTransformFriendlyModInt<\
     \ Mint >::root = Mint();\n"
-  code: "/**\n * @brief Number-Theoretic-Transform-Friendly-Mod-Int\n */\ntemplate<\
+  code: "/**\n * @brief Number Theoretic Transform Friendly Mod Int\n */\ntemplate<\
     \ typename Mint >\nstruct NumberTheoreticTransformFriendlyModInt {\n\n  static\
     \ vector< Mint > dw, idw;\n  static int max_base;\n  static Mint root;\n\n  NumberTheoreticTransformFriendlyModInt()\
     \ = default;\n\n  static void init() {\n    if(dw.empty()) {\n      const unsigned\
@@ -135,7 +135,7 @@ data:
   path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
   requiredBy:
   - math/fps/formal-power-series-friendly-ntt.cpp
-  timestamp: '2021-06-23 17:44:06+09:00'
+  timestamp: '2021-07-13 20:39:58+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-multipoint-evaluation.test.cpp
@@ -159,5 +159,5 @@ layout: document
 redirect_from:
 - /library/math/fft/number-theoretic-transform-friendly-mod-int.cpp
 - /library/math/fft/number-theoretic-transform-friendly-mod-int.cpp.html
-title: Number-Theoretic-Transform-Friendly-Mod-Int
+title: Number Theoretic Transform Friendly Mod Int
 ---
