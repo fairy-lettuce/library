@@ -413,13 +413,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-log.cpp
       title: "Mod Log(\u96E2\u6563\u5BFE\u6570\u554F\u984C)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-pow.cpp
       title: "Mod Pow(\u3079\u304D\u4E57)"
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-sqrt.cpp
       title: Mod Sqrt
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-tetration.cpp
       title: "Mod Tetration(\u30C6\u30C8\u30EC\u30FC\u30B7\u30E7\u30F3)"
     - icon: ':heavy_check_mark:'
@@ -531,7 +531,7 @@ data:
       path: math/number-theory/euler-phi-table.cpp
       title: "Euler\u2019s Phi Table(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
         \u30C6\u30FC\u30D6\u30EB)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/number-theory/euler-phi.cpp
       title: "Euler's Phi(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570)"
     - icon: ':heavy_check_mark:'
@@ -558,7 +558,7 @@ data:
       title: "Prime Factor(\u7D20\u56E0\u6570\u5206\u89E3)"
     - icon: ':heavy_check_mark:'
       path: math/number-theory/prime-table.cpp
-      title: "Prime-Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
+      title: "Prime Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
     - icon: ':warning:'
       path: math/number-theory/quotient-range.cpp
       title: math/number-theory/quotient-range.cpp
@@ -863,7 +863,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
   - name: test/verify
@@ -1489,7 +1489,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-sum-of-floor-of-linear.test.cpp
       title: test/verify/yosupo-sum-of-floor-of-linear.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-tetration-mod.test.cpp
       title: test/verify/yosupo-tetration-mod.test.cpp
     - icon: ':heavy_check_mark:'

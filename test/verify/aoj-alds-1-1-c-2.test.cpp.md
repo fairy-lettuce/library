@@ -3,8 +3,8 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: math/number-theory/prime-table.cpp
-    title: "Prime-Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
-  - icon: ':question:'
+    title: "Prime Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -46,7 +46,7 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-alds-1-1-c-2.test.cpp\"\
-    \n\n#line 1 \"math/number-theory/prime-table.cpp\"\n/**\n * @brief Prime-Table(\u7D20\
+    \n\n#line 1 \"math/number-theory/prime-table.cpp\"\n/**\n * @brief Prime Table(\u7D20\
     \u6570\u30C6\u30FC\u30D6\u30EB)\n * @docs docs/prime-table.md\n */\nvector< bool\
     \ > prime_table(int n) {\n  vector< bool > prime(n + 1, true);\n  if(n >= 0) prime[0]\
     \ = false;\n  if(n >= 1) prime[1] = false;\n  for(int i = 2; i * i <= n; i++)\
@@ -66,7 +66,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-alds-1-1-c-2.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-13 22:13:38+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-alds-1-1-c-2.test.cpp

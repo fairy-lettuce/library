@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/number-theory/kth-root.cpp
     title: Kth Root
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

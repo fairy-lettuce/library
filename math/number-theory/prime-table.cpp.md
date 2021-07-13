@@ -20,15 +20,15 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/prime-table.md
-    document_title: "Prime-Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
+    document_title: "Prime Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
     links: []
-  bundledCode: "#line 1 \"math/number-theory/prime-table.cpp\"\n/**\n * @brief Prime-Table(\u7D20\
-    \u6570\u30C6\u30FC\u30D6\u30EB)\n * @docs docs/prime-table.md\n */\nvector< bool\
-    \ > prime_table(int n) {\n  vector< bool > prime(n + 1, true);\n  if(n >= 0) prime[0]\
-    \ = false;\n  if(n >= 1) prime[1] = false;\n  for(int i = 2; i * i <= n; i++)\
-    \ {\n    if(!prime[i]) continue;\n    for(int j = i * i; j <= n; j += i) {\n \
-    \     prime[j] = false;\n    }\n  }\n  return prime;\n}\n"
-  code: "/**\n * @brief Prime-Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)\n * @docs\
+  bundledCode: "#line 1 \"math/number-theory/prime-table.cpp\"\n/**\n * @brief Prime\
+    \ Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)\n * @docs docs/prime-table.md\n\
+    \ */\nvector< bool > prime_table(int n) {\n  vector< bool > prime(n + 1, true);\n\
+    \  if(n >= 0) prime[0] = false;\n  if(n >= 1) prime[1] = false;\n  for(int i =\
+    \ 2; i * i <= n; i++) {\n    if(!prime[i]) continue;\n    for(int j = i * i; j\
+    \ <= n; j += i) {\n      prime[j] = false;\n    }\n  }\n  return prime;\n}\n"
+  code: "/**\n * @brief Prime Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)\n * @docs\
     \ docs/prime-table.md\n */\nvector< bool > prime_table(int n) {\n  vector< bool\
     \ > prime(n + 1, true);\n  if(n >= 0) prime[0] = false;\n  if(n >= 1) prime[1]\
     \ = false;\n  for(int i = 2; i * i <= n; i++) {\n    if(!prime[i]) continue;\n\
@@ -39,7 +39,7 @@ data:
   path: math/number-theory/prime-table.cpp
   requiredBy:
   - math/number-theory/enumerate-primes.cpp
-  timestamp: '2020-10-13 00:39:05+09:00'
+  timestamp: '2021-07-13 22:13:38+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-alds-1-1-c-2.test.cpp
@@ -50,7 +50,7 @@ layout: document
 redirect_from:
 - /library/math/number-theory/prime-table.cpp
 - /library/math/number-theory/prime-table.cpp.html
-title: "Prime-Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
+title: "Prime Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
 ---
 ## 概要
 

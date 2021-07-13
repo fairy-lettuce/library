@@ -1,17 +1,20 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: math/combinatorics/mod-tetration.cpp
+    title: "Mod Tetration(\u30C6\u30C8\u30EC\u30FC\u30B7\u30E7\u30F3)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-ntl-1-d.test.cpp
     title: test/verify/aoj-ntl-1-d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-tetration-mod.test.cpp
     title: test/verify/yosupo-tetration-mod.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/euler-phi.md
     document_title: "Euler's Phi(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570)"
@@ -30,9 +33,10 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: math/number-theory/euler-phi.cpp
-  requiredBy: []
+  requiredBy:
+  - math/combinatorics/mod-tetration.cpp
   timestamp: '2021-07-13 21:51:53+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-ntl-1-d.test.cpp
   - test/verify/yosupo-tetration-mod.test.cpp

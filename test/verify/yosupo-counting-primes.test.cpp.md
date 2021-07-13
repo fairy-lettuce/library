@@ -9,8 +9,8 @@ data:
     title: "Prime Count(\u7D20\u6570\u306E\u500B\u6570)"
   - icon: ':heavy_check_mark:'
     path: math/number-theory/prime-table.cpp
-    title: "Prime-Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
-  - icon: ':question:'
+    title: "Prime Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)"
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -59,7 +59,7 @@ data:
     \ false;\n    }\n    return mul <= a;\n  };\n  uint64_t ret = 0;\n  for(int i\
     \ = 31; i >= 0; i--) {\n    if(check(ret | (1u << i))) ret |= 1u << i;\n  }\n\
     \  return ret;\n}\n#line 1 \"math/number-theory/prime-table.cpp\"\n/**\n * @brief\
-    \ Prime-Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)\n * @docs docs/prime-table.md\n\
+    \ Prime Table(\u7D20\u6570\u30C6\u30FC\u30D6\u30EB)\n * @docs docs/prime-table.md\n\
     \ */\nvector< bool > prime_table(int n) {\n  vector< bool > prime(n + 1, true);\n\
     \  if(n >= 0) prime[0] = false;\n  if(n >= 1) prime[1] = false;\n  for(int i =\
     \ 2; i * i <= n; i++) {\n    if(!prime[i]) continue;\n    for(int j = i * i; j\
@@ -99,7 +99,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-counting-primes.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 21:51:53+09:00'
+  timestamp: '2021-07-13 22:13:38+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-counting-primes.test.cpp

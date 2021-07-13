@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-pow.cpp
     title: "Mod Pow(\u3079\u304D\u4E57)"
   - icon: ':heavy_check_mark:'
@@ -17,7 +17,7 @@ data:
     path: math/fps/formal-power-series-friendly-ntt.cpp
     title: "Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
       \u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
