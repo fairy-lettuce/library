@@ -334,6 +334,10 @@ data:
       path: graph/shortest-path/k-shortest-walk.hpp
       title: K-Shortest-Walk
     - icon: ':heavy_check_mark:'
+      path: graph/shortest-path/shortest-nonzero-path.hpp
+      title: "Shortest Nonzero Path(\u7FA4\u30E9\u30D9\u30EB\u5236\u7D04\u4ED8\u304D\
+        \u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
+    - icon: ':heavy_check_mark:'
       path: graph/shortest-path/shortest-path-faster-algorithm.hpp
       title: "Shortest-Path-Faster-Algorithm(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF\
         )"
@@ -1519,6 +1523,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-1254.test.cpp
       title: test/verify/yukicoder-1254.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yukicoder-1602.test.cpp
+      title: test/verify/yukicoder-1602.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-184.test.cpp
       title: test/verify/yukicoder-184.test.cpp

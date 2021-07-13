@@ -550,6 +550,9 @@ data:
     path: test/verify/yukicoder-1254.test.cpp
     title: test/verify/yukicoder-1254.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yukicoder-1602.test.cpp
+    title: test/verify/yukicoder-1602.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-184.test.cpp
     title: test/verify/yukicoder-184.test.cpp
   - icon: ':heavy_check_mark:'
@@ -784,6 +787,7 @@ data:
   - test/verify/yosupo-set-xor-min.test.cpp
   - test/verify/aoj-1508-2.test.cpp
   - test/verify/yosupo-two-edge-connected-components-2.test.cpp
+  - test/verify/yukicoder-1602.test.cpp
   - test/verify/yosupo-find-linear-recurrence.test.cpp
   - test/verify/yosupo-tree-decomposition-width-2.test.cpp
   - test/verify/aoj-grl-5-c-4.test.cpp
