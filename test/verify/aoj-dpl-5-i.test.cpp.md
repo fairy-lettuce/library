@@ -1,15 +1,15 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/enumeration.cpp
     title: math/combinatorics/enumeration.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/stirling-number-second.cpp
-    title: "Stirling-Number-Second(\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
+    title: "Stirling Number Second(\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570)"
   - icon: ':question:'
     path: template/template.cpp
@@ -96,7 +96,7 @@ data:
     vector< T > Enumeration< T >::_fact = vector< T >();\ntemplate< typename T >\n\
     vector< T > Enumeration< T >::_finv = vector< T >();\ntemplate< typename T >\n\
     vector< T > Enumeration< T >::_inv = vector< T >();\n#line 2 \"math/combinatorics/stirling-number-second.cpp\"\
-    \n\n/**\n * @brief Stirling-Number-Second(\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\
+    \n\n/**\n * @brief Stirling Number Second(\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\
     \u30F3\u30B0\u6570)\n * @docs docs/stirling-number-second.md\n */\ntemplate< typename\
     \ T >\nT stirling_number_second(int n, int k) {\n  Enumeration< T > table(k);\n\
     \  T ret = 0;\n  for(int i = 0; i <= k; i++) {\n    auto add = T(i).pow(n) * table.C(k,\
@@ -117,7 +117,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-dpl-5-i.test.cpp
   requiredBy: []
-  timestamp: '2021-06-28 00:13:35+09:00'
+  timestamp: '2021-07-13 21:04:36+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dpl-5-i.test.cpp

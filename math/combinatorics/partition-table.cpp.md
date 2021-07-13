@@ -11,16 +11,16 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/partition-table.md
-    document_title: "Partition-Table(\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB)"
+    document_title: "Partition Table(\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB)"
     links: []
   bundledCode: "#line 1 \"math/combinatorics/partition-table.cpp\"\n/**\n * @brief\
-    \ Partition-Table(\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB)\n * @docs docs/partition-table.md\n\
+    \ Partition Table(\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB)\n * @docs docs/partition-table.md\n\
     \ */\ntemplate< typename T >\nvector< vector< T > > partition_table(int n, int\
     \ k) {\n  vector< vector< T > > dp(n + 1, vector< T >(k + 1));\n  dp[0][0] = 1;\n\
     \  for(int i = 0; i <= n; i++) {\n    for(int j = 1; j <= k; j++) {\n      if(i\
     \ - j >= 0) dp[i][j] = dp[i][j - 1] + dp[i - j][j];\n      else dp[i][j] = dp[i][j\
     \ - 1];\n    }\n  }\n  return dp;\n}\n"
-  code: "/**\n * @brief Partition-Table(\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB\
+  code: "/**\n * @brief Partition Table(\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB\
     )\n * @docs docs/partition-table.md\n */\ntemplate< typename T >\nvector< vector<\
     \ T > > partition_table(int n, int k) {\n  vector< vector< T > > dp(n + 1, vector<\
     \ T >(k + 1));\n  dp[0][0] = 1;\n  for(int i = 0; i <= n; i++) {\n    for(int\
@@ -30,7 +30,7 @@ data:
   isVerificationFile: false
   path: math/combinatorics/partition-table.cpp
   requiredBy: []
-  timestamp: '2020-02-24 19:08:02+09:00'
+  timestamp: '2021-07-13 21:04:36+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-dpl-5-j.test.cpp
@@ -39,7 +39,7 @@ layout: document
 redirect_from:
 - /library/math/combinatorics/partition-table.cpp
 - /library/math/combinatorics/partition-table.cpp.html
-title: "Partition-Table(\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB)"
+title: "Partition Table(\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB)"
 ---
 ## 概要
 

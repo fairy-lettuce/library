@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-log.cpp
-    title: "Mod-Log(\u96E2\u6563\u5BFE\u6570\u554F\u984C)"
+    title: "Mod Log(\u96E2\u6563\u5BFE\u6570\u554F\u984C)"
   - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
@@ -46,7 +46,7 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-discrete-logarithm-mod.test.cpp\"\
-    \n\n#line 1 \"math/combinatorics/mod-log.cpp\"\n/**\n * @brief Mod-Log(\u96E2\u6563\
+    \n\n#line 1 \"math/combinatorics/mod-log.cpp\"\n/**\n * @brief Mod Log(\u96E2\u6563\
     \u5BFE\u6570\u554F\u984C)\n * @docs docs/mod-log.md\n */\nint64_t mod_log(int64_t\
     \ a, int64_t b, int64_t p) {\n  int64_t g = 1;\n\n  for(int64_t i = p; i; i /=\
     \ 2) (g *= a) %= p;\n  g = __gcd(g, p);\n\n  int64_t t = 1, c = 0;\n  for(; t\
@@ -68,7 +68,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-discrete-logarithm-mod.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-13 21:04:36+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-discrete-logarithm-mod.test.cpp

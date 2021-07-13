@@ -1,22 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/enumeration.cpp
     title: math/combinatorics/enumeration.cpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/factorial.cpp
     title: "Factorial(\u968E\u4E57)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-502.test.cpp
     title: test/verify/yukicoder-502.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: Sample-Point-Shift
+    document_title: "Sample Point Shift(\u6A19\u672C\u70B9\u30B7\u30D5\u30C8)"
     links: []
   bundledCode: "#line 1 \"math/combinatorics/enumeration.cpp\"\ntemplate< typename\
     \ T >\nstruct Enumeration {\nprivate:\n  static vector< T > _fact, _finv, _inv;\n\
@@ -39,18 +39,8 @@ data:
     vector< T > Enumeration< T >::_fact = vector< T >();\ntemplate< typename T >\n\
     vector< T > Enumeration< T >::_finv = vector< T >();\ntemplate< typename T >\n\
     vector< T > Enumeration< T >::_inv = vector< T >();\n#line 2 \"math/combinatorics/sample-point-shift.cpp\"\
-    \n\n/**\n * @brief Sample-Point-Shift\n */\ntemplate< typename Mint, typename\
-    \ F >\nvector< Mint > sample_point_shift(const vector< Mint > &ys, const Mint\
-    \ &m, const F &multiply) {\n  Enumeration< Mint > comb;\n  int d = (int) ys.size()\
-    \ - 1;\n  vector< Mint > f(d + 1), g(d * 2 + 1);\n  for(int i = 0; i <= d; i++)\
-    \ {\n    f[i] = ys[i] * comb.finv(i) * comb.finv(d - i);\n    if((d - i) & 1)\
-    \ f[i] = -f[i];\n  }\n  for(int i = 0; i <= 2 * d; i++) {\n    g[i] = Mint(1)\
-    \ / (m - d + i);\n  }\n  auto h = multiply(f, g);\n  Mint coef = 1;\n  for(int\
-    \ i = 0; i <= d; i++) {\n    coef *= (m - d + i);\n  }\n  for(int i = 0; i <=\
-    \ d; i++) {\n    h[i + d] *= coef;\n    coef *= (m + i + 1) * g[i];\n  }\n  return\
-    \ vector< Mint >{begin(h) + d, begin(h) + 2 * d + 1};\n}\n"
-  code: "#include \"enumeration.cpp\"\n\n/**\n * @brief Sample-Point-Shift\n */\n\
-    template< typename Mint, typename F >\nvector< Mint > sample_point_shift(const\
+    \n\n/**\n * @brief Sample Point Shift(\u6A19\u672C\u70B9\u30B7\u30D5\u30C8)\n\
+    \ */\ntemplate< typename Mint, typename F >\nvector< Mint > sample_point_shift(const\
     \ vector< Mint > &ys, const Mint &m, const F &multiply) {\n  Enumeration< Mint\
     \ > comb;\n  int d = (int) ys.size() - 1;\n  vector< Mint > f(d + 1), g(d * 2\
     \ + 1);\n  for(int i = 0; i <= d; i++) {\n    f[i] = ys[i] * comb.finv(i) * comb.finv(d\
@@ -60,14 +50,25 @@ data:
     \  }\n  for(int i = 0; i <= d; i++) {\n    h[i + d] *= coef;\n    coef *= (m +\
     \ i + 1) * g[i];\n  }\n  return vector< Mint >{begin(h) + d, begin(h) + 2 * d\
     \ + 1};\n}\n"
+  code: "#include \"enumeration.cpp\"\n\n/**\n * @brief Sample Point Shift(\u6A19\u672C\
+    \u70B9\u30B7\u30D5\u30C8)\n */\ntemplate< typename Mint, typename F >\nvector<\
+    \ Mint > sample_point_shift(const vector< Mint > &ys, const Mint &m, const F &multiply)\
+    \ {\n  Enumeration< Mint > comb;\n  int d = (int) ys.size() - 1;\n  vector< Mint\
+    \ > f(d + 1), g(d * 2 + 1);\n  for(int i = 0; i <= d; i++) {\n    f[i] = ys[i]\
+    \ * comb.finv(i) * comb.finv(d - i);\n    if((d - i) & 1) f[i] = -f[i];\n  }\n\
+    \  for(int i = 0; i <= 2 * d; i++) {\n    g[i] = Mint(1) / (m - d + i);\n  }\n\
+    \  auto h = multiply(f, g);\n  Mint coef = 1;\n  for(int i = 0; i <= d; i++) {\n\
+    \    coef *= (m - d + i);\n  }\n  for(int i = 0; i <= d; i++) {\n    h[i + d]\
+    \ *= coef;\n    coef *= (m + i + 1) * g[i];\n  }\n  return vector< Mint >{begin(h)\
+    \ + d, begin(h) + 2 * d + 1};\n}\n"
   dependsOn:
   - math/combinatorics/enumeration.cpp
   isVerificationFile: false
   path: math/combinatorics/sample-point-shift.cpp
   requiredBy:
   - math/combinatorics/factorial.cpp
-  timestamp: '2021-06-29 02:11:11+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-07-13 21:04:36+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yukicoder-502.test.cpp
 documentation_of: math/combinatorics/sample-point-shift.cpp
@@ -75,5 +76,5 @@ layout: document
 redirect_from:
 - /library/math/combinatorics/sample-point-shift.cpp
 - /library/math/combinatorics/sample-point-shift.cpp.html
-title: Sample-Point-Shift
+title: "Sample Point Shift(\u6A19\u672C\u70B9\u30B7\u30D5\u30C8)"
 ---

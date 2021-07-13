@@ -1,12 +1,12 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/partition-table.cpp
-    title: "Partition-Table(\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB)"
+    title: "Partition Table(\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB)"
   - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
@@ -71,13 +71,13 @@ data:
     \  friend istream &operator>>(istream &is, ModInt &a) {\n    int64_t t;\n    is\
     \ >> t;\n    a = ModInt< mod >(t);\n    return (is);\n  }\n\n  static int get_mod()\
     \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 6 \"test/verify/aoj-dpl-5-j.test.cpp\"\
-    \n\n#line 1 \"math/combinatorics/partition-table.cpp\"\n/**\n * @brief Partition-Table(\u5206\
-    \u5272\u6570\u30C6\u30FC\u30D6\u30EB)\n * @docs docs/partition-table.md\n */\n\
-    template< typename T >\nvector< vector< T > > partition_table(int n, int k) {\n\
-    \  vector< vector< T > > dp(n + 1, vector< T >(k + 1));\n  dp[0][0] = 1;\n  for(int\
-    \ i = 0; i <= n; i++) {\n    for(int j = 1; j <= k; j++) {\n      if(i - j >=\
-    \ 0) dp[i][j] = dp[i][j - 1] + dp[i - j][j];\n      else dp[i][j] = dp[i][j -\
-    \ 1];\n    }\n  }\n  return dp;\n}\n#line 8 \"test/verify/aoj-dpl-5-j.test.cpp\"\
+    \n\n#line 1 \"math/combinatorics/partition-table.cpp\"\n/**\n * @brief Partition\
+    \ Table(\u5206\u5272\u6570\u30C6\u30FC\u30D6\u30EB)\n * @docs docs/partition-table.md\n\
+    \ */\ntemplate< typename T >\nvector< vector< T > > partition_table(int n, int\
+    \ k) {\n  vector< vector< T > > dp(n + 1, vector< T >(k + 1));\n  dp[0][0] = 1;\n\
+    \  for(int i = 0; i <= n; i++) {\n    for(int j = 1; j <= k; j++) {\n      if(i\
+    \ - j >= 0) dp[i][j] = dp[i][j - 1] + dp[i - j][j];\n      else dp[i][j] = dp[i][j\
+    \ - 1];\n    }\n  }\n  return dp;\n}\n#line 8 \"test/verify/aoj-dpl-5-j.test.cpp\"\
     \n\nint main() {\n  int N, K;\n  cin >> N >> K;\n  cout << partition_table< modint\
     \ >(N, K)[N][K] << endl;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_J\"\
@@ -92,7 +92,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-dpl-5-j.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-13 21:04:36+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dpl-5-j.test.cpp

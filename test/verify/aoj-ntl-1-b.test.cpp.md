@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':question:'
     path: math/combinatorics/mod-pow.cpp
-    title: "Mod-Pow(\u3079\u304D\u4E57)"
+    title: "Mod Pow(\u3079\u304D\u4E57)"
   - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
@@ -45,7 +45,7 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-ntl-1-b.test.cpp\"\
-    \n\n#line 1 \"math/combinatorics/mod-pow.cpp\"\n/**\n * @brief Mod-Pow(\u3079\u304D\
+    \n\n#line 1 \"math/combinatorics/mod-pow.cpp\"\n/**\n * @brief Mod Pow(\u3079\u304D\
     \u4E57)\n * @docs docs/mod-pow.md\n */\ntemplate< typename T >\nT mod_pow(T x,\
     \ int64_t n, const T &p) {\n  T ret = 1;\n  while(n > 0) {\n    if(n & 1) (ret\
     \ *= x) %= p;\n    (x *= x) %= p;\n    n >>= 1;\n  }\n  return ret % p;\n}\n#line\
@@ -61,7 +61,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-ntl-1-b.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-07-13 21:04:36+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-ntl-1-b.test.cpp

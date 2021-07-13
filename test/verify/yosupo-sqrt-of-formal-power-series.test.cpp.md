@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
   - icon: ':question:'
     path: math/combinatorics/mod-pow.cpp
-    title: "Mod-Pow(\u3079\u304D\u4E57)"
-  - icon: ':question:'
+    title: "Mod Pow(\u3079\u304D\u4E57)"
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-sqrt.cpp
-    title: math/combinatorics/mod-sqrt.cpp
-  - icon: ':question:'
+    title: Mod Sqrt
+  - icon: ':heavy_check_mark:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number Theoretic Transform Friendly Mod Int
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/formal-power-series-friendly-ntt.cpp
     title: "Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
       \u6570)"
@@ -22,9 +22,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sqrt_of_formal_power_series
@@ -82,20 +82,20 @@ data:
     \  friend istream &operator>>(istream &is, ModInt &a) {\n    int64_t t;\n    is\
     \ >> t;\n    a = ModInt< mod >(t);\n    return (is);\n  }\n\n  static int get_mod()\
     \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 1 \"math/combinatorics/mod-pow.cpp\"\
-    \n/**\n * @brief Mod-Pow(\u3079\u304D\u4E57)\n * @docs docs/mod-pow.md\n */\n\
+    \n/**\n * @brief Mod Pow(\u3079\u304D\u4E57)\n * @docs docs/mod-pow.md\n */\n\
     template< typename T >\nT mod_pow(T x, int64_t n, const T &p) {\n  T ret = 1;\n\
     \  while(n > 0) {\n    if(n & 1) (ret *= x) %= p;\n    (x *= x) %= p;\n    n >>=\
     \ 1;\n  }\n  return ret % p;\n}\n#line 1 \"math/combinatorics/mod-sqrt.cpp\"\n\
-    template< typename T >\nT mod_sqrt(const T &a, const T &p) {\n  if(a == 0) return\
-    \ 0;\n  if(p == 2) return a;\n  if(mod_pow(a, (p - 1) >> 1, p) != 1) return -1;\n\
-    \  T b = 1;\n  while(mod_pow(b, (p - 1) >> 1, p) == 1) ++b;\n  T e = 0, m = p\
-    \ - 1;\n  while(m % 2 == 0) m >>= 1, ++e;\n  T x = mod_pow(a, (m - 1) >> 1, p);\n\
-    \  T y = a * (x * x % p) % p;\n  (x *= a) %= p;\n  T z = mod_pow(b, m, p);\n \
-    \ while(y != 1) {\n    T j = 0, t = y;\n    while(t != 1) {\n      j += 1;\n \
-    \     (t *= t) %= p;\n    }\n    z = mod_pow(z, T(1) << (e - j - 1), p);\n   \
-    \ (x *= z) %= p;\n    (z *= z) %= p;\n    (y *= z) %= p;\n    e = j;\n  }\n  return\
-    \ x;\n}\n#line 8 \"test/verify/yosupo-sqrt-of-formal-power-series.test.cpp\"\n\
-    \n#line 1 \"math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\n/**\n\
+    /**\n * @brief Mod Sqrt\n */\ntemplate< typename T >\nT mod_sqrt(const T &a, const\
+    \ T &p) {\n  if(a == 0) return 0;\n  if(p == 2) return a;\n  if(mod_pow(a, (p\
+    \ - 1) >> 1, p) != 1) return -1;\n  T b = 1;\n  while(mod_pow(b, (p - 1) >> 1,\
+    \ p) == 1) ++b;\n  T e = 0, m = p - 1;\n  while(m % 2 == 0) m >>= 1, ++e;\n  T\
+    \ x = mod_pow(a, (m - 1) >> 1, p);\n  T y = a * (x * x % p) % p;\n  (x *= a) %=\
+    \ p;\n  T z = mod_pow(b, m, p);\n  while(y != 1) {\n    T j = 0, t = y;\n    while(t\
+    \ != 1) {\n      j += 1;\n      (t *= t) %= p;\n    }\n    z = mod_pow(z, T(1)\
+    \ << (e - j - 1), p);\n    (x *= z) %= p;\n    (z *= z) %= p;\n    (y *= z) %=\
+    \ p;\n    e = j;\n  }\n  return x;\n}\n#line 8 \"test/verify/yosupo-sqrt-of-formal-power-series.test.cpp\"\
+    \n\n#line 1 \"math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\n/**\n\
     \ * @brief Number Theoretic Transform Friendly Mod Int\n */\ntemplate< typename\
     \ Mint >\nstruct NumberTheoreticTransformFriendlyModInt {\n\n  static vector<\
     \ Mint > dw, idw;\n  static int max_base;\n  static Mint root;\n\n  NumberTheoreticTransformFriendlyModInt()\
@@ -275,8 +275,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 20:39:58+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-07-13 21:04:36+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
 layout: document

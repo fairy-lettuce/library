@@ -1,22 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/enumeration.cpp
     title: math/combinatorics/enumeration.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/factorial.cpp
     title: "Factorial(\u968E\u4E57)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/sample-point-shift.cpp
-    title: Sample-Point-Shift
-  - icon: ':x:'
+    title: "Sample Point Shift(\u6A19\u672C\u70B9\u30B7\u30D5\u30C8)"
+  - icon: ':heavy_check_mark:'
     path: math/fft/arbitrary-mod-convolution.cpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fft/fast-fourier-transform.cpp
     title: math/fft/fast-fourier-transform.cpp
   - icon: ':question:'
@@ -24,9 +24,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/502
@@ -104,70 +104,71 @@ data:
     vector< T > Enumeration< T >::_fact = vector< T >();\ntemplate< typename T >\n\
     vector< T > Enumeration< T >::_finv = vector< T >();\ntemplate< typename T >\n\
     vector< T > Enumeration< T >::_inv = vector< T >();\n#line 2 \"math/combinatorics/sample-point-shift.cpp\"\
-    \n\n/**\n * @brief Sample-Point-Shift\n */\ntemplate< typename Mint, typename\
-    \ F >\nvector< Mint > sample_point_shift(const vector< Mint > &ys, const Mint\
-    \ &m, const F &multiply) {\n  Enumeration< Mint > comb;\n  int d = (int) ys.size()\
-    \ - 1;\n  vector< Mint > f(d + 1), g(d * 2 + 1);\n  for(int i = 0; i <= d; i++)\
-    \ {\n    f[i] = ys[i] * comb.finv(i) * comb.finv(d - i);\n    if((d - i) & 1)\
-    \ f[i] = -f[i];\n  }\n  for(int i = 0; i <= 2 * d; i++) {\n    g[i] = Mint(1)\
-    \ / (m - d + i);\n  }\n  auto h = multiply(f, g);\n  Mint coef = 1;\n  for(int\
-    \ i = 0; i <= d; i++) {\n    coef *= (m - d + i);\n  }\n  for(int i = 0; i <=\
-    \ d; i++) {\n    h[i + d] *= coef;\n    coef *= (m + i + 1) * g[i];\n  }\n  return\
-    \ vector< Mint >{begin(h) + d, begin(h) + 2 * d + 1};\n}\n#line 2 \"math/combinatorics/factorial.cpp\"\
-    \n\n/**\n * @brief Factorial(\u968E\u4E57)\n */\ntemplate< typename Mint, typename\
-    \ F >\nMint factorial(int64_t n, const F& multiply) {\n  if(n <= 1) return 1;\n\
-    \  if(n >= Mint::get_mod()) return 0;\n  int64_t v = 1;\n  while(v * v < n) v\
-    \ *= 2;\n  Mint iv = Mint(1) / v;\n  vector< Mint > G{1, v + 1};\n  for(int64_t\
-    \ d = 1; d != v; d <<= 1) {\n    vector< Mint > G1 = sample_point_shift(G, Mint(d)\
-    \ * iv, multiply);\n    vector< Mint > G2 = sample_point_shift(G, Mint(d * v +\
-    \ v) * iv, multiply);\n    vector< Mint > G3 = sample_point_shift(G, Mint(d *\
-    \ v + d + v) * iv, multiply);\n    for(int i = 0; i <= d; i++) G[i] *= G1[i],\
-    \ G2[i] *= G3[i];\n    copy(begin(G2), end(G2) - 1, back_inserter(G));\n  }\n\
-    \  Mint res = 1;\n  int64_t i = 0;\n  while(i + v <= n) res *= G[i / v], i +=\
-    \ v;\n  while(i < n) res *= ++i;\n  return res;\n}\n#line 7 \"test/verify/yukicoder-502.test.cpp\"\
-    \n\n#line 1 \"math/fft/fast-fourier-transform.cpp\"\nnamespace FastFourierTransform\
-    \ {\n  using real = double;\n\n  struct C {\n    real x, y;\n\n    C() : x(0),\
-    \ y(0) {}\n\n    C(real x, real y) : x(x), y(y) {}\n\n    inline C operator+(const\
-    \ C &c) const { return C(x + c.x, y + c.y); }\n\n    inline C operator-(const\
-    \ C &c) const { return C(x - c.x, y - c.y); }\n\n    inline C operator*(const\
-    \ C &c) const { return C(x * c.x - y * c.y, x * c.y + y * c.x); }\n\n    inline\
-    \ C conj() const { return C(x, -y); }\n  };\n\n  const real PI = acosl(-1);\n\
-    \  int base = 1;\n  vector< C > rts = { {0, 0},\n                     {1, 0} };\n\
-    \  vector< int > rev = {0, 1};\n\n\n  void ensure_base(int nbase) {\n    if(nbase\
-    \ <= base) return;\n    rev.resize(1 << nbase);\n    rts.resize(1 << nbase);\n\
-    \    for(int i = 0; i < (1 << nbase); i++) {\n      rev[i] = (rev[i >> 1] >> 1)\
-    \ + ((i & 1) << (nbase - 1));\n    }\n    while(base < nbase) {\n      real angle\
-    \ = PI * 2.0 / (1 << (base + 1));\n      for(int i = 1 << (base - 1); i < (1 <<\
-    \ base); i++) {\n        rts[i << 1] = rts[i];\n        real angle_i = angle *\
-    \ (2 * i + 1 - (1 << base));\n        rts[(i << 1) + 1] = C(cos(angle_i), sin(angle_i));\n\
-    \      }\n      ++base;\n    }\n  }\n\n  void fft(vector< C > &a, int n) {\n \
-    \   assert((n & (n - 1)) == 0);\n    int zeros = __builtin_ctz(n);\n    ensure_base(zeros);\n\
-    \    int shift = base - zeros;\n    for(int i = 0; i < n; i++) {\n      if(i <\
-    \ (rev[i] >> shift)) {\n        swap(a[i], a[rev[i] >> shift]);\n      }\n   \
-    \ }\n    for(int k = 1; k < n; k <<= 1) {\n      for(int i = 0; i < n; i += 2\
-    \ * k) {\n        for(int j = 0; j < k; j++) {\n          C z = a[i + j + k] *\
-    \ rts[j + k];\n          a[i + j + k] = a[i + j] - z;\n          a[i + j] = a[i\
-    \ + j] + z;\n        }\n      }\n    }\n  }\n\n  vector< int64_t > multiply(const\
-    \ vector< int > &a, const vector< int > &b) {\n    int need = (int) a.size() +\
-    \ (int) b.size() - 1;\n    int nbase = 1;\n    while((1 << nbase) < need) nbase++;\n\
-    \    ensure_base(nbase);\n    int sz = 1 << nbase;\n    vector< C > fa(sz);\n\
-    \    for(int i = 0; i < sz; i++) {\n      int x = (i < (int) a.size() ? a[i] :\
-    \ 0);\n      int y = (i < (int) b.size() ? b[i] : 0);\n      fa[i] = C(x, y);\n\
-    \    }\n    fft(fa, sz);\n    C r(0, -0.25 / (sz >> 1)), s(0, 1), t(0.5, 0);\n\
-    \    for(int i = 0; i <= (sz >> 1); i++) {\n      int j = (sz - i) & (sz - 1);\n\
-    \      C z = (fa[j] * fa[j] - (fa[i] * fa[i]).conj()) * r;\n      fa[j] = (fa[i]\
-    \ * fa[i] - (fa[j] * fa[j]).conj()) * r;\n      fa[i] = z;\n    }\n    for(int\
-    \ i = 0; i < (sz >> 1); i++) {\n      C A0 = (fa[i] + fa[i + (sz >> 1)]) * t;\n\
-    \      C A1 = (fa[i] - fa[i + (sz >> 1)]) * t * rts[(sz >> 1) + i];\n      fa[i]\
-    \ = A0 + A1 * s;\n    }\n    fft(fa, sz >> 1);\n    vector< int64_t > ret(need);\n\
-    \    for(int i = 0; i < need; i++) {\n      ret[i] = llround(i & 1 ? fa[i >> 1].y\
-    \ : fa[i >> 1].x);\n    }\n    return ret;\n  }\n};\n#line 2 \"math/fft/arbitrary-mod-convolution.cpp\"\
-    \n\n/*\n * @brief Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
-    )\n */\ntemplate< typename T >\nstruct ArbitraryModConvolution {\n  using real\
-    \ = FastFourierTransform::real;\n  using C = FastFourierTransform::C;\n\n  ArbitraryModConvolution()\
-    \ = default;\n\n  static vector< T > multiply(const vector< T > &a, const vector<\
-    \ T > &b, int need = -1) {\n    if(need == -1) need = a.size() + b.size() - 1;\n\
-    \    int nbase = 0;\n    while((1 << nbase) < need) nbase++;\n    FastFourierTransform::ensure_base(nbase);\n\
+    \n\n/**\n * @brief Sample Point Shift(\u6A19\u672C\u70B9\u30B7\u30D5\u30C8)\n\
+    \ */\ntemplate< typename Mint, typename F >\nvector< Mint > sample_point_shift(const\
+    \ vector< Mint > &ys, const Mint &m, const F &multiply) {\n  Enumeration< Mint\
+    \ > comb;\n  int d = (int) ys.size() - 1;\n  vector< Mint > f(d + 1), g(d * 2\
+    \ + 1);\n  for(int i = 0; i <= d; i++) {\n    f[i] = ys[i] * comb.finv(i) * comb.finv(d\
+    \ - i);\n    if((d - i) & 1) f[i] = -f[i];\n  }\n  for(int i = 0; i <= 2 * d;\
+    \ i++) {\n    g[i] = Mint(1) / (m - d + i);\n  }\n  auto h = multiply(f, g);\n\
+    \  Mint coef = 1;\n  for(int i = 0; i <= d; i++) {\n    coef *= (m - d + i);\n\
+    \  }\n  for(int i = 0; i <= d; i++) {\n    h[i + d] *= coef;\n    coef *= (m +\
+    \ i + 1) * g[i];\n  }\n  return vector< Mint >{begin(h) + d, begin(h) + 2 * d\
+    \ + 1};\n}\n#line 2 \"math/combinatorics/factorial.cpp\"\n\n/**\n * @brief Factorial(\u968E\
+    \u4E57)\n */\ntemplate< typename Mint, typename F >\nMint factorial(int64_t n,\
+    \ const F& multiply) {\n  if(n <= 1) return 1;\n  if(n >= Mint::get_mod()) return\
+    \ 0;\n  int64_t v = 1;\n  while(v * v < n) v *= 2;\n  Mint iv = Mint(1) / v;\n\
+    \  vector< Mint > G{1, v + 1};\n  for(int64_t d = 1; d != v; d <<= 1) {\n    vector<\
+    \ Mint > G1 = sample_point_shift(G, Mint(d) * iv, multiply);\n    vector< Mint\
+    \ > G2 = sample_point_shift(G, Mint(d * v + v) * iv, multiply);\n    vector< Mint\
+    \ > G3 = sample_point_shift(G, Mint(d * v + d + v) * iv, multiply);\n    for(int\
+    \ i = 0; i <= d; i++) G[i] *= G1[i], G2[i] *= G3[i];\n    copy(begin(G2), end(G2)\
+    \ - 1, back_inserter(G));\n  }\n  Mint res = 1;\n  int64_t i = 0;\n  while(i +\
+    \ v <= n) res *= G[i / v], i += v;\n  while(i < n) res *= ++i;\n  return res;\n\
+    }\n#line 7 \"test/verify/yukicoder-502.test.cpp\"\n\n#line 1 \"math/fft/fast-fourier-transform.cpp\"\
+    \nnamespace FastFourierTransform {\n  using real = double;\n\n  struct C {\n \
+    \   real x, y;\n\n    C() : x(0), y(0) {}\n\n    C(real x, real y) : x(x), y(y)\
+    \ {}\n\n    inline C operator+(const C &c) const { return C(x + c.x, y + c.y);\
+    \ }\n\n    inline C operator-(const C &c) const { return C(x - c.x, y - c.y);\
+    \ }\n\n    inline C operator*(const C &c) const { return C(x * c.x - y * c.y,\
+    \ x * c.y + y * c.x); }\n\n    inline C conj() const { return C(x, -y); }\n  };\n\
+    \n  const real PI = acosl(-1);\n  int base = 1;\n  vector< C > rts = { {0, 0},\n\
+    \                     {1, 0} };\n  vector< int > rev = {0, 1};\n\n\n  void ensure_base(int\
+    \ nbase) {\n    if(nbase <= base) return;\n    rev.resize(1 << nbase);\n    rts.resize(1\
+    \ << nbase);\n    for(int i = 0; i < (1 << nbase); i++) {\n      rev[i] = (rev[i\
+    \ >> 1] >> 1) + ((i & 1) << (nbase - 1));\n    }\n    while(base < nbase) {\n\
+    \      real angle = PI * 2.0 / (1 << (base + 1));\n      for(int i = 1 << (base\
+    \ - 1); i < (1 << base); i++) {\n        rts[i << 1] = rts[i];\n        real angle_i\
+    \ = angle * (2 * i + 1 - (1 << base));\n        rts[(i << 1) + 1] = C(cos(angle_i),\
+    \ sin(angle_i));\n      }\n      ++base;\n    }\n  }\n\n  void fft(vector< C >\
+    \ &a, int n) {\n    assert((n & (n - 1)) == 0);\n    int zeros = __builtin_ctz(n);\n\
+    \    ensure_base(zeros);\n    int shift = base - zeros;\n    for(int i = 0; i\
+    \ < n; i++) {\n      if(i < (rev[i] >> shift)) {\n        swap(a[i], a[rev[i]\
+    \ >> shift]);\n      }\n    }\n    for(int k = 1; k < n; k <<= 1) {\n      for(int\
+    \ i = 0; i < n; i += 2 * k) {\n        for(int j = 0; j < k; j++) {\n        \
+    \  C z = a[i + j + k] * rts[j + k];\n          a[i + j + k] = a[i + j] - z;\n\
+    \          a[i + j] = a[i + j] + z;\n        }\n      }\n    }\n  }\n\n  vector<\
+    \ int64_t > multiply(const vector< int > &a, const vector< int > &b) {\n    int\
+    \ need = (int) a.size() + (int) b.size() - 1;\n    int nbase = 1;\n    while((1\
+    \ << nbase) < need) nbase++;\n    ensure_base(nbase);\n    int sz = 1 << nbase;\n\
+    \    vector< C > fa(sz);\n    for(int i = 0; i < sz; i++) {\n      int x = (i\
+    \ < (int) a.size() ? a[i] : 0);\n      int y = (i < (int) b.size() ? b[i] : 0);\n\
+    \      fa[i] = C(x, y);\n    }\n    fft(fa, sz);\n    C r(0, -0.25 / (sz >> 1)),\
+    \ s(0, 1), t(0.5, 0);\n    for(int i = 0; i <= (sz >> 1); i++) {\n      int j\
+    \ = (sz - i) & (sz - 1);\n      C z = (fa[j] * fa[j] - (fa[i] * fa[i]).conj())\
+    \ * r;\n      fa[j] = (fa[i] * fa[i] - (fa[j] * fa[j]).conj()) * r;\n      fa[i]\
+    \ = z;\n    }\n    for(int i = 0; i < (sz >> 1); i++) {\n      C A0 = (fa[i] +\
+    \ fa[i + (sz >> 1)]) * t;\n      C A1 = (fa[i] - fa[i + (sz >> 1)]) * t * rts[(sz\
+    \ >> 1) + i];\n      fa[i] = A0 + A1 * s;\n    }\n    fft(fa, sz >> 1);\n    vector<\
+    \ int64_t > ret(need);\n    for(int i = 0; i < need; i++) {\n      ret[i] = llround(i\
+    \ & 1 ? fa[i >> 1].y : fa[i >> 1].x);\n    }\n    return ret;\n  }\n};\n#line\
+    \ 2 \"math/fft/arbitrary-mod-convolution.cpp\"\n\n/*\n * @brief Arbitrary Mod\
+    \ Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)\n */\ntemplate< typename\
+    \ T >\nstruct ArbitraryModConvolution {\n  using real = FastFourierTransform::real;\n\
+    \  using C = FastFourierTransform::C;\n\n  ArbitraryModConvolution() = default;\n\
+    \n  static vector< T > multiply(const vector< T > &a, const vector< T > &b, int\
+    \ need = -1) {\n    if(need == -1) need = a.size() + b.size() - 1;\n    int nbase\
+    \ = 0;\n    while((1 << nbase) < need) nbase++;\n    FastFourierTransform::ensure_base(nbase);\n\
     \    int sz = 1 << nbase;\n    vector< C > fa(sz);\n    for(int i = 0; i < a.size();\
     \ i++) {\n      fa[i] = C(a[i].x & ((1 << 15) - 1), a[i].x >> 15);\n    }\n  \
     \  fft(fa, sz);\n    vector< C > fb(sz);\n    if(a == b) {\n      fb = fa;\n \
@@ -209,8 +210,8 @@ data:
   isVerificationFile: true
   path: test/verify/yukicoder-502.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 20:39:58+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-07-13 21:04:36+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yukicoder-502.test.cpp
 layout: document
