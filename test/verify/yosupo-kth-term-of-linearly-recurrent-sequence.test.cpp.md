@@ -251,8 +251,8 @@ data:
     \ i = 1; i < (int) Q2.size(); i += 2) Q2[i] = -Q2[i];\n    P = sub(P * Q2, k &\
     \ 1);\n    Q = sub(Q * Q2, 0);\n    k >>= 1;\n  }\n  return ret + P[0];\n}\n#line\
     \ 2 \"math/fps/kth-term-of-linearly-recurrent-sequence.cpp\"\n\n/**\n * @brief\
-    \ Kth Term of Linearly Recurrent Sequence\n */\ntemplate< template< typename >\
-    \ class FPS, typename Mint >\nMint kth_term_of_linearly_recurrent_sequence(const\
+    \ Kth Term of Linearly Recurrent Sequence\n * @docs docs/kth-term-of-linearly-recurrent-sequence.md\n\
+    \ */\ntemplate< template< typename > class FPS, typename Mint >\nMint kth_term_of_linearly_recurrent_sequence(const\
     \ FPS< Mint > &a, FPS< Mint > c, int64_t k) {\n  assert(a.size() == c.size());\n\
     \  c = FPS< Mint >{1} - (c << 1);\n  return coeff_of_rational_function((a * c).pre(a.size()),\
     \ c, k);\n}\n#line 8 \"test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp\"\
@@ -277,7 +277,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 20:39:58+09:00'
+  timestamp: '2021-07-14 20:23:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
