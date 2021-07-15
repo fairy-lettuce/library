@@ -9,7 +9,7 @@ data:
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':heavy_check_mark:'
     path: graph/mst/manhattan-mst.hpp
-    title: Manhattan-MST
+    title: Manhattan MST
   - icon: ':heavy_check_mark:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
@@ -71,7 +71,7 @@ data:
     \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
     \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
     using Edges = vector< Edge< T > >;\n#line 4 \"graph/mst/manhattan-mst.hpp\"\n\n\
-    /**\n * @brief Manhattan-MST\n */\ntemplate< typename T >\nEdges< T > manhattan_mst(vector<\
+    /**\n * @brief Manhattan MST\n */\ntemplate< typename T >\nEdges< T > manhattan_mst(vector<\
     \ T > xs, vector< T > ys) {\n  assert(xs.size() == ys.size());\n  Edges< T > ret;\n\
     \  int n = (int) xs.size();\n\n  vector< int > ord(n);\n  iota(ord.begin(), ord.end(),\
     \ 0);\n\n  for(int s = 0; s < 2; s++) {\n    for(int t = 0; t < 2; t++) {\n  \
@@ -124,7 +124,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-manhattanmst.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-16 02:06:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-manhattanmst.test.cpp

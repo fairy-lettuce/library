@@ -23,7 +23,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/bi-connected-components.md
-    document_title: "Bi-Connected-Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\
+    document_title: "Bi Connected Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\
       \u5206\u5206\u89E3)"
     links: []
   bundledCode: "#line 2 \"graph/graph-template.hpp\"\n\ntemplate< typename T = int\
@@ -60,7 +60,7 @@ data:
     \ ord[to]);\n      }\n    }\n    is_articulation |= par == -1 && cnt > 1;\n  \
     \  if(is_articulation) articulation.push_back(idx);\n    return k;\n  }\n};\n\
     #line 3 \"graph/connected-components/bi-connected-components.hpp\"\n\n/**\n *\
-    \ @brief Bi-Connected-Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\
+    \ @brief Bi Connected Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\
     \u5206\u89E3)\n * @docs docs/bi-connected-components.md\n */\ntemplate< typename\
     \ T = int >\nstruct BiConnectedComponents : LowLink< T > {\npublic:\n  using LowLink<\
     \ T >::LowLink;\n  using LowLink< T >::g;\n  using LowLink< T >::ord;\n  using\
@@ -78,7 +78,7 @@ data:
     \            if(e.idx == to.idx) break;\n          }\n        }\n      }\n   \
     \ }\n  }\n};\n"
   code: "#include \"../graph-template.hpp\"\n#include \"../others/low-link.hpp\"\n\
-    \n/**\n * @brief Bi-Connected-Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\
+    \n/**\n * @brief Bi Connected Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\
     \u5206\u5206\u89E3)\n * @docs docs/bi-connected-components.md\n */\ntemplate<\
     \ typename T = int >\nstruct BiConnectedComponents : LowLink< T > {\npublic:\n\
     \  using LowLink< T >::LowLink;\n  using LowLink< T >::g;\n  using LowLink< T\
@@ -102,7 +102,7 @@ data:
   path: graph/connected-components/bi-connected-components.hpp
   requiredBy:
   - graph/others/block-cut-tree.hpp
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-16 02:06:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-3139.test.cpp
@@ -112,7 +112,7 @@ layout: document
 redirect_from:
 - /library/graph/connected-components/bi-connected-components.hpp
 - /library/graph/connected-components/bi-connected-components.hpp.html
-title: "Bi-Connected-Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\u5206\
+title: "Bi Connected Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\u5206\
   \u89E3)"
 ---
 ## 概要

@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: graph/connected-components/strongly-connected-components.hpp
-    title: "Strongly-Connected-Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
+    title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
   - icon: ':heavy_check_mark:'
     path: graph/graph-template.hpp
@@ -36,7 +36,7 @@ data:
     \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
     \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 4 \"\
     graph/connected-components/strongly-connected-components.hpp\"\n\n/**\n * @brief\
-    \ Strongly-Connected-Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)\n\
+    \ Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)\n\
     \ * @docs docs/strongly-connected-components.md\n */\ntemplate< typename T = int\
     \ >\nstruct StronglyConnectedComponents : Graph< T > {\npublic:\n  using Graph<\
     \ T >::Graph;\n  using Graph< T >::g;\n  vector< int > comp;\n  Graph< T > dag;\n\
@@ -95,7 +95,7 @@ data:
   isVerificationFile: false
   path: graph/others/two-satisfiability.hpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-16 02:06:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-two-sat.test.cpp

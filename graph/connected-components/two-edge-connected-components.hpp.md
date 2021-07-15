@@ -17,7 +17,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/two-edge-connected-components.md
-    document_title: "Two-Edge-Connected-Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\
+    document_title: "Two Edge Connected Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\
       \u5206\u5206\u89E3)"
     links: []
   bundledCode: "#line 2 \"graph/connected-components/two-edge-connected-components.hpp\"\
@@ -55,7 +55,7 @@ data:
     \ ord[to]);\n      }\n    }\n    is_articulation |= par == -1 && cnt > 1;\n  \
     \  if(is_articulation) articulation.push_back(idx);\n    return k;\n  }\n};\n\
     #line 5 \"graph/connected-components/two-edge-connected-components.hpp\"\n\n/**\n\
-    \ * @brief Two-Edge-Connected-Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
+    \ * @brief Two Edge Connected Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
     \u5206\u89E3)\n * @docs docs/two-edge-connected-components.md\n */\ntemplate<\
     \ typename T = int >\nstruct TwoEdgeConnectedComponents : LowLink< T > {\npublic:\n\
     \  using LowLink< T >::LowLink;\n  using LowLink< T >::g;\n  using LowLink< T\
@@ -73,7 +73,7 @@ data:
     \    for(auto &to : g[idx]) {\n      if(comp[to] == -1) dfs(to, idx, k);\n   \
     \ }\n  }\n};\n"
   code: "#pragma once\n\n#include \"../graph-template.hpp\"\n#include \"../others/low-link.hpp\"\
-    \n\n/**\n * @brief Two-Edge-Connected-Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\
+    \n\n/**\n * @brief Two Edge Connected Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\
     \u6210\u5206\u5206\u89E3)\n * @docs docs/two-edge-connected-components.md\n */\n\
     template< typename T = int >\nstruct TwoEdgeConnectedComponents : LowLink< T >\
     \ {\npublic:\n  using LowLink< T >::LowLink;\n  using LowLink< T >::g;\n  using\
@@ -96,7 +96,7 @@ data:
   isVerificationFile: false
   path: graph/connected-components/two-edge-connected-components.hpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-16 02:06:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-two-edge-connected-components.test.cpp
@@ -105,7 +105,7 @@ layout: document
 redirect_from:
 - /library/graph/connected-components/two-edge-connected-components.hpp
 - /library/graph/connected-components/two-edge-connected-components.hpp.html
-title: "Two-Edge-Connected-Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\
+title: "Two Edge Connected Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\
   \u89E3)"
 ---
 ## 概要

@@ -6,7 +6,7 @@ data:
     title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
     path: graph/mst/prim-fibonacchi-heap.hpp
-    title: "Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
+    title: "Prim Fibonacchi Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':heavy_check_mark:'
     path: structure/heap/fibonacchi-heap.cpp
     title: "Fibonacchi-Heap(\u30D5\u30A3\u30DC\u30CA\u30C3\u30C1\u30D2\u30FC\u30D7\
@@ -112,7 +112,7 @@ data:
     \ {\n      update_min(t);\n      return;\n    }\n\n    if(t->par->key <= t->key)\
     \ {\n      return;\n    }\n\n    t->sz++;\n    t->mark = true;\n    mark_dfs(t);\n\
     \    update_min(t);\n  }\n};\n#line 5 \"graph/mst/prim-fibonacchi-heap.hpp\"\n\
-    \n/**\n * @brief Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)\n * @docs\
+    \n/**\n * @brief Prim Fibonacchi Heap(\u6700\u5C0F\u5168\u57DF\u6728)\n * @docs\
     \ docs/prim-fibonacchi-heap.md\n */\ntemplate< typename T >\nstruct MinimumSpanningTree\
     \ {\n  T cost;\n  Edges< T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree<\
     \ T > prim_fibonacchi_heap(Graph< T > &g) {\n  using Heap = FibonacchiHeap< T,\
@@ -141,7 +141,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-grl-2-a-4.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-16 02:06:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-2-a-4.test.cpp

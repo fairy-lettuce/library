@@ -6,7 +6,7 @@ data:
     title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
     path: graph/mst/directed-mst.hpp
-    title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
+    title: "Directed MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
   - icon: ':heavy_check_mark:'
     path: structure/heap/skew-heap.cpp
     title: Skew-Heap
@@ -83,7 +83,7 @@ data:
     \    return meld(t->l, t->r);\n  }\n\n  Node *add(Node *t, const T &lazy) {\n\
     \    if(t) {\n      t->lazy += lazy;\n      propagate(t);\n    }\n    return t;\n\
     \  }\n\n  Node *make_root() {\n    return nullptr;\n  }\n};\n#line 5 \"graph/mst/directed-mst.hpp\"\
-    \n\n/**\n * @brief Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)\n\
+    \n\n/**\n * @brief Directed MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)\n\
     \ * @docs docs/directed-mst.md\n */\ntemplate< typename T >\nstruct MinimumSpanningTree\
     \ {\n  T cost;\n  Edges< T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree<\
     \ T > directed_mst(int V, int root, Edges< T > edges) {\n  for(int i = 0; i <\
@@ -127,7 +127,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-directedmst.test.cpp
   requiredBy: []
-  timestamp: '2021-07-16 00:30:06+09:00'
+  timestamp: '2021-07-16 02:06:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-directedmst.test.cpp

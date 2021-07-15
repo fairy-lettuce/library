@@ -168,22 +168,22 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: graph/connected-components/bi-connected-components.hpp
-      title: "Bi-Connected-Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\
+      title: "Bi Connected Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\
         \u5206\u89E3)"
     - icon: ':heavy_check_mark:'
       path: graph/connected-components/incremental-bridge-connectivity.hpp
-      title: Incremental-Bridge-Connectivity
+      title: Incremental Bridge-Connectivity
     - icon: ':heavy_check_mark:'
       path: graph/connected-components/strongly-connected-components.hpp
-      title: "Strongly-Connected-Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
+      title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
         )"
     - icon: ':heavy_check_mark:'
       path: graph/connected-components/three-edge-connected-components.hpp
-      title: "Three-Edge-Connected-Components(\u4E09\u91CD\u8FBA\u9023\u7D50\u6210\
+      title: "Three Edge Connected Components(\u4E09\u91CD\u8FBA\u9023\u7D50\u6210\
         \u5206\u5206\u89E3)"
     - icon: ':heavy_check_mark:'
       path: graph/connected-components/two-edge-connected-components.hpp
-      title: "Two-Edge-Connected-Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
+      title: "Two Edge Connected Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
         \u5206\u89E3)"
   - name: graph/flow
     pages:
@@ -217,7 +217,7 @@ data:
       title: graph/flow/maxflow-lower-bound.hpp
     - icon: ':heavy_check_mark:'
       path: graph/flow/primal-dual.hpp
-      title: Primal Dual
+      title: "Primal Dual(\u6700\u5C0F\u8CBB\u7528\u6D41)"
     - icon: ':heavy_check_mark:'
       path: graph/flow/push-relabel.hpp
       title: graph/flow/push-relabel.hpp
@@ -233,16 +233,16 @@ data:
       title: "Boruvka(\u6700\u5C0F\u5168\u57DF\u6728)"
     - icon: ':heavy_check_mark:'
       path: graph/mst/directed-mst.hpp
-      title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
+      title: "Directed MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
     - icon: ':heavy_check_mark:'
       path: graph/mst/kruskal.hpp
       title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
     - icon: ':heavy_check_mark:'
       path: graph/mst/manhattan-mst.hpp
-      title: Manhattan-MST
+      title: Manhattan MST
     - icon: ':heavy_check_mark:'
       path: graph/mst/prim-fibonacchi-heap.hpp
-      title: "Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
+      title: "Prim Fibonacchi Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
     - icon: ':heavy_check_mark:'
       path: graph/mst/prim.hpp
       title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"

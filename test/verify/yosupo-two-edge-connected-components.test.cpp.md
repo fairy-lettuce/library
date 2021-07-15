@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: graph/connected-components/two-edge-connected-components.hpp
-    title: "Two-Edge-Connected-Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
+    title: "Two Edge Connected Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
   - icon: ':heavy_check_mark:'
     path: graph/graph-template.hpp
@@ -88,7 +88,7 @@ data:
     \ ord[to]);\n      }\n    }\n    is_articulation |= par == -1 && cnt > 1;\n  \
     \  if(is_articulation) articulation.push_back(idx);\n    return k;\n  }\n};\n\
     #line 5 \"graph/connected-components/two-edge-connected-components.hpp\"\n\n/**\n\
-    \ * @brief Two-Edge-Connected-Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
+    \ * @brief Two Edge Connected Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
     \u5206\u89E3)\n * @docs docs/two-edge-connected-components.md\n */\ntemplate<\
     \ typename T = int >\nstruct TwoEdgeConnectedComponents : LowLink< T > {\npublic:\n\
     \  using LowLink< T >::LowLink;\n  using LowLink< T >::g;\n  using LowLink< T\
@@ -123,7 +123,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-two-edge-connected-components.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-16 02:06:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-two-edge-connected-components.test.cpp

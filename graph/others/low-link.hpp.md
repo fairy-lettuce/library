@@ -7,11 +7,11 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: graph/connected-components/bi-connected-components.hpp
-    title: "Bi-Connected-Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\
+    title: "Bi Connected Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
   - icon: ':heavy_check_mark:'
     path: graph/connected-components/two-edge-connected-components.hpp
-    title: "Two-Edge-Connected-Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
+    title: "Two Edge Connected Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
   - icon: ':heavy_check_mark:'
     path: graph/others/block-cut-tree.hpp

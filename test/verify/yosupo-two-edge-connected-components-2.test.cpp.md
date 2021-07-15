@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: graph/connected-components/incremental-bridge-connectivity.hpp
-    title: Incremental-Bridge-Connectivity
+    title: Incremental Bridge-Connectivity
   - icon: ':heavy_check_mark:'
     path: graph/graph-template.hpp
     title: graph/graph-template.hpp
@@ -81,7 +81,7 @@ data:
     \    }\n    ret.erase(remove_if(begin(ret), end(ret), [&](const vector< int >\
     \ &v) {\n      return v.empty();\n    }));\n    return ret;\n  }\n};\n#line 5\
     \ \"graph/connected-components/incremental-bridge-connectivity.hpp\"\n\n/**\n\
-    \ * @brief Incremental-Bridge-Connectivity\n * @docs docs/incremental-bridge-connectivity.md\n\
+    \ * @brief Incremental Bridge-Connectivity\n * @docs docs/incremental-bridge-connectivity.md\n\
     \ * @see https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity\n\
     \ */\nstruct IncrementalBridgeConnectivity {\nprivate:\n  UnionFind cc, bcc;\n\
     \  vector< int > bbf;\n  size_t bridge;\n\n  int size() {\n    return bbf.size();\n\
@@ -125,7 +125,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-two-edge-connected-components-2.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-16 02:06:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-two-edge-connected-components-2.test.cpp

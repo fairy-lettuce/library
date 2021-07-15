@@ -20,7 +20,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/directed-mst.md
-    document_title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
+    document_title: "Directed MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
     links: []
   bundledCode: "#line 2 \"graph/mst/directed-mst.hpp\"\n\n#line 2 \"graph/graph-template.hpp\"\
     \n\ntemplate< typename T = int >\nstruct Edge {\n  int from, to;\n  T cost;\n\
@@ -53,7 +53,7 @@ data:
     \    return meld(t->l, t->r);\n  }\n\n  Node *add(Node *t, const T &lazy) {\n\
     \    if(t) {\n      t->lazy += lazy;\n      propagate(t);\n    }\n    return t;\n\
     \  }\n\n  Node *make_root() {\n    return nullptr;\n  }\n};\n#line 5 \"graph/mst/directed-mst.hpp\"\
-    \n\n/**\n * @brief Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)\n\
+    \n\n/**\n * @brief Directed MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)\n\
     \ * @docs docs/directed-mst.md\n */\ntemplate< typename T >\nstruct MinimumSpanningTree\
     \ {\n  T cost;\n  Edges< T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree<\
     \ T > directed_mst(int V, int root, Edges< T > edges) {\n  for(int i = 0; i <\
@@ -76,7 +76,7 @@ data:
     \ j != -1 && vis[j] == 0; j = par[j]) {\n      vis[j] = 1;\n    }\n  }\n  return\
     \ {cost, ans};\n}\n"
   code: "#pragma once\n\n#include \"../graph-template.hpp\"\n#include \"../../structure/heap/skew-heap.cpp\"\
-    \n\n/**\n * @brief Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)\n\
+    \n\n/**\n * @brief Directed MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)\n\
     \ * @docs docs/directed-mst.md\n */\ntemplate< typename T >\nstruct MinimumSpanningTree\
     \ {\n  T cost;\n  Edges< T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree<\
     \ T > directed_mst(int V, int root, Edges< T > edges) {\n  for(int i = 0; i <\
@@ -104,7 +104,7 @@ data:
   isVerificationFile: false
   path: graph/mst/directed-mst.hpp
   requiredBy: []
-  timestamp: '2021-07-16 00:30:06+09:00'
+  timestamp: '2021-07-16 02:06:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-2-b.test.cpp
@@ -114,7 +114,7 @@ layout: document
 redirect_from:
 - /library/graph/mst/directed-mst.hpp
 - /library/graph/mst/directed-mst.hpp.html
-title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
+title: "Directed MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
 ---
 ## 概要
 

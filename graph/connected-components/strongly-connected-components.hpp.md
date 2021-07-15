@@ -23,7 +23,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/strongly-connected-components.md
-    document_title: "Strongly-Connected-Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\
+    document_title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\
       \u89E3)"
     links: []
   bundledCode: "#line 2 \"graph/connected-components/strongly-connected-components.hpp\"\
@@ -43,7 +43,7 @@ data:
     \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
     \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 4 \"\
     graph/connected-components/strongly-connected-components.hpp\"\n\n/**\n * @brief\
-    \ Strongly-Connected-Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)\n\
+    \ Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)\n\
     \ * @docs docs/strongly-connected-components.md\n */\ntemplate< typename T = int\
     \ >\nstruct StronglyConnectedComponents : Graph< T > {\npublic:\n  using Graph<\
     \ T >::Graph;\n  using Graph< T >::g;\n  vector< int > comp;\n  Graph< T > dag;\n\
@@ -63,8 +63,8 @@ data:
     \    order.push_back(idx);\n  }\n\n  void rdfs(int idx, int cnt) {\n    if(comp[idx]\
     \ != -1) return;\n    comp[idx] = cnt;\n    for(auto &to : rg.g[idx]) rdfs(to,\
     \ cnt);\n  }\n};\n"
-  code: "#pragma once\n\n#include \"../graph-template.hpp\"\n\n/**\n * @brief Strongly-Connected-Components(\u5F37\
-    \u9023\u7D50\u6210\u5206\u5206\u89E3)\n * @docs docs/strongly-connected-components.md\n\
+  code: "#pragma once\n\n#include \"../graph-template.hpp\"\n\n/**\n * @brief Strongly\
+    \ Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)\n * @docs docs/strongly-connected-components.md\n\
     \ */\ntemplate< typename T = int >\nstruct StronglyConnectedComponents : Graph<\
     \ T > {\npublic:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n  vector<\
     \ int > comp;\n  Graph< T > dag;\n  vector< vector< int > > group;\n\n  void build()\
@@ -89,7 +89,7 @@ data:
   path: graph/connected-components/strongly-connected-components.hpp
   requiredBy:
   - graph/others/two-satisfiability.hpp
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-16 02:06:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-two-sat.test.cpp
@@ -100,7 +100,7 @@ layout: document
 redirect_from:
 - /library/graph/connected-components/strongly-connected-components.hpp
 - /library/graph/connected-components/strongly-connected-components.hpp.html
-title: "Strongly-Connected-Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)"
+title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)"
 ---
 ## 概要
 

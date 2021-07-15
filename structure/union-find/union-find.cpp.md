@@ -4,10 +4,10 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: graph/connected-components/incremental-bridge-connectivity.hpp
-    title: Incremental-Bridge-Connectivity
+    title: Incremental Bridge-Connectivity
   - icon: ':heavy_check_mark:'
     path: graph/connected-components/three-edge-connected-components.hpp
-    title: "Three-Edge-Connected-Components(\u4E09\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
+    title: "Three Edge Connected Components(\u4E09\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
   - icon: ':heavy_check_mark:'
     path: graph/mst/boruvka.hpp

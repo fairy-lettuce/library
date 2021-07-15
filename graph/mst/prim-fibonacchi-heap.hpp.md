@@ -18,7 +18,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/prim-fibonacchi-heap.md
-    document_title: "Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
+    document_title: "Prim Fibonacchi Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
     links: []
   bundledCode: "#line 2 \"graph/mst/prim-fibonacchi-heap.hpp\"\n\n#line 2 \"graph/graph-template.hpp\"\
     \n\ntemplate< typename T = int >\nstruct Edge {\n  int from, to;\n  T cost;\n\
@@ -79,7 +79,7 @@ data:
     \ {\n      update_min(t);\n      return;\n    }\n\n    if(t->par->key <= t->key)\
     \ {\n      return;\n    }\n\n    t->sz++;\n    t->mark = true;\n    mark_dfs(t);\n\
     \    update_min(t);\n  }\n};\n#line 5 \"graph/mst/prim-fibonacchi-heap.hpp\"\n\
-    \n/**\n * @brief Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)\n * @docs\
+    \n/**\n * @brief Prim Fibonacchi Heap(\u6700\u5C0F\u5168\u57DF\u6728)\n * @docs\
     \ docs/prim-fibonacchi-heap.md\n */\ntemplate< typename T >\nstruct MinimumSpanningTree\
     \ {\n  T cost;\n  Edges< T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree<\
     \ T > prim_fibonacchi_heap(Graph< T > &g) {\n  using Heap = FibonacchiHeap< T,\
@@ -95,7 +95,7 @@ data:
     \ - e.cost;\n        heap.decrease_key(keep[e.to], d);\n        dist[e.to] = &e;\n\
     \      }\n    }\n  }\n  return {total, es};\n}\n\n"
   code: "#pragma once\n\n#include \"../graph-template.hpp\"\n#include \"../../structure/heap/fibonacchi-heap.cpp\"\
-    \n\n/**\n * @brief Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)\n * @docs\
+    \n\n/**\n * @brief Prim Fibonacchi Heap(\u6700\u5C0F\u5168\u57DF\u6728)\n * @docs\
     \ docs/prim-fibonacchi-heap.md\n */\ntemplate< typename T >\nstruct MinimumSpanningTree\
     \ {\n  T cost;\n  Edges< T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree<\
     \ T > prim_fibonacchi_heap(Graph< T > &g) {\n  using Heap = FibonacchiHeap< T,\
@@ -116,7 +116,7 @@ data:
   isVerificationFile: false
   path: graph/mst/prim-fibonacchi-heap.hpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-16 02:06:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-2-a-4.test.cpp
@@ -125,7 +125,7 @@ layout: document
 redirect_from:
 - /library/graph/mst/prim-fibonacchi-heap.hpp
 - /library/graph/mst/prim-fibonacchi-heap.hpp.html
-title: "Prim-Fibonacchi-Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
+title: "Prim Fibonacchi Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
 ---
 ## 概要
 
