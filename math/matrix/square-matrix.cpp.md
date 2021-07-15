@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/verify/yosupo-chromatic-number.cpp
+    title: test/verify/yosupo-chromatic-number.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1254.test.cpp
@@ -81,7 +84,8 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: math/matrix/square-matrix.cpp
-  requiredBy: []
+  requiredBy:
+  - test/verify/yosupo-chromatic-number.cpp
   timestamp: '2021-07-14 01:17:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/verify/yosupo-chromatic-number.cpp
+    title: test/verify/yosupo-chromatic-number.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-0233.test.cpp
@@ -645,7 +648,8 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: template/template.cpp
-  requiredBy: []
+  requiredBy:
+  - test/verify/yosupo-chromatic-number.cpp
   timestamp: '2021-05-01 00:06:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

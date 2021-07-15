@@ -976,6 +976,9 @@ data:
       path: test/verify/yahoo-procon2018-final-c.cpp
       title: test/verify/yahoo-procon2018-final-c.cpp
     - icon: ':warning:'
+      path: test/verify/yosupo-chromatic-number.cpp
+      title: test/verify/yosupo-chromatic-number.cpp
+    - icon: ':warning:'
       path: test/verify/yukicoder-3046.cpp
       title: test/verify/yukicoder-3046.cpp
   verificationCategories:
