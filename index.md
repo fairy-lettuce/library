@@ -874,113 +874,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
-  - name: test/verify
-    pages:
-    - icon: ':warning:'
-      path: test/verify/atcoder-abc-002-d.cpp
-      title: test/verify/atcoder-abc-002-d.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-abc-036-c.cpp
-      title: test/verify/atcoder-abc-036-c.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-abc-132-f.cpp
-      title: test/verify/atcoder-abc-132-f.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-agc-034-c.cpp
-      title: test/verify/atcoder-agc-034-c.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-arc-030-d.cpp
-      title: test/verify/atcoder-arc-030-d.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-arc-033-d.cpp
-      title: test/verify/atcoder-arc-033-d.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-arc-039-d.cpp
-      title: test/verify/atcoder-arc-039-d.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-arc-042-d.cpp
-      title: test/verify/atcoder-arc-042-d.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-arc-062-f.cpp
-      title: test/verify/atcoder-arc-062-f.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-atc-001-c-2.cpp
-      title: test/verify/atcoder-atc-001-c-2.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-atc-001-c-3.cpp
-      title: test/verify/atcoder-atc-001-c-3.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-atc-001-c.cpp
-      title: test/verify/atcoder-atc-001-c.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-atc002-c.cpp
-      title: test/verify/atcoder-atc002-c.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-cf16-tournament-round3-a.cpp
-      title: test/verify/atcoder-cf16-tournament-round3-a.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-code-thanks-festival-2017-g.cpp
-      title: test/verify/atcoder-code-thanks-festival-2017-g.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-colopl2018-final-c.cpp
-      title: test/verify/atcoder-colopl2018-final-c.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-joisc-2015-g.cpp
-      title: test/verify/atcoder-joisc-2015-g.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-shpc-2018-final-e-2.cpp
-      title: test/verify/atcoder-shpc-2018-final-e-2.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-shpc-2018-final-e.cpp
-      title: test/verify/atcoder-shpc-2018-final-e.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-tenka1-2016-final-c.cpp
-      title: test/verify/atcoder-tenka1-2016-final-c.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-tkppc-2015-j.cpp
-      title: test/verify/atcoder-tkppc-2015-j.cpp
-    - icon: ':warning:'
-      path: test/verify/atcoder-wupc-2019-d.cpp
-      title: test/verify/atcoder-wupc-2019-d.cpp
-    - icon: ':warning:'
-      path: test/verify/codeforces-250-e.cpp
-      title: test/verify/codeforces-250-e.cpp
-    - icon: ':warning:'
-      path: test/verify/codeforces-438-f.cpp
-      title: test/verify/codeforces-438-f.cpp
-    - icon: ':warning:'
-      path: test/verify/codeforces-564-e.cpp
-      title: test/verify/codeforces-564-e.cpp
-    - icon: ':warning:'
-      path: test/verify/codeforces-dynamic-connectivity-contest-a.cpp
-      title: test/verify/codeforces-dynamic-connectivity-contest-a.cpp
-    - icon: ':warning:'
-      path: test/verify/codeforces-neerc-ssc-2014-a.cpp
-      title: test/verify/codeforces-neerc-ssc-2014-a.cpp
-    - icon: ':warning:'
-      path: test/verify/spoj-dquery.cpp
-      title: test/verify/spoj-dquery.cpp
-    - icon: ':warning:'
-      path: test/verify/spoj-factmodp.cpp
-      title: test/verify/spoj-factmodp.cpp
-    - icon: ':warning:'
-      path: test/verify/spoj-frequent.cpp
-      title: test/verify/spoj-frequent.cpp
-    - icon: ':warning:'
-      path: test/verify/spoj-rmqsq.cpp
-      title: test/verify/spoj-rmqsq.cpp
-    - icon: ':warning:'
-      path: test/verify/spoj-treeiso.cpp
-      title: test/verify/spoj-treeiso.cpp
-    - icon: ':warning:'
-      path: test/verify/yahoo-procon2018-final-c.cpp
-      title: test/verify/yahoo-procon2018-final-c.cpp
-    - icon: ':warning:'
-      path: test/verify/yosupo-chromatic-number.cpp
-      title: test/verify/yosupo-chromatic-number.cpp
-    - icon: ':warning:'
-      path: test/verify/yukicoder-3046.cpp
-      title: test/verify/yukicoder-3046.cpp
   verificationCategories:
   - name: test/verify
     pages:
@@ -1297,6 +1190,9 @@ data:
       path: test/verify/yosupo-cartesian-tree.test.cpp
       title: test/verify/yosupo-cartesian-tree.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-chromatic-number.test.cpp
+      title: test/verify/yosupo-chromatic-number.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-convolution-mod.test.cpp
       title: test/verify/yosupo-convolution-mod.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1539,6 +1435,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-215.test.cpp
       title: test/verify/yukicoder-215.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yukicoder-3046.test.cpp
+      title: test/verify/yukicoder-3046.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-430.test.cpp
       title: test/verify/yukicoder-430.test.cpp

@@ -1,10 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: test/verify/yosupo-chromatic-number.cpp
-    title: test/verify/yosupo-chromatic-number.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1254.test.cpp
@@ -15,6 +12,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-c.test.cpp
     title: test/verify/aoj-grl-1-c.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-chromatic-number.test.cpp
+    title: test/verify/yosupo-chromatic-number.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
@@ -84,13 +84,13 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: math/matrix/square-matrix.cpp
-  requiredBy:
-  - test/verify/yosupo-chromatic-number.cpp
+  requiredBy: []
   timestamp: '2021-07-14 01:17:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-1-c.test.cpp
   - test/verify/aoj-2306.test.cpp
+  - test/verify/yosupo-chromatic-number.test.cpp
   - test/verify/yukicoder-650.test.cpp
   - test/verify/aoj-1254.test.cpp
 documentation_of: math/matrix/square-matrix.cpp

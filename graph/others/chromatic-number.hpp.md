@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: test/verify/yosupo-chromatic-number.cpp
-    title: test/verify/yosupo-chromatic-number.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1254.test.cpp
     title: test/verify/aoj-1254.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-chromatic-number.test.cpp
+    title: test/verify/yosupo-chromatic-number.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -52,11 +52,11 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: graph/others/chromatic-number.hpp
-  requiredBy:
-  - test/verify/yosupo-chromatic-number.cpp
+  requiredBy: []
   timestamp: '2021-07-16 02:32:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/verify/yosupo-chromatic-number.test.cpp
   - test/verify/aoj-1254.test.cpp
 documentation_of: graph/others/chromatic-number.hpp
 layout: document

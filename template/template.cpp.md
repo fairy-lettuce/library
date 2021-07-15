@@ -1,10 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: test/verify/yosupo-chromatic-number.cpp
-    title: test/verify/yosupo-chromatic-number.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-0233.test.cpp
@@ -319,6 +316,9 @@ data:
     path: test/verify/yosupo-cartesian-tree.test.cpp
     title: test/verify/yosupo-cartesian-tree.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-chromatic-number.test.cpp
+    title: test/verify/yosupo-chromatic-number.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-convolution-mod.test.cpp
     title: test/verify/yosupo-convolution-mod.test.cpp
   - icon: ':heavy_check_mark:'
@@ -562,6 +562,9 @@ data:
     path: test/verify/yukicoder-215.test.cpp
     title: test/verify/yukicoder-215.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yukicoder-3046.test.cpp
+    title: test/verify/yukicoder-3046.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-430.test.cpp
     title: test/verify/yukicoder-430.test.cpp
   - icon: ':heavy_check_mark:'
@@ -648,8 +651,7 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: template/template.cpp
-  requiredBy:
-  - test/verify/yosupo-chromatic-number.cpp
+  requiredBy: []
   timestamp: '2021-05-01 00:06:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
@@ -698,6 +700,7 @@ data:
   - test/verify/yosupo-sqrt-mod.test.cpp
   - test/verify/aoj-grl-1-b.test.cpp
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp
+  - test/verify/yosupo-chromatic-number.test.cpp
   - test/verify/aoj-cgl-3-c.test.cpp
   - test/verify/yosupo-sparse-matrix-det.test.cpp
   - test/verify/aoj-grl-1-a-3.test.cpp
@@ -787,6 +790,7 @@ data:
   - test/verify/aoj-cgl-4-a.test.cpp
   - test/verify/aoj-3022.test.cpp
   - test/verify/aoj-dsl-2-b-2.test.cpp
+  - test/verify/yukicoder-3046.test.cpp
   - test/verify/aoj-dsl-1-a.test.cpp
   - test/verify/yosupo-set-xor-min.test.cpp
   - test/verify/aoj-1508-2.test.cpp

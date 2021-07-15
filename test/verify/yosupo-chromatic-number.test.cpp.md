@@ -14,12 +14,14 @@ data:
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/chromatic_number
     links:
     - https://judge.yosupo.jp/problem/chromatic_number
-  bundledCode: "#line 1 \"test/verify/yosupo-chromatic-number.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/chromatic_number\"\n\n#line 1 \"template/template.cpp\"\
+  bundledCode: "#line 1 \"test/verify/yosupo-chromatic-number.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/chromatic_number\"\n\n#line 1 \"template/template.cpp\"\
     \n#include<bits/stdc++.h>\n\nusing namespace std;\n\nusing int64 = long long;\n\
     const int mod = 1e9 + 7;\n\nconst int64 infll = (1LL << 62) - 1;\nconst int inf\
     \ = (1 << 30) - 1;\n\nstruct IoSetup {\n  IoSetup() {\n    cin.tie(nullptr);\n\
@@ -46,7 +48,7 @@ data:
     \ FixPoint(F &&f) : F(forward< F >(f)) {}\n\n  template< typename... Args >\n\
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
-    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-chromatic-number.cpp\"\
+    \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-chromatic-number.test.cpp\"\
     \n\n#line 2 \"graph/others/chromatic-number.hpp\"\n\n/**\n * @brief Chromatic-Number(\u5F69\
     \u8272\u6570)\n * @docs docs/chromatic-number.md\n * @see https://www.slideshare.net/wata_orz/ss-12131479\n\
     \ */\ntemplate< typename Matrix >\nint chromatic_number(Matrix &g) {\n  int N\
@@ -90,7 +92,7 @@ data:
     \ k) const {\n    return SquareMatrix(*this) ^= k;\n  }\n\n  friend ostream &operator<<(ostream\
     \ &os, SquareMatrix &p) {\n    for(int i = 0; i < N; i++) {\n      os << \"[\"\
     ;\n      for(int j = 0; j < N; j++) {\n        os << p[i][j] << (j + 1 == N ?\
-    \ \"]\\n\" : \",\");\n      }\n    }\n    return os;\n  }\n};\n#line 7 \"test/verify/yosupo-chromatic-number.cpp\"\
+    \ \"]\\n\" : \",\");\n      }\n    }\n    return os;\n  }\n};\n#line 7 \"test/verify/yosupo-chromatic-number.test.cpp\"\
     \n\nint main() {\n  int N, M;\n  cin >> N >> M;\n  SquareMatrix< bool, 20 > g;\n\
     \  for(int i = 0; i < M; i++) {\n    int u, v;\n    cin >> u >> v;\n    g[u][v]\
     \ = g[v][u] = true;\n  }\n  cout << chromatic_number(g) << \"\\n\";\n}\n"
@@ -104,16 +106,16 @@ data:
   - template/template.cpp
   - graph/others/chromatic-number.hpp
   - math/matrix/square-matrix.cpp
-  isVerificationFile: false
-  path: test/verify/yosupo-chromatic-number.cpp
+  isVerificationFile: true
+  path: test/verify/yosupo-chromatic-number.test.cpp
   requiredBy: []
-  timestamp: '2021-07-16 02:32:50+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  timestamp: '2021-07-16 02:43:54+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/verify/yosupo-chromatic-number.cpp
+documentation_of: test/verify/yosupo-chromatic-number.test.cpp
 layout: document
 redirect_from:
-- /library/test/verify/yosupo-chromatic-number.cpp
-- /library/test/verify/yosupo-chromatic-number.cpp.html
-title: test/verify/yosupo-chromatic-number.cpp
+- /verify/test/verify/yosupo-chromatic-number.test.cpp
+- /verify/test/verify/yosupo-chromatic-number.test.cpp.html
+title: test/verify/yosupo-chromatic-number.test.cpp
 ---

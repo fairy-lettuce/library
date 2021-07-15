@@ -15,6 +15,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-215.test.cpp
     title: test/verify/yukicoder-215.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yukicoder-3046.test.cpp
+    title: test/verify/yukicoder-3046.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -294,6 +297,7 @@ data:
   verifiedWith:
   - test/verify/yukicoder-215.test.cpp
   - test/verify/yosupo-sparse-matrix-det.test.cpp
+  - test/verify/yukicoder-3046.test.cpp
 documentation_of: math/fps/formal-power-series.cpp
 layout: document
 redirect_from:

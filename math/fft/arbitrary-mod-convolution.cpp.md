@@ -16,6 +16,9 @@ data:
     path: test/verify/yukicoder-215.test.cpp
     title: test/verify/yukicoder-215.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yukicoder-3046.test.cpp
+    title: test/verify/yukicoder-3046.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-502.test.cpp
     title: test/verify/yukicoder-502.test.cpp
   _isVerificationFailed: false
@@ -124,6 +127,7 @@ data:
   - test/verify/yukicoder-215.test.cpp
   - test/verify/yosupo-sparse-matrix-det.test.cpp
   - test/verify/yukicoder-502.test.cpp
+  - test/verify/yukicoder-3046.test.cpp
 documentation_of: math/fft/arbitrary-mod-convolution.cpp
 layout: document
 redirect_from:

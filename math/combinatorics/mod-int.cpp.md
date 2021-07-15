@@ -100,6 +100,9 @@ data:
     path: test/verify/yukicoder-215.test.cpp
     title: test/verify/yukicoder-215.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yukicoder-3046.test.cpp
+    title: test/verify/yukicoder-3046.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-502.test.cpp
     title: test/verify/yukicoder-502.test.cpp
   - icon: ':heavy_check_mark:'
@@ -190,6 +193,7 @@ data:
   - test/verify/yosupo-point-set-range-composite-3.test.cpp
   - test/verify/aoj-dpl-5-i.test.cpp
   - test/verify/yukicoder-650.test.cpp
+  - test/verify/yukicoder-3046.test.cpp
   - test/verify/yosupo-find-linear-recurrence.test.cpp
   - test/verify/yosupo-inv-of-formal-power-series.test.cpp
   - test/verify/yosupo-division-of-polynomials.test.cpp
