@@ -16,6 +16,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    _deprecated_at_docs: docs/hungarian.md
     document_title: "Hungarian(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5C0F\u91CD\
       \u307F\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0)"
     links: []
@@ -61,40 +62,42 @@ data:
     \          B[j][k] -= B[i][k] * a;\n        }\n      }\n    }\n    return (ret);\n\
     \  }\n};\n#line 2 \"graph/flow/hungarian.hpp\"\n\n/**\n * @brief Hungarian(\u4E8C\
     \u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5C0F\u91CD\u307F\u6700\u5927\u30DE\u30C3\
-    \u30C1\u30F3\u30B0)\n */\ntemplate< typename T >\npair< T, vector< int > > hungarian(Matrix<\
-    \ T > &A) {\n  const T infty = numeric_limits< T >::max();\n  const int N = (int)\
-    \ A.height();\n  const int M = (int) A.width();\n  vector< int > P(M), way(M);\n\
-    \  vector< T > U(N, 0), V(M, 0), minV;\n  vector< bool > used;\n\n  for(int i\
-    \ = 1; i < N; i++) {\n    P[0] = i;\n    minV.assign(M, infty);\n    used.assign(M,\
-    \ false);\n    int j0 = 0;\n    while(P[j0] != 0) {\n      int i0 = P[j0], j1\
-    \ = 0;\n      used[j0] = true;\n      T delta = infty;\n      for(int j = 1; j\
-    \ < M; j++) {\n        if(used[j]) continue;\n        T curr = A[i0][j] - U[i0]\
-    \ - V[j];\n        if(curr < minV[j]) minV[j] = curr, way[j] = j0;\n        if(minV[j]\
-    \ < delta) delta = minV[j], j1 = j;\n      }\n      for(int j = 0; j < M; j++)\
-    \ {\n        if(used[j]) U[P[j]] += delta, V[j] -= delta;\n        else minV[j]\
-    \ -= delta;\n      }\n      j0 = j1;\n    }\n    do {\n      P[j0] = P[way[j0]];\n\
-    \      j0 = way[j0];\n    } while(j0 != 0);\n  }\n  return {-V[0], P};\n}\n"
+    \u30C1\u30F3\u30B0)\n * @docs docs/hungarian.md\n */\ntemplate< typename T >\n\
+    pair< T, vector< int > > hungarian(Matrix< T > &A) {\n  const T infty = numeric_limits<\
+    \ T >::max();\n  const int N = (int) A.height();\n  const int M = (int) A.width();\n\
+    \  vector< int > P(M), way(M);\n  vector< T > U(N, 0), V(M, 0), minV;\n  vector<\
+    \ bool > used;\n\n  for(int i = 1; i < N; i++) {\n    P[0] = i;\n    minV.assign(M,\
+    \ infty);\n    used.assign(M, false);\n    int j0 = 0;\n    while(P[j0] != 0)\
+    \ {\n      int i0 = P[j0], j1 = 0;\n      used[j0] = true;\n      T delta = infty;\n\
+    \      for(int j = 1; j < M; j++) {\n        if(used[j]) continue;\n        T\
+    \ curr = A[i0][j] - U[i0] - V[j];\n        if(curr < minV[j]) minV[j] = curr,\
+    \ way[j] = j0;\n        if(minV[j] < delta) delta = minV[j], j1 = j;\n      }\n\
+    \      for(int j = 0; j < M; j++) {\n        if(used[j]) U[P[j]] += delta, V[j]\
+    \ -= delta;\n        else minV[j] -= delta;\n      }\n      j0 = j1;\n    }\n\
+    \    do {\n      P[j0] = P[way[j0]];\n      j0 = way[j0];\n    } while(j0 != 0);\n\
+    \  }\n  return {-V[0], P};\n}\n"
   code: "#include \"../../math/matrix/matrix.cpp\"\n\n/**\n * @brief Hungarian(\u4E8C\
     \u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5C0F\u91CD\u307F\u6700\u5927\u30DE\u30C3\
-    \u30C1\u30F3\u30B0)\n */\ntemplate< typename T >\npair< T, vector< int > > hungarian(Matrix<\
-    \ T > &A) {\n  const T infty = numeric_limits< T >::max();\n  const int N = (int)\
-    \ A.height();\n  const int M = (int) A.width();\n  vector< int > P(M), way(M);\n\
-    \  vector< T > U(N, 0), V(M, 0), minV;\n  vector< bool > used;\n\n  for(int i\
-    \ = 1; i < N; i++) {\n    P[0] = i;\n    minV.assign(M, infty);\n    used.assign(M,\
-    \ false);\n    int j0 = 0;\n    while(P[j0] != 0) {\n      int i0 = P[j0], j1\
-    \ = 0;\n      used[j0] = true;\n      T delta = infty;\n      for(int j = 1; j\
-    \ < M; j++) {\n        if(used[j]) continue;\n        T curr = A[i0][j] - U[i0]\
-    \ - V[j];\n        if(curr < minV[j]) minV[j] = curr, way[j] = j0;\n        if(minV[j]\
-    \ < delta) delta = minV[j], j1 = j;\n      }\n      for(int j = 0; j < M; j++)\
-    \ {\n        if(used[j]) U[P[j]] += delta, V[j] -= delta;\n        else minV[j]\
-    \ -= delta;\n      }\n      j0 = j1;\n    }\n    do {\n      P[j0] = P[way[j0]];\n\
-    \      j0 = way[j0];\n    } while(j0 != 0);\n  }\n  return {-V[0], P};\n}\n"
+    \u30C1\u30F3\u30B0)\n * @docs docs/hungarian.md\n */\ntemplate< typename T >\n\
+    pair< T, vector< int > > hungarian(Matrix< T > &A) {\n  const T infty = numeric_limits<\
+    \ T >::max();\n  const int N = (int) A.height();\n  const int M = (int) A.width();\n\
+    \  vector< int > P(M), way(M);\n  vector< T > U(N, 0), V(M, 0), minV;\n  vector<\
+    \ bool > used;\n\n  for(int i = 1; i < N; i++) {\n    P[0] = i;\n    minV.assign(M,\
+    \ infty);\n    used.assign(M, false);\n    int j0 = 0;\n    while(P[j0] != 0)\
+    \ {\n      int i0 = P[j0], j1 = 0;\n      used[j0] = true;\n      T delta = infty;\n\
+    \      for(int j = 1; j < M; j++) {\n        if(used[j]) continue;\n        T\
+    \ curr = A[i0][j] - U[i0] - V[j];\n        if(curr < minV[j]) minV[j] = curr,\
+    \ way[j] = j0;\n        if(minV[j] < delta) delta = minV[j], j1 = j;\n      }\n\
+    \      for(int j = 0; j < M; j++) {\n        if(used[j]) U[P[j]] += delta, V[j]\
+    \ -= delta;\n        else minV[j] -= delta;\n      }\n      j0 = j1;\n    }\n\
+    \    do {\n      P[j0] = P[way[j0]];\n      j0 = way[j0];\n    } while(j0 != 0);\n\
+    \  }\n  return {-V[0], P};\n}\n"
   dependsOn:
   - math/matrix/matrix.cpp
   isVerificationFile: false
   path: graph/flow/hungarian.hpp
   requiredBy: []
-  timestamp: '2021-07-14 01:17:14+09:00'
+  timestamp: '2021-07-16 00:30:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-assignment.test.cpp
@@ -107,3 +110,14 @@ redirect_from:
 title: "Hungarian(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5C0F\u91CD\u307F\u6700\
   \u5927\u30DE\u30C3\u30C1\u30F3\u30B0)"
 ---
+## 概要
+
+二部グラフの最小重み最大マッチングをハンガリアン法により求める. 特に $N=M$ (左側の頂点数と右側の頂点数が一致する) の場合, 割当問題とも言われる.
+
+## 使い方
+
+* `hungarian(A)`: 重み行列 `A` の最小重み最大マッチングを返す. `first` にそのときの重みの和, `second` が各行がマッチングした番号を格納して返す. 最大重みを求めたいときは重み行列の重みをすべて $-1$ 倍する. 行列 $A$ は 1-indexed で $N \leq M$ を満たす必要がある(つまり $0$ 行目または $0$ 列目は全て $0$ 埋めする).
+
+## 計算量
+
+* $O(N^2 M)$

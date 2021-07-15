@@ -19,6 +19,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    _deprecated_at_docs: docs/directed-mst.md
     document_title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
     links: []
   bundledCode: "#line 2 \"graph/mst/directed-mst.hpp\"\n\n#line 2 \"graph/graph-template.hpp\"\
@@ -53,15 +54,15 @@ data:
     \    if(t) {\n      t->lazy += lazy;\n      propagate(t);\n    }\n    return t;\n\
     \  }\n\n  Node *make_root() {\n    return nullptr;\n  }\n};\n#line 5 \"graph/mst/directed-mst.hpp\"\
     \n\n/**\n * @brief Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)\n\
-    \ */\ntemplate< typename T >\nstruct MinimumSpanningTree {\n  T cost;\n  Edges<\
-    \ T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree< T > directed_mst(int\
-    \ V, int root, Edges< T > edges) {\n  for(int i = 0; i < V; ++i) {\n    if(i !=\
-    \ root) edges.emplace_back(i, root, 0);\n  }\n\n  int x = 0;\n  vector< int >\
-    \ par(2 * V, -1), vis(par), link(par);\n\n  using Heap = SkewHeap< T, true >;\n\
-    \  using Node = typename Heap::Node;\n\n  Heap heap;\n  vector< Node * > ins(2\
-    \ * V, heap.make_root());\n\n  for(int i = 0; i < (int) edges.size(); i++) {\n\
-    \    auto &e = edges[i];\n    ins[e.to] = heap.push(ins[e.to], e.cost, i);\n \
-    \ }\n  vector< int > st;\n  auto go = [&](int x) {\n    x = edges[ins[x]->idx].from;\n\
+    \ * @docs docs/directed-mst.md\n */\ntemplate< typename T >\nstruct MinimumSpanningTree\
+    \ {\n  T cost;\n  Edges< T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree<\
+    \ T > directed_mst(int V, int root, Edges< T > edges) {\n  for(int i = 0; i <\
+    \ V; ++i) {\n    if(i != root) edges.emplace_back(i, root, 0);\n  }\n\n  int x\
+    \ = 0;\n  vector< int > par(2 * V, -1), vis(par), link(par);\n\n  using Heap =\
+    \ SkewHeap< T, true >;\n  using Node = typename Heap::Node;\n\n  Heap heap;\n\
+    \  vector< Node * > ins(2 * V, heap.make_root());\n\n  for(int i = 0; i < (int)\
+    \ edges.size(); i++) {\n    auto &e = edges[i];\n    ins[e.to] = heap.push(ins[e.to],\
+    \ e.cost, i);\n  }\n  vector< int > st;\n  auto go = [&](int x) {\n    x = edges[ins[x]->idx].from;\n\
     \    while(link[x] != -1) {\n      st.emplace_back(x);\n      x = link[x];\n \
     \   }\n    for(auto &p : st) {\n      link[p] = x;\n    }\n    st.clear();\n \
     \   return x;\n  };\n  for(int i = V; ins[x]; i++) {\n    for(; vis[x] == -1;\
@@ -76,15 +77,15 @@ data:
     \ {cost, ans};\n}\n"
   code: "#pragma once\n\n#include \"../graph-template.hpp\"\n#include \"../../structure/heap/skew-heap.cpp\"\
     \n\n/**\n * @brief Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)\n\
-    \ */\ntemplate< typename T >\nstruct MinimumSpanningTree {\n  T cost;\n  Edges<\
-    \ T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree< T > directed_mst(int\
-    \ V, int root, Edges< T > edges) {\n  for(int i = 0; i < V; ++i) {\n    if(i !=\
-    \ root) edges.emplace_back(i, root, 0);\n  }\n\n  int x = 0;\n  vector< int >\
-    \ par(2 * V, -1), vis(par), link(par);\n\n  using Heap = SkewHeap< T, true >;\n\
-    \  using Node = typename Heap::Node;\n\n  Heap heap;\n  vector< Node * > ins(2\
-    \ * V, heap.make_root());\n\n  for(int i = 0; i < (int) edges.size(); i++) {\n\
-    \    auto &e = edges[i];\n    ins[e.to] = heap.push(ins[e.to], e.cost, i);\n \
-    \ }\n  vector< int > st;\n  auto go = [&](int x) {\n    x = edges[ins[x]->idx].from;\n\
+    \ * @docs docs/directed-mst.md\n */\ntemplate< typename T >\nstruct MinimumSpanningTree\
+    \ {\n  T cost;\n  Edges< T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree<\
+    \ T > directed_mst(int V, int root, Edges< T > edges) {\n  for(int i = 0; i <\
+    \ V; ++i) {\n    if(i != root) edges.emplace_back(i, root, 0);\n  }\n\n  int x\
+    \ = 0;\n  vector< int > par(2 * V, -1), vis(par), link(par);\n\n  using Heap =\
+    \ SkewHeap< T, true >;\n  using Node = typename Heap::Node;\n\n  Heap heap;\n\
+    \  vector< Node * > ins(2 * V, heap.make_root());\n\n  for(int i = 0; i < (int)\
+    \ edges.size(); i++) {\n    auto &e = edges[i];\n    ins[e.to] = heap.push(ins[e.to],\
+    \ e.cost, i);\n  }\n  vector< int > st;\n  auto go = [&](int x) {\n    x = edges[ins[x]->idx].from;\n\
     \    while(link[x] != -1) {\n      st.emplace_back(x);\n      x = link[x];\n \
     \   }\n    for(auto &p : st) {\n      link[p] = x;\n    }\n    st.clear();\n \
     \   return x;\n  };\n  for(int i = V; ins[x]; i++) {\n    for(; vis[x] == -1;\
@@ -103,7 +104,7 @@ data:
   isVerificationFile: false
   path: graph/mst/directed-mst.hpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-16 00:30:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-2-b.test.cpp
@@ -115,3 +116,19 @@ redirect_from:
 - /library/graph/mst/directed-mst.hpp.html
 title: "Directed-MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
 ---
+## 概要
+
+有向グラフが与えられたとき, ある頂点を根とする最小有向全域木を求める. 頂点が指定されない場合は, 超頂点を追加して各頂点に重み $0$ の辺を張れば同じ問題に帰着される.
+
+基本的には, 各頂点について, その頂点に入ってくる辺のうち最小の重みのものを選べば良い. このときに, サイクルが生えると困るので, 賢いことをしている.
+
+
+## 使い方
+
+* `directed_mst(V, root, edges)`: `V` 頂点のグラフ `edges` の `root` を頂点とする最小有向全域木を返す. `cost` はそのときの辺のコストの和, `edges` は用いた辺集合が格納される. 頂点 `root` から全ての頂点へ到達可能であることを仮定している.
+
+## 計算量
+
+* $O(E \log V)$
+
+$V$: 頂点数, $E$: 辺の本数

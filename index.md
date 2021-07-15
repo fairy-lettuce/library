@@ -206,7 +206,8 @@ data:
       title: "Ford-Fulkerson(\u6700\u5927\u6D41)"
     - icon: ':heavy_check_mark:'
       path: graph/flow/gabow-edmonds.hpp
-      title: graph/flow/gabow-edmonds.hpp
+      title: "Gabow Edmonds(\u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\
+        \u30C3\u30C1\u30F3\u30B0)"
     - icon: ':heavy_check_mark:'
       path: graph/flow/hungarian.hpp
       title: "Hungarian(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5C0F\u91CD\u307F\
@@ -216,7 +217,7 @@ data:
       title: graph/flow/maxflow-lower-bound.hpp
     - icon: ':heavy_check_mark:'
       path: graph/flow/primal-dual.hpp
-      title: graph/flow/primal-dual.hpp
+      title: Primal Dual
     - icon: ':heavy_check_mark:'
       path: graph/flow/push-relabel.hpp
       title: graph/flow/push-relabel.hpp

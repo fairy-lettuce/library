@@ -92,24 +92,25 @@ data:
     \          B[j][k] -= B[i][k] * a;\n        }\n      }\n    }\n    return (ret);\n\
     \  }\n};\n#line 2 \"graph/flow/hungarian.hpp\"\n\n/**\n * @brief Hungarian(\u4E8C\
     \u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5C0F\u91CD\u307F\u6700\u5927\u30DE\u30C3\
-    \u30C1\u30F3\u30B0)\n */\ntemplate< typename T >\npair< T, vector< int > > hungarian(Matrix<\
-    \ T > &A) {\n  const T infty = numeric_limits< T >::max();\n  const int N = (int)\
-    \ A.height();\n  const int M = (int) A.width();\n  vector< int > P(M), way(M);\n\
-    \  vector< T > U(N, 0), V(M, 0), minV;\n  vector< bool > used;\n\n  for(int i\
-    \ = 1; i < N; i++) {\n    P[0] = i;\n    minV.assign(M, infty);\n    used.assign(M,\
-    \ false);\n    int j0 = 0;\n    while(P[j0] != 0) {\n      int i0 = P[j0], j1\
-    \ = 0;\n      used[j0] = true;\n      T delta = infty;\n      for(int j = 1; j\
-    \ < M; j++) {\n        if(used[j]) continue;\n        T curr = A[i0][j] - U[i0]\
-    \ - V[j];\n        if(curr < minV[j]) minV[j] = curr, way[j] = j0;\n        if(minV[j]\
-    \ < delta) delta = minV[j], j1 = j;\n      }\n      for(int j = 0; j < M; j++)\
-    \ {\n        if(used[j]) U[P[j]] += delta, V[j] -= delta;\n        else minV[j]\
-    \ -= delta;\n      }\n      j0 = j1;\n    }\n    do {\n      P[j0] = P[way[j0]];\n\
-    \      j0 = way[j0];\n    } while(j0 != 0);\n  }\n  return {-V[0], P};\n}\n#line\
-    \ 6 \"test/verify/yosupo-assignment.test.cpp\"\n\nint main() {\n  int N;\n  cin\
-    \ >> N;\n  Matrix< int64_t > X(N + 1, N + 1);\n  for(int i = 1; i <= N; i++) {\n\
-    \    for(int j = 1; j <= N; j++) {\n      cin >> X[j][i];\n    }\n  }\n  auto\
-    \ ret = hungarian(X);\n  cout << ret.first << \"\\n\";\n  ret.second.erase(begin(ret.second));\n\
-    \  for(auto& p : ret.second) --p;\n  cout << ret.second << \"\\n\";\n}\n"
+    \u30C1\u30F3\u30B0)\n * @docs docs/hungarian.md\n */\ntemplate< typename T >\n\
+    pair< T, vector< int > > hungarian(Matrix< T > &A) {\n  const T infty = numeric_limits<\
+    \ T >::max();\n  const int N = (int) A.height();\n  const int M = (int) A.width();\n\
+    \  vector< int > P(M), way(M);\n  vector< T > U(N, 0), V(M, 0), minV;\n  vector<\
+    \ bool > used;\n\n  for(int i = 1; i < N; i++) {\n    P[0] = i;\n    minV.assign(M,\
+    \ infty);\n    used.assign(M, false);\n    int j0 = 0;\n    while(P[j0] != 0)\
+    \ {\n      int i0 = P[j0], j1 = 0;\n      used[j0] = true;\n      T delta = infty;\n\
+    \      for(int j = 1; j < M; j++) {\n        if(used[j]) continue;\n        T\
+    \ curr = A[i0][j] - U[i0] - V[j];\n        if(curr < minV[j]) minV[j] = curr,\
+    \ way[j] = j0;\n        if(minV[j] < delta) delta = minV[j], j1 = j;\n      }\n\
+    \      for(int j = 0; j < M; j++) {\n        if(used[j]) U[P[j]] += delta, V[j]\
+    \ -= delta;\n        else minV[j] -= delta;\n      }\n      j0 = j1;\n    }\n\
+    \    do {\n      P[j0] = P[way[j0]];\n      j0 = way[j0];\n    } while(j0 != 0);\n\
+    \  }\n  return {-V[0], P};\n}\n#line 6 \"test/verify/yosupo-assignment.test.cpp\"\
+    \n\nint main() {\n  int N;\n  cin >> N;\n  Matrix< int64_t > X(N + 1, N + 1);\n\
+    \  for(int i = 1; i <= N; i++) {\n    for(int j = 1; j <= N; j++) {\n      cin\
+    \ >> X[j][i];\n    }\n  }\n  auto ret = hungarian(X);\n  cout << ret.first <<\
+    \ \"\\n\";\n  ret.second.erase(begin(ret.second));\n  for(auto& p : ret.second)\
+    \ --p;\n  cout << ret.second << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/assignment\"\n\n#include\
     \ \"../../template/template.cpp\"\n\n#include \"../../graph/flow/hungarian.hpp\"\
     \n\nint main() {\n  int N;\n  cin >> N;\n  Matrix< int64_t > X(N + 1, N + 1);\n\
@@ -124,7 +125,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-assignment.test.cpp
   requiredBy: []
-  timestamp: '2021-07-14 01:17:14+09:00'
+  timestamp: '2021-07-16 00:30:06+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-assignment.test.cpp
