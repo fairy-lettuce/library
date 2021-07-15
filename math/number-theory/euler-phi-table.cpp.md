@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-2286.test.cpp
+    title: test/verify/aoj-2286.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/euler-phi-table.md
     document_title: "Euler\u2019s Phi Table(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\
@@ -29,8 +32,9 @@ data:
   path: math/number-theory/euler-phi-table.cpp
   requiredBy: []
   timestamp: '2021-07-13 21:51:53+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/verify/aoj-2286.test.cpp
 documentation_of: math/number-theory/euler-phi-table.cpp
 layout: document
 redirect_from:

@@ -529,13 +529,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/number-theory/convert-base.cpp
       title: "Convert Base(\u9032\u6570\u5909\u63DB)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: math/number-theory/divisor.cpp
       title: "Divisor(\u7D04\u6570\u5217\u6319)"
     - icon: ':heavy_check_mark:'
       path: math/number-theory/enumerate-primes.cpp
       title: "Enumerate Primes(\u7D20\u6570\u5217\u6319)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: math/number-theory/euler-phi-table.cpp
       title: "Euler\u2019s Phi Table(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
         \u30C6\u30FC\u30D6\u30EB)"
@@ -557,7 +557,8 @@ data:
       title: Kth Root
     - icon: ':warning:'
       path: math/number-theory/moebius-mu-table.cpp
-      title: math/number-theory/moebius-mu-table.cpp
+      title: "Moebius Table(\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u30C6\u30FC\u30D6\
+        \u30EB)"
     - icon: ':heavy_check_mark:'
       path: math/number-theory/prime-count.cpp
       title: "Prime Count(\u7D20\u6570\u306E\u500B\u6570)"
@@ -926,6 +927,9 @@ data:
       path: test/verify/aoj-1615.test.cpp
       title: test/verify/aoj-1615.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-2286.test.cpp
+      title: test/verify/aoj-2286.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-2306.test.cpp
       title: test/verify/aoj-2306.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1162,6 +1166,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-7-a.test.cpp
       title: test/verify/aoj-grl-7-a.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-itp1-3-d.test.cpp
+      title: test/verify/aoj-itp1-3-d.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-ntl-1-a.test.cpp
       title: test/verify/aoj-ntl-1-a.test.cpp

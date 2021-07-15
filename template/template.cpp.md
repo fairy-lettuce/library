@@ -52,6 +52,9 @@ data:
     path: test/verify/aoj-1615.test.cpp
     title: test/verify/aoj-1615.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-2286.test.cpp
+    title: test/verify/aoj-2286.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2306.test.cpp
     title: test/verify/aoj-2306.test.cpp
   - icon: ':heavy_check_mark:'
@@ -288,6 +291,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-7-a.test.cpp
     title: test/verify/aoj-grl-7-a.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-itp1-3-d.test.cpp
+    title: test/verify/aoj-itp1-3-d.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-ntl-1-a.test.cpp
     title: test/verify/aoj-ntl-1-a.test.cpp
@@ -730,6 +736,7 @@ data:
   - test/verify/yosupo-maximum-independent-set-2.test.cpp
   - test/verify/aoj-grl-3-a.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
+  - test/verify/aoj-itp1-3-d.test.cpp
   - test/verify/yukicoder-583.test.cpp
   - test/verify/yosupo-static-range-inversions-query.test.cpp
   - test/verify/aoj-grl-3-c.test.cpp
@@ -826,6 +833,7 @@ data:
   - test/verify/yosupo-bernoulli-number.test.cpp
   - test/verify/aoj-1549.test.cpp
   - test/verify/aoj-2450-3.test.cpp
+  - test/verify/aoj-2286.test.cpp
   - test/verify/yosupo-staticrmq-4.test.cpp
   - test/verify/yosupo-scc.test.cpp
   - test/verify/yosupo-factorize.test.cpp
