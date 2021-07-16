@@ -10,9 +10,6 @@ data:
     path: test/verify/aoj-alds-1-1-c-2.test.cpp
     title: test/verify/aoj-alds-1-1-c-2.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-counting-primes.test.cpp
-    title: test/verify/yosupo-counting-primes.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-enumerate-primes.test.cpp
     title: test/verify/yosupo-enumerate-primes.test.cpp
   _isVerificationFailed: false
@@ -44,7 +41,6 @@ data:
   verifiedWith:
   - test/verify/aoj-alds-1-1-c-2.test.cpp
   - test/verify/yosupo-enumerate-primes.test.cpp
-  - test/verify/yosupo-counting-primes.test.cpp
 documentation_of: math/number-theory/prime-table.cpp
 layout: document
 redirect_from:

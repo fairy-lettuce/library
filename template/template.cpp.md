@@ -328,9 +328,6 @@ data:
     path: test/verify/yosupo-convolution-mod.test.cpp
     title: test/verify/yosupo-convolution-mod.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-counting-primes.test.cpp
-    title: test/verify/yosupo-counting-primes.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-cycle-detection.test.cpp
     title: test/verify/yosupo-cycle-detection.test.cpp
   - icon: ':heavy_check_mark:'
@@ -778,7 +775,6 @@ data:
   - test/verify/yosupo-persistent-unionfind.test.cpp
   - test/verify/yosupo-general-matching.test.cpp
   - test/verify/yosupo-matrix-det.test.cpp
-  - test/verify/yosupo-counting-primes.test.cpp
   - test/verify/aoj-cgl-1-c.test.cpp
   - test/verify/yosupo-staticrmq-2.test.cpp
   - test/verify/aoj-grl-1-b-2.test.cpp

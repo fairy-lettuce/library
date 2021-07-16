@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-counting-primes.test.cpp
-    title: test/verify/yosupo-counting-primes.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     document_title: "Prime Count(\u7D20\u6570\u306E\u500B\u6570)"
     links: []
@@ -57,9 +54,8 @@ data:
   path: math/number-theory/prime-count.cpp
   requiredBy: []
   timestamp: '2021-07-13 21:51:53+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/verify/yosupo-counting-primes.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: math/number-theory/prime-count.cpp
 layout: document
 redirect_from:

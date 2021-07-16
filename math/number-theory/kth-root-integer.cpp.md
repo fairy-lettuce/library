@@ -4,46 +4,42 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-counting-primes.test.cpp
-    title: test/verify/yosupo-counting-primes.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-kth-root-integer.test.cpp
     title: test/verify/yosupo-kth-root-integer.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/kth-root.md
-    document_title: Kth Root
+    _deprecated_at_docs: docs/kth-root-integer.md
+    document_title: Kth Root Integer
     links: []
-  bundledCode: "#line 1 \"math/number-theory/kth-root.cpp\"\n/**\n * @brief Kth Root\n\
-    \ * @docs docs/kth-root.md\n */\nuint64_t kth_root(uint64_t a, int k) {\n  if(k\
-    \ == 1) return a;\n  auto check = [&](uint32_t x) {\n    uint64_t mul = 1;\n \
-    \   for(int j = 0; j < k; j++) {\n      if(__builtin_mul_overflow(mul, x, &mul))\
-    \ return false;\n    }\n    return mul <= a;\n  };\n  uint64_t ret = 0;\n  for(int\
-    \ i = 31; i >= 0; i--) {\n    if(check(ret | (1u << i))) ret |= 1u << i;\n  }\n\
-    \  return ret;\n}\n"
-  code: "/**\n * @brief Kth Root\n * @docs docs/kth-root.md\n */\nuint64_t kth_root(uint64_t\
+  bundledCode: "#line 1 \"math/number-theory/kth-root-integer.cpp\"\n/**\n * @brief\
+    \ Kth Root Integer\n * @docs docs/kth-root-integer.md\n */\nuint64_t kth_root_integer(uint64_t\
     \ a, int k) {\n  if(k == 1) return a;\n  auto check = [&](uint32_t x) {\n    uint64_t\
     \ mul = 1;\n    for(int j = 0; j < k; j++) {\n      if(__builtin_mul_overflow(mul,\
     \ x, &mul)) return false;\n    }\n    return mul <= a;\n  };\n  uint64_t ret =\
     \ 0;\n  for(int i = 31; i >= 0; i--) {\n    if(check(ret | (1u << i))) ret |=\
     \ 1u << i;\n  }\n  return ret;\n}\n"
+  code: "/**\n * @brief Kth Root Integer\n * @docs docs/kth-root-integer.md\n */\n\
+    uint64_t kth_root_integer(uint64_t a, int k) {\n  if(k == 1) return a;\n  auto\
+    \ check = [&](uint32_t x) {\n    uint64_t mul = 1;\n    for(int j = 0; j < k;\
+    \ j++) {\n      if(__builtin_mul_overflow(mul, x, &mul)) return false;\n    }\n\
+    \    return mul <= a;\n  };\n  uint64_t ret = 0;\n  for(int i = 31; i >= 0; i--)\
+    \ {\n    if(check(ret | (1u << i))) ret |= 1u << i;\n  }\n  return ret;\n}\n"
   dependsOn: []
   isVerificationFile: false
-  path: math/number-theory/kth-root.cpp
+  path: math/number-theory/kth-root-integer.cpp
   requiredBy: []
-  timestamp: '2021-07-13 21:51:53+09:00'
+  timestamp: '2021-07-17 00:36:52+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-kth-root-integer.test.cpp
-  - test/verify/yosupo-counting-primes.test.cpp
-documentation_of: math/number-theory/kth-root.cpp
+documentation_of: math/number-theory/kth-root-integer.cpp
 layout: document
 redirect_from:
-- /library/math/number-theory/kth-root.cpp
-- /library/math/number-theory/kth-root.cpp.html
-title: Kth Root
+- /library/math/number-theory/kth-root-integer.cpp
+- /library/math/number-theory/kth-root-integer.cpp.html
+title: Kth Root Integer
 ---
 ## 概要
 

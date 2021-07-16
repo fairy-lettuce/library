@@ -297,8 +297,8 @@ data:
       title: "Topological-Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
         )"
     - icon: ':heavy_check_mark:'
-      path: graph/others/tree-decomposition.hpp
-      title: "Tree-Decomposition(\u6728\u5206\u89E3)"
+      path: graph/others/tree-decomposition-width-2.hpp
+      title: "Tree Decomposition Width 2(\u6728\u5E452\u306E\u6728\u5206\u89E3)"
     - icon: ':heavy_check_mark:'
       path: graph/others/two-satisfiability.hpp
       title: 2-SAT
@@ -553,13 +553,13 @@ data:
       path: math/number-theory/is-prime.cpp
       title: math/number-theory/is-prime.cpp
     - icon: ':heavy_check_mark:'
-      path: math/number-theory/kth-root.cpp
-      title: Kth Root
+      path: math/number-theory/kth-root-integer.cpp
+      title: Kth Root Integer
     - icon: ':warning:'
       path: math/number-theory/moebius-mu-table.cpp
       title: "Moebius Table(\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u30C6\u30FC\u30D6\
         \u30EB)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: math/number-theory/prime-count.cpp
       title: "Prime Count(\u7D20\u6570\u306E\u500B\u6570)"
     - icon: ':heavy_check_mark:'
@@ -1202,7 +1202,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-convolution-mod.test.cpp
       title: test/verify/yosupo-convolution-mod.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-counting-primes.test.cpp
       title: test/verify/yosupo-counting-primes.test.cpp
     - icon: ':heavy_check_mark:'
