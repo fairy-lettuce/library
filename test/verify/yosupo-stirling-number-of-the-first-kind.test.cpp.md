@@ -239,20 +239,9 @@ data:
     \ >\nusing FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 1 \"math/fps/stirling-first.cpp\"\
     \n/**\n * @brief Stirling First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\
     \u30B0\u6570)\n */\ntemplate< template< typename > class FPS, typename Mint >\n\
-    FPS< Mint > stirling_first(int N) {\n  if(N == 0) return {Mint(1)};\n  int M =\
-    \ 1;\n  vector< Mint > fact(N + 1), rfact(N + 1);\n  fact[0] = rfact[N] = Mint(1);\n\
-    \  for(int i = 1; i <= N; i++) fact[i] = fact[i - 1] * i;\n  rfact[N] /= fact[N];\n\
-    \  for(int i = N - 1; i >= 0; i--) rfact[i] = rfact[i + 1] * (i + 1);\n  FPS<\
-    \ Mint > ret({Mint(0), Mint(1)});\n  for(int k = 30 - __builtin_clz(N); k >= 0;\
-    \ k--) {\n    FPS< Mint > as(M + 1), bs(M + 1);\n    for(int i = 0; i <= M; i++)\
-    \ as[i] = ret[i] * fact[i];\n    bs[M] = Mint(1);\n    for(int i = 1; i <= M;\
-    \ i++) bs[M - i] = bs[M - (i - 1)] * Mint(-M);\n    for(int i = 0; i <= M; i++)\
-    \ bs[M - i] *= rfact[i];\n    auto cs = as * bs;\n    FPS< Mint > ds(M + 1);\n\
-    \    for(int i = 0; i <= M; i++) ds[i] = rfact[i] * cs[M + i];\n    ret *= ds;\n\
-    \    M <<= 1;\n    if((N >> k) & 1) {\n      FPS< Mint > ts(M + 1 + 1, Mint(0));\n\
-    \      for(int i = 0; i <= M; i++) {\n        ts[i + 0] -= ret[i] * Mint(M);\n\
-    \        ts[i + 1] += ret[i];\n      }\n      ret = ts;\n      M |= 1;\n    }\n\
-    \  }\n  return ret;\n}\n#line 8 \"test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp\"\
+    FPS< Mint > stirling_first(int N) {\n  if(N <= 0) return {Mint(1)};\n  auto f\
+    \ = stirling_first< FPS, Mint >(N >> 1);\n  f *= f.taylor_shift(-(N >> 1));\n\
+    \  if(N & 1) f = (f << 1) - f * (N - 1);\n  return f;\n}\n#line 8 \"test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp\"\
     \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
     \  int N;\n  cin >> N;\n  cout << stirling_first< FPS, mint >(N) << endl;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind\"\
@@ -270,7 +259,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 20:39:58+09:00'
+  timestamp: '2021-07-17 00:28:41+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
