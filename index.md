@@ -559,7 +559,7 @@ data:
       path: math/number-theory/moebius-mu-table.cpp
       title: "Moebius Table(\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u30C6\u30FC\u30D6\
         \u30EB)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: math/number-theory/prime-count.cpp
       title: "Prime Count(\u7D20\u6570\u306E\u500B\u6570)"
     - icon: ':heavy_check_mark:'
@@ -1202,7 +1202,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-convolution-mod.test.cpp
       title: test/verify/yosupo-convolution-mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-counting-primes.test.cpp
       title: test/verify/yosupo-counting-primes.test.cpp
     - icon: ':heavy_check_mark:'

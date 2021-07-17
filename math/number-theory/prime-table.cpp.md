@@ -5,10 +5,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/number-theory/enumerate-primes.cpp
     title: "Enumerate Primes(\u7D20\u6570\u5217\u6319)"
+  - icon: ':heavy_check_mark:'
+    path: math/number-theory/prime-count.cpp
+    title: "Prime Count(\u7D20\u6570\u306E\u500B\u6570)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-alds-1-1-c-2.test.cpp
     title: test/verify/aoj-alds-1-1-c-2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-counting-primes.test.cpp
+    title: test/verify/yosupo-counting-primes.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-enumerate-primes.test.cpp
     title: test/verify/yosupo-enumerate-primes.test.cpp
@@ -35,12 +41,14 @@ data:
   isVerificationFile: false
   path: math/number-theory/prime-table.cpp
   requiredBy:
+  - math/number-theory/prime-count.cpp
   - math/number-theory/enumerate-primes.cpp
   timestamp: '2021-07-13 22:13:38+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-alds-1-1-c-2.test.cpp
   - test/verify/yosupo-enumerate-primes.test.cpp
+  - test/verify/yosupo-counting-primes.test.cpp
 documentation_of: math/number-theory/prime-table.cpp
 layout: document
 redirect_from:

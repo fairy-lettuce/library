@@ -1,8 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: math/number-theory/prime-count.cpp
+    title: "Prime Count(\u7D20\u6570\u306E\u500B\u6570)"
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-counting-primes.test.cpp
+    title: test/verify/yosupo-counting-primes.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-kth-root-integer.test.cpp
     title: test/verify/yosupo-kth-root-integer.test.cpp
@@ -29,11 +35,13 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: math/number-theory/kth-root-integer.cpp
-  requiredBy: []
+  requiredBy:
+  - math/number-theory/prime-count.cpp
   timestamp: '2021-07-17 00:36:52+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-kth-root-integer.test.cpp
+  - test/verify/yosupo-counting-primes.test.cpp
 documentation_of: math/number-theory/kth-root-integer.cpp
 layout: document
 redirect_from:
