@@ -141,31 +141,31 @@ data:
     \    order.push_back(idx);\n  }\n\n  void rdfs(int idx, int cnt) {\n    if(comp[idx]\
     \ != -1) return;\n    comp[idx] = cnt;\n    for(auto &to : rg.g[idx]) rdfs(to,\
     \ cnt);\n  }\n};\n#line 4 \"graph/others/two-satisfiability.hpp\"\n\n/**\n * @brief\
-    \ 2-SAT\n */\nstruct TwoSatisfiability : StronglyConnectedComponents< bool > {\n\
-    public:\n  using StronglyConnectedComponents< bool >::g;\n  using StronglyConnectedComponents<\
-    \ bool >::comp;\n  using StronglyConnectedComponents< bool >::add_edge;\n  size_t\
-    \ sz;\n\n  explicit TwoSatisfiability(size_t v) : StronglyConnectedComponents<\
-    \ bool >(v + v), sz(v) {}\n\n  void add_if(int u, int v) {\n    // u -> v <=>\
-    \ !v -> !u\n    add_directed_edge(u, v);\n    add_directed_edge(rev(v), rev(u));\n\
-    \  }\n\n  void add_or(int u, int v) {\n    // u or v <=> !u -> v\n    add_if(rev(u),\
-    \ v);\n  }\n\n  void add_nand(int u, int v) {\n    // u nand v <=> u -> !v\n \
-    \   add_if(u, rev(v));\n  }\n\n  void set_true(int u) {\n    // u <=> !u -> u\n\
-    \    add_directed_edge(rev(u), u);\n  }\n\n  void set_false(int u) {\n    // !u\
-    \ <=> u -> !u\n    add_directed_edge(u, rev(u));\n  }\n\n  inline int rev(int\
-    \ x) {\n    if(x >= (int)sz) return x - sz;\n    return x + sz;\n  }\n\n  vector<\
-    \ int > solve() {\n    StronglyConnectedComponents< bool >::build();\n    vector<\
-    \ int > ret(sz);\n    for(size_t i = 0; i < sz; i++) {\n      if(comp[i] == comp[rev(i)])\
-    \ return {};\n      ret[i] = comp[i] > comp[rev(i)];\n    }\n    return ret;\n\
-    \  }\n};\n#line 9 \"test/verify/yosupo-two-sat.test.cpp\"\n\nint main() {\n  Scanner\
-    \ input(stdin);\n  Printer output(stdout);\n\n  string s;\n  int N, M;\n  input.read(s,\
-    \ s, N, M);\n  TwoSatisfiability two(N);\n  for(int i = 0; i < M; i++) {\n   \
-    \ int a, b, c;\n    input.read(a, b, c);\n    if(a < 0) a = two.rev(-a - 1);\n\
-    \    else --a;\n    if(b < 0) b = two.rev(-b - 1);\n    else --b;\n    two.add_or(a,\
-    \ b);\n  }\n  auto ret = two.solve();\n  if(ret.empty()) {\n    output.writeln(\"\
-    s UNSATISFIABLE\");\n  } else {\n    output.writeln(\"s SATISFIABLE\");\n    output.write(\"\
-    v \");\n    for(size_t i = 0; i < ret.size(); i++) {\n      if(ret[i]) ret[i]\
-    \ = i + 1;\n      else ret[i] = -i - 1;\n    }\n    output.write(ret);\n    output.writeln(\"\
-    \ 0\");\n  }\n}\n"
+    \ 2-SAT\n * @docs docs/two-satisfiability.md\n */\nstruct TwoSatisfiability :\
+    \ StronglyConnectedComponents< bool > {\npublic:\n  using StronglyConnectedComponents<\
+    \ bool >::g;\n  using StronglyConnectedComponents< bool >::comp;\n  using StronglyConnectedComponents<\
+    \ bool >::add_edge;\n  size_t sz;\n\n  explicit TwoSatisfiability(size_t v) :\
+    \ StronglyConnectedComponents< bool >(v + v), sz(v) {}\n\n  void add_if(int u,\
+    \ int v) {\n    // u -> v <=> !v -> !u\n    add_directed_edge(u, v);\n    add_directed_edge(rev(v),\
+    \ rev(u));\n  }\n\n  void add_or(int u, int v) {\n    // u or v <=> !u -> v\n\
+    \    add_if(rev(u), v);\n  }\n\n  void add_nand(int u, int v) {\n    // u nand\
+    \ v <=> u -> !v\n    add_if(u, rev(v));\n  }\n\n  void set_true(int u) {\n   \
+    \ // u <=> !u -> u\n    add_directed_edge(rev(u), u);\n  }\n\n  void set_false(int\
+    \ u) {\n    // !u <=> u -> !u\n    add_directed_edge(u, rev(u));\n  }\n\n  inline\
+    \ int rev(int x) {\n    if(x >= (int)sz) return x - sz;\n    return x + sz;\n\
+    \  }\n\n  vector< int > solve() {\n    StronglyConnectedComponents< bool >::build();\n\
+    \    vector< int > ret(sz);\n    for(size_t i = 0; i < sz; i++) {\n      if(comp[i]\
+    \ == comp[rev(i)]) return {};\n      ret[i] = comp[i] > comp[rev(i)];\n    }\n\
+    \    return ret;\n  }\n};\n#line 9 \"test/verify/yosupo-two-sat.test.cpp\"\n\n\
+    int main() {\n  Scanner input(stdin);\n  Printer output(stdout);\n\n  string s;\n\
+    \  int N, M;\n  input.read(s, s, N, M);\n  TwoSatisfiability two(N);\n  for(int\
+    \ i = 0; i < M; i++) {\n    int a, b, c;\n    input.read(a, b, c);\n    if(a <\
+    \ 0) a = two.rev(-a - 1);\n    else --a;\n    if(b < 0) b = two.rev(-b - 1);\n\
+    \    else --b;\n    two.add_or(a, b);\n  }\n  auto ret = two.solve();\n  if(ret.empty())\
+    \ {\n    output.writeln(\"s UNSATISFIABLE\");\n  } else {\n    output.writeln(\"\
+    s SATISFIABLE\");\n    output.write(\"v \");\n    for(size_t i = 0; i < ret.size();\
+    \ i++) {\n      if(ret[i]) ret[i] = i + 1;\n      else ret[i] = -i - 1;\n    }\n\
+    \    output.write(ret);\n    output.writeln(\" 0\");\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/two_sat\"\n\n#include \"\
     ../../template/template.cpp\"\n\n#include \"../../other/scanner.cpp\"\n#include\
     \ \"../../other/printer.cpp\"\n\n#include \"../../graph/others/two-satisfiability.hpp\"\
@@ -188,7 +188,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-two-sat.test.cpp
   requiredBy: []
-  timestamp: '2021-07-16 02:06:57+09:00'
+  timestamp: '2021-07-18 20:06:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-two-sat.test.cpp
