@@ -18,24 +18,24 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/eulerian-trail.md
-    document_title: "Eulerian-Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
+    document_title: "Eulerian Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
     links: []
-  bundledCode: "#line 2 \"graph/others/eulerian-trail.hpp\"\n\n/**\n * @brief Eulerian-Trail(\u30AA\
-    \u30A4\u30E9\u30FC\u8DEF)\n * @docs docs/eulerian-trail.md\n */\ntemplate< bool\
-    \ directed >\nstruct EulerianTrail {\n  vector< vector< pair< int, int > > > g;\n\
-    \  vector< pair< int, int > > es;\n  int M;\n  vector< int > used_vertex, used_edge,\
-    \ deg;\n\n  explicit EulerianTrail(int V) : g(V), M(0), used_vertex(V), deg(V)\
-    \ {}\n\n  void add_edge(int a, int b) {\n    es.emplace_back(a, b);\n    g[a].emplace_back(b,\
-    \ M);\n    if(directed) {\n      deg[a]++;\n      deg[b]--;\n    } else {\n  \
-    \    g[b].emplace_back(a, M);\n      deg[a]++;\n      deg[b]++;\n    }\n    M++;\n\
-    \  }\n\n  pair< int, int > get_edge(int idx) const {\n    return es[idx];\n  }\n\
-    \n  vector< vector< int > > enumerate_eulerian_trail() {\n    if(directed) {\n\
-    \      for(auto &p : deg) if(p != 0) return {};\n    } else {\n      for(auto\
-    \ &p : deg) if(p & 1) return {};\n    }\n    used_edge.assign(M, 0);\n    vector<\
-    \ vector< int > > ret;\n    for(int i = 0; i < (int) g.size(); i++) {\n      if(g[i].empty()\
-    \ || used_vertex[i]) continue;\n      ret.emplace_back(go(i));\n    }\n    return\
-    \ ret;\n  }\n\n  vector< vector< int > > enumerate_semi_eulerian_trail() {\n \
-    \   UnionFind uf(g.size());\n    for(auto &p : es) uf.unite(p.first, p.second);\n\
+  bundledCode: "#line 2 \"graph/others/eulerian-trail.hpp\"\n\n/**\n * @brief Eulerian\
+    \ Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)\n * @docs docs/eulerian-trail.md\n */\n\
+    template< bool directed >\nstruct EulerianTrail {\n  vector< vector< pair< int,\
+    \ int > > > g;\n  vector< pair< int, int > > es;\n  int M;\n  vector< int > used_vertex,\
+    \ used_edge, deg;\n\n  explicit EulerianTrail(int V) : g(V), M(0), used_vertex(V),\
+    \ deg(V) {}\n\n  void add_edge(int a, int b) {\n    es.emplace_back(a, b);\n \
+    \   g[a].emplace_back(b, M);\n    if(directed) {\n      deg[a]++;\n      deg[b]--;\n\
+    \    } else {\n      g[b].emplace_back(a, M);\n      deg[a]++;\n      deg[b]++;\n\
+    \    }\n    M++;\n  }\n\n  pair< int, int > get_edge(int idx) const {\n    return\
+    \ es[idx];\n  }\n\n  vector< vector< int > > enumerate_eulerian_trail() {\n  \
+    \  if(directed) {\n      for(auto &p : deg) if(p != 0) return {};\n    } else\
+    \ {\n      for(auto &p : deg) if(p & 1) return {};\n    }\n    used_edge.assign(M,\
+    \ 0);\n    vector< vector< int > > ret;\n    for(int i = 0; i < (int) g.size();\
+    \ i++) {\n      if(g[i].empty() || used_vertex[i]) continue;\n      ret.emplace_back(go(i));\n\
+    \    }\n    return ret;\n  }\n\n  vector< vector< int > > enumerate_semi_eulerian_trail()\
+    \ {\n    UnionFind uf(g.size());\n    for(auto &p : es) uf.unite(p.first, p.second);\n\
     \    vector< vector< int > > group(g.size());\n    for(int i = 0; i < (int) g.size();\
     \ i++) group[uf.find(i)].emplace_back(i);\n    vector< vector< int > > ret;\n\
     \    used_edge.assign(M, 0);\n    for(auto &vs : group) {\n      if(vs.empty())\
@@ -55,7 +55,7 @@ data:
     \ continue;\n        used_edge[e.second] = true;\n        st.emplace(e);\n   \
     \   }\n    }\n    ord.pop_back();\n    reverse(ord.begin(), ord.end());\n    return\
     \ ord;\n  }\n};\n"
-  code: "#pragma once\n\n/**\n * @brief Eulerian-Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF\
+  code: "#pragma once\n\n/**\n * @brief Eulerian Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF\
     )\n * @docs docs/eulerian-trail.md\n */\ntemplate< bool directed >\nstruct EulerianTrail\
     \ {\n  vector< vector< pair< int, int > > > g;\n  vector< pair< int, int > > es;\n\
     \  int M;\n  vector< int > used_vertex, used_edge, deg;\n\n  explicit EulerianTrail(int\
@@ -95,7 +95,7 @@ data:
   path: graph/others/eulerian-trail.hpp
   requiredBy:
   - graph/others/bipartite-graph-edge-coloring.hpp
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-bipartite-edge-coloring.test.cpp
@@ -105,7 +105,7 @@ layout: document
 redirect_from:
 - /library/graph/others/eulerian-trail.hpp
 - /library/graph/others/eulerian-trail.hpp.html
-title: "Eulerian-Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
+title: "Eulerian Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
 ---
 ## 概要
 

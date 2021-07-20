@@ -14,11 +14,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/chromatic-number.md
-    document_title: "Chromatic-Number(\u5F69\u8272\u6570)"
+    document_title: "Chromatic Number(\u5F69\u8272\u6570)"
     links:
     - https://www.slideshare.net/wata_orz/ss-12131479
-  bundledCode: "#line 2 \"graph/others/chromatic-number.hpp\"\n\n/**\n * @brief Chromatic-Number(\u5F69\
-    \u8272\u6570)\n * @docs docs/chromatic-number.md\n * @see https://www.slideshare.net/wata_orz/ss-12131479\n\
+  bundledCode: "#line 2 \"graph/others/chromatic-number.hpp\"\n\n/**\n * @brief Chromatic\
+    \ Number(\u5F69\u8272\u6570)\n * @docs docs/chromatic-number.md\n * @see https://www.slideshare.net/wata_orz/ss-12131479\n\
     \ */\ntemplate< typename Matrix >\nint chromatic_number(Matrix &g) {\n  int N\
     \ = (int) g.size();\n  vector< int > es(N);\n  for(int i = 0; i < (int) g.size();\
     \ i++) {\n    for(int j = 0; j < (int) g.size(); j++) {\n      if(g[i][j] != 0)\
@@ -33,7 +33,7 @@ data:
     \ {\n      int64_t sum = 0;\n      for(auto&[i, x] : buf) {\n        sum += (x\
     \ = int64_t(x) * i % mods[k]);\n      }\n      if(sum % mods[k]) ret = c;\n  \
     \  }\n  }\n  return ret;\n}\n"
-  code: "#pragma once\n\n/**\n * @brief Chromatic-Number(\u5F69\u8272\u6570)\n * @docs\
+  code: "#pragma once\n\n/**\n * @brief Chromatic Number(\u5F69\u8272\u6570)\n * @docs\
     \ docs/chromatic-number.md\n * @see https://www.slideshare.net/wata_orz/ss-12131479\n\
     \ */\ntemplate< typename Matrix >\nint chromatic_number(Matrix &g) {\n  int N\
     \ = (int) g.size();\n  vector< int > es(N);\n  for(int i = 0; i < (int) g.size();\
@@ -53,7 +53,7 @@ data:
   isVerificationFile: false
   path: graph/others/chromatic-number.hpp
   requiredBy: []
-  timestamp: '2021-07-16 02:32:50+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-chromatic-number.test.cpp
@@ -63,7 +63,7 @@ layout: document
 redirect_from:
 - /library/graph/others/chromatic-number.hpp
 - /library/graph/others/chromatic-number.hpp.html
-title: "Chromatic-Number(\u5F69\u8272\u6570)"
+title: "Chromatic Number(\u5F69\u8272\u6570)"
 ---
 ## 概要
 

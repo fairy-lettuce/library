@@ -10,13 +10,13 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: "Maximum-Clique(\u6700\u5927\u30AF\u30EA\u30FC\u30AF)"
+    document_title: "Maximum Clique(\u6700\u5927\u30AF\u30EA\u30FC\u30AF)"
     links: []
-  bundledCode: "#line 2 \"graph/others/maximum-clique.hpp\"\n\n/**\n * @brief Maximum-Clique(\u6700\
-    \u5927\u30AF\u30EA\u30FC\u30AF)\n */\ntemplate< int V >\nstruct MaximumClique\
-    \ {\n  using B = bitset< V >;\n  vector< B > g, col_buf;\n\n  struct P {\n   \
-    \ int idx, col, deg;\n\n    P(int idx, int col, int deg) : idx(idx), col(col),\
-    \ deg(deg) {}\n  };\n\n  MaximumClique() = default;\n\n  explicit MaximumClique(int\
+  bundledCode: "#line 2 \"graph/others/maximum-clique.hpp\"\n\n/**\n * @brief Maximum\
+    \ Clique(\u6700\u5927\u30AF\u30EA\u30FC\u30AF)\n */\ntemplate< int V >\nstruct\
+    \ MaximumClique {\n  using B = bitset< V >;\n  vector< B > g, col_buf;\n\n  struct\
+    \ P {\n    int idx, col, deg;\n\n    P(int idx, int col, int deg) : idx(idx),\
+    \ col(col), deg(deg) {}\n  };\n\n  MaximumClique() = default;\n\n  explicit MaximumClique(int\
     \ N) : g(N), col_buf(N) {}\n\n  void add_edge(int a, int b) {\n    g[a].set(b);\n\
     \    g[b].set(a);\n  }\n\n  vector< int > now, clique;\n\n  void dfs(vector< P\
     \ > &rem) {\n    if(clique.size() < now.size()) clique = now;\n    sort(begin(rem),\
@@ -34,7 +34,7 @@ data:
     \    }\n  }\n\n  vector< int > solve() {\n    vector< P > remark;\n    for(size_t\
     \ i = 0; i < g.size(); i++) {\n      remark.emplace_back(i, -1, (int) g[i].size());\n\
     \    }\n    dfs(remark);\n    return clique;\n  }\n};\n"
-  code: "#pragma once\n\n/**\n * @brief Maximum-Clique(\u6700\u5927\u30AF\u30EA\u30FC\
+  code: "#pragma once\n\n/**\n * @brief Maximum Clique(\u6700\u5927\u30AF\u30EA\u30FC\
     \u30AF)\n */\ntemplate< int V >\nstruct MaximumClique {\n  using B = bitset< V\
     \ >;\n  vector< B > g, col_buf;\n\n  struct P {\n    int idx, col, deg;\n\n  \
     \  P(int idx, int col, int deg) : idx(idx), col(col), deg(deg) {}\n  };\n\n  MaximumClique()\
@@ -60,7 +60,7 @@ data:
   isVerificationFile: false
   path: graph/others/maximum-clique.hpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-maximum-independent-set-2.test.cpp
@@ -69,5 +69,5 @@ layout: document
 redirect_from:
 - /library/graph/others/maximum-clique.hpp
 - /library/graph/others/maximum-clique.hpp.html
-title: "Maximum-Clique(\u6700\u5927\u30AF\u30EA\u30FC\u30AF)"
+title: "Maximum Clique(\u6700\u5927\u30AF\u30EA\u30FC\u30AF)"
 ---

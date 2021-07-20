@@ -254,47 +254,47 @@ data:
         \u5F69\u8272)"
     - icon: ':heavy_check_mark:'
       path: graph/others/block-cut-tree.hpp
-      title: Block-Cut-Tree
+      title: Block Cut Tree
     - icon: ':heavy_check_mark:'
       path: graph/others/cartesian-tree.hpp
-      title: Cartesian-Tree
+      title: Cartesian Tree
     - icon: ':heavy_check_mark:'
       path: graph/others/chromatic-number.hpp
-      title: "Chromatic-Number(\u5F69\u8272\u6570)"
+      title: "Chromatic Number(\u5F69\u8272\u6570)"
     - icon: ':heavy_check_mark:'
       path: graph/others/cycle-detection.hpp
-      title: "Cycle-Detection(\u9589\u8DEF\u691C\u51FA)"
+      title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
     - icon: ':heavy_check_mark:'
       path: graph/others/dominator-tree.hpp
-      title: Dominator-Tree
+      title: Dominator Tree
     - icon: ':heavy_check_mark:'
       path: graph/others/enumerate-cliques.hpp
-      title: "Enumerate-Cliques(\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319)"
+      title: "Enumerate Cliques(\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319)"
     - icon: ':heavy_check_mark:'
       path: graph/others/enumerate-triangles.hpp
       title: "Enumerate Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)"
     - icon: ':heavy_check_mark:'
       path: graph/others/eulerian-trail.hpp
-      title: "Eulerian-Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
+      title: "Eulerian Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
     - icon: ':heavy_check_mark:'
       path: graph/others/low-link.hpp
-      title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
+      title: "Low Link(\u6A4B/\u95A2\u7BC0\u70B9)"
     - icon: ':heavy_check_mark:'
       path: graph/others/maximum-clique.hpp
-      title: "Maximum-Clique(\u6700\u5927\u30AF\u30EA\u30FC\u30AF)"
+      title: "Maximum Clique(\u6700\u5927\u30AF\u30EA\u30FC\u30AF)"
     - icon: ':heavy_check_mark:'
       path: graph/others/maximum-independent-set.hpp
       title: "Maximum Independent Set(\u6700\u5927\u72EC\u7ACB\u96C6\u5408)"
     - icon: ':heavy_check_mark:'
       path: graph/others/namori-graph.hpp
-      title: Namori-Graph
+      title: Namori Graph
     - icon: ':heavy_check_mark:'
       path: graph/others/offline-dag-reachability.hpp
-      title: "Offline-Dag-Reachability(DAG\u306E\u5230\u9054\u53EF\u80FD\u6027\u30AF\
+      title: "Offline Dag Reachability(DAG\u306E\u5230\u9054\u53EF\u80FD\u6027\u30AF\
         \u30A8\u30EA)"
     - icon: ':heavy_check_mark:'
       path: graph/others/topological-sort.hpp
-      title: "Topological-Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
+      title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
         )"
     - icon: ':heavy_check_mark:'
       path: graph/others/tree-decomposition-width-2.hpp

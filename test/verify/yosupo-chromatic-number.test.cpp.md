@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: graph/others/chromatic-number.hpp
-    title: "Chromatic-Number(\u5F69\u8272\u6570)"
+    title: "Chromatic Number(\u5F69\u8272\u6570)"
   - icon: ':heavy_check_mark:'
     path: math/matrix/square-matrix.cpp
     title: "Square-Matrix(\u6B63\u65B9\u884C\u5217)"
@@ -49,8 +49,8 @@ data:
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-chromatic-number.test.cpp\"\
-    \n\n#line 2 \"graph/others/chromatic-number.hpp\"\n\n/**\n * @brief Chromatic-Number(\u5F69\
-    \u8272\u6570)\n * @docs docs/chromatic-number.md\n * @see https://www.slideshare.net/wata_orz/ss-12131479\n\
+    \n\n#line 2 \"graph/others/chromatic-number.hpp\"\n\n/**\n * @brief Chromatic\
+    \ Number(\u5F69\u8272\u6570)\n * @docs docs/chromatic-number.md\n * @see https://www.slideshare.net/wata_orz/ss-12131479\n\
     \ */\ntemplate< typename Matrix >\nint chromatic_number(Matrix &g) {\n  int N\
     \ = (int) g.size();\n  vector< int > es(N);\n  for(int i = 0; i < (int) g.size();\
     \ i++) {\n    for(int j = 0; j < (int) g.size(); j++) {\n      if(g[i][j] != 0)\
@@ -109,7 +109,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-chromatic-number.test.cpp
   requiredBy: []
-  timestamp: '2021-07-16 02:43:54+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-chromatic-number.test.cpp

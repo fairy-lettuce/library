@@ -6,7 +6,7 @@ data:
     title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
     path: graph/others/low-link.hpp
-    title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
+    title: "Low Link(\u6A4B/\u95A2\u7BC0\u70B9)"
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -64,7 +64,7 @@ data:
     \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
     \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
     using Edges = vector< Edge< T > >;\n#line 4 \"graph/others/low-link.hpp\"\n\n\
-    /**\n * @brief Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)\n * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213\n\
+    /**\n * @brief Low Link(\u6A4B/\u95A2\u7BC0\u70B9)\n * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213\n\
     \ * @docs docs/low-link.md\n */\ntemplate< typename T = int >\nstruct LowLink\
     \ : Graph< T > {\npublic:\n  using Graph< T >::Graph;\n  vector< int > ord, low,\
     \ articulation;\n  vector< Edge< T > > bridge;\n  using Graph< T >::g;\n\n  virtual\
@@ -97,7 +97,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-grl-3-a.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-3-a.test.cpp

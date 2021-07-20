@@ -42,29 +42,29 @@ data:
     title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':heavy_check_mark:'
     path: graph/others/block-cut-tree.hpp
-    title: Block-Cut-Tree
+    title: Block Cut Tree
   - icon: ':heavy_check_mark:'
     path: graph/others/cycle-detection.hpp
-    title: "Cycle-Detection(\u9589\u8DEF\u691C\u51FA)"
+    title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
   - icon: ':heavy_check_mark:'
     path: graph/others/dominator-tree.hpp
-    title: Dominator-Tree
+    title: Dominator Tree
   - icon: ':heavy_check_mark:'
     path: graph/others/enumerate-triangles.hpp
     title: "Enumerate Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)"
   - icon: ':heavy_check_mark:'
     path: graph/others/low-link.hpp
-    title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
+    title: "Low Link(\u6A4B/\u95A2\u7BC0\u70B9)"
   - icon: ':heavy_check_mark:'
     path: graph/others/namori-graph.hpp
-    title: Namori-Graph
+    title: Namori Graph
   - icon: ':heavy_check_mark:'
     path: graph/others/offline-dag-reachability.hpp
-    title: "Offline-Dag-Reachability(DAG\u306E\u5230\u9054\u53EF\u80FD\u6027\u30AF\
+    title: "Offline Dag Reachability(DAG\u306E\u5230\u9054\u53EF\u80FD\u6027\u30AF\
       \u30A8\u30EA)"
   - icon: ':heavy_check_mark:'
     path: graph/others/topological-sort.hpp
-    title: "Topological-Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
+    title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
       )"
   - icon: ':heavy_check_mark:'
     path: graph/others/two-satisfiability.hpp

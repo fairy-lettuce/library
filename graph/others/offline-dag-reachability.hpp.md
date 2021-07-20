@@ -6,7 +6,7 @@ data:
     title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
     path: graph/others/topological-sort.hpp
-    title: "Topological-Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
+    title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
       )"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
@@ -18,7 +18,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/offline-dag-reachability.md
-    document_title: "Offline-Dag-Reachability(DAG\u306E\u5230\u9054\u53EF\u80FD\u6027\
+    document_title: "Offline Dag Reachability(DAG\u306E\u5230\u9054\u53EF\u80FD\u6027\
       \u30AF\u30A8\u30EA)"
     links: []
   bundledCode: "#line 2 \"graph/others/offline-dag-reachability.hpp\"\n\n#line 2 \"\
@@ -38,7 +38,7 @@ data:
     \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
     \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 2 \"\
     graph/others/topological-sort.hpp\"\n\n#line 4 \"graph/others/topological-sort.hpp\"\
-    \n\n/**\n * @brief Topological-Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\
+    \n\n/**\n * @brief Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\
     \u30FC\u30C8)\n * @docs docs/topological-sort.md\n */\ntemplate< typename T >\n\
     vector< int > topological_sort(const Graph< T > &g) {\n  const int N = (int) g.size();\n\
     \  vector< int > deg(N);\n  for(int i = 0; i < N; i++) {\n    for(auto &to : g.g[i])\
@@ -47,7 +47,7 @@ data:
     \  auto p = st.top();\n    st.pop();\n    ord.emplace_back(p);\n    for(auto &to\
     \ : g.g[p]) {\n      if(--deg[to] == 0) st.emplace(to);\n    }\n  }\n  return\
     \ ord;\n}\n#line 5 \"graph/others/offline-dag-reachability.hpp\"\n\n/**\n * @brief\
-    \ Offline-Dag-Reachability(DAG\u306E\u5230\u9054\u53EF\u80FD\u6027\u30AF\u30A8\
+    \ Offline Dag Reachability(DAG\u306E\u5230\u9054\u53EF\u80FD\u6027\u30AF\u30A8\
     \u30EA)\n * @docs docs/offline-dag-reachability.md\n */\n\ntemplate< typename\
     \ T >\nvector< int > offline_dag_reachability(const Graph< T > &g, vector< pair<\
     \ int, int > > &qs) {\n  const int N = (int) g.size();\n  const int Q = (int)\
@@ -58,7 +58,7 @@ data:
     \ dp[to] |= dp[idx];\n    }\n    for(int k = l; k < r; k++) {\n      ans[k] =\
     \ (dp[qs[k].second] >> (k - l)) & 1;\n    }\n  }\n  return ans;\n}\n"
   code: "#pragma once\n\n#include \"../graph-template.hpp\"\n#include \"topological-sort.hpp\"\
-    \n\n/**\n * @brief Offline-Dag-Reachability(DAG\u306E\u5230\u9054\u53EF\u80FD\u6027\
+    \n\n/**\n * @brief Offline Dag Reachability(DAG\u306E\u5230\u9054\u53EF\u80FD\u6027\
     \u30AF\u30A8\u30EA)\n * @docs docs/offline-dag-reachability.md\n */\n\ntemplate<\
     \ typename T >\nvector< int > offline_dag_reachability(const Graph< T > &g, vector<\
     \ pair< int, int > > &qs) {\n  const int N = (int) g.size();\n  const int Q =\
@@ -75,7 +75,7 @@ data:
   isVerificationFile: false
   path: graph/others/offline-dag-reachability.hpp
   requiredBy: []
-  timestamp: '2021-07-21 02:00:59+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-0275.test.cpp
@@ -84,7 +84,7 @@ layout: document
 redirect_from:
 - /library/graph/others/offline-dag-reachability.hpp
 - /library/graph/others/offline-dag-reachability.hpp.html
-title: "Offline-Dag-Reachability(DAG\u306E\u5230\u9054\u53EF\u80FD\u6027\u30AF\u30A8\
+title: "Offline Dag Reachability(DAG\u306E\u5230\u9054\u53EF\u80FD\u6027\u30AF\u30A8\
   \u30EA)"
 ---
 ## 概要

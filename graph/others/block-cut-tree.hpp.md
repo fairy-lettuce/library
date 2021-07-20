@@ -10,7 +10,7 @@ data:
     title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
     path: graph/others/low-link.hpp
-    title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
+    title: "Low Link(\u6A4B/\u95A2\u7BC0\u70B9)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -23,7 +23,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: Block-Cut-Tree
+    document_title: Block Cut Tree
     links:
     - https://ei1333.hateblo.jp/entry/2020/03/25/010057
   bundledCode: "#line 2 \"graph/others/block-cut-tree.hpp\"\n\n#line 2 \"graph/graph-template.hpp\"\
@@ -42,7 +42,7 @@ data:
     \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
     \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
     using Edges = vector< Edge< T > >;\n#line 2 \"graph/others/low-link.hpp\"\n\n\
-    #line 4 \"graph/others/low-link.hpp\"\n\n/**\n * @brief Low-Link(\u6A4B/\u95A2\
+    #line 4 \"graph/others/low-link.hpp\"\n\n/**\n * @brief Low Link(\u6A4B/\u95A2\
     \u7BC0\u70B9)\n * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213\n\
     \ * @docs docs/low-link.md\n */\ntemplate< typename T = int >\nstruct LowLink\
     \ : Graph< T > {\npublic:\n  using Graph< T >::Graph;\n  vector< int > ord, low,\
@@ -77,10 +77,10 @@ data:
     \ ord[idx]) {\n          bc.emplace_back();\n          for(;;) {\n           \
     \ auto e = tmp.back();\n            bc.back().emplace_back(e);\n            tmp.pop_back();\n\
     \            if(e.idx == to.idx) break;\n          }\n        }\n      }\n   \
-    \ }\n  }\n};\n#line 5 \"graph/others/block-cut-tree.hpp\"\n\n/**\n * @brief Block-Cut-Tree\n\
-    \ * @see https://ei1333.hateblo.jp/entry/2020/03/25/010057\n */\ntemplate< typename\
-    \ T = int >\nstruct BlockCutTree : BiConnectedComponents< T > {\npublic:\n  using\
-    \ BiConnectedComponents< T >::BiConnectedComponents;\n  using BiConnectedComponents<\
+    \ }\n  }\n};\n#line 5 \"graph/others/block-cut-tree.hpp\"\n\n/**\n * @brief Block\
+    \ Cut Tree\n * @see https://ei1333.hateblo.jp/entry/2020/03/25/010057\n */\ntemplate<\
+    \ typename T = int >\nstruct BlockCutTree : BiConnectedComponents< T > {\npublic:\n\
+    \  using BiConnectedComponents< T >::BiConnectedComponents;\n  using BiConnectedComponents<\
     \ T >::g;\n  using BiConnectedComponents< T >::articulation;\n  using BiConnectedComponents<\
     \ T >::bc;\n\n  vector< int > rev;\n  vector< vector< int > > group;\n  Graph<\
     \ T > tree;\n\n  explicit BlockCutTree(const Graph< T > &g) : Graph< T >(g) {}\n\
@@ -96,7 +96,7 @@ data:
     \    group.resize(ptr);\n    for(int i = 0; i < (int) g.size(); i++) {\n     \
     \ group[rev[i]].emplace_back(i);\n    }\n  }\n};\n"
   code: "#pragma once\n\n#include \"../graph-template.hpp\"\n#include \"../connected-components/bi-connected-components.hpp\"\
-    \n\n/**\n * @brief Block-Cut-Tree\n * @see https://ei1333.hateblo.jp/entry/2020/03/25/010057\n\
+    \n\n/**\n * @brief Block Cut Tree\n * @see https://ei1333.hateblo.jp/entry/2020/03/25/010057\n\
     \ */\ntemplate< typename T = int >\nstruct BlockCutTree : BiConnectedComponents<\
     \ T > {\npublic:\n  using BiConnectedComponents< T >::BiConnectedComponents;\n\
     \  using BiConnectedComponents< T >::g;\n  using BiConnectedComponents< T >::articulation;\n\
@@ -120,7 +120,7 @@ data:
   isVerificationFile: false
   path: graph/others/block-cut-tree.hpp
   requiredBy: []
-  timestamp: '2021-07-16 02:06:57+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-3139.test.cpp
@@ -130,5 +130,5 @@ layout: document
 redirect_from:
 - /library/graph/others/block-cut-tree.hpp
 - /library/graph/others/block-cut-tree.hpp.html
-title: Block-Cut-Tree
+title: Block Cut Tree
 ---

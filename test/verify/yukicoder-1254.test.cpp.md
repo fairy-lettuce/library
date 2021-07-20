@@ -6,7 +6,7 @@ data:
     title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
     path: graph/others/namori-graph.hpp
-    title: Namori-Graph
+    title: Namori Graph
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -65,7 +65,7 @@ data:
     \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
     \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
     using Edges = vector< Edge< T > >;\n#line 4 \"graph/others/namori-graph.hpp\"\n\
-    \n/**\n * @brief Namori-Graph\n * @docs docs/namori-graph.md\n */\ntemplate< typename\
+    \n/**\n * @brief Namori Graph\n * @docs docs/namori-graph.md\n */\ntemplate< typename\
     \ T = int >\nstruct NamoriGraph : Graph< T > {\npublic:\n  using Graph< T >::Graph;\n\
     \  using Graph< T >::g;\n\n  vector< Graph< T > > forest;\n  Edges< T > loop_edges;\n\
     \n  struct Info {\n    int tree_id, id;\n  };\n\n  Info operator[](const int &k)\
@@ -123,7 +123,7 @@ data:
   isVerificationFile: true
   path: test/verify/yukicoder-1254.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yukicoder-1254.test.cpp

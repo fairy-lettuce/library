@@ -6,7 +6,7 @@ data:
     title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
     path: graph/others/dominator-tree.hpp
-    title: Dominator-Tree
+    title: Dominator Tree
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -65,7 +65,7 @@ data:
     \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
     \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
     using Edges = vector< Edge< T > >;\n#line 4 \"graph/others/dominator-tree.hpp\"\
-    \n\n/**\n * @brief Dominator-Tree\n * @docs docs/dominator-tree.md\n * @see http://sigma425.hatenablog.com/entry/2015/12/25/224053\n\
+    \n\n/**\n * @brief Dominator Tree\n * @docs docs/dominator-tree.md\n * @see http://sigma425.hatenablog.com/entry/2015/12/25/224053\n\
     \ */\ntemplate< typename T = int >\nstruct DominatorTree : Graph< T > {\npublic:\n\
     \  using Graph< T >::Graph;\n  using Graph< T >::g;\n\n  void build(int root)\
     \ {\n    rg = Graph< T >(g.size());\n    par.assign(g.size(), 0);\n    idom.assign(g.size(),\
@@ -109,7 +109,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-dominatortree.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-dominatortree.test.cpp

@@ -15,7 +15,7 @@ data:
       \u5206\u89E3)"
   - icon: ':heavy_check_mark:'
     path: graph/others/block-cut-tree.hpp
-    title: Block-Cut-Tree
+    title: Block Cut Tree
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-3022.test.cpp
@@ -37,7 +37,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/low-link.md
-    document_title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
+    document_title: "Low Link(\u6A4B/\u95A2\u7BC0\u70B9)"
     links:
     - http://kagamiz.hatenablog.com/entry/2013/10/05/005213
   bundledCode: "#line 2 \"graph/others/low-link.hpp\"\n\n#line 2 \"graph/graph-template.hpp\"\
@@ -56,7 +56,7 @@ data:
     \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
     \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
     using Edges = vector< Edge< T > >;\n#line 4 \"graph/others/low-link.hpp\"\n\n\
-    /**\n * @brief Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)\n * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213\n\
+    /**\n * @brief Low Link(\u6A4B/\u95A2\u7BC0\u70B9)\n * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213\n\
     \ * @docs docs/low-link.md\n */\ntemplate< typename T = int >\nstruct LowLink\
     \ : Graph< T > {\npublic:\n  using Graph< T >::Graph;\n  vector< int > ord, low,\
     \ articulation;\n  vector< Edge< T > > bridge;\n  using Graph< T >::g;\n\n  virtual\
@@ -73,8 +73,8 @@ data:
     \ < low[to]) bridge.emplace_back(to);\n      } else {\n        low[idx] = min(low[idx],\
     \ ord[to]);\n      }\n    }\n    is_articulation |= par == -1 && cnt > 1;\n  \
     \  if(is_articulation) articulation.push_back(idx);\n    return k;\n  }\n};\n"
-  code: "#pragma once\n\n#include \"../graph-template.hpp\"\n\n/**\n * @brief Low-Link(\u6A4B\
-    /\u95A2\u7BC0\u70B9)\n * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213\n\
+  code: "#pragma once\n\n#include \"../graph-template.hpp\"\n\n/**\n * @brief Low\
+    \ Link(\u6A4B/\u95A2\u7BC0\u70B9)\n * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213\n\
     \ * @docs docs/low-link.md\n */\ntemplate< typename T = int >\nstruct LowLink\
     \ : Graph< T > {\npublic:\n  using Graph< T >::Graph;\n  vector< int > ord, low,\
     \ articulation;\n  vector< Edge< T > > bridge;\n  using Graph< T >::g;\n\n  virtual\
@@ -99,7 +99,7 @@ data:
   - graph/others/block-cut-tree.hpp
   - graph/connected-components/bi-connected-components.hpp
   - graph/connected-components/two-edge-connected-components.hpp
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-3139.test.cpp
@@ -112,7 +112,7 @@ layout: document
 redirect_from:
 - /library/graph/others/low-link.hpp
 - /library/graph/others/low-link.hpp.html
-title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
+title: "Low Link(\u6A4B/\u95A2\u7BC0\u70B9)"
 ---
 ## 概要
 橋や関節点などを効率的に求める際に有効なアルゴリズム.

@@ -6,7 +6,7 @@ data:
     title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
     path: graph/others/cartesian-tree.hpp
-    title: Cartesian-Tree
+    title: Cartesian Tree
   - icon: ':heavy_check_mark:'
     path: graph/tree/pmormq-lowest-common-ancestor.hpp
     title: "PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
@@ -128,7 +128,7 @@ data:
     \    ord.emplace_back(idx);\n    dep.emplace_back(d);\n    for(auto &to : g[idx])\
     \ {\n      if(to != par) {\n        dfs(to, idx, d + 1);\n        ord.emplace_back(idx);\n\
     \        dep.emplace_back(d);\n      }\n    }\n  }\n};\n#line 2 \"graph/others/cartesian-tree.hpp\"\
-    \n/**\n * @brief Cartesian-Tree\n * @docs docs/cartesian-tree.md\n * @see https://kimiyuki.net/blog/2020/07/27/recursion-on-cartesian-tree/\n\
+    \n/**\n * @brief Cartesian Tree\n * @docs docs/cartesian-tree.md\n * @see https://kimiyuki.net/blog/2020/07/27/recursion-on-cartesian-tree/\n\
     \ */\ntemplate< typename T >\nvector< int > cartesian_tree(const vector< T > &v)\
     \ {\n  int n = (int) v.size();\n  vector< int > par(n, -1);\n  stack< int > st;\n\
     \  for(int i = 0; i < n; i++) {\n    int last = -1;\n    while(!st.empty() &&\
@@ -161,7 +161,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-staticrmq-4.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-staticrmq-4.test.cpp

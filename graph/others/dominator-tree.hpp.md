@@ -17,7 +17,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/dominator-tree.md
-    document_title: Dominator-Tree
+    document_title: Dominator Tree
     links:
     - http://sigma425.hatenablog.com/entry/2015/12/25/224053
   bundledCode: "#line 2 \"graph/others/dominator-tree.hpp\"\n\n#line 2 \"graph/graph-template.hpp\"\
@@ -36,7 +36,7 @@ data:
     \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
     \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
     using Edges = vector< Edge< T > >;\n#line 4 \"graph/others/dominator-tree.hpp\"\
-    \n\n/**\n * @brief Dominator-Tree\n * @docs docs/dominator-tree.md\n * @see http://sigma425.hatenablog.com/entry/2015/12/25/224053\n\
+    \n\n/**\n * @brief Dominator Tree\n * @docs docs/dominator-tree.md\n * @see http://sigma425.hatenablog.com/entry/2015/12/25/224053\n\
     \ */\ntemplate< typename T = int >\nstruct DominatorTree : Graph< T > {\npublic:\n\
     \  using Graph< T >::Graph;\n  using Graph< T >::g;\n\n  void build(int root)\
     \ {\n    rg = Graph< T >(g.size());\n    par.assign(g.size(), 0);\n    idom.assign(g.size(),\
@@ -64,8 +64,8 @@ data:
     \ vector< int > idom, semi;\n\n  void dfs(int idx) {\n    semi[idx] = (int) ord.size();\n\
     \    ord.emplace_back(idx);\n    for(auto &to : g[idx]) {\n      if(~semi[to])\
     \ continue;\n      dfs(to);\n      par[to] = idx;\n    }\n  }\n};\n"
-  code: "#pragma once\n\n#include \"../graph-template.hpp\"\n\n/**\n * @brief Dominator-Tree\n\
-    \ * @docs docs/dominator-tree.md\n * @see http://sigma425.hatenablog.com/entry/2015/12/25/224053\n\
+  code: "#pragma once\n\n#include \"../graph-template.hpp\"\n\n/**\n * @brief Dominator\
+    \ Tree\n * @docs docs/dominator-tree.md\n * @see http://sigma425.hatenablog.com/entry/2015/12/25/224053\n\
     \ */\ntemplate< typename T = int >\nstruct DominatorTree : Graph< T > {\npublic:\n\
     \  using Graph< T >::Graph;\n  using Graph< T >::g;\n\n  void build(int root)\
     \ {\n    rg = Graph< T >(g.size());\n    par.assign(g.size(), 0);\n    idom.assign(g.size(),\
@@ -98,7 +98,7 @@ data:
   isVerificationFile: false
   path: graph/others/dominator-tree.hpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-0294.test.cpp
@@ -108,7 +108,7 @@ layout: document
 redirect_from:
 - /library/graph/others/dominator-tree.hpp
 - /library/graph/others/dominator-tree.hpp.html
-title: Dominator-Tree
+title: Dominator Tree
 ---
 ## 概要
 

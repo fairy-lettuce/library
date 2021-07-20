@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: graph/others/maximum-clique.hpp
-    title: "Maximum-Clique(\u6700\u5927\u30AF\u30EA\u30FC\u30AF)"
+    title: "Maximum Clique(\u6700\u5927\u30AF\u30EA\u30FC\u30AF)"
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -46,7 +46,7 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-maximum-independent-set-2.test.cpp\"\
-    \n\n#line 2 \"graph/others/maximum-clique.hpp\"\n\n/**\n * @brief Maximum-Clique(\u6700\
+    \n\n#line 2 \"graph/others/maximum-clique.hpp\"\n\n/**\n * @brief Maximum Clique(\u6700\
     \u5927\u30AF\u30EA\u30FC\u30AF)\n */\ntemplate< int V >\nstruct MaximumClique\
     \ {\n  using B = bitset< V >;\n  vector< B > g, col_buf;\n\n  struct P {\n   \
     \ int idx, col, deg;\n\n    P(int idx, int col, int deg) : idx(idx), col(col),\
@@ -88,7 +88,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-maximum-independent-set-2.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-maximum-independent-set-2.test.cpp

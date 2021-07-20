@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: graph/others/cartesian-tree.hpp
-    title: Cartesian-Tree
+    title: Cartesian Tree
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -46,7 +46,7 @@ data:
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-cartesian-tree.test.cpp\"\
-    \n\n#line 2 \"graph/others/cartesian-tree.hpp\"\n/**\n * @brief Cartesian-Tree\n\
+    \n\n#line 2 \"graph/others/cartesian-tree.hpp\"\n/**\n * @brief Cartesian Tree\n\
     \ * @docs docs/cartesian-tree.md\n * @see https://kimiyuki.net/blog/2020/07/27/recursion-on-cartesian-tree/\n\
     \ */\ntemplate< typename T >\nvector< int > cartesian_tree(const vector< T > &v)\
     \ {\n  int n = (int) v.size();\n  vector< int > par(n, -1);\n  stack< int > st;\n\
@@ -70,7 +70,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-cartesian-tree.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-cartesian-tree.test.cpp

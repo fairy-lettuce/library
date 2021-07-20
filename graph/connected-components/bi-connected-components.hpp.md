@@ -6,11 +6,11 @@ data:
     title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
     path: graph/others/low-link.hpp
-    title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
+    title: "Low Link(\u6A4B/\u95A2\u7BC0\u70B9)"
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: graph/others/block-cut-tree.hpp
-    title: Block-Cut-Tree
+    title: Block Cut Tree
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-3022.test.cpp
@@ -42,7 +42,7 @@ data:
     \ cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n      else add_edge(a,\
     \ b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\nusing Edges = vector<\
     \ Edge< T > >;\n#line 2 \"graph/others/low-link.hpp\"\n\n#line 4 \"graph/others/low-link.hpp\"\
-    \n\n/**\n * @brief Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)\n * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213\n\
+    \n\n/**\n * @brief Low Link(\u6A4B/\u95A2\u7BC0\u70B9)\n * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213\n\
     \ * @docs docs/low-link.md\n */\ntemplate< typename T = int >\nstruct LowLink\
     \ : Graph< T > {\npublic:\n  using Graph< T >::Graph;\n  vector< int > ord, low,\
     \ articulation;\n  vector< Edge< T > > bridge;\n  using Graph< T >::g;\n\n  virtual\
@@ -102,7 +102,7 @@ data:
   path: graph/connected-components/bi-connected-components.hpp
   requiredBy:
   - graph/others/block-cut-tree.hpp
-  timestamp: '2021-07-16 02:06:57+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-3139.test.cpp

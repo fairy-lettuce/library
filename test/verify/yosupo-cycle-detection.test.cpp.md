@@ -6,7 +6,7 @@ data:
     title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
     path: graph/others/cycle-detection.hpp
-    title: "Cycle-Detection(\u9589\u8DEF\u691C\u51FA)"
+    title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -65,7 +65,7 @@ data:
     \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
     \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
     using Edges = vector< Edge< T > >;\n#line 4 \"graph/others/cycle-detection.hpp\"\
-    \n\n/**\n * @brief Cycle-Detection(\u9589\u8DEF\u691C\u51FA)\n * @docs docs/cycle-detection.md\n\
+    \n\n/**\n * @brief Cycle Detection(\u9589\u8DEF\u691C\u51FA)\n * @docs docs/cycle-detection.md\n\
     \ */\ntemplate< typename T = int >\nstruct CycleDetection : Graph< T > {\n   \
     \ using Graph< T >::Graph;\n    using Graph< T >::g;\n\n    vector< int > used;\n\
     \    Edges< T > pre, cyrcle;\n\n    bool dfs(int idx) {\n        used[idx] = 1;\n\
@@ -97,7 +97,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-cycle-detection.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-cycle-detection.test.cpp

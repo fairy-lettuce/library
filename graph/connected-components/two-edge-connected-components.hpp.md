@@ -6,7 +6,7 @@ data:
     title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
     path: graph/others/low-link.hpp
-    title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"
+    title: "Low Link(\u6A4B/\u95A2\u7BC0\u70B9)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -37,7 +37,7 @@ data:
     \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
     \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 2 \"\
     graph/others/low-link.hpp\"\n\n#line 4 \"graph/others/low-link.hpp\"\n\n/**\n\
-    \ * @brief Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)\n * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213\n\
+    \ * @brief Low Link(\u6A4B/\u95A2\u7BC0\u70B9)\n * @see http://kagamiz.hatenablog.com/entry/2013/10/05/005213\n\
     \ * @docs docs/low-link.md\n */\ntemplate< typename T = int >\nstruct LowLink\
     \ : Graph< T > {\npublic:\n  using Graph< T >::Graph;\n  vector< int > ord, low,\
     \ articulation;\n  vector< Edge< T > > bridge;\n  using Graph< T >::g;\n\n  virtual\
@@ -96,7 +96,7 @@ data:
   isVerificationFile: false
   path: graph/connected-components/two-edge-connected-components.hpp
   requiredBy: []
-  timestamp: '2021-07-16 02:06:57+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-two-edge-connected-components.test.cpp

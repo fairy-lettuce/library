@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: graph/others/eulerian-trail.hpp
-    title: "Eulerian-Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
+    title: "Eulerian Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
   - icon: ':heavy_check_mark:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
@@ -62,7 +62,7 @@ data:
     \ i < n; i++) {\n      ret[find(i)].emplace_back(i);\n    }\n    ret.erase(remove_if(begin(ret),\
     \ end(ret), [&](const vector< int > &v) {\n      return v.empty();\n    }));\n\
     \    return ret;\n  }\n};\n#line 6 \"test/verify/yukicoder-583.test.cpp\"\n\n\
-    #line 2 \"graph/others/eulerian-trail.hpp\"\n\n/**\n * @brief Eulerian-Trail(\u30AA\
+    #line 2 \"graph/others/eulerian-trail.hpp\"\n\n/**\n * @brief Eulerian Trail(\u30AA\
     \u30A4\u30E9\u30FC\u8DEF)\n * @docs docs/eulerian-trail.md\n */\ntemplate< bool\
     \ directed >\nstruct EulerianTrail {\n  vector< vector< pair< int, int > > > g;\n\
     \  vector< pair< int, int > > es;\n  int M;\n  vector< int > used_vertex, used_edge,\
@@ -114,7 +114,7 @@ data:
   isVerificationFile: true
   path: test/verify/yukicoder-583.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yukicoder-583.test.cpp

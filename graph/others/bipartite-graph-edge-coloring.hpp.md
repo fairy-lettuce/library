@@ -6,7 +6,7 @@ data:
     title: "Bipartite-Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\u30FC)"
   - icon: ':heavy_check_mark:'
     path: graph/others/eulerian-trail.hpp
-    title: "Eulerian-Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
+    title: "Eulerian Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
   - icon: ':heavy_check_mark:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
@@ -120,7 +120,7 @@ data:
     \      if(c < 0 || (alive[c] == 1 && used[c] != (int)time_stamp && find_augment_path(c)))\
     \ {\n        match_r[b] = a;\n        match_l[a] = b;\n        return true;\n\
     \      }\n    }\n    return false;\n  }\n};\n#line 2 \"graph/others/eulerian-trail.hpp\"\
-    \n\n/**\n * @brief Eulerian-Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)\n * @docs docs/eulerian-trail.md\n\
+    \n\n/**\n * @brief Eulerian Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)\n * @docs docs/eulerian-trail.md\n\
     \ */\ntemplate< bool directed >\nstruct EulerianTrail {\n  vector< vector< pair<\
     \ int, int > > > g;\n  vector< pair< int, int > > es;\n  int M;\n  vector< int\
     \ > used_vertex, used_edge, deg;\n\n  explicit EulerianTrail(int V) : g(V), M(0),\
@@ -263,7 +263,7 @@ data:
   isVerificationFile: false
   path: graph/others/bipartite-graph-edge-coloring.hpp
   requiredBy: []
-  timestamp: '2021-07-21 02:00:59+09:00'
+  timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-bipartite-edge-coloring.test.cpp
