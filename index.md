@@ -250,7 +250,7 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: graph/others/bipartite-graph-edge-coloring.hpp
-      title: "Bipartite-Graph-Edge-Coloring(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u8FBA\
+      title: "Bipartite Graph Edge Coloring(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u8FBA\
         \u5F69\u8272)"
     - icon: ':heavy_check_mark:'
       path: graph/others/block-cut-tree.hpp
@@ -272,7 +272,7 @@ data:
       title: "Enumerate-Cliques(\u30AF\u30EA\u30FC\u30AF\u5168\u5217\u6319)"
     - icon: ':heavy_check_mark:'
       path: graph/others/enumerate-triangles.hpp
-      title: "Enumerate-Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)"
+      title: "Enumerate Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)"
     - icon: ':heavy_check_mark:'
       path: graph/others/eulerian-trail.hpp
       title: "Eulerian-Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"

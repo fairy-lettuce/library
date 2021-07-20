@@ -4,7 +4,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/graph-template.hpp
     title: graph/graph-template.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: graph/others/offline-dag-reachability.hpp
+    title: "Offline-Dag-Reachability(DAG\u306E\u5230\u9054\u53EF\u80FD\u6027\u30AF\
+      \u30A8\u30EA)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-0275.test.cpp
@@ -55,7 +59,8 @@ data:
   - graph/graph-template.hpp
   isVerificationFile: false
   path: graph/others/topological-sort.hpp
-  requiredBy: []
+  requiredBy:
+  - graph/others/offline-dag-reachability.hpp
   timestamp: '2021-07-01 02:53:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

@@ -51,7 +51,7 @@ data:
     title: Dominator-Tree
   - icon: ':heavy_check_mark:'
     path: graph/others/enumerate-triangles.hpp
-    title: "Enumerate-Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)"
+    title: "Enumerate Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)"
   - icon: ':heavy_check_mark:'
     path: graph/others/low-link.hpp
     title: "Low-Link(\u6A4B/\u95A2\u7BC0\u70B9)"

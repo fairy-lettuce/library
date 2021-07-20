@@ -1,7 +1,11 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: graph/others/bipartite-graph-edge-coloring.hpp
+    title: "Bipartite Graph Edge Coloring(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u8FBA\
+      \u5F69\u8272)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bipartite-edge-coloring.test.cpp
@@ -89,7 +93,8 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: graph/others/eulerian-trail.hpp
-  requiredBy: []
+  requiredBy:
+  - graph/others/bipartite-graph-edge-coloring.hpp
   timestamp: '2021-07-01 02:53:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

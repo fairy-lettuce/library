@@ -6,7 +6,7 @@ data:
     title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
     path: graph/others/enumerate-triangles.hpp
-    title: "Enumerate-Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)"
+    title: "Enumerate Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)"
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -65,25 +65,25 @@ data:
     \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
     \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
     using Edges = vector< Edge< T > >;\n#line 4 \"graph/others/enumerate-triangles.hpp\"\
-    \n\n/**\n * @brief Enumerate-Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)\n\
-    \ */\ntemplate< typename T >\nvector< tuple< int, int, int > > enumerate_triangles(const\
-    \ Graph< T >& g) {\n    int N = (int)g.size();\n    using pi = pair< int, int\
-    \ >;\n    vector< pi > vp(N);\n    for(int i = 0; i < N; i++) {\n        vp[i]\
-    \ = {(int)g.g[i].size(), i};\n    }\n    vector< vector< int > > h(N);\n    for(int\
-    \ i = 0; i < N; i++) {\n        for(auto& j : g.g[i]) {\n            if(vp[i]\
-    \ > vp[j]) {\n                h[i].emplace_back(j);\n            }\n        }\n\
-    \    }\n    vector< tuple< int, int, int > > triangle;\n    vector< int > used(N);\n\
-    \    for(int x = 0; x < N; x++) {\n        for(int z : h[x]) used[z] = true;\n\
-    \        for(int y : h[x]) {\n            for(int z : h[y]) {\n              \
-    \  if(used[z]) triangle.emplace_back(x, y, z);\n            }\n        }\n   \
-    \     for(int z : h[x]) used[z] = false;\n    }\n\n    return triangle;\n}\n#line\
-    \ 6 \"test/verify/yosupo-enumerate-triangles.test.cpp\"\n\nint main() {\n    int\
-    \ N, M;\n    cin >> N >> M;\n    vector< int > xs(N);\n    for(auto& x : xs) cin\
-    \ >> x;\n    Graph<> g(N);\n    g.read(M, 0);\n    auto triangle = enumerate_triangles(g);\n\
-    \    const int MOD = 998244353;\n    int ret = 0;\n    for(auto& p : triangle)\
-    \ {\n        int a, b, c;\n        tie(a, b, c) = p;\n        ret += 1LL * xs[a]\
-    \ * xs[b] % MOD * xs[c] % MOD;\n        if(ret >= MOD) ret -= MOD;\n    }\n  \
-    \  cout << ret << \"\\n\";\n}\n"
+    \n\n/**\n * @brief Enumerate Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)\n\
+    \ * @docs docs/enumerate-triangles.md\n */\ntemplate< typename T >\nvector< tuple<\
+    \ int, int, int > > enumerate_triangles(const Graph< T >& g) {\n    int N = (int)g.size();\n\
+    \    using pi = pair< int, int >;\n    vector< pi > vp(N);\n    for(int i = 0;\
+    \ i < N; i++) {\n        vp[i] = {(int)g.g[i].size(), i};\n    }\n    vector<\
+    \ vector< int > > h(N);\n    for(int i = 0; i < N; i++) {\n        for(auto& j\
+    \ : g.g[i]) {\n            if(vp[i] > vp[j]) {\n                h[i].emplace_back(j);\n\
+    \            }\n        }\n    }\n    vector< tuple< int, int, int > > triangle;\n\
+    \    vector< int > used(N);\n    for(int x = 0; x < N; x++) {\n        for(int\
+    \ z : h[x]) used[z] = true;\n        for(int y : h[x]) {\n            for(int\
+    \ z : h[y]) {\n                if(used[z]) triangle.emplace_back(x, y, z);\n \
+    \           }\n        }\n        for(int z : h[x]) used[z] = false;\n    }\n\n\
+    \    return triangle;\n}\n#line 6 \"test/verify/yosupo-enumerate-triangles.test.cpp\"\
+    \n\nint main() {\n    int N, M;\n    cin >> N >> M;\n    vector< int > xs(N);\n\
+    \    for(auto& x : xs) cin >> x;\n    Graph<> g(N);\n    g.read(M, 0);\n    auto\
+    \ triangle = enumerate_triangles(g);\n    const int MOD = 998244353;\n    int\
+    \ ret = 0;\n    for(auto& p : triangle) {\n        int a, b, c;\n        tie(a,\
+    \ b, c) = p;\n        ret += 1LL * xs[a] * xs[b] % MOD * xs[c] % MOD;\n      \
+    \  if(ret >= MOD) ret -= MOD;\n    }\n    cout << ret << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_triangles\"\n\
     \n#include \"../../template/template.cpp\"\n\n#include \"../../graph/others/enumerate-triangles.hpp\"\
     \n\nint main() {\n    int N, M;\n    cin >> N >> M;\n    vector< int > xs(N);\n\
@@ -99,7 +99,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-enumerate-triangles.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-21 02:00:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-enumerate-triangles.test.cpp

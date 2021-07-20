@@ -15,6 +15,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/mst/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
+  - icon: ':heavy_check_mark:'
+    path: graph/others/bipartite-graph-edge-coloring.hpp
+    title: "Bipartite Graph Edge Coloring(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u8FBA\
+      \u5F69\u8272)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2821.test.cpp
@@ -85,6 +89,7 @@ data:
   isVerificationFile: false
   path: structure/union-find/union-find.cpp
   requiredBy:
+  - graph/others/bipartite-graph-edge-coloring.hpp
   - graph/connected-components/incremental-bridge-connectivity.hpp
   - graph/connected-components/three-edge-connected-components.hpp
   - graph/mst/kruskal.hpp
