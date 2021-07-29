@@ -40,8 +40,8 @@ data:
   timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-cartesian-tree.test.cpp
   - test/verify/yosupo-staticrmq-4.test.cpp
+  - test/verify/yosupo-cartesian-tree.test.cpp
 documentation_of: graph/others/cartesian-tree.hpp
 layout: document
 redirect_from:

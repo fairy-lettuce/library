@@ -103,10 +103,10 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-3139.test.cpp
-  - test/verify/aoj-grl-3-b.test.cpp
   - test/verify/aoj-grl-3-a.test.cpp
-  - test/verify/yosupo-two-edge-connected-components.test.cpp
   - test/verify/aoj-3022.test.cpp
+  - test/verify/yosupo-two-edge-connected-components.test.cpp
+  - test/verify/aoj-grl-3-b.test.cpp
 documentation_of: graph/others/low-link.hpp
 layout: document
 redirect_from:

@@ -40,8 +40,8 @@ data:
   timestamp: '2021-07-17 00:36:52+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-kth-root-integer.test.cpp
   - test/verify/yosupo-counting-primes.test.cpp
+  - test/verify/yosupo-kth-root-integer.test.cpp
 documentation_of: math/number-theory/kth-root-integer.cpp
 layout: document
 redirect_from:

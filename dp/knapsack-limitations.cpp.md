@@ -58,8 +58,8 @@ data:
   timestamp: '2021-07-13 19:53:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-dpl-1-i.test.cpp
   - test/verify/aoj-dpl-1-g.test.cpp
+  - test/verify/aoj-dpl-1-i.test.cpp
 documentation_of: dp/knapsack-limitations.cpp
 layout: document
 redirect_from:

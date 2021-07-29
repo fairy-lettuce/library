@@ -92,8 +92,8 @@ data:
   timestamp: '2021-07-16 02:06:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-two-sat.test.cpp
   - test/verify/aoj-grl-3-c.test.cpp
+  - test/verify/yosupo-two-sat.test.cpp
   - test/verify/yosupo-scc.test.cpp
 documentation_of: graph/connected-components/strongly-connected-components.hpp
 layout: document

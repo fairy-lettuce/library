@@ -71,9 +71,9 @@ data:
     \ table;\n  const int LOG;\n\n  explicit DoublingLowestCommonAncestor(int n)\n\
     \      : Graph< T >(n), LOG(32 - __builtin_clz(g.size())) {}\n\n  explicit DoublingLowestCommonAncestor(const\
     \ Graph< T > &g)\n      : LOG(32 - __builtin_clz(g.size())), Graph< T >(g) {}\n\
-    \n  void build() {\n    dep.assign(g.size(), 0);\n    sum.assign(g.size(), 0);\n\
-    \    table.assign(LOG, vector< int >(g.size(), -1));\n    dfs(0, -1, 0);\n   \
-    \ for(int k = 0; k + 1 < LOG; k++) {\n      for(int i = 0; i < (int)table[k].size();\
+    \n  void build(int root = 0) {\n    dep.assign(g.size(), 0);\n    sum.assign(g.size(),\
+    \ 0);\n    table.assign(LOG, vector< int >(g.size(), -1));\n    dfs(root, -1,\
+    \ 0);\n    for(int k = 0; k + 1 < LOG; k++) {\n      for(int i = 0; i < (int)table[k].size();\
     \ i++) {\n        if(table[k][i] == -1) table[k + 1][i] = -1;\n        else table[k\
     \ + 1][i] = table[k][table[k][i]];\n      }\n    }\n  }\n\n  int lca(int u, int\
     \ v) {\n    if(dep[u] > dep[v]) swap(u, v);\n    v = climb(v, dep[v] - dep[u]);\n\
@@ -107,7 +107,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-grl-5-c.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-29 22:32:36+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-5-c.test.cpp

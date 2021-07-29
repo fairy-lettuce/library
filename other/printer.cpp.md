@@ -86,12 +86,12 @@ data:
   timestamp: '2020-04-08 00:11:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-two-sat.test.cpp
   - test/verify/yosupo-lca.test.cpp
-  - test/verify/yosupo-lca-3.test.cpp
   - test/verify/yosupo-tree-decomposition-width-2.test.cpp
-  - test/verify/yosupo-division-of-polynomials.test.cpp
+  - test/verify/yosupo-lca-3.test.cpp
+  - test/verify/yosupo-two-sat.test.cpp
   - test/verify/yosupo-staticrmq-5.test.cpp
+  - test/verify/yosupo-division-of-polynomials.test.cpp
   - test/verify/yosupo-point-add-rectangle-sum.test.cpp
   - test/verify/yosupo-lca-2.test.cpp
 documentation_of: other/printer.cpp

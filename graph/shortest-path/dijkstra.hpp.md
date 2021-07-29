@@ -76,10 +76,10 @@ data:
   timestamp: '2021-07-01 02:53:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-k-shortest-walk.test.cpp
+  - test/verify/aoj-0275.test.cpp
   - test/verify/aoj-grl-1-a.test.cpp
   - test/verify/yosupo-shortest-path.test.cpp
-  - test/verify/aoj-0275.test.cpp
+  - test/verify/yosupo-k-shortest-walk.test.cpp
 documentation_of: graph/shortest-path/dijkstra.hpp
 layout: document
 redirect_from:

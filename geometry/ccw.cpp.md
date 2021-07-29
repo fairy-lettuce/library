@@ -95,11 +95,11 @@ data:
   requiredBy:
   - geometry/is_intersect_lp.cpp
   - geometry/is_intersect_ss.cpp
-  - geometry/distance_ss.cpp
   - geometry/is_convex_polygon.cpp
-  - geometry/distance_sp.cpp
   - geometry/is_intersect_sp.cpp
   - geometry/common_area_cp.cpp
+  - geometry/distance_ss.cpp
+  - geometry/distance_sp.cpp
   timestamp: '2020-12-01 17:38:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

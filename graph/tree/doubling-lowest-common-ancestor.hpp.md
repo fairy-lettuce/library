@@ -43,21 +43,22 @@ data:
     \  vector< vector< int > > table;\n  const int LOG;\n\n  explicit DoublingLowestCommonAncestor(int\
     \ n)\n      : Graph< T >(n), LOG(32 - __builtin_clz(g.size())) {}\n\n  explicit\
     \ DoublingLowestCommonAncestor(const Graph< T > &g)\n      : LOG(32 - __builtin_clz(g.size())),\
-    \ Graph< T >(g) {}\n\n  void build() {\n    dep.assign(g.size(), 0);\n    sum.assign(g.size(),\
-    \ 0);\n    table.assign(LOG, vector< int >(g.size(), -1));\n    dfs(0, -1, 0);\n\
-    \    for(int k = 0; k + 1 < LOG; k++) {\n      for(int i = 0; i < (int)table[k].size();\
-    \ i++) {\n        if(table[k][i] == -1) table[k + 1][i] = -1;\n        else table[k\
-    \ + 1][i] = table[k][table[k][i]];\n      }\n    }\n  }\n\n  int lca(int u, int\
-    \ v) {\n    if(dep[u] > dep[v]) swap(u, v);\n    v = climb(v, dep[v] - dep[u]);\n\
-    \    if(u == v) return u;\n    for(int i = LOG - 1; i >= 0; i--) {\n      if(table[i][u]\
-    \ != table[i][v]) {\n        u = table[i][u];\n        v = table[i][v];\n    \
-    \  }\n    }\n    return table[0][u];\n  }\n\n  int climb(int u, int k) {\n   \
-    \ if(dep[u] < k) return -1;\n    for(int i = LOG - 1; i >= 0; i--) {\n      if((k\
-    \ >> i) & 1) u = table[i][u];\n    }\n    return u;\n  }\n\n  T dist(int u, int\
-    \ v) {\n    return sum[u] + sum[v] - 2 * sum[lca(u, v)];\n  }\n\nprivate:\n  void\
-    \ dfs(int idx, int par, int d) {\n    table[0][idx] = par;\n    dep[idx] = d;\n\
-    \    for(auto &to : g[idx]) {\n      if(to != par) {\n        sum[to] = sum[idx]\
-    \ + to.cost;\n        dfs(to, idx, d + 1);\n      }\n    }\n  }\n};\n"
+    \ Graph< T >(g) {}\n\n  void build(int root = 0) {\n    dep.assign(g.size(), 0);\n\
+    \    sum.assign(g.size(), 0);\n    table.assign(LOG, vector< int >(g.size(), -1));\n\
+    \    dfs(root, -1, 0);\n    for(int k = 0; k + 1 < LOG; k++) {\n      for(int\
+    \ i = 0; i < (int)table[k].size(); i++) {\n        if(table[k][i] == -1) table[k\
+    \ + 1][i] = -1;\n        else table[k + 1][i] = table[k][table[k][i]];\n     \
+    \ }\n    }\n  }\n\n  int lca(int u, int v) {\n    if(dep[u] > dep[v]) swap(u,\
+    \ v);\n    v = climb(v, dep[v] - dep[u]);\n    if(u == v) return u;\n    for(int\
+    \ i = LOG - 1; i >= 0; i--) {\n      if(table[i][u] != table[i][v]) {\n      \
+    \  u = table[i][u];\n        v = table[i][v];\n      }\n    }\n    return table[0][u];\n\
+    \  }\n\n  int climb(int u, int k) {\n    if(dep[u] < k) return -1;\n    for(int\
+    \ i = LOG - 1; i >= 0; i--) {\n      if((k >> i) & 1) u = table[i][u];\n    }\n\
+    \    return u;\n  }\n\n  T dist(int u, int v) {\n    return sum[u] + sum[v] -\
+    \ 2 * sum[lca(u, v)];\n  }\n\nprivate:\n  void dfs(int idx, int par, int d) {\n\
+    \    table[0][idx] = par;\n    dep[idx] = d;\n    for(auto &to : g[idx]) {\n \
+    \     if(to != par) {\n        sum[to] = sum[idx] + to.cost;\n        dfs(to,\
+    \ idx, d + 1);\n      }\n    }\n  }\n};\n"
   code: "#pragma once\n\n#include \"../graph-template.hpp\"\n\n/**\n * @brief Doubling-Lowest-Common-Ancestor(\u6700\
     \u5C0F\u5171\u901A\u7956\u5148)\n * @docs docs/doubling-lowest-common-ancestor.md\n\
     \ */\ntemplate< typename T >\nstruct DoublingLowestCommonAncestor : Graph< T >\
@@ -65,31 +66,32 @@ data:
     \  vector< vector< int > > table;\n  const int LOG;\n\n  explicit DoublingLowestCommonAncestor(int\
     \ n)\n      : Graph< T >(n), LOG(32 - __builtin_clz(g.size())) {}\n\n  explicit\
     \ DoublingLowestCommonAncestor(const Graph< T > &g)\n      : LOG(32 - __builtin_clz(g.size())),\
-    \ Graph< T >(g) {}\n\n  void build() {\n    dep.assign(g.size(), 0);\n    sum.assign(g.size(),\
-    \ 0);\n    table.assign(LOG, vector< int >(g.size(), -1));\n    dfs(0, -1, 0);\n\
-    \    for(int k = 0; k + 1 < LOG; k++) {\n      for(int i = 0; i < (int)table[k].size();\
-    \ i++) {\n        if(table[k][i] == -1) table[k + 1][i] = -1;\n        else table[k\
-    \ + 1][i] = table[k][table[k][i]];\n      }\n    }\n  }\n\n  int lca(int u, int\
-    \ v) {\n    if(dep[u] > dep[v]) swap(u, v);\n    v = climb(v, dep[v] - dep[u]);\n\
-    \    if(u == v) return u;\n    for(int i = LOG - 1; i >= 0; i--) {\n      if(table[i][u]\
-    \ != table[i][v]) {\n        u = table[i][u];\n        v = table[i][v];\n    \
-    \  }\n    }\n    return table[0][u];\n  }\n\n  int climb(int u, int k) {\n   \
-    \ if(dep[u] < k) return -1;\n    for(int i = LOG - 1; i >= 0; i--) {\n      if((k\
-    \ >> i) & 1) u = table[i][u];\n    }\n    return u;\n  }\n\n  T dist(int u, int\
-    \ v) {\n    return sum[u] + sum[v] - 2 * sum[lca(u, v)];\n  }\n\nprivate:\n  void\
-    \ dfs(int idx, int par, int d) {\n    table[0][idx] = par;\n    dep[idx] = d;\n\
-    \    for(auto &to : g[idx]) {\n      if(to != par) {\n        sum[to] = sum[idx]\
-    \ + to.cost;\n        dfs(to, idx, d + 1);\n      }\n    }\n  }\n};\n"
+    \ Graph< T >(g) {}\n\n  void build(int root = 0) {\n    dep.assign(g.size(), 0);\n\
+    \    sum.assign(g.size(), 0);\n    table.assign(LOG, vector< int >(g.size(), -1));\n\
+    \    dfs(root, -1, 0);\n    for(int k = 0; k + 1 < LOG; k++) {\n      for(int\
+    \ i = 0; i < (int)table[k].size(); i++) {\n        if(table[k][i] == -1) table[k\
+    \ + 1][i] = -1;\n        else table[k + 1][i] = table[k][table[k][i]];\n     \
+    \ }\n    }\n  }\n\n  int lca(int u, int v) {\n    if(dep[u] > dep[v]) swap(u,\
+    \ v);\n    v = climb(v, dep[v] - dep[u]);\n    if(u == v) return u;\n    for(int\
+    \ i = LOG - 1; i >= 0; i--) {\n      if(table[i][u] != table[i][v]) {\n      \
+    \  u = table[i][u];\n        v = table[i][v];\n      }\n    }\n    return table[0][u];\n\
+    \  }\n\n  int climb(int u, int k) {\n    if(dep[u] < k) return -1;\n    for(int\
+    \ i = LOG - 1; i >= 0; i--) {\n      if((k >> i) & 1) u = table[i][u];\n    }\n\
+    \    return u;\n  }\n\n  T dist(int u, int v) {\n    return sum[u] + sum[v] -\
+    \ 2 * sum[lca(u, v)];\n  }\n\nprivate:\n  void dfs(int idx, int par, int d) {\n\
+    \    table[0][idx] = par;\n    dep[idx] = d;\n    for(auto &to : g[idx]) {\n \
+    \     if(to != par) {\n        sum[to] = sum[idx] + to.cost;\n        dfs(to,\
+    \ idx, d + 1);\n      }\n    }\n  }\n};\n"
   dependsOn:
   - graph/graph-template.hpp
   isVerificationFile: false
   path: graph/tree/doubling-lowest-common-ancestor.hpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-07-29 22:32:36+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-grl-5-c.test.cpp
   - test/verify/yosupo-lca-3.test.cpp
+  - test/verify/aoj-grl-5-c.test.cpp
 documentation_of: graph/tree/doubling-lowest-common-ancestor.hpp
 layout: document
 redirect_from:
