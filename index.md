@@ -484,6 +484,10 @@ data:
       title: "Subset Zeta/Moebius Transform (\u4E0B\u4F4D\u96C6\u5408\u306E\u30BC\u30FC\
         \u30BF/\u30E1\u30D3\u30A6\u30B9\u5909\u63DB)"
     - icon: ':heavy_check_mark:'
+      path: math/fft/superset-zeta-moebius-transform-simd.cpp
+      title: "Superset Zeta/Moebius Transform SIMD (\u4E0A\u4F4D\u96C6\u5408\u306E\
+        \u30BC\u30FC\u30BF/\u30E1\u30D3\u30A6\u30B9\u5909\u63DB, SIMD)"
+    - icon: ':heavy_check_mark:'
       path: math/fft/superset-zeta-moebius-transform.cpp
       title: "Superset Zeta/Moebius Transform (\u4E0A\u4F4D\u96C6\u5408\u306E\u30BC\
         \u30FC\u30BF/\u30E1\u30D3\u30A6\u30B9\u5909\u63DB)"
@@ -1220,6 +1224,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-bipartitematching.test.cpp
       title: test/verify/yosupo-bipartitematching.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-bitwise-and-convolution-2.test.cpp
+      title: test/verify/yosupo-bitwise-and-convolution-2.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-bitwise-and-convolution.test.cpp
       title: test/verify/yosupo-bitwise-and-convolution.test.cpp

@@ -319,6 +319,9 @@ data:
     path: test/verify/yosupo-bipartitematching.test.cpp
     title: test/verify/yosupo-bipartitematching.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-bitwise-and-convolution-2.test.cpp
+    title: test/verify/yosupo-bitwise-and-convolution-2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bitwise-and-convolution.test.cpp
     title: test/verify/yosupo-bitwise-and-convolution.test.cpp
   - icon: ':heavy_check_mark:'
@@ -705,6 +708,7 @@ data:
   - test/verify/aoj-grl-1-b.test.cpp
   - test/verify/yosupo-persistent-unionfind.test.cpp
   - test/verify/yosupo-cycle-detection.test.cpp
+  - test/verify/yosupo-bitwise-and-convolution-2.test.cpp
   - test/verify/aoj-grl-2-b.test.cpp
   - test/verify/aoj-dsl-1-a.test.cpp
   - test/verify/yukicoder-650.test.cpp
