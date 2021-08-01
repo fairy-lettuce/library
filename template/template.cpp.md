@@ -319,6 +319,9 @@ data:
     path: test/verify/yosupo-bipartitematching.test.cpp
     title: test/verify/yosupo-bipartitematching.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-bitwise-xor-convolution.test.cpp
+    title: test/verify/yosupo-bitwise-xor-convolution.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-cartesian-tree.test.cpp
     title: test/verify/yosupo-cartesian-tree.test.cpp
   - icon: ':heavy_check_mark:'
@@ -825,6 +828,7 @@ data:
   - test/verify/aoj-dpl-5-j.test.cpp
   - test/verify/yosupo-polynomial-taylor-shift.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp
+  - test/verify/yosupo-bitwise-xor-convolution.test.cpp
   - test/verify/aoj-grl-3-b.test.cpp
   - test/verify/aoj-1615.test.cpp
   - test/verify/yosupo-kth-root-integer.test.cpp

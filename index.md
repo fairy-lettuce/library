@@ -443,6 +443,12 @@ data:
       path: math/combinatorics/stirling-number-second.cpp
       title: "Stirling Number Second(\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
         \u6570)"
+    - icon: ':warning:'
+      path: math/combinatorics/sum-of-arithmetic-sequence.cpp
+      title: "Sum of Arithmetic Sequence(\u7B49\u5DEE\u6570\u5217\u306E\u548C)"
+    - icon: ':warning:'
+      path: math/combinatorics/sum-of-geometric-sequence.cpp
+      title: "Sum of Geometric Sequence(\u7B49\u6BD4\u6570\u5217\u306E\u548C)"
   - name: math/fft
     pages:
     - icon: ':warning:'
@@ -452,8 +458,15 @@ data:
       path: math/fft/arbitrary-mod-convolution.cpp
       title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
     - icon: ':heavy_check_mark:'
+      path: math/fft/bitwise-xor-convolution.cpp
+      title: "Bitwise Xor Convolution (Bitwise-XOR\u7573\u307F\u8FBC\u307F)"
+    - icon: ':heavy_check_mark:'
       path: math/fft/fast-fourier-transform.cpp
       title: math/fft/fast-fourier-transform.cpp
+    - icon: ':heavy_check_mark:'
+      path: math/fft/fast-walsh-hadamard-transform.cpp
+      title: "Fast Walsh Hadamard Transform (\u9AD8\u901F\u30A6\u30A9\u30EB\u30B7\u30E5\
+        \u30A2\u30C0\u30DE\u30FC\u30EB\u5909\u63DB)"
     - icon: ':heavy_check_mark:'
       path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
       title: Number Theoretic Transform Friendly Mod Int
@@ -1193,6 +1206,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-bipartitematching.test.cpp
       title: test/verify/yosupo-bipartitematching.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-bitwise-xor-convolution.test.cpp
+      title: test/verify/yosupo-bitwise-xor-convolution.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-cartesian-tree.test.cpp
       title: test/verify/yosupo-cartesian-tree.test.cpp

@@ -19,6 +19,9 @@ data:
     path: test/verify/yosupo-bernoulli-number.test.cpp
     title: test/verify/yosupo-bernoulli-number.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-bitwise-xor-convolution.test.cpp
+    title: test/verify/yosupo-bitwise-xor-convolution.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-division-of-polynomials.test.cpp
     title: test/verify/yosupo-division-of-polynomials.test.cpp
   - icon: ':heavy_check_mark:'
@@ -194,6 +197,7 @@ data:
   - test/verify/yosupo-division-of-polynomials.test.cpp
   - test/verify/aoj-dpl-5-j.test.cpp
   - test/verify/yosupo-polynomial-taylor-shift.test.cpp
+  - test/verify/yosupo-bitwise-xor-convolution.test.cpp
   - test/verify/yosupo-point-set-range-composite-3.test.cpp
   - test/verify/yosupo-multipoint-evaluation.test.cpp
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
