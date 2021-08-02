@@ -322,6 +322,9 @@ data:
     path: test/verify/yosupo-bitwise-and-convolution-2.test.cpp
     title: test/verify/yosupo-bitwise-and-convolution-2.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-bitwise-and-convolution-3.test.cpp
+    title: test/verify/yosupo-bitwise-and-convolution-3.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bitwise-and-convolution.test.cpp
     title: test/verify/yosupo-bitwise-and-convolution.test.cpp
   - icon: ':heavy_check_mark:'
@@ -793,6 +796,7 @@ data:
   - test/verify/aoj-grl-1-a-2.test.cpp
   - test/verify/yosupo-pow-of-formal-power-series.test.cpp
   - test/verify/aoj-dpl-1-f.test.cpp
+  - test/verify/yosupo-bitwise-and-convolution-3.test.cpp
   - test/verify/yosupo-maximum-independent-set.test.cpp
   - test/verify/yosupo-dominatortree.test.cpp
   - test/verify/aoj-dpl-1-i.test.cpp
