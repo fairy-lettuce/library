@@ -91,6 +91,9 @@ data:
     path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
     title: test/verify/yosupo-sharp-p-subset-sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
+    title: test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sparse-matrix-det.test.cpp
     title: test/verify/yosupo-sparse-matrix-det.test.cpp
   - icon: ':heavy_check_mark:'
@@ -205,6 +208,7 @@ data:
   - test/verify/yosupo-point-set-range-composite-3.test.cpp
   - test/verify/yosupo-multipoint-evaluation.test.cpp
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
+  - test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
   - test/verify/yosupo-queue-operate-all-composite.test.cpp
   - test/verify/yosupo-range-affine-range-sum-3.test.cpp
   - test/verify/yosupo-polynomial-interpolation.test.cpp

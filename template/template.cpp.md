@@ -496,6 +496,9 @@ data:
     path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
     title: test/verify/yosupo-sharp-p-subset-sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
+    title: test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-shortest-path.test.cpp
     title: test/verify/yosupo-shortest-path.test.cpp
   - icon: ':heavy_check_mark:'
@@ -852,6 +855,7 @@ data:
   - test/verify/yosupo-enumerate-triangles.test.cpp
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
   - test/verify/aoj-cgl-2-c.test.cpp
+  - test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
   - test/verify/yosupo-queue-operate-all-composite.test.cpp
   - test/verify/yosupo-montmort-number-mod.test.cpp
   - test/verify/yukicoder-952.test.cpp

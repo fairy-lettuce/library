@@ -406,7 +406,7 @@ data:
     - icon: ':warning:'
       path: math/combinatorics/lagrange-polynomial-2.cpp
       title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593, \u4FC2\u6570)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/lagrange-polynomial-3.cpp
       title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593, \u5024)"
     - icon: ':warning:'
@@ -1401,6 +1401,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
       title: test/verify/yosupo-sharp-p-subset-sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
+      title: test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-shortest-path.test.cpp
       title: test/verify/yosupo-shortest-path.test.cpp

@@ -47,6 +47,9 @@ data:
     path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
     title: test/verify/yosupo-sharp-p-subset-sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
+    title: test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -152,6 +155,7 @@ data:
   - test/verify/yosupo-polynomial-taylor-shift.test.cpp
   - test/verify/yosupo-multipoint-evaluation.test.cpp
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
+  - test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
   - test/verify/yosupo-polynomial-interpolation.test.cpp
   - test/verify/yosupo-find-linear-recurrence.test.cpp
 documentation_of: math/fft/number-theoretic-transform-friendly-mod-int.cpp
