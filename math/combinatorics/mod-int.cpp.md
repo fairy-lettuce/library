@@ -19,6 +19,9 @@ data:
     path: test/verify/yosupo-bernoulli-number.test.cpp
     title: test/verify/yosupo-bernoulli-number.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-bitwise-and-convolution-2.test.cpp
+    title: test/verify/yosupo-bitwise-and-convolution-2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bitwise-and-convolution.test.cpp
     title: test/verify/yosupo-bitwise-and-convolution.test.cpp
   - icon: ':heavy_check_mark:'
@@ -181,6 +184,7 @@ data:
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp
   - test/verify/aoj-dpl-5-g.test.cpp
   - test/verify/yukicoder-3046.test.cpp
+  - test/verify/yosupo-bitwise-and-convolution-2.test.cpp
   - test/verify/yukicoder-650.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - test/verify/aoj-dpl-5-i.test.cpp

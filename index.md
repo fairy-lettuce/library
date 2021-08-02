@@ -460,7 +460,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fft/bitwise-and-convolution.cpp
       title: "Bitwise And Convolution (Bitwise-AND\u7573\u307F\u8FBC\u307F)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: math/fft/bitwise-or-convolution.cpp
       title: "Bitwise Or Convolution (Bitwise-OR\u7573\u307F\u8FBC\u307F)"
     - icon: ':heavy_check_mark:'
@@ -479,11 +479,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fft/number-theoretic-transform.cpp
       title: math/fft/number-theoretic-transform.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: math/fft/subset-zeta-moebius-transform.cpp
       title: "Subset Zeta/Moebius Transform (\u4E0B\u4F4D\u96C6\u5408\u306E\u30BC\u30FC\
         \u30BF/\u30E1\u30D3\u30A6\u30B9\u5909\u63DB)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: math/fft/superset-zeta-moebius-transform-simd.cpp
       title: "Superset Zeta/Moebius Transform SIMD (\u4E0A\u4F4D\u96C6\u5408\u306E\
         \u30BC\u30FC\u30BF/\u30E1\u30D3\u30A6\u30B9\u5909\u63DB, SIMD)"

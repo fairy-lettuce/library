@@ -2,9 +2,15 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: math/fft/superset-zeta-moebius-transform-simd.cpp
-    title: "Superset Zeta/Moebius Transform SIMD (\u4E0A\u4F4D\u96C6\u5408\u306E\u30BC\
-      \u30FC\u30BF/\u30E1\u30D3\u30A6\u30B9\u5909\u63DB, SIMD)"
+    path: math/combinatorics/mod-int.cpp
+    title: math/combinatorics/mod-int.cpp
+  - icon: ':heavy_check_mark:'
+    path: math/fft/bitwise-or-convolution.cpp
+    title: "Bitwise Or Convolution (Bitwise-OR\u7573\u307F\u8FBC\u307F)"
+  - icon: ':heavy_check_mark:'
+    path: math/fft/subset-zeta-moebius-transform.cpp
+    title: "Subset Zeta/Moebius Transform (\u4E0B\u4F4D\u96C6\u5408\u306E\u30BC\u30FC\
+      \u30BF/\u30E1\u30D3\u30A6\u30B9\u5909\u63DB)"
   - icon: ':heavy_check_mark:'
     path: other/printer.cpp
     title: "Printer(\u9AD8\u901F\u51FA\u529B)"
@@ -53,60 +59,58 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-bitwise-and-convolution-2.test.cpp\"\
-    \n\n#line 1 \"math/fft/superset-zeta-moebius-transform-simd.cpp\"\n#include <immintrin.h>\n\
-    \n/**\n * @brief Superset Zeta/Moebius Transform SIMD (\u4E0A\u4F4D\u96C6\u5408\
-    \u306E\u30BC\u30FC\u30BF/\u30E1\u30D3\u30A6\u30B9\u5909\u63DB, SIMD)\n */\n__attribute__((target(\"\
-    avx2\")))\nvoid superset_zeta_transform_simd(int *buf, int mod, int n) {\n  assert((n\
-    \ & (n - 1)) == 0);\n  auto m_zero = _mm256_set1_epi32(0);\n  auto m_mod_one =\
-    \ _mm256_set1_epi32(mod - 1);\n  auto m_mod = _mm256_set1_epi32(mod);\n  auto\
-    \ m_zero2 = _mm_set1_epi32(0);\n  auto m_mod_one2 = _mm_set1_epi32(mod - 1);\n\
-    \  auto m_mod2 = _mm_set1_epi32(mod);\n  for(int i = 1; i < n; i <<= 1) {\n  \
-    \  for(int j = 0; j < n; j += i << 1) {\n      if(i <= 2) {\n        for(int k\
-    \ = 0; k < i; k++) {\n          buf[j + k] += buf[j + k + i];\n          if(buf[j\
-    \ + k] >= mod) buf[j + k] -= mod;\n        }\n      } else if(i == 4) {\n    \
-    \    for(int k = 0; k < i; k += 4) {\n          auto a = _mm_loadu_si128((__m128i\
-    \ *) (buf + j + k));\n          auto b = _mm_loadu_si128((__m128i *) (buf + j\
-    \ + k + i));\n          a = _mm_add_epi32(a, b);\n          a = _mm_sub_epi32(a,\
-    \ _mm_and_si128(_mm_cmpgt_epi32(a, m_mod_one2), m_mod2));\n          _mm_storeu_si128((__m128i\
-    \ *) (buf + j + k), a);\n        }\n      } else {\n        for(int k = 0; k <\
-    \ i; k += 8) {\n          auto a = _mm256_loadu_si256((__m256i *) (buf + j + k));\n\
-    \          auto b = _mm256_loadu_si256((__m256i *) (buf + j + k + i));\n     \
-    \     a = _mm256_add_epi32(a, b);\n          a = _mm256_sub_epi32(a, _mm256_and_si256(_mm256_cmpgt_epi32(a,\
-    \ m_mod_one), m_mod));\n          _mm256_storeu_si256((__m256i *) (buf + j + k),\
-    \ a);\n        }\n      }\n    }\n  }\n}\n\n\n__attribute__((target(\"avx2\")))\n\
-    void superset_moebius_transform_simd(int *buf, int mod, int n) {\n  assert((n\
-    \ & (n - 1)) == 0);\n  auto m_zero = _mm256_set1_epi32(0);\n  auto m_mod = _mm256_set1_epi32(mod);\n\
-    \  auto m_zero2 = _mm_set1_epi32(0);\n  auto m_mod2 = _mm_set1_epi32(mod);\n \
-    \ for(int i = 1; i < n; i <<= 1) {\n    for(int j = 0; j < n; j += i << 1) {\n\
-    \      if(i <= 2) {\n        for(int k = 0; k < i; k++) {\n          buf[j + k]\
-    \ += mod - buf[j + k + i];\n          if(buf[j + k] >= mod) buf[j + k] -= mod;\n\
-    \        }\n      } else if(i == 4) {\n        for(int k = 0; k < i; k += 4) {\n\
-    \          auto a = _mm_loadu_si128((__m128i * )(buf + j + k));\n          auto\
-    \ b = _mm_loadu_si128((__m128i * )(buf + j + k + i));\n          a = _mm_sub_epi32(a,\
-    \ b);\n          a = _mm_add_epi32(a, _mm_and_si128(_mm_cmpgt_epi32(m_zero2, a),\
-    \ m_mod2));\n          _mm_storeu_si128((__m128i * )(buf + j + k), a);\n     \
-    \   }\n      } else {\n        for(int k = 0; k < i; k += 8) {\n          auto\
-    \ a = _mm256_loadu_si256((__m256i * )(buf + j + k));\n          auto b = _mm256_loadu_si256((__m256i\
-    \ * )(buf + j + k + i));\n          a = _mm256_sub_epi32(a, b);\n          a =\
-    \ _mm256_add_epi32(a, _mm256_and_si256(_mm256_cmpgt_epi32(m_zero, a), m_mod));\n\
-    \          _mm256_storeu_si256((__m256i * )(buf + j + k), a);\n        }\n   \
-    \   }\n    }\n  }\n}\n\ntemplate< int mod >\nint *bitwise_and_convolution_simd(int\
-    \ *f, int *g, int n) {\n  assert((n & (n - 1)) == 0);\n  superset_zeta_transform_simd(f,\
-    \ mod, n);\n  superset_zeta_transform_simd(g, mod, n);\n  for(int i = 0; i < n;\
-    \ i++) f[i] = (1uLL * f[i] * g[i]) % mod;\n  superset_moebius_transform_simd(f,\
-    \ mod, n);\n  return f;\n}\n#line 6 \"test/verify/yosupo-bitwise-and-convolution-2.test.cpp\"\
-    \n\n#line 1 \"other/scanner.cpp\"\n/**\n * @brief Scanner(\u9AD8\u901F\u5165\u529B\
-    )\n */\nstruct Scanner {\npublic:\n\n  explicit Scanner(FILE *fp) : fp(fp) {}\n\
-    \n  template< typename T, typename... E >\n  void read(T &t, E &... e) {\n   \
-    \ read_single(t);\n    read(e...);\n  }\n\nprivate:\n  static constexpr size_t\
-    \ line_size = 1 << 16;\n  static constexpr size_t int_digits = 20;\n  char line[line_size\
-    \ + 1] = {};\n  FILE *fp = nullptr;\n  char *st = line;\n  char *ed = line;\n\n\
-    \  void read() {}\n\n  static inline bool is_space(char c) {\n    return c <=\
-    \ ' ';\n  }\n\n  void reread() {\n    ptrdiff_t len = ed - st;\n    memmove(line,\
-    \ st, len);\n    char *tmp = line + len;\n    ed = tmp + fread(tmp, 1, line_size\
-    \ - len, fp);\n    *ed = 0;\n    st = line;\n  }\n\n  void skip_space() {\n  \
-    \  while(true) {\n      if(st == ed) reread();\n      while(*st && is_space(*st))\
-    \ ++st;\n      if(st != ed) return;\n    }\n  }\n\n  template< typename T, enable_if_t<\
+    \n\n#line 1 \"math/fft/subset-zeta-moebius-transform.cpp\"\n/**\n * @brief Subset\
+    \ Zeta/Moebius Transform (\u4E0B\u4F4D\u96C6\u5408\u306E\u30BC\u30FC\u30BF/\u30E1\
+    \u30D3\u30A6\u30B9\u5909\u63DB)\n */\ntemplate< typename T >\nvoid subset_zeta_transform(vector<\
+    \ T > &f) {\n  const int n = (int) f.size();\n  assert((n & (n - 1)) == 0);\n\
+    \  for(int i = 1; i < n; i <<= 1) {\n    for(int j = 0; j < n; j += i << 1) {\n\
+    \      for(int k = 0; k < i; k++) {\n        f[j + k + i] += f[j + k];\n     \
+    \ }\n    }\n  }\n}\n\ntemplate< typename T >\nvoid subset_moebius_transform(vector<\
+    \ T > &f) {\n  const int n = (int) f.size();\n  assert((n & (n - 1)) == 0);\n\
+    \  for(int i = 1; i < n; i <<= 1) {\n    for(int j = 0; j < n; j += i << 1) {\n\
+    \      for(int k = 0; k < i; k++) {\n        f[j + k + i] -= f[j + k];\n     \
+    \ }\n    }\n  }\n}\n#line 2 \"math/fft/bitwise-or-convolution.cpp\"\n\n/**\n *\
+    \ @brief Bitwise Or Convolution (Bitwise-OR\u7573\u307F\u8FBC\u307F)\n */\ntemplate<\
+    \ typename T >\nvector< T > bitwise_or_convolution(vector< T > f, vector< T >\
+    \ g) {\n  const int n = (int) f.size();\n  assert(f.size() == g.size());\n  assert((n\
+    \ & (n - 1)) == 0);\n  subset_zeta_transform(f);\n  subset_zeta_transform(g);\n\
+    \  for(int i = 0; i < n; i++) f[i] *= g[i];\n  subset_moebius_transform(f);\n\
+    \  return f;\n}\n#line 1 \"math/combinatorics/mod-int.cpp\"\ntemplate< int mod\
+    \ >\nstruct ModInt {\n  int x;\n\n  ModInt() : x(0) {}\n\n  ModInt(int64_t y)\
+    \ : x(y >= 0 ? y % mod : (mod - (-y) % mod) % mod) {}\n\n  ModInt &operator+=(const\
+    \ ModInt &p) {\n    if((x += p.x) >= mod) x -= mod;\n    return *this;\n  }\n\n\
+    \  ModInt &operator-=(const ModInt &p) {\n    if((x += mod - p.x) >= mod) x -=\
+    \ mod;\n    return *this;\n  }\n\n  ModInt &operator*=(const ModInt &p) {\n  \
+    \  x = (int) (1LL * x * p.x % mod);\n    return *this;\n  }\n\n  ModInt &operator/=(const\
+    \ ModInt &p) {\n    *this *= p.inverse();\n    return *this;\n  }\n\n  ModInt\
+    \ operator-() const { return ModInt(-x); }\n\n  ModInt operator+(const ModInt\
+    \ &p) const { return ModInt(*this) += p; }\n\n  ModInt operator-(const ModInt\
+    \ &p) const { return ModInt(*this) -= p; }\n\n  ModInt operator*(const ModInt\
+    \ &p) const { return ModInt(*this) *= p; }\n\n  ModInt operator/(const ModInt\
+    \ &p) const { return ModInt(*this) /= p; }\n\n  bool operator==(const ModInt &p)\
+    \ const { return x == p.x; }\n\n  bool operator!=(const ModInt &p) const { return\
+    \ x != p.x; }\n\n  ModInt inverse() const {\n    int a = x, b = mod, u = 1, v\
+    \ = 0, t;\n    while(b > 0) {\n      t = a / b;\n      swap(a -= t * b, b);\n\
+    \      swap(u -= t * v, v);\n    }\n    return ModInt(u);\n  }\n\n  ModInt pow(int64_t\
+    \ n) const {\n    ModInt ret(1), mul(x);\n    while(n > 0) {\n      if(n & 1)\
+    \ ret *= mul;\n      mul *= mul;\n      n >>= 1;\n    }\n    return ret;\n  }\n\
+    \n  friend ostream &operator<<(ostream &os, const ModInt &p) {\n    return os\
+    \ << p.x;\n  }\n\n  friend istream &operator>>(istream &is, ModInt &a) {\n   \
+    \ int64_t t;\n    is >> t;\n    a = ModInt< mod >(t);\n    return (is);\n  }\n\
+    \n  static int get_mod() { return mod; }\n};\n\nusing modint = ModInt< mod >;\n\
+    #line 7 \"test/verify/yosupo-bitwise-and-convolution-2.test.cpp\"\n\n#line 1 \"\
+    other/scanner.cpp\"\n/**\n * @brief Scanner(\u9AD8\u901F\u5165\u529B)\n */\nstruct\
+    \ Scanner {\npublic:\n\n  explicit Scanner(FILE *fp) : fp(fp) {}\n\n  template<\
+    \ typename T, typename... E >\n  void read(T &t, E &... e) {\n    read_single(t);\n\
+    \    read(e...);\n  }\n\nprivate:\n  static constexpr size_t line_size = 1 <<\
+    \ 16;\n  static constexpr size_t int_digits = 20;\n  char line[line_size + 1]\
+    \ = {};\n  FILE *fp = nullptr;\n  char *st = line;\n  char *ed = line;\n\n  void\
+    \ read() {}\n\n  static inline bool is_space(char c) {\n    return c <= ' ';\n\
+    \  }\n\n  void reread() {\n    ptrdiff_t len = ed - st;\n    memmove(line, st,\
+    \ len);\n    char *tmp = line + len;\n    ed = tmp + fread(tmp, 1, line_size -\
+    \ len, fp);\n    *ed = 0;\n    st = line;\n  }\n\n  void skip_space() {\n    while(true)\
+    \ {\n      if(st == ed) reread();\n      while(*st && is_space(*st)) ++st;\n \
+    \     if(st != ed) return;\n    }\n  }\n\n  template< typename T, enable_if_t<\
     \ is_integral< T >::value, int > = 0 >\n  void read_single(T &s) {\n    skip_space();\n\
     \    if(st + int_digits >= ed) reread();\n    bool neg = false;\n    if(is_signed<\
     \ T >::value && *st == '-') {\n      neg = true;\n      ++st;\n    }\n    typename\
@@ -139,31 +143,36 @@ data:
     \ : s) write_single(c);\n  }\n\n  void write_single(const char *s) {\n    while(*s\
     \ != 0) write_single(*s++);\n  }\n\n  template< typename T >\n  void write_single(const\
     \ vector< T > &s) {\n    for(size_t i = 0; i < s.size(); i++) {\n      if(i) write_single('\
-    \ ');\n      write_single(s[i]);\n    }\n  }\n};\n#line 9 \"test/verify/yosupo-bitwise-and-convolution-2.test.cpp\"\
-    \n\nconst int MOD = 998244353;\n\nint main() {\n  Scanner in(stdin);\n  Printer\
-    \ out(stdout);\n  int N;\n  in.read(N);\n  int a[1 << N], b[1 << N];\n  for(int\
-    \ i = 0; i < (1 << N); i++) in.read(a[i]);\n  for(int i = 0; i < (1 << N); i++)\
-    \ in.read(b[i]);\n  bitwise_and_convolution_simd< MOD >(a, b, 1 << N);\n  for(int\
-    \ i = 0; i < (1 << N); i++) {\n    if(i) out.write(' ');\n    out.write(a[i]);\n\
-    \  }\n  out.writeln();\n}\n"
+    \ ');\n      write_single(s[i]);\n    }\n  }\n};\n#line 10 \"test/verify/yosupo-bitwise-and-convolution-2.test.cpp\"\
+    \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
+    \  Scanner in(stdin);\n  Printer out(stdout);\n  int N;\n  in.read(N);\n  vector<\
+    \ mint > a(1 << N), b(1 << N);\n  for(auto &x : a) {\n    int p;\n    in.read(p);\n\
+    \    x = p;\n  }\n  for(auto &x : b) {\n    int p;\n    in.read(p);\n    x = p;\n\
+    \  }\n  reverse(begin(a), end(a));\n  reverse(begin(b), end(b));\n  auto c = bitwise_or_convolution(a,\
+    \ b);\n  reverse(begin(c), end(c));\n  for(int i = 0; i < (1 << N); i++) {\n \
+    \   if(i) out.write(' ');\n    out.write(c[i].x);\n  }\n  out.writeln();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bitwise_and_convolution\"\
-    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../math/fft/superset-zeta-moebius-transform-simd.cpp\"\
-    \n\n#include \"../../other/scanner.cpp\"\n#include \"../../other/printer.cpp\"\
-    \n\nconst int MOD = 998244353;\n\nint main() {\n  Scanner in(stdin);\n  Printer\
-    \ out(stdout);\n  int N;\n  in.read(N);\n  int a[1 << N], b[1 << N];\n  for(int\
-    \ i = 0; i < (1 << N); i++) in.read(a[i]);\n  for(int i = 0; i < (1 << N); i++)\
-    \ in.read(b[i]);\n  bitwise_and_convolution_simd< MOD >(a, b, 1 << N);\n  for(int\
-    \ i = 0; i < (1 << N); i++) {\n    if(i) out.write(' ');\n    out.write(a[i]);\n\
-    \  }\n  out.writeln();\n}\n"
+    \n\n#include \"../../template/template.cpp\"\n\n#include \"../../math/fft/bitwise-or-convolution.cpp\"\
+    \n#include \"../../math/combinatorics/mod-int.cpp\"\n\n#include \"../../other/scanner.cpp\"\
+    \n#include \"../../other/printer.cpp\"\n\nconst int MOD = 998244353;\nusing mint\
+    \ = ModInt< MOD >;\n\nint main() {\n  Scanner in(stdin);\n  Printer out(stdout);\n\
+    \  int N;\n  in.read(N);\n  vector< mint > a(1 << N), b(1 << N);\n  for(auto &x\
+    \ : a) {\n    int p;\n    in.read(p);\n    x = p;\n  }\n  for(auto &x : b) {\n\
+    \    int p;\n    in.read(p);\n    x = p;\n  }\n  reverse(begin(a), end(a));\n\
+    \  reverse(begin(b), end(b));\n  auto c = bitwise_or_convolution(a, b);\n  reverse(begin(c),\
+    \ end(c));\n  for(int i = 0; i < (1 << N); i++) {\n    if(i) out.write(' ');\n\
+    \    out.write(c[i].x);\n  }\n  out.writeln();\n}\n"
   dependsOn:
   - template/template.cpp
-  - math/fft/superset-zeta-moebius-transform-simd.cpp
+  - math/fft/bitwise-or-convolution.cpp
+  - math/fft/subset-zeta-moebius-transform.cpp
+  - math/combinatorics/mod-int.cpp
   - other/scanner.cpp
   - other/printer.cpp
   isVerificationFile: true
   path: test/verify/yosupo-bitwise-and-convolution-2.test.cpp
   requiredBy: []
-  timestamp: '2021-08-02 00:08:15+09:00'
+  timestamp: '2021-08-02 23:35:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-bitwise-and-convolution-2.test.cpp

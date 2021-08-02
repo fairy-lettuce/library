@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-bitwise-and-convolution-2.test.cpp
-    title: test/verify/yosupo-bitwise-and-convolution-2.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     document_title: "Superset Zeta/Moebius Transform SIMD (\u4E0A\u4F4D\u96C6\u5408\
       \u306E\u30BC\u30FC\u30BF/\u30E1\u30D3\u30A6\u30B9\u5909\u63DB, SIMD)"
@@ -101,9 +98,8 @@ data:
   path: math/fft/superset-zeta-moebius-transform-simd.cpp
   requiredBy: []
   timestamp: '2021-08-02 00:08:15+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/verify/yosupo-bitwise-and-convolution-2.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: math/fft/superset-zeta-moebius-transform-simd.cpp
 layout: document
 redirect_from:
