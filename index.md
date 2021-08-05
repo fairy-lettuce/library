@@ -412,9 +412,6 @@ data:
     - icon: ':warning:'
       path: math/combinatorics/lagrange-polynomial.cpp
       title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593, \u5024)"
-    - icon: ':warning:'
-      path: math/combinatorics/mod-int-2.cpp
-      title: math/combinatorics/mod-int-2.cpp
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-int.cpp
       title: math/combinatorics/mod-int.cpp
@@ -430,6 +427,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-tetration.cpp
       title: "Mod Tetration(\u30C6\u30C8\u30EC\u30FC\u30B7\u30E7\u30F3)"
+    - icon: ':heavy_check_mark:'
+      path: math/combinatorics/montgomery-mod-int.cpp
+      title: Montgomery Mod Int
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/montmort.cpp
       title: "Montmort-Number(\u30E2\u30F3\u30E2\u30FC\u30EB\u6570)"
@@ -1242,6 +1242,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-chromatic-number.test.cpp
       title: test/verify/yosupo-chromatic-number.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-convolution-mod-2.test.cpp
+      title: test/verify/yosupo-convolution-mod-2.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-convolution-mod.test.cpp
       title: test/verify/yosupo-convolution-mod.test.cpp

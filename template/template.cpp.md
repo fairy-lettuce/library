@@ -337,6 +337,9 @@ data:
     path: test/verify/yosupo-chromatic-number.test.cpp
     title: test/verify/yosupo-chromatic-number.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-convolution-mod-2.test.cpp
+    title: test/verify/yosupo-convolution-mod-2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-convolution-mod.test.cpp
     title: test/verify/yosupo-convolution-mod.test.cpp
   - icon: ':heavy_check_mark:'
@@ -710,6 +713,7 @@ data:
   - test/verify/aoj-dpl-3-c.test.cpp
   - test/verify/aoj-dsl-2-a.test.cpp
   - test/verify/aoj-dpl-5-g.test.cpp
+  - test/verify/yosupo-convolution-mod-2.test.cpp
   - test/verify/yukicoder-3046.test.cpp
   - test/verify/aoj-grl-1-b.test.cpp
   - test/verify/yosupo-persistent-unionfind.test.cpp

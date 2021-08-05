@@ -11,6 +11,9 @@ data:
     path: test/verify/yosupo-bernoulli-number.test.cpp
     title: test/verify/yosupo-bernoulli-number.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-convolution-mod-2.test.cpp
+    title: test/verify/yosupo-convolution-mod-2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-division-of-polynomials.test.cpp
     title: test/verify/yosupo-division-of-polynomials.test.cpp
   - icon: ':heavy_check_mark:'
@@ -144,6 +147,7 @@ data:
   - test/verify/yosupo-bernoulli-number.test.cpp
   - test/verify/yosupo-sharp-p-subset-sum.test.cpp
   - test/verify/yosupo-exp-of-formal-power-series.test.cpp
+  - test/verify/yosupo-convolution-mod-2.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
   - test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
