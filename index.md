@@ -429,7 +429,7 @@ data:
       title: "Mod Tetration(\u30C6\u30C8\u30EC\u30FC\u30B7\u30E7\u30F3)"
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/montgomery-mod-int.cpp
-      title: Montgomery Mod Int
+      title: Montgomery ModInt
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/montmort.cpp
       title: "Montmort-Number(\u30E2\u30F3\u30E2\u30FC\u30EB\u6570)"

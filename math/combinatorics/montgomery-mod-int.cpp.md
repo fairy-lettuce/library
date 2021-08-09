@@ -10,10 +10,10 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: Montgomery Mod Int
+    document_title: Montgomery ModInt
     links: []
   bundledCode: "#line 1 \"math/combinatorics/montgomery-mod-int.cpp\"\n/**\n * @brief\
-    \ Montgomery Mod Int\n */\ntemplate< uint32_t mod, bool fast = false >\nstruct\
+    \ Montgomery ModInt\n */\ntemplate< uint32_t mod, bool fast = false >\nstruct\
     \ MontgomeryModInt {\n  using mint = MontgomeryModInt;\n  using i32 = int32_t;\n\
     \  using i64 = int64_t;\n  using u32 = uint32_t;\n  using u64 = uint64_t;\n\n\
     \  static constexpr u32 get_r() {\n    u32 ret = mod;\n    for(i32 i = 0; i <\
@@ -23,9 +23,9 @@ data:
     invalid, mod >= 2 ^ 30\");\n  static_assert((mod & 1) == 1, \"invalid, mod % 2\
     \ == 0\");\n\n  u32 x;\n\n  MontgomeryModInt() : x{} {}\n\n  MontgomeryModInt(const\
     \ i64 &a)\n      : x(reduce(u64(fast ? a : (a % mod + mod)) * n2)) {}\n\n  static\
-    \ constexpr u32 reduce(const u64 &b) {\n    return (b + u64(u32(b) * (-r)) * mod)\
-    \ >> 32;\n  }\n\n  mint &operator+=(const mint &p) {\n    if(i32(x += p.x - 2\
-    \ * mod) < 0) x += 2 * mod;\n    return *this;\n  }\n\n  mint &operator-=(const\
+    \ constexpr u32 reduce(const u64 &b) {\n    return u32(b >> 32) + mod - u32((u64(u32(b)\
+    \ * r) * mod) >> 32);\n  }\n\n  mint &operator+=(const mint &p) {\n    if(i32(x\
+    \ += p.x - 2 * mod) < 0) x += 2 * mod;\n    return *this;\n  }\n\n  mint &operator-=(const\
     \ mint &p) {\n    if(i32(x -= p.x) < 0) x += 2 * mod;\n    return *this;\n  }\n\
     \n  mint &operator*=(const mint &p) {\n    x = reduce(u64(x) * p.x);\n    return\
     \ *this;\n  }\n\n  mint &operator/=(const mint &p) {\n    *this *= p.inverse();\n\
@@ -45,7 +45,7 @@ data:
     \ &is, mint &a) {\n    i64 t;\n    is >> t;\n    a = mint(t);\n    return is;\n\
     \  }\n\n  static u32 get_mod() { return mod; }\n};\n\nusing modint = MontgomeryModInt<\
     \ mod >;\n"
-  code: "/**\n * @brief Montgomery Mod Int\n */\ntemplate< uint32_t mod, bool fast\
+  code: "/**\n * @brief Montgomery ModInt\n */\ntemplate< uint32_t mod, bool fast\
     \ = false >\nstruct MontgomeryModInt {\n  using mint = MontgomeryModInt;\n  using\
     \ i32 = int32_t;\n  using i64 = int64_t;\n  using u32 = uint32_t;\n  using u64\
     \ = uint64_t;\n\n  static constexpr u32 get_r() {\n    u32 ret = mod;\n    for(i32\
@@ -55,9 +55,9 @@ data:
     invalid, mod >= 2 ^ 30\");\n  static_assert((mod & 1) == 1, \"invalid, mod % 2\
     \ == 0\");\n\n  u32 x;\n\n  MontgomeryModInt() : x{} {}\n\n  MontgomeryModInt(const\
     \ i64 &a)\n      : x(reduce(u64(fast ? a : (a % mod + mod)) * n2)) {}\n\n  static\
-    \ constexpr u32 reduce(const u64 &b) {\n    return (b + u64(u32(b) * (-r)) * mod)\
-    \ >> 32;\n  }\n\n  mint &operator+=(const mint &p) {\n    if(i32(x += p.x - 2\
-    \ * mod) < 0) x += 2 * mod;\n    return *this;\n  }\n\n  mint &operator-=(const\
+    \ constexpr u32 reduce(const u64 &b) {\n    return u32(b >> 32) + mod - u32((u64(u32(b)\
+    \ * r) * mod) >> 32);\n  }\n\n  mint &operator+=(const mint &p) {\n    if(i32(x\
+    \ += p.x - 2 * mod) < 0) x += 2 * mod;\n    return *this;\n  }\n\n  mint &operator-=(const\
     \ mint &p) {\n    if(i32(x -= p.x) < 0) x += 2 * mod;\n    return *this;\n  }\n\
     \n  mint &operator*=(const mint &p) {\n    x = reduce(u64(x) * p.x);\n    return\
     \ *this;\n  }\n\n  mint &operator/=(const mint &p) {\n    *this *= p.inverse();\n\
@@ -81,7 +81,7 @@ data:
   isVerificationFile: false
   path: math/combinatorics/montgomery-mod-int.cpp
   requiredBy: []
-  timestamp: '2021-08-06 03:07:08+09:00'
+  timestamp: '2021-08-09 21:02:39+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-convolution-mod-2.test.cpp
@@ -90,5 +90,5 @@ layout: document
 redirect_from:
 - /library/math/combinatorics/montgomery-mod-int.cpp
 - /library/math/combinatorics/montgomery-mod-int.cpp.html
-title: Montgomery Mod Int
+title: Montgomery ModInt
 ---

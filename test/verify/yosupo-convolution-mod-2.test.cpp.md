@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/montgomery-mod-int.cpp
-    title: Montgomery Mod Int
+    title: Montgomery ModInt
   - icon: ':heavy_check_mark:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number Theoretic Transform Friendly Mod Int
@@ -50,7 +50,7 @@ data:
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-convolution-mod-2.test.cpp\"\
     \n\n#line 1 \"math/combinatorics/montgomery-mod-int.cpp\"\n/**\n * @brief Montgomery\
-    \ Mod Int\n */\ntemplate< uint32_t mod, bool fast = false >\nstruct MontgomeryModInt\
+    \ ModInt\n */\ntemplate< uint32_t mod, bool fast = false >\nstruct MontgomeryModInt\
     \ {\n  using mint = MontgomeryModInt;\n  using i32 = int32_t;\n  using i64 = int64_t;\n\
     \  using u32 = uint32_t;\n  using u64 = uint64_t;\n\n  static constexpr u32 get_r()\
     \ {\n    u32 ret = mod;\n    for(i32 i = 0; i < 4; i++) ret *= 2 - mod * ret;\n\
@@ -60,22 +60,22 @@ data:
     \ & 1) == 1, \"invalid, mod % 2 == 0\");\n\n  u32 x;\n\n  MontgomeryModInt() :\
     \ x{} {}\n\n  MontgomeryModInt(const i64 &a)\n      : x(reduce(u64(fast ? a :\
     \ (a % mod + mod)) * n2)) {}\n\n  static constexpr u32 reduce(const u64 &b) {\n\
-    \    return (b + u64(u32(b) * (-r)) * mod) >> 32;\n  }\n\n  mint &operator+=(const\
-    \ mint &p) {\n    if(i32(x += p.x - 2 * mod) < 0) x += 2 * mod;\n    return *this;\n\
-    \  }\n\n  mint &operator-=(const mint &p) {\n    if(i32(x -= p.x) < 0) x += 2\
-    \ * mod;\n    return *this;\n  }\n\n  mint &operator*=(const mint &p) {\n    x\
-    \ = reduce(u64(x) * p.x);\n    return *this;\n  }\n\n  mint &operator/=(const\
-    \ mint &p) {\n    *this *= p.inverse();\n    return *this;\n  }\n\n  mint operator-()\
-    \ const { return mint() - *this; }\n\n  mint operator+(const mint &p) const {\
-    \ return mint(*this) += p; }\n\n  mint operator-(const mint &p) const { return\
-    \ mint(*this) -= p; }\n\n  mint operator*(const mint &p) const { return mint(*this)\
-    \ *= p; }\n\n  mint operator/(const mint &p) const { return mint(*this) /= p;\
-    \ }\n\n  bool operator==(const mint &p) const { return (x >= mod ? x - mod : x)\
-    \ == (p.x >= mod ? p.x - mod : p.x); }\n\n  bool operator!=(const mint &p) const\
-    \ { return (x >= mod ? x - mod : x) != (p.x >= mod ? p.x - mod : p.x); }\n\n \
-    \ u32 get() const {\n    u32 ret = reduce(x);\n    return ret >= mod ? ret - mod\
-    \ : ret;\n  }\n\n  mint pow(u64 n) const {\n    mint ret(1), mul(*this);\n   \
-    \ while(n > 0) {\n      if(n & 1) ret *= mul;\n      mul *= mul;\n      n >>=\
+    \    return u32(b >> 32) + mod - u32((u64(u32(b) * r) * mod) >> 32);\n  }\n\n\
+    \  mint &operator+=(const mint &p) {\n    if(i32(x += p.x - 2 * mod) < 0) x +=\
+    \ 2 * mod;\n    return *this;\n  }\n\n  mint &operator-=(const mint &p) {\n  \
+    \  if(i32(x -= p.x) < 0) x += 2 * mod;\n    return *this;\n  }\n\n  mint &operator*=(const\
+    \ mint &p) {\n    x = reduce(u64(x) * p.x);\n    return *this;\n  }\n\n  mint\
+    \ &operator/=(const mint &p) {\n    *this *= p.inverse();\n    return *this;\n\
+    \  }\n\n  mint operator-() const { return mint() - *this; }\n\n  mint operator+(const\
+    \ mint &p) const { return mint(*this) += p; }\n\n  mint operator-(const mint &p)\
+    \ const { return mint(*this) -= p; }\n\n  mint operator*(const mint &p) const\
+    \ { return mint(*this) *= p; }\n\n  mint operator/(const mint &p) const { return\
+    \ mint(*this) /= p; }\n\n  bool operator==(const mint &p) const { return (x >=\
+    \ mod ? x - mod : x) == (p.x >= mod ? p.x - mod : p.x); }\n\n  bool operator!=(const\
+    \ mint &p) const { return (x >= mod ? x - mod : x) != (p.x >= mod ? p.x - mod\
+    \ : p.x); }\n\n  u32 get() const {\n    u32 ret = reduce(x);\n    return ret >=\
+    \ mod ? ret - mod : ret;\n  }\n\n  mint pow(u64 n) const {\n    mint ret(1), mul(*this);\n\
+    \    while(n > 0) {\n      if(n & 1) ret *= mul;\n      mul *= mul;\n      n >>=\
     \ 1;\n    }\n    return ret;\n  }\n\n  mint inverse() const {\n    return pow(mod\
     \ - 2);\n  }\n\n  friend ostream &operator<<(ostream &os, const mint &p) {\n \
     \   return os << p.get();\n  }\n\n  friend istream &operator>>(istream &is, mint\
@@ -136,7 +136,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-convolution-mod-2.test.cpp
   requiredBy: []
-  timestamp: '2021-08-06 03:07:08+09:00'
+  timestamp: '2021-08-09 21:02:39+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-convolution-mod-2.test.cpp
