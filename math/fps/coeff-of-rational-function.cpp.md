@@ -2,16 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/fps/kth-term-of-linearly-recurrent-sequence.cpp
     title: Kth Term of Linearly Recurrent Sequence
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
     title: test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/coeff-of-rational-function.md
     document_title: Coeff of Rational Function
@@ -45,7 +45,7 @@ data:
   requiredBy:
   - math/fps/kth-term-of-linearly-recurrent-sequence.cpp
   timestamp: '2021-07-13 20:24:08+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
 documentation_of: math/fps/coeff-of-rational-function.cpp

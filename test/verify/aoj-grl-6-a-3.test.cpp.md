@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/flow/push-relabel.hpp
     title: graph/flow/push-relabel.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

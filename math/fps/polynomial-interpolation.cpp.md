@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/fps/subproduct-tree.cpp
     title: Subproduct Tree
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-polynomial-interpolation.test.cpp
     title: test/verify/yosupo-polynomial-interpolation.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
     links: []
@@ -45,7 +45,7 @@ data:
   path: math/fps/polynomial-interpolation.cpp
   requiredBy: []
   timestamp: '2021-07-13 20:24:08+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/yosupo-polynomial-interpolation.test.cpp
 documentation_of: math/fps/polynomial-interpolation.cpp

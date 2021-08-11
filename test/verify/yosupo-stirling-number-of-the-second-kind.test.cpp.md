@@ -1,28 +1,28 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number Theoretic Transform Friendly Mod Int
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/fps/formal-power-series-friendly-ntt.cpp
     title: "Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
       \u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/fps/stirling-second.cpp
     title: "Stirling Second(\u7B2C\u4E8C\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind
@@ -130,9 +130,9 @@ data:
     \ T &v) const { return P(*this) *= v; }\n\n  P operator/(const P &r) const { return\
     \ P(*this) /= r; }\n\n  P operator%(const P &r) const { return P(*this) %= r;\
     \ }\n\n  P &operator+=(const P &r) {\n    if(r.size() > this->size()) this->resize(r.size());\n\
-    \    for(int i = 0; i < r.size(); i++) (*this)[i] += r[i];\n    return *this;\n\
+    \    for(int i = 0; i < (int) r.size(); i++) (*this)[i] += r[i];\n    return *this;\n\
     \  }\n\n  P &operator-=(const P &r) {\n    if(r.size() > this->size()) this->resize(r.size());\n\
-    \    for(int i = 0; i < r.size(); i++) (*this)[i] -= r[i];\n    return *this;\n\
+    \    for(int i = 0; i < (int) r.size(); i++) (*this)[i] -= r[i];\n    return *this;\n\
     \  }\n\n  // https://judge.yosupo.jp/problem/convolution_mod\n  P &operator*=(const\
     \ P &r) {\n    if(this->empty() || r.empty()) {\n      this->clear();\n      return\
     \ *this;\n    }\n    auto ret = NTT::multiply(*this, r);\n    return *this = {begin(ret),\
@@ -143,24 +143,25 @@ data:
     \    return *this;\n  }\n\n  // https://judge.yosupo.jp/problem/division_of_polynomials\n\
     \  pair< P, P > div_mod(const P &r) {\n    P q = *this / r;\n    P x = *this -\
     \ q * r;\n    x.shrink();\n    return make_pair(q, x);\n  }\n\n  P operator-()\
-    \ const {\n    P ret(this->size());\n    for(int i = 0; i < this->size(); i++)\
-    \ ret[i] = -(*this)[i];\n    return ret;\n  }\n\n  P &operator+=(const T &r) {\n\
-    \    if(this->empty()) this->resize(1);\n    (*this)[0] += r;\n    return *this;\n\
-    \  }\n\n  P &operator-=(const T &r) {\n    if(this->empty()) this->resize(1);\n\
+    \ const {\n    P ret(this->size());\n    for(int i = 0; i < (int) this->size();\
+    \ i++) ret[i] = -(*this)[i];\n    return ret;\n  }\n\n  P &operator+=(const T\
+    \ &r) {\n    if(this->empty()) this->resize(1);\n    (*this)[0] += r;\n    return\
+    \ *this;\n  }\n\n  P &operator-=(const T &r) {\n    if(this->empty()) this->resize(1);\n\
     \    (*this)[0] -= r;\n    return *this;\n  }\n\n  P &operator*=(const T &v) {\n\
-    \    for(int i = 0; i < this->size(); i++) (*this)[i] *= v;\n    return *this;\n\
-    \  }\n\n  P dot(P r) const {\n    P ret(min(this->size(), r.size()));\n    for(int\
-    \ i = 0; i < ret.size(); i++) ret[i] = (*this)[i] * r[i];\n    return ret;\n \
-    \ }\n\n  P operator>>(int sz) const {\n    if(this->size() <= sz) return {};\n\
-    \    P ret(*this);\n    ret.erase(ret.begin(), ret.begin() + sz);\n    return\
-    \ ret;\n  }\n\n  P operator<<(int sz) const {\n    P ret(*this);\n    ret.insert(ret.begin(),\
-    \ sz, T(0));\n    return ret;\n  }\n\n  T operator()(T x) const {\n    T r = 0,\
-    \ w = 1;\n    for(auto &v : *this) {\n      r += w * v;\n      w *= x;\n    }\n\
-    \    return r;\n  }\n\n  P diff() const {\n    const int n = (int) this->size();\n\
-    \    P ret(max(0, n - 1));\n    for(int i = 1; i < n; i++) ret[i - 1] = (*this)[i]\
-    \ * T(i);\n    return ret;\n  }\n\n  P integral() const {\n    const int n = (int)\
-    \ this->size();\n    P ret(n + 1);\n    ret[0] = T(0);\n    for(int i = 0; i <\
-    \ n; i++) ret[i + 1] = (*this)[i] / T(i + 1);\n    return ret;\n  }\n\n  // https://judge.yosupo.jp/problem/inv_of_formal_power_series\n\
+    \    for(int i = 0; i < (int) this->size(); i++) (*this)[i] *= v;\n    return\
+    \ *this;\n  }\n\n  P dot(P r) const {\n    P ret(min(this->size(), r.size()));\n\
+    \    for(int i = 0; i < (int) ret.size(); i++) ret[i] = (*this)[i] * r[i];\n \
+    \   return ret;\n  }\n\n  P operator>>(int sz) const {\n    if((int) this->size()\
+    \ <= sz) return {};\n    P ret(*this);\n    ret.erase(ret.begin(), ret.begin()\
+    \ + sz);\n    return ret;\n  }\n\n  P operator<<(int sz) const {\n    P ret(*this);\n\
+    \    ret.insert(ret.begin(), sz, T(0));\n    return ret;\n  }\n\n  T operator()(T\
+    \ x) const {\n    T r = 0, w = 1;\n    for(auto &v : *this) {\n      r += w *\
+    \ v;\n      w *= x;\n    }\n    return r;\n  }\n\n  P diff() const {\n    const\
+    \ int n = (int) this->size();\n    P ret(max(0, n - 1));\n    for(int i = 1; i\
+    \ < n; i++) ret[i - 1] = (*this)[i] * T(i);\n    return ret;\n  }\n\n  P integral()\
+    \ const {\n    const int n = (int) this->size();\n    P ret(n + 1);\n    ret[0]\
+    \ = T(0);\n    for(int i = 0; i < n; i++) ret[i + 1] = (*this)[i] / T(i + 1);\n\
+    \    return ret;\n  }\n\n  // https://judge.yosupo.jp/problem/inv_of_formal_power_series\n\
     \  // F(0) must not be 0\n  P inv(int deg = -1) const {\n    assert(((*this)[0])\
     \ != T(0));\n    const int n = (int) this->size();\n    if(deg == -1) deg = n;\n\
     \    P res(deg);\n    res[0] = {T(1) / (*this)[0]};\n    for(int d = 1; d < deg;\
@@ -179,15 +180,15 @@ data:
     \    if((*this)[0] == T(0)) {\n      for(int i = 1; i < n; i++) {\n        if((*this)[i]\
     \ != T(0)) {\n          if(i & 1) return {};\n          if(deg - i / 2 <= 0) break;\n\
     \          auto ret = (*this >> i).sqrt(deg - i / 2, get_sqrt);\n          if(ret.empty())\
-    \ return {};\n          ret = ret << (i / 2);\n          if(ret.size() < deg)\
-    \ ret.resize(deg, T(0));\n          return ret;\n        }\n      }\n      return\
-    \ P(deg, 0);\n    }\n    auto sqr = T(get_sqrt((*this)[0]));\n    if(sqr * sqr\
-    \ != (*this)[0]) return {};\n    P ret{sqr};\n    T inv2 = T(1) / T(2);\n    for(int\
-    \ i = 1; i < deg; i <<= 1) {\n      ret = (ret + pre(i << 1) * ret.inv(i << 1))\
-    \ * inv2;\n    }\n    return ret.pre(deg);\n  }\n\n  P sqrt(const function< T(T)\
-    \ > &get_sqrt, int deg = -1) const {\n    return sqrt(deg, get_sqrt);\n  }\n\n\
-    \  // https://judge.yosupo.jp/problem/exp_of_formal_power_series\n  // F(0) must\
-    \ be 0\n  P exp(int deg = -1) const {\n    if(deg == -1) deg = this->size();\n\
+    \ return {};\n          ret = ret << (i / 2);\n          if((int) ret.size() <\
+    \ deg) ret.resize(deg, T(0));\n          return ret;\n        }\n      }\n   \
+    \   return P(deg, 0);\n    }\n    auto sqr = T(get_sqrt((*this)[0]));\n    if(sqr\
+    \ * sqr != (*this)[0]) return {};\n    P ret{sqr};\n    T inv2 = T(1) / T(2);\n\
+    \    for(int i = 1; i < deg; i <<= 1) {\n      ret = (ret + pre(i << 1) * ret.inv(i\
+    \ << 1)) * inv2;\n    }\n    return ret.pre(deg);\n  }\n\n  P sqrt(const function<\
+    \ T(T) > &get_sqrt, int deg = -1) const {\n    return sqrt(deg, get_sqrt);\n \
+    \ }\n\n  // https://judge.yosupo.jp/problem/exp_of_formal_power_series\n  // F(0)\
+    \ must be 0\n  P exp(int deg = -1) const {\n    if(deg == -1) deg = this->size();\n\
     \    assert((*this)[0] == T(0));\n\n    P inv;\n    inv.reserve(deg + 1);\n  \
     \  inv.push_back(T(0));\n    inv.push_back(T(1));\n\n    auto inplace_integral\
     \ = [&](P &F) -> void {\n      const int n = (int) F.size();\n      auto mod =\
@@ -218,7 +219,7 @@ data:
     \    if(deg == -1) deg = n;\n    for(int i = 0; i < n; i++) {\n      if((*this)[i]\
     \ != T(0)) {\n        T rev = T(1) / (*this)[i];\n        P ret = (((*this * rev)\
     \ >> i).log() * k).exp() * ((*this)[i].pow(k));\n        if(i * k > deg) return\
-    \ P(deg, T(0));\n        ret = (ret << (i * k)).pre(deg);\n        if(ret.size()\
+    \ P(deg, T(0));\n        ret = (ret << (i * k)).pre(deg);\n        if((int) ret.size()\
     \ < deg) ret.resize(deg, T(0));\n        return ret;\n      }\n    }\n    return\
     \ *this;\n  }\n\n  P mod_pow(int64_t k, P g) const {\n    P modinv = g.rev().inv();\n\
     \    auto get_div = [&](P base) {\n      if(base.size() < g.size()) {\n      \
@@ -235,8 +236,7 @@ data:
     \    for(int i = 0; i < n; i++) p[i] *= fact[i];\n    p = p.rev();\n    P bs(n,\
     \ T(1));\n    for(int i = 1; i < n; i++) bs[i] = bs[i - 1] * c * rfact[i] * fact[i\
     \ - 1];\n    p = (p * bs).pre(n);\n    p = p.rev();\n    for(int i = 0; i < n;\
-    \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\n\ntemplate< typename Mint\
-    \ >\nusing FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 1 \"math/fps/stirling-second.cpp\"\
+    \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n#line 1 \"math/fps/stirling-second.cpp\"\
     \n/**\n * @brief Stirling Second(\u7B2C\u4E8C\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\
     \u30B0\u6570)\n */\ntemplate< template< typename > class FPS, typename Mint >\n\
     FPS< Mint > stirling_second(int N) {\n  FPS< Mint > A(N + 1), B(N + 1);\n  Mint\
@@ -261,8 +261,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 20:39:58+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-08-11 15:16:25+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
 layout: document
