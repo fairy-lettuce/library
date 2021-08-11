@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: dp/knapsack-01.cpp
     title: "Knapsack 01(0-1\u30CA\u30C3\u30D7\u30B5\u30C3\u30AF\u554F\u984C) $O(NW)$"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
