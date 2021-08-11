@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
-    title: Number Theoretic Transform Friendly Mod Int
+    title: Number Theoretic Transform Friendly ModInt
   - icon: ':heavy_check_mark:'
     path: math/fps/bernoulli.cpp
     title: "Bernoulli(\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fps/formal-power-series-friendly-ntt.cpp
     title: "Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
       \u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -79,58 +79,111 @@ data:
     \  friend istream &operator>>(istream &is, ModInt &a) {\n    int64_t t;\n    is\
     \ >> t;\n    a = ModInt< mod >(t);\n    return (is);\n  }\n\n  static int get_mod()\
     \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 1 \"math/fft/number-theoretic-transform-friendly-mod-int.cpp\"\
-    \n/**\n * @brief Number Theoretic Transform Friendly Mod Int\n */\ntemplate< typename\
+    \n/**\n * @brief Number Theoretic Transform Friendly ModInt\n */\ntemplate< typename\
     \ Mint >\nstruct NumberTheoreticTransformFriendlyModInt {\n\n  static vector<\
-    \ Mint > dw, idw;\n  static int max_base;\n  static Mint root;\n\n  NumberTheoreticTransformFriendlyModInt()\
-    \ = default;\n\n  static void init() {\n    if(dw.empty()) {\n      const unsigned\
-    \ mod = Mint::get_mod();\n      assert(mod >= 3 && mod % 2 == 1);\n      auto\
-    \ tmp = mod - 1;\n      max_base = 0;\n      while(tmp % 2 == 0) tmp >>= 1, max_base++;\n\
-    \      root = 2;\n      while(root.pow((mod - 1) >> 1) == 1) root += 1;\n    \
-    \  assert(root.pow(mod - 1) == 1);\n      dw.resize(max_base);\n      idw.resize(max_base);\n\
-    \      for(int i = 0; i < max_base; i++) {\n        dw[i] = -root.pow((mod - 1)\
-    \ >> (i + 2));\n        idw[i] = Mint(1) / dw[i];\n      }\n    }\n  }\n\n  static\
-    \ void ntt(vector< Mint > &a) {\n    init();\n    const int n = (int) a.size();\n\
-    \    assert((n & (n - 1)) == 0);\n    assert(__builtin_ctz(n) <= max_base);\n\
-    \    for(int m = n; m >>= 1;) {\n      Mint w = 1;\n      for(int s = 0, k = 0;\
-    \ s < n; s += 2 * m) {\n        for(int i = s, j = s + m; i < s + m; ++i, ++j)\
-    \ {\n          auto x = a[i], y = a[j] * w;\n          a[i] = x + y, a[j] = x\
-    \ - y;\n        }\n        w *= dw[__builtin_ctz(++k)];\n      }\n    }\n  }\n\
-    \n  static void intt(vector< Mint > &a, bool f = true) {\n    init();\n    const\
-    \ int n = (int) a.size();\n    assert((n & (n - 1)) == 0);\n    assert(__builtin_ctz(n)\
-    \ <= max_base);\n    for(int m = 1; m < n; m *= 2) {\n      Mint w = 1;\n    \
-    \  for(int s = 0, k = 0; s < n; s += 2 * m) {\n        for(int i = s, j = s +\
-    \ m; i < s + m; ++i, ++j) {\n          auto x = a[i], y = a[j];\n          a[i]\
-    \ = x + y, a[j] = (x - y) * w;\n        }\n        w *= idw[__builtin_ctz(++k)];\n\
-    \      }\n    }\n    if(f) {\n      Mint inv_sz = Mint(1) / n;\n      for(int\
-    \ i = 0; i < n; i++) a[i] *= inv_sz;\n    }\n  }\n\n  static vector< Mint > multiply(vector<\
-    \ Mint > a, vector< Mint > b) {\n    int need = a.size() + b.size() - 1;\n   \
-    \ int nbase = 1;\n    while((1 << nbase) < need) nbase++;\n    int sz = 1 << nbase;\n\
-    \    a.resize(sz, 0);\n    b.resize(sz, 0);\n    ntt(a);\n    ntt(b);\n    Mint\
-    \ inv_sz = Mint(1) / sz;\n    for(int i = 0; i < sz; i++) a[i] *= b[i] * inv_sz;\n\
-    \    intt(a, false);\n    a.resize(need);\n    return a;\n  }\n};\n\ntemplate<\
-    \ typename Mint >\nvector< Mint > NumberTheoreticTransformFriendlyModInt< Mint\
-    \ >::dw = vector< Mint >();\ntemplate< typename Mint >\nvector< Mint > NumberTheoreticTransformFriendlyModInt<\
-    \ Mint >::idw = vector< Mint >();\ntemplate< typename Mint >\nint NumberTheoreticTransformFriendlyModInt<\
-    \ Mint >::max_base = 0;\ntemplate< typename Mint >\nMint NumberTheoreticTransformFriendlyModInt<\
-    \ Mint >::root = Mint();\n#line 2 \"math/fps/formal-power-series-friendly-ntt.cpp\"\
-    \n\n/**\n * @brief Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
-    \u51AA\u7D1A\u6570)\n * @docs docs/formal-power-series-friendly-ntt.md\n */\n\
-    template< typename T >\nstruct FormalPowerSeriesFriendlyNTT : vector< T > {\n\
-    \  using vector< T >::vector;\n  using P = FormalPowerSeriesFriendlyNTT;\n  using\
-    \ NTT = NumberTheoreticTransformFriendlyModInt< T >;\n\n  P pre(int deg) const\
-    \ {\n    return P(begin(*this), begin(*this) + min((int) this->size(), deg));\n\
-    \  }\n\n  P rev(int deg = -1) const {\n    P ret(*this);\n    if(deg != -1) ret.resize(deg,\
-    \ T(0));\n    reverse(begin(ret), end(ret));\n    return ret;\n  }\n\n  void shrink()\
-    \ {\n    while(this->size() && this->back() == T(0)) this->pop_back();\n  }\n\n\
-    \  P operator+(const P &r) const { return P(*this) += r; }\n\n  P operator+(const\
-    \ T &v) const { return P(*this) += v; }\n\n  P operator-(const P &r) const { return\
-    \ P(*this) -= r; }\n\n  P operator-(const T &v) const { return P(*this) -= v;\
-    \ }\n\n  P operator*(const P &r) const { return P(*this) *= r; }\n\n  P operator*(const\
-    \ T &v) const { return P(*this) *= v; }\n\n  P operator/(const P &r) const { return\
-    \ P(*this) /= r; }\n\n  P operator%(const P &r) const { return P(*this) %= r;\
-    \ }\n\n  P &operator+=(const P &r) {\n    if(r.size() > this->size()) this->resize(r.size());\n\
-    \    for(int i = 0; i < (int) r.size(); i++) (*this)[i] += r[i];\n    return *this;\n\
-    \  }\n\n  P &operator-=(const P &r) {\n    if(r.size() > this->size()) this->resize(r.size());\n\
+    \ Mint > roots, iroots, rate2, rate3, irate2, irate3;\n  static int max_base;\n\
+    \n  NumberTheoreticTransformFriendlyModInt() = default;\n\n  static void init()\
+    \ {\n    if(roots.empty()) {\n      const unsigned mod = Mint::get_mod();\n  \
+    \    assert(mod >= 3 && mod % 2 == 1);\n      auto tmp = mod - 1;\n      max_base\
+    \ = 0;\n      while(tmp % 2 == 0) tmp >>= 1, max_base++;\n      Mint root = 2;\n\
+    \      while(root.pow((mod - 1) >> 1) == 1) {\n        root += 1;\n      }\n \
+    \     assert(root.pow(mod - 1) == 1);\n\n      roots.resize(max_base + 1);\n \
+    \     iroots.resize(max_base + 1);\n      rate2.resize(max_base + 1);\n      irate2.resize(max_base\
+    \ + 1);\n      rate3.resize(max_base + 1);\n      irate3.resize(max_base + 1);\n\
+    \n      roots[max_base] = root.pow((mod - 1) >> max_base);\n      iroots[max_base]\
+    \ = Mint(1) / roots[max_base];\n      for(int i = max_base - 1; i >= 0; i--) {\n\
+    \        roots[i] = roots[i + 1] * roots[i + 1];\n        iroots[i] = iroots[i\
+    \ + 1] * iroots[i + 1];\n      }\n      {\n        Mint prod = 1, iprod = 1;\n\
+    \        for(int i = 0; i <= max_base - 2; i++) {\n          rate2[i] = roots[i\
+    \ + 2] * prod;\n          irate2[i] = iroots[i + 2] * iprod;\n          prod *=\
+    \ iroots[i + 2];\n          iprod *= roots[i + 2];\n        }\n      }\n     \
+    \ {\n        Mint prod = 1, iprod = 1;\n        for(int i = 0; i <= max_base -\
+    \ 3; i++) {\n          rate3[i] = roots[i + 3] * prod;\n          irate3[i] =\
+    \ iroots[i + 3] * iprod;\n          prod *= iroots[i + 3];\n          iprod *=\
+    \ roots[i + 3];\n        }\n      }\n    }\n  }\n\n  static void ntt(vector< Mint\
+    \ > &a) {\n    init();\n    const int n = (int) a.size();\n    assert((n & (n\
+    \ - 1)) == 0);\n    int h = __builtin_ctz(n);\n    assert(h <= max_base);\n  \
+    \  int len = 0;\n    Mint imag = roots[2];\n    if(h & 1) {\n      int p = 1 <<\
+    \ (h - 1);\n      Mint rot = 1;\n      for(int i = 0; i < p; i++) {\n        auto\
+    \ r = a[i + p];\n        a[i + p] = a[i] - r;\n        a[i] += r;\n      }\n \
+    \     len++;\n    }\n    for(; len + 1 < h; len += 2) {\n      int p = 1 << (h\
+    \ - len - 2);\n      { // s = 0\n        for(int i = 0; i < p; i++) {\n      \
+    \    auto a0 = a[i];\n          auto a1 = a[i + p];\n          auto a2 = a[i +\
+    \ 2 * p];\n          auto a3 = a[i + 3 * p];\n          auto a1na3imag = (a1 -\
+    \ a3) * imag;\n          auto a0a2 = a0 + a2;\n          auto a1a3 = a1 + a3;\n\
+    \          auto a0na2 = a0 - a2;\n          a[i] = a0a2 + a1a3;\n          a[i\
+    \ + 1 * p] = a0a2 - a1a3;\n          a[i + 2 * p] = a0na2 + a1na3imag;\n     \
+    \     a[i + 3 * p] = a0na2 - a1na3imag;\n        }\n      }\n      Mint rot =\
+    \ rate3[__builtin_ctz(~0)];\n      for(int s = 1; s < (1 << len); s++) {\n   \
+    \     int offset = s << (h - len);\n        Mint rot2 = rot * rot;\n        Mint\
+    \ rot3 = rot2 * rot;\n        for(int i = 0; i < p; i++) {\n          auto a0\
+    \ = a[i + offset];\n          auto a1 = a[i + offset + p] * rot;\n          auto\
+    \ a2 = a[i + offset + 2 * p] * rot2;\n          auto a3 = a[i + offset + 3 * p]\
+    \ * rot3;\n          auto a1na3imag = (a1 - a3) * imag;\n          auto a0a2 =\
+    \ a0 + a2;\n          auto a1a3 = a1 + a3;\n          auto a0na2 = a0 - a2;\n\
+    \          a[i + offset] = a0a2 + a1a3;\n          a[i + offset + 1 * p] = a0a2\
+    \ - a1a3;\n          a[i + offset + 2 * p] = a0na2 + a1na3imag;\n          a[i\
+    \ + offset + 3 * p] = a0na2 - a1na3imag;\n        }\n        rot *= rate3[__builtin_ctz(~s)];\n\
+    \      }\n    }\n  }\n\n  static void intt(vector< Mint > &a, bool f = true) {\n\
+    \    init();\n    const int n = (int) a.size();\n    assert((n & (n - 1)) == 0);\n\
+    \    int h = __builtin_ctz(n);\n    assert(h <= max_base);\n    int len = h;\n\
+    \    Mint iimag = iroots[2];\n    for(; len > 1; len -= 2) {\n      int p = 1\
+    \ << (h - len);\n      { // s = 0\n        for(int i = 0; i < p; i++) {\n    \
+    \      auto a0 = a[i];\n          auto a1 = a[i + 1 * p];\n          auto a2 =\
+    \ a[i + 2 * p];\n          auto a3 = a[i + 3 * p];\n          auto a2na3iimag\
+    \ = (a2 - a3) * iimag;\n          auto a0na1 = a0 - a1;\n          auto a0a1 =\
+    \ a0 + a1;\n          auto a2a3 = a2 + a3;\n          a[i] = a0a1 + a2a3;\n  \
+    \        a[i + 1 * p] = (a0na1 + a2na3iimag);\n          a[i + 2 * p] = (a0a1\
+    \ - a2a3);\n          a[i + 3 * p] = (a0na1 - a2na3iimag);\n        }\n      }\n\
+    \      Mint irot = irate3[__builtin_ctz(~0)];\n      for(int s = 1; s < (1 <<\
+    \ (len - 2)); s++) {\n        int offset = s << (h - len + 2);\n        Mint irot2\
+    \ = irot * irot;\n        Mint irot3 = irot2 * irot;\n        for(int i = 0; i\
+    \ < p; i++) {\n          auto a0 = a[i + offset];\n          auto a1 = a[i + offset\
+    \ + 1 * p];\n          auto a2 = a[i + offset + 2 * p];\n          auto a3 = a[i\
+    \ + offset + 3 * p];\n          auto a2na3iimag = (a2 - a3) * iimag;\n       \
+    \   auto a0na1 = a0 - a1;\n          auto a0a1 = a0 + a1;\n          auto a2a3\
+    \ = a2 + a3;\n          a[i + offset] = a0a1 + a2a3;\n          a[i + offset +\
+    \ 1 * p] = (a0na1 + a2na3iimag) * irot;\n          a[i + offset + 2 * p] = (a0a1\
+    \ - a2a3) * irot2;\n          a[i + offset + 3 * p] = (a0na1 - a2na3iimag) * irot3;\n\
+    \        }\n        irot *= irate3[__builtin_ctz(~s)];\n      }\n    }\n    if(len\
+    \ >= 1) {\n      int p = 1 << (h - 1);\n      for(int i = 0; i < p; i++) {\n \
+    \       auto ajp = a[i] - a[i + p];\n        a[i] += a[i + p];\n        a[i +\
+    \ p] = ajp;\n      }\n    }\n    if(f) {\n      Mint inv_sz = Mint(1) / n;\n \
+    \     for(int i = 0; i < n; i++) a[i] *= inv_sz;\n    }\n  }\n\n  static vector<\
+    \ Mint > multiply(vector< Mint > a, vector< Mint > b) {\n    int need = a.size()\
+    \ + b.size() - 1;\n    int nbase = 1;\n    while((1 << nbase) < need) nbase++;\n\
+    \    int sz = 1 << nbase;\n    a.resize(sz, 0);\n    b.resize(sz, 0);\n    ntt(a);\n\
+    \    ntt(b);\n    Mint inv_sz = Mint(1) / sz;\n    for(int i = 0; i < sz; i++)\
+    \ a[i] *= b[i] * inv_sz;\n    intt(a, false);\n    a.resize(need);\n    return\
+    \ a;\n  }\n};\n\ntemplate< typename Mint >\nvector< Mint > NumberTheoreticTransformFriendlyModInt<\
+    \ Mint >::roots = vector< Mint >();\ntemplate< typename Mint >\nvector< Mint >\
+    \ NumberTheoreticTransformFriendlyModInt< Mint >::iroots = vector< Mint >();\n\
+    template< typename Mint >\nvector< Mint > NumberTheoreticTransformFriendlyModInt<\
+    \ Mint >::rate2 = vector< Mint >();\ntemplate< typename Mint >\nvector< Mint >\
+    \ NumberTheoreticTransformFriendlyModInt< Mint >::irate2 = vector< Mint >();\n\
+    template< typename Mint >\nvector< Mint > NumberTheoreticTransformFriendlyModInt<\
+    \ Mint >::rate3 = vector< Mint >();\ntemplate< typename Mint >\nvector< Mint >\
+    \ NumberTheoreticTransformFriendlyModInt< Mint >::irate3 = vector< Mint >();\n\
+    template< typename Mint >\nint NumberTheoreticTransformFriendlyModInt< Mint >::max_base\
+    \ = 0;\n#line 2 \"math/fps/formal-power-series-friendly-ntt.cpp\"\n\n/**\n * @brief\
+    \ Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\
+    )\n * @docs docs/formal-power-series-friendly-ntt.md\n */\ntemplate< typename\
+    \ T >\nstruct FormalPowerSeriesFriendlyNTT : vector< T > {\n  using vector< T\
+    \ >::vector;\n  using P = FormalPowerSeriesFriendlyNTT;\n  using NTT = NumberTheoreticTransformFriendlyModInt<\
+    \ T >;\n\n  P pre(int deg) const {\n    return P(begin(*this), begin(*this) +\
+    \ min((int) this->size(), deg));\n  }\n\n  P rev(int deg = -1) const {\n    P\
+    \ ret(*this);\n    if(deg != -1) ret.resize(deg, T(0));\n    reverse(begin(ret),\
+    \ end(ret));\n    return ret;\n  }\n\n  void shrink() {\n    while(this->size()\
+    \ && this->back() == T(0)) this->pop_back();\n  }\n\n  P operator+(const P &r)\
+    \ const { return P(*this) += r; }\n\n  P operator+(const T &v) const { return\
+    \ P(*this) += v; }\n\n  P operator-(const P &r) const { return P(*this) -= r;\
+    \ }\n\n  P operator-(const T &v) const { return P(*this) -= v; }\n\n  P operator*(const\
+    \ P &r) const { return P(*this) *= r; }\n\n  P operator*(const T &v) const { return\
+    \ P(*this) *= v; }\n\n  P operator/(const P &r) const { return P(*this) /= r;\
+    \ }\n\n  P operator%(const P &r) const { return P(*this) %= r; }\n\n  P &operator+=(const\
+    \ P &r) {\n    if(r.size() > this->size()) this->resize(r.size());\n    for(int\
+    \ i = 0; i < (int) r.size(); i++) (*this)[i] += r[i];\n    return *this;\n  }\n\
+    \n  P &operator-=(const P &r) {\n    if(r.size() > this->size()) this->resize(r.size());\n\
     \    for(int i = 0; i < (int) r.size(); i++) (*this)[i] -= r[i];\n    return *this;\n\
     \  }\n\n  // https://judge.yosupo.jp/problem/convolution_mod\n  P &operator*=(const\
     \ P &r) {\n    if(this->empty() || r.empty()) {\n      this->clear();\n      return\
@@ -260,7 +313,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-bernoulli-number.test.cpp
   requiredBy: []
-  timestamp: '2021-08-11 15:57:01+09:00'
+  timestamp: '2021-08-11 23:14:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-bernoulli-number.test.cpp

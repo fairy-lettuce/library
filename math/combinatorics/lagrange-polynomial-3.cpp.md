@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
     title: test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593, \u5024)"
     links: []
@@ -58,7 +58,7 @@ data:
   path: math/combinatorics/lagrange-polynomial-3.cpp
   requiredBy: []
   timestamp: '2021-08-02 13:50:22+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
 documentation_of: math/combinatorics/lagrange-polynomial-3.cpp
