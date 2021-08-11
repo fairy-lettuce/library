@@ -7,14 +7,14 @@ data:
   - icon: ':question:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number Theoretic Transform Friendly Mod Int
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/formal-power-series-friendly-ntt.cpp
     title: "Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
       \u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/multipoint-evaluation.cpp
     title: Multipoint Evaluation
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/subproduct-tree.cpp
     title: Subproduct Tree
   - icon: ':question:'
@@ -22,9 +22,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/multipoint_evaluation
@@ -238,7 +238,8 @@ data:
     \    for(int i = 0; i < n; i++) p[i] *= fact[i];\n    p = p.rev();\n    P bs(n,\
     \ T(1));\n    for(int i = 1; i < n; i++) bs[i] = bs[i - 1] * c * rfact[i] * fact[i\
     \ - 1];\n    p = (p * bs).pre(n);\n    p = p.rev();\n    for(int i = 0; i < n;\
-    \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n#line 1 \"math/fps/subproduct-tree.cpp\"\
+    \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\ntemplate< typename Mint >\n\
+    using FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 1 \"math/fps/subproduct-tree.cpp\"\
     \n/**\n * @brief Subproduct Tree\n */\ntemplate< template< typename > class FPS,\
     \ typename Mint >\nvector< FPS< Mint > > subproduct_tree(const FPS< Mint > &xs)\
     \ {\n  int n = (int) xs.size();\n  int k = 1;\n  while(k < n) k <<= 1;\n  vector<\
@@ -271,8 +272,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-multipoint-evaluation.test.cpp
   requiredBy: []
-  timestamp: '2021-08-11 15:16:25+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-08-11 15:57:01+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-multipoint-evaluation.test.cpp
 layout: document

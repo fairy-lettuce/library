@@ -13,7 +13,7 @@ data:
   - icon: ':question:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number Theoretic Transform Friendly Mod Int
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/formal-power-series-friendly-ntt.cpp
     title: "Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
       \u6570)"
@@ -252,7 +252,8 @@ data:
     \    for(int i = 0; i < n; i++) p[i] *= fact[i];\n    p = p.rev();\n    P bs(n,\
     \ T(1));\n    for(int i = 1; i < n; i++) bs[i] = bs[i - 1] * c * rfact[i] * fact[i\
     \ - 1];\n    p = (p * bs).pre(n);\n    p = p.rev();\n    for(int i = 0; i < n;\
-    \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n#line 10 \"test/verify/yosupo-sqrt-of-formal-power-series.test.cpp\"\
+    \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\ntemplate< typename Mint >\n\
+    using FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 10 \"test/verify/yosupo-sqrt-of-formal-power-series.test.cpp\"\
     \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
     \  int N;\n  cin >> N;\n  FPS< mint > f(N);\n  cin >> f;\n  auto get_sqrt = [&](mint\
     \ x) { return mod_sqrt< int64 >(x.x, mint::get_mod()); };\n  f = f.sqrt(get_sqrt);\n\
@@ -275,7 +276,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   requiredBy: []
-  timestamp: '2021-08-11 15:16:25+09:00'
+  timestamp: '2021-08-11 15:57:01+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp

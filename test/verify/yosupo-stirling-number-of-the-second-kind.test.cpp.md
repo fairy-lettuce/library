@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number Theoretic Transform Friendly Mod Int
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/formal-power-series-friendly-ntt.cpp
     title: "Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
       \u6570)"
@@ -236,7 +236,8 @@ data:
     \    for(int i = 0; i < n; i++) p[i] *= fact[i];\n    p = p.rev();\n    P bs(n,\
     \ T(1));\n    for(int i = 1; i < n; i++) bs[i] = bs[i - 1] * c * rfact[i] * fact[i\
     \ - 1];\n    p = (p * bs).pre(n);\n    p = p.rev();\n    for(int i = 0; i < n;\
-    \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n#line 1 \"math/fps/stirling-second.cpp\"\
+    \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\ntemplate< typename Mint >\n\
+    using FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 1 \"math/fps/stirling-second.cpp\"\
     \n/**\n * @brief Stirling Second(\u7B2C\u4E8C\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\
     \u30B0\u6570)\n */\ntemplate< template< typename > class FPS, typename Mint >\n\
     FPS< Mint > stirling_second(int N) {\n  FPS< Mint > A(N + 1), B(N + 1);\n  Mint\
@@ -261,7 +262,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   requiredBy: []
-  timestamp: '2021-08-11 15:16:25+09:00'
+  timestamp: '2021-08-11 15:57:01+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp

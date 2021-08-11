@@ -10,7 +10,7 @@ data:
   - icon: ':x:'
     path: math/fps/count-subset-sum.cpp
     title: Count Subset Sum
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/formal-power-series-friendly-ntt.cpp
     title: "Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
       \u6570)"
@@ -235,7 +235,8 @@ data:
     \    for(int i = 0; i < n; i++) p[i] *= fact[i];\n    p = p.rev();\n    P bs(n,\
     \ T(1));\n    for(int i = 1; i < n; i++) bs[i] = bs[i - 1] * c * rfact[i] * fact[i\
     \ - 1];\n    p = (p * bs).pre(n);\n    p = p.rev();\n    for(int i = 0; i < n;\
-    \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n#line 1 \"math/fps/count-subset-sum.cpp\"\
+    \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\ntemplate< typename Mint >\n\
+    using FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 1 \"math/fps/count-subset-sum.cpp\"\
     \n/**\n * @brief Count Subset Sum\n */\ntemplate< template< typename > class FPS,\
     \ typename Mint >\nFPS< Mint > count_subset_sum(vector< Mint > &c) {\n  const\
     \ int n = (int) c.size();\n  vector< Mint > inv(n);\n  inv[0] = Mint(0);\n  inv[1]\
@@ -265,7 +266,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
   requiredBy: []
-  timestamp: '2021-08-11 15:16:25+09:00'
+  timestamp: '2021-08-11 15:57:01+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-sharp-p-subset-sum.test.cpp

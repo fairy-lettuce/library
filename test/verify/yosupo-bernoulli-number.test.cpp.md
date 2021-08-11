@@ -7,10 +7,10 @@ data:
   - icon: ':question:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number Theoretic Transform Friendly Mod Int
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/bernoulli.cpp
     title: "Bernoulli(\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/formal-power-series-friendly-ntt.cpp
     title: "Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\u7D1A\
       \u6570)"
@@ -19,9 +19,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/bernoulli_number
@@ -235,7 +235,8 @@ data:
     \    for(int i = 0; i < n; i++) p[i] *= fact[i];\n    p = p.rev();\n    P bs(n,\
     \ T(1));\n    for(int i = 1; i < n; i++) bs[i] = bs[i - 1] * c * rfact[i] * fact[i\
     \ - 1];\n    p = (p * bs).pre(n);\n    p = p.rev();\n    for(int i = 0; i < n;\
-    \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n#line 1 \"math/fps/bernoulli.cpp\"\
+    \ i++) p[i] *= rfact[i];\n    return p;\n  }\n};\n\ntemplate< typename Mint >\n\
+    using FPS = FormalPowerSeriesFriendlyNTT< Mint >;\n#line 1 \"math/fps/bernoulli.cpp\"\
     \n/**\n * @brief Bernoulli(\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)\n */\ntemplate<\
     \ template< typename > class FPS, typename Mint >\nFPS< Mint > bernoulli(int N)\
     \ {\n  FPS< Mint > poly(N + 1);\n  poly[0] = Mint(1);\n  for(int i = 1; i <= N;\
@@ -259,8 +260,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-bernoulli-number.test.cpp
   requiredBy: []
-  timestamp: '2021-08-11 15:16:25+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-08-11 15:57:01+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-bernoulli-number.test.cpp
 layout: document

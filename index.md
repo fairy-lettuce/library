@@ -496,13 +496,13 @@ data:
     - icon: ':warning:'
       path: math/fps/bell.cpp
       title: "Bell(\u30D9\u30EB\u6570)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/berlekamp-massey.cpp
       title: Berlekamp Massey
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/bernoulli.cpp
       title: "Bernoulli(\u30D9\u30EB\u30CC\u30FC\u30A4\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/coeff-of-rational-function.cpp
       title: Coeff of Rational Function
     - icon: ':x:'
@@ -511,23 +511,23 @@ data:
     - icon: ':warning:'
       path: math/fps/eulerian.cpp
       title: "Eulerian(\u30AA\u30A4\u30E9\u30FC\u6570)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/fps/formal-power-series-friendly-ntt.cpp
       title: "Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\
         \u7D1A\u6570)"
     - icon: ':heavy_check_mark:'
       path: math/fps/formal-power-series.cpp
       title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/kth-term-of-linearly-recurrent-sequence.cpp
       title: Kth Term of Linearly Recurrent Sequence
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/multipoint-evaluation.cpp
       title: Multipoint Evaluation
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/partition.cpp
       title: "Partition(\u5206\u5272\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/polynomial-interpolation.cpp
       title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
     - icon: ':heavy_check_mark:'
@@ -541,7 +541,7 @@ data:
       path: math/fps/stirling-second.cpp
       title: "Stirling Second(\u7B2C\u4E8C\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
         \u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/subproduct-tree.cpp
       title: Subproduct Tree
   - name: math/matrix
@@ -626,13 +626,13 @@ data:
     - icon: ':warning:'
       path: other/offline-dynamic-connectivity.cpp
       title: other/offline-dynamic-connectivity.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: other/printer.cpp
       title: "Printer(\u9AD8\u901F\u51FA\u529B)"
     - icon: ':warning:'
       path: other/random-number-generator.cpp
       title: other/random-number-generator.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: other/scanner.cpp
       title: "Scanner(\u9AD8\u901F\u5165\u529B)"
     - icon: ':warning:'
@@ -1215,7 +1215,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-assignment.test.cpp
       title: test/verify/yosupo-assignment.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-bernoulli-number.test.cpp
       title: test/verify/yosupo-bernoulli-number.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1260,7 +1260,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-discrete-logarithm-mod.test.cpp
       title: test/verify/yosupo-discrete-logarithm-mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-division-of-polynomials.test.cpp
       title: test/verify/yosupo-division-of-polynomials.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1287,13 +1287,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-enumerate-triangles.test.cpp
       title: test/verify/yosupo-enumerate-triangles.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-exp-of-formal-power-series.test.cpp
       title: test/verify/yosupo-exp-of-formal-power-series.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-factorize.test.cpp
       title: test/verify/yosupo-factorize.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-find-linear-recurrence.test.cpp
       title: test/verify/yosupo-find-linear-recurrence.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1302,7 +1302,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-general-matching.test.cpp
       title: test/verify/yosupo-general-matching.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-inv-of-formal-power-series.test.cpp
       title: test/verify/yosupo-inv-of-formal-power-series.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1311,7 +1311,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-kth-root-integer.test.cpp
       title: test/verify/yosupo-kth-root-integer.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
       title: test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1326,7 +1326,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-line-add-get-min.test.cpp
       title: test/verify/yosupo-line-add-get-min.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-log-of-formal-power-series.test.cpp
       title: test/verify/yosupo-log-of-formal-power-series.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1344,10 +1344,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-montmort-number-mod.test.cpp
       title: test/verify/yosupo-montmort-number-mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-multipoint-evaluation.test.cpp
       title: test/verify/yosupo-multipoint-evaluation.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-partition-function.test.cpp
       title: test/verify/yosupo-partition-function.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1365,13 +1365,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-point-set-range-composite.test.cpp
       title: test/verify/yosupo-point-set-range-composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-polynomial-interpolation.test.cpp
       title: test/verify/yosupo-polynomial-interpolation.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-polynomial-taylor-shift.test.cpp
       title: test/verify/yosupo-polynomial-taylor-shift.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
       title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
     - icon: ':heavy_check_mark:'
