@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: graph/flow/bipartite-flow.hpp
-    title: "Bipartite-Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\u30FC)"
+    title: "Bipartite Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\u30FC)"
   - icon: ':heavy_check_mark:'
     path: graph/others/eulerian-trail.hpp
     title: "Eulerian Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
@@ -37,8 +37,8 @@ data:
     \    vector< vector< int > > ret(n);\n    for(int i = 0; i < n; i++) {\n     \
     \ ret[find(i)].emplace_back(i);\n    }\n    ret.erase(remove_if(begin(ret), end(ret),\
     \ [&](const vector< int > &v) {\n      return v.empty();\n    }));\n    return\
-    \ ret;\n  }\n};\n#line 1 \"graph/flow/bipartite-flow.hpp\"\n/**\n * @brief Bipartite-Flow(\u4E8C\
-    \u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\u30FC)\n * @docs docs/bipartite-flow.md\n\
+    \ ret;\n  }\n};\n#line 1 \"graph/flow/bipartite-flow.hpp\"\n/**\n * @brief Bipartite\
+    \ Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\u30FC)\n * @docs docs/bipartite-flow.md\n\
     \ */\nstruct BipartiteFlow {\n  size_t n, m, time_stamp;\n  vector< vector< int\
     \ > > g, rg;\n  vector< int > match_l, match_r, dist, used, alive;\n  bool matched;\n\
     \npublic:\n  explicit BipartiteFlow(size_t n, size_t m) :\n      n(n), m(m), time_stamp(0),\
@@ -263,7 +263,7 @@ data:
   isVerificationFile: false
   path: graph/others/bipartite-graph-edge-coloring.hpp
   requiredBy: []
-  timestamp: '2021-07-21 02:10:43+09:00'
+  timestamp: '2021-08-14 14:18:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-bipartite-edge-coloring.test.cpp

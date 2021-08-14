@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: graph/flow/bipartite-flow.hpp
-    title: "Bipartite-Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\u30FC)"
+    title: "Bipartite Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\u30FC)"
   - icon: ':heavy_check_mark:'
     path: graph/others/bipartite-graph-edge-coloring.hpp
     title: "Bipartite Graph Edge Coloring(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u8FBA\
@@ -14,7 +14,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -69,7 +69,7 @@ data:
     \ vector< int > > ret(n);\n    for(int i = 0; i < n; i++) {\n      ret[find(i)].emplace_back(i);\n\
     \    }\n    ret.erase(remove_if(begin(ret), end(ret), [&](const vector< int >\
     \ &v) {\n      return v.empty();\n    }));\n    return ret;\n  }\n};\n#line 1\
-    \ \"graph/flow/bipartite-flow.hpp\"\n/**\n * @brief Bipartite-Flow(\u4E8C\u90E8\
+    \ \"graph/flow/bipartite-flow.hpp\"\n/**\n * @brief Bipartite Flow(\u4E8C\u90E8\
     \u30B0\u30E9\u30D5\u306E\u30D5\u30ED\u30FC)\n * @docs docs/bipartite-flow.md\n\
     \ */\nstruct BipartiteFlow {\n  size_t n, m, time_stamp;\n  vector< vector< int\
     \ > > g, rg;\n  vector< int > match_l, match_r, dist, used, alive;\n  bool matched;\n\
@@ -258,7 +258,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-bipartite-edge-coloring.test.cpp
   requiredBy: []
-  timestamp: '2021-07-21 02:10:43+09:00'
+  timestamp: '2021-08-14 14:18:51+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-bipartite-edge-coloring.test.cpp

@@ -11,9 +11,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/ford-fulkerson.md
-    document_title: "Ford-Fulkerson(\u6700\u5927\u6D41)"
+    document_title: "Ford Fulkerson(\u6700\u5927\u6D41)"
     links: []
-  bundledCode: "#line 1 \"graph/flow/ford-fulkerson.hpp\"\n/**\n * @brief Ford-Fulkerson(\u6700\
+  bundledCode: "#line 1 \"graph/flow/ford-fulkerson.hpp\"\n/**\n * @brief Ford Fulkerson(\u6700\
     \u5927\u6D41)\n * @docs docs/ford-fulkerson.md\n */\ntemplate< typename flow_t\
     \ >\nstruct FordFulkerson {\n  struct edge {\n    int to;\n    flow_t cap;\n \
     \   int rev;\n    bool isrev;\n    int idx;\n  };\n\n  const flow_t INF;\n  vector<\
@@ -34,7 +34,7 @@ data:
     \ &e : graph[i]) {\n        if(e.isrev) continue;\n        auto &rev_e = graph[e.to][e.rev];\n\
     \        cout << i << \"->\" << e.to << \" (flow: \" << rev_e.cap << \"/\" <<\
     \ e.cap + rev_e.cap << \")\" << endl;\n      }\n    }\n  }\n};\n"
-  code: "/**\n * @brief Ford-Fulkerson(\u6700\u5927\u6D41)\n * @docs docs/ford-fulkerson.md\n\
+  code: "/**\n * @brief Ford Fulkerson(\u6700\u5927\u6D41)\n * @docs docs/ford-fulkerson.md\n\
     \ */\ntemplate< typename flow_t >\nstruct FordFulkerson {\n  struct edge {\n \
     \   int to;\n    flow_t cap;\n    int rev;\n    bool isrev;\n    int idx;\n  };\n\
     \n  const flow_t INF;\n  vector< vector< edge > > graph;\n  vector< int > used;\n\
@@ -59,7 +59,7 @@ data:
   isVerificationFile: false
   path: graph/flow/ford-fulkerson.hpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-08-14 14:18:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-6-a-2.test.cpp
@@ -68,7 +68,7 @@ layout: document
 redirect_from:
 - /library/graph/flow/ford-fulkerson.hpp
 - /library/graph/flow/ford-fulkerson.hpp.html
-title: "Ford-Fulkerson(\u6700\u5927\u6D41)"
+title: "Ford Fulkerson(\u6700\u5927\u6D41)"
 ---
 ## 概要
 

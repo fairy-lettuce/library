@@ -43,7 +43,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/others/block-cut-tree.hpp
     title: Block Cut Tree
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/cycle-detection.hpp
     title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
   - icon: ':heavy_check_mark:'
@@ -68,7 +68,7 @@ data:
       )"
   - icon: ':heavy_check_mark:'
     path: graph/others/two-satisfiability.hpp
-    title: 2-SAT
+    title: Two Satisfiability(2-SAT)
   - icon: ':heavy_check_mark:'
     path: graph/shortest-path/bellman-ford.hpp
     title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
@@ -209,7 +209,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-7-a.test.cpp
     title: test/verify/aoj-grl-7-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-cycle-detection.test.cpp
     title: test/verify/yosupo-cycle-detection.test.cpp
   - icon: ':heavy_check_mark:'
@@ -275,9 +275,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/graph-template.hpp\"\n\ntemplate< typename T = int\
@@ -355,7 +355,7 @@ data:
   - graph/mst/prim-fibonacchi-heap.hpp
   - graph/mst/kruskal.hpp
   timestamp: '2021-07-01 00:28:48+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-2-a-4.test.cpp
   - test/verify/aoj-3139.test.cpp

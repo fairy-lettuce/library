@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph-template.hpp
     title: graph/graph-template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-cycle-detection.test.cpp
     title: test/verify/yosupo-cycle-detection.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/cycle-detection.md
     document_title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
@@ -44,9 +44,9 @@ data:
     \                return true;\n            }\n        }\n\n        used[idx] =\
     \ 2;\n        return false;\n    }\n    Edges< T > build() {\n        used.assign(g.size(),\
     \ 0);\n        pre.resize(g.size());\n        for(int i = 0; i < (int)g.size();\
-    \ i++) {\n            if(used[i] == 0 && dfs(i)) {\n                reverse(begin(cyrcle),\
-    \ end(cyrcle));\n                return cyrcle;\n            }\n        }\n  \
-    \      return {};\n    }\n};\n"
+    \ i++) {\n            if(used[i] == 0 && dfs(i)) {\n                reverse(begin(cycle),\
+    \ end(cycle));\n                return cycle;\n            }\n        }\n    \
+    \    return {};\n    }\n};\n"
   code: "#pragma once\n\n#include \"../graph-template.hpp\"\n\n/**\n * @brief Cycle\
     \ Detection(\u9589\u8DEF\u691C\u51FA)\n * @docs docs/cycle-detection.md\n */\n\
     template< typename T = int >\nstruct CycleDetection : Graph< T > {\n    using\
@@ -60,16 +60,16 @@ data:
     \                return true;\n            }\n        }\n\n        used[idx] =\
     \ 2;\n        return false;\n    }\n    Edges< T > build() {\n        used.assign(g.size(),\
     \ 0);\n        pre.resize(g.size());\n        for(int i = 0; i < (int)g.size();\
-    \ i++) {\n            if(used[i] == 0 && dfs(i)) {\n                reverse(begin(cyrcle),\
-    \ end(cyrcle));\n                return cyrcle;\n            }\n        }\n  \
-    \      return {};\n    }\n};\n"
+    \ i++) {\n            if(used[i] == 0 && dfs(i)) {\n                reverse(begin(cycle),\
+    \ end(cycle));\n                return cycle;\n            }\n        }\n    \
+    \    return {};\n    }\n};\n"
   dependsOn:
   - graph/graph-template.hpp
   isVerificationFile: false
   path: graph/others/cycle-detection.hpp
   requiredBy: []
-  timestamp: '2021-08-14 14:00:09+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-08-14 14:18:51+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-cycle-detection.test.cpp
 documentation_of: graph/others/cycle-detection.hpp

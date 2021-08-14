@@ -3,8 +3,8 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: graph/flow/ford-fulkerson.hpp
-    title: "Ford-Fulkerson(\u6700\u5927\u6D41)"
-  - icon: ':question:'
+    title: "Ford Fulkerson(\u6700\u5927\u6D41)"
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -46,7 +46,7 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-grl-6-a-2.test.cpp\"\
-    \n\n#line 1 \"graph/flow/ford-fulkerson.hpp\"\n/**\n * @brief Ford-Fulkerson(\u6700\
+    \n\n#line 1 \"graph/flow/ford-fulkerson.hpp\"\n/**\n * @brief Ford Fulkerson(\u6700\
     \u5927\u6D41)\n * @docs docs/ford-fulkerson.md\n */\ntemplate< typename flow_t\
     \ >\nstruct FordFulkerson {\n  struct edge {\n    int to;\n    flow_t cap;\n \
     \   int rev;\n    bool isrev;\n    int idx;\n  };\n\n  const flow_t INF;\n  vector<\
@@ -83,7 +83,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-grl-6-a-2.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-08-14 14:18:51+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-6-a-2.test.cpp

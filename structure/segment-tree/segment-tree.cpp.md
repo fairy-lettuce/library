@@ -26,28 +26,28 @@ data:
     \ sz - 1; k > 0; k--) {\n      seg[k] = f(seg[2 * k + 0], seg[2 * k + 1]);\n \
     \   }\n  }\n\n  void update(int k, const Monoid &x) {\n    k += sz;\n    seg[k]\
     \ = x;\n    while(k >>= 1) {\n      seg[k] = f(seg[2 * k + 0], seg[2 * k + 1]);\n\
-    \    }\n  }\n\n  Monoid query(int a, int b) {\n    Monoid L = M1, R = M1;\n  \
-    \  for(a += sz, b += sz; a < b; a >>= 1, b >>= 1) {\n      if(a & 1) L = f(L,\
-    \ seg[a++]);\n      if(b & 1) R = f(seg[--b], R);\n    }\n    return f(L, R);\n\
-    \  }\n\n  Monoid operator[](const int &k) const {\n    return seg[k + sz];\n \
-    \ }\n\n  template< typename C >\n  int find_subtree(int a, const C &check, Monoid\
-    \ &M, bool type) {\n    while(a < sz) {\n      Monoid nxt = type ? f(seg[2 * a\
-    \ + type], M) : f(M, seg[2 * a + type]);\n      if(check(nxt)) a = 2 * a + type;\n\
-    \      else M = nxt, a = 2 * a + 1 - type;\n    }\n    return a - sz;\n  }\n\n\
-    \  template< typename C >\n  int find_first(int a, const C &check) {\n    Monoid\
-    \ L = M1;\n    if(a <= 0) {\n      if(check(f(L, seg[1]))) return find_subtree(1,\
-    \ check, L, false);\n      return n;\n    }\n    int b = sz;\n    for(a += sz,\
-    \ b += sz; a < b; a >>= 1, b >>= 1) {\n      if(a & 1) {\n        Monoid nxt =\
-    \ f(L, seg[a]);\n        if(check(nxt)) return find_subtree(a, check, L, false);\n\
-    \        L = nxt;\n        ++a;\n      }\n    }\n    return n;\n  }\n\n  template<\
-    \ typename C >\n  int find_last(int b, const C &check) {\n    Monoid R = M1;\n\
-    \    if(b >= sz) {\n      if(check(f(seg[1], R))) return find_subtree(1, check,\
-    \ R, true);\n      return -1;\n    }\n    int a = sz;\n    for(b += sz; a < b;\
-    \ a >>= 1, b >>= 1) {\n      if(b & 1) {\n        Monoid nxt = f(seg[--b], R);\n\
-    \        if(check(nxt)) return find_subtree(b, check, R, true);\n        R = nxt;\n\
-    \      }\n    }\n    return -1;\n  }\n};\n\ntemplate< typename Monoid, typename\
-    \ F >\nSegmentTree< Monoid, F > get_segment_tree(int N, const F& f, const Monoid&\
-    \ M1) {\n  return {N, f, M1};\n}\n"
+    \    }\n  }\n\n  Monoid prod(int a, int b) {\n    Monoid L = M1, R = M1;\n   \
+    \ for(a += sz, b += sz; a < b; a >>= 1, b >>= 1) {\n      if(a & 1) L = f(L, seg[a++]);\n\
+    \      if(b & 1) R = f(seg[--b], R);\n    }\n    return f(L, R);\n  }\n\n  Monoid\
+    \ all_prod() {\n    return seg[1];\n  }\n\n  Monoid operator[](const int &k) const\
+    \ {\n    return seg[k + sz];\n  }\n\n  template< typename C >\n  int find_subtree(int\
+    \ a, const C &check, Monoid &M, bool type) {\n    while(a < sz) {\n      Monoid\
+    \ nxt = type ? f(seg[2 * a + type], M) : f(M, seg[2 * a + type]);\n      if(check(nxt))\
+    \ a = 2 * a + type;\n      else M = nxt, a = 2 * a + 1 - type;\n    }\n    return\
+    \ a - sz;\n  }\n\n  template< typename C >\n  int find_first(int a, const C &check)\
+    \ {\n    Monoid L = M1;\n    if(a <= 0) {\n      if(check(f(L, seg[1]))) return\
+    \ find_subtree(1, check, L, false);\n      return n;\n    }\n    int b = sz;\n\
+    \    for(a += sz, b += sz; a < b; a >>= 1, b >>= 1) {\n      if(a & 1) {\n   \
+    \     Monoid nxt = f(L, seg[a]);\n        if(check(nxt)) return find_subtree(a,\
+    \ check, L, false);\n        L = nxt;\n        ++a;\n      }\n    }\n    return\
+    \ n;\n  }\n\n  template< typename C >\n  int find_last(int b, const C &check)\
+    \ {\n    Monoid R = M1;\n    if(b >= sz) {\n      if(check(f(seg[1], R))) return\
+    \ find_subtree(1, check, R, true);\n      return -1;\n    }\n    int a = sz;\n\
+    \    for(b += sz; a < b; a >>= 1, b >>= 1) {\n      if(b & 1) {\n        Monoid\
+    \ nxt = f(seg[--b], R);\n        if(check(nxt)) return find_subtree(b, check,\
+    \ R, true);\n        R = nxt;\n      }\n    }\n    return -1;\n  }\n};\n\ntemplate<\
+    \ typename Monoid, typename F >\nSegmentTree< Monoid, F > get_segment_tree(int\
+    \ N, const F& f, const Monoid& M1) {\n  return {N, f, M1};\n}\n"
   code: "/**\n * @brief Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs\
     \ docs/segment-tree.md\n */\ntemplate< typename Monoid, typename F >\nstruct SegmentTree\
     \ {\n  int n, sz;\n  vector< Monoid > seg;\n\n  const F f;\n  const Monoid M1;\n\
@@ -57,33 +57,34 @@ data:
     \ {\n    for(int k = sz - 1; k > 0; k--) {\n      seg[k] = f(seg[2 * k + 0], seg[2\
     \ * k + 1]);\n    }\n  }\n\n  void update(int k, const Monoid &x) {\n    k +=\
     \ sz;\n    seg[k] = x;\n    while(k >>= 1) {\n      seg[k] = f(seg[2 * k + 0],\
-    \ seg[2 * k + 1]);\n    }\n  }\n\n  Monoid query(int a, int b) {\n    Monoid L\
+    \ seg[2 * k + 1]);\n    }\n  }\n\n  Monoid prod(int a, int b) {\n    Monoid L\
     \ = M1, R = M1;\n    for(a += sz, b += sz; a < b; a >>= 1, b >>= 1) {\n      if(a\
     \ & 1) L = f(L, seg[a++]);\n      if(b & 1) R = f(seg[--b], R);\n    }\n    return\
-    \ f(L, R);\n  }\n\n  Monoid operator[](const int &k) const {\n    return seg[k\
-    \ + sz];\n  }\n\n  template< typename C >\n  int find_subtree(int a, const C &check,\
-    \ Monoid &M, bool type) {\n    while(a < sz) {\n      Monoid nxt = type ? f(seg[2\
-    \ * a + type], M) : f(M, seg[2 * a + type]);\n      if(check(nxt)) a = 2 * a +\
-    \ type;\n      else M = nxt, a = 2 * a + 1 - type;\n    }\n    return a - sz;\n\
-    \  }\n\n  template< typename C >\n  int find_first(int a, const C &check) {\n\
-    \    Monoid L = M1;\n    if(a <= 0) {\n      if(check(f(L, seg[1]))) return find_subtree(1,\
-    \ check, L, false);\n      return n;\n    }\n    int b = sz;\n    for(a += sz,\
-    \ b += sz; a < b; a >>= 1, b >>= 1) {\n      if(a & 1) {\n        Monoid nxt =\
-    \ f(L, seg[a]);\n        if(check(nxt)) return find_subtree(a, check, L, false);\n\
-    \        L = nxt;\n        ++a;\n      }\n    }\n    return n;\n  }\n\n  template<\
-    \ typename C >\n  int find_last(int b, const C &check) {\n    Monoid R = M1;\n\
-    \    if(b >= sz) {\n      if(check(f(seg[1], R))) return find_subtree(1, check,\
-    \ R, true);\n      return -1;\n    }\n    int a = sz;\n    for(b += sz; a < b;\
-    \ a >>= 1, b >>= 1) {\n      if(b & 1) {\n        Monoid nxt = f(seg[--b], R);\n\
-    \        if(check(nxt)) return find_subtree(b, check, R, true);\n        R = nxt;\n\
-    \      }\n    }\n    return -1;\n  }\n};\n\ntemplate< typename Monoid, typename\
-    \ F >\nSegmentTree< Monoid, F > get_segment_tree(int N, const F& f, const Monoid&\
-    \ M1) {\n  return {N, f, M1};\n}\n"
+    \ f(L, R);\n  }\n\n  Monoid all_prod() {\n    return seg[1];\n  }\n\n  Monoid\
+    \ operator[](const int &k) const {\n    return seg[k + sz];\n  }\n\n  template<\
+    \ typename C >\n  int find_subtree(int a, const C &check, Monoid &M, bool type)\
+    \ {\n    while(a < sz) {\n      Monoid nxt = type ? f(seg[2 * a + type], M) :\
+    \ f(M, seg[2 * a + type]);\n      if(check(nxt)) a = 2 * a + type;\n      else\
+    \ M = nxt, a = 2 * a + 1 - type;\n    }\n    return a - sz;\n  }\n\n  template<\
+    \ typename C >\n  int find_first(int a, const C &check) {\n    Monoid L = M1;\n\
+    \    if(a <= 0) {\n      if(check(f(L, seg[1]))) return find_subtree(1, check,\
+    \ L, false);\n      return n;\n    }\n    int b = sz;\n    for(a += sz, b += sz;\
+    \ a < b; a >>= 1, b >>= 1) {\n      if(a & 1) {\n        Monoid nxt = f(L, seg[a]);\n\
+    \        if(check(nxt)) return find_subtree(a, check, L, false);\n        L =\
+    \ nxt;\n        ++a;\n      }\n    }\n    return n;\n  }\n\n  template< typename\
+    \ C >\n  int find_last(int b, const C &check) {\n    Monoid R = M1;\n    if(b\
+    \ >= sz) {\n      if(check(f(seg[1], R))) return find_subtree(1, check, R, true);\n\
+    \      return -1;\n    }\n    int a = sz;\n    for(b += sz; a < b; a >>= 1, b\
+    \ >>= 1) {\n      if(b & 1) {\n        Monoid nxt = f(seg[--b], R);\n        if(check(nxt))\
+    \ return find_subtree(b, check, R, true);\n        R = nxt;\n      }\n    }\n\
+    \    return -1;\n  }\n};\n\ntemplate< typename Monoid, typename F >\nSegmentTree<\
+    \ Monoid, F > get_segment_tree(int N, const F& f, const Monoid& M1) {\n  return\
+    \ {N, f, M1};\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: structure/segment-tree/segment-tree.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:53:32+09:00'
+  timestamp: '2021-08-14 14:18:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-dsl-2-a.test.cpp
@@ -106,10 +107,13 @@ title: "Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
 
 実装では木を 1-indexed の配列で表現している. ノード $k$ について, 親ノードは $\frac k 2$, 子ノードは $2k$, $2k+1$ である.
 
+## 使い方
+
 * `SegmentTree(n, f, M1)`: サイズ `n` で初期化する. ここで `f` は2つの区間の要素をマージする二項演算, `M1` はモノイドの単位元である.
 * `set(k, x)`: `k` 番目の要素に `x` を代入する.
 * `build()`: セグメント木を構築する.
-* `query(a, b)`: 区間 $[a, b)$ に対して二項演算した結果を返す.
+* `prod(a, b)`: 区間 $[a, b)$ に対して二項演算した結果を返す.
+* `all_prod()`: 全体を二項係数した結果を返す.
 * `update(k, x)`: `k` 番目の要素を `x` に変更する.
 * `operator[k]`: `k` 番目の要素を返す.
 * `find_first(a, check)`: $[a, x)$ が `check` を満たす最初の要素位置 $x$ を返す. 存在しないとき $n$ を返す.

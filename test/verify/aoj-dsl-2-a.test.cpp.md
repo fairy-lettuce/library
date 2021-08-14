@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: structure/segment-tree/segment-tree.cpp
     title: "Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -55,45 +55,45 @@ data:
     \ sz - 1; k > 0; k--) {\n      seg[k] = f(seg[2 * k + 0], seg[2 * k + 1]);\n \
     \   }\n  }\n\n  void update(int k, const Monoid &x) {\n    k += sz;\n    seg[k]\
     \ = x;\n    while(k >>= 1) {\n      seg[k] = f(seg[2 * k + 0], seg[2 * k + 1]);\n\
-    \    }\n  }\n\n  Monoid query(int a, int b) {\n    Monoid L = M1, R = M1;\n  \
-    \  for(a += sz, b += sz; a < b; a >>= 1, b >>= 1) {\n      if(a & 1) L = f(L,\
-    \ seg[a++]);\n      if(b & 1) R = f(seg[--b], R);\n    }\n    return f(L, R);\n\
-    \  }\n\n  Monoid operator[](const int &k) const {\n    return seg[k + sz];\n \
-    \ }\n\n  template< typename C >\n  int find_subtree(int a, const C &check, Monoid\
-    \ &M, bool type) {\n    while(a < sz) {\n      Monoid nxt = type ? f(seg[2 * a\
-    \ + type], M) : f(M, seg[2 * a + type]);\n      if(check(nxt)) a = 2 * a + type;\n\
-    \      else M = nxt, a = 2 * a + 1 - type;\n    }\n    return a - sz;\n  }\n\n\
-    \  template< typename C >\n  int find_first(int a, const C &check) {\n    Monoid\
-    \ L = M1;\n    if(a <= 0) {\n      if(check(f(L, seg[1]))) return find_subtree(1,\
-    \ check, L, false);\n      return n;\n    }\n    int b = sz;\n    for(a += sz,\
-    \ b += sz; a < b; a >>= 1, b >>= 1) {\n      if(a & 1) {\n        Monoid nxt =\
-    \ f(L, seg[a]);\n        if(check(nxt)) return find_subtree(a, check, L, false);\n\
-    \        L = nxt;\n        ++a;\n      }\n    }\n    return n;\n  }\n\n  template<\
-    \ typename C >\n  int find_last(int b, const C &check) {\n    Monoid R = M1;\n\
-    \    if(b >= sz) {\n      if(check(f(seg[1], R))) return find_subtree(1, check,\
-    \ R, true);\n      return -1;\n    }\n    int a = sz;\n    for(b += sz; a < b;\
-    \ a >>= 1, b >>= 1) {\n      if(b & 1) {\n        Monoid nxt = f(seg[--b], R);\n\
-    \        if(check(nxt)) return find_subtree(b, check, R, true);\n        R = nxt;\n\
-    \      }\n    }\n    return -1;\n  }\n};\n\ntemplate< typename Monoid, typename\
-    \ F >\nSegmentTree< Monoid, F > get_segment_tree(int N, const F& f, const Monoid&\
-    \ M1) {\n  return {N, f, M1};\n}\n#line 6 \"test/verify/aoj-dsl-2-a.test.cpp\"\
+    \    }\n  }\n\n  Monoid prod(int a, int b) {\n    Monoid L = M1, R = M1;\n   \
+    \ for(a += sz, b += sz; a < b; a >>= 1, b >>= 1) {\n      if(a & 1) L = f(L, seg[a++]);\n\
+    \      if(b & 1) R = f(seg[--b], R);\n    }\n    return f(L, R);\n  }\n\n  Monoid\
+    \ all_prod() {\n    return seg[1];\n  }\n\n  Monoid operator[](const int &k) const\
+    \ {\n    return seg[k + sz];\n  }\n\n  template< typename C >\n  int find_subtree(int\
+    \ a, const C &check, Monoid &M, bool type) {\n    while(a < sz) {\n      Monoid\
+    \ nxt = type ? f(seg[2 * a + type], M) : f(M, seg[2 * a + type]);\n      if(check(nxt))\
+    \ a = 2 * a + type;\n      else M = nxt, a = 2 * a + 1 - type;\n    }\n    return\
+    \ a - sz;\n  }\n\n  template< typename C >\n  int find_first(int a, const C &check)\
+    \ {\n    Monoid L = M1;\n    if(a <= 0) {\n      if(check(f(L, seg[1]))) return\
+    \ find_subtree(1, check, L, false);\n      return n;\n    }\n    int b = sz;\n\
+    \    for(a += sz, b += sz; a < b; a >>= 1, b >>= 1) {\n      if(a & 1) {\n   \
+    \     Monoid nxt = f(L, seg[a]);\n        if(check(nxt)) return find_subtree(a,\
+    \ check, L, false);\n        L = nxt;\n        ++a;\n      }\n    }\n    return\
+    \ n;\n  }\n\n  template< typename C >\n  int find_last(int b, const C &check)\
+    \ {\n    Monoid R = M1;\n    if(b >= sz) {\n      if(check(f(seg[1], R))) return\
+    \ find_subtree(1, check, R, true);\n      return -1;\n    }\n    int a = sz;\n\
+    \    for(b += sz; a < b; a >>= 1, b >>= 1) {\n      if(b & 1) {\n        Monoid\
+    \ nxt = f(seg[--b], R);\n        if(check(nxt)) return find_subtree(b, check,\
+    \ R, true);\n        R = nxt;\n      }\n    }\n    return -1;\n  }\n};\n\ntemplate<\
+    \ typename Monoid, typename F >\nSegmentTree< Monoid, F > get_segment_tree(int\
+    \ N, const F& f, const Monoid& M1) {\n  return {N, f, M1};\n}\n#line 6 \"test/verify/aoj-dsl-2-a.test.cpp\"\
     \n\nint main() {\n  int N, Q;\n  scanf(\"%d %d\", &N, &Q);\n  auto seg = get_segment_tree(N,\
     \ [](int a, int b) { return min(a, b); }, INT_MAX);\n  while(Q--) {\n    int T,\
     \ X, Y;\n    scanf(\"%d %d %d\", &T, &X, &Y);\n    if(T == 0) seg.update(X, Y);\n\
-    \    else printf(\"%d\\n\", seg.query(X, Y + 1));\n  }\n}\n"
+    \    else printf(\"%d\\n\", seg.prod(X, Y + 1));\n  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../structure/segment-tree/segment-tree.cpp\"\
     \n\nint main() {\n  int N, Q;\n  scanf(\"%d %d\", &N, &Q);\n  auto seg = get_segment_tree(N,\
     \ [](int a, int b) { return min(a, b); }, INT_MAX);\n  while(Q--) {\n    int T,\
     \ X, Y;\n    scanf(\"%d %d %d\", &T, &X, &Y);\n    if(T == 0) seg.update(X, Y);\n\
-    \    else printf(\"%d\\n\", seg.query(X, Y + 1));\n  }\n}\n"
+    \    else printf(\"%d\\n\", seg.prod(X, Y + 1));\n  }\n}\n"
   dependsOn:
   - template/template.cpp
   - structure/segment-tree/segment-tree.cpp
   isVerificationFile: true
   path: test/verify/aoj-dsl-2-a.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:53:32+09:00'
+  timestamp: '2021-08-14 14:18:51+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dsl-2-a.test.cpp

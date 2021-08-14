@@ -3,8 +3,8 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: graph/flow/dinic-capacity-scaling.hpp
-    title: "Dinic-Capacity-Scaling(\u6700\u5927\u6D41)"
-  - icon: ':question:'
+    title: "Dinic Capacity Scaling(\u6700\u5927\u6D41)"
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
@@ -46,13 +46,13 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-grl-6-a-4.test.cpp\"\
-    \n\n#line 1 \"graph/flow/dinic-capacity-scaling.hpp\"\n/**\n * @brief Dinic-Capacity-Scaling(\u6700\
-    \u5927\u6D41)\n * @docs docs/dinic-capacity-scaling.md\n */\ntemplate< typename\
-    \ flow_t >\nstruct DinicCapacityScaling {\n  static_assert(is_integral< flow_t\
-    \ >::value, \"template parameter flow_t must be integral type\");\n\n  const flow_t\
-    \ INF;\n\n  struct edge {\n    int to;\n    flow_t cap;\n    int rev;\n    bool\
-    \ isrev;\n    int idx;\n  };\n\n  vector< vector< edge > > graph;\n  vector< int\
-    \ > min_cost, iter;\n  flow_t max_cap;\n\n  explicit DinicCapacityScaling(int\
+    \n\n#line 1 \"graph/flow/dinic-capacity-scaling.hpp\"\n/**\n * @brief Dinic Capacity\
+    \ Scaling(\u6700\u5927\u6D41)\n * @docs docs/dinic-capacity-scaling.md\n */\n\
+    template< typename flow_t >\nstruct DinicCapacityScaling {\n  static_assert(is_integral<\
+    \ flow_t >::value, \"template parameter flow_t must be integral type\");\n\n \
+    \ const flow_t INF;\n\n  struct edge {\n    int to;\n    flow_t cap;\n    int\
+    \ rev;\n    bool isrev;\n    int idx;\n  };\n\n  vector< vector< edge > > graph;\n\
+    \  vector< int > min_cost, iter;\n  flow_t max_cap;\n\n  explicit DinicCapacityScaling(int\
     \ V) : INF(numeric_limits< flow_t >::max()), graph(V), max_cap(0) {}\n\n  void\
     \ add_edge(int from, int to, flow_t cap, int idx = -1) {\n    max_cap = max(max_cap,\
     \ cap);\n    graph[from].emplace_back((edge) {to, cap, (int) graph[to].size(),\
@@ -96,7 +96,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-grl-6-a-4.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-08-14 14:18:51+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-6-a-4.test.cpp

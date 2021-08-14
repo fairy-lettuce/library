@@ -24,14 +24,14 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/bipartite-flow.md
-    document_title: "Bipartite-Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\
+    document_title: "Bipartite Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\
       \u30FC)"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0334
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3198
     - https://atcoder.jp/contests/utpc2013/tasks/utpc2013_11
-  bundledCode: "#line 1 \"graph/flow/bipartite-flow.hpp\"\n/**\n * @brief Bipartite-Flow(\u4E8C\
-    \u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\u30FC)\n * @docs docs/bipartite-flow.md\n\
+  bundledCode: "#line 1 \"graph/flow/bipartite-flow.hpp\"\n/**\n * @brief Bipartite\
+    \ Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\u30FC)\n * @docs docs/bipartite-flow.md\n\
     \ */\nstruct BipartiteFlow {\n  size_t n, m, time_stamp;\n  vector< vector< int\
     \ > > g, rg;\n  vector< int > match_l, match_r, dist, used, alive;\n  bool matched;\n\
     \npublic:\n  explicit BipartiteFlow(size_t n, size_t m) :\n      n(n), m(m), time_stamp(0),\
@@ -113,7 +113,7 @@ data:
     \      if(c < 0 || (alive[c] == 1 && used[c] != (int)time_stamp && find_augment_path(c)))\
     \ {\n        match_r[b] = a;\n        match_l[a] = b;\n        return true;\n\
     \      }\n    }\n    return false;\n  }\n};\n"
-  code: "/**\n * @brief Bipartite-Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\
+  code: "/**\n * @brief Bipartite Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\
     \u30FC)\n * @docs docs/bipartite-flow.md\n */\nstruct BipartiteFlow {\n  size_t\
     \ n, m, time_stamp;\n  vector< vector< int > > g, rg;\n  vector< int > match_l,\
     \ match_r, dist, used, alive;\n  bool matched;\n\npublic:\n  explicit BipartiteFlow(size_t\
@@ -200,7 +200,7 @@ data:
   path: graph/flow/bipartite-flow.hpp
   requiredBy:
   - graph/others/bipartite-graph-edge-coloring.hpp
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-08-14 14:18:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-3198.test.cpp
@@ -212,7 +212,7 @@ layout: document
 redirect_from:
 - /library/graph/flow/bipartite-flow.hpp
 - /library/graph/flow/bipartite-flow.hpp.html
-title: "Bipartite-Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\u30FC)"
+title: "Bipartite Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\u30FC)"
 ---
 ## 概要
 

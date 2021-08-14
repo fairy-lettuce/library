@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph-template.hpp
     title: graph/graph-template.hpp
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: graph/others/two-satisfiability.hpp
-    title: 2-SAT
+    title: Two Satisfiability(2-SAT)
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-3-c.test.cpp

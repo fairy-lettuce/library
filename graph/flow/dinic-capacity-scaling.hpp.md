@@ -11,10 +11,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/dinic-capacity-scaling.md
-    document_title: "Dinic-Capacity-Scaling(\u6700\u5927\u6D41)"
+    document_title: "Dinic Capacity Scaling(\u6700\u5927\u6D41)"
     links: []
   bundledCode: "#line 1 \"graph/flow/dinic-capacity-scaling.hpp\"\n/**\n * @brief\
-    \ Dinic-Capacity-Scaling(\u6700\u5927\u6D41)\n * @docs docs/dinic-capacity-scaling.md\n\
+    \ Dinic Capacity Scaling(\u6700\u5927\u6D41)\n * @docs docs/dinic-capacity-scaling.md\n\
     \ */\ntemplate< typename flow_t >\nstruct DinicCapacityScaling {\n  static_assert(is_integral<\
     \ flow_t >::value, \"template parameter flow_t must be integral type\");\n\n \
     \ const flow_t INF;\n\n  struct edge {\n    int to;\n    flow_t cap;\n    int\
@@ -47,7 +47,7 @@ data:
     \     auto &rev_e = graph[e.to][e.rev];\n        cout << i << \"->\" << e.to <<\
     \ \" (flow: \" << rev_e.cap << \"/\" << e.cap + rev_e.cap << \")\" << endl;\n\
     \      }\n    }\n  }\n};\n"
-  code: "/**\n * @brief Dinic-Capacity-Scaling(\u6700\u5927\u6D41)\n * @docs docs/dinic-capacity-scaling.md\n\
+  code: "/**\n * @brief Dinic Capacity Scaling(\u6700\u5927\u6D41)\n * @docs docs/dinic-capacity-scaling.md\n\
     \ */\ntemplate< typename flow_t >\nstruct DinicCapacityScaling {\n  static_assert(is_integral<\
     \ flow_t >::value, \"template parameter flow_t must be integral type\");\n\n \
     \ const flow_t INF;\n\n  struct edge {\n    int to;\n    flow_t cap;\n    int\
@@ -84,7 +84,7 @@ data:
   isVerificationFile: false
   path: graph/flow/dinic-capacity-scaling.hpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
+  timestamp: '2021-08-14 14:18:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-6-a-4.test.cpp
@@ -93,7 +93,7 @@ layout: document
 redirect_from:
 - /library/graph/flow/dinic-capacity-scaling.hpp
 - /library/graph/flow/dinic-capacity-scaling.hpp.html
-title: "Dinic-Capacity-Scaling(\u6700\u5927\u6D41)"
+title: "Dinic Capacity Scaling(\u6700\u5927\u6D41)"
 ---
 ## 概要
 

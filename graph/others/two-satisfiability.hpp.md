@@ -5,7 +5,7 @@ data:
     path: graph/connected-components/strongly-connected-components.hpp
     title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph-template.hpp
     title: graph/graph-template.hpp
   _extendedRequiredBy: []
@@ -18,7 +18,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/two-satisfiability.md
-    document_title: 2-SAT
+    document_title: Two Satisfiability(2-SAT)
     links: []
   bundledCode: "#line 2 \"graph/others/two-satisfiability.hpp\"\n\n#line 2 \"graph/connected-components/strongly-connected-components.hpp\"\
     \n\n#line 2 \"graph/graph-template.hpp\"\n\ntemplate< typename T = int >\nstruct\
@@ -57,46 +57,48 @@ data:
     \    order.push_back(idx);\n  }\n\n  void rdfs(int idx, int cnt) {\n    if(comp[idx]\
     \ != -1) return;\n    comp[idx] = cnt;\n    for(auto &to : rg.g[idx]) rdfs(to,\
     \ cnt);\n  }\n};\n#line 4 \"graph/others/two-satisfiability.hpp\"\n\n/**\n * @brief\
-    \ 2-SAT\n * @docs docs/two-satisfiability.md\n */\nstruct TwoSatisfiability :\
-    \ StronglyConnectedComponents< bool > {\npublic:\n  using StronglyConnectedComponents<\
-    \ bool >::g;\n  using StronglyConnectedComponents< bool >::comp;\n  using StronglyConnectedComponents<\
-    \ bool >::add_edge;\n  size_t sz;\n\n  explicit TwoSatisfiability(size_t v) :\
-    \ StronglyConnectedComponents< bool >(v + v), sz(v) {}\n\n  void add_if(int u,\
-    \ int v) {\n    // u -> v <=> !v -> !u\n    add_directed_edge(u, v);\n    add_directed_edge(rev(v),\
-    \ rev(u));\n  }\n\n  void add_or(int u, int v) {\n    // u or v <=> !u -> v\n\
-    \    add_if(rev(u), v);\n  }\n\n  void add_nand(int u, int v) {\n    // u nand\
-    \ v <=> u -> !v\n    add_if(u, rev(v));\n  }\n\n  void set_true(int u) {\n   \
-    \ // u <=> !u -> u\n    add_directed_edge(rev(u), u);\n  }\n\n  void set_false(int\
-    \ u) {\n    // !u <=> u -> !u\n    add_directed_edge(u, rev(u));\n  }\n\n  inline\
-    \ int rev(int x) {\n    if(x >= (int)sz) return x - sz;\n    return x + sz;\n\
-    \  }\n\n  vector< int > solve() {\n    StronglyConnectedComponents< bool >::build();\n\
-    \    vector< int > ret(sz);\n    for(size_t i = 0; i < sz; i++) {\n      if(comp[i]\
-    \ == comp[rev(i)]) return {};\n      ret[i] = comp[i] > comp[rev(i)];\n    }\n\
-    \    return ret;\n  }\n};\n"
+    \ Two Satisfiability(2-SAT)\n * @docs docs/two-satisfiability.md\n */\nstruct\
+    \ TwoSatisfiability : StronglyConnectedComponents< bool > {\npublic:\n  using\
+    \ StronglyConnectedComponents< bool >::g;\n  using StronglyConnectedComponents<\
+    \ bool >::comp;\n  using StronglyConnectedComponents< bool >::add_edge;\n  size_t\
+    \ sz;\n\n  explicit TwoSatisfiability(size_t v) : StronglyConnectedComponents<\
+    \ bool >(v + v), sz(v) {}\n\n  void add_if(int u, int v) {\n    // u -> v <=>\
+    \ !v -> !u\n    add_directed_edge(u, v);\n    add_directed_edge(rev(v), rev(u));\n\
+    \  }\n\n  void add_or(int u, int v) {\n    // u or v <=> !u -> v\n    add_if(rev(u),\
+    \ v);\n  }\n\n  void add_nand(int u, int v) {\n    // u nand v <=> u -> !v\n \
+    \   add_if(u, rev(v));\n  }\n\n  void set_true(int u) {\n    // u <=> !u -> u\n\
+    \    add_directed_edge(rev(u), u);\n  }\n\n  void set_false(int u) {\n    // !u\
+    \ <=> u -> !u\n    add_directed_edge(u, rev(u));\n  }\n\n  inline int rev(int\
+    \ x) {\n    if(x >= (int)sz) return x - sz;\n    return x + sz;\n  }\n\n  vector<\
+    \ int > solve() {\n    StronglyConnectedComponents< bool >::build();\n    vector<\
+    \ int > ret(sz);\n    for(size_t i = 0; i < sz; i++) {\n      if(comp[i] == comp[rev(i)])\
+    \ return {};\n      ret[i] = comp[i] > comp[rev(i)];\n    }\n    return ret;\n\
+    \  }\n};\n"
   code: "#pragma once\n\n#include \"../connected-components/strongly-connected-components.hpp\"\
-    \n\n/**\n * @brief 2-SAT\n * @docs docs/two-satisfiability.md\n */\nstruct TwoSatisfiability\
-    \ : StronglyConnectedComponents< bool > {\npublic:\n  using StronglyConnectedComponents<\
-    \ bool >::g;\n  using StronglyConnectedComponents< bool >::comp;\n  using StronglyConnectedComponents<\
-    \ bool >::add_edge;\n  size_t sz;\n\n  explicit TwoSatisfiability(size_t v) :\
-    \ StronglyConnectedComponents< bool >(v + v), sz(v) {}\n\n  void add_if(int u,\
-    \ int v) {\n    // u -> v <=> !v -> !u\n    add_directed_edge(u, v);\n    add_directed_edge(rev(v),\
-    \ rev(u));\n  }\n\n  void add_or(int u, int v) {\n    // u or v <=> !u -> v\n\
-    \    add_if(rev(u), v);\n  }\n\n  void add_nand(int u, int v) {\n    // u nand\
-    \ v <=> u -> !v\n    add_if(u, rev(v));\n  }\n\n  void set_true(int u) {\n   \
-    \ // u <=> !u -> u\n    add_directed_edge(rev(u), u);\n  }\n\n  void set_false(int\
-    \ u) {\n    // !u <=> u -> !u\n    add_directed_edge(u, rev(u));\n  }\n\n  inline\
-    \ int rev(int x) {\n    if(x >= (int)sz) return x - sz;\n    return x + sz;\n\
-    \  }\n\n  vector< int > solve() {\n    StronglyConnectedComponents< bool >::build();\n\
-    \    vector< int > ret(sz);\n    for(size_t i = 0; i < sz; i++) {\n      if(comp[i]\
-    \ == comp[rev(i)]) return {};\n      ret[i] = comp[i] > comp[rev(i)];\n    }\n\
-    \    return ret;\n  }\n};\n"
+    \n\n/**\n * @brief Two Satisfiability(2-SAT)\n * @docs docs/two-satisfiability.md\n\
+    \ */\nstruct TwoSatisfiability : StronglyConnectedComponents< bool > {\npublic:\n\
+    \  using StronglyConnectedComponents< bool >::g;\n  using StronglyConnectedComponents<\
+    \ bool >::comp;\n  using StronglyConnectedComponents< bool >::add_edge;\n  size_t\
+    \ sz;\n\n  explicit TwoSatisfiability(size_t v) : StronglyConnectedComponents<\
+    \ bool >(v + v), sz(v) {}\n\n  void add_if(int u, int v) {\n    // u -> v <=>\
+    \ !v -> !u\n    add_directed_edge(u, v);\n    add_directed_edge(rev(v), rev(u));\n\
+    \  }\n\n  void add_or(int u, int v) {\n    // u or v <=> !u -> v\n    add_if(rev(u),\
+    \ v);\n  }\n\n  void add_nand(int u, int v) {\n    // u nand v <=> u -> !v\n \
+    \   add_if(u, rev(v));\n  }\n\n  void set_true(int u) {\n    // u <=> !u -> u\n\
+    \    add_directed_edge(rev(u), u);\n  }\n\n  void set_false(int u) {\n    // !u\
+    \ <=> u -> !u\n    add_directed_edge(u, rev(u));\n  }\n\n  inline int rev(int\
+    \ x) {\n    if(x >= (int)sz) return x - sz;\n    return x + sz;\n  }\n\n  vector<\
+    \ int > solve() {\n    StronglyConnectedComponents< bool >::build();\n    vector<\
+    \ int > ret(sz);\n    for(size_t i = 0; i < sz; i++) {\n      if(comp[i] == comp[rev(i)])\
+    \ return {};\n      ret[i] = comp[i] > comp[rev(i)];\n    }\n    return ret;\n\
+    \  }\n};\n"
   dependsOn:
   - graph/connected-components/strongly-connected-components.hpp
   - graph/graph-template.hpp
   isVerificationFile: false
   path: graph/others/two-satisfiability.hpp
   requiredBy: []
-  timestamp: '2021-07-18 20:06:19+09:00'
+  timestamp: '2021-08-14 14:18:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-two-sat.test.cpp
@@ -105,7 +107,7 @@ layout: document
 redirect_from:
 - /library/graph/others/two-satisfiability.hpp
 - /library/graph/others/two-satisfiability.hpp.html
-title: 2-SAT
+title: Two Satisfiability(2-SAT)
 ---
 ## 概要
 

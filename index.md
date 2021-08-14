@@ -189,7 +189,7 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: graph/flow/bipartite-flow.hpp
-      title: "Bipartite-Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\u30FC\
+      title: "Bipartite Flow(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u30D5\u30ED\u30FC\
         )"
     - icon: ':heavy_check_mark:'
       path: graph/flow/bipartite-matching.hpp
@@ -197,13 +197,13 @@ data:
         \u30C3\u30C1\u30F3\u30B0)"
     - icon: ':heavy_check_mark:'
       path: graph/flow/dinic-capacity-scaling.hpp
-      title: "Dinic-Capacity-Scaling(\u6700\u5927\u6D41)"
+      title: "Dinic Capacity Scaling(\u6700\u5927\u6D41)"
     - icon: ':heavy_check_mark:'
       path: graph/flow/dinic.hpp
       title: "Dinic(\u6700\u5927\u6D41)"
     - icon: ':heavy_check_mark:'
       path: graph/flow/ford-fulkerson.hpp
-      title: "Ford-Fulkerson(\u6700\u5927\u6D41)"
+      title: "Ford Fulkerson(\u6700\u5927\u6D41)"
     - icon: ':heavy_check_mark:'
       path: graph/flow/gabow-edmonds.hpp
       title: "Gabow Edmonds(\u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\
@@ -223,7 +223,7 @@ data:
       title: graph/flow/push-relabel.hpp
   - name: graph
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/graph-template.hpp
       title: graph/graph-template.hpp
   - name: graph/mst
@@ -261,7 +261,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/others/chromatic-number.hpp
       title: "Chromatic Number(\u5F69\u8272\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/cycle-detection.hpp
       title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
     - icon: ':heavy_check_mark:'
@@ -301,7 +301,7 @@ data:
       title: "Tree Decomposition Width 2(\u6728\u5E452\u306E\u6728\u5206\u89E3)"
     - icon: ':heavy_check_mark:'
       path: graph/others/two-satisfiability.hpp
-      title: 2-SAT
+      title: Two Satisfiability(2-SAT)
   - name: graph/shortest-path
     pages:
     - icon: ':heavy_check_mark:'
@@ -906,7 +906,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
   verificationCategories:
@@ -1254,7 +1254,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-counting-primes.test.cpp
       title: test/verify/yosupo-counting-primes.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-cycle-detection.test.cpp
       title: test/verify/yosupo-cycle-detection.test.cpp
     - icon: ':heavy_check_mark:'
