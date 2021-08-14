@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/montgomery-mod-int.cpp
     title: Montgomery ModInt
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number Theoretic Transform Friendly ModInt
   - icon: ':question:'

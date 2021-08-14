@@ -345,7 +345,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-counting-primes.test.cpp
     title: test/verify/yosupo-counting-primes.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-cycle-detection.test.cpp
     title: test/verify/yosupo-cycle-detection.test.cpp
   - icon: ':heavy_check_mark:'
@@ -498,10 +498,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-set-xor-min.test.cpp
     title: test/verify/yosupo-set-xor-min.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
     title: test/verify/yosupo-sharp-p-subset-sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
     title: test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
   - icon: ':heavy_check_mark:'
@@ -513,7 +513,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-mod.test.cpp
     title: test/verify/yosupo-sqrt-mod.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -537,10 +537,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-staticrmq.test.cpp
     title: test/verify/yosupo-staticrmq.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   - icon: ':heavy_check_mark:'

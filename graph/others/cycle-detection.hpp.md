@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.hpp
     title: graph/graph-template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-cycle-detection.test.cpp
     title: test/verify/yosupo-cycle-detection.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/cycle-detection.md
     document_title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
@@ -35,12 +35,12 @@ data:
     \n\n/**\n * @brief Cycle Detection(\u9589\u8DEF\u691C\u51FA)\n * @docs docs/cycle-detection.md\n\
     \ */\ntemplate< typename T = int >\nstruct CycleDetection : Graph< T > {\n   \
     \ using Graph< T >::Graph;\n    using Graph< T >::g;\n\n    vector< int > used;\n\
-    \    Edges< T > pre, cyrcle;\n\n    bool dfs(int idx) {\n        used[idx] = 1;\n\
+    \    Edges< T > pre, cycle;\n\n    bool dfs(int idx) {\n        used[idx] = 1;\n\
     \        for(auto& e : g[idx]) {\n            if(used[e] == 0) {\n           \
     \     pre[e] = e;\n                if(dfs(e)) return true;\n            } else\
     \ if(used[e] == 1) {\n                int cur = idx;\n                while(cur\
-    \ != e) {\n                    cyrcle.emplace_back(pre[cur]);\n              \
-    \      cur = pre[cur].from;\n                }\n                cyrcle.emplace_back(e);\n\
+    \ != e) {\n                    cycle.emplace_back(pre[cur]);\n               \
+    \     cur = pre[cur].from;\n                }\n                cycle.emplace_back(e);\n\
     \                return true;\n            }\n        }\n\n        used[idx] =\
     \ 2;\n        return false;\n    }\n    Edges< T > build() {\n        used.assign(g.size(),\
     \ 0);\n        pre.resize(g.size());\n        for(int i = 0; i < (int)g.size();\
@@ -51,12 +51,12 @@ data:
     \ Detection(\u9589\u8DEF\u691C\u51FA)\n * @docs docs/cycle-detection.md\n */\n\
     template< typename T = int >\nstruct CycleDetection : Graph< T > {\n    using\
     \ Graph< T >::Graph;\n    using Graph< T >::g;\n\n    vector< int > used;\n  \
-    \  Edges< T > pre, cyrcle;\n\n    bool dfs(int idx) {\n        used[idx] = 1;\n\
+    \  Edges< T > pre, cycle;\n\n    bool dfs(int idx) {\n        used[idx] = 1;\n\
     \        for(auto& e : g[idx]) {\n            if(used[e] == 0) {\n           \
     \     pre[e] = e;\n                if(dfs(e)) return true;\n            } else\
     \ if(used[e] == 1) {\n                int cur = idx;\n                while(cur\
-    \ != e) {\n                    cyrcle.emplace_back(pre[cur]);\n              \
-    \      cur = pre[cur].from;\n                }\n                cyrcle.emplace_back(e);\n\
+    \ != e) {\n                    cycle.emplace_back(pre[cur]);\n               \
+    \     cur = pre[cur].from;\n                }\n                cycle.emplace_back(e);\n\
     \                return true;\n            }\n        }\n\n        used[idx] =\
     \ 2;\n        return false;\n    }\n    Edges< T > build() {\n        used.assign(g.size(),\
     \ 0);\n        pre.resize(g.size());\n        for(int i = 0; i < (int)g.size();\
@@ -68,8 +68,8 @@ data:
   isVerificationFile: false
   path: graph/others/cycle-detection.hpp
   requiredBy: []
-  timestamp: '2021-07-21 02:10:43+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-08-14 14:00:09+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/yosupo-cycle-detection.test.cpp
 documentation_of: graph/others/cycle-detection.hpp

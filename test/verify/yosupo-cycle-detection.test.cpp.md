@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.hpp
     title: graph/graph-template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/others/cycle-detection.hpp
     title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/cycle_detection
@@ -68,12 +68,12 @@ data:
     \n\n/**\n * @brief Cycle Detection(\u9589\u8DEF\u691C\u51FA)\n * @docs docs/cycle-detection.md\n\
     \ */\ntemplate< typename T = int >\nstruct CycleDetection : Graph< T > {\n   \
     \ using Graph< T >::Graph;\n    using Graph< T >::g;\n\n    vector< int > used;\n\
-    \    Edges< T > pre, cyrcle;\n\n    bool dfs(int idx) {\n        used[idx] = 1;\n\
+    \    Edges< T > pre, cycle;\n\n    bool dfs(int idx) {\n        used[idx] = 1;\n\
     \        for(auto& e : g[idx]) {\n            if(used[e] == 0) {\n           \
     \     pre[e] = e;\n                if(dfs(e)) return true;\n            } else\
     \ if(used[e] == 1) {\n                int cur = idx;\n                while(cur\
-    \ != e) {\n                    cyrcle.emplace_back(pre[cur]);\n              \
-    \      cur = pre[cur].from;\n                }\n                cyrcle.emplace_back(e);\n\
+    \ != e) {\n                    cycle.emplace_back(pre[cur]);\n               \
+    \     cur = pre[cur].from;\n                }\n                cycle.emplace_back(e);\n\
     \                return true;\n            }\n        }\n\n        used[idx] =\
     \ 2;\n        return false;\n    }\n    Edges< T > build() {\n        used.assign(g.size(),\
     \ 0);\n        pre.resize(g.size());\n        for(int i = 0; i < (int)g.size();\
@@ -97,8 +97,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-cycle-detection.test.cpp
   requiredBy: []
-  timestamp: '2021-07-21 02:10:43+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-08-14 14:00:09+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-cycle-detection.test.cpp
 layout: document

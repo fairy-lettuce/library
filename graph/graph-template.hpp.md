@@ -8,7 +8,7 @@ data:
       \u5206\u89E3)"
   - icon: ':heavy_check_mark:'
     path: graph/connected-components/incremental-bridge-connectivity.hpp
-    title: Incremental Bridge-Connectivity
+    title: Incremental Bridge Connectivity
   - icon: ':heavy_check_mark:'
     path: graph/connected-components/strongly-connected-components.hpp
     title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
@@ -43,7 +43,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/others/block-cut-tree.hpp
     title: Block Cut Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/others/cycle-detection.hpp
     title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
   - icon: ':heavy_check_mark:'
@@ -209,7 +209,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-7-a.test.cpp
     title: test/verify/aoj-grl-7-a.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-cycle-detection.test.cpp
     title: test/verify/yosupo-cycle-detection.test.cpp
   - icon: ':heavy_check_mark:'
@@ -275,9 +275,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/graph-template.hpp\"\n\ntemplate< typename T = int\
@@ -355,7 +355,7 @@ data:
   - graph/mst/prim-fibonacchi-heap.hpp
   - graph/mst/kruskal.hpp
   timestamp: '2021-07-01 00:28:48+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-grl-2-a-4.test.cpp
   - test/verify/aoj-3139.test.cpp

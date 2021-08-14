@@ -3,12 +3,12 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: graph/connected-components/incremental-bridge-connectivity.hpp
-    title: Incremental Bridge-Connectivity
+    title: Incremental Bridge Connectivity
   - icon: ':heavy_check_mark:'
     path: graph/connected-components/three-edge-connected-components.hpp
     title: "Three Edge Connected Components(\u4E09\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.hpp
     title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
@@ -86,7 +86,7 @@ data:
     \    }\n    ret.erase(remove_if(begin(ret), end(ret), [&](const vector< int >\
     \ &v) {\n      return v.empty();\n    }));\n    return ret;\n  }\n};\n#line 5\
     \ \"graph/connected-components/incremental-bridge-connectivity.hpp\"\n\n/**\n\
-    \ * @brief Incremental Bridge-Connectivity\n * @docs docs/incremental-bridge-connectivity.md\n\
+    \ * @brief Incremental Bridge Connectivity\n * @docs docs/incremental-bridge-connectivity.md\n\
     \ * @see https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity\n\
     \ */\nstruct IncrementalBridgeConnectivity {\nprivate:\n  UnionFind cc, bcc;\n\
     \  vector< int > bbf;\n  size_t bridge;\n\n  int size() {\n    return bbf.size();\n\
@@ -157,7 +157,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-three-edge-connected-components.test.cpp
   requiredBy: []
-  timestamp: '2021-07-16 02:06:57+09:00'
+  timestamp: '2021-08-14 14:00:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-three-edge-connected-components.test.cpp

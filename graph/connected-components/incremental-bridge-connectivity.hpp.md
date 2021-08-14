@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.hpp
     title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
@@ -24,7 +24,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/incremental-bridge-connectivity.md
-    document_title: Incremental Bridge-Connectivity
+    document_title: Incremental Bridge Connectivity
     links:
     - https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity
   bundledCode: "#line 2 \"graph/connected-components/incremental-bridge-connectivity.hpp\"\
@@ -56,7 +56,7 @@ data:
     \    }\n    ret.erase(remove_if(begin(ret), end(ret), [&](const vector< int >\
     \ &v) {\n      return v.empty();\n    }));\n    return ret;\n  }\n};\n#line 5\
     \ \"graph/connected-components/incremental-bridge-connectivity.hpp\"\n\n/**\n\
-    \ * @brief Incremental Bridge-Connectivity\n * @docs docs/incremental-bridge-connectivity.md\n\
+    \ * @brief Incremental Bridge Connectivity\n * @docs docs/incremental-bridge-connectivity.md\n\
     \ * @see https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity\n\
     \ */\nstruct IncrementalBridgeConnectivity {\nprivate:\n  UnionFind cc, bcc;\n\
     \  vector< int > bbf;\n  size_t bridge;\n\n  int size() {\n    return bbf.size();\n\
@@ -77,7 +77,7 @@ data:
     \ w);\n    } else {\n      if(cc.size(x) > cc.size(y)) swap(x, y);\n      link(x,\
     \ y);\n      cc.unite(x, y);\n      ++bridge;\n    }\n  }\n};\n"
   code: "#pragma once\n\n#include \"../graph-template.hpp\"\n#include \"../../structure/union-find/union-find.cpp\"\
-    \n\n/**\n * @brief Incremental Bridge-Connectivity\n * @docs docs/incremental-bridge-connectivity.md\n\
+    \n\n/**\n * @brief Incremental Bridge Connectivity\n * @docs docs/incremental-bridge-connectivity.md\n\
     \ * @see https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity\n\
     \ */\nstruct IncrementalBridgeConnectivity {\nprivate:\n  UnionFind cc, bcc;\n\
     \  vector< int > bbf;\n  size_t bridge;\n\n  int size() {\n    return bbf.size();\n\
@@ -104,7 +104,7 @@ data:
   path: graph/connected-components/incremental-bridge-connectivity.hpp
   requiredBy:
   - graph/connected-components/three-edge-connected-components.hpp
-  timestamp: '2021-07-16 02:06:57+09:00'
+  timestamp: '2021-08-14 14:00:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-two-edge-connected-components-2.test.cpp
@@ -114,7 +114,7 @@ layout: document
 redirect_from:
 - /library/graph/connected-components/incremental-bridge-connectivity.hpp
 - /library/graph/connected-components/incremental-bridge-connectivity.hpp.html
-title: Incremental Bridge-Connectivity
+title: Incremental Bridge Connectivity
 ---
 ## 概要
 

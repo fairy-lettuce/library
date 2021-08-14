@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
     title: Number Theoretic Transform Friendly ModInt
   _extendedRequiredBy: []
@@ -42,21 +42,21 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-pow-of-formal-power-series.test.cpp
     title: test/verify/yosupo-pow-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
     title: test/verify/yosupo-sharp-p-subset-sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/formal-power-series-friendly-ntt.md
     document_title: "Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\
@@ -413,7 +413,7 @@ data:
   path: math/fps/formal-power-series-friendly-ntt.cpp
   requiredBy: []
   timestamp: '2021-08-11 23:14:45+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-bernoulli-number.test.cpp
   - test/verify/yosupo-sharp-p-subset-sum.test.cpp
@@ -456,7 +456,7 @@ TODO 解説
 * `-`: $f(x) - g(x)$ を返す。$O(n)$
 * `*`: $f(x) \times g(x)$ を返す。
 * `/`: $f(x) = q (x)\times g(x) + r(x)$ かつ $\mathrm{deg}(r) \lt \mathrm{deg}(g)$ を満たす $q(x)$ を返す。
-* `%`: $f(x) = q(x) \times g(x) + r(x)$ かつ $\mathrm{deg}(r) \lt \mathrm{deg}(g)$ を満たす $g(x)$ を返す。
+* `%`: $f(x) = q(x) \times g(x) + r(x)$ かつ $\mathrm{deg}(r) \lt \mathrm{deg}(g)$ を満たす $r(x)$ を返す。
 * `div_mod()`: 剰余を返す。`/` と `%` をそれぞれ呼び出すよりも効率的。
 * `operator(x)`: $f(x)$ の値を評価して返す。$O(n)$
 * `diff()`: $f(x)'$ を返す。$O(n)$
