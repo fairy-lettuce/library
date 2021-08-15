@@ -21,9 +21,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/mst/directed-mst.hpp
     title: "Directed MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/mst/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
+  - icon: ':heavy_check_mark:'
+    path: graph/mst/manhattan-mst.hpp
+    title: Manhattan MST
   - icon: ':heavy_check_mark:'
     path: graph/mst/prim-fibonacchi-heap.hpp
     title: "Prim Fibonacchi Heap(\u6700\u5C0F\u5168\u57DF\u6728)"
@@ -223,7 +226,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-lca.test.cpp
     title: test/verify/yosupo-lca.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-manhattanmst.test.cpp
     title: test/verify/yosupo-manhattanmst.test.cpp
   - icon: ':heavy_check_mark:'
@@ -259,9 +262,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
       \u30C8)"
@@ -342,10 +345,11 @@ data:
   - graph/connected-components/three-edge-connected-components.hpp
   - graph/mst/prim.hpp
   - graph/mst/directed-mst.hpp
+  - graph/mst/manhattan-mst.hpp
   - graph/mst/prim-fibonacchi-heap.hpp
   - graph/mst/kruskal.hpp
   timestamp: '2021-08-16 02:17:26+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-2-a-4.test.cpp
   - test/verify/aoj-3139.test.cpp
