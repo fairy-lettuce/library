@@ -12,15 +12,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-1-a.test.cpp
     title: test/verify/aoj-grl-1-a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-k-shortest-walk.test.cpp
     title: test/verify/yosupo-k-shortest-walk.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-shortest-path.test.cpp
     title: test/verify/yosupo-shortest-path.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/dijkstra.md
     document_title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
@@ -52,7 +52,7 @@ data:
     \ -1), id(g.size(), -1);\n  using Pi = pair< T, int >;\n  priority_queue< Pi,\
     \ vector< Pi >, greater<> > que;\n  dist[s] = 0;\n  que.emplace(dist[s], s);\n\
     \  while(!que.empty()) {\n    T cost;\n    int idx;\n    tie(cost, idx) = que.top();\n\
-    \    que.pop();\n    if(dist[idx] < cost) continue;\n    for(auto &e : g.g[idx])\
+    \    que.pop();\n    if(dist[idx] < cost) continue;\n    for(auto &e : g[idx])\
     \ {\n      auto next_cost = cost + e.cost;\n      if(dist[e.to] <= next_cost)\
     \ continue;\n      dist[e.to] = next_cost;\n      from[e.to] = idx;\n      id[e.to]\
     \ = e.idx;\n      que.emplace(dist[e.to], e.to);\n    }\n  }\n  return {dist,\
@@ -66,18 +66,17 @@ data:
     \  using Pi = pair< T, int >;\n  priority_queue< Pi, vector< Pi >, greater<> >\
     \ que;\n  dist[s] = 0;\n  que.emplace(dist[s], s);\n  while(!que.empty()) {\n\
     \    T cost;\n    int idx;\n    tie(cost, idx) = que.top();\n    que.pop();\n\
-    \    if(dist[idx] < cost) continue;\n    for(auto &e : g.g[idx]) {\n      auto\
-    \ next_cost = cost + e.cost;\n      if(dist[e.to] <= next_cost) continue;\n  \
-    \    dist[e.to] = next_cost;\n      from[e.to] = idx;\n      id[e.to] = e.idx;\n\
-    \      que.emplace(dist[e.to], e.to);\n    }\n  }\n  return {dist, from, id};\n\
-    }\n"
+    \    if(dist[idx] < cost) continue;\n    for(auto &e : g[idx]) {\n      auto next_cost\
+    \ = cost + e.cost;\n      if(dist[e.to] <= next_cost) continue;\n      dist[e.to]\
+    \ = next_cost;\n      from[e.to] = idx;\n      id[e.to] = e.idx;\n      que.emplace(dist[e.to],\
+    \ e.to);\n    }\n  }\n  return {dist, from, id};\n}\n"
   dependsOn:
   - graph/graph-template.hpp
   isVerificationFile: false
   path: graph/shortest-path/dijkstra.hpp
   requiredBy: []
-  timestamp: '2021-08-16 02:17:26+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2021-08-16 02:34:50+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-0275.test.cpp
   - test/verify/aoj-grl-1-a.test.cpp

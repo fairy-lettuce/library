@@ -36,24 +36,23 @@ data:
     )\n */\ntemplate< typename T >\nGraph< T > convert_rooted_tree(const Graph< T\
     \ > &g, int r = 0) {\n  int N = (int) g.size();\n  Graph< T > rg(N);\n  vector<\
     \ int > v(N);\n  v[r] = 1;\n  queue< int > que;\n  que.emplace(r);\n  while(!que.empty())\
-    \ {\n    auto p = que.front();\n    que.pop();\n    for(auto &to : g.g[p]) {\n\
-    \      if(v[to] == 0) {\n        v[to] = 1;\n        que.emplace(to);\n      \
-    \  rg.add_directed_edge(p, to, to.cost);\n      }\n    }\n  }\n  return rg;\n\
-    }\n"
+    \ {\n    auto p = que.front();\n    que.pop();\n    for(auto &to : g[p]) {\n \
+    \     if(v[to] == 0) {\n        v[to] = 1;\n        que.emplace(to);\n       \
+    \ rg.add_directed_edge(p, to, to.cost);\n      }\n    }\n  }\n  return rg;\n}\n"
   code: "#pragma once\n\n#include \"../graph-template.hpp\"\n\n/**\n * @brief Convert-Rooted-Tree(\u6839\
     \u4ED8\u304D\u6728\u306B\u5909\u63DB)\n */\ntemplate< typename T >\nGraph< T >\
     \ convert_rooted_tree(const Graph< T > &g, int r = 0) {\n  int N = (int) g.size();\n\
     \  Graph< T > rg(N);\n  vector< int > v(N);\n  v[r] = 1;\n  queue< int > que;\n\
     \  que.emplace(r);\n  while(!que.empty()) {\n    auto p = que.front();\n    que.pop();\n\
-    \    for(auto &to : g.g[p]) {\n      if(v[to] == 0) {\n        v[to] = 1;\n  \
-    \      que.emplace(to);\n        rg.add_directed_edge(p, to, to.cost);\n     \
-    \ }\n    }\n  }\n  return rg;\n}\n"
+    \    for(auto &to : g[p]) {\n      if(v[to] == 0) {\n        v[to] = 1;\n    \
+    \    que.emplace(to);\n        rg.add_directed_edge(p, to, to.cost);\n      }\n\
+    \    }\n  }\n  return rg;\n}\n"
   dependsOn:
   - graph/graph-template.hpp
   isVerificationFile: false
   path: graph/tree/convert-rooted-tree.hpp
   requiredBy: []
-  timestamp: '2021-08-16 02:17:26+09:00'
+  timestamp: '2021-08-16 02:34:50+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: graph/tree/convert-rooted-tree.hpp

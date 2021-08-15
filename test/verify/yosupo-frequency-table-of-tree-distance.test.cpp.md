@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: graph/tree/centroid-decomposition.hpp
     title: "Centroid-Decomosition(\u91CD\u5FC3\u5206\u89E3)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fft/fast-fourier-transform.cpp
     title: math/fft/fast-fourier-transform.cpp
   - icon: ':question:'
@@ -15,9 +15,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/frequency_table_of_tree_distance
@@ -169,7 +169,7 @@ data:
   path: test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
   requiredBy: []
   timestamp: '2021-08-16 02:17:26+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
 layout: document

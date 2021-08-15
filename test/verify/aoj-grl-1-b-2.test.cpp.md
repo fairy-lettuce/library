@@ -76,7 +76,7 @@ data:
     \ T > dist(g.size(), INF);\n  vector< int > pending(g.size(), 0), times(g.size(),\
     \ 0);\n  queue< int > que;\n\n  que.emplace(s);\n  pending[s] = true;\n  ++times[s];\n\
     \  dist[s] = 0;\n\n  while(!que.empty()) {\n    int p = que.front();\n    que.pop();\n\
-    \    pending[p] = false;\n    for(auto &e : g.g[p]) {\n      T next_cost = dist[p]\
+    \    pending[p] = false;\n    for(auto &e : g[p]) {\n      T next_cost = dist[p]\
     \ + e.cost;\n      if(next_cost >= dist[e.to]) continue;\n      dist[e.to] = next_cost;\n\
     \      if(!pending[e.to]) {\n        if(++times[e.to] >= (int)g.size()) return\
     \ vector< T >();\n        pending[e.to] = true;\n        que.emplace(e.to);\n\
@@ -100,7 +100,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-grl-1-b-2.test.cpp
   requiredBy: []
-  timestamp: '2021-08-16 02:17:26+09:00'
+  timestamp: '2021-08-16 02:34:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-1-b-2.test.cpp

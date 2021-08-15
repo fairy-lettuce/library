@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: graph/graph-template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/cycle-detection.hpp
     title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/cycle_detection
@@ -69,20 +69,18 @@ data:
     \ Edge< T > > &operator[](const int &k) const {\n    return g[k];\n  }\n};\n\n\
     template< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 4 \"graph/others/cycle-detection.hpp\"\
     \n\n/**\n * @brief Cycle Detection(\u9589\u8DEF\u691C\u51FA)\n * @docs docs/cycle-detection.md\n\
-    \ */\ntemplate< typename T = int >\nstruct CycleDetection : Graph< T > {\n   \
-    \ using Graph< T >::Graph;\n    using Graph< T >::g;\n\n    vector< int > used;\n\
-    \    Edges< T > pre, cycle;\n\n    bool dfs(int idx) {\n        used[idx] = 1;\n\
-    \        for(auto& e : g[idx]) {\n            if(used[e] == 0) {\n           \
-    \     pre[e] = e;\n                if(dfs(e)) return true;\n            } else\
-    \ if(used[e] == 1) {\n                int cur = idx;\n                while(cur\
-    \ != e) {\n                    cycle.emplace_back(pre[cur]);\n               \
-    \     cur = pre[cur].from;\n                }\n                cycle.emplace_back(e);\n\
-    \                return true;\n            }\n        }\n\n        used[idx] =\
-    \ 2;\n        return false;\n    }\n    Edges< T > build() {\n        used.assign(g.size(),\
-    \ 0);\n        pre.resize(g.size());\n        for(int i = 0; i < (int)g.size();\
-    \ i++) {\n            if(used[i] == 0 && dfs(i)) {\n                reverse(begin(cycle),\
-    \ end(cycle));\n                return cycle;\n            }\n        }\n    \
-    \    return {};\n    }\n};\n#line 6 \"test/verify/yosupo-cycle-detection.test.cpp\"\
+    \ */\ntemplate< typename T = int >\nstruct CycleDetection : Graph< T > {\n  using\
+    \ Graph< T >::Graph;\n  using Graph< T >::g;\n\n  vector< int > used;\n  Edges<\
+    \ T > pre, cycle;\n\n  bool dfs(int idx) {\n    used[idx] = 1;\n    for(auto &e\
+    \ : g[idx]) {\n      if(used[e] == 0) {\n        pre[e] = e;\n        if(dfs(e))\
+    \ return true;\n      } else if(used[e] == 1) {\n        int cur = idx;\n    \
+    \    while(cur != e) {\n          cycle.emplace_back(pre[cur]);\n          cur\
+    \ = pre[cur].from;\n        }\n        cycle.emplace_back(e);\n        return\
+    \ true;\n      }\n    }\n\n    used[idx] = 2;\n    return false;\n  }\n\n  Edges<\
+    \ T > build() {\n    used.assign(g.size(), 0);\n    pre.resize(g.size());\n  \
+    \  for(int i = 0; i < (int) g.size(); i++) {\n      if(used[i] == 0 && dfs(i))\
+    \ {\n        reverse(begin(cycle), end(cycle));\n        return cycle;\n     \
+    \ }\n    }\n    return {};\n  }\n};\n#line 6 \"test/verify/yosupo-cycle-detection.test.cpp\"\
     \n\nint main() {\n    int N, M;\n    cin >> N >> M;\n    CycleDetection<> g(N);\n\
     \    g.read(M, 0, false, true);\n    auto ret = g.build();\n    if(ret.empty())\
     \ {\n        cout << -1 << \"\\n\";\n    } else {\n        cout << ret.size()\
@@ -100,8 +98,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-cycle-detection.test.cpp
   requiredBy: []
-  timestamp: '2021-08-16 02:17:26+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-08-16 02:34:50+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-cycle-detection.test.cpp
 layout: document

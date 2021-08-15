@@ -125,7 +125,7 @@ data:
     \ > es;\n  while(!heap.empty()) {\n    T cost;\n    int idx;\n    tie(cost, idx)\
     \ = heap.pop();\n    if(used[idx]) continue;\n    used[idx] = true;\n    total\
     \ += cost;\n    if(dist[idx]) es.emplace_back(*dist[idx]);\n    for(auto &e :\
-    \ g.g[idx]) {\n      if(used[e.to] || (dist[e.to] && dist[e.to]->cost <= e.cost))\
+    \ g[idx]) {\n      if(used[e.to] || (dist[e.to] && dist[e.to]->cost <= e.cost))\
     \ continue;\n      if(keep[e.to] == nullptr) {\n        dist[e.to] = &e;\n   \
     \     keep[e.to] = heap.push(e.cost, e.to);\n      } else {\n        T d = dist[e.to]->cost\
     \ - e.cost;\n        heap.decrease_key(keep[e.to], d);\n        dist[e.to] = &e;\n\
@@ -144,7 +144,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-grl-2-a-4.test.cpp
   requiredBy: []
-  timestamp: '2021-08-16 02:17:26+09:00'
+  timestamp: '2021-08-16 02:34:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-2-a-4.test.cpp

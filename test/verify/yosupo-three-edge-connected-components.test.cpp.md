@@ -88,7 +88,7 @@ data:
     \ = (int) data.size();\n    vector< vector< int > > ret(n);\n    for(int i = 0;\
     \ i < n; i++) {\n      ret[find(i)].emplace_back(i);\n    }\n    ret.erase(remove_if(begin(ret),\
     \ end(ret), [&](const vector< int > &v) {\n      return v.empty();\n    }));\n\
-    \    return ret;\n  }\n};\n#line 5 \"graph/connected-components/incremental-bridge-connectivity.hpp\"\
+    \    return ret;\n  }\n};\n#line 4 \"graph/connected-components/incremental-bridge-connectivity.hpp\"\
     \n\n/**\n * @brief Incremental Bridge Connectivity\n * @docs docs/incremental-bridge-connectivity.md\n\
     \ * @see https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity\n\
     \ */\nstruct IncrementalBridgeConnectivity {\nprivate:\n  UnionFind cc, bcc;\n\
@@ -160,7 +160,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-three-edge-connected-components.test.cpp
   requiredBy: []
-  timestamp: '2021-08-16 02:17:26+09:00'
+  timestamp: '2021-08-16 02:34:50+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-three-edge-connected-components.test.cpp

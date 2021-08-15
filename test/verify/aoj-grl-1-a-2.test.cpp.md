@@ -123,7 +123,7 @@ data:
     \ nullptr);\n  vector< T > dist;\n  dist.assign(g.size(), INF);\n  dist[s] = 0;\n\
     \  keep[s] = heap.push(dist[s], s);\n\n  while(!heap.empty()) {\n    T cost;\n\
     \    int idx;\n    tie(cost, idx) = heap.pop();\n    if(dist[idx] < cost) continue;\n\
-    \    for(auto &e : g.g[idx]) {\n      auto next_cost = cost + e.cost;\n      if(dist[e.to]\
+    \    for(auto &e : g[idx]) {\n      auto next_cost = cost + e.cost;\n      if(dist[e.to]\
     \ <= next_cost) continue;\n      if(keep[e.to] == nullptr) {\n        dist[e.to]\
     \ = next_cost;\n        keep[e.to] = heap.push(dist[e.to], e.to);\n      } else\
     \ {\n        T d = dist[e.to] - next_cost;\n        heap.decrease_key(keep[e.to],\
@@ -147,7 +147,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-grl-1-a-2.test.cpp
   requiredBy: []
-  timestamp: '2021-08-16 02:17:26+09:00'
+  timestamp: '2021-08-16 02:34:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-1-a-2.test.cpp

@@ -73,17 +73,17 @@ data:
     \ * @docs docs/k-shortest-path.md\n * @see https://qiita.com/nariaki3551/items/821dc6ffdc552d3d5f22\n\
     \ */\ntemplate< typename T >\nvector< pair< T, vector< int > > > k_shortest_path(const\
     \ Graph< T > &g, int s, int t, int k) {\n  assert(s != t);\n  int N = (int) g.size();\n\
-    \  int M = 0;\n  for(int i = 0; i < N; i++) M += g.g[i].size();\n  vector< int\
-    \ > latte(M), malta(M);\n  vector< T > cost(M);\n  for(int i = 0; i < N; i++)\
-    \ {\n    for(auto &e : g.g[i]) {\n      latte[e.idx] = i;\n      malta[e.idx]\
-    \ = e.to;\n      cost[e.idx] = e.cost;\n    }\n  }\n  const auto INF = numeric_limits<\
+    \  int M = 0;\n  for(int i = 0; i < N; i++) M += (int) g[i].size();\n  vector<\
+    \ int > latte(M), malta(M);\n  vector< T > cost(M);\n  for(int i = 0; i < N; i++)\
+    \ {\n    for(auto &e : g[i]) {\n      latte[e.idx] = i;\n      malta[e.idx] =\
+    \ e.to;\n      cost[e.idx] = e.cost;\n    }\n  }\n  const auto INF = numeric_limits<\
     \ T >::max();\n  vector< int > dame(M, -1);\n  int timestamp = 0;\n  auto shortest_path\
     \ = [&](vector< T > &dist, vector< int > &from, vector< int > &id, int st) {\n\
     \    using Pi = pair< T, int >;\n    priority_queue< Pi, vector< Pi >, greater<>\
     \ > que;\n    que.emplace(dist[st], st);\n    while(!que.empty()) {\n      T cost;\n\
     \      int idx;\n      tie(cost, idx) = que.top();\n      que.pop();\n      if(dist[idx]\
-    \ < cost) continue;\n      if(idx == t) return;\n      for(auto &e : g.g[idx])\
-    \ {\n        auto next_cost = cost + e.cost;\n        if(dist[e.to] <= next_cost)\
+    \ < cost) continue;\n      if(idx == t) return;\n      for(auto &e : g[idx]) {\n\
+    \        auto next_cost = cost + e.cost;\n        if(dist[e.to] <= next_cost)\
     \ continue;\n        if(dame[e.idx] == timestamp) continue;\n        dist[e.to]\
     \ = next_cost;\n        from[e.to] = idx;\n        id[e.to] = e.idx;\n       \
     \ que.emplace(dist[e.to], e.to);\n      }\n    }\n  };\n  auto restore = [](const\
@@ -142,7 +142,7 @@ data:
   isVerificationFile: true
   path: test/verify/yukicoder-1069.test.cpp
   requiredBy: []
-  timestamp: '2021-08-16 02:17:26+09:00'
+  timestamp: '2021-08-16 02:34:50+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yukicoder-1069.test.cpp

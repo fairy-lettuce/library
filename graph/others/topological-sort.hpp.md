@@ -43,28 +43,28 @@ data:
     \n\n/**\n * @brief Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\
     \u30FC\u30C8)\n * @docs docs/topological-sort.md\n */\ntemplate< typename T >\n\
     vector< int > topological_sort(const Graph< T > &g) {\n  const int N = (int) g.size();\n\
-    \  vector< int > deg(N);\n  for(int i = 0; i < N; i++) {\n    for(auto &to : g.g[i])\
+    \  vector< int > deg(N);\n  for(int i = 0; i < N; i++) {\n    for(auto &to : g[i])\
     \ ++deg[to];\n  }\n  stack< int > st;\n  for(int i = 0; i < N; i++) {\n    if(deg[i]\
     \ == 0) st.emplace(i);\n  }\n  vector< int > ord;\n  while(!st.empty()) {\n  \
     \  auto p = st.top();\n    st.pop();\n    ord.emplace_back(p);\n    for(auto &to\
-    \ : g.g[p]) {\n      if(--deg[to] == 0) st.emplace(to);\n    }\n  }\n  return\
-    \ ord;\n}\n"
+    \ : g[p]) {\n      if(--deg[to] == 0) st.emplace(to);\n    }\n  }\n  return ord;\n\
+    }\n"
   code: "#pragma once\n\n#include \"../graph-template.hpp\"\n\n/**\n * @brief Topological\
     \ Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8)\n * @docs docs/topological-sort.md\n\
     \ */\ntemplate< typename T >\nvector< int > topological_sort(const Graph< T >\
     \ &g) {\n  const int N = (int) g.size();\n  vector< int > deg(N);\n  for(int i\
-    \ = 0; i < N; i++) {\n    for(auto &to : g.g[i]) ++deg[to];\n  }\n  stack< int\
-    \ > st;\n  for(int i = 0; i < N; i++) {\n    if(deg[i] == 0) st.emplace(i);\n\
-    \  }\n  vector< int > ord;\n  while(!st.empty()) {\n    auto p = st.top();\n \
-    \   st.pop();\n    ord.emplace_back(p);\n    for(auto &to : g.g[p]) {\n      if(--deg[to]\
-    \ == 0) st.emplace(to);\n    }\n  }\n  return ord;\n}\n"
+    \ = 0; i < N; i++) {\n    for(auto &to : g[i]) ++deg[to];\n  }\n  stack< int >\
+    \ st;\n  for(int i = 0; i < N; i++) {\n    if(deg[i] == 0) st.emplace(i);\n  }\n\
+    \  vector< int > ord;\n  while(!st.empty()) {\n    auto p = st.top();\n    st.pop();\n\
+    \    ord.emplace_back(p);\n    for(auto &to : g[p]) {\n      if(--deg[to] == 0)\
+    \ st.emplace(to);\n    }\n  }\n  return ord;\n}\n"
   dependsOn:
   - graph/graph-template.hpp
   isVerificationFile: false
   path: graph/others/topological-sort.hpp
   requiredBy:
   - graph/others/offline-dag-reachability.hpp
-  timestamp: '2021-08-16 02:17:26+09:00'
+  timestamp: '2021-08-16 02:34:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-0275.test.cpp

@@ -1,58 +1,67 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':question:'
-    path: graph/graph-template.hpp
-    title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-7-a.test.cpp
     title: test/verify/aoj-grl-7-a.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/bipartite-matching.md
     document_title: "Bipartite-Matching(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\
       \u5927\u30DE\u30C3\u30C1\u30F3\u30B0)"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
-    \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ graph/flow/bipartite-matching.hpp: line 5: #pragma once found in a non-first\
-    \ line\n"
+  bundledCode: "#line 1 \"graph/flow/bipartite-matching.hpp\"\n/**\n * @brief Bipartite-Matching(\u4E8C\
+    \u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0)\n *\
+    \ @docs docs/bipartite-matching.md\n */\nstruct BipartiteMatching {\n  vector<\
+    \ vector< int > > graph;\n  vector< int > alive, used, match;\n  int timestamp;\n\
+    \n  explicit BipartiteMatching(int n) : graph(n), alive(n, 1), used(n, 0), match(n,\
+    \ -1), timestamp(0) {}\n\n  void add_edge(int u, int v) {\n    graph[u].push_back(v);\n\
+    \    graph[v].push_back(u);\n  }\n\n  bool augment(int idx) {\n    used[idx] =\
+    \ timestamp;\n    for(auto &to : graph[idx]) {\n      int to_match = match[to];\n\
+    \      if(alive[to] == 0) continue;\n      if(to_match == -1 || (used[to_match]\
+    \ != timestamp && augment(to_match))) {\n        match[idx] = to;\n        match[to]\
+    \ = idx;\n        return true;\n      }\n    }\n    return false;\n  }\n\n  int\
+    \ bipartite_matching() {\n    int ret = 0;\n    for(int i = 0; i < (int) graph.size();\
+    \ i++) {\n      if(alive[i] == 0) continue;\n      if(match[i] == -1) {\n    \
+    \    ++timestamp;\n        ret += augment(i);\n      }\n    }\n    return ret;\n\
+    \  }\n\n  int add_vertex(int idx) {\n    alive[idx] = 1;\n    ++timestamp;\n \
+    \   return augment(idx);\n  }\n\n  int erase_vertex(int idx) {\n    alive[idx]\
+    \ = 0;\n    if(match[idx] == -1) {\n      return 0;\n    }\n    match[match[idx]]\
+    \ = -1;\n    ++timestamp;\n    int ret = augment(match[idx]);\n    match[idx]\
+    \ = -1;\n    return ret - 1;\n  }\n\n  void output() const {\n    for(int i =\
+    \ 0; i < (int) graph.size(); i++) {\n      if(i < match[i]) {\n        cout <<\
+    \ i << \"-\" << match[i] << endl;\n      }\n    }\n  }\n};\n"
   code: "/**\n * @brief Bipartite-Matching(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\
     \u5927\u30DE\u30C3\u30C1\u30F3\u30B0)\n * @docs docs/bipartite-matching.md\n */\n\
-    #pragma once\n\n#include \"../graph-template.hpp\"\n\nstruct BipartiteMatching\
-    \ {\n  vector< vector< int > > graph;\n  vector< int > alive, used, match;\n \
-    \ int timestamp;\n\n  explicit BipartiteMatching(int n) : graph(n), alive(n, 1),\
-    \ used(n, 0), match(n, -1), timestamp(0) {}\n\n  void add_edge(int u, int v) {\n\
-    \    graph[u].push_back(v);\n    graph[v].push_back(u);\n  }\n\n  bool augment(int\
-    \ idx) {\n    used[idx] = timestamp;\n    for(auto &to : graph[idx]) {\n     \
-    \ int to_match = match[to];\n      if(alive[to] == 0) continue;\n      if(to_match\
-    \ == -1 || (used[to_match] != timestamp && augment(to_match))) {\n        match[idx]\
-    \ = to;\n        match[to] = idx;\n        return true;\n      }\n    }\n    return\
-    \ false;\n  }\n\n  int bipartite_matching() {\n    int ret = 0;\n    for(int i\
-    \ = 0; i < (int) graph.size(); i++) {\n      if(alive[i] == 0) continue;\n   \
-    \   if(match[i] == -1) {\n        ++timestamp;\n        ret += augment(i);\n \
-    \     }\n    }\n    return ret;\n  }\n\n  int add_vertex(int idx) {\n    alive[idx]\
-    \ = 1;\n    ++timestamp;\n    return augment(idx);\n  }\n\n  int erase_vertex(int\
-    \ idx) {\n    alive[idx] = 0;\n    if(match[idx] == -1) {\n      return 0;\n \
-    \   }\n    match[match[idx]] = -1;\n    ++timestamp;\n    int ret = augment(match[idx]);\n\
-    \    match[idx] = -1;\n    return ret - 1;\n  }\n\n  void output() const {\n \
-    \   for(int i = 0; i < (int) graph.size(); i++) {\n      if(i < match[i]) {\n\
-    \        cout << i << \"-\" << match[i] << endl;\n      }\n    }\n  }\n};\n"
-  dependsOn:
-  - graph/graph-template.hpp
+    struct BipartiteMatching {\n  vector< vector< int > > graph;\n  vector< int >\
+    \ alive, used, match;\n  int timestamp;\n\n  explicit BipartiteMatching(int n)\
+    \ : graph(n), alive(n, 1), used(n, 0), match(n, -1), timestamp(0) {}\n\n  void\
+    \ add_edge(int u, int v) {\n    graph[u].push_back(v);\n    graph[v].push_back(u);\n\
+    \  }\n\n  bool augment(int idx) {\n    used[idx] = timestamp;\n    for(auto &to\
+    \ : graph[idx]) {\n      int to_match = match[to];\n      if(alive[to] == 0) continue;\n\
+    \      if(to_match == -1 || (used[to_match] != timestamp && augment(to_match)))\
+    \ {\n        match[idx] = to;\n        match[to] = idx;\n        return true;\n\
+    \      }\n    }\n    return false;\n  }\n\n  int bipartite_matching() {\n    int\
+    \ ret = 0;\n    for(int i = 0; i < (int) graph.size(); i++) {\n      if(alive[i]\
+    \ == 0) continue;\n      if(match[i] == -1) {\n        ++timestamp;\n        ret\
+    \ += augment(i);\n      }\n    }\n    return ret;\n  }\n\n  int add_vertex(int\
+    \ idx) {\n    alive[idx] = 1;\n    ++timestamp;\n    return augment(idx);\n  }\n\
+    \n  int erase_vertex(int idx) {\n    alive[idx] = 0;\n    if(match[idx] == -1)\
+    \ {\n      return 0;\n    }\n    match[match[idx]] = -1;\n    ++timestamp;\n \
+    \   int ret = augment(match[idx]);\n    match[idx] = -1;\n    return ret - 1;\n\
+    \  }\n\n  void output() const {\n    for(int i = 0; i < (int) graph.size(); i++)\
+    \ {\n      if(i < match[i]) {\n        cout << i << \"-\" << match[i] << endl;\n\
+    \      }\n    }\n  }\n};\n"
+  dependsOn: []
   isVerificationFile: false
   path: graph/flow/bipartite-matching.hpp
   requiredBy: []
-  timestamp: '2021-08-16 02:17:26+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-08-16 02:34:50+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-7-a.test.cpp
 documentation_of: graph/flow/bipartite-matching.hpp

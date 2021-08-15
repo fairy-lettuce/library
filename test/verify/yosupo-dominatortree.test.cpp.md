@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: graph/graph-template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/dominator-tree.hpp
     title: Dominator Tree
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/dominatortree
@@ -77,7 +77,7 @@ data:
     \ i = 0; i < N; i++) {\n      for(auto &to : g[i]) {\n        if(~semi[i]) rg.add_directed_edge(to,\
     \ i);\n      }\n    }\n\n    vector< vector< int > > bucket(N);\n    vector< int\
     \ > U(N);\n    for(int i = (int) ord.size() - 1; i >= 0; i--) {\n      int x =\
-    \ ord[i];\n      for(int v : rg.g[x]) {\n        v = uf.eval(v);\n        if(semi[x]\
+    \ ord[i];\n      for(int v : rg[x]) {\n        v = uf.eval(v);\n        if(semi[x]\
     \ > semi[v]) semi[x] = semi[v];\n      }\n      bucket[ord[semi[x]]].emplace_back(x);\n\
     \      for(int v : bucket[par[x]]) U[v] = uf.eval(v);\n      bucket[par[x]].clear();\n\
     \      uf.link(par[x], x);\n    }\n    for(int i = 1; i < (int)ord.size(); i++)\
@@ -112,8 +112,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-dominatortree.test.cpp
   requiredBy: []
-  timestamp: '2021-08-16 02:17:26+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-08-16 02:34:50+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-dominatortree.test.cpp
 layout: document

@@ -76,8 +76,8 @@ data:
     \ 1);\n  dist[s] = 0;\n  ques[0].emplace(s);\n  for(T cost = 0; cost <= beet;\
     \ cost++) {\n    auto &que = ques[cost % max_cost];\n    while(!que.empty()) {\n\
     \      int idx = que.front();\n      que.pop();\n      if(dist[idx] < cost) continue;\n\
-    \      for(auto &e : g.g[idx]) {\n        auto next_cost = cost + e.cost;\n  \
-    \      if(dist[e.to] <= next_cost) continue;;\n        dist[e.to] = next_cost;\n\
+    \      for(auto &e : g[idx]) {\n        auto next_cost = cost + e.cost;\n    \
+    \    if(dist[e.to] <= next_cost) continue;;\n        dist[e.to] = next_cost;\n\
     \        beet = max(beet, dist[e.to]);\n        ques[dist[e.to] % max_cost].emplace(e.to);\n\
     \      }\n    }\n  }\n  return dist;\n}\n#line 6 \"test/verify/aoj-alds-1-11-c.test.cpp\"\
     \n\n\nint main() {\n  int N;\n  cin >> N;\n  Graph<> g(N);\n  for(int i = 0; i\
@@ -101,7 +101,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-alds-1-11-c.test.cpp
   requiredBy: []
-  timestamp: '2021-08-16 02:17:26+09:00'
+  timestamp: '2021-08-16 02:34:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-alds-1-11-c.test.cpp

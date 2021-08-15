@@ -57,7 +57,7 @@ data:
     \ int, int > > st;\n    st.emplace(e, -1);\n    vector< int > dep(N, -1), par(N);\n\
     \    while(!st.empty()) {\n      auto p = st.top();\n      if(dep[p.first] ==\
     \ -1) {\n        dep[p.first] = p.second == -1 ? 0 : dep[p.second] + 1;\n    \
-    \    for(auto &to : t.g[p.first]) if(to != p.second) st.emplace(to, p.first);\n\
+    \    for(auto &to : t[p.first]) if(to != p.second) st.emplace(to, p.first);\n\
     \      } else {\n        par[p.first] = p.second;\n        st.pop();\n      }\n\
     \    }\n    return make_pair(dep, par);\n  };\n\n  auto solve = [&](const pvi\
     \ &latte, const pvi &malta) {\n\n    int d = *max_element(begin(latte.first),\
@@ -87,7 +87,7 @@ data:
     \ > > st;\n    st.emplace(e, -1);\n    vector< int > dep(N, -1), par(N);\n   \
     \ while(!st.empty()) {\n      auto p = st.top();\n      if(dep[p.first] == -1)\
     \ {\n        dep[p.first] = p.second == -1 ? 0 : dep[p.second] + 1;\n        for(auto\
-    \ &to : t.g[p.first]) if(to != p.second) st.emplace(to, p.first);\n      } else\
+    \ &to : t[p.first]) if(to != p.second) st.emplace(to, p.first);\n      } else\
     \ {\n        par[p.first] = p.second;\n        st.pop();\n      }\n    }\n   \
     \ return make_pair(dep, par);\n  };\n\n  auto solve = [&](const pvi &latte, const\
     \ pvi &malta) {\n\n    int d = *max_element(begin(latte.first), end(latte.first));\n\
@@ -114,7 +114,7 @@ data:
   isVerificationFile: false
   path: graph/tree/tree-isomorphism.hpp
   requiredBy: []
-  timestamp: '2021-08-16 02:17:26+09:00'
+  timestamp: '2021-08-16 02:34:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-2821.test.cpp

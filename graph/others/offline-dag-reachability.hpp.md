@@ -44,22 +44,22 @@ data:
     \n\n/**\n * @brief Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\
     \u30FC\u30C8)\n * @docs docs/topological-sort.md\n */\ntemplate< typename T >\n\
     vector< int > topological_sort(const Graph< T > &g) {\n  const int N = (int) g.size();\n\
-    \  vector< int > deg(N);\n  for(int i = 0; i < N; i++) {\n    for(auto &to : g.g[i])\
+    \  vector< int > deg(N);\n  for(int i = 0; i < N; i++) {\n    for(auto &to : g[i])\
     \ ++deg[to];\n  }\n  stack< int > st;\n  for(int i = 0; i < N; i++) {\n    if(deg[i]\
     \ == 0) st.emplace(i);\n  }\n  vector< int > ord;\n  while(!st.empty()) {\n  \
     \  auto p = st.top();\n    st.pop();\n    ord.emplace_back(p);\n    for(auto &to\
-    \ : g.g[p]) {\n      if(--deg[to] == 0) st.emplace(to);\n    }\n  }\n  return\
-    \ ord;\n}\n#line 5 \"graph/others/offline-dag-reachability.hpp\"\n\n/**\n * @brief\
-    \ Offline Dag Reachability(DAG\u306E\u5230\u9054\u53EF\u80FD\u6027\u30AF\u30A8\
-    \u30EA)\n * @docs docs/offline-dag-reachability.md\n */\n\ntemplate< typename\
-    \ T >\nvector< int > offline_dag_reachability(const Graph< T > &g, vector< pair<\
-    \ int, int > > &qs) {\n  const int N = (int) g.size();\n  const int Q = (int)\
-    \ qs.size();\n  auto ord = topological_sort(g);\n  vector< int > ans(Q);\n  for(int\
-    \ l = 0; l < Q; l += 64) {\n    int r = min(Q, l + 64);\n    vector< int64_t >\
-    \ dp(N);\n    for(int k = l; k < r; k++) {\n      dp[qs[k].first] |= int64_t(1)\
-    \ << (k - l);\n    }\n    for(auto &idx : ord) {\n      for(auto &to : g.g[idx])\
-    \ dp[to] |= dp[idx];\n    }\n    for(int k = l; k < r; k++) {\n      ans[k] =\
-    \ (dp[qs[k].second] >> (k - l)) & 1;\n    }\n  }\n  return ans;\n}\n"
+    \ : g[p]) {\n      if(--deg[to] == 0) st.emplace(to);\n    }\n  }\n  return ord;\n\
+    }\n#line 5 \"graph/others/offline-dag-reachability.hpp\"\n\n/**\n * @brief Offline\
+    \ Dag Reachability(DAG\u306E\u5230\u9054\u53EF\u80FD\u6027\u30AF\u30A8\u30EA)\n\
+    \ * @docs docs/offline-dag-reachability.md\n */\n\ntemplate< typename T >\nvector<\
+    \ int > offline_dag_reachability(const Graph< T > &g, vector< pair< int, int >\
+    \ > &qs) {\n  const int N = (int) g.size();\n  const int Q = (int) qs.size();\n\
+    \  auto ord = topological_sort(g);\n  vector< int > ans(Q);\n  for(int l = 0;\
+    \ l < Q; l += 64) {\n    int r = min(Q, l + 64);\n    vector< int64_t > dp(N);\n\
+    \    for(int k = l; k < r; k++) {\n      dp[qs[k].first] |= int64_t(1) << (k -\
+    \ l);\n    }\n    for(auto &idx : ord) {\n      for(auto &to : g[idx]) dp[to]\
+    \ |= dp[idx];\n    }\n    for(int k = l; k < r; k++) {\n      ans[k] = (dp[qs[k].second]\
+    \ >> (k - l)) & 1;\n    }\n  }\n  return ans;\n}\n"
   code: "#pragma once\n\n#include \"../graph-template.hpp\"\n#include \"topological-sort.hpp\"\
     \n\n/**\n * @brief Offline Dag Reachability(DAG\u306E\u5230\u9054\u53EF\u80FD\u6027\
     \u30AF\u30A8\u30EA)\n * @docs docs/offline-dag-reachability.md\n */\n\ntemplate<\
@@ -69,16 +69,15 @@ data:
     \  for(int l = 0; l < Q; l += 64) {\n    int r = min(Q, l + 64);\n    vector<\
     \ int64_t > dp(N);\n    for(int k = l; k < r; k++) {\n      dp[qs[k].first] |=\
     \ int64_t(1) << (k - l);\n    }\n    for(auto &idx : ord) {\n      for(auto &to\
-    \ : g.g[idx]) dp[to] |= dp[idx];\n    }\n    for(int k = l; k < r; k++) {\n  \
-    \    ans[k] = (dp[qs[k].second] >> (k - l)) & 1;\n    }\n  }\n  return ans;\n\
-    }\n"
+    \ : g[idx]) dp[to] |= dp[idx];\n    }\n    for(int k = l; k < r; k++) {\n    \
+    \  ans[k] = (dp[qs[k].second] >> (k - l)) & 1;\n    }\n  }\n  return ans;\n}\n"
   dependsOn:
   - graph/graph-template.hpp
   - graph/others/topological-sort.hpp
   isVerificationFile: false
   path: graph/others/offline-dag-reachability.hpp
   requiredBy: []
-  timestamp: '2021-08-16 02:17:26+09:00'
+  timestamp: '2021-08-16 02:34:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-0275.test.cpp

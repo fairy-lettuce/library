@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
-    path: graph/graph-template.hpp
-    title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':question:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
   _extendedRequiredBy:
@@ -28,37 +25,19 @@ data:
     links:
     - https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity
   bundledCode: "#line 2 \"graph/connected-components/incremental-bridge-connectivity.hpp\"\
-    \n\n#line 2 \"graph/graph-template.hpp\"\n\n/**\n * @brief Graph Template(\u30B0\
-    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n */\ntemplate< typename T =\
-    \ int >\nstruct Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\
-    \n  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost),\
-    \ idx(idx) {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename\
-    \ T = int >\nstruct Graph {\n  vector< vector< Edge< T > > > g;\n  int es;\n\n\
-    \  Graph() = default;\n\n  explicit Graph(int n) : g(n), es(0) {}\n\n  size_t\
-    \ size() const {\n    return g.size();\n  }\n\n  void add_directed_edge(int from,\
-    \ int to, T cost = 1) {\n    g[from].emplace_back(from, to, cost, es++);\n  }\n\
-    \n  void add_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from,\
-    \ to, cost, es);\n    g[to].emplace_back(to, from, cost, es++);\n  }\n\n  void\
-    \ read(int M, int padding = -1, bool weighted = false, bool directed = false)\
-    \ {\n    for(int i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n\
-    \      a += padding;\n      b += padding;\n      T c = T(1);\n      if(weighted)\
-    \ cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n      else add_edge(a,\
-    \ b, c);\n    }\n  }\n\n  inline vector< Edge< T > > &operator[](const int &k)\
-    \ {\n    return g[k];\n  }\n\n  inline const vector< Edge< T > > &operator[](const\
-    \ int &k) const {\n    return g[k];\n  }\n};\n\ntemplate< typename T = int >\n\
-    using Edges = vector< Edge< T > >;\n#line 1 \"structure/union-find/union-find.cpp\"\
-    \n/**\n * @brief Union-Find\n * @docs docs/union-find.md\n */\nstruct UnionFind\
-    \ {\n  vector< int > data;\n\n  UnionFind() = default;\n\n  explicit UnionFind(size_t\
-    \ sz) : data(sz, -1) {}\n\n  bool unite(int x, int y) {\n    x = find(x), y =\
-    \ find(y);\n    if(x == y) return false;\n    if(data[x] > data[y]) swap(x, y);\n\
-    \    data[x] += data[y];\n    data[y] = x;\n    return true;\n  }\n\n  int find(int\
-    \ k) {\n    if(data[k] < 0) return (k);\n    return data[k] = find(data[k]);\n\
-    \  }\n\n  int size(int k) {\n    return -data[find(k)];\n  }\n\n  bool same(int\
-    \ x, int y) {\n    return find(x) == find(y);\n  }\n\n  vector< vector< int >\
-    \ > groups() {\n    int n = (int) data.size();\n    vector< vector< int > > ret(n);\n\
-    \    for(int i = 0; i < n; i++) {\n      ret[find(i)].emplace_back(i);\n    }\n\
-    \    ret.erase(remove_if(begin(ret), end(ret), [&](const vector< int > &v) {\n\
-    \      return v.empty();\n    }));\n    return ret;\n  }\n};\n#line 5 \"graph/connected-components/incremental-bridge-connectivity.hpp\"\
+    \n\n#line 1 \"structure/union-find/union-find.cpp\"\n/**\n * @brief Union-Find\n\
+    \ * @docs docs/union-find.md\n */\nstruct UnionFind {\n  vector< int > data;\n\
+    \n  UnionFind() = default;\n\n  explicit UnionFind(size_t sz) : data(sz, -1) {}\n\
+    \n  bool unite(int x, int y) {\n    x = find(x), y = find(y);\n    if(x == y)\
+    \ return false;\n    if(data[x] > data[y]) swap(x, y);\n    data[x] += data[y];\n\
+    \    data[y] = x;\n    return true;\n  }\n\n  int find(int k) {\n    if(data[k]\
+    \ < 0) return (k);\n    return data[k] = find(data[k]);\n  }\n\n  int size(int\
+    \ k) {\n    return -data[find(k)];\n  }\n\n  bool same(int x, int y) {\n    return\
+    \ find(x) == find(y);\n  }\n\n  vector< vector< int > > groups() {\n    int n\
+    \ = (int) data.size();\n    vector< vector< int > > ret(n);\n    for(int i = 0;\
+    \ i < n; i++) {\n      ret[find(i)].emplace_back(i);\n    }\n    ret.erase(remove_if(begin(ret),\
+    \ end(ret), [&](const vector< int > &v) {\n      return v.empty();\n    }));\n\
+    \    return ret;\n  }\n};\n#line 4 \"graph/connected-components/incremental-bridge-connectivity.hpp\"\
     \n\n/**\n * @brief Incremental Bridge Connectivity\n * @docs docs/incremental-bridge-connectivity.md\n\
     \ * @see https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity\n\
     \ */\nstruct IncrementalBridgeConnectivity {\nprivate:\n  UnionFind cc, bcc;\n\
@@ -79,8 +58,8 @@ data:
     \ cc.find(y)) {\n      int w = lca(x, y);\n      compress(x, w);\n      compress(y,\
     \ w);\n    } else {\n      if(cc.size(x) > cc.size(y)) swap(x, y);\n      link(x,\
     \ y);\n      cc.unite(x, y);\n      ++bridge;\n    }\n  }\n};\n"
-  code: "#pragma once\n\n#include \"../graph-template.hpp\"\n#include \"../../structure/union-find/union-find.cpp\"\
-    \n\n/**\n * @brief Incremental Bridge Connectivity\n * @docs docs/incremental-bridge-connectivity.md\n\
+  code: "#pragma once\n\n#include \"../../structure/union-find/union-find.cpp\"\n\n\
+    /**\n * @brief Incremental Bridge Connectivity\n * @docs docs/incremental-bridge-connectivity.md\n\
     \ * @see https://scrapbox.io/data-structures/Incremental_Bridge-Connectivity\n\
     \ */\nstruct IncrementalBridgeConnectivity {\nprivate:\n  UnionFind cc, bcc;\n\
     \  vector< int > bbf;\n  size_t bridge;\n\n  int size() {\n    return bbf.size();\n\
@@ -101,13 +80,12 @@ data:
     \ w);\n    } else {\n      if(cc.size(x) > cc.size(y)) swap(x, y);\n      link(x,\
     \ y);\n      cc.unite(x, y);\n      ++bridge;\n    }\n  }\n};\n"
   dependsOn:
-  - graph/graph-template.hpp
   - structure/union-find/union-find.cpp
   isVerificationFile: false
   path: graph/connected-components/incremental-bridge-connectivity.hpp
   requiredBy:
   - graph/connected-components/three-edge-connected-components.hpp
-  timestamp: '2021-08-16 02:17:26+09:00'
+  timestamp: '2021-08-16 02:34:50+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/yosupo-two-edge-connected-components-2.test.cpp

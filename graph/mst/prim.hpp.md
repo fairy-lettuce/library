@@ -43,9 +43,9 @@ data:
     \ pi, vector< pi >, greater<> > que;\n  que.emplace(T(), 0);\n  Edges< T > edges;\n\
     \  while(!que.empty()) {\n    auto p = que.top();\n    que.pop();\n    if(used[p.second])\
     \ continue;\n    used[p.second] = true;\n    total += p.first;\n    if(dist[p.second])\
-    \ edges.emplace_back(*dist[p.second]);\n    for(auto &e : g.g[p.second]) {\n \
-    \     if(used[e.to] || (dist[e.to] && dist[e.to]->cost <= e.cost)) continue;\n\
-    \      que.emplace(e.cost, e.to);\n    }\n  }\n  return {total, edges};\n}\n"
+    \ edges.emplace_back(*dist[p.second]);\n    for(auto &e : g[p.second]) {\n   \
+    \   if(used[e.to] || (dist[e.to] && dist[e.to]->cost <= e.cost)) continue;\n \
+    \     que.emplace(e.cost, e.to);\n    }\n  }\n  return {total, edges};\n}\n"
   code: "#pragma once\n\n#include \"../graph-template.hpp\"\n\n/**\n * @brief Prim(\u6700\
     \u5C0F\u5168\u57DF\u6728)\n * @docs docs/prim.md\n */\ntemplate< typename T >\n\
     struct MinimumSpanningTree {\n  T cost;\n  Edges< T > edges;\n};\n\ntemplate<\
@@ -55,7 +55,7 @@ data:
     \ que;\n  que.emplace(T(), 0);\n  Edges< T > edges;\n  while(!que.empty()) {\n\
     \    auto p = que.top();\n    que.pop();\n    if(used[p.second]) continue;\n \
     \   used[p.second] = true;\n    total += p.first;\n    if(dist[p.second]) edges.emplace_back(*dist[p.second]);\n\
-    \    for(auto &e : g.g[p.second]) {\n      if(used[e.to] || (dist[e.to] && dist[e.to]->cost\
+    \    for(auto &e : g[p.second]) {\n      if(used[e.to] || (dist[e.to] && dist[e.to]->cost\
     \ <= e.cost)) continue;\n      que.emplace(e.cost, e.to);\n    }\n  }\n  return\
     \ {total, edges};\n}\n"
   dependsOn:
@@ -63,7 +63,7 @@ data:
   isVerificationFile: false
   path: graph/mst/prim.hpp
   requiredBy: []
-  timestamp: '2021-08-16 02:17:26+09:00'
+  timestamp: '2021-08-16 02:34:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-2-a.test.cpp

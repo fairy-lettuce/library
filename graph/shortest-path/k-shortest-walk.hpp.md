@@ -6,12 +6,12 @@ data:
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-k-shortest-walk.test.cpp
     title: test/verify/yosupo-k-shortest-walk.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/k-shortest-walk.md
     document_title: K-Shortest-Walk
@@ -40,7 +40,7 @@ data:
     \ @brief K-Shortest-Walk\n * @docs docs/k-shortest-walk.md\n * @see https://qiita.com/hotman78/items/42534a01c4bd05ed5e1e\n\
     \ */\ntemplate< typename T >\nvector< T > k_shortest_walk(const Graph< T > &g,\
     \ int s, int t, int k) {\n  int N = (int) g.size();\n  Graph< T > rg(N);\n  for(int\
-    \ i = 0; i < N; i++) {\n    for(auto &e : g.g[i]) rg.add_directed_edge(e.to, i,\
+    \ i = 0; i < N; i++) {\n    for(auto &e : g[i]) rg.add_directed_edge(e.to, i,\
     \ e.cost);\n  }\n  auto dist = dijkstra(rg, t);\n  if(dist.from[s] == -1) return\
     \ {};\n  auto &p = dist.dist;\n  vector< vector< int > > ch(N);\n  for(int i =\
     \ 0; i < N; i++) {\n    if(dist.from[i] >= 0) ch[dist.from[i]].emplace_back(i);\n\
@@ -48,7 +48,7 @@ data:
     \  PHeap heap;\n  vector< Node * > h(N, heap.make_root());\n  {\n    queue< int\
     \ > que;\n    que.emplace(t);\n    while(!que.empty()) {\n      int idx = que.front();\n\
     \      que.pop();\n      if(dist.from[idx] >= 0) {\n        h[idx] = heap.meld(h[idx],\
-    \ h[dist.from[idx]]);\n      }\n      bool used = true;\n      for(auto &e : g.g[idx])\
+    \ h[dist.from[idx]]);\n      }\n      bool used = true;\n      for(auto &e : g[idx])\
     \ {\n        if(e.to != t && dist.from[e.to] == -1) continue;\n        if(used\
     \ && dist.from[idx] == e.to && p[e.to] + e.cost == p[idx]) {\n          used =\
     \ false;\n          continue;\n        }\n        h[idx] = heap.push(h[idx], e.cost\
@@ -66,7 +66,7 @@ data:
     \ * @docs docs/k-shortest-walk.md\n * @see https://qiita.com/hotman78/items/42534a01c4bd05ed5e1e\n\
     \ */\ntemplate< typename T >\nvector< T > k_shortest_walk(const Graph< T > &g,\
     \ int s, int t, int k) {\n  int N = (int) g.size();\n  Graph< T > rg(N);\n  for(int\
-    \ i = 0; i < N; i++) {\n    for(auto &e : g.g[i]) rg.add_directed_edge(e.to, i,\
+    \ i = 0; i < N; i++) {\n    for(auto &e : g[i]) rg.add_directed_edge(e.to, i,\
     \ e.cost);\n  }\n  auto dist = dijkstra(rg, t);\n  if(dist.from[s] == -1) return\
     \ {};\n  auto &p = dist.dist;\n  vector< vector< int > > ch(N);\n  for(int i =\
     \ 0; i < N; i++) {\n    if(dist.from[i] >= 0) ch[dist.from[i]].emplace_back(i);\n\
@@ -74,7 +74,7 @@ data:
     \  PHeap heap;\n  vector< Node * > h(N, heap.make_root());\n  {\n    queue< int\
     \ > que;\n    que.emplace(t);\n    while(!que.empty()) {\n      int idx = que.front();\n\
     \      que.pop();\n      if(dist.from[idx] >= 0) {\n        h[idx] = heap.meld(h[idx],\
-    \ h[dist.from[idx]]);\n      }\n      bool used = true;\n      for(auto &e : g.g[idx])\
+    \ h[dist.from[idx]]);\n      }\n      bool used = true;\n      for(auto &e : g[idx])\
     \ {\n        if(e.to != t && dist.from[e.to] == -1) continue;\n        if(used\
     \ && dist.from[idx] == e.to && p[e.to] + e.cost == p[idx]) {\n          used =\
     \ false;\n          continue;\n        }\n        h[idx] = heap.push(h[idx], e.cost\
@@ -93,8 +93,8 @@ data:
   isVerificationFile: false
   path: graph/shortest-path/k-shortest-walk.hpp
   requiredBy: []
-  timestamp: '2021-08-16 02:17:26+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-08-16 02:34:50+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-k-shortest-walk.test.cpp
 documentation_of: graph/shortest-path/k-shortest-walk.hpp

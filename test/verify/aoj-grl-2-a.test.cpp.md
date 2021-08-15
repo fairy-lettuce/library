@@ -75,9 +75,9 @@ data:
     \ pi, vector< pi >, greater<> > que;\n  que.emplace(T(), 0);\n  Edges< T > edges;\n\
     \  while(!que.empty()) {\n    auto p = que.top();\n    que.pop();\n    if(used[p.second])\
     \ continue;\n    used[p.second] = true;\n    total += p.first;\n    if(dist[p.second])\
-    \ edges.emplace_back(*dist[p.second]);\n    for(auto &e : g.g[p.second]) {\n \
-    \     if(used[e.to] || (dist[e.to] && dist[e.to]->cost <= e.cost)) continue;\n\
-    \      que.emplace(e.cost, e.to);\n    }\n  }\n  return {total, edges};\n}\n#line\
+    \ edges.emplace_back(*dist[p.second]);\n    for(auto &e : g[p.second]) {\n   \
+    \   if(used[e.to] || (dist[e.to] && dist[e.to]->cost <= e.cost)) continue;\n \
+    \     que.emplace(e.cost, e.to);\n    }\n  }\n  return {total, edges};\n}\n#line\
     \ 6 \"test/verify/aoj-grl-2-a.test.cpp\"\n\nint main() {\n  int V, E;\n  cin >>\
     \ V >> E;\n  Graph<> g(V);\n  g.read(E, 0, true);\n  cout << prim(g).cost << \"\
     \\n\";\n}\n"
@@ -92,7 +92,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-grl-2-a.test.cpp
   requiredBy: []
-  timestamp: '2021-08-16 02:17:26+09:00'
+  timestamp: '2021-08-16 02:34:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-2-a.test.cpp

@@ -55,7 +55,19 @@ data:
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-manhattanmst.test.cpp\"\
-    \n\n#line 2 \"graph/mst/manhattan-mst.hpp\"\n\n#line 2 \"graph/graph-template.hpp\"\
+    \n\n#line 1 \"graph/mst/manhattan-mst.hpp\"\n/**\n * @brief Manhattan MST\n */\n\
+    template< typename T >\nEdges< T > manhattan_mst(vector< T > xs, vector< T > ys)\
+    \ {\n  assert(xs.size() == ys.size());\n  Edges< T > ret;\n  int n = (int) xs.size();\n\
+    \n  vector< int > ord(n);\n  iota(ord.begin(), ord.end(), 0);\n\n  for(int s =\
+    \ 0; s < 2; s++) {\n    for(int t = 0; t < 2; t++) {\n      auto cmp = [&](int\
+    \ i, int j) -> bool {\n        return xs[i] + ys[i] < xs[j] + ys[j];\n      };\n\
+    \      sort(ord.begin(), ord.end(), cmp);\n\n      map< T, int > idx;\n      for(int\
+    \ i:ord) {\n        for(auto it = idx.lower_bound(-ys[i]);\n            it !=\
+    \ idx.end(); it = idx.erase(it)) {\n          int j = it->second;\n          if(xs[i]\
+    \ - xs[j] < ys[i] - ys[j]) break;\n          ret.emplace_back(i, j, abs(xs[i]\
+    \ - xs[j]) + abs(ys[i] - ys[j]));\n        }\n        idx[-ys[i]] = i;\n     \
+    \ }\n      swap(xs, ys);\n    }\n    for(int i = 0; i < n; i++) xs[i] *= -1;\n\
+    \  }\n  return ret;\n}\n#line 2 \"graph/mst/kruskal.hpp\"\n\n#line 2 \"graph/graph-template.hpp\"\
     \n\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
     \u30C8)\n */\ntemplate< typename T = int >\nstruct Edge {\n  int from, to;\n \
     \ T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int from, int to, T cost\
@@ -73,44 +85,31 @@ data:
     \ b, c);\n      else add_edge(a, b, c);\n    }\n  }\n\n  inline vector< Edge<\
     \ T > > &operator[](const int &k) {\n    return g[k];\n  }\n\n  inline const vector<\
     \ Edge< T > > &operator[](const int &k) const {\n    return g[k];\n  }\n};\n\n\
-    template< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 4 \"graph/mst/manhattan-mst.hpp\"\
-    \n\n/**\n * @brief Manhattan MST\n */\ntemplate< typename T >\nEdges< T > manhattan_mst(vector<\
-    \ T > xs, vector< T > ys) {\n  assert(xs.size() == ys.size());\n  Edges< T > ret;\n\
-    \  int n = (int) xs.size();\n\n  vector< int > ord(n);\n  iota(ord.begin(), ord.end(),\
-    \ 0);\n\n  for(int s = 0; s < 2; s++) {\n    for(int t = 0; t < 2; t++) {\n  \
-    \    auto cmp = [&](int i, int j) -> bool {\n        return xs[i] + ys[i] < xs[j]\
-    \ + ys[j];\n      };\n      sort(ord.begin(), ord.end(), cmp);\n\n      map< T,\
-    \ int > idx;\n      for(int i:ord) {\n        for(auto it = idx.lower_bound(-ys[i]);\n\
-    \            it != idx.end(); it = idx.erase(it)) {\n          int j = it->second;\n\
-    \          if(xs[i] - xs[j] < ys[i] - ys[j]) break;\n          ret.emplace_back(i,\
-    \ j, abs(xs[i] - xs[j]) + abs(ys[i] - ys[j]));\n        }\n        idx[-ys[i]]\
-    \ = i;\n      }\n      swap(xs, ys);\n    }\n    for(int i = 0; i < n; i++) xs[i]\
-    \ *= -1;\n  }\n  return ret;\n}\n#line 2 \"graph/mst/kruskal.hpp\"\n\n#line 1\
-    \ \"structure/union-find/union-find.cpp\"\n/**\n * @brief Union-Find\n * @docs\
-    \ docs/union-find.md\n */\nstruct UnionFind {\n  vector< int > data;\n\n  UnionFind()\
-    \ = default;\n\n  explicit UnionFind(size_t sz) : data(sz, -1) {}\n\n  bool unite(int\
-    \ x, int y) {\n    x = find(x), y = find(y);\n    if(x == y) return false;\n \
-    \   if(data[x] > data[y]) swap(x, y);\n    data[x] += data[y];\n    data[y] =\
-    \ x;\n    return true;\n  }\n\n  int find(int k) {\n    if(data[k] < 0) return\
-    \ (k);\n    return data[k] = find(data[k]);\n  }\n\n  int size(int k) {\n    return\
-    \ -data[find(k)];\n  }\n\n  bool same(int x, int y) {\n    return find(x) == find(y);\n\
-    \  }\n\n  vector< vector< int > > groups() {\n    int n = (int) data.size();\n\
-    \    vector< vector< int > > ret(n);\n    for(int i = 0; i < n; i++) {\n     \
-    \ ret[find(i)].emplace_back(i);\n    }\n    ret.erase(remove_if(begin(ret), end(ret),\
-    \ [&](const vector< int > &v) {\n      return v.empty();\n    }));\n    return\
-    \ ret;\n  }\n};\n#line 5 \"graph/mst/kruskal.hpp\"\n\n/**\n * @brief Kruskal(\u6700\
-    \u5C0F\u5168\u57DF\u6728)\n * @docs docs/kruskal.md\n */\ntemplate< typename T\
-    \ >\nstruct MinimumSpanningTree {\n  T cost;\n  Edges< T > edges;\n};\n\ntemplate<\
-    \ typename T >\nMinimumSpanningTree< T > kruskal(Edges< T > &edges, int V) {\n\
-    \  sort(begin(edges), end(edges), [](const Edge< T > &a, const Edge< T > &b) {\n\
-    \    return a.cost < b.cost;\n  });\n  UnionFind tree(V);\n  T total = T();\n\
-    \  Edges< T > es;\n  for(auto &e : edges) {\n    if(tree.unite(e.from, e.to))\
-    \ {\n      es.emplace_back(e);\n      total += e.cost;\n    }\n  }\n  return {total,\
-    \ es};\n}\n#line 7 \"test/verify/yosupo-manhattanmst.test.cpp\"\n\nint main()\
-    \ {\n  int N;\n  cin >> N;\n  vector< int64_t > X(N), Y(N);\n  for(int i = 0;\
-    \ i < N; i++) {\n    cin >> X[i] >> Y[i];\n  }\n  auto es = manhattan_mst(X, Y);\n\
-    \  auto ret = kruskal(es, N);\n  cout << ret.cost << \"\\n\";\n  for(auto &e :\
-    \ ret.edges) cout << e.from << \" \" << e.to << \"\\n\";\n}\n"
+    template< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 1 \"structure/union-find/union-find.cpp\"\
+    \n/**\n * @brief Union-Find\n * @docs docs/union-find.md\n */\nstruct UnionFind\
+    \ {\n  vector< int > data;\n\n  UnionFind() = default;\n\n  explicit UnionFind(size_t\
+    \ sz) : data(sz, -1) {}\n\n  bool unite(int x, int y) {\n    x = find(x), y =\
+    \ find(y);\n    if(x == y) return false;\n    if(data[x] > data[y]) swap(x, y);\n\
+    \    data[x] += data[y];\n    data[y] = x;\n    return true;\n  }\n\n  int find(int\
+    \ k) {\n    if(data[k] < 0) return (k);\n    return data[k] = find(data[k]);\n\
+    \  }\n\n  int size(int k) {\n    return -data[find(k)];\n  }\n\n  bool same(int\
+    \ x, int y) {\n    return find(x) == find(y);\n  }\n\n  vector< vector< int >\
+    \ > groups() {\n    int n = (int) data.size();\n    vector< vector< int > > ret(n);\n\
+    \    for(int i = 0; i < n; i++) {\n      ret[find(i)].emplace_back(i);\n    }\n\
+    \    ret.erase(remove_if(begin(ret), end(ret), [&](const vector< int > &v) {\n\
+    \      return v.empty();\n    }));\n    return ret;\n  }\n};\n#line 5 \"graph/mst/kruskal.hpp\"\
+    \n\n/**\n * @brief Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)\n * @docs docs/kruskal.md\n\
+    \ */\ntemplate< typename T >\nstruct MinimumSpanningTree {\n  T cost;\n  Edges<\
+    \ T > edges;\n};\n\ntemplate< typename T >\nMinimumSpanningTree< T > kruskal(Edges<\
+    \ T > &edges, int V) {\n  sort(begin(edges), end(edges), [](const Edge< T > &a,\
+    \ const Edge< T > &b) {\n    return a.cost < b.cost;\n  });\n  UnionFind tree(V);\n\
+    \  T total = T();\n  Edges< T > es;\n  for(auto &e : edges) {\n    if(tree.unite(e.from,\
+    \ e.to)) {\n      es.emplace_back(e);\n      total += e.cost;\n    }\n  }\n  return\
+    \ {total, es};\n}\n#line 7 \"test/verify/yosupo-manhattanmst.test.cpp\"\n\nint\
+    \ main() {\n  int N;\n  cin >> N;\n  vector< int64_t > X(N), Y(N);\n  for(int\
+    \ i = 0; i < N; i++) {\n    cin >> X[i] >> Y[i];\n  }\n  auto es = manhattan_mst(X,\
+    \ Y);\n  auto ret = kruskal(es, N);\n  cout << ret.cost << \"\\n\";\n  for(auto\
+    \ &e : ret.edges) cout << e.from << \" \" << e.to << \"\\n\";\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/manhattanmst\"\n\n#include\
     \ \"../../template/template.cpp\"\n\n#include \"../../graph/mst/manhattan-mst.hpp\"\
     \n#include \"../../graph/mst/kruskal.hpp\"\n\nint main() {\n  int N;\n  cin >>\
@@ -121,13 +120,13 @@ data:
   dependsOn:
   - template/template.cpp
   - graph/mst/manhattan-mst.hpp
-  - graph/graph-template.hpp
   - graph/mst/kruskal.hpp
+  - graph/graph-template.hpp
   - structure/union-find/union-find.cpp
   isVerificationFile: true
   path: test/verify/yosupo-manhattanmst.test.cpp
   requiredBy: []
-  timestamp: '2021-08-16 02:17:26+09:00'
+  timestamp: '2021-08-16 02:34:50+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-manhattanmst.test.cpp
