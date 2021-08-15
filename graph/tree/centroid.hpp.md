@@ -42,12 +42,12 @@ data:
     \ */\ntemplate< typename T >\nvector< int > centroid(const Graph< T > &g) {\n\
     \  const int N = (int) g.size();\n\n  stack< pair< int, int > > st;\n  st.emplace(0,\
     \ -1);\n  vector< int > sz(N), par(N);\n  while(!st.empty()) {\n    auto p = st.top();\n\
-    \    if(sz[p.first] == 0) {\n      sz[p.first] = 1;\n      for(auto &to : g.g[p.first])\
+    \    if(sz[p.first] == 0) {\n      sz[p.first] = 1;\n      for(auto &to : g[p.first])\
     \ if(to != p.second) st.emplace(to, p.first);\n    } else {\n      for(auto &to\
-    \ : g.g[p.first]) if(to != p.second) sz[p.first] += sz[to];\n      par[p.first]\
+    \ : g[p.first]) if(to != p.second) sz[p.first] += sz[to];\n      par[p.first]\
     \ = p.second;\n      st.pop();\n    }\n  }\n\n  vector< int > ret;\n  int size\
     \ = N;\n  for(int i = 0; i < N; i++) {\n    int val = N - sz[i];\n    for(auto\
-    \ &to : g.g[i]) if(to != par[i]) val = max(val, sz[to]);\n    if(val < size) size\
+    \ &to : g[i]) if(to != par[i]) val = max(val, sz[to]);\n    if(val < size) size\
     \ = val, ret.clear();\n    if(val == size) ret.emplace_back(i);\n  }\n\n  return\
     \ ret;\n}\n"
   code: "#pragma once\n\n#include \"../graph-template.hpp\"\n\n/**\n * @brief Centroid(\u6728\
@@ -55,20 +55,20 @@ data:
     vector< int > centroid(const Graph< T > &g) {\n  const int N = (int) g.size();\n\
     \n  stack< pair< int, int > > st;\n  st.emplace(0, -1);\n  vector< int > sz(N),\
     \ par(N);\n  while(!st.empty()) {\n    auto p = st.top();\n    if(sz[p.first]\
-    \ == 0) {\n      sz[p.first] = 1;\n      for(auto &to : g.g[p.first]) if(to !=\
-    \ p.second) st.emplace(to, p.first);\n    } else {\n      for(auto &to : g.g[p.first])\
-    \ if(to != p.second) sz[p.first] += sz[to];\n      par[p.first] = p.second;\n\
-    \      st.pop();\n    }\n  }\n\n  vector< int > ret;\n  int size = N;\n  for(int\
-    \ i = 0; i < N; i++) {\n    int val = N - sz[i];\n    for(auto &to : g.g[i]) if(to\
-    \ != par[i]) val = max(val, sz[to]);\n    if(val < size) size = val, ret.clear();\n\
-    \    if(val == size) ret.emplace_back(i);\n  }\n\n  return ret;\n}\n"
+    \ == 0) {\n      sz[p.first] = 1;\n      for(auto &to : g[p.first]) if(to != p.second)\
+    \ st.emplace(to, p.first);\n    } else {\n      for(auto &to : g[p.first]) if(to\
+    \ != p.second) sz[p.first] += sz[to];\n      par[p.first] = p.second;\n      st.pop();\n\
+    \    }\n  }\n\n  vector< int > ret;\n  int size = N;\n  for(int i = 0; i < N;\
+    \ i++) {\n    int val = N - sz[i];\n    for(auto &to : g[i]) if(to != par[i])\
+    \ val = max(val, sz[to]);\n    if(val < size) size = val, ret.clear();\n    if(val\
+    \ == size) ret.emplace_back(i);\n  }\n\n  return ret;\n}\n"
   dependsOn:
   - graph/graph-template.hpp
   isVerificationFile: false
   path: graph/tree/centroid.hpp
   requiredBy:
   - graph/tree/tree-isomorphism.hpp
-  timestamp: '2021-08-16 02:17:26+09:00'
+  timestamp: '2021-08-16 02:49:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-2821.test.cpp

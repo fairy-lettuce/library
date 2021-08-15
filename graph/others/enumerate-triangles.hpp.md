@@ -39,21 +39,21 @@ data:
     \ * @docs docs/enumerate-triangles.md\n */\ntemplate< typename T >\nvector< tuple<\
     \ int, int, int > > enumerate_triangles(const Graph< T > &g) {\n  int N = (int)\
     \ g.size();\n  using pi = pair< int, int >;\n  vector< pi > vp(N);\n  for(int\
-    \ i = 0; i < N; i++) {\n    vp[i] = {(int) g.g[i].size(), i};\n  }\n  vector<\
-    \ vector< int > > h(N);\n  for(int i = 0; i < N; i++) {\n    for(auto &j : g.g[i])\
-    \ {\n      if(vp[i] > vp[j]) {\n        h[i].emplace_back(j);\n      }\n    }\n\
-    \  }\n  vector< tuple< int, int, int > > triangle;\n  vector< int > used(N);\n\
-    \  for(int x = 0; x < N; x++) {\n    for(int z : h[x]) used[z] = true;\n    for(int\
-    \ y : h[x]) {\n      for(int z : h[y]) {\n        if(used[z]) triangle.emplace_back(x,\
+    \ i = 0; i < N; i++) {\n    vp[i] = {(int) g[i].size(), i};\n  }\n  vector< vector<\
+    \ int > > h(N);\n  for(int i = 0; i < N; i++) {\n    for(auto &j : g[i]) {\n \
+    \     if(vp[i] > vp[j]) {\n        h[i].emplace_back(j);\n      }\n    }\n  }\n\
+    \  vector< tuple< int, int, int > > triangle;\n  vector< int > used(N);\n  for(int\
+    \ x = 0; x < N; x++) {\n    for(int z : h[x]) used[z] = true;\n    for(int y :\
+    \ h[x]) {\n      for(int z : h[y]) {\n        if(used[z]) triangle.emplace_back(x,\
     \ y, z);\n      }\n    }\n    for(int z : h[x]) used[z] = false;\n  }\n\n  return\
     \ triangle;\n}\n"
   code: "#pragma once\n\n#include \"../graph-template.hpp\"\n\n/**\n * @brief Enumerate\
     \ Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)\n * @docs docs/enumerate-triangles.md\n\
     \ */\ntemplate< typename T >\nvector< tuple< int, int, int > > enumerate_triangles(const\
     \ Graph< T > &g) {\n  int N = (int) g.size();\n  using pi = pair< int, int >;\n\
-    \  vector< pi > vp(N);\n  for(int i = 0; i < N; i++) {\n    vp[i] = {(int) g.g[i].size(),\
+    \  vector< pi > vp(N);\n  for(int i = 0; i < N; i++) {\n    vp[i] = {(int) g[i].size(),\
     \ i};\n  }\n  vector< vector< int > > h(N);\n  for(int i = 0; i < N; i++) {\n\
-    \    for(auto &j : g.g[i]) {\n      if(vp[i] > vp[j]) {\n        h[i].emplace_back(j);\n\
+    \    for(auto &j : g[i]) {\n      if(vp[i] > vp[j]) {\n        h[i].emplace_back(j);\n\
     \      }\n    }\n  }\n  vector< tuple< int, int, int > > triangle;\n  vector<\
     \ int > used(N);\n  for(int x = 0; x < N; x++) {\n    for(int z : h[x]) used[z]\
     \ = true;\n    for(int y : h[x]) {\n      for(int z : h[y]) {\n        if(used[z])\
@@ -64,7 +64,7 @@ data:
   isVerificationFile: false
   path: graph/others/enumerate-triangles.hpp
   requiredBy: []
-  timestamp: '2021-08-16 02:34:50+09:00'
+  timestamp: '2021-08-16 02:49:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-enumerate-triangles.test.cpp

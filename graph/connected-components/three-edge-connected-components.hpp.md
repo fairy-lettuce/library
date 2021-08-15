@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/connected-components/incremental-bridge-connectivity.hpp
     title: Incremental Bridge Connectivity
   - icon: ':question:'
@@ -12,12 +12,12 @@ data:
     title: Union-Find
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-three-edge-connected-components.test.cpp
     title: test/verify/yosupo-three-edge-connected-components.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Three Edge Connected Components(\u4E09\u91CD\u8FBA\u9023\u7D50\
       \u6210\u5206\u5206\u89E3)"
@@ -148,7 +148,7 @@ data:
   path: graph/connected-components/three-edge-connected-components.hpp
   requiredBy: []
   timestamp: '2021-08-16 02:34:50+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-three-edge-connected-components.test.cpp
 documentation_of: graph/connected-components/three-edge-connected-components.hpp

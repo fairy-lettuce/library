@@ -117,12 +117,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-502.test.cpp
     title: test/verify/yukicoder-502.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"math/combinatorics/mod-int.cpp\"\ntemplate< int mod >\n\
@@ -176,7 +176,7 @@ data:
   path: math/combinatorics/mod-int.cpp
   requiredBy: []
   timestamp: '2019-11-30 23:36:31+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-bernoulli-number.test.cpp
   - test/verify/yukicoder-502.test.cpp

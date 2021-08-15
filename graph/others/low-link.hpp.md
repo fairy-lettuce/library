@@ -9,7 +9,7 @@ data:
     path: graph/connected-components/bi-connected-components.hpp
     title: "Bi Connected Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/connected-components/two-edge-connected-components.hpp
     title: "Two Edge Connected Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
@@ -29,12 +29,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-3-b.test.cpp
     title: test/verify/aoj-grl-3-b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-two-edge-connected-components.test.cpp
     title: test/verify/yosupo-two-edge-connected-components.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/low-link.md
     document_title: "Low Link(\u6A4B/\u95A2\u7BC0\u70B9)"
@@ -103,7 +103,7 @@ data:
   - graph/connected-components/bi-connected-components.hpp
   - graph/connected-components/two-edge-connected-components.hpp
   timestamp: '2021-08-16 02:17:26+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-3139.test.cpp
   - test/verify/aoj-grl-3-a.test.cpp

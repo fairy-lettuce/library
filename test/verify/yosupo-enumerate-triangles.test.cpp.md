@@ -72,12 +72,12 @@ data:
     \ * @docs docs/enumerate-triangles.md\n */\ntemplate< typename T >\nvector< tuple<\
     \ int, int, int > > enumerate_triangles(const Graph< T > &g) {\n  int N = (int)\
     \ g.size();\n  using pi = pair< int, int >;\n  vector< pi > vp(N);\n  for(int\
-    \ i = 0; i < N; i++) {\n    vp[i] = {(int) g.g[i].size(), i};\n  }\n  vector<\
-    \ vector< int > > h(N);\n  for(int i = 0; i < N; i++) {\n    for(auto &j : g.g[i])\
-    \ {\n      if(vp[i] > vp[j]) {\n        h[i].emplace_back(j);\n      }\n    }\n\
-    \  }\n  vector< tuple< int, int, int > > triangle;\n  vector< int > used(N);\n\
-    \  for(int x = 0; x < N; x++) {\n    for(int z : h[x]) used[z] = true;\n    for(int\
-    \ y : h[x]) {\n      for(int z : h[y]) {\n        if(used[z]) triangle.emplace_back(x,\
+    \ i = 0; i < N; i++) {\n    vp[i] = {(int) g[i].size(), i};\n  }\n  vector< vector<\
+    \ int > > h(N);\n  for(int i = 0; i < N; i++) {\n    for(auto &j : g[i]) {\n \
+    \     if(vp[i] > vp[j]) {\n        h[i].emplace_back(j);\n      }\n    }\n  }\n\
+    \  vector< tuple< int, int, int > > triangle;\n  vector< int > used(N);\n  for(int\
+    \ x = 0; x < N; x++) {\n    for(int z : h[x]) used[z] = true;\n    for(int y :\
+    \ h[x]) {\n      for(int z : h[y]) {\n        if(used[z]) triangle.emplace_back(x,\
     \ y, z);\n      }\n    }\n    for(int z : h[x]) used[z] = false;\n  }\n\n  return\
     \ triangle;\n}\n#line 6 \"test/verify/yosupo-enumerate-triangles.test.cpp\"\n\n\
     int main() {\n    int N, M;\n    cin >> N >> M;\n    vector< int > xs(N);\n  \
@@ -101,7 +101,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-enumerate-triangles.test.cpp
   requiredBy: []
-  timestamp: '2021-08-16 02:34:50+09:00'
+  timestamp: '2021-08-16 02:49:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-enumerate-triangles.test.cpp

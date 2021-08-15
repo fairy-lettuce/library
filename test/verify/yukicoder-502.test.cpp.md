@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/factorial.cpp
     title: "Factorial(\u968E\u4E57)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
   - icon: ':heavy_check_mark:'
