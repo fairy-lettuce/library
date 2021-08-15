@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-convolution-mod-2.test.cpp
     title: test/verify/yosupo-convolution-mod-2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-subset-convolution.test.cpp
+    title: test/verify/yosupo-subset-convolution.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -85,6 +88,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-convolution-mod-2.test.cpp
+  - test/verify/yosupo-subset-convolution.test.cpp
 documentation_of: math/combinatorics/montgomery-mod-int.cpp
 layout: document
 redirect_from:

@@ -483,6 +483,9 @@ data:
       path: math/fft/number-theoretic-transform.cpp
       title: math/fft/number-theoretic-transform.cpp
     - icon: ':heavy_check_mark:'
+      path: math/fft/subset-convolution.cpp
+      title: Subset Convolution
+    - icon: ':heavy_check_mark:'
       path: math/fft/subset-zeta-moebius-transform.cpp
       title: "Subset Zeta/Moebius Transform (\u4E0B\u4F4D\u96C6\u5408\u306E\u30BC\u30FC\
         \u30BF/\u30E1\u30D3\u30A6\u30B9\u5909\u63DB)"
@@ -1452,6 +1455,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
       title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-subset-convolution.test.cpp
+      title: test/verify/yosupo-subset-convolution.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-sum-of-floor-of-linear.test.cpp
       title: test/verify/yosupo-sum-of-floor-of-linear.test.cpp

@@ -544,6 +544,9 @@ data:
     path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-subset-convolution.test.cpp
+    title: test/verify/yosupo-subset-convolution.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sum-of-floor-of-linear.test.cpp
     title: test/verify/yosupo-sum-of-floor-of-linear.test.cpp
   - icon: ':heavy_check_mark:'
@@ -784,6 +787,7 @@ data:
   - test/verify/aoj-grl-2-a-3.test.cpp
   - test/verify/yosupo-range-affine-range-sum.test.cpp
   - test/verify/yukicoder-430.test.cpp
+  - test/verify/yosupo-subset-convolution.test.cpp
   - test/verify/aoj-cgl-2-b.test.cpp
   - test/verify/yosupo-range-kth-smallest.test.cpp
   - test/verify/aoj-cgl-4-c.test.cpp
