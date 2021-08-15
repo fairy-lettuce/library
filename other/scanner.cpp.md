@@ -18,13 +18,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-division-of-polynomials.test.cpp
     title: test/verify/yosupo-division-of-polynomials.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-lca-2.test.cpp
     title: test/verify/yosupo-lca-2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-lca-3.test.cpp
     title: test/verify/yosupo-lca-3.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-lca.test.cpp
     title: test/verify/yosupo-lca.test.cpp
   - icon: ':heavy_check_mark:'
@@ -39,12 +39,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-tree-decomposition-width-2.test.cpp
     title: test/verify/yosupo-tree-decomposition-width-2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-two-sat.test.cpp
     title: test/verify/yosupo-two-sat.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Scanner(\u9AD8\u901F\u5165\u529B)"
     links: []
@@ -98,7 +98,7 @@ data:
   path: other/scanner.cpp
   requiredBy: []
   timestamp: '2020-04-08 00:11:24+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-lca.test.cpp
   - test/verify/yosupo-bitwise-and-convolution-2.test.cpp

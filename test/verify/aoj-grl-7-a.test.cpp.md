@@ -1,21 +1,21 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/flow/bipartite-matching.hpp
     title: "Bipartite-Matching(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\
       \u30C3\u30C1\u30F3\u30B0)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.hpp
-    title: graph/graph-template.hpp
-  - icon: ':heavy_check_mark:'
+    title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_7_A
@@ -44,8 +44,8 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-grl-7-a.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-08-16 02:17:26+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-7-a.test.cpp
 layout: document

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/fast-fourier-transform.cpp
     title: math/fft/fast-fourier-transform.cpp
   _extendedRequiredBy:

@@ -1,9 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.hpp
-    title: graph/graph-template.hpp
+    title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -12,23 +12,24 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2667.test.cpp
     title: test/verify/aoj-2667.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-grl-5-c-2.test.cpp
     title: test/verify/aoj-grl-5-c-2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
     links:
     - https://smijake3.hatenablog.com/entry/2019/09/15/200200
   bundledCode: "#line 2 \"graph/tree/heavy-light-decomposition.hpp\"\n\n#line 2 \"\
-    graph/graph-template.hpp\"\n\ntemplate< typename T = int >\nstruct Edge {\n  int\
-    \ from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int from,\
-    \ int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx)\
+    graph/graph-template.hpp\"\n\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\
+    \u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n */\ntemplate< typename T = int >\nstruct\
+    \ Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int\
+    \ from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx)\
     \ {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename T = int\
     \ >\nstruct Graph {\n  vector< vector< Edge< T > > > g;\n  int es;\n\n  Graph()\
     \ = default;\n\n  explicit Graph(int n) : g(n), es(0) {}\n\n  size_t size() const\
@@ -39,14 +40,16 @@ data:
     \ M, int padding = -1, bool weighted = false, bool directed = false) {\n    for(int\
     \ i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n      a += padding;\n\
     \      b += padding;\n      T c = T(1);\n      if(weighted) cin >> c;\n      if(directed)\
-    \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
-    \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 4 \"\
-    graph/tree/heavy-light-decomposition.hpp\"\n\n/**\n * @brief Heavy-Light-Decomposition(HL\u5206\
-    \u89E3)\n * @see https://smijake3.hatenablog.com/entry/2019/09/15/200200\n */\n\
-    template< typename T = int >\nstruct HeavyLightDecomposition : Graph< T > {\n\
-    public:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n  vector< int > sz,\
-    \ in, out, head, rev, par, dep;\n\n  void build() {\n    sz.assign(g.size(), 0);\n\
-    \    in.assign(g.size(), 0);\n    out.assign(g.size(), 0);\n    head.assign(g.size(),\
+    \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n\n \
+    \ inline vector< Edge< T > > &operator[](const int &k) {\n    return g[k];\n \
+    \ }\n\n  inline const vector< Edge< T > > &operator[](const int &k) const {\n\
+    \    return g[k];\n  }\n};\n\ntemplate< typename T = int >\nusing Edges = vector<\
+    \ Edge< T > >;\n#line 4 \"graph/tree/heavy-light-decomposition.hpp\"\n\n/**\n\
+    \ * @brief Heavy-Light-Decomposition(HL\u5206\u89E3)\n * @see https://smijake3.hatenablog.com/entry/2019/09/15/200200\n\
+    \ */\ntemplate< typename T = int >\nstruct HeavyLightDecomposition : Graph< T\
+    \ > {\npublic:\n  using Graph< T >::Graph;\n  using Graph< T >::g;\n  vector<\
+    \ int > sz, in, out, head, rev, par, dep;\n\n  void build() {\n    sz.assign(g.size(),\
+    \ 0);\n    in.assign(g.size(), 0);\n    out.assign(g.size(), 0);\n    head.assign(g.size(),\
     \ 0);\n    rev.assign(g.size(), 0);\n    par.assign(g.size(), 0);\n    dep.assign(g.size(),\
     \ 0);\n    dfs_sz(0, -1, 0);\n    int t = 0;\n    dfs_hld(0, -1, t);\n  }\n\n\
     \  /* k: 0-indexed */\n  int la(int v, int k) {\n    while(1) {\n      int u =\
@@ -132,8 +135,8 @@ data:
   isVerificationFile: false
   path: graph/tree/heavy-light-decomposition.hpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-08-16 02:17:26+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yukicoder-650.test.cpp
   - test/verify/aoj-2667.test.cpp

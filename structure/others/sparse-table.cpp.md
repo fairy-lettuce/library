@@ -2,37 +2,37 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/tree/pmormq-lowest-common-ancestor.hpp
     title: "PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/tree/rmq-lowest-common-ancestor.hpp
     title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: structure/others/plus-minus-one-rmq.cpp
     title: Plus-Minus-One-RMQ
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-grl-5-c-3.test.cpp
     title: test/verify/aoj-grl-5-c-3.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-grl-5-c-4.test.cpp
     title: test/verify/aoj-grl-5-c-4.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-lca-2.test.cpp
     title: test/verify/yosupo-lca-2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-lca.test.cpp
     title: test/verify/yosupo-lca.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-staticrmq-4.test.cpp
     title: test/verify/yosupo-staticrmq-4.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-staticrmq.test.cpp
     title: test/verify/yosupo-staticrmq.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/sparse-table.md
     document_title: "Sparse-Table(\u30B9\u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB\
@@ -75,7 +75,7 @@ data:
   - graph/tree/pmormq-lowest-common-ancestor.hpp
   - graph/tree/rmq-lowest-common-ancestor.hpp
   timestamp: '2020-11-09 17:59:38+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-staticrmq-4.test.cpp
   - test/verify/yosupo-staticrmq.test.cpp

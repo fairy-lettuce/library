@@ -1,26 +1,27 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.hpp
-    title: graph/graph-template.hpp
+    title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-k-shortest-walk.test.cpp
     title: test/verify/yosupo-k-shortest-walk.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/k-shortest-walk.md
     document_title: K-Shortest-Walk
     links:
     - https://qiita.com/hotman78/items/42534a01c4bd05ed5e1e
   bundledCode: "#line 2 \"graph/shortest-path/k-shortest-walk.hpp\"\n\n#line 2 \"\
-    graph/graph-template.hpp\"\n\ntemplate< typename T = int >\nstruct Edge {\n  int\
-    \ from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int from,\
-    \ int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx)\
+    graph/graph-template.hpp\"\n\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\
+    \u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n */\ntemplate< typename T = int >\nstruct\
+    \ Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int\
+    \ from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx)\
     \ {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename T = int\
     \ >\nstruct Graph {\n  vector< vector< Edge< T > > > g;\n  int es;\n\n  Graph()\
     \ = default;\n\n  explicit Graph(int n) : g(n), es(0) {}\n\n  size_t size() const\
@@ -31,10 +32,12 @@ data:
     \ M, int padding = -1, bool weighted = false, bool directed = false) {\n    for(int\
     \ i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n      a += padding;\n\
     \      b += padding;\n      T c = T(1);\n      if(weighted) cin >> c;\n      if(directed)\
-    \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
-    \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 4 \"\
-    graph/shortest-path/k-shortest-walk.hpp\"\n\n/**\n * @brief K-Shortest-Walk\n\
-    \ * @docs docs/k-shortest-walk.md\n * @see https://qiita.com/hotman78/items/42534a01c4bd05ed5e1e\n\
+    \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n\n \
+    \ inline vector< Edge< T > > &operator[](const int &k) {\n    return g[k];\n \
+    \ }\n\n  inline const vector< Edge< T > > &operator[](const int &k) const {\n\
+    \    return g[k];\n  }\n};\n\ntemplate< typename T = int >\nusing Edges = vector<\
+    \ Edge< T > >;\n#line 4 \"graph/shortest-path/k-shortest-walk.hpp\"\n\n/**\n *\
+    \ @brief K-Shortest-Walk\n * @docs docs/k-shortest-walk.md\n * @see https://qiita.com/hotman78/items/42534a01c4bd05ed5e1e\n\
     \ */\ntemplate< typename T >\nvector< T > k_shortest_walk(const Graph< T > &g,\
     \ int s, int t, int k) {\n  int N = (int) g.size();\n  Graph< T > rg(N);\n  for(int\
     \ i = 0; i < N; i++) {\n    for(auto &e : g.g[i]) rg.add_directed_edge(e.to, i,\
@@ -90,8 +93,8 @@ data:
   isVerificationFile: false
   path: graph/shortest-path/k-shortest-walk.hpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-08-16 02:17:26+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/yosupo-k-shortest-walk.test.cpp
 documentation_of: graph/shortest-path/k-shortest-walk.hpp

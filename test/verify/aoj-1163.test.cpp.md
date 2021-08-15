@@ -8,7 +8,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/matrix/matrix.cpp
     title: math/matrix/matrix.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

@@ -1,30 +1,30 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/connected-components/strongly-connected-components.hpp
     title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.hpp
-    title: graph/graph-template.hpp
-  - icon: ':heavy_check_mark:'
+    title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
+  - icon: ':x:'
     path: graph/others/two-satisfiability.hpp
     title: Two Satisfiability(2-SAT)
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: other/printer.cpp
     title: "Printer(\u9AD8\u901F\u51FA\u529B)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: other/scanner.cpp
     title: "Scanner(\u9AD8\u901F\u5165\u529B)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/two_sat
@@ -105,45 +105,48 @@ data:
     \ vector< T > &s) {\n    for(size_t i = 0; i < s.size(); i++) {\n      if(i) write_single('\
     \ ');\n      write_single(s[i]);\n    }\n  }\n};\n#line 7 \"test/verify/yosupo-two-sat.test.cpp\"\
     \n\n#line 2 \"graph/others/two-satisfiability.hpp\"\n\n#line 2 \"graph/connected-components/strongly-connected-components.hpp\"\
-    \n\n#line 2 \"graph/graph-template.hpp\"\n\ntemplate< typename T = int >\nstruct\
-    \ Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int\
-    \ from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx)\
-    \ {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename T = int\
-    \ >\nstruct Graph {\n  vector< vector< Edge< T > > > g;\n  int es;\n\n  Graph()\
-    \ = default;\n\n  explicit Graph(int n) : g(n), es(0) {}\n\n  size_t size() const\
-    \ {\n    return g.size();\n  }\n\n  void add_directed_edge(int from, int to, T\
-    \ cost = 1) {\n    g[from].emplace_back(from, to, cost, es++);\n  }\n\n  void\
-    \ add_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from, to,\
-    \ cost, es);\n    g[to].emplace_back(to, from, cost, es++);\n  }\n\n  void read(int\
-    \ M, int padding = -1, bool weighted = false, bool directed = false) {\n    for(int\
-    \ i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n      a += padding;\n\
-    \      b += padding;\n      T c = T(1);\n      if(weighted) cin >> c;\n      if(directed)\
-    \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
-    \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 4 \"\
-    graph/connected-components/strongly-connected-components.hpp\"\n\n/**\n * @brief\
-    \ Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)\n\
-    \ * @docs docs/strongly-connected-components.md\n */\ntemplate< typename T = int\
-    \ >\nstruct StronglyConnectedComponents : Graph< T > {\npublic:\n  using Graph<\
-    \ T >::Graph;\n  using Graph< T >::g;\n  vector< int > comp;\n  Graph< T > dag;\n\
-    \  vector< vector< int > > group;\n\n  void build() {\n    rg = Graph< T >(g.size());\n\
-    \    for(size_t i = 0; i < g.size(); i++) {\n      for(auto &e : g[i]) {\n   \
-    \     rg.add_directed_edge(e.to, e.from, e.cost);\n      }\n    }\n    comp.assign(g.size(),\
-    \ -1);\n    used.assign(g.size(), 0);\n    for(size_t i = 0; i < g.size(); i++)\
-    \ dfs(i);\n    reverse(begin(order), end(order));\n    int ptr = 0;\n    for(int\
-    \ i : order) if(comp[i] == -1) rdfs(i, ptr), ptr++;\n    dag = Graph< T >(ptr);\n\
-    \    for(size_t i = 0; i < g.size(); i++) {\n      for(auto &e : g[i]) {\n   \
-    \     int x = comp[e.from], y = comp[e.to];\n        if(x == y) continue;\n  \
-    \      dag.add_directed_edge(x, y, e.cost);\n      }\n    }\n    group.resize(ptr);\n\
-    \    for(size_t i = 0; i < g.size(); i++) {\n      group[comp[i]].emplace_back(i);\n\
-    \    }\n  }\n\n  int operator[](int k) const {\n    return comp[k];\n  }\n\nprivate:\n\
-    \  vector< int > order, used;\n  Graph< T > rg;\n\n  void dfs(int idx) {\n   \
-    \ if(exchange(used[idx], true)) return;\n    for(auto &to : g[idx]) dfs(to);\n\
-    \    order.push_back(idx);\n  }\n\n  void rdfs(int idx, int cnt) {\n    if(comp[idx]\
-    \ != -1) return;\n    comp[idx] = cnt;\n    for(auto &to : rg.g[idx]) rdfs(to,\
-    \ cnt);\n  }\n};\n#line 4 \"graph/others/two-satisfiability.hpp\"\n\n/**\n * @brief\
-    \ Two Satisfiability(2-SAT)\n * @docs docs/two-satisfiability.md\n */\nstruct\
-    \ TwoSatisfiability : StronglyConnectedComponents< bool > {\npublic:\n  using\
-    \ StronglyConnectedComponents< bool >::g;\n  using StronglyConnectedComponents<\
+    \n\n#line 2 \"graph/graph-template.hpp\"\n\n/**\n * @brief Graph Template(\u30B0\
+    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n */\ntemplate< typename T =\
+    \ int >\nstruct Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\
+    \n  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost),\
+    \ idx(idx) {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename\
+    \ T = int >\nstruct Graph {\n  vector< vector< Edge< T > > > g;\n  int es;\n\n\
+    \  Graph() = default;\n\n  explicit Graph(int n) : g(n), es(0) {}\n\n  size_t\
+    \ size() const {\n    return g.size();\n  }\n\n  void add_directed_edge(int from,\
+    \ int to, T cost = 1) {\n    g[from].emplace_back(from, to, cost, es++);\n  }\n\
+    \n  void add_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from,\
+    \ to, cost, es);\n    g[to].emplace_back(to, from, cost, es++);\n  }\n\n  void\
+    \ read(int M, int padding = -1, bool weighted = false, bool directed = false)\
+    \ {\n    for(int i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n\
+    \      a += padding;\n      b += padding;\n      T c = T(1);\n      if(weighted)\
+    \ cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n      else add_edge(a,\
+    \ b, c);\n    }\n  }\n\n  inline vector< Edge< T > > &operator[](const int &k)\
+    \ {\n    return g[k];\n  }\n\n  inline const vector< Edge< T > > &operator[](const\
+    \ int &k) const {\n    return g[k];\n  }\n};\n\ntemplate< typename T = int >\n\
+    using Edges = vector< Edge< T > >;\n#line 4 \"graph/connected-components/strongly-connected-components.hpp\"\
+    \n\n/**\n * @brief Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\
+    \u5206\u89E3)\n * @docs docs/strongly-connected-components.md\n */\ntemplate<\
+    \ typename T = int >\nstruct StronglyConnectedComponents : Graph< T > {\npublic:\n\
+    \  using Graph< T >::Graph;\n  using Graph< T >::g;\n  vector< int > comp;\n \
+    \ Graph< T > dag;\n  vector< vector< int > > group;\n\n  void build() {\n    rg\
+    \ = Graph< T >(g.size());\n    for(size_t i = 0; i < g.size(); i++) {\n      for(auto\
+    \ &e : g[i]) {\n        rg.add_directed_edge(e.to, e.from, e.cost);\n      }\n\
+    \    }\n    comp.assign(g.size(), -1);\n    used.assign(g.size(), 0);\n    for(size_t\
+    \ i = 0; i < g.size(); i++) dfs(i);\n    reverse(begin(order), end(order));\n\
+    \    int ptr = 0;\n    for(int i : order) if(comp[i] == -1) rdfs(i, ptr), ptr++;\n\
+    \    dag = Graph< T >(ptr);\n    for(size_t i = 0; i < g.size(); i++) {\n    \
+    \  for(auto &e : g[i]) {\n        int x = comp[e.from], y = comp[e.to];\n    \
+    \    if(x == y) continue;\n        dag.add_directed_edge(x, y, e.cost);\n    \
+    \  }\n    }\n    group.resize(ptr);\n    for(size_t i = 0; i < g.size(); i++)\
+    \ {\n      group[comp[i]].emplace_back(i);\n    }\n  }\n\n  int operator[](int\
+    \ k) const {\n    return comp[k];\n  }\n\nprivate:\n  vector< int > order, used;\n\
+    \  Graph< T > rg;\n\n  void dfs(int idx) {\n    if(exchange(used[idx], true))\
+    \ return;\n    for(auto &to : g[idx]) dfs(to);\n    order.push_back(idx);\n  }\n\
+    \n  void rdfs(int idx, int cnt) {\n    if(comp[idx] != -1) return;\n    comp[idx]\
+    \ = cnt;\n    for(auto &to : rg.g[idx]) rdfs(to, cnt);\n  }\n};\n#line 4 \"graph/others/two-satisfiability.hpp\"\
+    \n\n/**\n * @brief Two Satisfiability(2-SAT)\n * @docs docs/two-satisfiability.md\n\
+    \ */\nstruct TwoSatisfiability : StronglyConnectedComponents< bool > {\npublic:\n\
+    \  using StronglyConnectedComponents< bool >::g;\n  using StronglyConnectedComponents<\
     \ bool >::comp;\n  using StronglyConnectedComponents< bool >::add_edge;\n  size_t\
     \ sz;\n\n  explicit TwoSatisfiability(size_t v) : StronglyConnectedComponents<\
     \ bool >(v + v), sz(v) {}\n\n  void add_if(int u, int v) {\n    // u -> v <=>\
@@ -189,8 +192,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-two-sat.test.cpp
   requiredBy: []
-  timestamp: '2021-08-14 14:18:51+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-08-16 02:17:26+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-two-sat.test.cpp
 layout: document

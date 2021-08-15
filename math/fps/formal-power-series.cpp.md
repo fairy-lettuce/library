@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fft/arbitrary-mod-convolution.cpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/fast-fourier-transform.cpp
     title: math/fft/fast-fourier-transform.cpp
   _extendedRequiredBy: []

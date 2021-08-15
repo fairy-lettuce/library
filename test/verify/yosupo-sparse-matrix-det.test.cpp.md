@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
   - icon: ':heavy_check_mark:'
     path: math/fft/arbitrary-mod-convolution.cpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fft/fast-fourier-transform.cpp
     title: math/fft/fast-fourier-transform.cpp
   - icon: ':heavy_check_mark:'
@@ -19,7 +19,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/sparse-matrix.cpp
     title: math/fps/sparse-matrix.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

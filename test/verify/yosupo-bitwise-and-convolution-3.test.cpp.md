@@ -5,13 +5,13 @@ data:
     path: math/fft/superset-zeta-moebius-transform-simd.cpp
     title: "Superset Zeta/Moebius Transform SIMD (\u4E0A\u4F4D\u96C6\u5408\u306E\u30BC\
       \u30FC\u30BF/\u30E1\u30D3\u30A6\u30B9\u5909\u63DB, SIMD)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: other/printer.cpp
     title: "Printer(\u9AD8\u901F\u51FA\u529B)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: other/scanner.cpp
     title: "Scanner(\u9AD8\u901F\u5165\u529B)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

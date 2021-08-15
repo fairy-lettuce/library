@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/number-theory/divisor.cpp
     title: "Divisor(\u7D04\u6570\u5217\u6319)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

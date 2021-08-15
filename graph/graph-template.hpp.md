@@ -6,32 +6,32 @@ data:
     path: graph/connected-components/bi-connected-components.hpp
     title: "Bi Connected Components(\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/connected-components/incremental-bridge-connectivity.hpp
     title: Incremental Bridge Connectivity
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/connected-components/strongly-connected-components.hpp
     title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/connected-components/three-edge-connected-components.hpp
     title: "Three Edge Connected Components(\u4E09\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/connected-components/two-edge-connected-components.hpp
     title: "Two Edge Connected Components(\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/flow/bipartite-matching.hpp
     title: "Bipartite-Matching(\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\
       \u30C3\u30C1\u30F3\u30B0)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/mst/directed-mst.hpp
     title: "Directed MST(\u6700\u5C0F\u6709\u5411\u5168\u57DF\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/mst/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/mst/manhattan-mst.hpp
     title: Manhattan MST
   - icon: ':heavy_check_mark:'
@@ -43,19 +43,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/others/block-cut-tree.hpp
     title: Block Cut Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/others/cycle-detection.hpp
     title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/others/dominator-tree.hpp
     title: Dominator Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/others/enumerate-triangles.hpp
     title: "Enumerate Triangles(\u4E09\u89D2\u5F62\u5168\u5217\u6319)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/others/low-link.hpp
     title: "Low Link(\u6A4B/\u95A2\u7BC0\u70B9)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/others/namori-graph.hpp
     title: Namori Graph
   - icon: ':heavy_check_mark:'
@@ -66,7 +66,7 @@ data:
     path: graph/others/topological-sort.hpp
     title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
       )"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/others/two-satisfiability.hpp
     title: Two Satisfiability(2-SAT)
   - icon: ':heavy_check_mark:'
@@ -84,20 +84,20 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/shortest-path/dijkstra-radix-heap.hpp
     title: "Dijkstra-Radix-Heap(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/shortest-path/dijkstra.hpp
     title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/shortest-path/k-shortest-path.hpp
     title: K-Shortest-Path
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/shortest-path/k-shortest-walk.hpp
     title: K-Shortest-Walk
   - icon: ':heavy_check_mark:'
     path: graph/shortest-path/shortest-path-faster-algorithm.hpp
     title: "Shortest-Path-Faster-Algorithm(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF\
       )"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/tree/centroid-decomposition.hpp
     title: "Centroid-Decomosition(\u91CD\u5FC3\u5206\u89E3)"
   - icon: ':heavy_check_mark:'
@@ -109,19 +109,19 @@ data:
   - icon: ':warning:'
     path: graph/tree/disjoint-set-union-on-tree.hpp
     title: Disjoint-Set-Union-On-Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/tree/doubling-lowest-common-ancestor.hpp
     title: "Doubling-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/tree/heavy-light-decomposition.hpp
     title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/tree/pmormq-lowest-common-ancestor.hpp
     title: "PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/tree/rmq-lowest-common-ancestor.hpp
     title: "RMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/tree/tree-diameter.hpp
     title: "Tree-Diameter(\u6728\u306E\u76F4\u5F84)"
   - icon: ':heavy_check_mark:'
@@ -191,97 +191,100 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-3-c.test.cpp
     title: test/verify/aoj-grl-3-c.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-grl-5-a.test.cpp
     title: test/verify/aoj-grl-5-a.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-grl-5-c-2.test.cpp
     title: test/verify/aoj-grl-5-c-2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-grl-5-c-3.test.cpp
     title: test/verify/aoj-grl-5-c-3.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-grl-5-c-4.test.cpp
     title: test/verify/aoj-grl-5-c-4.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-grl-5-c.test.cpp
     title: test/verify/aoj-grl-5-c.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/aoj-grl-7-a.test.cpp
     title: test/verify/aoj-grl-7-a.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-cycle-detection.test.cpp
     title: test/verify/yosupo-cycle-detection.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-directedmst.test.cpp
     title: test/verify/yosupo-directedmst.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-dominatortree.test.cpp
     title: test/verify/yosupo-dominatortree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-enumerate-triangles.test.cpp
     title: test/verify/yosupo-enumerate-triangles.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
     title: test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-k-shortest-walk.test.cpp
     title: test/verify/yosupo-k-shortest-walk.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-lca-2.test.cpp
     title: test/verify/yosupo-lca-2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-lca-3.test.cpp
     title: test/verify/yosupo-lca-3.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-lca.test.cpp
     title: test/verify/yosupo-lca.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-manhattanmst.test.cpp
     title: test/verify/yosupo-manhattanmst.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-scc.test.cpp
     title: test/verify/yosupo-scc.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-shortest-path.test.cpp
     title: test/verify/yosupo-shortest-path.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-staticrmq-4.test.cpp
     title: test/verify/yosupo-staticrmq-4.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-three-edge-connected-components.test.cpp
     title: test/verify/yosupo-three-edge-connected-components.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-tree-diameter.test.cpp
     title: test/verify/yosupo-tree-diameter.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-two-edge-connected-components-2.test.cpp
     title: test/verify/yosupo-two-edge-connected-components-2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-two-edge-connected-components.test.cpp
     title: test/verify/yosupo-two-edge-connected-components.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-two-sat.test.cpp
     title: test/verify/yosupo-two-sat.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yukicoder-1002.test.cpp
     title: test/verify/yukicoder-1002.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yukicoder-1069.test.cpp
     title: test/verify/yukicoder-1069.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yukicoder-1254.test.cpp
     title: test/verify/yukicoder-1254.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yukicoder-650.test.cpp
     title: test/verify/yukicoder-650.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
+    document_title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
+      \u30C8)"
     links: []
-  bundledCode: "#line 2 \"graph/graph-template.hpp\"\n\ntemplate< typename T = int\
-    \ >\nstruct Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\
+  bundledCode: "#line 2 \"graph/graph-template.hpp\"\n\n/**\n * @brief Graph Template(\u30B0\
+    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n */\ntemplate< typename T =\
+    \ int >\nstruct Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\
     \n  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost),\
     \ idx(idx) {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename\
     \ T = int >\nstruct Graph {\n  vector< vector< Edge< T > > > g;\n  int es;\n\n\
@@ -294,23 +297,29 @@ data:
     \ {\n    for(int i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n\
     \      a += padding;\n      b += padding;\n      T c = T(1);\n      if(weighted)\
     \ cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n      else add_edge(a,\
-    \ b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\nusing Edges = vector<\
+    \ b, c);\n    }\n  }\n\n  inline vector< Edge< T > > &operator[](const int &k)\
+    \ {\n    return g[k];\n  }\n\n  inline const vector< Edge< T > > &operator[](const\
+    \ int &k) const {\n    return g[k];\n  }\n};\n\ntemplate< typename T = int >\n\
+    using Edges = vector< Edge< T > >;\n"
+  code: "#pragma once\n\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\
+    \u30D7\u30EC\u30FC\u30C8)\n */\ntemplate< typename T = int >\nstruct Edge {\n\
+    \  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int from,\
+    \ int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx)\
+    \ {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename T = int\
+    \ >\nstruct Graph {\n  vector< vector< Edge< T > > > g;\n  int es;\n\n  Graph()\
+    \ = default;\n\n  explicit Graph(int n) : g(n), es(0) {}\n\n  size_t size() const\
+    \ {\n    return g.size();\n  }\n\n  void add_directed_edge(int from, int to, T\
+    \ cost = 1) {\n    g[from].emplace_back(from, to, cost, es++);\n  }\n\n  void\
+    \ add_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from, to,\
+    \ cost, es);\n    g[to].emplace_back(to, from, cost, es++);\n  }\n\n  void read(int\
+    \ M, int padding = -1, bool weighted = false, bool directed = false) {\n    for(int\
+    \ i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n      a += padding;\n\
+    \      b += padding;\n      T c = T(1);\n      if(weighted) cin >> c;\n      if(directed)\
+    \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n\n \
+    \ inline vector< Edge< T > > &operator[](const int &k) {\n    return g[k];\n \
+    \ }\n\n  inline const vector< Edge< T > > &operator[](const int &k) const {\n\
+    \    return g[k];\n  }\n};\n\ntemplate< typename T = int >\nusing Edges = vector<\
     \ Edge< T > >;\n"
-  code: "#pragma once\n\ntemplate< typename T = int >\nstruct Edge {\n  int from,\
-    \ to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int from, int to,\
-    \ T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx) {}\n\n\
-    \  operator int() const { return to; }\n};\n\ntemplate< typename T = int >\nstruct\
-    \ Graph {\n  vector< vector< Edge< T > > > g;\n  int es;\n\n  Graph() = default;\n\
-    \n  explicit Graph(int n) : g(n), es(0) {}\n\n  size_t size() const {\n    return\
-    \ g.size();\n  }\n\n  void add_directed_edge(int from, int to, T cost = 1) {\n\
-    \    g[from].emplace_back(from, to, cost, es++);\n  }\n\n  void add_edge(int from,\
-    \ int to, T cost = 1) {\n    g[from].emplace_back(from, to, cost, es);\n    g[to].emplace_back(to,\
-    \ from, cost, es++);\n  }\n\n  void read(int M, int padding = -1, bool weighted\
-    \ = false, bool directed = false) {\n    for(int i = 0; i < M; i++) {\n      int\
-    \ a, b;\n      cin >> a >> b;\n      a += padding;\n      b += padding;\n    \
-    \  T c = T(1);\n      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a,\
-    \ b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename\
-    \ T = int >\nusing Edges = vector< Edge< T > >;\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/graph-template.hpp
@@ -354,8 +363,8 @@ data:
   - graph/mst/manhattan-mst.hpp
   - graph/mst/prim-fibonacchi-heap.hpp
   - graph/mst/kruskal.hpp
-  timestamp: '2021-07-01 00:28:48+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-08-16 02:17:26+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-grl-2-a-4.test.cpp
   - test/verify/aoj-3139.test.cpp
@@ -411,5 +420,5 @@ layout: document
 redirect_from:
 - /library/graph/graph-template.hpp
 - /library/graph/graph-template.hpp.html
-title: graph/graph-template.hpp
+title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
 ---

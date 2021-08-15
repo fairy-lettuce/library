@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.hpp
-    title: graph/graph-template.hpp
-  - icon: ':heavy_check_mark:'
+    title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
+  - icon: ':x:'
     path: graph/others/cycle-detection.hpp
     title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/cycle_detection
@@ -50,21 +50,24 @@ data:
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-cycle-detection.test.cpp\"\
     \n\n#line 2 \"graph/others/cycle-detection.hpp\"\n\n#line 2 \"graph/graph-template.hpp\"\
-    \n\ntemplate< typename T = int >\nstruct Edge {\n  int from, to;\n  T cost;\n\
-    \  int idx;\n\n  Edge() = default;\n\n  Edge(int from, int to, T cost = 1, int\
-    \ idx = -1) : from(from), to(to), cost(cost), idx(idx) {}\n\n  operator int()\
-    \ const { return to; }\n};\n\ntemplate< typename T = int >\nstruct Graph {\n \
-    \ vector< vector< Edge< T > > > g;\n  int es;\n\n  Graph() = default;\n\n  explicit\
-    \ Graph(int n) : g(n), es(0) {}\n\n  size_t size() const {\n    return g.size();\n\
-    \  }\n\n  void add_directed_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from,\
-    \ to, cost, es++);\n  }\n\n  void add_edge(int from, int to, T cost = 1) {\n \
-    \   g[from].emplace_back(from, to, cost, es);\n    g[to].emplace_back(to, from,\
-    \ cost, es++);\n  }\n\n  void read(int M, int padding = -1, bool weighted = false,\
-    \ bool directed = false) {\n    for(int i = 0; i < M; i++) {\n      int a, b;\n\
-    \      cin >> a >> b;\n      a += padding;\n      b += padding;\n      T c = T(1);\n\
-    \      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n\
-    \      else add_edge(a, b, c);\n    }\n  }\n};\n\ntemplate< typename T = int >\n\
-    using Edges = vector< Edge< T > >;\n#line 4 \"graph/others/cycle-detection.hpp\"\
+    \n\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
+    \u30C8)\n */\ntemplate< typename T = int >\nstruct Edge {\n  int from, to;\n \
+    \ T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int from, int to, T cost\
+    \ = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx) {}\n\n  operator\
+    \ int() const { return to; }\n};\n\ntemplate< typename T = int >\nstruct Graph\
+    \ {\n  vector< vector< Edge< T > > > g;\n  int es;\n\n  Graph() = default;\n\n\
+    \  explicit Graph(int n) : g(n), es(0) {}\n\n  size_t size() const {\n    return\
+    \ g.size();\n  }\n\n  void add_directed_edge(int from, int to, T cost = 1) {\n\
+    \    g[from].emplace_back(from, to, cost, es++);\n  }\n\n  void add_edge(int from,\
+    \ int to, T cost = 1) {\n    g[from].emplace_back(from, to, cost, es);\n    g[to].emplace_back(to,\
+    \ from, cost, es++);\n  }\n\n  void read(int M, int padding = -1, bool weighted\
+    \ = false, bool directed = false) {\n    for(int i = 0; i < M; i++) {\n      int\
+    \ a, b;\n      cin >> a >> b;\n      a += padding;\n      b += padding;\n    \
+    \  T c = T(1);\n      if(weighted) cin >> c;\n      if(directed) add_directed_edge(a,\
+    \ b, c);\n      else add_edge(a, b, c);\n    }\n  }\n\n  inline vector< Edge<\
+    \ T > > &operator[](const int &k) {\n    return g[k];\n  }\n\n  inline const vector<\
+    \ Edge< T > > &operator[](const int &k) const {\n    return g[k];\n  }\n};\n\n\
+    template< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 4 \"graph/others/cycle-detection.hpp\"\
     \n\n/**\n * @brief Cycle Detection(\u9589\u8DEF\u691C\u51FA)\n * @docs docs/cycle-detection.md\n\
     \ */\ntemplate< typename T = int >\nstruct CycleDetection : Graph< T > {\n   \
     \ using Graph< T >::Graph;\n    using Graph< T >::g;\n\n    vector< int > used;\n\
@@ -97,8 +100,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-cycle-detection.test.cpp
   requiredBy: []
-  timestamp: '2021-08-14 14:18:51+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-08-16 02:17:26+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-cycle-detection.test.cpp
 layout: document

@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/others/eulerian-trail.hpp
     title: "Eulerian Trail(\u30AA\u30A4\u30E9\u30FC\u8DEF)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: structure/union-find/union-find.cpp
     title: Union-Find
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

@@ -1,32 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.hpp
-    title: graph/graph-template.hpp
-  - icon: ':heavy_check_mark:'
+    title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
+  - icon: ':x:'
     path: graph/tree/pmormq-lowest-common-ancestor.hpp
     title: "PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: other/printer.cpp
     title: "Printer(\u9AD8\u901F\u51FA\u529B)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: other/scanner.cpp
     title: "Scanner(\u9AD8\u901F\u5165\u529B)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: structure/others/plus-minus-one-rmq.cpp
     title: Plus-Minus-One-RMQ
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: structure/others/sparse-table.cpp
     title: "Sparse-Table(\u30B9\u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/lca
@@ -60,37 +60,41 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-lca.test.cpp\"\
-    \n\n#line 2 \"graph/graph-template.hpp\"\n\ntemplate< typename T = int >\nstruct\
-    \ Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\n  Edge(int\
-    \ from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost), idx(idx)\
-    \ {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename T = int\
-    \ >\nstruct Graph {\n  vector< vector< Edge< T > > > g;\n  int es;\n\n  Graph()\
-    \ = default;\n\n  explicit Graph(int n) : g(n), es(0) {}\n\n  size_t size() const\
-    \ {\n    return g.size();\n  }\n\n  void add_directed_edge(int from, int to, T\
-    \ cost = 1) {\n    g[from].emplace_back(from, to, cost, es++);\n  }\n\n  void\
-    \ add_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from, to,\
-    \ cost, es);\n    g[to].emplace_back(to, from, cost, es++);\n  }\n\n  void read(int\
-    \ M, int padding = -1, bool weighted = false, bool directed = false) {\n    for(int\
-    \ i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n      a += padding;\n\
-    \      b += padding;\n      T c = T(1);\n      if(weighted) cin >> c;\n      if(directed)\
-    \ add_directed_edge(a, b, c);\n      else add_edge(a, b, c);\n    }\n  }\n};\n\
-    \ntemplate< typename T = int >\nusing Edges = vector< Edge< T > >;\n#line 2 \"\
-    graph/tree/pmormq-lowest-common-ancestor.hpp\"\n\n#line 1 \"structure/others/sparse-table.cpp\"\
-    \n/**\n * @brief Sparse-Table(\u30B9\u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB\
-    )\n * @docs docs/sparse-table.md\n */\ntemplate< typename T, typename F >\nstruct\
-    \ SparseTable {\n  F f;\n  vector< vector< T > > st;\n  vector< int > lookup;\n\
-    \n  SparseTable() = default;\n\n  explicit SparseTable(const vector< T > &v, const\
-    \ F &f) : f(f) {\n    const int n = (int) v.size();\n    const int b = 32 - __builtin_clz(n);\n\
-    \    st.assign(b, vector< T >(n));\n    for(int i = 0; i < v.size(); i++) {\n\
-    \      st[0][i] = v[i];\n    }\n    for(int i = 1; i < b; i++) {\n      for(int\
-    \ j = 0; j + (1 << i) <= n; j++) {\n        st[i][j] = f(st[i - 1][j], st[i -\
-    \ 1][j + (1 << (i - 1))]);\n      }\n    }\n    lookup.resize(v.size() + 1);\n\
-    \    for(int i = 2; i < lookup.size(); i++) {\n      lookup[i] = lookup[i >> 1]\
-    \ + 1;\n    }\n  }\n\n  inline T fold(int l, int r) const {\n    int b = lookup[r\
-    \ - l];\n    return f(st[b][l], st[b][r - (1 << b)]);\n  }\n};\n\ntemplate< typename\
-    \ T, typename F >\nSparseTable< T, F > get_sparse_table(const vector< T > &v,\
-    \ const F &f) {\n  return SparseTable< T, F >(v, f);\n}\n#line 2 \"structure/others/plus-minus-one-rmq.cpp\"\
-    \n\n/**\n * @brief Plus-Minus-One-RMQ\n **/\ntemplate< typename T >\nstruct PlusMinusOneRMQ\
+    \n\n#line 2 \"graph/graph-template.hpp\"\n\n/**\n * @brief Graph Template(\u30B0\
+    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n */\ntemplate< typename T =\
+    \ int >\nstruct Edge {\n  int from, to;\n  T cost;\n  int idx;\n\n  Edge() = default;\n\
+    \n  Edge(int from, int to, T cost = 1, int idx = -1) : from(from), to(to), cost(cost),\
+    \ idx(idx) {}\n\n  operator int() const { return to; }\n};\n\ntemplate< typename\
+    \ T = int >\nstruct Graph {\n  vector< vector< Edge< T > > > g;\n  int es;\n\n\
+    \  Graph() = default;\n\n  explicit Graph(int n) : g(n), es(0) {}\n\n  size_t\
+    \ size() const {\n    return g.size();\n  }\n\n  void add_directed_edge(int from,\
+    \ int to, T cost = 1) {\n    g[from].emplace_back(from, to, cost, es++);\n  }\n\
+    \n  void add_edge(int from, int to, T cost = 1) {\n    g[from].emplace_back(from,\
+    \ to, cost, es);\n    g[to].emplace_back(to, from, cost, es++);\n  }\n\n  void\
+    \ read(int M, int padding = -1, bool weighted = false, bool directed = false)\
+    \ {\n    for(int i = 0; i < M; i++) {\n      int a, b;\n      cin >> a >> b;\n\
+    \      a += padding;\n      b += padding;\n      T c = T(1);\n      if(weighted)\
+    \ cin >> c;\n      if(directed) add_directed_edge(a, b, c);\n      else add_edge(a,\
+    \ b, c);\n    }\n  }\n\n  inline vector< Edge< T > > &operator[](const int &k)\
+    \ {\n    return g[k];\n  }\n\n  inline const vector< Edge< T > > &operator[](const\
+    \ int &k) const {\n    return g[k];\n  }\n};\n\ntemplate< typename T = int >\n\
+    using Edges = vector< Edge< T > >;\n#line 2 \"graph/tree/pmormq-lowest-common-ancestor.hpp\"\
+    \n\n#line 1 \"structure/others/sparse-table.cpp\"\n/**\n * @brief Sparse-Table(\u30B9\
+    \u30D1\u30FC\u30B9\u30C6\u30FC\u30D6\u30EB)\n * @docs docs/sparse-table.md\n */\n\
+    template< typename T, typename F >\nstruct SparseTable {\n  F f;\n  vector< vector<\
+    \ T > > st;\n  vector< int > lookup;\n\n  SparseTable() = default;\n\n  explicit\
+    \ SparseTable(const vector< T > &v, const F &f) : f(f) {\n    const int n = (int)\
+    \ v.size();\n    const int b = 32 - __builtin_clz(n);\n    st.assign(b, vector<\
+    \ T >(n));\n    for(int i = 0; i < v.size(); i++) {\n      st[0][i] = v[i];\n\
+    \    }\n    for(int i = 1; i < b; i++) {\n      for(int j = 0; j + (1 << i) <=\
+    \ n; j++) {\n        st[i][j] = f(st[i - 1][j], st[i - 1][j + (1 << (i - 1))]);\n\
+    \      }\n    }\n    lookup.resize(v.size() + 1);\n    for(int i = 2; i < lookup.size();\
+    \ i++) {\n      lookup[i] = lookup[i >> 1] + 1;\n    }\n  }\n\n  inline T fold(int\
+    \ l, int r) const {\n    int b = lookup[r - l];\n    return f(st[b][l], st[b][r\
+    \ - (1 << b)]);\n  }\n};\n\ntemplate< typename T, typename F >\nSparseTable< T,\
+    \ F > get_sparse_table(const vector< T > &v, const F &f) {\n  return SparseTable<\
+    \ T, F >(v, f);\n}\n#line 2 \"structure/others/plus-minus-one-rmq.cpp\"\n\n/**\n\
+    \ * @brief Plus-Minus-One-RMQ\n **/\ntemplate< typename T >\nstruct PlusMinusOneRMQ\
     \ {\n  using F = function< int(int, int) >;\n\n  int backet;\n  vector< T > vs;\n\
     \  vector< int > bidx, bbit;\n  SparseTable< int, F > st;\n  vector< vector< vector<\
     \ int > > > lookup;\n\n  explicit PlusMinusOneRMQ() = default;\n\n  explicit PlusMinusOneRMQ(const\
@@ -199,8 +203,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-lca.test.cpp
   requiredBy: []
-  timestamp: '2021-07-01 02:53:34+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-08-16 02:17:26+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/verify/yosupo-lca.test.cpp
 layout: document

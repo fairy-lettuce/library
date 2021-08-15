@@ -2,17 +2,17 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/connected-components/incremental-bridge-connectivity.hpp
     title: Incremental Bridge Connectivity
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/connected-components/three-edge-connected-components.hpp
     title: "Three Edge Connected Components(\u4E09\u91CD\u8FBA\u9023\u7D50\u6210\u5206\
       \u5206\u89E3)"
   - icon: ':heavy_check_mark:'
     path: graph/mst/boruvka.hpp
     title: "Boruvka(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/mst/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':heavy_check_mark:'
@@ -38,24 +38,24 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bipartite-edge-coloring.test.cpp
     title: test/verify/yosupo-bipartite-edge-coloring.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-manhattanmst.test.cpp
     title: test/verify/yosupo-manhattanmst.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-three-edge-connected-components.test.cpp
     title: test/verify/yosupo-three-edge-connected-components.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-tree-decomposition-width-2.test.cpp
     title: test/verify/yosupo-tree-decomposition-width-2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-two-edge-connected-components-2.test.cpp
     title: test/verify/yosupo-two-edge-connected-components-2.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-583.test.cpp
     title: test/verify/yukicoder-583.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/union-find.md
     document_title: Union-Find
@@ -95,7 +95,7 @@ data:
   - graph/mst/kruskal.hpp
   - graph/mst/boruvka.hpp
   timestamp: '2021-05-07 20:07:14+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/aoj-3139.test.cpp
   - test/verify/aoj-2821.test.cpp
