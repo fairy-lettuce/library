@@ -6,12 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-sqrt-mod.test.cpp
     title: test/verify/yosupo-sqrt-mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: Mod Sqrt
     links: []
@@ -39,7 +39,7 @@ data:
   path: math/combinatorics/mod-sqrt.cpp
   requiredBy: []
   timestamp: '2021-07-13 21:04:36+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-sqrt-mod.test.cpp
   - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp

@@ -407,22 +407,22 @@ data:
     - icon: ':warning:'
       path: math/combinatorics/lagrange-polynomial-2.cpp
       title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593, \u4FC2\u6570)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: math/combinatorics/lagrange-polynomial-3.cpp
       title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593, \u5024)"
     - icon: ':warning:'
       path: math/combinatorics/lagrange-polynomial.cpp
       title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593, \u5024)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/combinatorics/mod-int.cpp
       title: math/combinatorics/mod-int.cpp
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-log.cpp
       title: "Mod Log(\u96E2\u6563\u5BFE\u6570\u554F\u984C)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/combinatorics/mod-pow.cpp
       title: "Mod Pow(\u3079\u304D\u4E57)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/combinatorics/mod-sqrt.cpp
       title: Mod Sqrt
     - icon: ':heavy_check_mark:'
@@ -477,7 +477,7 @@ data:
       path: math/fft/fast-walsh-hadamard-transform.cpp
       title: "Fast Walsh Hadamard Transform (\u9AD8\u901F\u30A6\u30A9\u30EB\u30B7\u30E5\
         \u30A2\u30C0\u30DE\u30FC\u30EB\u5909\u63DB)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/fft/number-theoretic-transform-friendly-mod-int.cpp
       title: Number Theoretic Transform Friendly ModInt
     - icon: ':heavy_check_mark:'
@@ -512,13 +512,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/coeff-of-rational-function.cpp
       title: Coeff of Rational Function
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: math/fps/count-subset-sum.cpp
       title: Count Subset Sum
     - icon: ':warning:'
       path: math/fps/eulerian.cpp
       title: "Eulerian(\u30AA\u30A4\u30E9\u30FC\u6570)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/fps/formal-power-series-friendly-ntt.cpp
       title: "Formal Power Series Friendly NTT(NTTmod\u7528\u5F62\u5F0F\u7684\u51AA\
         \u7D1A\u6570)"
@@ -540,11 +540,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/sparse-matrix.cpp
       title: math/fps/sparse-matrix.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: math/fps/stirling-first.cpp
       title: "Stirling First(\u7B2C\u4E00\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
         \u6570)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: math/fps/stirling-second.cpp
       title: "Stirling Second(\u7B2C\u4E8C\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
         \u6570)"
@@ -910,7 +910,7 @@ data:
       title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.cpp
       title: template/template.cpp
   verificationCategories:
@@ -1411,10 +1411,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-set-xor-min.test.cpp
       title: test/verify/yosupo-set-xor-min.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-sharp-p-subset-sum.test.cpp
       title: test/verify/yosupo-sharp-p-subset-sum.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
       title: test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1426,7 +1426,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-sqrt-mod.test.cpp
       title: test/verify/yosupo-sqrt-mod.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
       title: test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1450,10 +1450,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-staticrmq.test.cpp
       title: test/verify/yosupo-staticrmq.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
       title: test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
       title: test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
     - icon: ':heavy_check_mark:'

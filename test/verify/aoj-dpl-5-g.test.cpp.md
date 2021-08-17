@@ -7,10 +7,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/combinatorics/enumeration.cpp
     title: "Enumeration(\u7D44\u307F\u5408\u308F\u305B)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/combinatorics/mod-int.cpp
     title: math/combinatorics/mod-int.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
