@@ -53,17 +53,20 @@ data:
     \ > &w, const vector< int > &m, const vector< T > &v,\n                      \
     \           const int &W, const T &NG, const Compare &comp = Compare()) {\n  const\
     \ int N = (int) w.size();\n  vector< T > dp(W + 1, NG), deqv(W + 1);\n  dp[0]\
-    \ = T();\n  vector< int > deq(W + 1);\n  for(int i = 0; i < N; i++) {\n    for(int\
-    \ a = 0; a < w[i]; a++) {\n      int s = 0, t = 0;\n      for(int j = 0; w[i]\
-    \ * j + a <= W; j++) {\n        if(dp[w[i] * j + a] != NG) {\n          auto val\
-    \ = dp[w[i] * j + a] - j * v[i];\n          while(s < t && comp(val, deqv[t -\
-    \ 1])) --t;\n          deq[t] = j;\n          deqv[t++] = val;\n        }\n  \
-    \      if(s < t) {\n          dp[j * w[i] + a] = deqv[s] + j * v[i];\n       \
-    \   if(deq[s] == j - m[i]) ++s;\n        }\n      }\n    }\n  }\n  return dp;\n\
-    }\n#line 6 \"test/verify/aoj-dpl-1-g.test.cpp\"\n\nint main() {\n  int N, W;\n\
-    \  cin >> N >> W;\n  vector< int > v(N), w(N), m(N);\n  for(int i = 0; i < N;\
-    \ i++) {\n    cin >> v[i] >> w[i] >> m[i];\n  }\n  auto ret = knapsack_limitations(w,\
-    \ m, v, W, -1);\n  cout << *max_element(begin(ret), end(ret)) << endl;\n}\n"
+    \ = T();\n  vector< int > deq(W + 1);\n  for(int i = 0; i < N; i++) {\n    if(w[i]\
+    \ == 0) {\n      for(int j = 0; j <= W; j++) {\n        if(dp[j] != NG && comp(dp[j]\
+    \ + v[i] * m[i], dp[j])) {\n          dp[j] = dp[j] + v[i] * m[i];\n        }\n\
+    \      }\n    } else {\n      for(int a = 0; a < w[i]; a++) {\n        int s =\
+    \ 0, t = 0;\n        for(int j = 0; w[i] * j + a <= W; j++) {\n          if(dp[w[i]\
+    \ * j + a] != NG) {\n            auto val = dp[w[i] * j + a] - j * v[i];\n   \
+    \         while(s < t && comp(val, deqv[t - 1])) --t;\n            deq[t] = j;\n\
+    \            deqv[t++] = val;\n          }\n          if(s < t) {\n          \
+    \  dp[j * w[i] + a] = deqv[s] + j * v[i];\n            if(deq[s] == j - m[i])\
+    \ ++s;\n          }\n        }\n      }\n    }\n  }\n  return dp;\n}\n#line 6\
+    \ \"test/verify/aoj-dpl-1-g.test.cpp\"\n\nint main() {\n  int N, W;\n  cin >>\
+    \ N >> W;\n  vector< int > v(N), w(N), m(N);\n  for(int i = 0; i < N; i++) {\n\
+    \    cin >> v[i] >> w[i] >> m[i];\n  }\n  auto ret = knapsack_limitations(w, m,\
+    \ v, W, -1);\n  cout << *max_element(begin(ret), end(ret)) << endl;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_G\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../dp/knapsack-limitations.cpp\"\
     \n\nint main() {\n  int N, W;\n  cin >> N >> W;\n  vector< int > v(N), w(N), m(N);\n\
@@ -76,7 +79,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-dpl-1-g.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 19:53:12+09:00'
+  timestamp: '2021-08-25 15:39:13+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dpl-1-g.test.cpp
