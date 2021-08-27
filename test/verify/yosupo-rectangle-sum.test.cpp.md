@@ -3,10 +3,10 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: structure/wavelet/succinct-indexable-dictionary.cpp
-    title: structure/wavelet/succinct-indexable-dictionary.cpp
+    title: "Succinct Indexable Dictionary(\u5B8C\u5099\u8F9E\u66F8)"
   - icon: ':heavy_check_mark:'
     path: structure/wavelet/wavelet-matrix-rectangle-sum.cpp
-    title: Wavelet-Matrix-Rectangle-Sum
+    title: Wavelet Matrix Rectangle Sum
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -49,7 +49,8 @@ data:
     \  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-rectangle-sum.test.cpp\"\
-    \n\n#line 1 \"structure/wavelet/succinct-indexable-dictionary.cpp\"\nstruct SuccinctIndexableDictionary\
+    \n\n#line 1 \"structure/wavelet/succinct-indexable-dictionary.cpp\"\n/**\n * @brief\
+    \ Succinct Indexable Dictionary(\u5B8C\u5099\u8F9E\u66F8)\n */\nstruct SuccinctIndexableDictionary\
     \ {\n  size_t length;\n  size_t blocks;\n  vector< unsigned > bit, sum;\n\n  SuccinctIndexableDictionary()\
     \ = default;\n\n  SuccinctIndexableDictionary(size_t length) : length(length),\
     \ blocks((length + 31) >> 5) {\n    bit.assign(blocks, 0U);\n    sum.assign(blocks,\
@@ -60,7 +61,7 @@ data:
     \n  int rank(int k) {\n    return (sum[k >> 5] + __builtin_popcount(bit[k >> 5]\
     \ & ((1U << (k & 31)) - 1)));\n  }\n\n  int rank(bool val, int k) {\n    return\
     \ (val ? rank(k) : k - rank(k));\n  }\n};\n#line 1 \"structure/wavelet/wavelet-matrix-rectangle-sum.cpp\"\
-    \n/*\n * @brief Wavelet-Matrix-Rectangle-Sum\n * @docs docs/wavelet-matrix-rectangle-sum.md\n\
+    \n/*\n * @brief Wavelet Matrix Rectangle Sum\n * @docs docs/wavelet-matrix-rectangle-sum.md\n\
     \ */\ntemplate< typename T, int MAXLOG, typename D >\nstruct WaveletMatrixRectangleSum\
     \ {\n  size_t length;\n  SuccinctIndexableDictionary matrix[MAXLOG];\n  vector<\
     \ D > ds[MAXLOG];\n  int mid[MAXLOG];\n\n  WaveletMatrixRectangleSum() = default;\n\
@@ -125,7 +126,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-rectangle-sum.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-08-28 02:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-rectangle-sum.test.cpp

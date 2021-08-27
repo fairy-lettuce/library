@@ -17,13 +17,13 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/wavelet-tree.md
-    document_title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728\
+    document_title: "Wavelet Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728\
       )"
     links: []
-  bundledCode: "#line 1 \"structure/wavelet/wavelet-tree.cpp\"\n/*\n * @brief Wavelet-Tree(\u30A6\
-    \u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)\n * @docs docs/wavelet-tree.md\n */\n\
-    template< typename T, int MAXLOG >\nstruct WaveletTree {\n\n  struct Node {\n\
-    \    SuccinctIndexableDictionary sid;\n    Node *ch[2];\n\n    Node() = default;\n\
+  bundledCode: "#line 1 \"structure/wavelet/wavelet-tree.cpp\"\n/*\n * @brief Wavelet\
+    \ Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)\n * @docs docs/wavelet-tree.md\n\
+    \ */\ntemplate< typename T, int MAXLOG >\nstruct WaveletTree {\n\n  struct Node\
+    \ {\n    SuccinctIndexableDictionary sid;\n    Node *ch[2];\n\n    Node() = default;\n\
     \n    Node(size_t length) : sid(length + 1), ch{nullptr} {}\n\n  };\n\n  Node\
     \ *root;\n\n  Node *build(vector< T > &v, vector< T > &rbuff, int bit, int l,\
     \ int r) {\n    if(l >= r || bit == -1) return nullptr;\n    Node *node = new\
@@ -79,7 +79,7 @@ data:
     \ return ret == -1 ? T(-1) : ys[ret];\n  }\n\n  T next_value(int l, int r, T lower)\
     \ {\n    auto ret = mat.next_value(l, r, get(lower));\n    return ret == -1 ?\
     \ T(-1) : ys[ret];\n  }\n};\n\n"
-  code: "/*\n * @brief Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728\
+  code: "/*\n * @brief Wavelet Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728\
     )\n * @docs docs/wavelet-tree.md\n */\ntemplate< typename T, int MAXLOG >\nstruct\
     \ WaveletTree {\n\n  struct Node {\n    SuccinctIndexableDictionary sid;\n   \
     \ Node *ch[2];\n\n    Node() = default;\n\n    Node(size_t length) : sid(length\
@@ -141,7 +141,7 @@ data:
   isVerificationFile: false
   path: structure/wavelet/wavelet-tree.cpp
   requiredBy: []
-  timestamp: '2020-08-20 02:29:21+09:00'
+  timestamp: '2021-08-28 02:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-1549-2.test.cpp
@@ -152,7 +152,7 @@ layout: document
 redirect_from:
 - /library/structure/wavelet/wavelet-tree.cpp
 - /library/structure/wavelet/wavelet-tree.cpp.html
-title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
+title: "Wavelet Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
 ---
 ## 概要
 

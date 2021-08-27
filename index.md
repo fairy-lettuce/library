@@ -838,7 +838,7 @@ data:
       title: "Dual-Segment-Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':heavy_check_mark:'
       path: structure/segment-tree/lazy-segment-tree.cpp
-      title: "Lazy-Segment-Tree(\u9045\u5EF6\u4F1D\u642C\u30BB\u30B0\u30E1\u30F3\u30C8\
+      title: "Lazy Segment Tree(\u9045\u5EF6\u4F1D\u642C\u30BB\u30B0\u30E1\u30F3\u30C8\
         \u6728)"
     - icon: ':warning:'
       path: structure/segment-tree/persistent-segment-tree.cpp
@@ -858,7 +858,7 @@ data:
       title: structure/segment-tree/segment-tree-fractional-cascading.cpp
     - icon: ':heavy_check_mark:'
       path: structure/segment-tree/segment-tree.cpp
-      title: "Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+      title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - name: structure/trie
     pages:
     - icon: ':heavy_check_mark:'
@@ -894,20 +894,20 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: structure/wavelet/succinct-indexable-dictionary.cpp
-      title: structure/wavelet/succinct-indexable-dictionary.cpp
+      title: "Succinct Indexable Dictionary(\u5B8C\u5099\u8F9E\u66F8)"
     - icon: ':heavy_check_mark:'
       path: structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
-      title: Wavelet-Matrix-Point-Add-Rectangle-Sum
+      title: Wavelet Matrix Point Add Rectangle Sum
     - icon: ':heavy_check_mark:'
       path: structure/wavelet/wavelet-matrix-rectangle-sum.cpp
-      title: Wavelet-Matrix-Rectangle-Sum
+      title: Wavelet Matrix Rectangle Sum
     - icon: ':heavy_check_mark:'
       path: structure/wavelet/wavelet-matrix.cpp
-      title: "Wavelet-Matrix(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u884C\u5217\
+      title: "Wavelet Matrix(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u884C\u5217\
         )"
     - icon: ':heavy_check_mark:'
       path: structure/wavelet/wavelet-tree.cpp
-      title: "Wavelet-Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
+      title: "Wavelet Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
     - icon: ':heavy_check_mark:'

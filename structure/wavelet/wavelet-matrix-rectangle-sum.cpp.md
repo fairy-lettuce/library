@@ -11,10 +11,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/wavelet-matrix-rectangle-sum.md
-    document_title: Wavelet-Matrix-Rectangle-Sum
+    document_title: Wavelet Matrix Rectangle Sum
     links: []
   bundledCode: "#line 1 \"structure/wavelet/wavelet-matrix-rectangle-sum.cpp\"\n/*\n\
-    \ * @brief Wavelet-Matrix-Rectangle-Sum\n * @docs docs/wavelet-matrix-rectangle-sum.md\n\
+    \ * @brief Wavelet Matrix Rectangle Sum\n * @docs docs/wavelet-matrix-rectangle-sum.md\n\
     \ */\ntemplate< typename T, int MAXLOG, typename D >\nstruct WaveletMatrixRectangleSum\
     \ {\n  size_t length;\n  SuccinctIndexableDictionary matrix[MAXLOG];\n  vector<\
     \ D > ds[MAXLOG];\n  int mid[MAXLOG];\n\n  WaveletMatrixRectangleSum() = default;\n\
@@ -49,7 +49,7 @@ data:
     \ return mat.rect_sum(l, r, get(upper));\n  }\n\n  D rect_sum(int l, int r, T\
     \ lower, T upper) {\n    return mat.rect_sum(l, r, get(lower), get(upper));\n\
     \  }\n};\n\n"
-  code: "/*\n * @brief Wavelet-Matrix-Rectangle-Sum\n * @docs docs/wavelet-matrix-rectangle-sum.md\n\
+  code: "/*\n * @brief Wavelet Matrix Rectangle Sum\n * @docs docs/wavelet-matrix-rectangle-sum.md\n\
     \ */\ntemplate< typename T, int MAXLOG, typename D >\nstruct WaveletMatrixRectangleSum\
     \ {\n  size_t length;\n  SuccinctIndexableDictionary matrix[MAXLOG];\n  vector<\
     \ D > ds[MAXLOG];\n  int mid[MAXLOG];\n\n  WaveletMatrixRectangleSum() = default;\n\
@@ -88,7 +88,7 @@ data:
   isVerificationFile: false
   path: structure/wavelet/wavelet-matrix-rectangle-sum.cpp
   requiredBy: []
-  timestamp: '2020-08-14 04:28:43+09:00'
+  timestamp: '2021-08-28 02:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-rectangle-sum.test.cpp
@@ -97,7 +97,7 @@ layout: document
 redirect_from:
 - /library/structure/wavelet/wavelet-matrix-rectangle-sum.cpp
 - /library/structure/wavelet/wavelet-matrix-rectangle-sum.cpp.html
-title: Wavelet-Matrix-Rectangle-Sum
+title: Wavelet Matrix Rectangle Sum
 ---
 ## 概要
 

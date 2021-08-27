@@ -14,10 +14,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/segment-tree.md
-    document_title: "Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+    document_title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     links: []
   bundledCode: "#line 1 \"structure/segment-tree/segment-tree.cpp\"\n/**\n * @brief\
-    \ Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs docs/segment-tree.md\n\
+    \ Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs docs/segment-tree.md\n\
     \ */\ntemplate< typename Monoid, typename F >\nstruct SegmentTree {\n  int n,\
     \ sz;\n  vector< Monoid > seg;\n\n  const F f;\n  const Monoid M1;\n  \n  SegmentTree(int\
     \ n, const F f, const Monoid &M1) : n(n), f(f), M1(M1) {\n    sz = 1;\n    while(sz\
@@ -48,7 +48,7 @@ data:
     \ R, true);\n        R = nxt;\n      }\n    }\n    return -1;\n  }\n};\n\ntemplate<\
     \ typename Monoid, typename F >\nSegmentTree< Monoid, F > get_segment_tree(int\
     \ N, const F& f, const Monoid& M1) {\n  return {N, f, M1};\n}\n"
-  code: "/**\n * @brief Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs\
+  code: "/**\n * @brief Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs\
     \ docs/segment-tree.md\n */\ntemplate< typename Monoid, typename F >\nstruct SegmentTree\
     \ {\n  int n, sz;\n  vector< Monoid > seg;\n\n  const F f;\n  const Monoid M1;\n\
     \  \n  SegmentTree(int n, const F f, const Monoid &M1) : n(n), f(f), M1(M1) {\n\
@@ -84,7 +84,7 @@ data:
   isVerificationFile: false
   path: structure/segment-tree/segment-tree.cpp
   requiredBy: []
-  timestamp: '2021-08-14 14:18:51+09:00'
+  timestamp: '2021-08-28 02:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-dsl-2-a.test.cpp
@@ -94,7 +94,7 @@ layout: document
 redirect_from:
 - /library/structure/segment-tree/segment-tree.cpp
 - /library/structure/segment-tree/segment-tree.cpp.html
-title: "Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
 ---
 ## 概要
 
@@ -109,18 +109,12 @@ title: "Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
 
 ## 使い方
 
-* `SegmentTree(n, f, M1)`: サイズ `n` で初期化する. ここで `f` は2つの区間の要素をマージする二項演算, `M1` はモノイドの単位元である.
-* `set(k, x)`: `k` 番目の要素に `x` を代入する.
-* `build()`: セグメント木を構築する.
-* `prod(a, b)`: 区間 $[a, b)$ に対して二項演算した結果を返す.
-* `all_prod()`: 全体を二項係数した結果を返す.
-* `update(k, x)`: `k` 番目の要素を `x` に変更する.
-* `operator[k]`: `k` 番目の要素を返す.
-* `find_first(a, check)`: $[a, x)$ が `check` を満たす最初の要素位置 $x$ を返す. 存在しないとき $n$ を返す.
-* `find_last(b, check)`: $[x, b)$ が `check` を満たす最後の要素位置 $x$ を返す. 存在しないとき $-1$ を返す.
-
-## 計算量
-
-* `set(k, x)`: $O(1)$
-* `build()`: $O(N)$
-* クエリ: $O(\log N)$
+* `SegmentTree(n, f, M1)`: サイズ `n` で初期化する. ここで `f` は2つの区間の要素をマージする二項演算, `M1` はモノイドの単位元である. $O(n)$
+* `set(k, x)`: `k` 番目の要素に `x` を代入する. $O(1)$
+* `build()`: セグメント木を構築する. $O(n)$
+* `prod(a, b)`: 区間 $[a, b)$ に対して二項演算した結果を返す. $O(\log n)$
+* `all_prod()`: 全体を二項演算した結果を返す. $O(1)$
+* `update(k, x)`: `k` 番目の要素を `x` に変更する. $O(\log n)$
+* `operator[k]`: `k` 番目の要素を返す. $O(1)$
+* `find_first(a, check)`: $[a, x)$ が `check` を満たす最初の要素位置 $x$ を返す. 存在しないとき $n$ を返す. $O(\log n)$
+* `find_last(b, check)`: $[x, b)$ が `check` を満たす最後の要素位置 $x$ を返す. 存在しないとき $-1$ を返す. $(\log n)$

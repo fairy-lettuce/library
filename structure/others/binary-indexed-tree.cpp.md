@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
-    title: Wavelet-Matrix-Point-Add-Rectangle-Sum
+    title: Wavelet Matrix Point Add Rectangle Sum
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-dsl-2-b.test.cpp

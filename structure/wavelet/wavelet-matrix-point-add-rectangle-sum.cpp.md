@@ -6,7 +6,7 @@ data:
     title: Binary-Indexed-Tree(BIT)
   - icon: ':heavy_check_mark:'
     path: structure/wavelet/succinct-indexable-dictionary.cpp
-    title: structure/wavelet/succinct-indexable-dictionary.cpp
+    title: "Succinct Indexable Dictionary(\u5B8C\u5099\u8F9E\u66F8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -17,9 +17,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/wavelet-matrix-point-add-rectangle-sum.md
-    document_title: Wavelet-Matrix-Point-Add-Rectangle-Sum
+    document_title: Wavelet Matrix Point Add Rectangle Sum
     links: []
   bundledCode: "#line 1 \"structure/wavelet/succinct-indexable-dictionary.cpp\"\n\
+    /**\n * @brief Succinct Indexable Dictionary(\u5B8C\u5099\u8F9E\u66F8)\n */\n\
     struct SuccinctIndexableDictionary {\n  size_t length;\n  size_t blocks;\n  vector<\
     \ unsigned > bit, sum;\n\n  SuccinctIndexableDictionary() = default;\n\n  SuccinctIndexableDictionary(size_t\
     \ length) : length(length), blocks((length + 31) >> 5) {\n    bit.assign(blocks,\
@@ -48,7 +49,7 @@ data:
     \ - 1) + 1); k > 0; k >>= 1) {\n      if(i + k < data.size() && data[i + k] <=\
     \ x) {\n        x -= data[i + k];\n        i += k;\n      }\n    }\n    return\
     \ i;\n  }\n};\n#line 3 \"structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp\"\
-    \n\n/*\n * @brief Wavelet-Matrix-Point-Add-Rectangle-Sum\n * @docs docs/wavelet-matrix-point-add-rectangle-sum.md\n\
+    \n\n/*\n * @brief Wavelet Matrix Point Add Rectangle Sum\n * @docs docs/wavelet-matrix-point-add-rectangle-sum.md\n\
     \ */\ntemplate< typename T, int MAXLOG, typename D >\nstruct WaveletMatrixPointAddRectangleSum\
     \ {\n  size_t length;\n  SuccinctIndexableDictionary matrix[MAXLOG];\n  BinaryIndexedTree<\
     \ D > ds[MAXLOG];\n  vector< T > v;\n  int mid[MAXLOG];\n\n  WaveletMatrixPointAddRectangleSum()\
@@ -90,7 +91,7 @@ data:
     \  }\n\n  void point_add(int k, const D &x) {\n    mat.point_add(k, x);\n  }\n\
     };\n"
   code: "#include \"succinct-indexable-dictionary.cpp\"\n#include \"../others/binary-indexed-tree.cpp\"\
-    \n\n/*\n * @brief Wavelet-Matrix-Point-Add-Rectangle-Sum\n * @docs docs/wavelet-matrix-point-add-rectangle-sum.md\n\
+    \n\n/*\n * @brief Wavelet Matrix Point Add Rectangle Sum\n * @docs docs/wavelet-matrix-point-add-rectangle-sum.md\n\
     \ */\ntemplate< typename T, int MAXLOG, typename D >\nstruct WaveletMatrixPointAddRectangleSum\
     \ {\n  size_t length;\n  SuccinctIndexableDictionary matrix[MAXLOG];\n  BinaryIndexedTree<\
     \ D > ds[MAXLOG];\n  vector< T > v;\n  int mid[MAXLOG];\n\n  WaveletMatrixPointAddRectangleSum()\
@@ -137,7 +138,7 @@ data:
   isVerificationFile: false
   path: structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
   requiredBy: []
-  timestamp: '2021-05-06 16:25:17+09:00'
+  timestamp: '2021-08-28 02:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-point-add-rectangle-sum.test.cpp
@@ -146,7 +147,7 @@ layout: document
 redirect_from:
 - /library/structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
 - /library/structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp.html
-title: Wavelet-Matrix-Point-Add-Rectangle-Sum
+title: Wavelet Matrix Point Add Rectangle Sum
 ---
 ## 概要
 

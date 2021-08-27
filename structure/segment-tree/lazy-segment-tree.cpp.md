@@ -14,11 +14,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/lazy-segment-tree.md
-    document_title: "Lazy-Segment-Tree(\u9045\u5EF6\u4F1D\u642C\u30BB\u30B0\u30E1\u30F3\
+    document_title: "Lazy Segment Tree(\u9045\u5EF6\u4F1D\u642C\u30BB\u30B0\u30E1\u30F3\
       \u30C8\u6728)"
     links: []
   bundledCode: "#line 1 \"structure/segment-tree/lazy-segment-tree.cpp\"\n/**\n *\
-    \ @brief Lazy-Segment-Tree(\u9045\u5EF6\u4F1D\u642C\u30BB\u30B0\u30E1\u30F3\u30C8\
+    \ @brief Lazy Segment Tree(\u9045\u5EF6\u4F1D\u642C\u30BB\u30B0\u30E1\u30F3\u30C8\
     \u6728)\n * @docs docs/lazy-segment-tree.md\n */\ntemplate< typename Monoid, typename\
     \ OperatorMonoid, typename F, typename G, typename H >\nstruct LazySegmentTree\
     \ {\n  int n, sz, height;\n  vector< Monoid > data;\n  vector< OperatorMonoid\
@@ -66,7 +66,7 @@ data:
     \ Monoid, OperatorMonoid, F, G, H > get_lazy_segment_tree\n    (int N, const F\
     \ &f, const G &g, const H &h, const Monoid &M1, const OperatorMonoid &OM0) {\n\
     \  return {N, f, g, h, M1, OM0};\n}\n"
-  code: "/**\n * @brief Lazy-Segment-Tree(\u9045\u5EF6\u4F1D\u642C\u30BB\u30B0\u30E1\
+  code: "/**\n * @brief Lazy Segment Tree(\u9045\u5EF6\u4F1D\u642C\u30BB\u30B0\u30E1\
     \u30F3\u30C8\u6728)\n * @docs docs/lazy-segment-tree.md\n */\ntemplate< typename\
     \ Monoid, typename OperatorMonoid, typename F, typename G, typename H >\nstruct\
     \ LazySegmentTree {\n  int n, sz, height;\n  vector< Monoid > data;\n  vector<\
@@ -119,7 +119,7 @@ data:
   isVerificationFile: false
   path: structure/segment-tree/lazy-segment-tree.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:53:32+09:00'
+  timestamp: '2021-08-28 02:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-range-affine-range-sum.test.cpp
@@ -129,7 +129,7 @@ layout: document
 redirect_from:
 - /library/structure/segment-tree/lazy-segment-tree.cpp
 - /library/structure/segment-tree/lazy-segment-tree.cpp.html
-title: "Lazy-Segment-Tree(\u9045\u5EF6\u4F1D\u642C\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
+title: "Lazy Segment Tree(\u9045\u5EF6\u4F1D\u642C\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
   )"
 ---
 ## 概要
@@ -138,18 +138,13 @@ title: "Lazy-Segment-Tree(\u9045\u5EF6\u4F1D\u642C\u30BB\u30B0\u30E1\u30F3\u30C8
 
 ## 使い方
 
-* `LazySegmentTree(n, f, g, h, M1, OM0)`: サイズ `n` で初期化する. ここで `f` は2つの区間の要素をマージする二項演算, `g` は要素と作用素をマージする二項演算, `h` は作用素同士をマージする二項演算, `M1` はモノイドの単位元, `OM0` は作用素の単位元である.
-* `set(k, x)`: `k` 番目の要素に `x` を代入する.
-* `build()`: セグメント木を構築する.
-* `query(a, b)`: 区間 $[a, b)$ に対して二項演算した結果を返す.
-* `update(a, b, x)`: 区間 $[a, b)$ に対して作用素 `x` を適用する.
-* `operator[k]`: `k` 番目の要素を返す.
-* `find_first(a, check)`: $[a,x)$ が `check` を満たす最初の要素位置 $x$ を返す. 存在しないとき $n$ を返す.
-* `find_last(b, check)`: $[x,b)$ が `check` を満たす最後の要素位置 $x$ を返す. 存在しないとき $-1$ を返す.
+* `LazySegmentTree(n, f, g, h, M1, OM0)`: サイズ `n` で初期化する. ここで `f` は2つの区間の要素をマージする二項演算, `g` は要素と作用素をマージする二項演算, `h` は作用素同士をマージする二項演算, `M1` はモノイドの単位元, `OM0` は作用素の単位元である. $O(n)$
+* `set(k, x)`: `k` 番目の要素に `x` を代入する. $O(\log n)$
+* `build()`: セグメント木を構築する. $O(n)$
+* `query(a, b)`: 区間 $[a, b)$ に対して二項演算した結果を返す. $O(\log n)$
+* `update(a, b, x)`: 区間 $[a, b)$ に対して作用素 `x` を適用する. $O(\log n)$
+* `operator[k]`: `k` 番目の要素を返す. $O(\log n)$
+* `find_first(a, check)`: $[a,x)$ が `check` を満たす最初の要素位置 $x$ を返す. 存在しないとき $n$ を返す. $O(\log n)$
+* `find_last(b, check)`: $[x,b)$ が `check` を満たす最後の要素位置 $x$ を返す. 存在しないとき $-1$ を返す. $O(\log n)$
+
 `auto seg = get_lazy_segment_tree(N, f, g, h, M1, OM0);` のようにすると `decltype(f)` などを用いなくてすむ.
-
-## 計算量
-
-* `set(k, x)`: $O(1)$
-* `build()`: $O(N)$
-* クエリ: $O(\log N)$

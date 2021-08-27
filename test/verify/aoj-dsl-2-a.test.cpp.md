@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: structure/segment-tree/segment-tree.cpp
-    title: "Segment-Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+    title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -45,11 +45,11 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/aoj-dsl-2-a.test.cpp\"\
-    \n\n#line 1 \"structure/segment-tree/segment-tree.cpp\"\n/**\n * @brief Segment-Tree(\u30BB\
-    \u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs docs/segment-tree.md\n */\ntemplate<\
-    \ typename Monoid, typename F >\nstruct SegmentTree {\n  int n, sz;\n  vector<\
-    \ Monoid > seg;\n\n  const F f;\n  const Monoid M1;\n  \n  SegmentTree(int n,\
-    \ const F f, const Monoid &M1) : n(n), f(f), M1(M1) {\n    sz = 1;\n    while(sz\
+    \n\n#line 1 \"structure/segment-tree/segment-tree.cpp\"\n/**\n * @brief Segment\
+    \ Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs docs/segment-tree.md\n\
+    \ */\ntemplate< typename Monoid, typename F >\nstruct SegmentTree {\n  int n,\
+    \ sz;\n  vector< Monoid > seg;\n\n  const F f;\n  const Monoid M1;\n  \n  SegmentTree(int\
+    \ n, const F f, const Monoid &M1) : n(n), f(f), M1(M1) {\n    sz = 1;\n    while(sz\
     \ < n) sz <<= 1;\n    seg.assign(2 * sz, M1);\n  }\n\n  void set(int k, const\
     \ Monoid &x) {\n    seg[k + sz] = x;\n  }\n\n  void build() {\n    for(int k =\
     \ sz - 1; k > 0; k--) {\n      seg[k] = f(seg[2 * k + 0], seg[2 * k + 1]);\n \
@@ -93,7 +93,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-dsl-2-a.test.cpp
   requiredBy: []
-  timestamp: '2021-08-14 14:18:51+09:00'
+  timestamp: '2021-08-28 02:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dsl-2-a.test.cpp

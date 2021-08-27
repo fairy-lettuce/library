@@ -4,7 +4,10 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
-    title: Wavelet-Matrix-Point-Add-Rectangle-Sum
+    title: Wavelet Matrix Point Add Rectangle Sum
+  - icon: ':heavy_check_mark:'
+    path: structure/wavelet/wavelet-matrix.cpp
+    title: "Wavelet Matrix(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u884C\u5217)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-1549-2.test.cpp
@@ -34,8 +37,10 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    document_title: "Succinct Indexable Dictionary(\u5B8C\u5099\u8F9E\u66F8)"
     links: []
   bundledCode: "#line 1 \"structure/wavelet/succinct-indexable-dictionary.cpp\"\n\
+    /**\n * @brief Succinct Indexable Dictionary(\u5B8C\u5099\u8F9E\u66F8)\n */\n\
     struct SuccinctIndexableDictionary {\n  size_t length;\n  size_t blocks;\n  vector<\
     \ unsigned > bit, sum;\n\n  SuccinctIndexableDictionary() = default;\n\n  SuccinctIndexableDictionary(size_t\
     \ length) : length(length), blocks((length + 31) >> 5) {\n    bit.assign(blocks,\
@@ -46,7 +51,8 @@ data:
     \ 5] >> (k & 31)) & 1));\n  }\n\n  int rank(int k) {\n    return (sum[k >> 5]\
     \ + __builtin_popcount(bit[k >> 5] & ((1U << (k & 31)) - 1)));\n  }\n\n  int rank(bool\
     \ val, int k) {\n    return (val ? rank(k) : k - rank(k));\n  }\n};\n"
-  code: "struct SuccinctIndexableDictionary {\n  size_t length;\n  size_t blocks;\n\
+  code: "/**\n * @brief Succinct Indexable Dictionary(\u5B8C\u5099\u8F9E\u66F8)\n\
+    \ */\nstruct SuccinctIndexableDictionary {\n  size_t length;\n  size_t blocks;\n\
     \  vector< unsigned > bit, sum;\n\n  SuccinctIndexableDictionary() = default;\n\
     \n  SuccinctIndexableDictionary(size_t length) : length(length), blocks((length\
     \ + 31) >> 5) {\n    bit.assign(blocks, 0U);\n    sum.assign(blocks, 0U);\n  }\n\
@@ -62,7 +68,8 @@ data:
   path: structure/wavelet/succinct-indexable-dictionary.cpp
   requiredBy:
   - structure/wavelet/wavelet-matrix-point-add-rectangle-sum.cpp
-  timestamp: '2019-12-31 16:31:54+09:00'
+  - structure/wavelet/wavelet-matrix.cpp
+  timestamp: '2021-08-28 02:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-1549-2.test.cpp
@@ -78,5 +85,5 @@ layout: document
 redirect_from:
 - /library/structure/wavelet/succinct-indexable-dictionary.cpp
 - /library/structure/wavelet/succinct-indexable-dictionary.cpp.html
-title: structure/wavelet/succinct-indexable-dictionary.cpp
+title: "Succinct Indexable Dictionary(\u5B8C\u5099\u8F9E\u66F8)"
 ---

@@ -3,10 +3,10 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: structure/wavelet/succinct-indexable-dictionary.cpp
-    title: structure/wavelet/succinct-indexable-dictionary.cpp
+    title: "Succinct Indexable Dictionary(\u5B8C\u5099\u8F9E\u66F8)"
   - icon: ':heavy_check_mark:'
     path: structure/wavelet/wavelet-matrix.cpp
-    title: "Wavelet-Matrix(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u884C\u5217)"
+    title: "Wavelet Matrix(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u884C\u5217)"
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -49,7 +49,8 @@ data:
     \ Args >\n  decltype(auto) operator()(Args &&... args) const {\n    return F::operator()(*this,\
     \ forward< Args >(args)...);\n  }\n};\n \ntemplate< typename F >\ninline decltype(auto)\
     \ MFP(F &&f) {\n  return FixPoint< F >{forward< F >(f)};\n}\n#line 4 \"test/verify/yosupo-range-kth-smallest.test.cpp\"\
-    \n\n#line 1 \"structure/wavelet/succinct-indexable-dictionary.cpp\"\nstruct SuccinctIndexableDictionary\
+    \n\n#line 1 \"structure/wavelet/succinct-indexable-dictionary.cpp\"\n/**\n * @brief\
+    \ Succinct Indexable Dictionary(\u5B8C\u5099\u8F9E\u66F8)\n */\nstruct SuccinctIndexableDictionary\
     \ {\n  size_t length;\n  size_t blocks;\n  vector< unsigned > bit, sum;\n\n  SuccinctIndexableDictionary()\
     \ = default;\n\n  SuccinctIndexableDictionary(size_t length) : length(length),\
     \ blocks((length + 31) >> 5) {\n    bit.assign(blocks, 0U);\n    sum.assign(blocks,\
@@ -59,8 +60,8 @@ data:
     \ operator[](int k) {\n    return (bool((bit[k >> 5] >> (k & 31)) & 1));\n  }\n\
     \n  int rank(int k) {\n    return (sum[k >> 5] + __builtin_popcount(bit[k >> 5]\
     \ & ((1U << (k & 31)) - 1)));\n  }\n\n  int rank(bool val, int k) {\n    return\
-    \ (val ? rank(k) : k - rank(k));\n  }\n};\n#line 1 \"structure/wavelet/wavelet-matrix.cpp\"\
-    \n/*\n * @brief Wavelet-Matrix(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u884C\
+    \ (val ? rank(k) : k - rank(k));\n  }\n};\n#line 2 \"structure/wavelet/wavelet-matrix.cpp\"\
+    \n\n/*\n * @brief Wavelet Matrix(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u884C\
     \u5217)\n * @docs docs/wavelet-matrix.md\n */\ntemplate< typename T, int MAXLOG\
     \ >\nstruct WaveletMatrix {\n  size_t length;\n  SuccinctIndexableDictionary matrix[MAXLOG];\n\
     \  int mid[MAXLOG];\n\n  WaveletMatrix() = default;\n\n  WaveletMatrix(vector<\
@@ -117,25 +118,25 @@ data:
     \ r, get(lower), get(upper));\n  }\n\n  T prev_value(int l, int r, T upper) {\n\
     \    auto ret = mat.prev_value(l, r, get(upper));\n    return ret == -1 ? T(-1)\
     \ : ys[ret];\n  }\n\n  T next_value(int l, int r, T lower) {\n    auto ret = mat.next_value(l,\
-    \ r, get(lower));\n    return ret == -1 ? T(-1) : ys[ret];\n  }\n};\n#line 7 \"\
+    \ r, get(lower));\n    return ret == -1 ? T(-1) : ys[ret];\n  }\n};\n#line 6 \"\
     test/verify/yosupo-range-kth-smallest.test.cpp\"\n\nint main() {\n  int N, Q;\n\
     \  cin >> N >> Q;\n  vector< int > A(N);\n  cin >> A;\n  CompressedWaveletMatrix<\
     \ int, 18 > mat(A);\n  for(int i = 0; i < Q; i++) {\n    int a, b, c;\n    cin\
     \ >> a >> b >> c;\n    cout << mat.kth_smallest(a, b, c) << \"\\n\";\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_kth_smallest\"\n\n\
-    #include \"../../template/template.cpp\"\n\n#include \"../../structure/wavelet/succinct-indexable-dictionary.cpp\"\
-    \n#include \"../../structure/wavelet/wavelet-matrix.cpp\"\n\nint main() {\n  int\
-    \ N, Q;\n  cin >> N >> Q;\n  vector< int > A(N);\n  cin >> A;\n  CompressedWaveletMatrix<\
-    \ int, 18 > mat(A);\n  for(int i = 0; i < Q; i++) {\n    int a, b, c;\n    cin\
-    \ >> a >> b >> c;\n    cout << mat.kth_smallest(a, b, c) << \"\\n\";\n  }\n}\n"
+    #include \"../../template/template.cpp\"\n\n#include \"../../structure/wavelet/wavelet-matrix.cpp\"\
+    \n\nint main() {\n  int N, Q;\n  cin >> N >> Q;\n  vector< int > A(N);\n  cin\
+    \ >> A;\n  CompressedWaveletMatrix< int, 18 > mat(A);\n  for(int i = 0; i < Q;\
+    \ i++) {\n    int a, b, c;\n    cin >> a >> b >> c;\n    cout << mat.kth_smallest(a,\
+    \ b, c) << \"\\n\";\n  }\n}\n"
   dependsOn:
   - template/template.cpp
-  - structure/wavelet/succinct-indexable-dictionary.cpp
   - structure/wavelet/wavelet-matrix.cpp
+  - structure/wavelet/succinct-indexable-dictionary.cpp
   isVerificationFile: true
   path: test/verify/yosupo-range-kth-smallest.test.cpp
   requiredBy: []
-  timestamp: '2021-05-01 00:06:55+09:00'
+  timestamp: '2021-08-28 02:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-range-kth-smallest.test.cpp
