@@ -294,8 +294,8 @@ data:
     FPS< Mint > multipoint_evaluation(const FPS< Mint > &f, const FPS< Mint > &xs)\
     \ {\n  auto g = subproduct_tree(xs);\n  int m = (int) xs.size(), k = (int) g.size()\
     \ / 2;\n  g[1] = f % g[1];\n  for(int i = 2; i < k + m; i++) g[i] = g[i >> 1]\
-    \ % g[i];\n  FPS< Mint > ys(m);\n  for(int i = 0; i < m; i++) ys[i] = g[k + i][0];\n\
-    \  return ys;\n}\n#line 8 \"test/verify/yosupo-multipoint-evaluation.test.cpp\"\
+    \ % g[i];\n  FPS< Mint > ys(m);\n  for(int i = 0; i < m; i++) ys[i] = (g[k + i].empty()\
+    \ ? Mint(0) : g[k + i][0]);\n  return ys;\n}\n#line 8 \"test/verify/yosupo-multipoint-evaluation.test.cpp\"\
     \n\nconst int MOD = 998244353;\nusing mint = ModInt< MOD >;\n\nint main() {\n\
     \  int N, M;\n  cin >> N >> M;\n  FPS< mint > f(N), xs(M);\n  cin >> f >> xs;\n\
     \  cout << multipoint_evaluation(f, xs) << endl;\n}\n"
@@ -316,7 +316,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-multipoint-evaluation.test.cpp
   requiredBy: []
-  timestamp: '2021-08-17 19:31:02+09:00'
+  timestamp: '2021-08-29 19:33:00+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-multipoint-evaluation.test.cpp
