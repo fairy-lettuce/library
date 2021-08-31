@@ -165,20 +165,16 @@ data:
     n');\n  }\n\n  void flush() {\n    fwrite(line, 1, st - line, fp);\n    st = line;\n\
     \  }\n\nprivate:\n  FILE *fp = nullptr;\n  static constexpr size_t line_size =\
     \ 1 << 16;\n  static constexpr size_t int_digits = 20;\n  char line[line_size\
-    \ + 1] = {};\n  char small[32] = {};\n  char *st = line;\n\n  template< bool f\
-    \ = false >\n  void write() {}\n\n  void write_single(const char &t) {\n    if(st\
-    \ + 1 >= line + line_size) flush();\n    *st++ = t;\n  }\n\n  template< typename\
-    \ T, enable_if_t< is_integral< T >::value, int > = 0 >\n  void write_single(T\
-    \ s) {\n    if(st + int_digits >= line + line_size) flush();\n    if(s == 0) {\n\
-    \      write_single('0');\n      return;\n    }\n    if(s < 0) {\n      write_single('-');\n\
-    \      s = -s;\n    }\n    char *mp = small + sizeof(small);\n    typename make_unsigned<\
-    \ T >::type y = s;\n    size_t len = 0;\n    while(y > 0) {\n      *--mp = y %\
-    \ 10 + '0';\n      y /= 10;\n      ++len;\n    }\n    memmove(st, mp, len);\n\
-    \    st += len;\n  }\n\n  void write_single(const string &s) {\n    for(auto &c\
-    \ : s) write_single(c);\n  }\n\n  void write_single(const char *s) {\n    while(*s\
-    \ != 0) write_single(*s++);\n  }\n\n  template< typename T >\n  void write_single(const\
-    \ vector< T > &s) {\n    for(size_t i = 0; i < s.size(); i++) {\n      if(i) write_single('\
-    \ ');\n      write_single(s[i]);\n    }\n  }\n};\n#line 10 \"test/verify/yosupo-lca.test.cpp\"\
+    \ + 1] = {};\n  char *st = line;\n\n  template< bool f = false >\n  void write()\
+    \ {}\n\n  void write_single(const char &t) {\n    if(st + 1 >= line + line_size)\
+    \ flush();\n    *st++ = t;\n  }\n\n  template< typename T, enable_if_t< is_integral<\
+    \ T >::value, int > = 0 >\n  void write_single(T s) {\n    if(st + int_digits\
+    \ >= line + line_size) flush();\n    st += to_chars(st, st + int_digits, s).ptr\
+    \ - st;\n  }\n\n  void write_single(const string &s) {\n    for(auto &c: s) write_single(c);\n\
+    \  }\n\n  void write_single(const char *s) {\n    while(*s != 0) write_single(*s++);\n\
+    \  }\n\n  template< typename T >\n  void write_single(const vector< T > &s) {\n\
+    \    for(size_t i = 0; i < s.size(); i++) {\n      if(i) write_single(' ');\n\
+    \      write_single(s[i]);\n    }\n  }\n};\n#line 10 \"test/verify/yosupo-lca.test.cpp\"\
     \n\n\nint main() {\n  Scanner in(stdin);\n  Printer out(stdout);\n  int N, Q;\n\
     \  in.read(N, Q);\n  PMORMQLowestCommonAncestor< int > g(N);\n  for(int i = 1;\
     \ i < N; i++) {\n    int x;\n    in.read(x);\n    g.add_directed_edge(x, i);\n\
@@ -203,7 +199,7 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-lca.test.cpp
   requiredBy: []
-  timestamp: '2021-08-16 02:17:26+09:00'
+  timestamp: '2021-08-31 21:10:51+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-lca.test.cpp
