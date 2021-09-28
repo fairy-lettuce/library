@@ -89,25 +89,25 @@ data:
   isVerificationFile: false
   path: structure/union-find/union-find.cpp
   requiredBy:
-  - graph/others/bipartite-graph-edge-coloring.hpp
   - graph/connected-components/incremental-bridge-connectivity.hpp
   - graph/connected-components/three-edge-connected-components.hpp
-  - graph/mst/kruskal.hpp
+  - graph/others/bipartite-graph-edge-coloring.hpp
   - graph/mst/boruvka.hpp
+  - graph/mst/kruskal.hpp
   timestamp: '2021-05-07 20:07:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-3139.test.cpp
-  - test/verify/aoj-2821.test.cpp
-  - test/verify/yosupo-two-edge-connected-components-2.test.cpp
-  - test/verify/aoj-dsl-1-a.test.cpp
-  - test/verify/yosupo-three-edge-connected-components.test.cpp
   - test/verify/aoj-grl-2-a-2.test.cpp
-  - test/verify/yosupo-tree-decomposition-width-2.test.cpp
-  - test/verify/aoj-grl-2-a-3.test.cpp
   - test/verify/yosupo-manhattanmst.test.cpp
+  - test/verify/yosupo-two-edge-connected-components-2.test.cpp
+  - test/verify/yosupo-three-edge-connected-components.test.cpp
   - test/verify/yosupo-bipartite-edge-coloring.test.cpp
+  - test/verify/aoj-grl-2-a-3.test.cpp
+  - test/verify/aoj-dsl-1-a.test.cpp
+  - test/verify/yosupo-tree-decomposition-width-2.test.cpp
+  - test/verify/aoj-2821.test.cpp
   - test/verify/yukicoder-583.test.cpp
+  - test/verify/aoj-3139.test.cpp
 documentation_of: structure/union-find/union-find.cpp
 layout: document
 redirect_from:

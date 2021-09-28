@@ -130,8 +130,8 @@ data:
   timestamp: '2021-07-17 00:36:52+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-tree-decomposition-width-2.test.cpp
   - test/verify/aoj-2405.test.cpp
+  - test/verify/yosupo-tree-decomposition-width-2.test.cpp
 documentation_of: graph/others/tree-decomposition-width-2.hpp
 layout: document
 redirect_from:

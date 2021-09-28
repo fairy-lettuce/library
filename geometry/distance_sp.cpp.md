@@ -105,13 +105,13 @@ data:
   isVerificationFile: false
   path: geometry/distance_sp.cpp
   requiredBy:
-  - geometry/common_area_cp.cpp
   - geometry/distance_ss.cpp
+  - geometry/common_area_cp.cpp
   timestamp: '2020-12-01 18:35:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-cgl-7-h.test.cpp
   - test/verify/aoj-cgl-2-d.test.cpp
+  - test/verify/aoj-cgl-7-h.test.cpp
 documentation_of: geometry/distance_sp.cpp
 layout: document
 redirect_from:

@@ -106,16 +106,16 @@ data:
   isVerificationFile: false
   path: math/fft/fast-fourier-transform.cpp
   requiredBy:
-  - math/fft/arbitrary-mod-convolution.cpp
   - math/fps/formal-power-series.cpp
+  - math/fft/arbitrary-mod-convolution.cpp
   timestamp: '2019-12-03 22:21:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yukicoder-502.test.cpp
   - test/verify/yukicoder-3046.test.cpp
-  - test/verify/yukicoder-215.test.cpp
   - test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
+  - test/verify/yukicoder-502.test.cpp
   - test/verify/yosupo-sparse-matrix-det.test.cpp
+  - test/verify/yukicoder-215.test.cpp
 documentation_of: math/fft/fast-fourier-transform.cpp
 layout: document
 redirect_from:

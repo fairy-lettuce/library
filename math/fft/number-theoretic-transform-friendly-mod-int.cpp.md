@@ -232,24 +232,24 @@ data:
   timestamp: '2021-08-17 19:31:02+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-bernoulli-number.test.cpp
-  - test/verify/yosupo-sharp-p-subset-sum.test.cpp
-  - test/verify/yosupo-exp-of-formal-power-series.test.cpp
-  - test/verify/yosupo-convolution-mod-2.test.cpp
-  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
-  - test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
-  - test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
-  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
-  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
-  - test/verify/yosupo-log-of-formal-power-series.test.cpp
-  - test/verify/yosupo-partition-function.test.cpp
-  - test/verify/yosupo-division-of-polynomials.test.cpp
-  - test/verify/yosupo-polynomial-taylor-shift.test.cpp
-  - test/verify/yosupo-multipoint-evaluation.test.cpp
   - test/verify/yosupo-stirling-number-of-the-first-kind.test.cpp
-  - test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
+  - test/verify/yosupo-stirling-number-of-the-second-kind.test.cpp
+  - test/verify/yosupo-sharp-p-subset-sum.test.cpp
+  - test/verify/yosupo-convolution-mod-2.test.cpp
+  - test/verify/yosupo-log-of-formal-power-series.test.cpp
+  - test/verify/yosupo-bernoulli-number.test.cpp
+  - test/verify/yosupo-division-of-polynomials.test.cpp
+  - test/verify/yosupo-multipoint-evaluation.test.cpp
+  - test/verify/yosupo-inv-of-formal-power-series.test.cpp
+  - test/verify/yosupo-partition-function.test.cpp
   - test/verify/yosupo-polynomial-interpolation.test.cpp
+  - test/verify/yosupo-sqrt-of-formal-power-series.test.cpp
+  - test/verify/yosupo-polynomial-taylor-shift.test.cpp
   - test/verify/yosupo-find-linear-recurrence.test.cpp
+  - test/verify/yosupo-shift-of-sampling-points-of-polynomial.test.cpp
+  - test/verify/yosupo-kth-term-of-linearly-recurrent-sequence.test.cpp
+  - test/verify/yosupo-exp-of-formal-power-series.test.cpp
+  - test/verify/yosupo-pow-of-formal-power-series.test.cpp
 documentation_of: math/fft/number-theoretic-transform-friendly-mod-int.cpp
 layout: document
 redirect_from:

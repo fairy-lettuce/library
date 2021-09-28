@@ -78,9 +78,9 @@ data:
   timestamp: '2021-08-16 02:34:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-0275.test.cpp
   - test/verify/aoj-grl-1-a.test.cpp
   - test/verify/yosupo-shortest-path.test.cpp
+  - test/verify/aoj-0275.test.cpp
   - test/verify/yosupo-k-shortest-walk.test.cpp
 documentation_of: graph/shortest-path/dijkstra.hpp
 layout: document

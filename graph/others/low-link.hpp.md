@@ -99,17 +99,17 @@ data:
   isVerificationFile: false
   path: graph/others/low-link.hpp
   requiredBy:
-  - graph/others/block-cut-tree.hpp
   - graph/connected-components/bi-connected-components.hpp
   - graph/connected-components/two-edge-connected-components.hpp
+  - graph/others/block-cut-tree.hpp
   timestamp: '2021-08-16 02:17:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-3139.test.cpp
-  - test/verify/aoj-grl-3-a.test.cpp
   - test/verify/aoj-3022.test.cpp
+  - test/verify/aoj-grl-3-a.test.cpp
   - test/verify/yosupo-two-edge-connected-components.test.cpp
   - test/verify/aoj-grl-3-b.test.cpp
+  - test/verify/aoj-3139.test.cpp
 documentation_of: graph/others/low-link.hpp
 layout: document
 redirect_from:

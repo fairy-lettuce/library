@@ -41,8 +41,8 @@ data:
   isVerificationFile: false
   path: math/number-theory/prime-table.cpp
   requiredBy:
-  - math/number-theory/prime-count.cpp
   - math/number-theory/enumerate-primes.cpp
+  - math/number-theory/prime-count.cpp
   timestamp: '2021-07-13 22:13:38+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
