@@ -1,11 +1,17 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: structure/develop/vertex-set-path-composite.cpp
+    title: Vertex Set Path Composite
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-convolution-mod-2.test.cpp
     title: test/verify/yosupo-convolution-mod-2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
+    title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-subset-convolution.test.cpp
     title: test/verify/yosupo-subset-convolution.test.cpp
@@ -83,10 +89,12 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: math/combinatorics/montgomery-mod-int.cpp
-  requiredBy: []
+  requiredBy:
+  - structure/develop/vertex-set-path-composite.cpp
   timestamp: '2021-08-09 21:02:39+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
   - test/verify/yosupo-convolution-mod-2.test.cpp
   - test/verify/yosupo-subset-convolution.test.cpp
 documentation_of: math/combinatorics/montgomery-mod-int.cpp

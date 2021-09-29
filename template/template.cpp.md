@@ -67,6 +67,9 @@ data:
     path: test/verify/aoj-2450-3.test.cpp
     title: test/verify/aoj-2450-3.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-2450-4.test.cpp
+    title: test/verify/aoj-2450-4.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2450.test.cpp
     title: test/verify/aoj-2450.test.cpp
   - icon: ':heavy_check_mark:'
@@ -361,17 +364,29 @@ data:
     path: test/verify/yosupo-dominatortree.test.cpp
     title: test/verify/yosupo-dominatortree.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-dynamic-tree-subtree-add-subtree-sum.test.cpp
+    title: test/verify/yosupo-dynamic-tree-subtree-add-subtree-sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-dynamic-tree-vertex-add-path-sum-3.test.cpp
+    title: test/verify/yosupo-dynamic-tree-vertex-add-path-sum-3.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum-2.test.cpp
+    title: test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum-2.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
+    title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
@@ -689,10 +704,12 @@ data:
   - test/verify/yosupo-static-range-sum.test.cpp
   - test/verify/yosupo-two-sat.test.cpp
   - test/verify/aoj-2306.test.cpp
+  - test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
   - test/verify/yosupo-rectangle-sum.test.cpp
   - test/verify/aoj-grl-2-a-2.test.cpp
   - test/verify/aoj-cgl-2-c.test.cpp
   - test/verify/yosupo-matrix-det.test.cpp
+  - test/verify/yosupo-dynamic-tree-subtree-add-subtree-sum.test.cpp
   - test/verify/aoj-ntl-1-b.test.cpp
   - test/verify/aoj-2667.test.cpp
   - test/verify/aoj-dpl-1-c.test.cpp
@@ -727,6 +744,7 @@ data:
   - test/verify/yosupo-manhattanmst.test.cpp
   - test/verify/yosupo-bipartitematching.test.cpp
   - test/verify/yosupo-assignment.test.cpp
+  - test/verify/aoj-2450-4.test.cpp
   - test/verify/yukicoder-502.test.cpp
   - test/verify/aoj-alds-1-9-c.test.cpp
   - test/verify/aoj-grl-2-b.test.cpp
@@ -792,6 +810,7 @@ data:
   - test/verify/aoj-grl-6-a-2.test.cpp
   - test/verify/aoj-grl-1-c.test.cpp
   - test/verify/yosupo-lca.test.cpp
+  - test/verify/yosupo-dynamic-tree-vertex-add-path-sum-3.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp
   - test/verify/yosupo-partition-function.test.cpp
   - test/verify/yukicoder-704.test.cpp
@@ -819,6 +838,7 @@ data:
   - test/verify/yukicoder-650.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp
   - test/verify/yosupo-find-linear-recurrence.test.cpp
+  - test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum-2.test.cpp
   - test/verify/aoj-2450-2.test.cpp
   - test/verify/aoj-ntl-1-e.test.cpp
   - test/verify/aoj-grl-5-c-3.test.cpp

@@ -758,10 +758,22 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/develop/splay-tree.cpp
       title: structure/develop/splay-tree.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
+      path: structure/develop/subtree-add-subtree-sum.cpp
+      title: Subtree Add Subtree Sum
+    - icon: ':heavy_check_mark:'
       path: structure/develop/super-link-cut-tree.cpp
       title: "\u4F55\u3067\u3082\u3067\u304D\u308BLCT(\u9AD8\u3044\u78BA\u7387\u3067\
         \u30D0\u30B0\u3063\u3066\u3044\u307E\u3059)"
+    - icon: ':heavy_check_mark:'
+      path: structure/develop/vertex-set-path-composite.cpp
+      title: Vertex Set Path Composite
+    - icon: ':heavy_check_mark:'
+      path: structure/develop/vertex-set-path-sum.cpp
+      title: Vertex Set Path Sum
+    - icon: ':heavy_check_mark:'
+      path: structure/develop/vertex-set-subtree-sum.cpp
+      title: Vertex Set Subtree Sum
   - name: structure/heap
     pages:
     - icon: ':warning:'
@@ -983,6 +995,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-2450-3.test.cpp
       title: test/verify/aoj-2450-3.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-2450-4.test.cpp
+      title: test/verify/aoj-2450-4.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-2450.test.cpp
       title: test/verify/aoj-2450.test.cpp
@@ -1278,17 +1293,29 @@ data:
       path: test/verify/yosupo-dominatortree.test.cpp
       title: test/verify/yosupo-dominatortree.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-dynamic-tree-subtree-add-subtree-sum.test.cpp
+      title: test/verify/yosupo-dynamic-tree-subtree-add-subtree-sum.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp
       title: test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-dynamic-tree-vertex-add-path-sum-3.test.cpp
+      title: test/verify/yosupo-dynamic-tree-vertex-add-path-sum-3.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
       title: test/verify/yosupo-dynamic-tree-vertex-add-path-sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum-2.test.cpp
+      title: test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum-2.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp
       title: test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
       title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
+      title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
       title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite.test.cpp
