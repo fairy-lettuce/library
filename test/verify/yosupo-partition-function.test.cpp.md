@@ -14,7 +14,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/partition.cpp
     title: "Partition(\u5206\u5272\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

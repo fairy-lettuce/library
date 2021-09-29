@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/matrix/square-matrix.cpp
     title: "Square-Matrix(\u6B63\u65B9\u884C\u5217)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

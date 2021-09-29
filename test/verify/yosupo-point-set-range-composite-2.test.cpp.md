@@ -8,7 +8,7 @@ data:
     path: structure/bbst/lazy-reversible-splay-tree.cpp
     title: "Lazy-Reversible-Splay-Tree(\u9045\u5EF6\u4F1D\u642C\u53CD\u8EE2\u53EF\u80FD\
       Splay\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

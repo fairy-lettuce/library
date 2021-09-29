@@ -761,10 +761,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/develop/subtree-add-subtree-sum.cpp
       title: Subtree Add Subtree Sum
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: structure/develop/super-link-cut-tree.cpp
-      title: "\u4F55\u3067\u3082\u3067\u304D\u308BLCT(\u9AD8\u3044\u78BA\u7387\u3067\
-        \u30D0\u30B0\u3063\u3066\u3044\u307E\u3059)"
+      title: "\u4F55\u3067\u3082\u3067\u304D\u308BLCT"
     - icon: ':heavy_check_mark:'
       path: structure/develop/vertex-set-path-composite.cpp
       title: Vertex Set Path Composite
@@ -926,7 +925,7 @@ data:
       title: "Wavelet Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.cpp
       title: template/template.cpp
   verificationCategories:
@@ -995,7 +994,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-2450-3.test.cpp
       title: test/verify/aoj-2450-3.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/aoj-2450-4.test.cpp
       title: test/verify/aoj-2450-4.test.cpp
     - icon: ':heavy_check_mark:'
