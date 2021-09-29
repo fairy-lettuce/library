@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: dp/largest-rectangle.cpp
     title: "Largest Rectangle(\u6700\u5927\u9577\u65B9\u5F62)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

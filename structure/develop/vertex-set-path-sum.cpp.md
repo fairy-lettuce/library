@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/develop/super-link-cut-tree.cpp
     title: "\u4F55\u3067\u3082\u3067\u304D\u308BLCT"
   _extendedRequiredBy: []
@@ -32,48 +32,49 @@ data:
     \    t->info.update(get_info(t->l), get_info(t->r));\n  }\n\n  NP get_right(NP\
     \ t) {\n    while(t->r) t = t->r;\n    return t;\n  }\n\n  NP alloc(const LInfo\
     \ &v) {\n    auto t = new Node(v);\n    update(t);\n    return t;\n  }\n\n  void\
-    \ propagate(NP t, const Lazy &lazy) {\n    t->info.propagate(lazy);\n    t->lbuf.propagate(lazy);\n\
-    \    t->lazy.propagate(lazy);\n  }\n\n  void push(NP t) {\n    if(t->l) propagate(t->l,\
-    \ t->lazy);\n    if(t->r) propagate(t->r, t->lazy);\n    t->lazy = Lazy();\n \
-    \ }\n\n  void splay(NP t) {\n    push(t);\n    while(t->p) {\n      NP q = t->p;\n\
-    \      if(!q->p) {\n        push(q), push(t);\n        if(q->l == t) rotr(t);\n\
-    \        else rotl(t);\n      } else {\n        NP r = q->p;\n        push(r),\
-    \ push(q), push(t);\n        if(r->l == q) {\n          if(q->l == t) rotr(q),\
-    \ rotr(t);\n          else rotl(t), rotr(t);\n        } else {\n          if(q->r\
-    \ == t) rotl(q), rotl(t);\n          else rotr(t), rotl(t);\n        }\n     \
-    \ }\n    }\n  }\n\n  NP insert(NP t, const LInfo &v) {\n    if(not t) {\n    \
-    \  t = alloc(v);\n      return t;\n    } else {\n      NP cur = get_right(t),\
-    \ z = alloc(v);\n      splay(cur);\n      z->p = cur;\n      cur->r = z;\n   \
-    \   update(cur);\n      splay(z);\n      return z;\n    }\n  }\n\n  NP erase(NP\
-    \ t) {\n    splay(t);\n    NP x = t->l, y = t->r;\n    delete t;\n    if(not x)\
-    \ {\n      t = y;\n      if(t) t->p = nullptr;\n    } else if(not y) {\n     \
-    \ t = x;\n      t->p = nullptr;\n    } else {\n      x->p = nullptr;\n      t\
-    \ = get_right(x);\n      splay(t);\n      t->r = y;\n      y->p = t;\n      update(t);\n\
-    \    }\n    return t;\n  }\n};\n\ntemplate< template< typename, typename > typename\
-    \ _Info,\n    template< typename > typename _LInfo, typename Lazy >\nstruct SuperLinkCutTree\
-    \ {\n  using LInfo = _LInfo< Lazy >;\n  using Info = _Info< LInfo, Lazy >;\n\n\
-    private:\n  struct Node {\n    Node *l, *r, *p;\n    Info info;\n    typename\
-    \ SplayTree< LInfo, Lazy >::Node *light, *belong;\n    bool rev;\n    Lazy lazy;\n\
-    \n    bool is_root() const {\n      return not p or (p->l != this and p->r !=\
-    \ this);\n    }\n\n    explicit Node(const Info &info)\n        : info(info),\
-    \ l(nullptr), r(nullptr), p(nullptr),\n          rev(false), light(nullptr), belong(nullptr),\
-    \ lazy(Lazy()) {}\n  };\n\npublic:\n  using NP = Node *;\n  SplayTree< LInfo,\
-    \ Lazy > splay_tree;\n\nprivate:\n  const Info e;\n\nprivate:\n  void toggle(NP\
-    \ t) {\n    swap(t->l, t->r);\n    t->info.toggle();\n    t->rev ^= true;\n  }\n\
-    \n  void rotr(NP t) {\n    NP x = t->p, y = x->p;\n    if((x->l = t->r)) t->r->p\
-    \ = x;\n    t->r = x, x->p = t;\n    update(x), update(t);\n    if((t->p = y))\
-    \ {\n      if(y->l == x) y->l = t;\n      if(y->r == x) y->r = t;\n      update(y);\n\
-    \    }\n  }\n\n  void rotl(NP t) {\n    NP x = t->p, y = x->p;\n    if((x->r =\
-    \ t->l)) t->l->p = x;\n    t->l = x, x->p = t;\n    update(x), update(t);\n  \
-    \  if((t->p = y)) {\n      if(y->l == x) y->l = t;\n      if(y->r == x) y->r =\
-    \ t;\n      update(y);\n    }\n  }\n\n  void propagate(NP t, const Lazy &lazy)\
-    \ {\n    t->lazy.propagate(lazy);\n    t->info.propagate(lazy);\n  }\n\npublic:\n\
-    \  SuperLinkCutTree() : e{Info()}, splay_tree{} {}\n\n  void push(NP t) {\n  \
-    \  if(t->rev) {\n      if(t->l) toggle(t->l);\n      if(t->r) toggle(t->r);\n\
-    \      t->rev = false;\n    }\n    {\n      if(t->l) propagate(t->l, t->lazy);\n\
-    \      if(t->r) propagate(t->r, t->lazy);\n      if(t->light) splay_tree.propagate(t->light,\
-    \ t->lazy);\n      t->lazy = Lazy();\n    }\n  }\n\n  const Info &get_info(NP\
-    \ t) {\n    return t ? t->info : e;\n  }\n\n  void update(NP t) {\n    t->info.update(get_info(t->l),\
+    \ propagate(NP t, const Lazy &lazy) {\n    t->info.propagate(lazy);\n    t->lbuf.propagate(lazy,\
+    \ true);\n    t->lazy.propagate(lazy, true);\n  }\n\n  void push(NP t) {\n   \
+    \ if(t->l) propagate(t->l, t->lazy);\n    if(t->r) propagate(t->r, t->lazy);\n\
+    \    t->lazy = Lazy();\n  }\n\n  void splay(NP t) {\n    push(t);\n    while(t->p)\
+    \ {\n      NP q = t->p;\n      if(!q->p) {\n        push(q), push(t);\n      \
+    \  if(q->l == t) rotr(t);\n        else rotl(t);\n      } else {\n        NP r\
+    \ = q->p;\n        push(r), push(q), push(t);\n        if(r->l == q) {\n     \
+    \     if(q->l == t) rotr(q), rotr(t);\n          else rotl(t), rotr(t);\n    \
+    \    } else {\n          if(q->r == t) rotl(q), rotl(t);\n          else rotr(t),\
+    \ rotl(t);\n        }\n      }\n    }\n  }\n\n  NP insert(NP t, const LInfo &v)\
+    \ {\n    if(not t) {\n      t = alloc(v);\n      return t;\n    } else {\n   \
+    \   NP cur = get_right(t), z = alloc(v);\n      splay(cur);\n      z->p = cur;\n\
+    \      cur->r = z;\n      update(cur);\n      splay(z);\n      return z;\n   \
+    \ }\n  }\n\n  NP erase(NP t) {\n    splay(t);\n    NP x = t->l, y = t->r;\n  \
+    \  delete t;\n    if(not x) {\n      t = y;\n      if(t) t->p = nullptr;\n   \
+    \ } else if(not y) {\n      t = x;\n      t->p = nullptr;\n    } else {\n    \
+    \  x->p = nullptr;\n      t = get_right(x);\n      splay(t);\n      t->r = y;\n\
+    \      y->p = t;\n      update(t);\n    }\n    return t;\n  }\n};\n\ntemplate<\
+    \ template< typename, typename > typename _Info,\n    template< typename > typename\
+    \ _LInfo, typename Lazy >\nstruct SuperLinkCutTree {\n  using LInfo = _LInfo<\
+    \ Lazy >;\n  using Info = _Info< LInfo, Lazy >;\n\nprivate:\n  struct Node {\n\
+    \    Node *l, *r, *p;\n    Info info;\n    typename SplayTree< LInfo, Lazy >::Node\
+    \ *light, *belong;\n    bool rev;\n    Lazy lazy;\n\n    bool is_root() const\
+    \ {\n      return not p or (p->l != this and p->r != this);\n    }\n\n    explicit\
+    \ Node(const Info &info)\n        : info(info), l(nullptr), r(nullptr), p(nullptr),\n\
+    \          rev(false), light(nullptr), belong(nullptr), lazy(Lazy()) {}\n  };\n\
+    \npublic:\n  using NP = Node *;\n  SplayTree< LInfo, Lazy > splay_tree;\n\nprivate:\n\
+    \  const Info e;\n\nprivate:\n  void toggle(NP t) {\n    swap(t->l, t->r);\n \
+    \   t->info.toggle();\n    t->rev ^= true;\n  }\n\n  void rotr(NP t) {\n    NP\
+    \ x = t->p, y = x->p;\n    if((x->l = t->r)) t->r->p = x;\n    t->r = x, x->p\
+    \ = t;\n    update(x), update(t);\n    if((t->p = y)) {\n      if(y->l == x) y->l\
+    \ = t;\n      if(y->r == x) y->r = t;\n      update(y);\n    }\n  }\n\n  void\
+    \ rotl(NP t) {\n    NP x = t->p, y = x->p;\n    if((x->r = t->l)) t->l->p = x;\n\
+    \    t->l = x, x->p = t;\n    update(x), update(t);\n    if((t->p = y)) {\n  \
+    \    if(y->l == x) y->l = t;\n      if(y->r == x) y->r = t;\n      update(y);\n\
+    \    }\n  }\n\n  void propagate(NP t, const Lazy &lazy) {\n    t->lazy.propagate(lazy,\
+    \ false);\n    t->info.propagate(lazy);\n  }\n\npublic:\n  SuperLinkCutTree()\
+    \ : e{Info()}, splay_tree{} {}\n\n  void push(NP t) {\n    if(t->rev) {\n    \
+    \  if(t->l) toggle(t->l);\n      if(t->r) toggle(t->r);\n      t->rev = false;\n\
+    \    }\n    {\n      if(t->l) propagate(t->l, t->lazy);\n      if(t->r) propagate(t->r,\
+    \ t->lazy);\n      if(t->light) splay_tree.propagate(t->light, t->lazy);\n   \
+    \   t->lazy = Lazy();\n    }\n  }\n\n  const Info &get_info(NP t) {\n    return\
+    \ t ? t->info : e;\n  }\n\n  void update(NP t) {\n    t->info.update(get_info(t->l),\
     \ get_info(t->r), splay_tree.get_info(t->light));\n  }\n\n  void splay(NP t) {\n\
     \    push(t);\n    {\n      NP rot = t;\n      while(not rot->is_root()) rot =\
     \ rot->p;\n      t->belong = rot->belong;\n      if(t != rot) rot->belong = nullptr;\n\
@@ -115,12 +116,12 @@ data:
     /*\nusing T = int64_t;\n// \u9045\u5EF6\u4F1D\u642C\u3092\u3059\u308B\u305F\u3081\
     \u306E\u4F5C\u7528\u7D20\nstruct Lazy {\n\n  // \u5358\u4F4D\u5143\n  Lazy() {}\n\
     \n  // \u521D\u671F\u5316\n  Lazy(T v) {}\n\n  // \u9045\u5EF6\u4F1D\u642C\n \
-    \ void propagate(const Lazy &p) {}\n};\n\n// Light-edge \u306E\u60C5\u5831\ntemplate<\
-    \ typename Lazy >\nstruct LInfo {\n\n  // \u5358\u4F4D\u5143(\u30AD\u30FC\u306E\
-    \u5024\u306F\u30A2\u30AF\u30BB\u30B9\u3057\u306A\u3044\u306E\u3067\u672A\u521D\
-    \u671F\u5316\u3067\u3082\u3088\u3044\n  LInfo() {}\n\n  // \u521D\u671F\u5316\n\
-    \  LInfo(T v) {}\n\n  // l, r \u306F Splay-tree \u306E\u5B50 (\u539F\u7406\u4E0A\
-    \u3001\u5404\u30CE\u30FC\u30C9\u533A\u5225\u306F\u306A\u3044)\n  void update(const\
+    \ void propagate(const Lazy &p, bool is_light) {}\n};\n\n// Light-edge \u306E\u60C5\
+    \u5831\ntemplate< typename Lazy >\nstruct LInfo {\n\n  // \u5358\u4F4D\u5143(\u30AD\
+    \u30FC\u306E\u5024\u306F\u30A2\u30AF\u30BB\u30B9\u3057\u306A\u3044\u306E\u3067\
+    \u672A\u521D\u671F\u5316\u3067\u3082\u3088\u3044\n  LInfo() {}\n\n  // \u521D\u671F\
+    \u5316\n  LInfo(T v) {}\n\n  // l, r \u306F Splay-tree \u306E\u5B50 (\u539F\u7406\
+    \u4E0A\u3001\u5404\u30CE\u30FC\u30C9\u533A\u5225\u306F\u306A\u3044)\n  void update(const\
     \ LInfo &l, const LInfo &r) {}\n\n  // \u90E8\u5206\u6728\u3078\u306E\u9045\u5EF6\
     \u4F1D\u642C\n  void propagate(const Lazy &p) {}\n};\n\n// Heavy-edge \u306E\u60C5\
     \u5831\ntemplate< typename LInfo, typename Lazy >\nstruct Info {\n\n  // \u5358\
@@ -136,54 +137,55 @@ data:
     /**\n * @brief Vertex Set Path Sum\n */\nusing T = int64_t;\n\n// \u9045\u5EF6\
     \u4F1D\u642C\u3092\u3059\u308B\u305F\u3081\u306E\u4F5C\u7528\u7D20\nstruct Lazy\
     \ {\n\n  // \u5358\u4F4D\u5143\n  Lazy() {}\n\n  // \u521D\u671F\u5316\n  Lazy(T\
-    \ v) {}\n\n  // \u9045\u5EF6\u4F1D\u642C\n  void propagate(const Lazy &p) {}\n\
-    };\n\n// Light-edge \u306E\u60C5\u5831\ntemplate< typename Lazy >\nstruct LInfo\
-    \ {\n\n  // \u5358\u4F4D\u5143(\u30AD\u30FC\u306E\u5024\u306F\u30A2\u30AF\u30BB\
-    \u30B9\u3057\u306A\u3044\u306E\u3067\u672A\u521D\u671F\u5316\u3067\u3082\u3088\
-    \u3044\n  LInfo() {}\n\n  // \u521D\u671F\u5316\n  LInfo(T v) {}\n\n  // l, r\
-    \ \u306F Splay-tree \u306E\u5B50 (\u539F\u7406\u4E0A\u3001\u5404\u30CE\u30FC\u30C9\
-    \u533A\u5225\u306F\u306A\u3044)\n  void update(const LInfo &l, const LInfo &r)\
-    \ {}\n\n  // \u90E8\u5206\u6728\u3078\u306E\u9045\u5EF6\u4F1D\u642C\n  void propagate(const\
-    \ Lazy &p) {}\n};\n\n// Heavy-edge \u306E\u60C5\u5831\ntemplate< typename LInfo,\
-    \ typename Lazy >\nstruct Info {\n  T v;\n\n  T sum;\n\n  // \u5358\u4F4D\u5143\
-    (\u30AD\u30FC\u306E\u5024\u306F\u30A2\u30AF\u30BB\u30B9\u3057\u306A\u3044\u306E\
-    \u3067\u672A\u521D\u671F\u5316\u3067\u3082\u3088\u3044\n  Info() : sum{0} {}\n\
-    \n  // \u521D\u671F\u5316\n  Info(T v) : v{v} {}\n\n  // \u53CD\u8EE2\n  void\
-    \ toggle() {}\n\n  // p\u304C\u89AA, c\u304Cheavy-edge\u3067\u7D50\u3070\u308C\
-    \u305F\u5B50, l\u304C\u305D\u308C\u4EE5\u5916\u306E\u5B50\n  void update(const\
-    \ Info &p, const Info &c, const LInfo &l) {\n    sum = p.sum + v + c.sum;\n  }\n\
-    \n  // \u89AA\u3068 light-edge \u3067\u7E4B\u3052\u308B\n  LInfo link() const\
-    \ { return LInfo(); }\n\n  // \u9045\u5EF6\u4F1D\u642C\n  void propagate(const\
-    \ Lazy &p) {}\n};\n\nusing LCT = SuperLinkCutTree< Info, LInfo, Lazy >;\n"
-  code: "#include \"super-link-cut-tree.cpp\"\n\n/**\n * @brief Vertex Set Path Sum\n\
-    \ */\nusing T = int64_t;\n\n// \u9045\u5EF6\u4F1D\u642C\u3092\u3059\u308B\u305F\
-    \u3081\u306E\u4F5C\u7528\u7D20\nstruct Lazy {\n\n  // \u5358\u4F4D\u5143\n  Lazy()\
-    \ {}\n\n  // \u521D\u671F\u5316\n  Lazy(T v) {}\n\n  // \u9045\u5EF6\u4F1D\u642C\
-    \n  void propagate(const Lazy &p) {}\n};\n\n// Light-edge \u306E\u60C5\u5831\n\
-    template< typename Lazy >\nstruct LInfo {\n\n  // \u5358\u4F4D\u5143(\u30AD\u30FC\
-    \u306E\u5024\u306F\u30A2\u30AF\u30BB\u30B9\u3057\u306A\u3044\u306E\u3067\u672A\
-    \u521D\u671F\u5316\u3067\u3082\u3088\u3044\n  LInfo() {}\n\n  // \u521D\u671F\u5316\
-    \n  LInfo(T v) {}\n\n  // l, r \u306F Splay-tree \u306E\u5B50 (\u539F\u7406\u4E0A\
-    \u3001\u5404\u30CE\u30FC\u30C9\u533A\u5225\u306F\u306A\u3044)\n  void update(const\
-    \ LInfo &l, const LInfo &r) {}\n\n  // \u90E8\u5206\u6728\u3078\u306E\u9045\u5EF6\
-    \u4F1D\u642C\n  void propagate(const Lazy &p) {}\n};\n\n// Heavy-edge \u306E\u60C5\
-    \u5831\ntemplate< typename LInfo, typename Lazy >\nstruct Info {\n  T v;\n\n \
-    \ T sum;\n\n  // \u5358\u4F4D\u5143(\u30AD\u30FC\u306E\u5024\u306F\u30A2\u30AF\
-    \u30BB\u30B9\u3057\u306A\u3044\u306E\u3067\u672A\u521D\u671F\u5316\u3067\u3082\
-    \u3088\u3044\n  Info() : sum{0} {}\n\n  // \u521D\u671F\u5316\n  Info(T v) : v{v}\
-    \ {}\n\n  // \u53CD\u8EE2\n  void toggle() {}\n\n  // p\u304C\u89AA, c\u304Cheavy-edge\u3067\
+    \ v) {}\n\n  // \u9045\u5EF6\u4F1D\u642C\n  void propagate(const Lazy &p, bool\
+    \ is_light) {}\n};\n\n// Light-edge \u306E\u60C5\u5831\ntemplate< typename Lazy\
+    \ >\nstruct LInfo {\n\n  // \u5358\u4F4D\u5143(\u30AD\u30FC\u306E\u5024\u306F\u30A2\
+    \u30AF\u30BB\u30B9\u3057\u306A\u3044\u306E\u3067\u672A\u521D\u671F\u5316\u3067\
+    \u3082\u3088\u3044\n  LInfo() {}\n\n  // \u521D\u671F\u5316\n  LInfo(T v) {}\n\
+    \n  // l, r \u306F Splay-tree \u306E\u5B50 (\u539F\u7406\u4E0A\u3001\u5404\u30CE\
+    \u30FC\u30C9\u533A\u5225\u306F\u306A\u3044)\n  void update(const LInfo &l, const\
+    \ LInfo &r) {}\n\n  // \u90E8\u5206\u6728\u3078\u306E\u9045\u5EF6\u4F1D\u642C\n\
+    \  void propagate(const Lazy &p) {}\n};\n\n// Heavy-edge \u306E\u60C5\u5831\n\
+    template< typename LInfo, typename Lazy >\nstruct Info {\n  T v;\n\n  T sum;\n\
+    \n  // \u5358\u4F4D\u5143(\u30AD\u30FC\u306E\u5024\u306F\u30A2\u30AF\u30BB\u30B9\
+    \u3057\u306A\u3044\u306E\u3067\u672A\u521D\u671F\u5316\u3067\u3082\u3088\u3044\
+    \n  Info() : sum{0} {}\n\n  // \u521D\u671F\u5316\n  Info(T v) : v{v} {}\n\n \
+    \ // \u53CD\u8EE2\n  void toggle() {}\n\n  // p\u304C\u89AA, c\u304Cheavy-edge\u3067\
     \u7D50\u3070\u308C\u305F\u5B50, l\u304C\u305D\u308C\u4EE5\u5916\u306E\u5B50\n\
     \  void update(const Info &p, const Info &c, const LInfo &l) {\n    sum = p.sum\
     \ + v + c.sum;\n  }\n\n  // \u89AA\u3068 light-edge \u3067\u7E4B\u3052\u308B\n\
     \  LInfo link() const { return LInfo(); }\n\n  // \u9045\u5EF6\u4F1D\u642C\n \
     \ void propagate(const Lazy &p) {}\n};\n\nusing LCT = SuperLinkCutTree< Info,\
     \ LInfo, Lazy >;\n"
+  code: "#include \"super-link-cut-tree.cpp\"\n\n/**\n * @brief Vertex Set Path Sum\n\
+    \ */\nusing T = int64_t;\n\n// \u9045\u5EF6\u4F1D\u642C\u3092\u3059\u308B\u305F\
+    \u3081\u306E\u4F5C\u7528\u7D20\nstruct Lazy {\n\n  // \u5358\u4F4D\u5143\n  Lazy()\
+    \ {}\n\n  // \u521D\u671F\u5316\n  Lazy(T v) {}\n\n  // \u9045\u5EF6\u4F1D\u642C\
+    \n  void propagate(const Lazy &p, bool is_light) {}\n};\n\n// Light-edge \u306E\
+    \u60C5\u5831\ntemplate< typename Lazy >\nstruct LInfo {\n\n  // \u5358\u4F4D\u5143\
+    (\u30AD\u30FC\u306E\u5024\u306F\u30A2\u30AF\u30BB\u30B9\u3057\u306A\u3044\u306E\
+    \u3067\u672A\u521D\u671F\u5316\u3067\u3082\u3088\u3044\n  LInfo() {}\n\n  // \u521D\
+    \u671F\u5316\n  LInfo(T v) {}\n\n  // l, r \u306F Splay-tree \u306E\u5B50 (\u539F\
+    \u7406\u4E0A\u3001\u5404\u30CE\u30FC\u30C9\u533A\u5225\u306F\u306A\u3044)\n  void\
+    \ update(const LInfo &l, const LInfo &r) {}\n\n  // \u90E8\u5206\u6728\u3078\u306E\
+    \u9045\u5EF6\u4F1D\u642C\n  void propagate(const Lazy &p) {}\n};\n\n// Heavy-edge\
+    \ \u306E\u60C5\u5831\ntemplate< typename LInfo, typename Lazy >\nstruct Info {\n\
+    \  T v;\n\n  T sum;\n\n  // \u5358\u4F4D\u5143(\u30AD\u30FC\u306E\u5024\u306F\u30A2\
+    \u30AF\u30BB\u30B9\u3057\u306A\u3044\u306E\u3067\u672A\u521D\u671F\u5316\u3067\
+    \u3082\u3088\u3044\n  Info() : sum{0} {}\n\n  // \u521D\u671F\u5316\n  Info(T\
+    \ v) : v{v} {}\n\n  // \u53CD\u8EE2\n  void toggle() {}\n\n  // p\u304C\u89AA\
+    , c\u304Cheavy-edge\u3067\u7D50\u3070\u308C\u305F\u5B50, l\u304C\u305D\u308C\u4EE5\
+    \u5916\u306E\u5B50\n  void update(const Info &p, const Info &c, const LInfo &l)\
+    \ {\n    sum = p.sum + v + c.sum;\n  }\n\n  // \u89AA\u3068 light-edge \u3067\u7E4B\
+    \u3052\u308B\n  LInfo link() const { return LInfo(); }\n\n  // \u9045\u5EF6\u4F1D\
+    \u642C\n  void propagate(const Lazy &p) {}\n};\n\nusing LCT = SuperLinkCutTree<\
+    \ Info, LInfo, Lazy >;\n"
   dependsOn:
   - structure/develop/super-link-cut-tree.cpp
   isVerificationFile: false
   path: structure/develop/vertex-set-path-sum.cpp
   requiredBy: []
-  timestamp: '2021-09-30 02:46:33+09:00'
+  timestamp: '2021-09-30 03:12:53+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-dynamic-tree-vertex-add-path-sum-3.test.cpp
