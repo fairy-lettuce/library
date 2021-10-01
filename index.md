@@ -633,13 +633,13 @@ data:
     - icon: ':warning:'
       path: other/offline-dynamic-connectivity.cpp
       title: other/offline-dynamic-connectivity.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: other/printer.cpp
       title: "Printer(\u9AD8\u901F\u51FA\u529B)"
     - icon: ':warning:'
       path: other/random-number-generator.cpp
       title: other/random-number-generator.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: other/scanner.cpp
       title: "Scanner(\u9AD8\u901F\u5165\u529B)"
     - icon: ':warning:'
@@ -739,7 +739,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/develop/diameter.cpp
       title: structure/develop/diameter.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/develop/dynamic-tree-test.cpp
       title: Dynamic Tree Test
     - icon: ':heavy_check_mark:'
@@ -764,7 +764,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/develop/subtree-add-subtree-sum.cpp
       title: Subtree Add Subtree Sum
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/develop/super-link-cut-tree.cpp
       title: "\u4F55\u3067\u3082\u3067\u304D\u308BLCT"
     - icon: ':heavy_check_mark:'
@@ -928,7 +928,7 @@ data:
       title: "Wavelet Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
   verificationCategories:
@@ -1240,7 +1240,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-ntl-1-e.test.cpp
       title: test/verify/aoj-ntl-1-e.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/dmoj-ds5.test.cpp
       title: test/verify/dmoj-ds5.test.cpp
     - icon: ':heavy_check_mark:'

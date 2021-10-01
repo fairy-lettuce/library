@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: other/printer.cpp
     title: "Printer(\u9AD8\u901F\u51FA\u529B)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: other/scanner.cpp
     title: "Scanner(\u9AD8\u901F\u5165\u529B)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/develop/dynamic-tree-test.cpp
     title: Dynamic Tree Test
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/develop/super-link-cut-tree.cpp
     title: "\u4F55\u3067\u3082\u3067\u304D\u308BLCT"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://dmoj.ca/problem/ds5
@@ -358,7 +358,7 @@ data:
   path: test/verify/dmoj-ds5.test.cpp
   requiredBy: []
   timestamp: '2021-10-02 02:49:48+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/dmoj-ds5.test.cpp
 layout: document

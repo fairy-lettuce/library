@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: structure/wavelet/wavelet-matrix.cpp
     title: "Wavelet Matrix(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u884C\u5217)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

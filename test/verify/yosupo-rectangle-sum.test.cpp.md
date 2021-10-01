@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: structure/wavelet/wavelet-matrix-rectangle-sum.cpp
     title: Wavelet Matrix Rectangle Sum
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

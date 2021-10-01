@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/develop/dynamic-tree-test.cpp
     title: Dynamic Tree Test
   - icon: ':heavy_check_mark:'
@@ -21,7 +21,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2450-4.test.cpp
     title: test/verify/aoj-2450-4.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/dmoj-ds5.test.cpp
     title: test/verify/dmoj-ds5.test.cpp
   - icon: ':heavy_check_mark:'
@@ -36,9 +36,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "\u4F55\u3067\u3082\u3067\u304D\u308BLCT"
     links: []
@@ -311,7 +311,7 @@ data:
   - structure/develop/subtree-add-subtree-sum.cpp
   - structure/develop/vertex-set-path-sum.cpp
   timestamp: '2021-10-02 02:34:17+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
   - test/verify/yosupo-dynamic-tree-subtree-add-subtree-sum.test.cpp
