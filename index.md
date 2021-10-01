@@ -428,7 +428,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-tetration.cpp
       title: "Mod Tetration(\u30C6\u30C8\u30EC\u30FC\u30B7\u30E7\u30F3)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/combinatorics/montgomery-mod-int.cpp
       title: Montgomery ModInt
     - icon: ':heavy_check_mark:'
@@ -761,10 +761,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/develop/subtree-add-subtree-sum.cpp
       title: Subtree Add Subtree Sum
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: structure/develop/super-link-cut-tree.cpp
       title: "\u4F55\u3067\u3082\u3067\u304D\u308BLCT"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: structure/develop/vertex-set-path-composite.cpp
       title: Vertex Set Path Composite
     - icon: ':heavy_check_mark:'
@@ -925,7 +925,7 @@ data:
       title: "Wavelet Tree(\u30A6\u30A7\u30FC\u30D6\u30EC\u30C3\u30C8\u6728)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.cpp
       title: template/template.cpp
   verificationCategories:
@@ -1312,7 +1312,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
       title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
       title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
     - icon: ':heavy_check_mark:'
