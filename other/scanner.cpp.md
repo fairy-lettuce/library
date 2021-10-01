@@ -3,6 +3,9 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/verify/dmoj-ds5.test.cpp
+    title: test/verify/dmoj-ds5.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-bitwise-and-convolution-2.test.cpp
     title: test/verify/yosupo-bitwise-and-convolution-2.test.cpp
@@ -42,9 +45,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-two-sat.test.cpp
     title: test/verify/yosupo-two-sat.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Scanner(\u9AD8\u901F\u5165\u529B)"
     links: []
@@ -98,13 +101,14 @@ data:
   path: other/scanner.cpp
   requiredBy: []
   timestamp: '2020-04-08 00:11:24+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/verify/yosupo-two-sat.test.cpp
   - test/verify/yosupo-bitwise-and-convolution.test.cpp
   - test/verify/yosupo-staticrmq-5.test.cpp
   - test/verify/yosupo-bitwise-and-convolution-3.test.cpp
   - test/verify/yosupo-division-of-polynomials.test.cpp
+  - test/verify/dmoj-ds5.test.cpp
   - test/verify/yosupo-lca.test.cpp
   - test/verify/yosupo-bitwise-xor-convolution.test.cpp
   - test/verify/yosupo-bitwise-and-convolution-2.test.cpp

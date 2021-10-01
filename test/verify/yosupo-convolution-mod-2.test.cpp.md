@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/montgomery-mod-int.cpp
     title: Montgomery ModInt
   - icon: ':heavy_check_mark:'

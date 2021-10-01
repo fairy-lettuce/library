@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/combinatorics/montgomery-mod-int.cpp
     title: Montgomery ModInt
   - icon: ':question:'
     path: structure/develop/super-link-cut-tree.cpp
     title: "\u4F55\u3067\u3082\u3067\u304D\u308BLCT"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/develop/vertex-set-path-composite.cpp
     title: Vertex Set Path Composite
   - icon: ':question:'
@@ -15,9 +15,9 @@ data:
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/dynamic_tree_vertex_set_path_composite
@@ -237,16 +237,17 @@ data:
     \  void update(const Info &p, const Info &c, const LInfo &l) {\n    a_sum_p =\
     \ p.a_sum_p * a * c.a_sum_p;\n    b_sum_p = (p.b_sum_p * a + b) * c.a_sum_p +\
     \ c.b_sum_p;\n\n    a_sum_c = c.a_sum_c * a * p.a_sum_c;\n    b_sum_c = (c.b_sum_c\
-    \ * a + b) * p.a_sum_c + p.b_sum_c;\n  }\n\n  // \u9045\u5EF6\u4F1D\u642C\n  void\
-    \ propagate(const Lazy &p) {}\n\n  // light-edge\u306B\u5BFE\u3059\u308B\u9045\
-    \u5EF6\u4F1D\u642C\n  // path\u3068subtree\u306E\u9045\u5EF6\u4F1D\u642C\u304C\
-    \u4E21\u65B9\u3042\u308B\u5834\u5408\u306B\u5B9F\u88C5\u3059\u308B\n  void propagate_light(const\
-    \ Lazy &p) {}\n};\n\nusing LCT = SuperLinkCutTree< Info, LInfo, Lazy >;\n#line\
-    \ 6 \"test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp\"\n\
-    \nint main() {\n  int N, Q;\n  cin >> N >> Q;\n  LCT lct;\n  vector< LCT::NP >\
-    \ vs(N);\n  for(int i = 0; i < N; i++) {\n    T a, b;\n    cin >> a >> b;\n  \
-    \  vs[i] = lct.alloc({a, b});\n  }\n  for(int i = 1; i < N; i++) {\n    int a,\
-    \ b;\n    cin >> a >> b;\n    lct.evert(vs[a]);\n    lct.link(vs[a], vs[b]);\n\
+    \ * a + b) * p.a_sum_c + p.b_sum_c;\n  }\n\n  // \u89AA\u3068 light-edge \u3067\
+    \u7E4B\u3052\u308B\n  LInfo link() const { return LInfo(); }\n\n  // \u9045\u5EF6\
+    \u4F1D\u642C\n  void propagate(const Lazy &p) {}\n\n  // light-edge\u306B\u5BFE\
+    \u3059\u308B\u9045\u5EF6\u4F1D\u642C\n  // path\u3068subtree\u306E\u9045\u5EF6\
+    \u4F1D\u642C\u304C\u4E21\u65B9\u3042\u308B\u5834\u5408\u306B\u5B9F\u88C5\u3059\
+    \u308B\n  void propagate_light(const Lazy &p) {}\n};\n\nusing LCT = SuperLinkCutTree<\
+    \ Info, LInfo, Lazy >;\n#line 6 \"test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp\"\
+    \n\nint main() {\n  int N, Q;\n  cin >> N >> Q;\n  LCT lct;\n  vector< LCT::NP\
+    \ > vs(N);\n  for(int i = 0; i < N; i++) {\n    T a, b;\n    cin >> a >> b;\n\
+    \    vs[i] = lct.alloc({a, b});\n  }\n  for(int i = 1; i < N; i++) {\n    int\
+    \ a, b;\n    cin >> a >> b;\n    lct.evert(vs[a]);\n    lct.link(vs[a], vs[b]);\n\
     \  }\n  while(Q--) {\n    int t;\n    cin >> t;\n    if(t == 0) {\n      int u,\
     \ v, w, x;\n      cin >> u >> v >> w >> x;\n      lct.evert(vs[u]);\n      lct.cut(vs[v]);\n\
     \      lct.evert(vs[w]);\n      lct.link(vs[w], vs[x]);\n    } else if(t == 1)\
@@ -275,8 +276,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
   requiredBy: []
-  timestamp: '2021-10-02 02:34:17+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-10-02 02:49:48+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
 layout: document

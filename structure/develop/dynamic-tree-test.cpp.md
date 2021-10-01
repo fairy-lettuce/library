@@ -1,23 +1,21 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: math/combinatorics/montgomery-mod-int.cpp
-    title: Montgomery ModInt
   - icon: ':question:'
     path: structure/develop/super-link-cut-tree.cpp
     title: "\u4F55\u3067\u3082\u3067\u304D\u308BLCT"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
-    title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/verify/dmoj-ds5.test.cpp
+    title: test/verify/dmoj-ds5.test.cpp
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    document_title: Vertex Set Path Composite
-    links: []
+    document_title: Dynamic Tree Test
+    links:
+    - https://dmoj.ca/problem/ds5
   bundledCode: "#line 1 \"structure/develop/super-link-cut-tree.cpp\"\n/**\n * @brief\
     \ \u4F55\u3067\u3082\u3067\u304D\u308BLCT\n */\ntemplate< typename LInfo, typename\
     \ Lazy >\nstruct SplayTree {\n  struct Node {\n    Node *l, *r, *p;\n    LInfo\
@@ -147,114 +145,132 @@ data:
     \u9045\u5EF6\u4F1D\u642C\n  // path\u3068subtree\u306E\u9045\u5EF6\u4F1D\u642C\
     \u304C\u4E21\u65B9\u3042\u308B\u5834\u5408\u306B\u5B9F\u88C5\u3059\u308B\n  void\
     \ propagate_light(const Lazy &p) {}\n};\n\nusing LCT = SuperLinkCutTree< Info,\
-    \ LInfo, Lazy >;\n*/\n#line 1 \"math/combinatorics/montgomery-mod-int.cpp\"\n\
-    /**\n * @brief Montgomery ModInt\n */\ntemplate< uint32_t mod, bool fast = false\
-    \ >\nstruct MontgomeryModInt {\n  using mint = MontgomeryModInt;\n  using i32\
-    \ = int32_t;\n  using i64 = int64_t;\n  using u32 = uint32_t;\n  using u64 = uint64_t;\n\
-    \n  static constexpr u32 get_r() {\n    u32 ret = mod;\n    for(i32 i = 0; i <\
-    \ 4; i++) ret *= 2 - mod * ret;\n    return ret;\n  }\n\n  static constexpr u32\
-    \ r = get_r();\n  static constexpr u32 n2 = -u64(mod) % mod;\n\n  static_assert(r\
-    \ * mod == 1, \"invalid, r * mod != 1\");\n  static_assert(mod < (1 << 30), \"\
-    invalid, mod >= 2 ^ 30\");\n  static_assert((mod & 1) == 1, \"invalid, mod % 2\
-    \ == 0\");\n\n  u32 x;\n\n  MontgomeryModInt() : x{} {}\n\n  MontgomeryModInt(const\
-    \ i64 &a)\n      : x(reduce(u64(fast ? a : (a % mod + mod)) * n2)) {}\n\n  static\
-    \ constexpr u32 reduce(const u64 &b) {\n    return u32(b >> 32) + mod - u32((u64(u32(b)\
-    \ * r) * mod) >> 32);\n  }\n\n  mint &operator+=(const mint &p) {\n    if(i32(x\
-    \ += p.x - 2 * mod) < 0) x += 2 * mod;\n    return *this;\n  }\n\n  mint &operator-=(const\
-    \ mint &p) {\n    if(i32(x -= p.x) < 0) x += 2 * mod;\n    return *this;\n  }\n\
-    \n  mint &operator*=(const mint &p) {\n    x = reduce(u64(x) * p.x);\n    return\
-    \ *this;\n  }\n\n  mint &operator/=(const mint &p) {\n    *this *= p.inverse();\n\
-    \    return *this;\n  }\n\n  mint operator-() const { return mint() - *this; }\n\
-    \n  mint operator+(const mint &p) const { return mint(*this) += p; }\n\n  mint\
-    \ operator-(const mint &p) const { return mint(*this) -= p; }\n\n  mint operator*(const\
-    \ mint &p) const { return mint(*this) *= p; }\n\n  mint operator/(const mint &p)\
-    \ const { return mint(*this) /= p; }\n\n  bool operator==(const mint &p) const\
-    \ { return (x >= mod ? x - mod : x) == (p.x >= mod ? p.x - mod : p.x); }\n\n \
-    \ bool operator!=(const mint &p) const { return (x >= mod ? x - mod : x) != (p.x\
-    \ >= mod ? p.x - mod : p.x); }\n\n  u32 get() const {\n    u32 ret = reduce(x);\n\
-    \    return ret >= mod ? ret - mod : ret;\n  }\n\n  mint pow(u64 n) const {\n\
-    \    mint ret(1), mul(*this);\n    while(n > 0) {\n      if(n & 1) ret *= mul;\n\
-    \      mul *= mul;\n      n >>= 1;\n    }\n    return ret;\n  }\n\n  mint inverse()\
-    \ const {\n    return pow(mod - 2);\n  }\n\n  friend ostream &operator<<(ostream\
-    \ &os, const mint &p) {\n    return os << p.get();\n  }\n\n  friend istream &operator>>(istream\
-    \ &is, mint &a) {\n    i64 t;\n    is >> t;\n    a = mint(t);\n    return is;\n\
-    \  }\n\n  static u32 get_mod() { return mod; }\n};\n\nusing modint = MontgomeryModInt<\
-    \ mod >;\n#line 3 \"structure/develop/vertex-set-path-composite.cpp\"\n\n/**\n\
-    \ * @brief Vertex Set Path Composite\n */\nusing T = MontgomeryModInt< 998244353,\
-    \ true >;\n\n// \u9045\u5EF6\u4F1D\u642C\u3092\u3059\u308B\u305F\u3081\u306E\u4F5C\
-    \u7528\u7D20\nstruct Lazy {\n\n  // \u5358\u4F4D\u5143\n  Lazy() {}\n\n  // \u521D\
-    \u671F\u5316\n  Lazy(T v) {}\n\n  // \u9045\u5EF6\u4F1D\u642C\n  void propagate(const\
-    \ Lazy &p) {}\n};\n\n// Light-edge \u306E\u60C5\u5831\ntemplate< typename Lazy\
-    \ >\nstruct LInfo {\n\n  // \u5358\u4F4D\u5143(\u30AD\u30FC\u306E\u5024\u306F\u30A2\
-    \u30AF\u30BB\u30B9\u3057\u306A\u3044\u306E\u3067\u672A\u521D\u671F\u5316\u3067\
-    \u3082\u3088\u3044\n  LInfo() {}\n\n  // \u521D\u671F\u5316\n  LInfo(T v) {}\n\
-    \n  // l, r \u306F Splay-tree \u306E\u5B50 (\u539F\u7406\u4E0A\u3001\u5404\u30CE\
-    \u30FC\u30C9\u533A\u5225\u306F\u306A\u3044)\n  void update(const LInfo &l, const\
-    \ LInfo &r) {}\n\n  // \u90E8\u5206\u6728\u3078\u306E\u9045\u5EF6\u4F1D\u642C\n\
-    \  void propagate(const Lazy &p) {}\n};\n\n// Heavy-edge \u306E\u60C5\u5831\n\
-    template< typename LInfo, typename Lazy >\nstruct Info {\n  T a, b; // ax+b\n\n\
-    \  T a_sum_p, b_sum_p;\n  T a_sum_c, b_sum_c;\n\n\n  // \u5358\u4F4D\u5143(\u30AD\
-    \u30FC\u306E\u5024\u306F\u30A2\u30AF\u30BB\u30B9\u3057\u306A\u3044\u306E\u3067\
-    \u672A\u521D\u671F\u5316\u3067\u3082\u3088\u3044\n  Info() : a_sum_p{1}, b_sum_p{0},\
-    \ a_sum_c{1}, b_sum_c{0} {}\n\n  // \u521D\u671F\u5316\n  Info(T a, T b) : a(a),\
-    \ b(b) {}\n\n  // \u53CD\u8EE2\n  void toggle() {\n    swap(a_sum_p, a_sum_c);\n\
-    \    swap(b_sum_p, b_sum_c);\n  }\n\n  // p\u304C\u89AA, c\u304Cheavy-edge\u3067\
-    \u7D50\u3070\u308C\u305F\u5B50, l\u304C\u305D\u308C\u4EE5\u5916\u306E\u5B50\n\
-    \  void update(const Info &p, const Info &c, const LInfo &l) {\n    a_sum_p =\
-    \ p.a_sum_p * a * c.a_sum_p;\n    b_sum_p = (p.b_sum_p * a + b) * c.a_sum_p +\
-    \ c.b_sum_p;\n\n    a_sum_c = c.a_sum_c * a * p.a_sum_c;\n    b_sum_c = (c.b_sum_c\
-    \ * a + b) * p.a_sum_c + p.b_sum_c;\n  }\n\n  // \u89AA\u3068 light-edge \u3067\
-    \u7E4B\u3052\u308B\n  LInfo link() const { return LInfo(); }\n\n  // \u9045\u5EF6\
-    \u4F1D\u642C\n  void propagate(const Lazy &p) {}\n\n  // light-edge\u306B\u5BFE\
-    \u3059\u308B\u9045\u5EF6\u4F1D\u642C\n  // path\u3068subtree\u306E\u9045\u5EF6\
-    \u4F1D\u642C\u304C\u4E21\u65B9\u3042\u308B\u5834\u5408\u306B\u5B9F\u88C5\u3059\
-    \u308B\n  void propagate_light(const Lazy &p) {}\n};\n\nusing LCT = SuperLinkCutTree<\
+    \ LInfo, Lazy >;\n*/\n#line 2 \"structure/develop/dynamic-tree-test.cpp\"\n\n\
+    /**\n * @brief Dynamic Tree Test\n * @see https://dmoj.ca/problem/ds5\n */\nusing\
+    \ T = int;\nconst T inf_max = numeric_limits< T >::max();\nconst T inf_min = numeric_limits<\
+    \ T >::min();\n\n// \u9045\u5EF6\u4F1D\u642C\u3092\u3059\u308B\u4F5C\u7528\u7D20\
+    \nstruct Lazy {\n  int type; // 0: none, 1: change, 2:inc\n  T v;\n\n  // \u5358\
+    \u4F4D\u5143\n  Lazy() : type(0) {}\n\n  // \u521D\u671F\u5316\n  constexpr Lazy(int\
+    \ type, T v) : type(type), v(v) {}\n\n  inline constexpr void propagate(const\
+    \ Lazy &p) {\n    if(p.type == 0) {\n      return;\n    }\n    if(type == 0 or\
+    \ p.type == 1) {\n      type = p.type;\n      v = p.v;\n    } else {\n      v\
+    \ += p.v;\n    }\n  }\n};\n\n// Light-edge \u306E\u60C5\u5831\ntemplate< typename\
+    \ Lazy >\nstruct LInfo {\n  T min, max, sum, sz;\n\n  T all_min, all_max, all_sum,\
+    \ all_sz;\n\n  // \u5358\u4F4D\u5143(\u30AD\u30FC\u306E\u5024\u306F\u30A2\u30AF\
+    \u30BB\u30B9\u3057\u306A\u3044\u306E\u3067\u672A\u521D\u671F\u5316\u3067\u3082\
+    \u3088\u3044\n  LInfo() : all_min(inf_max), all_max(inf_min), all_sum(0), all_sz(0)\
+    \ {}\n\n  // \u521D\u671F\u5316\n  LInfo(T min, T max, T sum, T sz) : min(min),\
+    \ max(max), sum(sum), sz(sz) {}\n\n  // l, r \u306F Splay-tree \u306E\u5B50 (\u539F\
+    \u7406\u4E0A\u3001\u5404\u30CE\u30FC\u30C9\u533A\u5225\u306F\u306A\u3044)\n  void\
+    \ update(const LInfo &l, const LInfo &r) {\n    all_min = std::min({l.all_min,\
+    \ min, r.all_min});\n    all_max = std::max({l.all_max, max, r.all_max});\n  \
+    \  all_sum = l.all_sum + sum + r.all_sum;\n    all_sz = l.all_sz + sz + r.all_sz;\n\
+    \  }\n\n  // light-edge\u306B\u5BFE\u3059\u308B\u9045\u5EF6\u4F1D\u642C\n  void\
+    \ propagate(const Lazy &p) {\n    if(p.type == 0) {\n      return;\n    } else\
+    \ if(p.type == 1) { // change\n      min = p.v;\n      max = p.v;\n      sum =\
+    \ p.v * sz;\n      all_min = p.v;\n      all_max = p.v;\n      all_sum = p.v *\
+    \ all_sz;\n    } else { // inc\n      min += p.v;\n      max += p.v;\n      sum\
+    \ += p.v * sz;\n      all_min += p.v;\n      all_max += p.v;\n      all_sum +=\
+    \ p.v * all_sz;\n    }\n  }\n};\n\n// Heavy-edge \u306E\u60C5\u5831\ntemplate<\
+    \ typename LInfo, typename Lazy >\nstruct Info {\n  T v;\n\n  T path_min, path_max,\
+    \ path_sum, path_sz;\n  T light_min, light_max, light_sum, light_sz;\n\n  // \u5358\
+    \u4F4D\u5143(\u30AD\u30FC\u306E\u5024\u306F\u30A2\u30AF\u30BB\u30B9\u3057\u306A\
+    \u3044\u306E\u3067\u672A\u521D\u671F\u5316\u3067\u3082\u3088\u3044\n  Info() :\
+    \ light_min(inf_max), light_max(inf_min), light_sum(0), light_sz(0),\n       \
+    \    path_min(inf_max), path_max(inf_min), path_sum(0), path_sz(0) {}\n\n  //\
+    \ \u521D\u671F\u5316\n  Info(T v) : v(v) {}\n\n  // \u53CD\u8EE2\n  void toggle()\
+    \ {}\n\n  // p\u304C\u89AA, c\u304Cheavy-edge\u3067\u7D50\u3070\u308C\u305F\u5B50\
+    , l\u304C\u305D\u308C\u4EE5\u5916\u306E\u5B50\n  void update(const Info &p, const\
+    \ Info &c, const LInfo &l) {\n    light_min = min({p.light_min, c.light_min, l.all_min});\n\
+    \    light_max = max({p.light_max, c.light_max, l.all_max});\n    light_sum =\
+    \ p.light_sum + c.light_sum + l.all_sum;\n    light_sz = p.light_sz + c.light_sz\
+    \ + l.all_sz;\n\n    path_min = min({p.path_min, v, c.path_min});\n    path_max\
+    \ = max({p.path_max, v, c.path_max});\n    path_sum = p.path_sum + v + c.path_sum;\n\
+    \    path_sz = p.path_sz + 1 + c.path_sz;\n  }\n\n  // \u89AA\u3068 light-edge\
+    \ \u3067\u7E4B\u3052\u308B\n  LInfo link() const {\n    return LInfo(min(light_min,\
+    \ path_min), max(light_max, path_max), path_sum + light_sum, light_sz + path_sz);\n\
+    \  }\n\n  // \u9045\u5EF6\u4F1D\u642C\n  void propagate(const Lazy &p) {\n   \
+    \ if(p.type == 0) {\n      return;\n    } else if(p.type == 1) { // change\n \
+    \     v = p.v;\n      path_min = p.v;\n      path_max = p.v;\n      path_sum =\
+    \ p.v * path_sz;\n    } else { // inc\n      v += p.v;\n      path_min += p.v;\n\
+    \      path_max += p.v;\n      path_sum += p.v * path_sz;\n    }\n  }\n\n  //\
+    \ light-edge\u306B\u5BFE\u3059\u308B\u9045\u5EF6\u4F1D\u642C\n  // path\u3068\
+    subtree\u306E\u9045\u5EF6\u4F1D\u642C\u304C\u4E21\u65B9\u3042\u308B\u5834\u5408\
+    \u306B\u5B9F\u88C5\u3059\u308B\n  void propagate_light(const Lazy &p) {\n    if(p.type\
+    \ == 0 or light_min == inf_max) {\n      return;\n    } else if(p.type == 1) {\
+    \ // change\n      light_min = p.v;\n      light_max = p.v;\n      light_sum =\
+    \ p.v * light_sz;\n    } else { // inc\n      light_min += p.v;\n      light_max\
+    \ += p.v;\n      light_sum += p.v * light_sz;\n    }\n  }\n};\n\nusing LCT = SuperLinkCutTree<\
     \ Info, LInfo, Lazy >;\n"
-  code: "#include \"super-link-cut-tree.cpp\"\n#include \"../../math/combinatorics/montgomery-mod-int.cpp\"\
-    \n\n/**\n * @brief Vertex Set Path Composite\n */\nusing T = MontgomeryModInt<\
-    \ 998244353, true >;\n\n// \u9045\u5EF6\u4F1D\u642C\u3092\u3059\u308B\u305F\u3081\
-    \u306E\u4F5C\u7528\u7D20\nstruct Lazy {\n\n  // \u5358\u4F4D\u5143\n  Lazy() {}\n\
-    \n  // \u521D\u671F\u5316\n  Lazy(T v) {}\n\n  // \u9045\u5EF6\u4F1D\u642C\n \
-    \ void propagate(const Lazy &p) {}\n};\n\n// Light-edge \u306E\u60C5\u5831\ntemplate<\
-    \ typename Lazy >\nstruct LInfo {\n\n  // \u5358\u4F4D\u5143(\u30AD\u30FC\u306E\
+  code: "#include \"super-link-cut-tree.cpp\"\n\n/**\n * @brief Dynamic Tree Test\n\
+    \ * @see https://dmoj.ca/problem/ds5\n */\nusing T = int;\nconst T inf_max = numeric_limits<\
+    \ T >::max();\nconst T inf_min = numeric_limits< T >::min();\n\n// \u9045\u5EF6\
+    \u4F1D\u642C\u3092\u3059\u308B\u4F5C\u7528\u7D20\nstruct Lazy {\n  int type; //\
+    \ 0: none, 1: change, 2:inc\n  T v;\n\n  // \u5358\u4F4D\u5143\n  Lazy() : type(0)\
+    \ {}\n\n  // \u521D\u671F\u5316\n  constexpr Lazy(int type, T v) : type(type),\
+    \ v(v) {}\n\n  inline constexpr void propagate(const Lazy &p) {\n    if(p.type\
+    \ == 0) {\n      return;\n    }\n    if(type == 0 or p.type == 1) {\n      type\
+    \ = p.type;\n      v = p.v;\n    } else {\n      v += p.v;\n    }\n  }\n};\n\n\
+    // Light-edge \u306E\u60C5\u5831\ntemplate< typename Lazy >\nstruct LInfo {\n\
+    \  T min, max, sum, sz;\n\n  T all_min, all_max, all_sum, all_sz;\n\n  // \u5358\
+    \u4F4D\u5143(\u30AD\u30FC\u306E\u5024\u306F\u30A2\u30AF\u30BB\u30B9\u3057\u306A\
+    \u3044\u306E\u3067\u672A\u521D\u671F\u5316\u3067\u3082\u3088\u3044\n  LInfo()\
+    \ : all_min(inf_max), all_max(inf_min), all_sum(0), all_sz(0) {}\n\n  // \u521D\
+    \u671F\u5316\n  LInfo(T min, T max, T sum, T sz) : min(min), max(max), sum(sum),\
+    \ sz(sz) {}\n\n  // l, r \u306F Splay-tree \u306E\u5B50 (\u539F\u7406\u4E0A\u3001\
+    \u5404\u30CE\u30FC\u30C9\u533A\u5225\u306F\u306A\u3044)\n  void update(const LInfo\
+    \ &l, const LInfo &r) {\n    all_min = std::min({l.all_min, min, r.all_min});\n\
+    \    all_max = std::max({l.all_max, max, r.all_max});\n    all_sum = l.all_sum\
+    \ + sum + r.all_sum;\n    all_sz = l.all_sz + sz + r.all_sz;\n  }\n\n  // light-edge\u306B\
+    \u5BFE\u3059\u308B\u9045\u5EF6\u4F1D\u642C\n  void propagate(const Lazy &p) {\n\
+    \    if(p.type == 0) {\n      return;\n    } else if(p.type == 1) { // change\n\
+    \      min = p.v;\n      max = p.v;\n      sum = p.v * sz;\n      all_min = p.v;\n\
+    \      all_max = p.v;\n      all_sum = p.v * all_sz;\n    } else { // inc\n  \
+    \    min += p.v;\n      max += p.v;\n      sum += p.v * sz;\n      all_min +=\
+    \ p.v;\n      all_max += p.v;\n      all_sum += p.v * all_sz;\n    }\n  }\n};\n\
+    \n// Heavy-edge \u306E\u60C5\u5831\ntemplate< typename LInfo, typename Lazy >\n\
+    struct Info {\n  T v;\n\n  T path_min, path_max, path_sum, path_sz;\n  T light_min,\
+    \ light_max, light_sum, light_sz;\n\n  // \u5358\u4F4D\u5143(\u30AD\u30FC\u306E\
     \u5024\u306F\u30A2\u30AF\u30BB\u30B9\u3057\u306A\u3044\u306E\u3067\u672A\u521D\
-    \u671F\u5316\u3067\u3082\u3088\u3044\n  LInfo() {}\n\n  // \u521D\u671F\u5316\n\
-    \  LInfo(T v) {}\n\n  // l, r \u306F Splay-tree \u306E\u5B50 (\u539F\u7406\u4E0A\
-    \u3001\u5404\u30CE\u30FC\u30C9\u533A\u5225\u306F\u306A\u3044)\n  void update(const\
-    \ LInfo &l, const LInfo &r) {}\n\n  // \u90E8\u5206\u6728\u3078\u306E\u9045\u5EF6\
-    \u4F1D\u642C\n  void propagate(const Lazy &p) {}\n};\n\n// Heavy-edge \u306E\u60C5\
-    \u5831\ntemplate< typename LInfo, typename Lazy >\nstruct Info {\n  T a, b; //\
-    \ ax+b\n\n  T a_sum_p, b_sum_p;\n  T a_sum_c, b_sum_c;\n\n\n  // \u5358\u4F4D\u5143\
-    (\u30AD\u30FC\u306E\u5024\u306F\u30A2\u30AF\u30BB\u30B9\u3057\u306A\u3044\u306E\
-    \u3067\u672A\u521D\u671F\u5316\u3067\u3082\u3088\u3044\n  Info() : a_sum_p{1},\
-    \ b_sum_p{0}, a_sum_c{1}, b_sum_c{0} {}\n\n  // \u521D\u671F\u5316\n  Info(T a,\
-    \ T b) : a(a), b(b) {}\n\n  // \u53CD\u8EE2\n  void toggle() {\n    swap(a_sum_p,\
-    \ a_sum_c);\n    swap(b_sum_p, b_sum_c);\n  }\n\n  // p\u304C\u89AA, c\u304Cheavy-edge\u3067\
+    \u671F\u5316\u3067\u3082\u3088\u3044\n  Info() : light_min(inf_max), light_max(inf_min),\
+    \ light_sum(0), light_sz(0),\n           path_min(inf_max), path_max(inf_min),\
+    \ path_sum(0), path_sz(0) {}\n\n  // \u521D\u671F\u5316\n  Info(T v) : v(v) {}\n\
+    \n  // \u53CD\u8EE2\n  void toggle() {}\n\n  // p\u304C\u89AA, c\u304Cheavy-edge\u3067\
     \u7D50\u3070\u308C\u305F\u5B50, l\u304C\u305D\u308C\u4EE5\u5916\u306E\u5B50\n\
-    \  void update(const Info &p, const Info &c, const LInfo &l) {\n    a_sum_p =\
-    \ p.a_sum_p * a * c.a_sum_p;\n    b_sum_p = (p.b_sum_p * a + b) * c.a_sum_p +\
-    \ c.b_sum_p;\n\n    a_sum_c = c.a_sum_c * a * p.a_sum_c;\n    b_sum_c = (c.b_sum_c\
-    \ * a + b) * p.a_sum_c + p.b_sum_c;\n  }\n\n  // \u89AA\u3068 light-edge \u3067\
-    \u7E4B\u3052\u308B\n  LInfo link() const { return LInfo(); }\n\n  // \u9045\u5EF6\
-    \u4F1D\u642C\n  void propagate(const Lazy &p) {}\n\n  // light-edge\u306B\u5BFE\
-    \u3059\u308B\u9045\u5EF6\u4F1D\u642C\n  // path\u3068subtree\u306E\u9045\u5EF6\
-    \u4F1D\u642C\u304C\u4E21\u65B9\u3042\u308B\u5834\u5408\u306B\u5B9F\u88C5\u3059\
-    \u308B\n  void propagate_light(const Lazy &p) {}\n};\n\nusing LCT = SuperLinkCutTree<\
-    \ Info, LInfo, Lazy >;\n"
+    \  void update(const Info &p, const Info &c, const LInfo &l) {\n    light_min\
+    \ = min({p.light_min, c.light_min, l.all_min});\n    light_max = max({p.light_max,\
+    \ c.light_max, l.all_max});\n    light_sum = p.light_sum + c.light_sum + l.all_sum;\n\
+    \    light_sz = p.light_sz + c.light_sz + l.all_sz;\n\n    path_min = min({p.path_min,\
+    \ v, c.path_min});\n    path_max = max({p.path_max, v, c.path_max});\n    path_sum\
+    \ = p.path_sum + v + c.path_sum;\n    path_sz = p.path_sz + 1 + c.path_sz;\n \
+    \ }\n\n  // \u89AA\u3068 light-edge \u3067\u7E4B\u3052\u308B\n  LInfo link() const\
+    \ {\n    return LInfo(min(light_min, path_min), max(light_max, path_max), path_sum\
+    \ + light_sum, light_sz + path_sz);\n  }\n\n  // \u9045\u5EF6\u4F1D\u642C\n  void\
+    \ propagate(const Lazy &p) {\n    if(p.type == 0) {\n      return;\n    } else\
+    \ if(p.type == 1) { // change\n      v = p.v;\n      path_min = p.v;\n      path_max\
+    \ = p.v;\n      path_sum = p.v * path_sz;\n    } else { // inc\n      v += p.v;\n\
+    \      path_min += p.v;\n      path_max += p.v;\n      path_sum += p.v * path_sz;\n\
+    \    }\n  }\n\n  // light-edge\u306B\u5BFE\u3059\u308B\u9045\u5EF6\u4F1D\u642C\
+    \n  // path\u3068subtree\u306E\u9045\u5EF6\u4F1D\u642C\u304C\u4E21\u65B9\u3042\
+    \u308B\u5834\u5408\u306B\u5B9F\u88C5\u3059\u308B\n  void propagate_light(const\
+    \ Lazy &p) {\n    if(p.type == 0 or light_min == inf_max) {\n      return;\n \
+    \   } else if(p.type == 1) { // change\n      light_min = p.v;\n      light_max\
+    \ = p.v;\n      light_sum = p.v * light_sz;\n    } else { // inc\n      light_min\
+    \ += p.v;\n      light_max += p.v;\n      light_sum += p.v * light_sz;\n    }\n\
+    \  }\n};\n\nusing LCT = SuperLinkCutTree< Info, LInfo, Lazy >;\n"
   dependsOn:
   - structure/develop/super-link-cut-tree.cpp
-  - math/combinatorics/montgomery-mod-int.cpp
   isVerificationFile: false
-  path: structure/develop/vertex-set-path-composite.cpp
+  path: structure/develop/dynamic-tree-test.cpp
   requiredBy: []
   timestamp: '2021-10-02 02:49:48+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
-documentation_of: structure/develop/vertex-set-path-composite.cpp
+  - test/verify/dmoj-ds5.test.cpp
+documentation_of: structure/develop/dynamic-tree-test.cpp
 layout: document
 redirect_from:
-- /library/structure/develop/vertex-set-path-composite.cpp
-- /library/structure/develop/vertex-set-path-composite.cpp.html
-title: Vertex Set Path Composite
+- /library/structure/develop/dynamic-tree-test.cpp
+- /library/structure/develop/dynamic-tree-test.cpp.html
+title: Dynamic Tree Test
 ---

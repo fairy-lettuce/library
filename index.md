@@ -428,7 +428,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/combinatorics/mod-tetration.cpp
       title: "Mod Tetration(\u30C6\u30C8\u30EC\u30FC\u30B7\u30E7\u30F3)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/combinatorics/montgomery-mod-int.cpp
       title: Montgomery ModInt
     - icon: ':heavy_check_mark:'
@@ -633,13 +633,13 @@ data:
     - icon: ':warning:'
       path: other/offline-dynamic-connectivity.cpp
       title: other/offline-dynamic-connectivity.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: other/printer.cpp
       title: "Printer(\u9AD8\u901F\u51FA\u529B)"
     - icon: ':warning:'
       path: other/random-number-generator.cpp
       title: other/random-number-generator.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: other/scanner.cpp
       title: "Scanner(\u9AD8\u901F\u5165\u529B)"
     - icon: ':warning:'
@@ -739,6 +739,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/develop/diameter.cpp
       title: structure/develop/diameter.cpp
+    - icon: ':x:'
+      path: structure/develop/dynamic-tree-test.cpp
+      title: Dynamic Tree Test
     - icon: ':heavy_check_mark:'
       path: structure/develop/lazy-reversible-splay-tree.cpp
       title: "Lazy-Reversible-Splay-Tree(\u9045\u5EF6\u4F1D\u642C\u53CD\u8EE2\u53EF\
@@ -764,7 +767,7 @@ data:
     - icon: ':question:'
       path: structure/develop/super-link-cut-tree.cpp
       title: "\u4F55\u3067\u3082\u3067\u304D\u308BLCT"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/develop/vertex-set-path-composite.cpp
       title: Vertex Set Path Composite
     - icon: ':heavy_check_mark:'
@@ -1237,6 +1240,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-ntl-1-e.test.cpp
       title: test/verify/aoj-ntl-1-e.test.cpp
+    - icon: ':x:'
+      path: test/verify/dmoj-ds5.test.cpp
+      title: test/verify/dmoj-ds5.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-assignment.test.cpp
       title: test/verify/yosupo-assignment.test.cpp
@@ -1312,7 +1318,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
       title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
       title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
     - icon: ':heavy_check_mark:'

@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':x:'
+    path: structure/develop/dynamic-tree-test.cpp
+    title: Dynamic Tree Test
   - icon: ':heavy_check_mark:'
     path: structure/develop/subtree-add-subtree-sum.cpp
     title: Subtree Add Subtree Sum
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/develop/vertex-set-path-composite.cpp
     title: Vertex Set Path Composite
   - icon: ':heavy_check_mark:'
@@ -18,6 +21,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2450-4.test.cpp
     title: test/verify/aoj-2450-4.test.cpp
+  - icon: ':x:'
+    path: test/verify/dmoj-ds5.test.cpp
+    title: test/verify/dmoj-ds5.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-subtree-add-subtree-sum.test.cpp
     title: test/verify/yosupo-dynamic-tree-subtree-add-subtree-sum.test.cpp
@@ -27,7 +33,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum-2.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
   _isVerificationFailed: true
@@ -299,6 +305,7 @@ data:
   isVerificationFile: false
   path: structure/develop/super-link-cut-tree.cpp
   requiredBy:
+  - structure/develop/dynamic-tree-test.cpp
   - structure/develop/vertex-set-path-composite.cpp
   - structure/develop/vertex-set-subtree-sum.cpp
   - structure/develop/subtree-add-subtree-sum.cpp
@@ -309,6 +316,7 @@ data:
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
   - test/verify/yosupo-dynamic-tree-subtree-add-subtree-sum.test.cpp
   - test/verify/aoj-2450-4.test.cpp
+  - test/verify/dmoj-ds5.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-add-path-sum-3.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum-2.test.cpp
 documentation_of: structure/develop/super-link-cut-tree.cpp

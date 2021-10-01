@@ -309,6 +309,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-ntl-1-e.test.cpp
     title: test/verify/aoj-ntl-1-e.test.cpp
+  - icon: ':x:'
+    path: test/verify/dmoj-ds5.test.cpp
+    title: test/verify/dmoj-ds5.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-assignment.test.cpp
     title: test/verify/yosupo-assignment.test.cpp
@@ -384,7 +387,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
     title: test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
   - icon: ':heavy_check_mark:'
@@ -806,6 +809,7 @@ data:
   - test/verify/aoj-0304.test.cpp
   - test/verify/aoj-grl-3-b.test.cpp
   - test/verify/aoj-grl-1-a.test.cpp
+  - test/verify/dmoj-ds5.test.cpp
   - test/verify/yosupo-montmort-number-mod.test.cpp
   - test/verify/aoj-grl-6-a-2.test.cpp
   - test/verify/aoj-grl-1-c.test.cpp
