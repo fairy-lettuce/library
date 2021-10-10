@@ -65,8 +65,8 @@ data:
   timestamp: '2020-12-01 17:38:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-cgl-4-c.test.cpp
   - test/verify/aoj-cgl-3-a.test.cpp
+  - test/verify/aoj-cgl-4-c.test.cpp
 documentation_of: geometry/area.cpp
 layout: document
 redirect_from:

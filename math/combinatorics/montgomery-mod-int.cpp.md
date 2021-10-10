@@ -94,9 +94,9 @@ data:
   timestamp: '2021-08-09 21:02:39+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/verify/yosupo-subset-convolution.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
   - test/verify/yosupo-convolution-mod-2.test.cpp
-  - test/verify/yosupo-subset-convolution.test.cpp
 documentation_of: math/combinatorics/montgomery-mod-int.cpp
 layout: document
 redirect_from:

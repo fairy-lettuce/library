@@ -97,8 +97,8 @@ data:
   timestamp: '2021-08-16 02:17:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-grl-5-c-3.test.cpp
   - test/verify/yosupo-lca-2.test.cpp
+  - test/verify/aoj-grl-5-c-3.test.cpp
 documentation_of: graph/tree/rmq-lowest-common-ancestor.hpp
 layout: document
 redirect_from:

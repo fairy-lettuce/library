@@ -41,14 +41,14 @@ data:
   isVerificationFile: false
   path: math/number-theory/prime-table.cpp
   requiredBy:
-  - math/number-theory/enumerate-primes.cpp
   - math/number-theory/prime-count.cpp
+  - math/number-theory/enumerate-primes.cpp
   timestamp: '2021-07-13 22:13:38+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-counting-primes.test.cpp
-  - test/verify/yosupo-enumerate-primes.test.cpp
   - test/verify/aoj-alds-1-1-c-2.test.cpp
+  - test/verify/yosupo-enumerate-primes.test.cpp
 documentation_of: math/number-theory/prime-table.cpp
 layout: document
 redirect_from:

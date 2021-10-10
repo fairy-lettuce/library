@@ -79,8 +79,8 @@ data:
   timestamp: '2021-08-16 02:17:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-grl-2-a-2.test.cpp
   - test/verify/yosupo-manhattanmst.test.cpp
+  - test/verify/aoj-grl-2-a-2.test.cpp
 documentation_of: graph/mst/kruskal.hpp
 layout: document
 redirect_from:

@@ -139,8 +139,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-2667.test.cpp
-  - test/verify/yukicoder-650.test.cpp
   - test/verify/aoj-2450.test.cpp
+  - test/verify/yukicoder-650.test.cpp
   - test/verify/aoj-grl-5-c-2.test.cpp
 documentation_of: graph/tree/heavy-light-decomposition.hpp
 layout: document

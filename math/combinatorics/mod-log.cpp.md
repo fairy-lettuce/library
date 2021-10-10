@@ -49,11 +49,11 @@ redirect_from:
 title: "Mod Log(\u96E2\u6563\u5BFE\u6570\u554F\u984C)"
 ---
 ## 概要
-$a^x \equiv k \pmod b$ を満たす非負整数 $k$ の最小値を求める.
+$a^x \equiv b \pmod p$ を満たす非負整数 $k$ の最小値を求める.
 
 ## 使い方
 
-* `mod_log(a, b, p)`: $a^x \equiv k \pmod b$ を満たす非負整数 $k$ の最小値の最小値を返す. ただし, 存在しない場合 $-1$ を返す.
+* `mod_log(a, b, p)`: $a^x \equiv b \pmod p$ を満たす非負整数 $x$ の最小値を返す. ただし, 存在しない場合 $-1$ を返す.
 
 ## 計算量
 

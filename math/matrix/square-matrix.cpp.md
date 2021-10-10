@@ -88,11 +88,11 @@ data:
   timestamp: '2021-07-14 01:17:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-2306.test.cpp
-  - test/verify/aoj-1254.test.cpp
-  - test/verify/aoj-grl-1-c.test.cpp
-  - test/verify/yukicoder-650.test.cpp
   - test/verify/yosupo-chromatic-number.test.cpp
+  - test/verify/aoj-grl-1-c.test.cpp
+  - test/verify/aoj-1254.test.cpp
+  - test/verify/yukicoder-650.test.cpp
+  - test/verify/aoj-2306.test.cpp
 documentation_of: math/matrix/square-matrix.cpp
 layout: document
 redirect_from:
