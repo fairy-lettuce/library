@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-grl-5-a-2.test.cpp
-    title: test/verify/aoj-grl-5-a-2.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 1 \"structure/develop/array-pool.cpp\"\ntemplate< class T, size_t\
@@ -27,9 +24,8 @@ data:
   path: structure/develop/array-pool.cpp
   requiredBy: []
   timestamp: '2020-11-04 13:55:57+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/verify/aoj-grl-5-a-2.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: structure/develop/array-pool.cpp
 layout: document
 redirect_from:

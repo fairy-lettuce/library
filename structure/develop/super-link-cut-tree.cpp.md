@@ -3,6 +3,9 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: structure/develop/diameter.cpp
+    title: Diameter
+  - icon: ':heavy_check_mark:'
     path: structure/develop/dynamic-tree-test.cpp
     title: Dynamic Tree Test
   - icon: ':heavy_check_mark:'
@@ -21,6 +24,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2450-4.test.cpp
     title: test/verify/aoj-2450-4.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-grl-5-a-2.test.cpp
+    title: test/verify/aoj-grl-5-a-2.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/dmoj-ds5.test.cpp
     title: test/verify/dmoj-ds5.test.cpp
@@ -306,6 +312,7 @@ data:
   path: structure/develop/super-link-cut-tree.cpp
   requiredBy:
   - structure/develop/vertex-set-subtree-sum.cpp
+  - structure/develop/diameter.cpp
   - structure/develop/vertex-set-path-sum.cpp
   - structure/develop/dynamic-tree-test.cpp
   - structure/develop/vertex-set-path-composite.cpp
@@ -315,6 +322,7 @@ data:
   verifiedWith:
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite-3.test.cpp
   - test/verify/yosupo-dynamic-tree-subtree-add-subtree-sum.test.cpp
+  - test/verify/aoj-grl-5-a-2.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum-2.test.cpp
   - test/verify/dmoj-ds5.test.cpp
   - test/verify/aoj-2450-4.test.cpp
