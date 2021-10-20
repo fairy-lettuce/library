@@ -48,44 +48,51 @@ data:
     \n\n#line 1 \"structure/segment-tree/segment-tree.cpp\"\n/**\n * @brief Segment\
     \ Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs docs/segment-tree.md\n\
     \ */\ntemplate< typename Monoid, typename F >\nstruct SegmentTree {\n  int n,\
-    \ sz;\n  vector< Monoid > seg;\n\n  const F f;\n  const Monoid M1;\n  \n  SegmentTree(int\
-    \ n, const F f, const Monoid &M1) : n(n), f(f), M1(M1) {\n    sz = 1;\n    while(sz\
-    \ < n) sz <<= 1;\n    seg.assign(2 * sz, M1);\n  }\n\n  void set(int k, const\
-    \ Monoid &x) {\n    seg[k + sz] = x;\n  }\n\n  void build() {\n    for(int k =\
-    \ sz - 1; k > 0; k--) {\n      seg[k] = f(seg[2 * k + 0], seg[2 * k + 1]);\n \
-    \   }\n  }\n\n  void update(int k, const Monoid &x) {\n    k += sz;\n    seg[k]\
-    \ = x;\n    while(k >>= 1) {\n      seg[k] = f(seg[2 * k + 0], seg[2 * k + 1]);\n\
-    \    }\n  }\n\n  Monoid prod(int a, int b) {\n    Monoid L = M1, R = M1;\n   \
-    \ for(a += sz, b += sz; a < b; a >>= 1, b >>= 1) {\n      if(a & 1) L = f(L, seg[a++]);\n\
-    \      if(b & 1) R = f(seg[--b], R);\n    }\n    return f(L, R);\n  }\n\n  Monoid\
-    \ all_prod() {\n    return seg[1];\n  }\n\n  Monoid operator[](const int &k) const\
-    \ {\n    return seg[k + sz];\n  }\n\n  template< typename C >\n  int find_subtree(int\
-    \ a, const C &check, Monoid &M, bool type) {\n    while(a < sz) {\n      Monoid\
-    \ nxt = type ? f(seg[2 * a + type], M) : f(M, seg[2 * a + type]);\n      if(check(nxt))\
-    \ a = 2 * a + type;\n      else M = nxt, a = 2 * a + 1 - type;\n    }\n    return\
-    \ a - sz;\n  }\n\n  template< typename C >\n  int find_first(int a, const C &check)\
-    \ {\n    Monoid L = M1;\n    if(a <= 0) {\n      if(check(f(L, seg[1]))) return\
-    \ find_subtree(1, check, L, false);\n      return n;\n    }\n    int b = sz;\n\
-    \    for(a += sz, b += sz; a < b; a >>= 1, b >>= 1) {\n      if(a & 1) {\n   \
-    \     Monoid nxt = f(L, seg[a]);\n        if(check(nxt)) return find_subtree(a,\
-    \ check, L, false);\n        L = nxt;\n        ++a;\n      }\n    }\n    return\
-    \ n;\n  }\n\n  template< typename C >\n  int find_last(int b, const C &check)\
-    \ {\n    Monoid R = M1;\n    if(b >= sz) {\n      if(check(f(seg[1], R))) return\
-    \ find_subtree(1, check, R, true);\n      return -1;\n    }\n    int a = sz;\n\
-    \    for(b += sz; a < b; a >>= 1, b >>= 1) {\n      if(b & 1) {\n        Monoid\
-    \ nxt = f(seg[--b], R);\n        if(check(nxt)) return find_subtree(b, check,\
-    \ R, true);\n        R = nxt;\n      }\n    }\n    return -1;\n  }\n};\n\ntemplate<\
-    \ typename Monoid, typename F >\nSegmentTree< Monoid, F > get_segment_tree(int\
-    \ N, const F& f, const Monoid& M1) {\n  return {N, f, M1};\n}\n#line 6 \"test/verify/aoj-dsl-2-a.test.cpp\"\
-    \n\nint main() {\n  int N, Q;\n  scanf(\"%d %d\", &N, &Q);\n  auto seg = get_segment_tree(N,\
-    \ [](int a, int b) { return min(a, b); }, INT_MAX);\n  while(Q--) {\n    int T,\
-    \ X, Y;\n    scanf(\"%d %d %d\", &T, &X, &Y);\n    if(T == 0) seg.update(X, Y);\n\
-    \    else printf(\"%d\\n\", seg.prod(X, Y + 1));\n  }\n}\n"
+    \ sz;\n  vector< Monoid > seg;\n\n  const F f;\n  const Monoid M1;\n\n  SegmentTree()\
+    \ = default;\n\n  explicit SegmentTree(int n, const F f, const Monoid &M1) : n(n),\
+    \ f(f), M1(M1) {\n    sz = 1;\n    while(sz < n) sz <<= 1;\n    seg.assign(2 *\
+    \ sz, M1);\n  }\n\n  explicit SegmentTree(const vector< Monoid > &v, const F f,\
+    \ const Monoid &M1) :\n      SegmentTree((int) v.size(), f, M1) {\n    build(v);\n\
+    \  }\n\n  void build(const vector< Monoid > &v) {\n    assert(n == (int) v.size());\n\
+    \    for(int k = 0; k < n; k++) seg[k + sz] = v[k];\n    for(int k = sz - 1; k\
+    \ > 0; k--) {\n      seg[k] = f(seg[2 * k + 0], seg[2 * k + 1]);\n    }\n  }\n\
+    \n  void set(int k, const Monoid &x) {\n    k += sz;\n    seg[k] = x;\n    while(k\
+    \ >>= 1) {\n      seg[k] = f(seg[2 * k + 0], seg[2 * k + 1]);\n    }\n  }\n\n\
+    \  Monoid get(int k) const {\n    return seg[k + sz];\n  }\n\n  Monoid operator[](const\
+    \ int &k) const {\n    return get(k);\n  }\n\n  void apply(int k, const Monoid\
+    \ &x) {\n    k += sz;\n    seg[k] = f(seg[k], x);\n    while(k >>= 1) {\n    \
+    \  seg[k] = f(seg[2 * k + 0], seg[2 * k + 1]);\n    }\n  }\n\n  Monoid prod(int\
+    \ l, int r) const {\n    Monoid L = M1, R = M1;\n    for(l += sz, r += sz; l <\
+    \ r; l >>= 1, r >>= 1) {\n      if(l & 1) L = f(L, seg[l++]);\n      if(r & 1)\
+    \ R = f(seg[--r], R);\n    }\n    return f(L, R);\n  }\n\n  Monoid all_prod()\
+    \ const {\n    return seg[1];\n  }\n\n  template< typename C >\n  int find_first(int\
+    \ l, const C &check) const {\n    if(l >= n) return n;\n    l += sz;\n    Monoid\
+    \ sum = M1;\n    do {\n      while((l & 1) == 0) l >>= 1;\n      if(check(f(sum,\
+    \ seg[l]))) {\n        while(l < sz) {\n          l <<= 1;\n          auto nxt\
+    \ = f(sum, seg[l]);\n          if(not check(nxt)) {\n            sum = nxt;\n\
+    \            l++;\n          }\n        }\n        return l + 1 - sz;\n      }\n\
+    \      sum = f(sum, seg[l++]);\n    } while((l & -l) != l);\n    return n;\n \
+    \ }\n\n  template< typename C >\n  int find_last(int r, const C &check) const\
+    \ {\n    if(r <= 0) return -1;\n    r += sz;\n    Monoid sum = 0;\n    do {\n\
+    \      r--;\n      while(r > 1 and (r & 1)) r >>= 1;\n      if(check(f(seg[r],\
+    \ sum))) {\n        while(r < sz) {\n          r = (r << 1) + 1;\n          auto\
+    \ nxt = f(seg[r], sum);\n          if(not check(nxt)) {\n            sum = nxt;\n\
+    \            r--;\n          }\n        }\n        return r - sz;\n      }\n \
+    \     sum = f(seg[r], sum);\n    } while((r & -r) != r);\n    return -1;\n  }\n\
+    };\n\ntemplate< typename Monoid, typename F >\nSegmentTree< Monoid, F > get_segment_tree(int\
+    \ N, const F &f, const Monoid &M1) {\n  return SegmentTree{N, f, M1};\n}\n\ntemplate<\
+    \ typename Monoid, typename F >\nSegmentTree< Monoid, F > get_segment_tree(const\
+    \ vector< Monoid > &v, const F &f, const Monoid &M1) {\n  return SegmentTree{v,\
+    \ f, M1};\n}\n#line 6 \"test/verify/aoj-dsl-2-a.test.cpp\"\n\nint main() {\n \
+    \ int N, Q;\n  scanf(\"%d %d\", &N, &Q);\n  auto seg = get_segment_tree(N, [](int\
+    \ a, int b) { return min(a, b); }, INT_MAX);\n  while(Q--) {\n    int T, X, Y;\n\
+    \    scanf(\"%d %d %d\", &T, &X, &Y);\n    if(T == 0) seg.set(X, Y);\n    else\
+    \ printf(\"%d\\n\", seg.prod(X, Y + 1));\n  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A\"\
     \n\n#include \"../../template/template.cpp\"\n\n#include \"../../structure/segment-tree/segment-tree.cpp\"\
     \n\nint main() {\n  int N, Q;\n  scanf(\"%d %d\", &N, &Q);\n  auto seg = get_segment_tree(N,\
     \ [](int a, int b) { return min(a, b); }, INT_MAX);\n  while(Q--) {\n    int T,\
-    \ X, Y;\n    scanf(\"%d %d %d\", &T, &X, &Y);\n    if(T == 0) seg.update(X, Y);\n\
+    \ X, Y;\n    scanf(\"%d %d %d\", &T, &X, &Y);\n    if(T == 0) seg.set(X, Y);\n\
     \    else printf(\"%d\\n\", seg.prod(X, Y + 1));\n  }\n}\n"
   dependsOn:
   - template/template.cpp
@@ -93,7 +100,7 @@ data:
   isVerificationFile: true
   path: test/verify/aoj-dsl-2-a.test.cpp
   requiredBy: []
-  timestamp: '2021-08-28 02:59:12+09:00'
+  timestamp: '2021-10-21 03:30:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dsl-2-a.test.cpp

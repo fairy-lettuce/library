@@ -122,86 +122,93 @@ data:
     \n\n#line 1 \"structure/segment-tree/segment-tree.cpp\"\n/**\n * @brief Segment\
     \ Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs docs/segment-tree.md\n\
     \ */\ntemplate< typename Monoid, typename F >\nstruct SegmentTree {\n  int n,\
-    \ sz;\n  vector< Monoid > seg;\n\n  const F f;\n  const Monoid M1;\n  \n  SegmentTree(int\
-    \ n, const F f, const Monoid &M1) : n(n), f(f), M1(M1) {\n    sz = 1;\n    while(sz\
-    \ < n) sz <<= 1;\n    seg.assign(2 * sz, M1);\n  }\n\n  void set(int k, const\
-    \ Monoid &x) {\n    seg[k + sz] = x;\n  }\n\n  void build() {\n    for(int k =\
-    \ sz - 1; k > 0; k--) {\n      seg[k] = f(seg[2 * k + 0], seg[2 * k + 1]);\n \
-    \   }\n  }\n\n  void update(int k, const Monoid &x) {\n    k += sz;\n    seg[k]\
-    \ = x;\n    while(k >>= 1) {\n      seg[k] = f(seg[2 * k + 0], seg[2 * k + 1]);\n\
-    \    }\n  }\n\n  Monoid prod(int a, int b) {\n    Monoid L = M1, R = M1;\n   \
-    \ for(a += sz, b += sz; a < b; a >>= 1, b >>= 1) {\n      if(a & 1) L = f(L, seg[a++]);\n\
-    \      if(b & 1) R = f(seg[--b], R);\n    }\n    return f(L, R);\n  }\n\n  Monoid\
-    \ all_prod() {\n    return seg[1];\n  }\n\n  Monoid operator[](const int &k) const\
-    \ {\n    return seg[k + sz];\n  }\n\n  template< typename C >\n  int find_subtree(int\
-    \ a, const C &check, Monoid &M, bool type) {\n    while(a < sz) {\n      Monoid\
-    \ nxt = type ? f(seg[2 * a + type], M) : f(M, seg[2 * a + type]);\n      if(check(nxt))\
-    \ a = 2 * a + type;\n      else M = nxt, a = 2 * a + 1 - type;\n    }\n    return\
-    \ a - sz;\n  }\n\n  template< typename C >\n  int find_first(int a, const C &check)\
-    \ {\n    Monoid L = M1;\n    if(a <= 0) {\n      if(check(f(L, seg[1]))) return\
-    \ find_subtree(1, check, L, false);\n      return n;\n    }\n    int b = sz;\n\
-    \    for(a += sz, b += sz; a < b; a >>= 1, b >>= 1) {\n      if(a & 1) {\n   \
-    \     Monoid nxt = f(L, seg[a]);\n        if(check(nxt)) return find_subtree(a,\
-    \ check, L, false);\n        L = nxt;\n        ++a;\n      }\n    }\n    return\
-    \ n;\n  }\n\n  template< typename C >\n  int find_last(int b, const C &check)\
-    \ {\n    Monoid R = M1;\n    if(b >= sz) {\n      if(check(f(seg[1], R))) return\
-    \ find_subtree(1, check, R, true);\n      return -1;\n    }\n    int a = sz;\n\
-    \    for(b += sz; a < b; a >>= 1, b >>= 1) {\n      if(b & 1) {\n        Monoid\
-    \ nxt = f(seg[--b], R);\n        if(check(nxt)) return find_subtree(b, check,\
-    \ R, true);\n        R = nxt;\n      }\n    }\n    return -1;\n  }\n};\n\ntemplate<\
-    \ typename Monoid, typename F >\nSegmentTree< Monoid, F > get_segment_tree(int\
-    \ N, const F& f, const Monoid& M1) {\n  return {N, f, M1};\n}\n#line 8 \"test/verify/yukicoder-650.test.cpp\"\
-    \n\n#line 1 \"math/combinatorics/mod-int.cpp\"\ntemplate< int mod >\nstruct ModInt\
-    \ {\n  int x;\n\n  ModInt() : x(0) {}\n\n  ModInt(int64_t y) : x(y >= 0 ? y %\
-    \ mod : (mod - (-y) % mod) % mod) {}\n\n  ModInt &operator+=(const ModInt &p)\
-    \ {\n    if((x += p.x) >= mod) x -= mod;\n    return *this;\n  }\n\n  ModInt &operator-=(const\
-    \ ModInt &p) {\n    if((x += mod - p.x) >= mod) x -= mod;\n    return *this;\n\
-    \  }\n\n  ModInt &operator*=(const ModInt &p) {\n    x = (int) (1LL * x * p.x\
-    \ % mod);\n    return *this;\n  }\n\n  ModInt &operator/=(const ModInt &p) {\n\
-    \    *this *= p.inverse();\n    return *this;\n  }\n\n  ModInt operator-() const\
-    \ { return ModInt(-x); }\n\n  ModInt operator+(const ModInt &p) const { return\
-    \ ModInt(*this) += p; }\n\n  ModInt operator-(const ModInt &p) const { return\
-    \ ModInt(*this) -= p; }\n\n  ModInt operator*(const ModInt &p) const { return\
-    \ ModInt(*this) *= p; }\n\n  ModInt operator/(const ModInt &p) const { return\
-    \ ModInt(*this) /= p; }\n\n  bool operator==(const ModInt &p) const { return x\
-    \ == p.x; }\n\n  bool operator!=(const ModInt &p) const { return x != p.x; }\n\
-    \n  ModInt inverse() const {\n    int a = x, b = mod, u = 1, v = 0, t;\n    while(b\
-    \ > 0) {\n      t = a / b;\n      swap(a -= t * b, b);\n      swap(u -= t * v,\
-    \ v);\n    }\n    return ModInt(u);\n  }\n\n  ModInt pow(int64_t n) const {\n\
-    \    ModInt ret(1), mul(x);\n    while(n > 0) {\n      if(n & 1) ret *= mul;\n\
-    \      mul *= mul;\n      n >>= 1;\n    }\n    return ret;\n  }\n\n  friend ostream\
-    \ &operator<<(ostream &os, const ModInt &p) {\n    return os << p.x;\n  }\n\n\
-    \  friend istream &operator>>(istream &is, ModInt &a) {\n    int64_t t;\n    is\
-    \ >> t;\n    a = ModInt< mod >(t);\n    return (is);\n  }\n\n  static int get_mod()\
-    \ { return mod; }\n};\n\nusing modint = ModInt< mod >;\n#line 1 \"math/matrix/square-matrix.cpp\"\
-    \n/**\n * @brief Square-Matrix(\u6B63\u65B9\u884C\u5217)\n */\ntemplate< class\
-    \ T, size_t N >\nstruct SquareMatrix {\n  array< array< T, N >, N > A;\n\n  SquareMatrix()\
-    \ : A{{}} {}\n\n  size_t size() const { return N; }\n\n  inline const array< T,\
-    \ N > &operator[](int k) const {\n    return (A.at(k));\n  }\n\n  inline array<\
-    \ T, N > &operator[](int k) {\n    return (A.at(k));\n  }\n\n  static SquareMatrix\
-    \ add_identity() {\n    return SquareMatrix();\n  }\n\n  static SquareMatrix mul_identity()\
-    \ {\n    SquareMatrix mat;\n    for(size_t i = 0; i < N; i++) mat[i][i] = 1;\n\
-    \    return mat;\n  }\n\n  SquareMatrix &operator+=(const SquareMatrix &B) {\n\
-    \    for(size_t i = 0; i < N; i++) {\n      for(size_t j = 0; j < N; j++) {\n\
-    \        (*this)[i][j] += B[i][j];\n      }\n    }\n    return *this;\n  }\n\n\
-    \  SquareMatrix &operator-=(const SquareMatrix &B) {\n    for(size_t i = 0; i\
-    \ < N; i++) {\n      for(size_t j = 0; j < N; j++) {\n        (*this)[i][j] -=\
-    \ B[i][j];\n      }\n    }\n    return *this;\n  }\n\n  SquareMatrix &operator*=(const\
-    \ SquareMatrix &B) {\n    array< array< T, N >, N > C;\n    for(size_t i = 0;\
-    \ i < N; i++) {\n      for(size_t j = 0; j < N; j++) {\n        for(size_t k =\
-    \ 0; k < N; k++) {\n          C[i][j] = (C[i][j] + (*this)[i][k] * B[k][j]);\n\
-    \        }\n      }\n    }\n    A.swap(C);\n    return (*this);\n  }\n\n  SquareMatrix\
-    \ &operator^=(uint64_t k) {\n    SquareMatrix B = SquareMatrix::mul_identity();\n\
-    \    while(k > 0) {\n      if(k & 1) B *= *this;\n      *this *= *this;\n    \
-    \  k >>= 1LL;\n    }\n    A.swap(B.A);\n    return *this;\n  }\n\n  SquareMatrix\
-    \ operator+(const SquareMatrix &B) const {\n    return SquareMatrix(*this) +=\
-    \ B;\n  }\n\n  SquareMatrix operator-(const SquareMatrix &B) const {\n    return\
-    \ SquareMatrix(*this) -= B;\n  }\n\n  SquareMatrix operator*(const SquareMatrix\
-    \ &B) const {\n    return SquareMatrix(*this) *= B;\n  }\n\n  SquareMatrix operator^(uint64_t\
-    \ k) const {\n    return SquareMatrix(*this) ^= k;\n  }\n\n  friend ostream &operator<<(ostream\
-    \ &os, SquareMatrix &p) {\n    for(int i = 0; i < N; i++) {\n      os << \"[\"\
-    ;\n      for(int j = 0; j < N; j++) {\n        os << p[i][j] << (j + 1 == N ?\
-    \ \"]\\n\" : \",\");\n      }\n    }\n    return os;\n  }\n};\n#line 11 \"test/verify/yukicoder-650.test.cpp\"\
+    \ sz;\n  vector< Monoid > seg;\n\n  const F f;\n  const Monoid M1;\n\n  SegmentTree()\
+    \ = default;\n\n  explicit SegmentTree(int n, const F f, const Monoid &M1) : n(n),\
+    \ f(f), M1(M1) {\n    sz = 1;\n    while(sz < n) sz <<= 1;\n    seg.assign(2 *\
+    \ sz, M1);\n  }\n\n  explicit SegmentTree(const vector< Monoid > &v, const F f,\
+    \ const Monoid &M1) :\n      SegmentTree((int) v.size(), f, M1) {\n    build(v);\n\
+    \  }\n\n  void build(const vector< Monoid > &v) {\n    assert(n == (int) v.size());\n\
+    \    for(int k = 0; k < n; k++) seg[k + sz] = v[k];\n    for(int k = sz - 1; k\
+    \ > 0; k--) {\n      seg[k] = f(seg[2 * k + 0], seg[2 * k + 1]);\n    }\n  }\n\
+    \n  void set(int k, const Monoid &x) {\n    k += sz;\n    seg[k] = x;\n    while(k\
+    \ >>= 1) {\n      seg[k] = f(seg[2 * k + 0], seg[2 * k + 1]);\n    }\n  }\n\n\
+    \  Monoid get(int k) const {\n    return seg[k + sz];\n  }\n\n  Monoid operator[](const\
+    \ int &k) const {\n    return get(k);\n  }\n\n  void apply(int k, const Monoid\
+    \ &x) {\n    k += sz;\n    seg[k] = f(seg[k], x);\n    while(k >>= 1) {\n    \
+    \  seg[k] = f(seg[2 * k + 0], seg[2 * k + 1]);\n    }\n  }\n\n  Monoid prod(int\
+    \ l, int r) const {\n    Monoid L = M1, R = M1;\n    for(l += sz, r += sz; l <\
+    \ r; l >>= 1, r >>= 1) {\n      if(l & 1) L = f(L, seg[l++]);\n      if(r & 1)\
+    \ R = f(seg[--r], R);\n    }\n    return f(L, R);\n  }\n\n  Monoid all_prod()\
+    \ const {\n    return seg[1];\n  }\n\n  template< typename C >\n  int find_first(int\
+    \ l, const C &check) const {\n    if(l >= n) return n;\n    l += sz;\n    Monoid\
+    \ sum = M1;\n    do {\n      while((l & 1) == 0) l >>= 1;\n      if(check(f(sum,\
+    \ seg[l]))) {\n        while(l < sz) {\n          l <<= 1;\n          auto nxt\
+    \ = f(sum, seg[l]);\n          if(not check(nxt)) {\n            sum = nxt;\n\
+    \            l++;\n          }\n        }\n        return l + 1 - sz;\n      }\n\
+    \      sum = f(sum, seg[l++]);\n    } while((l & -l) != l);\n    return n;\n \
+    \ }\n\n  template< typename C >\n  int find_last(int r, const C &check) const\
+    \ {\n    if(r <= 0) return -1;\n    r += sz;\n    Monoid sum = 0;\n    do {\n\
+    \      r--;\n      while(r > 1 and (r & 1)) r >>= 1;\n      if(check(f(seg[r],\
+    \ sum))) {\n        while(r < sz) {\n          r = (r << 1) + 1;\n          auto\
+    \ nxt = f(seg[r], sum);\n          if(not check(nxt)) {\n            sum = nxt;\n\
+    \            r--;\n          }\n        }\n        return r - sz;\n      }\n \
+    \     sum = f(seg[r], sum);\n    } while((r & -r) != r);\n    return -1;\n  }\n\
+    };\n\ntemplate< typename Monoid, typename F >\nSegmentTree< Monoid, F > get_segment_tree(int\
+    \ N, const F &f, const Monoid &M1) {\n  return SegmentTree{N, f, M1};\n}\n\ntemplate<\
+    \ typename Monoid, typename F >\nSegmentTree< Monoid, F > get_segment_tree(const\
+    \ vector< Monoid > &v, const F &f, const Monoid &M1) {\n  return SegmentTree{v,\
+    \ f, M1};\n}\n#line 8 \"test/verify/yukicoder-650.test.cpp\"\n\n#line 1 \"math/combinatorics/mod-int.cpp\"\
+    \ntemplate< int mod >\nstruct ModInt {\n  int x;\n\n  ModInt() : x(0) {}\n\n \
+    \ ModInt(int64_t y) : x(y >= 0 ? y % mod : (mod - (-y) % mod) % mod) {}\n\n  ModInt\
+    \ &operator+=(const ModInt &p) {\n    if((x += p.x) >= mod) x -= mod;\n    return\
+    \ *this;\n  }\n\n  ModInt &operator-=(const ModInt &p) {\n    if((x += mod - p.x)\
+    \ >= mod) x -= mod;\n    return *this;\n  }\n\n  ModInt &operator*=(const ModInt\
+    \ &p) {\n    x = (int) (1LL * x * p.x % mod);\n    return *this;\n  }\n\n  ModInt\
+    \ &operator/=(const ModInt &p) {\n    *this *= p.inverse();\n    return *this;\n\
+    \  }\n\n  ModInt operator-() const { return ModInt(-x); }\n\n  ModInt operator+(const\
+    \ ModInt &p) const { return ModInt(*this) += p; }\n\n  ModInt operator-(const\
+    \ ModInt &p) const { return ModInt(*this) -= p; }\n\n  ModInt operator*(const\
+    \ ModInt &p) const { return ModInt(*this) *= p; }\n\n  ModInt operator/(const\
+    \ ModInt &p) const { return ModInt(*this) /= p; }\n\n  bool operator==(const ModInt\
+    \ &p) const { return x == p.x; }\n\n  bool operator!=(const ModInt &p) const {\
+    \ return x != p.x; }\n\n  ModInt inverse() const {\n    int a = x, b = mod, u\
+    \ = 1, v = 0, t;\n    while(b > 0) {\n      t = a / b;\n      swap(a -= t * b,\
+    \ b);\n      swap(u -= t * v, v);\n    }\n    return ModInt(u);\n  }\n\n  ModInt\
+    \ pow(int64_t n) const {\n    ModInt ret(1), mul(x);\n    while(n > 0) {\n   \
+    \   if(n & 1) ret *= mul;\n      mul *= mul;\n      n >>= 1;\n    }\n    return\
+    \ ret;\n  }\n\n  friend ostream &operator<<(ostream &os, const ModInt &p) {\n\
+    \    return os << p.x;\n  }\n\n  friend istream &operator>>(istream &is, ModInt\
+    \ &a) {\n    int64_t t;\n    is >> t;\n    a = ModInt< mod >(t);\n    return (is);\n\
+    \  }\n\n  static int get_mod() { return mod; }\n};\n\nusing modint = ModInt< mod\
+    \ >;\n#line 1 \"math/matrix/square-matrix.cpp\"\n/**\n * @brief Square-Matrix(\u6B63\
+    \u65B9\u884C\u5217)\n */\ntemplate< class T, size_t N >\nstruct SquareMatrix {\n\
+    \  array< array< T, N >, N > A;\n\n  SquareMatrix() : A{{}} {}\n\n  size_t size()\
+    \ const { return N; }\n\n  inline const array< T, N > &operator[](int k) const\
+    \ {\n    return (A.at(k));\n  }\n\n  inline array< T, N > &operator[](int k) {\n\
+    \    return (A.at(k));\n  }\n\n  static SquareMatrix add_identity() {\n    return\
+    \ SquareMatrix();\n  }\n\n  static SquareMatrix mul_identity() {\n    SquareMatrix\
+    \ mat;\n    for(size_t i = 0; i < N; i++) mat[i][i] = 1;\n    return mat;\n  }\n\
+    \n  SquareMatrix &operator+=(const SquareMatrix &B) {\n    for(size_t i = 0; i\
+    \ < N; i++) {\n      for(size_t j = 0; j < N; j++) {\n        (*this)[i][j] +=\
+    \ B[i][j];\n      }\n    }\n    return *this;\n  }\n\n  SquareMatrix &operator-=(const\
+    \ SquareMatrix &B) {\n    for(size_t i = 0; i < N; i++) {\n      for(size_t j\
+    \ = 0; j < N; j++) {\n        (*this)[i][j] -= B[i][j];\n      }\n    }\n    return\
+    \ *this;\n  }\n\n  SquareMatrix &operator*=(const SquareMatrix &B) {\n    array<\
+    \ array< T, N >, N > C;\n    for(size_t i = 0; i < N; i++) {\n      for(size_t\
+    \ j = 0; j < N; j++) {\n        for(size_t k = 0; k < N; k++) {\n          C[i][j]\
+    \ = (C[i][j] + (*this)[i][k] * B[k][j]);\n        }\n      }\n    }\n    A.swap(C);\n\
+    \    return (*this);\n  }\n\n  SquareMatrix &operator^=(uint64_t k) {\n    SquareMatrix\
+    \ B = SquareMatrix::mul_identity();\n    while(k > 0) {\n      if(k & 1) B *=\
+    \ *this;\n      *this *= *this;\n      k >>= 1LL;\n    }\n    A.swap(B.A);\n \
+    \   return *this;\n  }\n\n  SquareMatrix operator+(const SquareMatrix &B) const\
+    \ {\n    return SquareMatrix(*this) += B;\n  }\n\n  SquareMatrix operator-(const\
+    \ SquareMatrix &B) const {\n    return SquareMatrix(*this) -= B;\n  }\n\n  SquareMatrix\
+    \ operator*(const SquareMatrix &B) const {\n    return SquareMatrix(*this) *=\
+    \ B;\n  }\n\n  SquareMatrix operator^(uint64_t k) const {\n    return SquareMatrix(*this)\
+    \ ^= k;\n  }\n\n  friend ostream &operator<<(ostream &os, SquareMatrix &p) {\n\
+    \    for(int i = 0; i < N; i++) {\n      os << \"[\";\n      for(int j = 0; j\
+    \ < N; j++) {\n        os << p[i][j] << (j + 1 == N ? \"]\\n\" : \",\");\n   \
+    \   }\n    }\n    return os;\n  }\n};\n#line 11 \"test/verify/yukicoder-650.test.cpp\"\
     \n\nint main() {\n  int N;\n  cin >> N;\n  vector< int > X(N), Y(N);\n  HeavyLightDecomposition<>\
     \ g(N);\n  for(int i = 1; i < N; i++) {\n    cin >> X[i] >> Y[i];\n    g.add_edge(X[i],\
     \ Y[i]);\n  }\n  g.build();\n  for(int i = 1; i < N; i++) {\n    if(g.in[X[i]]\
@@ -210,8 +217,8 @@ data:
     \ = get_segment_tree(N, f, Mat::mul_identity());\n  int Q;\n  cin >> Q;\n  while(Q--)\
     \ {\n    char x;\n    cin >> x;\n    if(x == 'x') {\n      int v;\n      cin >>\
     \ v;\n      Mat m;\n      cin >> m[0][0] >> m[0][1] >> m[1][0] >> m[1][1];\n \
-    \     seg.update(g.in[Y[v + 1]], m);\n    } else {\n      int y, z;\n      cin\
-    \ >> y >> z;\n      auto mat = g.query(y, z, Mat::mul_identity(), [&](int a, int\
+    \     seg.set(g.in[Y[v + 1]], m);\n    } else {\n      int y, z;\n      cin >>\
+    \ y >> z;\n      auto mat = g.query(y, z, Mat::mul_identity(), [&](int a, int\
     \ b) { return seg.prod(a, b); }, f, true);\n      cout << mat[0][0] << \" \" <<\
     \ mat[0][1] << \" \" << mat[1][0] << \" \" << mat[1][1] << \"\\n\";\n    }\n \
     \ }\n}\n"
@@ -227,8 +234,8 @@ data:
     \ = get_segment_tree(N, f, Mat::mul_identity());\n  int Q;\n  cin >> Q;\n  while(Q--)\
     \ {\n    char x;\n    cin >> x;\n    if(x == 'x') {\n      int v;\n      cin >>\
     \ v;\n      Mat m;\n      cin >> m[0][0] >> m[0][1] >> m[1][0] >> m[1][1];\n \
-    \     seg.update(g.in[Y[v + 1]], m);\n    } else {\n      int y, z;\n      cin\
-    \ >> y >> z;\n      auto mat = g.query(y, z, Mat::mul_identity(), [&](int a, int\
+    \     seg.set(g.in[Y[v + 1]], m);\n    } else {\n      int y, z;\n      cin >>\
+    \ y >> z;\n      auto mat = g.query(y, z, Mat::mul_identity(), [&](int a, int\
     \ b) { return seg.prod(a, b); }, f, true);\n      cout << mat[0][0] << \" \" <<\
     \ mat[0][1] << \" \" << mat[1][0] << \" \" << mat[1][1] << \"\\n\";\n    }\n \
     \ }\n}\n"
@@ -242,7 +249,7 @@ data:
   isVerificationFile: true
   path: test/verify/yukicoder-650.test.cpp
   requiredBy: []
-  timestamp: '2021-08-28 02:59:12+09:00'
+  timestamp: '2021-10-21 03:30:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yukicoder-650.test.cpp
