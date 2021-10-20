@@ -853,7 +853,7 @@ data:
       title: "Dual-Segment-Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':heavy_check_mark:'
       path: structure/segment-tree/lazy-segment-tree.cpp
-      title: "Lazy Segment Tree(\u9045\u5EF6\u4F1D\u642C\u30BB\u30B0\u30E1\u30F3\u30C8\
+      title: "Lazy-Segment-Tree(\u9045\u5EF6\u4F1D\u642C\u30BB\u30B0\u30E1\u30F3\u30C8\
         \u6728)"
     - icon: ':warning:'
       path: structure/segment-tree/persistent-segment-tree.cpp
