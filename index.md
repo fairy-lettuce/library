@@ -823,6 +823,9 @@ data:
       path: structure/others/linear-rmq.cpp
       title: Linear-RMQ
     - icon: ':heavy_check_mark:'
+      path: structure/others/permutation-tree.cpp
+      title: "Permutation Tree(\u9806\u5217\u6728)"
+    - icon: ':heavy_check_mark:'
       path: structure/others/persistent-array.cpp
       title: structure/others/persistent-array.cpp
     - icon: ':heavy_check_mark:'
@@ -1528,6 +1531,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-1602.test.cpp
       title: test/verify/yukicoder-1602.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yukicoder-1720.test.cpp
+      title: test/verify/yukicoder-1720.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-184.test.cpp
       title: test/verify/yukicoder-184.test.cpp

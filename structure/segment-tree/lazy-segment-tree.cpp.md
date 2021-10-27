@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: structure/others/permutation-tree.cpp
+    title: "Permutation Tree(\u9806\u5217\u6728)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-2450.test.cpp
@@ -9,6 +12,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-range-affine-range-sum.test.cpp
     title: test/verify/yosupo-range-affine-range-sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yukicoder-1720.test.cpp
+    title: test/verify/yukicoder-1720.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -153,10 +159,12 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: structure/segment-tree/lazy-segment-tree.cpp
-  requiredBy: []
+  requiredBy:
+  - structure/others/permutation-tree.cpp
   timestamp: '2021-10-21 03:10:13+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/verify/yukicoder-1720.test.cpp
   - test/verify/aoj-2450.test.cpp
   - test/verify/yosupo-range-affine-range-sum.test.cpp
 documentation_of: structure/segment-tree/lazy-segment-tree.cpp

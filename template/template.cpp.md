@@ -601,6 +601,9 @@ data:
     path: test/verify/yukicoder-1602.test.cpp
     title: test/verify/yukicoder-1602.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yukicoder-1720.test.cpp
+    title: test/verify/yukicoder-1720.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yukicoder-184.test.cpp
     title: test/verify/yukicoder-184.test.cpp
   - icon: ':heavy_check_mark:'
@@ -773,6 +776,7 @@ data:
   - test/verify/yosupo-maximum-independent-set.test.cpp
   - test/verify/aoj-grl-3-a.test.cpp
   - test/verify/yosupo-sum-of-floor-of-linear.test.cpp
+  - test/verify/yukicoder-1720.test.cpp
   - test/verify/aoj-cgl-4-a.test.cpp
   - test/verify/yosupo-cycle-detection.test.cpp
   - test/verify/aoj-cgl-7-d.test.cpp
