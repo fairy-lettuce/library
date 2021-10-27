@@ -365,6 +365,10 @@ data:
       path: graph/tree/heavy-light-decomposition.hpp
       title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
     - icon: ':heavy_check_mark:'
+      path: graph/tree/offline-lca.hpp
+      title: "Offline LCA(\u30AA\u30D5\u30E9\u30A4\u30F3\u6700\u5C0F\u5171\u901A\u7956\
+        \u5148)"
+    - icon: ':heavy_check_mark:'
       path: graph/tree/pmormq-lowest-common-ancestor.hpp
       title: "PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
     - icon: ':heavy_check_mark:'
@@ -633,6 +637,9 @@ data:
     - icon: ':warning:'
       path: other/offline-dynamic-connectivity.cpp
       title: other/offline-dynamic-connectivity.cpp
+    - icon: ':heavy_check_mark:'
+      path: other/offline-rmq.cpp
+      title: Offline RMQ
     - icon: ':heavy_check_mark:'
       path: other/printer.cpp
       title: "Printer(\u9AD8\u901F\u51FA\u529B)"
@@ -1364,6 +1371,9 @@ data:
       path: test/verify/yosupo-lca-3.test.cpp
       title: test/verify/yosupo-lca-3.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-lca-4.test.cpp
+      title: test/verify/yosupo-lca-4.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-lca.test.cpp
       title: test/verify/yosupo-lca.test.cpp
     - icon: ':heavy_check_mark:'
@@ -1483,6 +1493,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-staticrmq-5.test.cpp
       title: test/verify/yosupo-staticrmq-5.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-staticrmq-6.test.cpp
+      title: test/verify/yosupo-staticrmq-6.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-staticrmq.test.cpp
       title: test/verify/yosupo-staticrmq.test.cpp

@@ -109,6 +109,10 @@ data:
     path: graph/tree/heavy-light-decomposition.hpp
     title: "Heavy-Light-Decomposition(HL\u5206\u89E3)"
   - icon: ':heavy_check_mark:'
+    path: graph/tree/offline-lca.hpp
+    title: "Offline LCA(\u30AA\u30D5\u30E9\u30A4\u30F3\u6700\u5C0F\u5171\u901A\u7956\
+      \u5148)"
+  - icon: ':heavy_check_mark:'
     path: graph/tree/pmormq-lowest-common-ancestor.hpp
     title: "PMORMQ-Lowest-Common-Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':heavy_check_mark:'
@@ -224,6 +228,9 @@ data:
     path: test/verify/yosupo-lca-3.test.cpp
     title: test/verify/yosupo-lca-3.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-lca-4.test.cpp
+    title: test/verify/yosupo-lca-4.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-lca.test.cpp
     title: test/verify/yosupo-lca.test.cpp
   - icon: ':heavy_check_mark:'
@@ -319,6 +326,7 @@ data:
   - graph/tree/rmq-lowest-common-ancestor.hpp
   - graph/tree/disjoint-set-union-on-tree.hpp
   - graph/tree/tree-diameter.hpp
+  - graph/tree/offline-lca.hpp
   - graph/tree/centroid.hpp
   - graph/tree/doubling-lowest-common-ancestor.hpp
   - graph/shortest-path/dijkstra-radix-heap.hpp
@@ -385,6 +393,7 @@ data:
   - test/verify/aoj-grl-3-b.test.cpp
   - test/verify/aoj-grl-5-a.test.cpp
   - test/verify/aoj-grl-1-a-3.test.cpp
+  - test/verify/yosupo-lca-4.test.cpp
   - test/verify/yukicoder-1002.test.cpp
   - test/verify/aoj-grl-1-a.test.cpp
   - test/verify/aoj-grl-5-c.test.cpp

@@ -433,6 +433,9 @@ data:
     path: test/verify/yosupo-lca-3.test.cpp
     title: test/verify/yosupo-lca-3.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-lca-4.test.cpp
+    title: test/verify/yosupo-lca-4.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-lca.test.cpp
     title: test/verify/yosupo-lca.test.cpp
   - icon: ':heavy_check_mark:'
@@ -552,6 +555,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-staticrmq-5.test.cpp
     title: test/verify/yosupo-staticrmq-5.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-staticrmq-6.test.cpp
+    title: test/verify/yosupo-staticrmq-6.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-staticrmq.test.cpp
     title: test/verify/yosupo-staticrmq.test.cpp
@@ -805,6 +811,7 @@ data:
   - test/verify/aoj-1508-2.test.cpp
   - test/verify/aoj-grl-2-a-3.test.cpp
   - test/verify/yosupo-frequency-table-of-tree-distance.test.cpp
+  - test/verify/yosupo-staticrmq-6.test.cpp
   - test/verify/yosupo-discrete-logarithm-mod.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-add-subtree-sum-2.test.cpp
   - test/verify/yukicoder-705.test.cpp
@@ -861,6 +868,7 @@ data:
   - test/verify/aoj-grl-1-a-3.test.cpp
   - test/verify/aoj-dsl-1-b.test.cpp
   - test/verify/yosupo-segment-add-get-min.test.cpp
+  - test/verify/yosupo-lca-4.test.cpp
   - test/verify/aoj-alds-1-1-c.test.cpp
   - test/verify/aoj-1549-2.test.cpp
   - test/verify/yosupo-kth-root-integer.test.cpp
