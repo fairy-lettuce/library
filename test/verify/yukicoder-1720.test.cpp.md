@@ -119,22 +119,23 @@ data:
     \ F, G, H > get_lazy_segment_tree\n    (const vector< Monoid > &v, const F &f,\
     \ const G &g, const H &h, const Monoid &M1, const OperatorMonoid &OM0) {\n  return\
     \ LazySegmentTree{v, f, g, h, M1, OM0};\n}\n#line 2 \"structure/others/permutation-tree.cpp\"\
-    \n\n/**\n * @brief Permutation Tree(\u9806\u5217\u6728)\n * @see https://codeforces.com/blog/entry/78898\n\
-    \ */\nstruct PermutationTree {\npublic:\n  enum NodeType {\n    JOIN_ASC,\n  \
-    \  JOIN_DESC,\n    LEAF,\n    CUT\n  };\n\n  struct Node {\n    NodeType type;\n\
-    \    int l, r; // [l, r)\n    int min_v, max_v; // [min_v, max_v)\n    vector<\
-    \ Node * > ch;\n\n    size_t size() const { return r - l; }\n\n    bool is_join()\
-    \ const { return type == JOIN_ASC or type == JOIN_DESC; };\n\n    bool is_leaf()\
-    \ const { return type == LEAF; }\n\n    bool is_cut() const { return type == CUT;\
-    \ }\n  };\n\n  using NP = Node *;\n\n  PermutationTree() = default;\n\nprivate:\n\
-    \  static void add_child(NP t, NP c) {\n    t->ch.emplace_back(c);\n    t->l =\
-    \ min(t->l, c->l);\n    t->r = max(t->r, c->r);\n    t->min_v = min(t->min_v,\
-    \ c->min_v);\n    t->max_v = max(t->max_v, c->max_v);\n  }\n\npublic:\n  static\
-    \ NP build(vector< int > &A) {\n    int n = (int) A.size();\n\n    vector< int\
-    \ > desc{-1};\n    vector< int > asc{-1};\n    vector< NP > st;\n\n    auto f\
-    \ = [](int a, int b) { return min(a, b); };\n    auto g = [](int a, int b) { return\
-    \ a + b; };\n    constexpr int lim = (1 << 30) - 1;\n    auto seg = get_lazy_segment_tree(vector<\
-    \ int >(n), f, g, g, lim, 0);\n\n    for(int i = 0; i < n; i++) {\n      while(~desc.back()\
+    \n\n/**\n * @brief Permutation Tree(\u9806\u5217\u6728)\n * @docs docs/permutation-tree.md\n\
+    \ * @see https://codeforces.com/blog/entry/78898\n */\nstruct PermutationTree\
+    \ {\npublic:\n  enum NodeType {\n    JOIN_ASC,\n    JOIN_DESC,\n    LEAF,\n  \
+    \  CUT\n  };\n\n  struct Node {\n    NodeType type;\n    int l, r; // [l, r)\n\
+    \    int min_v, max_v; // [min_v, max_v)\n    vector< Node * > ch;\n\n    size_t\
+    \ size() const { return r - l; }\n\n    bool is_join() const { return type ==\
+    \ JOIN_ASC or type == JOIN_DESC; };\n\n    bool is_leaf() const { return type\
+    \ == LEAF; }\n\n    bool is_cut() const { return type == CUT; }\n  };\n\n  using\
+    \ NP = Node *;\n\n  PermutationTree() = default;\n\nprivate:\n  static void add_child(NP\
+    \ t, NP c) {\n    t->ch.emplace_back(c);\n    t->l = min(t->l, c->l);\n    t->r\
+    \ = max(t->r, c->r);\n    t->min_v = min(t->min_v, c->min_v);\n    t->max_v =\
+    \ max(t->max_v, c->max_v);\n  }\n\npublic:\n  static NP build(vector< int > &A)\
+    \ {\n    int n = (int) A.size();\n\n    vector< int > desc{-1};\n    vector< int\
+    \ > asc{-1};\n    vector< NP > st;\n\n    auto f = [](int a, int b) { return min(a,\
+    \ b); };\n    auto g = [](int a, int b) { return a + b; };\n    constexpr int\
+    \ lim = (1 << 30) - 1;\n    auto seg = get_lazy_segment_tree(vector< int >(n),\
+    \ f, g, g, lim, 0);\n\n    for(int i = 0; i < n; i++) {\n      while(~desc.back()\
     \ and A[i] > A[desc.back()]) {\n        seg.apply(desc[desc.size() - 2] + 1, desc.back()\
     \ + 1, A[i] - A[desc.back()]);\n        desc.pop_back();\n      }\n      while(~asc.back()\
     \ and A[i] < A[asc.back()]) {\n        seg.apply(asc[asc.size() - 2] + 1, asc.back()\
@@ -216,7 +217,7 @@ data:
   isVerificationFile: true
   path: test/verify/yukicoder-1720.test.cpp
   requiredBy: []
-  timestamp: '2021-10-27 17:32:42+09:00'
+  timestamp: '2021-10-27 21:43:46+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yukicoder-1720.test.cpp
