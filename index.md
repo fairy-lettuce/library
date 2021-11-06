@@ -164,6 +164,11 @@ data:
     - icon: ':warning:'
       path: geometry/template.cpp
       title: geometry/template.cpp
+  - name: geometry/integer
+    pages:
+    - icon: ':warning:'
+      path: geometry/integer/point.hpp
+      title: geometry/integer/point.hpp
   - name: graph/connected-components
     pages:
     - icon: ':heavy_check_mark:'
