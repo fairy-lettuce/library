@@ -110,8 +110,8 @@ data:
   timestamp: '2021-08-16 02:17:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-grl-2-b.test.cpp
   - test/verify/yosupo-directedmst.test.cpp
+  - test/verify/aoj-grl-2-b.test.cpp
 documentation_of: graph/mst/directed-mst.hpp
 layout: document
 redirect_from:

@@ -118,9 +118,9 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-dynamic-tree-vertex-set-path-composite-2.test.cpp
-  - test/verify/yosupo-point-set-range-composite-3.test.cpp
   - test/verify/yosupo-dynamic-tree-vertex-add-path-sum-2.test.cpp
   - test/verify/aoj-2450-3.test.cpp
+  - test/verify/yosupo-point-set-range-composite-3.test.cpp
 documentation_of: structure/develop/splay-tree-base.cpp
 layout: document
 redirect_from:

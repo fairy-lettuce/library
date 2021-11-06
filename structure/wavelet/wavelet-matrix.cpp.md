@@ -159,9 +159,9 @@ data:
   timestamp: '2021-08-28 02:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-2674.test.cpp
-  - test/verify/aoj-1549.test.cpp
   - test/verify/yosupo-range-kth-smallest.test.cpp
+  - test/verify/aoj-1549.test.cpp
+  - test/verify/aoj-2674.test.cpp
 documentation_of: structure/wavelet/wavelet-matrix.cpp
 layout: document
 redirect_from:

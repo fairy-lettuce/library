@@ -617,6 +617,11 @@ data:
       path: math/number-theory/sum-of-floor-of-linear.cpp
       title: "Sum of Floor of Linear(\u4E00\u6B21\u95A2\u6570\u306E\u5E8A\u95A2\u6570\
         \u306E\u548C)"
+  - name: math/rational
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: math/rational/rational.hpp
+      title: "Rational (\u6709\u7406\u6570\u578B)"
   - name: other
     pages:
     - icon: ':warning:'
@@ -1538,6 +1543,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-1069.test.cpp
       title: test/verify/yukicoder-1069.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yukicoder-1236.test.cpp
+      title: test/verify/yukicoder-1236.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yukicoder-1254.test.cpp
       title: test/verify/yukicoder-1254.test.cpp

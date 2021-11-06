@@ -145,8 +145,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-range-kth-smallest-2.test.cpp
-  - test/verify/aoj-2674-2.test.cpp
   - test/verify/aoj-1549-2.test.cpp
+  - test/verify/aoj-2674-2.test.cpp
 documentation_of: structure/wavelet/wavelet-tree.cpp
 layout: document
 redirect_from:

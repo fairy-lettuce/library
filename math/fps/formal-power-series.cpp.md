@@ -295,9 +295,9 @@ data:
   timestamp: '2021-07-13 20:39:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yukicoder-215.test.cpp
   - test/verify/yukicoder-3046.test.cpp
   - test/verify/yosupo-sparse-matrix-det.test.cpp
+  - test/verify/yukicoder-215.test.cpp
 documentation_of: math/fps/formal-power-series.cpp
 layout: document
 redirect_from:

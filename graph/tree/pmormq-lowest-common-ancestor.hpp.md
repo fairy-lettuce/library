@@ -128,9 +128,9 @@ data:
   timestamp: '2021-08-16 02:17:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/verify/yosupo-lca.test.cpp
   - test/verify/yosupo-staticrmq-4.test.cpp
   - test/verify/aoj-grl-5-c-4.test.cpp
-  - test/verify/yosupo-lca.test.cpp
 documentation_of: graph/tree/pmormq-lowest-common-ancestor.hpp
 layout: document
 redirect_from:

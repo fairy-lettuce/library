@@ -79,14 +79,14 @@ data:
   requiredBy:
   - math/combinatorics/bell-number.cpp
   - math/combinatorics/stirling-number-second.cpp
-  - math/combinatorics/factorial.cpp
   - math/combinatorics/sample-point-shift.cpp
+  - math/combinatorics/factorial.cpp
   timestamp: '2021-07-13 23:44:53+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-dpl-5-g.test.cpp
-  - test/verify/aoj-dpl-5-i.test.cpp
   - test/verify/yukicoder-502.test.cpp
+  - test/verify/aoj-dpl-5-i.test.cpp
 documentation_of: math/combinatorics/enumeration.cpp
 layout: document
 redirect_from:

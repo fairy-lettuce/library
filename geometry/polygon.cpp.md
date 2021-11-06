@@ -93,24 +93,24 @@ data:
   path: geometry/polygon.cpp
   requiredBy:
   - geometry/area.cpp
-  - geometry/contains.cpp
-  - geometry/convex_polygon_contains.cpp
-  - geometry/convex_polygon_diameter.cpp
-  - geometry/is_convex_polygon.cpp
-  - geometry/common_area_cp.cpp
   - geometry/convex_polygon_cut.cpp
   - geometry/convex_hull.cpp
+  - geometry/common_area_cp.cpp
+  - geometry/is_convex_polygon.cpp
+  - geometry/contains.cpp
+  - geometry/convex_polygon_diameter.cpp
+  - geometry/convex_polygon_contains.cpp
   timestamp: '2020-12-01 17:38:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/aoj-cgl-3-c.test.cpp
-  - test/verify/aoj-cgl-3-a.test.cpp
-  - test/verify/aoj-cgl-4-a.test.cpp
-  - test/verify/aoj-0412.test.cpp
-  - test/verify/aoj-cgl-4-c.test.cpp
-  - test/verify/aoj-cgl-7-h.test.cpp
   - test/verify/aoj-cgl-3-b.test.cpp
+  - test/verify/aoj-0412.test.cpp
+  - test/verify/aoj-cgl-4-a.test.cpp
   - test/verify/aoj-cgl-4-b.test.cpp
+  - test/verify/aoj-cgl-3-a.test.cpp
+  - test/verify/aoj-cgl-7-h.test.cpp
+  - test/verify/aoj-cgl-3-c.test.cpp
+  - test/verify/aoj-cgl-4-c.test.cpp
 documentation_of: geometry/polygon.cpp
 layout: document
 redirect_from:

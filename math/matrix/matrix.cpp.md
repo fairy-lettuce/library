@@ -113,10 +113,10 @@ data:
   timestamp: '2021-07-14 01:17:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-maximum-independent-set.test.cpp
-  - test/verify/yosupo-matrix-det.test.cpp
-  - test/verify/yosupo-assignment.test.cpp
   - test/verify/aoj-1163.test.cpp
+  - test/verify/yosupo-matrix-det.test.cpp
+  - test/verify/yosupo-maximum-independent-set.test.cpp
+  - test/verify/yosupo-assignment.test.cpp
 documentation_of: math/matrix/matrix.cpp
 layout: document
 redirect_from:
