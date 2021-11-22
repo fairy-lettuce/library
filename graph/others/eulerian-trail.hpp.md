@@ -98,8 +98,8 @@ data:
   timestamp: '2021-07-21 02:10:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yukicoder-583.test.cpp
   - test/verify/yosupo-bipartite-edge-coloring.test.cpp
+  - test/verify/yukicoder-583.test.cpp
 documentation_of: graph/others/eulerian-trail.hpp
 layout: document
 redirect_from:

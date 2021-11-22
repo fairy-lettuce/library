@@ -37,8 +37,8 @@ data:
   isVerificationFile: false
   path: math/fps/subproduct-tree.cpp
   requiredBy:
-  - math/fps/polynomial-interpolation.cpp
   - math/fps/multipoint-evaluation.cpp
+  - math/fps/polynomial-interpolation.cpp
   timestamp: '2021-07-13 20:24:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

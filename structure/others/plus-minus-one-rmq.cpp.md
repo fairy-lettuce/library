@@ -102,8 +102,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-lca.test.cpp
-  - test/verify/yosupo-staticrmq-4.test.cpp
   - test/verify/aoj-grl-5-c-4.test.cpp
+  - test/verify/yosupo-staticrmq-4.test.cpp
 documentation_of: structure/others/plus-minus-one-rmq.cpp
 layout: document
 redirect_from:

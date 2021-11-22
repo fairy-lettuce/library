@@ -16,7 +16,7 @@ data:
   bundledCode: "#line 1 \"dp/cumulative-sum-2d.cpp\"\n/**\n * @brief Cumulative Sum\
     \ 2D(\u4E8C\u6B21\u5143\u7D2F\u7A4D\u548C)\n * @docs docs/cumulative-sum-2d.md\n\
     */\ntemplate< class T >\nstruct CumulativeSum2D {\n  vector< vector< T > > data;\n\
-    \n  CumulativeSum2D(int W, int H) : data(W + 1, vector< int >(H + 1, 0)) {}\n\n\
+    \n  CumulativeSum2D(int W, int H) : data(W + 1, vector< T >(H + 1, 0)) {}\n\n\
     \  void add(int x, int y, T z) {\n    ++x, ++y;\n    if(x >= data.size() || y\
     \ >= data[0].size()) return;\n    data[x][y] += z;\n  }\n\n  void build() {\n\
     \    for(int i = 1; i < data.size(); i++) {\n      for(int j = 1; j < data[i].size();\
@@ -27,7 +27,7 @@ data:
   code: "/**\n * @brief Cumulative Sum 2D(\u4E8C\u6B21\u5143\u7D2F\u7A4D\u548C)\n\
     \ * @docs docs/cumulative-sum-2d.md\n*/\ntemplate< class T >\nstruct CumulativeSum2D\
     \ {\n  vector< vector< T > > data;\n\n  CumulativeSum2D(int W, int H) : data(W\
-    \ + 1, vector< int >(H + 1, 0)) {}\n\n  void add(int x, int y, T z) {\n    ++x,\
+    \ + 1, vector< T >(H + 1, 0)) {}\n\n  void add(int x, int y, T z) {\n    ++x,\
     \ ++y;\n    if(x >= data.size() || y >= data[0].size()) return;\n    data[x][y]\
     \ += z;\n  }\n\n  void build() {\n    for(int i = 1; i < data.size(); i++) {\n\
     \      for(int j = 1; j < data[i].size(); j++) {\n        data[i][j] += data[i][j\
@@ -38,7 +38,7 @@ data:
   isVerificationFile: false
   path: dp/cumulative-sum-2d.cpp
   requiredBy: []
-  timestamp: '2021-07-13 19:53:12+09:00'
+  timestamp: '2021-11-22 14:15:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-0560.test.cpp
